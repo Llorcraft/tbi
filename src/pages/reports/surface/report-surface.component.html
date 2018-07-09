@@ -1,0 +1,90 @@
+<report-header [name]="'Surface'"></report-header>
+<ion-content class="report-content">
+  <form novalidate #form="ngForm">
+    <ion-grid>
+      <ion-row>
+        <ion-col col-12 col-md-8>
+          <ion-item>
+            <ion-label stacked>Component/Location</ion-label>
+            <ion-input name="location" required data-val-required="Component/Location field is required" minlength="5" data-val-minlength="Component/Location field is too short, type 5 characters at less"
+              [(ngModel)]="report.fields.location" type="text"></ion-input>
+          </ion-item>
+        </ion-col>
+        <ion-col col-12 col-md-4>
+          <ion-item col-10 d-inline-block>
+            <ion-label stacked>Operational time</ion-label>
+            <ion-input required data-val-required="Operational time field is required" name="operational_time" [(ngModel)]="report.fields.operational_time" type="number"></ion-input>
+          </ion-item>
+          <div col-2 d-inline-block pull-right>
+            <more pull-left #time (change)="report.fields.operational_time=time.value" [type]="'time'" modal-button></more>
+          </div>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col col-12 col-md-5 no-padding>
+          <ion-row>
+            <ion-col col-12>
+              <ion-item col-10 d-inline-block>
+                <ion-label stacked>Surface (m<sup>2</sup>)</ion-label>
+                <ion-input name="surface" [(ngModel)]="report.fields.surface" type="number" [(ngModel)]="surface"></ion-input>
+              </ion-item>
+              <div col-2 d-inline-block pull-right>
+                <area pull-left #area (change)="report.fields.surface=area.value" modal-button />
+              </div>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col col-12>
+              <ion-item col-10 d-inline-block>
+                <ion-label stacked>Surface material</ion-label>
+                <ion-input name="surface_material" [(ngModel)]="report.fields.surface_material" type="number"></ion-input>
+              </ion-item>
+              <div col-2 d-inline-block pull-right>
+                <more pull-left #material (change)="report.fields.surface_material=material.value" [type]="'materials'" modal-button></more>
+              </div>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col col-12>
+              <ion-item col-10>
+                <ion-label stacked>Ambient temp. (<sup>º</sup>c)</ion-label>
+                <ion-input name="ambient_temp" [(ngModel)]="report.fields.ambient_temp" type="number"></ion-input>
+              </ion-item>
+              <div col-2 d-inline-block pull-right></div>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col col-10 d-inline-block>
+              <ion-item>
+                <ion-label stacked>Surface temp. (<sup>º</sup>c)</ion-label>
+                <ion-input name="surface_temp" [(ngModel)]="report.fields.surface_temp" type="number"></ion-input>
+              </ion-item>
+            </ion-col>
+            <ion-col text-center col-2 d-inline-block pull-right>
+              <medium-temp #medium (change)="report.fields.surface_temp=medium.value" modal-button pull-left></medium-temp>
+            </ion-col>
+          </ion-row>
+        </ion-col>
+        <ion-col col-12 col-md-7>
+          <ion-row>
+            <ion-col col-12 col-md-7>
+              <report-errors #errors></report-errors>
+            </ion-col>
+            <ion-col col-12 col-md-5>
+              <ion-buttons end>
+                <button (click)="calculate()" [disabled]="false" mb-3 ion-button small block color="primary">Calculate</button>
+                <button ion-button small block color="light">Safety risk</button>
+                <button ion-button small block color="light">Operational risk</button>
+                <button ion-button small block color="light">Space issue</button>
+                <button ion-button small block color="light">Comment</button>
+              </ion-buttons>
+            </ion-col>
+          </ion-row>
+        </ion-col>
+
+      </ion-row>
+    </ion-grid>
+  </form>
+</ion-content>
+
+<report-footer></report-footer>

@@ -1,0 +1,351 @@
+<ion-header>
+  <ion-navbar hideBackButton>
+    <ion-title>
+      {{project.name}} - Reports
+    </ion-title>
+    <ion-buttons end *ngIf="type==''">
+      <button ion-button color="light">
+        <ion-icon name="grid"></ion-icon>&nbsp;Summary</button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-segment [(ngModel)]="segment.value">
+    <ion-segment-button *ngFor="let option of segment.options; let i=index" [value]="i">
+      {{option}}
+    </ion-segment-button>
+  </ion-segment>
+
+  <ion-grid [ngSwitch]="type">
+    <ng-container *ngSwitchCase="''">
+      <ion-row>
+        <ion-col text-center col-md-3 col-sm-6>
+          <ion-card (click)="navigate_to('insulation')">
+            <span svg="insulation"></span>
+            <h1>Insulation</h1>
+          </ion-card>
+        </ion-col>
+        <ion-col text-center col-md-3 col-sm-6>
+          <ion-card (click)="navigate_to('safety')">
+            <span svg="safety"></span>
+            <h1>Safety</h1>
+          </ion-card>
+        </ion-col>
+        <ion-col text-center col-md-3 col-sm-6>
+          <ion-card (click)="navigate_to('maintenance')">
+            <span svg="maintenance"></span>
+            <h1>Maintenance</h1>
+          </ion-card>
+        </ion-col>
+        <ion-col text-center col-md-3 col-sm-6>
+          <ion-card (click)="navigate_to('generic', 'Custom Report')">
+            <span svg="custom"></span>
+            <h1>Custom</h1>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+    </ng-container>
+
+    <ng-container *ngSwitchCase="'insulation'">
+      <ion-row *ngIf="segment.value==0">
+        <ion-col text-center offset-md-2 col-md-3 col-sm-6>
+          <ion-card (click)="navigate_to_report(REPORT.INSULATION.UNINSULATED_EQUIPMENTS.SURFACE)">
+            <span svg="surface"></span>
+            <h1>Surface</h1>
+          </ion-card>
+        </ion-col>
+        <ion-col text-center col-md-3 col-sm-6>
+          <ion-card>
+            <span svg="pipe"></span>
+            <h1>Pipes</h1>
+          </ion-card>
+        </ion-col>
+        <ion-col text-center col-md-3 col-sm-6>
+          <ion-card>
+            <span svg="flange"></span>
+            <h1>Flanges</h1>
+          </ion-card>
+        </ion-col>
+        <ion-col text-center col-md-3 col-sm-6 offset-md-3>
+          <ion-card>
+            <span svg="valve"></span>
+            <h1>Valves</h1>
+          </ion-card>
+        </ion-col>
+        <ion-col text-center col-md-3 col-sm-6>
+          <ion-card>
+            <span svg="others"></span>
+            <h1>Others</h1>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+
+      <ion-row *ngIf="segment.value==1">
+        <ion-col text-center col-md-3 col-sm-6>
+          <ion-card>
+            <span svg="insulated-surface"></span>
+            <h1>Surface</h1>
+          </ion-card>
+        </ion-col>
+        <ion-col text-center col-md-3 col-sm-6>
+          <ion-card>
+            <span svg="pipe-insulation"></span>
+            <h1>Pipes</h1>
+          </ion-card>
+        </ion-col>
+        <ion-col text-center col-md-3 col-sm-6>
+          <ion-card>
+            <span svg="damaged-insulation"></span>
+            <h3>Damaged insulation and/or cladding</h3>
+          </ion-card>
+        </ion-col>
+        <ion-col text-center col-md-3 col-sm-6>
+          <ion-card>
+            <span svg="insulated-others"></span>
+            <h1>Others</h1>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+
+      <ion-row *ngIf="segment.value==2">
+        <ion-col text-center col-md-3 col-sm-6 offset-md-3>
+          <ion-card (click)="navigate_to('energy')">
+            <span svg="cold"></span>
+            <h1>Energy</h1>
+          </ion-card>
+        </ion-col>
+        <ion-col text-center col-md-3 col-sm-6>
+          <ion-card>
+            <span svg="ice-wet"></span>
+            <h1>Ice Block / Wet Surfaces</h1>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+    </ng-container>
+
+    <ng-container *ngSwitchCase="'safety'">
+      <ion-row>
+        <ion-col text-center col-md-3 col-sm-6 offset-md-2>
+          <ion-card (click)="navigate_to('hot-surface')">
+            <span svg="hot-surface"></span>
+            <h1>Hot Surface</h1>
+          </ion-card>
+        </ion-col>
+        <ion-col text-center col-md-3 col-sm-6>
+          <ion-card (click)="navigate_to('generic', 'Fire Protection')">
+            <span svg="fire-protection"></span>
+            <h1>Fire Protection</h1>
+          </ion-card>
+        </ion-col>
+        <ion-col text-center col-md-3 col-sm-6>
+            <ion-card (click)="navigate_to('generic', 'Traffic')">
+              <span svg="traffic"></span>
+              <h1>Housekeeping</h1>
+            </ion-card>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col text-center col-md-3 col-sm-6 offset-md-3>
+          <ion-card (click)="navigate_to('generic', 'Traffic')">
+            <span svg="traffic"></span>
+            <h1>Traffic</h1>
+          </ion-card>
+        </ion-col>
+        <ion-col text-center col-md-3 col-sm-6>
+          <ion-card (click)="navigate_to('generic', 'Any Other Safety Report')">
+            <span svg="other-safety"></span>
+            <h1>Any Other Safety Issue</h1>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+    </ng-container>
+
+    <ng-container *ngSwitchCase="'maintenance'">
+      <ion-row>
+        <ion-col text-center col-md-3 col-sm-6 offset-md-2>
+          <ion-card>
+            <span svg="damage-insulation"></span>
+            <h3>Damaged insulation and/or cladding</h3>
+          </ion-card>
+        </ion-col>
+        <ion-col text-center col-md-3 col-sm-6>
+          <ion-card>
+            <span svg="ice-wet"></span>
+            <h1>Ice Block & Wet Surfaces</h1>
+          </ion-card>
+        </ion-col>
+        <ion-col text-center col-md-3 col-sm-6>
+          <ion-card>
+            <span svg="leakage"></span>
+            <h1>Leakage</h1>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+          <ion-col text-center col-md-3 col-sm-6 offset-md-2>
+              <ion-card>
+                <span svg="mechanical"></span>
+                <h1>Structural</h1>
+              </ion-card>
+            </ion-col>
+        <ion-col text-center col-md-3 col-sm-6>
+          <ion-card>
+            <span svg="mechanical"></span>
+            <h1>Mechanical Equipment</h1>
+          </ion-card>
+        </ion-col>
+        <ion-col text-center col-md-3 col-sm-6>
+          <ion-card>
+            <span svg="electrical"></span>
+            <h1>Electrical Equipment</h1>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+    </ng-container>
+
+    <ng-container *ngSwitchCase="'energy'">
+      <ion-row (click)="segment.value=0">
+        <ion-col col-12>
+          <h3>
+            <ion-icon [name]="segment.value == 0 ? 'ios-arrow-down' : 'ios-arrow-forward'"></ion-icon>
+            UN-Insulated Equipments
+          </h3>
+        </ion-col>
+      </ion-row>
+      <ion-row *ngIf="segment.value==0">
+        <ion-col text-center offset-md-2 col-md-3 col-sm-6>
+          <ion-card>
+            <span svg="surface"></span>
+            <h1>Surface</h1>
+          </ion-card>
+        </ion-col>
+        <ion-col text-center col-md-3 col-sm-6>
+          <ion-card>
+            <span svg="pipe"></span>
+            <h1>Pipes</h1>
+          </ion-card>
+        </ion-col>
+        <ion-col text-center col-md-3 col-sm-6>
+          <ion-card>
+            <span svg="flange"></span>
+            <h1>Flanges</h1>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+      <ion-row *ngIf="segment.value==0">
+        <ion-col text-center col-md-3 col-sm-6 offset-md-3>
+          <ion-card>
+            <span svg="valve"></span>
+            <h1>Valves</h1>
+          </ion-card>
+        </ion-col>
+        <ion-col text-center col-md-3 col-sm-6>
+          <ion-card>
+            <span svg="others"></span>
+            <h1>Others</h1>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+
+      <ion-row (click)="segment.value=1">
+        <ion-col col-12>
+          <h3>
+            <ion-icon [name]="segment.value == 1 ? 'ios-arrow-down' : 'ios-arrow-forward'"></ion-icon>
+            Insulated Equipments
+          </h3>
+        </ion-col>
+      </ion-row>
+      <ion-row *ngIf="segment.value==1">
+        <ion-col text-center col-md-3 col-sm-6 offset-md-1>
+          <ion-card>
+            <span svg="insulated-surface"></span>
+            <h1>Surface</h1>
+          </ion-card>
+        </ion-col>
+        <ion-col text-center col-md-3 col-sm-6>
+          <ion-card>
+            <span svg="pipe-insulation"></span>
+            <h1>Pipes</h1>
+          </ion-card>
+        </ion-col>
+        <ion-col text-center col-md-3 col-sm-6>
+          <ion-card>
+            <span svg="insulated-others"></span>
+            <h1>Others</h1>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+    </ng-container>
+
+    <ng-container *ngSwitchCase="'hot-surface'">
+      <ion-row *ngIf="segment.value==0">
+        <ion-col (click)="add_report(REPORT.INSULATION.UNINSULATED_EQUIPMENTS.SURFACE)" text-center offset-md-2 col-md-3 col-sm-6>
+          <ion-card>
+            <span svg="surface"></span>
+            <h1>Surface</h1>
+          </ion-card>
+        </ion-col>
+        <ion-col text-center col-md-3 col-sm-6>
+          <ion-card>
+            <span svg="pipe"></span>
+            <h1>Pipes</h1>
+          </ion-card>
+        </ion-col>
+        <ion-col text-center col-md-3 col-sm-6>
+          <ion-card>
+            <span svg="flange"></span>
+            <h1>Flanges</h1>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+      <ion-row *ngIf="segment.value==0">
+        <ion-col text-center col-md-3 col-sm-6 offset-md-3>
+          <ion-card>
+            <span svg="valve"></span>
+            <h1>Valves</h1>
+          </ion-card>
+        </ion-col>
+        <ion-col text-center col-md-3 col-sm-6>
+          <ion-card>
+            <span svg="others"></span>
+            <h1>Others</h1>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+
+      <ion-row *ngIf="segment.value==1">
+        <ion-col text-center col-md-3 col-sm-6 offset-md-2>
+          <ion-card>
+            <span svg="insulated-surface"></span>
+            <h1>Surface</h1>
+          </ion-card>
+        </ion-col>
+        <ion-col text-center col-md-3 col-sm-6>
+          <ion-card>
+            <span svg="pipe-insulation"></span>
+            <h1>Pipes</h1>
+          </ion-card>
+        </ion-col>
+        <ion-col text-center col-md-3 col-sm-6>
+          <ion-card>
+            <span svg="insulated-others"></span>
+            <h1>Others</h1>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+    </ng-container>
+  </ion-grid>
+</ion-content>
+
+<ion-footer>
+  <ion-grid no-padding>
+    <ion-row no-padding>
+      <ion-col col-12 no-padding>
+        <button ion-button small color="light" (click)="go_back()">
+          <ion-icon name="arrow-back"></ion-icon>&nbsp;Back
+        </button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-footer>

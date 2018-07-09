@@ -1,0 +1,52 @@
+ion-grid[projects] {
+  >ion-row {
+    &:not(:last-child) {
+      border-bottom: 1px dashed #aaa;
+    }
+    ion-col {
+      &.flex {
+        display: flex;
+        align-items: center;
+        h4 {
+          width: 100%;
+          text-align: center;
+        }
+      }
+      &.bg-gray {
+        background: #f8f8f8;
+      }
+    }
+    img {
+      width: 100%;
+      height: auto;
+    }
+    h1 {
+      font-size: 2rem;
+      color: #333 !important;
+      margin: 1rem 0 0;
+    }
+    h1+p {
+      margin: .5rem 0;
+      color: #aaa;
+      line-height: 1.5rem;
+    }
+    h5 {
+      color: #aaa;
+      margin: .5rem 0;
+    }
+    svg {
+      @media screen and (orientation: portrait) {
+        width: 100%;
+      }
+      @media screen and (orientation:landscape) {
+        width: 60%;
+        margin-left: 1rem;
+      }
+      height: auto;
+      display: block;
+      * {
+        fill: #aaa;
+      }
+    }
+  }
+}

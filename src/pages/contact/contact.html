@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-navbar hideBackButton>
+      <ion-buttons start>
+        <button ion-button color="royal" (click)="after_delete()">Cancel</button>
+      </ion-buttons>
+    <ion-title>
+      {{ project.name }}
+    </ion-title>
+    <ion-buttons end>
+        <button ion-button color="royal" (click)="save()">OK</button>
+      </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+    <ion-list>
+
+        <ion-item>
+          <ion-label>Name</ion-label>
+          <ion-input type="text" [(ngModel)]="project.name"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label>Description</ion-label>
+          <ion-textarea rows="5" [(ngModel)]="project.desc"></ion-textarea>
+        </ion-item>
+
+      </ion-list>
+
+      <div padding>
+          <button (click)="delete_project(project)" ion-button color="danger" block>Remove</button>
+      </div>
+</ion-content>

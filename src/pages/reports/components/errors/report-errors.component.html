@@ -1,0 +1,9 @@
+<ng-container *ngIf="!!errors?.length">
+<ion-title>Errors</ion-title>
+<p>Report contains error, resuelva los errores para poder realizar el cálculo.</p>
+<ul>
+    <li *ngFor="let e of errors">
+      {{e.message}}
+    </li>
+  </ul>
+</ng-container>

@@ -1,0 +1,56 @@
+<ion-header>
+  <ion-navbar hideBackButton>
+    <ion-title>
+      {{project.name}} - {{report_name}}
+    </ion-title>
+    <ion-buttons end>
+      <button ion-button color="royal" (click)="show_pictures()">
+        <ion-icon name="camera"></ion-icon>&nbsp;Pictures</button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid class="full-height">
+    <ion-row>
+      <ion-col col-md-6 col-sm-12>
+        <ion-list>
+          <ion-item>
+            <ion-label floating>Component/Location</ion-label>
+            <ion-input type="text" [(ngModel)]="location"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label floating>Leakage - urgent to fix </ion-label>
+            <ion-textarea rows="6" [(ngModel)]="leakage"></ion-textarea>
+          </ion-item>
+        </ion-list>
+      </ion-col>
+      <ion-col col-md-6 col-sm-12>
+        <ion-list id="document-list">
+          <ion-item *ngFor="let f of project.documents">
+            <ion-icon name="document-pdf" color="gray" item-start></ion-icon>
+            <span>{{f}}</span>
+            <ion-icon name="md-remove-circle" color="danger" item-end></ion-icon>
+          </ion-item>
+        </ion-list>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
+
+<ion-footer>
+    <ion-grid no-padding>
+      <ion-row no-padding>
+        <ion-col col-6>
+          <button small ion-button color="light" (click)="navCtrl.pop()">
+            <ion-icon name="arrow-back"></ion-icon>&nbsp;Back
+          </button>
+        </ion-col>
+        <ion-col col-6 text-right>
+          <button small ion-button color="light" (click)="navCtrl.pop()">
+            Save report
+          </button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-footer>

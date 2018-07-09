@@ -1,0 +1,17 @@
+ion-card {
+  border: 1px solid #96be10;
+  border-radius: 2rem!important;
+  background: #96be10!important;
+  h1 {
+    color: #fff;
+  }
+  svg {
+    width: 40%;
+    height: auto;
+    margin: 2rem auto;
+
+    * {
+      fill: #fff;
+    }
+  }
+}

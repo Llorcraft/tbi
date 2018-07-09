@@ -1,0 +1,21 @@
+report-errors {
+  color: red;
+
+  ion-title>div {
+    color: red!important;
+    text-align: left !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+  p {
+    padding: 0 0 1rem;
+    margin: 0;
+  }
+  ul {
+    padding: 0;
+    margin: 0;
+    li {
+      margin: .5rem 0;
+    }
+  }
+}

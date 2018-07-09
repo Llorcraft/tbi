@@ -1,0 +1,16 @@
+@import "./cards.scss";
+ion-card {
+  svg {
+    g,
+    path {
+      fill: #fff;
+    }
+    &+h1,
+    &+h3 {
+      color: #fff;
+    }
+    line {
+      stroke: #fff;
+    }
+  }
+}

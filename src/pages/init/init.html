@@ -1,0 +1,22 @@
+<ion-content class="bg-logo">
+  <ion-grid padding>
+    <ion-row>
+      <ion-col offset-md-3 col-md-6>
+        <ion-list>
+          <ion-item padding>
+            <ion-label stacked>Name</ion-label>
+            <ion-input type="text" [(ngModel)]="user_name" placeholder="Type your name"></ion-input>
+          </ion-item>
+          </ion-list>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <p offset-md-3 col-md-6>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquid ex ea commodi consequat. Quis aute iure reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+  </p>
+  <p offset-md-3 col-md-6>
+    <button ion-button block small color="light" [disabled]="!user_name" (click)="save()">
+      Start
+    </button>
+  </p>
+</ion-content>

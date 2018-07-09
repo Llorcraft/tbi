@@ -1,0 +1,31 @@
+.modal-window-area {
+  ion-slide.swiper-slide {
+    align-items: flex-start;
+  }
+  .scroll-content{
+    overflow: hidden!important;
+  }
+  .modal-wrapper {
+    $height: 450;
+    $width: 450;
+    height: $height * 1px;
+    width: $width * 1px;
+    top: calc(50% - 225px);
+    left: calc(50% - 200px);
+    area-modal {
+      background: #fff;
+      .scroll-content {
+        margin-top: 4rem;
+        display: block;
+      }
+      [svg] {
+
+      }
+      ion-toolbar {
+        .toolbar-background {
+          background: #fff !important;
+        }
+      }
+    }
+  }
+}

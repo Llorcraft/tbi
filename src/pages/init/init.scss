@@ -1,0 +1,24 @@
+page-init {
+  ion-content {
+    p {
+      font-size: 90%;
+      color: #666!important;
+    }
+    // background-color: #014a97 !important;
+    background-size: auto 30%;
+    background-repeat: no-repeat;
+    background-position: 1rem 1rem;
+    ion-list {
+      margin-top: 40%;
+      ion-item {
+        background-color: transparent !important;
+        // label, ion-input {
+        //   color: #fff!important;
+        // }
+      }
+    } // ion-col {
+    //   //display: flex;
+    //   //align-items: center;
+    // }
+  }
+}

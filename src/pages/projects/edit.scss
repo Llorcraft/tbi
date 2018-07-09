@@ -1,0 +1,58 @@
+#document-list {
+  height: calc(100% - .5rem);
+  overflow-y: auto;
+}
+
+#document-list ion-item ion-icon[name="md-remove-circle"] {
+  //margin-right: -60px;
+  //margin-left: 60px;
+  transition: margin ease-in-out .25s;
+}
+
+#document-list.editable ion-item ion-icon[name="md-remove-circle"] {
+  margin-right: 0;
+  margin-left: 0;
+}
+
+#document-list ion-item ion-icon[name="document"] {
+  margin-left: 0;
+  transition: margin ease-in-out .25s;
+}
+
+#document-list.editable ion-item ion-icon[name="document"] {
+  //margin-left: -60px;
+}
+
+page-edit-project {
+  ion-grid {
+    height: 100% !important;
+    ion-row {
+      height: 100% !important;
+
+      img {
+        width: 60%;
+        height: auto;
+      }
+
+    }
+  }
+}
+
+ion-icon {
+  &[class*="document-"] {
+    mask-size: contain;
+    mask-position: 50% 50%;
+    mask-repeat: no-repeat;
+    background: currentColor;
+    width: 1em;
+    height: 1em;
+  } // custom icons
+  &[class*="document-pdf"] {
+    mask-image: url(/assets/imgs/pdf.svg);
+  }
+  &[class*="document-doc"],
+  &[class*="document-docx"] {
+    mask-image: url(/assets/imgs/customicon2.svg);
+  }
+}
+
