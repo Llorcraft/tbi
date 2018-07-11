@@ -11,12 +11,15 @@ export class ReportBase {
   public page: Page = null;
   public fields: Fields = new Fields();
   public pictures: Picture[] = [];
+  public result: Result = null;
 
   constructor(project: Project, item?: Partial<ReportBase>) {
     this.project = project;
     if (!!item) {
       Object.assign(this, item);
       this.fields = new Fields(item.fields);
+      this.result = new Result(item.result);
+      this.project = project;
     }
   }
 
@@ -53,5 +56,26 @@ class Fields {
   constructor(f?: Partial<Fields>) {
     if (!f) return;
     Object.assign(this, f);
+  }
+}
+
+export class Result {
+  public headLost: Value = new Value();
+  public savingPotential: Value = new Value();
+
+  constructor(result?: Partial<Result>) {
+    if (!result) return;
+    this.headLost = new Value(result.headLost);
+    this.savingPotential = new Value(result.savingPotential);
+}
+}
+
+export class Value {
+  public power: number = 0;
+  public money: number = 0;
+
+  constructor(value?: Partial<Value>) {
+      if (!value) return;
+      Object.assign(this, value);
   }
 }

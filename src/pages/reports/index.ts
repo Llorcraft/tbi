@@ -9,3 +9,4 @@ export { ReportAreaModalComponent } from './components/area/report-area-modal.co
 export { ReportMoreButtonComponent} from './components/more/more-button.component';
 export { ReportMediumTempButtonsComponent } from './components/medium-temp/medium-temp-buttons.component';
 export { ReportTempMarkersWindowComponent } from './components/medium-temp/temp-marker-window.component';
+export { ReportResultComponent } from './components/result/report-result.component';

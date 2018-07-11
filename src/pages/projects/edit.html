@@ -15,16 +15,11 @@
             <img [src]="project.picture" (click)="ask_for_change_picture(project)">
           </ion-item>
           <ion-item>
-            <ion-label floating>Name</ion-label>
+            <ion-label stacked>Name</ion-label>
             <ion-input type="text" [(ngModel)]="project.name"></ion-input>
           </ion-item>
-
-          <!-- <ion-item>
-            <ion-label floating>Description</ion-label>
-            <ion-textarea rows="6" [(ngModel)]="project.desc"></ion-textarea>
-          </ion-item> -->
           <ion-item>
-            <ion-label floating>Energy Price</ion-label>
+            <ion-label stacked>Energy Price</ion-label>
             <ion-input type="number" [(ngModel)]="project.price"></ion-input>
           </ion-item>
 

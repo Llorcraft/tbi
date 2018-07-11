@@ -69,7 +69,8 @@ import {
   ReportMoreButtonComponent,
   ReportErrorsComponent,
   ReportMediumTempButtonsComponent,
-  ReportTempMarkersWindowComponent
+  ReportTempMarkersWindowComponent,
+  ReportResultComponent
 } from '../pages/reports'
 
 
@@ -95,6 +96,7 @@ import {
     ReportMediumTempButtonsComponent,
     ReportTempMarkersWindowComponent,
     ReportErrorsComponent,
+    ReportResultComponent,
     ReportSafetSurfacePage,
     ReportSurfacePage,
     //Components
