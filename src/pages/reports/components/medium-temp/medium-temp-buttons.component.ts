@@ -1,4 +1,4 @@
-import { Component, Input, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { ModalController } from 'ionic-angular';
 import { ReportTempMarkersWindowComponent } from '../..';
 

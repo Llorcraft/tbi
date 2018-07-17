@@ -9,7 +9,13 @@ export class ProjectService {
   constructor() { }
 
   private get_from_storage(): Project[] {
-    return JSON.parse(localStorage.getItem(STORAGE_KEY)) as Project[];
+    try {
+      return JSON.parse(localStorage.getItem(STORAGE_KEY)) as Project[];
+    } catch (ex) {
+      console.warn('Invalid project version');
+      return [];
+    }
+
   }
 
   public get_all(): Project[] {
