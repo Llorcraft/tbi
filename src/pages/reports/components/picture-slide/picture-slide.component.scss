@@ -1,0 +1,27 @@
+.item-input-has-value{
+    ion-label{
+        color: #999;
+    }
+}
+[picture-slide] {
+  ion-slides {
+    ion-slide {
+      .slide-zoom {
+        margin: 0 0 20px;
+        img {
+          border-radius: 20px;
+          width: 75%;
+          height: auto;
+        }
+        div.markers {
+          line-height: 40px;
+          background: rgba(255, 255, 255, .3);
+        }
+      }
+    }
+    .swiper-pagination-bullets {
+      bottom: 0;
+    }
+    
+  }
+}

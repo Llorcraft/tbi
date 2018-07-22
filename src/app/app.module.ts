@@ -70,7 +70,9 @@ import {
   ReportErrorsComponent,
   ReportMediumTempButtonsComponent,
   ReportTempMarkersWindowComponent,
-  ReportResultComponent
+  ReportResultComponent,
+  ReportPictureSlideComponent,
+  ReportEditPictureComponent
 } from '../pages/reports'
 
 
@@ -88,6 +90,8 @@ import {
     InitPage,
     PicturesPage,
     //
+    ReportEditPictureComponent,
+    ReportPictureSlideComponent,
     ReportHeaderComponent,
     ReportFooterComponent,
     ReportAreaButtonComponent,

@@ -8,11 +8,7 @@ import { NavController, NavParams } from 'ionic-angular';
 })
 
 export class ReportSurfacePage extends BaseReportPage {
-
-  // public report: ReportSurface = new ReportSurface(
-  //   this.navParams.get('project')
-  // );
-
+  
   constructor(protected navCtrl: NavController, navParams: NavParams) {
     super(new ReportSurface(navParams.get('project')), navCtrl);
   }

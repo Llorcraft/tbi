@@ -1,3 +1,5 @@
+export { ReportEditPictureComponent } from './components/edit-picture/edit-picture.component';
+export { ReportPictureSlideComponent } from './components/picture-slide/picture-slide.component';
 export { ReportErrorsComponent } from './components/errors/report-errors.component';
 export { ReportsPage } from './reports';
 export { GenericReportPage } from './generic/generic';
