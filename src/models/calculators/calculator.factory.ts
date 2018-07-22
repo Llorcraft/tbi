@@ -16,12 +16,3 @@ export class CalculatorFactory {
 export interface ICalculator {
     calculate(report: ReportBase): ReportBase;
 }
-
-export const Calc = {
-    BOLTZMANN: 5.670367e-8,
-    HR_FIXED: 273,
-    HR_POW: 4,
-    HCV_FIXED: 1.74,
-    HCV_POW: 0.3333333,
-    KWH: 1000
-};
