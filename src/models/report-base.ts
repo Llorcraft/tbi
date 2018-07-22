@@ -64,6 +64,8 @@ class Fields {
   public surface_material: number = 0;
   public ambient_temp: number = 0;
   public surface_temp: number = 0;
+  public longitud: number = 0;
+  public number: number =0;
 
   constructor(f?: Partial<Fields>) {
     if (!f) return;

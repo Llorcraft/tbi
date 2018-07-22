@@ -46,6 +46,7 @@ export class Calculator {
 
   public hr: number = 1;
   public hcv: number = 1;
+  public hcv_laminar: number = 1;
   public hse: number = 1;
   public q: number = 1;
   public q_min: number = 1;
@@ -84,6 +85,13 @@ export class Calculator {
   public Rse_max: number = 1;
   public Rins_min: number = 1;
   public Rins_max: number = 1;
+  public lort : number = 1;
+  public De : number = 1;
+  public ql : number = 1;
+  public ql_min : number = 1;
+  public ql_max : number = 1;
+  public Rle_min : number = 1;
+  public Rle_max : number = 1;
   public Insulation_advice : string = '';
   /*Report and Project propesties*/
   public δ: number = 0.00000005670367;
@@ -93,6 +101,8 @@ export class Calculator {
   public ε = this.report.fields.surface_material;
   public Σ = this.report.project.price;
   public S = this.report.fields.surface;
+  public l = this.report.fields.longitud;
+  public n = this.report.fields.number;
 
   private fnc: Function[] = [
         /*00*/() => undefined,
@@ -125,12 +135,18 @@ export class Calculator {
         /*27*/() => this.Savingkwh_max = this.Qkwh - this.Qkwh_max,
         /*28*/() => this.Savingε_min = this.Qε - this.Qε_min,
         /*29*/() => this.Savingε_max = this.Qε - this.Qε_max,
-        /*30*/() => this.Insulation_advice = this.qref_pb > this.qmin?'Insulation recommended':'System OK'
+        /*30*/() => this.Insulation_advice = this.qref_pb > this.qmin?'Insulation recommended':'System OK',
+        /*32*/() => this.lort = Math.pow(this.De,3)*Math.abs(this.θse-this.θa),
+        /*33*/() => this.hcv_laminar = 1.25 * Math.pow(Math.abs(this.θse-this.θa)/this.De,1/4),
 
 
+        /*44*/() => this.Qkwh = this.ql*this.l*this.Ot*1/1000,
+        /*45*/() => this.ql_min = Math.abs(this.θse-this.θa)/(this.Rle_min +this.Rins_min),
+        /*46*/() => this.ql_max = Math.abs(this.θse-this.θa)/(this.Rle_max +this.Rins_max),
+        /*47*/() => this.Qkwh = this.ql*this.l*this.Ot*this.n*1/1000,
+        /*48*/() => this.ql_ref_pb = this.ql - (10000* this.c *this.Sp)
 
-
-  ];
+      ];
 
   public execute() {
     this.fnc.forEach(f => f.apply(this));
