@@ -44,6 +44,7 @@ export class SurfaceDecorator implements ICalculator {
 export class Calculator {
   constructor(private report: ReportBase) { }
 
+<<<<<<< HEAD
   public hr: number = 1;
   public hcv: number = 1;
   public hse: number = 1;
@@ -61,6 +62,30 @@ export class Calculator {
   public ε = this.report.fields.surface_material;
   public Σ = this.report.project.price;
   public S = this.report.fields.surface;
+=======
+    public hr: number = 1;
+    public hcv: number = 1;
+    public hse: number = 1;
+    public q: number = 1;
+    public Qkwh: number = 1;
+    public Qε: number = 1;
+    public δ: number = 0.00000005670367;
+    public λm_max: number = 1;
+    public λm_mim: number = 1;
+    public λdes_min: number = 1;
+    public λdes_max: number = 1;
+    public a: number = 0.0338;
+    public b: number = 0.0001173;
+    public c: number = 0.00000007545;
+    public d: number = 0.0000000007109;
+    public Ft: 1.5;
+    /*Report and Project propesties*/
+    public θse = this.report.fields.surface_temp;
+    public θa = this.report.fields.ambient_temp;
+    public Ot = this.report.fields.operational_time;
+    public ε = this.report.fields.surface_material;
+    public Σ = this.report.project.price;
+    public S = this.report.fields.surface;
 
   private fnc: Function[] = [
         /*00*/() => undefined,
@@ -73,7 +98,9 @@ export class Calculator {
         /*07*/() => this.θm_min = (this.θse + (this.θa + 35)) / 2,
         /*08*/() => this.θm_max = (this.θse + (this.θa + 20)) / 2,
         /*09*/() => this.λm_min = this.a + this.b * this.θm_min + this.c * Math.pow(this.θm_min, 2) + this.d * Math.pow(this.θm_min, 3)
-  ]
+        /*10*/() => this.λm_max = this.a + this.b * this.θm_max + c * Math.pow(θm_max, 2) + d * Math.pow(θm_max, 3),
+       /*11*/() => this.λdes_min = this.λm_min * this.Ft
+      ];
 
   public execute() {
     this.fnc.forEach(f => f.apply(this));
