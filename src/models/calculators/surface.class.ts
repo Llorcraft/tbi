@@ -51,6 +51,8 @@ export class Calculator {
   public q_min: number = 1;
   public q_max: number = 1;
   public qref_pb: number = 1;
+  public ql: number = 1;
+  public ql_ref_pb: number = 1;
   public Qkwh: number = 1;
   public Qkwh_min: number = 1;
   public Qkwh_max: number = 1;
@@ -76,15 +78,24 @@ export class Calculator {
   public d: number = 0.0000000007109;
   public Ft: number = 1.5;
   public Δθ: number = 1;
-  public emin: number = 1;
-  public emax: number = 1;
-  public hse_min: number = 1
-  public hse_max: number = 1
+  public e_min: number = 1;
+  public e_max: number = 1;
+  public hse_min: number = 1;
+  public hse_max: number = 1;
+  public hcv_laminar: number = 1;
+  public hcv_burbulet: number = 1;
   public Rse_min: number = 1;
   public Rse_max: number = 1;
   public Rins_min: number = 1;
   public Rins_max: number = 1;
-  public Insulation_advice : string = '';
+  public Insulation_advice: string = '';
+  public minimum_potential_explanation = '';
+  public lort: number = 1;
+  public De: number = 1;
+  public De_min: number = 1;
+  public De_max: number = 1;
+  public Sp: number = 1;
+  public Rle: number = 1;
   /*Report and Project propesties*/
   public δ: number = 0.00000005670367;
   public θse = this.report.fields.surface_temp;
@@ -112,11 +123,11 @@ export class Calculator {
         ///*14*/() => this.lmin = 1,
         /*15*/() => this.Rse_min = 1 / this.hse_min,
         /*16*/() => this.Rse_max = 1 / this.hse_max,
-        /*17*/() => this.Rins_min = this.emin / this.λdes_min,
-        /*18*/() => this.Rins_max = this.emax / this.λdes_max,
-        /*19*/() => this.qref_pb = this.q * (10000 * this.c)  / this.Ot * this.ε,
-        /*20*/()=> this.q_min = Math.abs(this.θse - this.θa)/(this.Rse_min + this.Rins_min),
-        /*21*/()=> this.q_max = Math.abs(this.θse - this.θa)/(this.Rse_max + this.Rins_max),
+        /*17*/() => this.Rins_min = this.e_min / this.λdes_min,
+        /*18*/() => this.Rins_max = this.e_max / this.λdes_max,
+        /*19*/() => this.qref_pb = this.q * (10000 * this.c) / this.Ot * this.ε,
+        /*20*/() => this.q_min = Math.abs(this.θse - this.θa) / (this.Rse_min + this.Rins_min),
+        /*21*/() => this.q_max = Math.abs(this.θse - this.θa) / (this.Rse_max + this.Rins_max),
         /*22*/() => this.Qkwh_min = this.qmin * this.S * this.Ot * 1 / 1000,
         /*23*/() => this.Qkwh_max = this.qmax * this.S * this.Ot * 1 / 1000,
         /*24*/() => this.Qε_min = this.Qkwh_min * this.ε,
@@ -125,11 +136,18 @@ export class Calculator {
         /*27*/() => this.Savingkwh_max = this.Qkwh - this.Qkwh_max,
         /*28*/() => this.Savingε_min = this.Qε - this.Qε_min,
         /*29*/() => this.Savingε_max = this.Qε - this.Qε_max,
-        /*30*/() => this.Insulation_advice = this.qref_pb > this.qmin?'Insulation recommended':'System OK'
-
-
-
-
+        /*30*/() => this.Insulation_advice = this.qref_pb > this.qmin ? 'Insulation recommended' : 'System OK',
+        /*31*/() => this.minimum_potential_explanation = 'Minimum potential savings per m<sup>2</sup><sub>cf</sub> insulated. Total surface must be define.',
+        /*34*/() => this.hcv_burbulet = 1.12 * Math.exp(Math.log(Math.abs(this.θse - this.θa)) / 3),
+        /*35*/() => this.hse = this.hr + this.lort < 10 ? this.hcv_laminar : this.hcv_burbulet,
+        /*36*/() => this.De_min = this.De + 2 * this.e_min,
+        /*37*/() => this.De_max = this.De + 2 * this.e_max,
+        /*38*/() => this.Rins_min = Math.log(this.De_min / this.De) / 2 * Math.PI * this.λdes_min,
+        /*39*/() => this.Rins_max = Math.log(this.De_max / this.De) / 2 * Math.PI * this.λdes_max,
+        /*40*/() => this.Sp = Math.PI * this.De_min,
+        /*42*/() => this.Rle = 1 / this.hse * Math.PI * this.De,
+        /*43*/()=> this.ql = Math.abs(this.θse - this.θa) / this.Rle,
+        /*41*/() => this.ql_ref_pb = this.ql,
   ];
 
   public execute() {
