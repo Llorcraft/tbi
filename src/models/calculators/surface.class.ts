@@ -50,8 +50,17 @@ export class Calculator {
     public q: number = 1;
     public Qkwh: number = 1;
     public Qε: number = 1;
-    /*Report and Project propesties*/
     public δ: number = 0.00000005670367;
+    public λm_max: number = 1;
+    public λm_mim: number = 1;
+    public λdes_min: number = 1;
+    public λdes_max: number = 1;
+    public a: number = 0.0338;
+    public b: number = 0.0001173;
+    public c: number = 0.00000007545;
+    public d: number = 0.0000000007109;
+    public Ft: 1.5;
+    /*Report and Project propesties*/
     public θse = this.report.fields.surface_temp;
     public θa = this.report.fields.ambient_temp;
     public Ot = this.report.fields.operational_time;
@@ -66,8 +75,9 @@ export class Calculator {
         /*03*/() => this.hse = this.hr + this.hcv,
         /*04*/() => this.q = this.hse * Math.abs(this.θse - this.θa),
         /*05*/() => this.Qkwh = this.q * this.S * this.Ot * 1 / 1000,
-        /*06*/() => this.Qε = this.Qkwh * this.Σ
-    ]
+        /*06*/() => this.Qε = this.Qkwh * this.Σ,
+        /*10*/() => this.λm_max = this.a + this.b * this.θm_max + c * Math.pow(θm_max, 2) + d * Math.pow(θm_max, 3)
+    ]   /*11*/() => this.λdes_min = this.λm_min * this.Ft;
 
     public execute() {
         this.fnc.forEach(f => f.apply(this));
