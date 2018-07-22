@@ -61,7 +61,16 @@ export class Calculator {
     public b: number = 0.0001173;
     public c: number = 0.00000007545;
     public d: number = 0.0000000007109;
-    public Ft: 1.5;
+    public Ft: number = 1.5;
+    public Δθ: number = 1;
+    public emin: number = 1;
+    public emax: number = 1;
+    public hse_min: number = 1
+    public hse_max: number = 1
+    public Rse_min: number = 1;
+    public Rse_max: number = 1;
+    public Rins_min: number = 1;
+    public Rins_max: number = 1;
     /*Report and Project propesties*/
     public δ: number = 0.00000005670367;
     public θse = this.report.fields.surface_temp;
@@ -85,7 +94,12 @@ export class Calculator {
         /*10*/() => this.λm_max = this.a + this.b * this.θm_max + this.c * Math.pow(this.θm_max, 2) + this.d * Math.pow(this.θm_max, 3),
         /*11*/() => this.λdes_min = this.λm_min * this.Ft,
         /*12*/() => this.λdes_max = this.λm_max * this.Ft,
-        /*13*/
+        ///*13*/() => this.Δθ = Math.abs(this.θse - this.θa),
+        ///*14*/() => this.lmin = 1,
+        /*15*/() => this.Rse_min = 1 / this.hse_min,
+        /*16*/() => this.Rse_max = 1 / this.hse_max,
+        /*17*/() => this.Rins_min = this.emin / this.λdes_min,
+        /*18*/() => this.Rins_max = this.emax / this.λdes_max,
     ];
 
     public execute() {
