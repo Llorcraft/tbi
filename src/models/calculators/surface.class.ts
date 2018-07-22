@@ -62,6 +62,7 @@ export class Calculator {
   public λdes_min: number = 1;
   public λdes_max: number = 1;
   public Savingkwh_min: number = 1;
+  public Savingkwh_max: number = 1;
   public qmin: number = 1;
   public qmax: number = 1;
   public a: number = 0.0338;
@@ -96,6 +97,7 @@ export class Calculator {
         /*23*/() => this.Qkwh_max = this.qmax * this.S * this.Ot * 1 / 1000,
         /*24*/() => this.Qε_min = this.Qkwh_min * this.ε,
         /*25*/() => this.Qε_max = this.Qkwh_max * this.ε
+        /*26*/
 
   ];
 
