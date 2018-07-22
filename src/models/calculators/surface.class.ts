@@ -72,6 +72,7 @@ export class Calculator {
   public c: number = 0.00000007545;
   public d: number = 0.0000000007109;
   public Ft: number = 1.5;
+  public Insulation_advice : string = '';
   /*Report and Project propesties*/
   public δ: number = 0.00000005670367;
   public θse = this.report.fields.surface_temp;
@@ -102,7 +103,9 @@ export class Calculator {
         /*26*/() => this.Savingkwh_min = this.Qkwh - this.Qkwh_min,
         /*27*/() => this.Savingkwh_max = this.Qkwh - this.Qkwh_max,
         /*28*/() => this.Savingε_min = this.Qε - this.Qε_min,
-        /*29*/() => this.Savingε_max = this.Qε - this.Qε_max
+        /*29*/() => this.Savingε_max = this.Qε - this.Qε_max,
+        /*30*/() => this.Insulation_advice = this.qref_pb > this.qmin?'Insulation recommended':'System OK'
+
 
 
 
