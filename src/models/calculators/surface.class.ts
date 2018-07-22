@@ -50,6 +50,7 @@ export class Calculator {
   public q: number = 1;
   public q_min: number = 1;
   public q_max: number = 1;
+  public qref_pb: number = 1;
   public Qkwh: number = 1;
   public Qkwh_min: number = 1;
   public Qkwh_max: number = 1;
@@ -63,21 +64,17 @@ export class Calculator {
   public λm_mim: number = 1;
   public λdes_min: number = 1;
   public λdes_max: number = 1;
-<<<<<<< HEAD
-=======
   public Savingkwh_min: number = 1;
   public Savingkwh_max: number = 1;
   public Savingε_min: number = 1;
   public Savingε_max: number = 1;
   public qmin: number = 1;
   public qmax: number = 1;
->>>>>>> acb1de62d78d41ea90a84496dc5a488adf3c7c13
   public a: number = 0.0338;
   public b: number = 0.0001173;
   public c: number = 0.00000007545;
   public d: number = 0.0000000007109;
   public Ft: number = 1.5;
-<<<<<<< HEAD
   public Δθ: number = 1;
   public emin: number = 1;
   public emax: number = 1;
@@ -87,9 +84,7 @@ export class Calculator {
   public Rse_max: number = 1;
   public Rins_min: number = 1;
   public Rins_max: number = 1;
-=======
   public Insulation_advice : string = '';
->>>>>>> acb1de62d78d41ea90a84496dc5a488adf3c7c13
   /*Report and Project propesties*/
   public δ: number = 0.00000005670367;
   public θse = this.report.fields.surface_temp;
@@ -98,11 +93,6 @@ export class Calculator {
   public ε = this.report.fields.surface_material;
   public Σ = this.report.project.price;
   public S = this.report.fields.surface;
-  public Savingkwh_min: number = 1;
-  public Savingkwh_max: number = 1;
-  public qmin: number = 1;
-  public qmax: number = 1;
-  public qref_pb: number = 1;
 
   private fnc: Function[] = [
         /*00*/() => undefined,
