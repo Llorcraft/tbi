@@ -9,8 +9,7 @@ import { /*ReportPictureSlideComponent,*/ ReportErrorsComponent } from "../../pa
 export class BaseReportPage {
   @ViewChild('form') form: NgForm;
   @ViewChild('errors') errors: ReportErrorsComponent;
-  //@ViewChild('pictures_slide') pictures_slide: ReportPictureSlideComponent
-  private calculator = new CalculatorFactory();
+  public calculator = new CalculatorFactory();
   protected view = 'form';
   protected editing_picture: Picture = new Picture();
   constructor(
@@ -31,6 +30,7 @@ export class BaseReportPage {
   protected calculate(): ReportBase {
     if (!this.errors.form) this.errors.form = this.form;
     if (this.form.invalid && (() => this.report.result = null)()) return;
+    this.view = 'result';
     return this.calculator.calculate(this.report);
   }
 

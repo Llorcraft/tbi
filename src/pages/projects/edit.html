@@ -7,25 +7,90 @@
 </ion-header>
 
 <ion-content>
-  <ion-grid class="full-height">
+  <ion-grid>
     <ion-row>
       <ion-col col-md-6 col-sm-12 border-right>
-        <ion-list>
-          <ion-item text-center border-none no-padding>
-            <img [src]="project.picture" (click)="ask_for_change_picture(project)">
-          </ion-item>
-          <ion-item>
-            <ion-label stacked>Name</ion-label>
-            <ion-input type="text" [(ngModel)]="project.name"></ion-input>
-          </ion-item>
-          <ion-item>
-            <ion-label stacked>Energy Price</ion-label>
-            <ion-input type="number" [(ngModel)]="project.price"></ion-input>
-          </ion-item>
-
-        </ion-list>
+        <ion-row>
+          <ion-col col-md-6 col-12>
+            <ion-row>
+              <ion-title col-12>Project Properties</ion-title>
+              <ion-item>
+                <ion-label stacked>Name</ion-label>
+                <ion-input type="text" [(ngModel)]="project.name"></ion-input>
+              </ion-item>
+              <ion-item>
+                <ion-label stacked>Energy Price</ion-label>
+                <ion-input type="number" [(ngModel)]="project.price"></ion-input>
+              </ion-item>
+            </ion-row>
+          </ion-col>
+          <ion-col col-md-6 col-12>
+            <ion-item text-center border-none no-padding>
+              <img [src]="project.picture" (click)="ask_for_change_picture(project)">
+            </ion-item>
+          </ion-col>
+        </ion-row>
+        <ion-row small-title>
+          <ion-col col-12>
+            <ion-row mb-3>
+              <ion-title col-12>Project Leader</ion-title>
+              <ion-item col-md-5 col-12>
+                <ion-input [(ngModel)]="project.people.leader.name" placeholder="Name"></ion-input>
+              </ion-item>
+              <ion-item col-md-4 col-12>
+                <ion-input type="email" [(ngModel)]="project.people.leader.email" placeholder="Email"></ion-input>
+              </ion-item>
+              <ion-item col-md-3 col-12>
+                <ion-input type="phone" [(ngModel)]="project.people.leader.phone" placeholder="Phone"></ion-input>
+              </ion-item>
+            </ion-row>
+          </ion-col>
+          <ion-col col-12>
+            <ion-row mb-3>
+              <ion-title col-12>Energy Manager</ion-title>
+              <ion-item col-md-5 col-12>
+                <ion-input [(ngModel)]="project.people.energy_manager.name" placeholder="Name"></ion-input>
+              </ion-item>
+              <ion-item col-md-4 col-12>
+                <ion-input type="email" [(ngModel)]="project.people.energy_manager.email" placeholder="Email"></ion-input>
+              </ion-item>
+              <ion-item col-md-3 col-12>
+                <ion-input type="phone" [(ngModel)]="project.people.energy_manager.phone" placeholder="Phone"></ion-input>
+              </ion-item>
+            </ion-row>
+          </ion-col>
+          <ion-col col-12>
+            <ion-row mb-3>
+              <ion-title col-12>Maintenance Manager</ion-title>
+              <ion-item col-md-5 col-12>
+                <ion-input [(ngModel)]="project.people.maintenance_manager.name" placeholder="Name"></ion-input>
+              </ion-item>
+              <ion-item col-md-4 col-12>
+                <ion-input type="email" [(ngModel)]="project.people.maintenance_manager.email" placeholder="Email"></ion-input>
+              </ion-item>
+              <ion-item col-md-3 col-12>
+                <ion-input type="phone" [(ngModel)]="project.people.maintenance_manager.phone" placeholder="Phone"></ion-input>
+              </ion-item>
+            </ion-row>
+          </ion-col>
+          <ion-col col-12>
+            <ion-row>
+              <ion-title col-12>HSE Manager</ion-title>
+              <ion-item col-md-5 col-12>
+                <ion-input [(ngModel)]="project.people.hse_manager.name" placeholder="Name"></ion-input>
+              </ion-item>
+              <ion-item col-md-4 col-12>
+                <ion-input type="email" [(ngModel)]="project.people.hse_manager.email" placeholder="Email"></ion-input>
+              </ion-item>
+              <ion-item col-md-3 col-12>
+                <ion-input type="phone" [(ngModel)]="project.people.hse_manager.phone" placeholder="Phone"></ion-input>
+              </ion-item>
+            </ion-row>
+          </ion-col>
+        </ion-row>
       </ion-col>
-      <ion-col col-md-6 col-sm-12>
+      <ion-col col-md-6 col-12>
+        <ion-title>Files</ion-title>
         <ion-list id="document-list" [class.editable]="edit_mode">
           <ion-item *ngFor="let f of files">
             <ion-icon name="document-pdf" color="gray" item-start></ion-icon>
@@ -46,16 +111,16 @@
   <ion-grid no-padding>
     <ion-row no-padding>
       <ion-col col-3 no-padding>
-          <button ion-button small color="light" (click)="after_delete()">
-            <ion-icon name="arrow-back"></ion-icon>&nbsp;Back
-          </button>
+        <button ion-button small color="light" (click)="after_delete()">
+          <ion-icon name="arrow-back"></ion-icon>Back
+        </button>
       </ion-col>
       <ion-col col-9 text-right no-padding>
-        <button ion-button small color="light" (click)="save()">
-          Save project
-        </button>
         <button ion-button small color="light">
           Upload file
+        </button>
+        <button ion-button small color="primary" (click)="save()">
+          Save
         </button>
       </ion-col>
     </ion-row>

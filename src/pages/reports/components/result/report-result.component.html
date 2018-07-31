@@ -1,13 +1,42 @@
-<ion-grid *ngIf="!!report.result">
-    <ion-row head-lost>
-        <ion-col>
-            <h4 no-padding no-margin>Heat loss</h4>
+<ion-grid>
+  <ion-row>
+    <ion-col col-12>
+      <ion-row head-lost>
+        <ion-col col-md-4 col-12>
+          <h1 no-padding no-margin>Heat loss</h1>
         </ion-col>
-        <ion-col>
-            <ion-row>
-                <ion-col col-12 data-measure="kWh/a">{{ report.result.headLost.power | number: '1.2-2'}}</ion-col>
-                <ion-col col-12 data-measure="€/a">{{ report.result.headLost.money | number: '1.2-2'}}</ion-col>
-            </ion-row>
+        <ion-col col-md-8 col-12>
+          <ion-row>
+            <ion-col col-12 data-measure="kWh/a">{{ report.result.headLost.power | number: '1.0-0'}}</ion-col>
+            <ion-col col-12 data-measure="€/a">{{ report.result.headLost.money | number: '1.0-0'}}</ion-col>
+          </ion-row>
         </ion-col>
-    </ion-row>
+      </ion-row>
+      <ion-row saving-potential>
+            <ion-col col-md-4 col-12>
+              <h1 no-padding no-margin>Saving potential</h1>
+            </ion-col>
+            <ion-col col-md-8 col-12>
+              <ion-row>
+                <ion-col col-5 data-measure="kWh/a">{{ report.result.savingPotentialMin.power | number: '1.0-0'}}</ion-col>
+                <ion-col col-2 text-center>--></ion-col>
+                <ion-col col-5 data-measure="kWh/a">{{ report.result.savingPotentialMax.power | number: '1.0-0'}}</ion-col>
+              </ion-row>
+              <ion-row>
+                    <ion-col col-5 data-measure="€/a">{{ report.result.savingPotentialMin.money | number: '1.0-0'}}</ion-col>                    
+                    <ion-col col-2 text-center>--></ion-col>
+                    <ion-col col-5 data-measure="€/a">{{ report.result.savingPotentialMax.money | number: '1.0-0'}}</ion-col>
+                  </ion-row>
+            </ion-col>
+          </ion-row>
+    </ion-col>
+    <!-- <ion-col col-md-2 col-12 offset-md-1>
+      <ion-buttons end>
+        <button ion-button small block color="light">Safety risk</button>
+        <button ion-button small block color="light">Operational risk</button>
+        <button ion-button small block color="light">Space issue</button>
+        <button ion-button small block color="light">Comment</button>
+      </ion-buttons>
+    </ion-col> -->
+  </ion-row>
 </ion-grid>

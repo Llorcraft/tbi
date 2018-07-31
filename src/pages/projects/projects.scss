@@ -1,4 +1,8 @@
 ion-grid[projects] {
+  h5 {
+    padding: 0;
+    line-height: 1rem;
+  }
   >ion-row {
     &:not(:last-child) {
       border-bottom: 1px dashed #aaa;

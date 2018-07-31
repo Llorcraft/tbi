@@ -1,8 +1,8 @@
 report-errors {
-  color: red;
+  color: orangered;
 
   ion-title>div {
-    color: red!important;
+    color: orangered!important;
     text-align: left !important;
     padding: 0 !important;
     margin: 0 !important;
@@ -16,6 +16,7 @@ report-errors {
     margin: 0;
     li {
       margin: .5rem 0;
+      list-style: none;
     }
   }
 }

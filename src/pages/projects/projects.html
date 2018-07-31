@@ -40,7 +40,10 @@
         </ion-row>
         <ion-row no-margin no-padding>
           <ion-col col-8>
-            <h4 no-margin>{{p.price}}</h4>
+            <ion-row>
+            <h5 col-12 no-margin>Leader: {{p.people.leader.name || '(none)'}}</h5>
+            <h5 col-12 no-margin>Energy: {{p.people.energy_manager.name || '(none)'}}</h5>
+            </ion-row>
           </ion-col>
           <ion-col col-md-1 class="flex bg-gray">
             <h4 no-margin>1</h4>

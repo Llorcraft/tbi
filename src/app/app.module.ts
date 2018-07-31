@@ -10,7 +10,7 @@ import { ContactPage } from '../pages/contact/contact';
 import { ProjectReportsPage } from '../pages/home/home';
 import { ProjectsPage } from '../pages/projects/projects';
 import { EditProjectPage } from '../pages/projects/edit';
-import { ProjectPage } from  '../pages/projects/project';
+import { ProjectPage } from '../pages/projects/project';
 
 /*Plugins*/
 import { Camera } from '@ionic-native/camera';
@@ -56,6 +56,7 @@ import { SvgInsulatedOthersComponent } from '../components/svg/svg-insulated-oth
 import { SvgCilinderAreaComponent } from '../components/svg/svg-cilinder-area.component';
 import { SvgCubeAreaComponent } from '../components/svg/svg-cube-area.component';
 import { SvgCircleAreaComponent } from '../components/svg/svg-circle-area.component';
+import { SvgHousekeepingComponent } from '../components/svg/svg-housekeeping.component';
 //Reports
 import { ReportSafetSurfacePage } from '../pages/reports/safety/surface';
 import {
@@ -132,7 +133,8 @@ import {
     SvgInsulatedOthersComponent,
     SvgCilinderAreaComponent,
     SvgCubeAreaComponent,
-    SvgCircleAreaComponent
+    SvgCircleAreaComponent,
+    SvgHousekeepingComponent
   ],
   imports: [
     BrowserModule,
@@ -144,7 +146,7 @@ import {
       tabsPlacement: 'bottom',
       pageTransition: 'ios-transition'
     }
-  )
+    )
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -175,7 +177,7 @@ import {
     FileOpener,
     FilePath,
     ScreenOrientation,
-    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    { provide: ErrorHandler, useClass: IonicErrorHandler },
   ]
 })
-export class AppModule {}
+export class AppModule { }

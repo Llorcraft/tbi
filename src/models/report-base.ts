@@ -1,5 +1,4 @@
 import { Project } from './project';
-import { Marker } from './marker';
 import { Picture } from "./picture";
 import { Page } from 'ionic-angular/umd/navigation/nav-util';
 
@@ -64,6 +63,8 @@ class Fields {
   public surface_material: number = 0;
   public ambient_temp: number = 0;
   public surface_temp: number = 0;
+  public longitud: number = 0;
+  public number: number =0;
 
   constructor(f?: Partial<Fields>) {
     if (!f) return;
@@ -73,12 +74,14 @@ class Fields {
 
 export class Result {
   public headLost: Value = new Value();
-  public savingPotential: Value = new Value();
+  public savingPotentialMin: Value = new Value();
+  public savingPotentialMax: Value = new Value();
 
   constructor(result?: Partial<Result>) {
     if (!result) return;
     this.headLost = new Value(result.headLost);
-    this.savingPotential = new Value(result.savingPotential);
+    this.savingPotentialMin = new Value(result.savingPotentialMin);
+    this.savingPotentialMax = new Value(result.savingPotentialMax);
   }
 }
 

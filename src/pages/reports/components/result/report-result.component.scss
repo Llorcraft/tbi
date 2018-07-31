@@ -1,8 +1,19 @@
 report-result {
+  [head-lost] {
     h4 {
-        line-height: 4rem
+      font-size: 2rem;
     }
-    [head-lost] {
-        color: RGB(48, 84, 150);
+    font-size: 2rem;
+    color: RGB(48, 84, 150);
+  }
+  [saving-potential] {
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: 1px solid #aaa;
+    h4 {
+      font-size: 2rem;
     }
+    font-size: 2rem;
+    color: RGB(84, 130, 53);
+  }
 }
