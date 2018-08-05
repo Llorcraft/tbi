@@ -20,7 +20,7 @@
   <ion-grid [ngSwitch]="type">
     <ng-container *ngSwitchCase="''">
       <ion-row>
-        <ion-col text-center col-md-3 col-sm-6>
+        <ion-col text-center col-md-3 offset-md-3 col-sm-6>
           <ion-card (click)="navigate_to('insulation')">
             <span svg="insulation"></span>
             <h1>Insulation</h1>
@@ -32,7 +32,7 @@
             <h1>Safety</h1>
           </ion-card>
         </ion-col>
-        <ion-col text-center col-md-3 col-sm-6>
+        <ion-col text-center col-md-3 offset-md-3 col-sm-6>
           <ion-card (click)="navigate_to('maintenance')">
             <span svg="maintenance"></span>
             <h1>Maintenance</h1>
@@ -185,7 +185,7 @@
       <ion-row>
           <ion-col text-center col-md-3 col-sm-6 offset-md-2>
               <ion-card>
-                <span svg="mechanical"></span>
+                <span svg="structural"></span>
                 <h1>Structural</h1>
               </ion-card>
             </ion-col>

@@ -1,0 +1,8 @@
+Reportes
+Cambiar el formato del reporte custom y ponerle las imagenes
+
+Iconos
+Safety - Housekeeping (el tio limpiando)
+Others  - Cambiar el circuito por interrogacion
+Maintenance - Structural cambiar por la viga
+

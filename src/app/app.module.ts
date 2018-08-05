@@ -57,6 +57,7 @@ import { SvgCilinderAreaComponent } from '../components/svg/svg-cilinder-area.co
 import { SvgCubeAreaComponent } from '../components/svg/svg-cube-area.component';
 import { SvgCircleAreaComponent } from '../components/svg/svg-circle-area.component';
 import { SvgHousekeepingComponent } from '../components/svg/svg-housekeeping.component';
+import { SvgStructuralComponent } from '../components/svg/svg-structural.component';
 //Reports
 import { ReportSafetSurfacePage } from '../pages/reports/safety/surface';
 import {
@@ -134,7 +135,8 @@ import {
     SvgCilinderAreaComponent,
     SvgCubeAreaComponent,
     SvgCircleAreaComponent,
-    SvgHousekeepingComponent
+    SvgHousekeepingComponent,
+    SvgStructuralComponent
   ],
   imports: [
     BrowserModule,

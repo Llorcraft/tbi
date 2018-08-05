@@ -65,7 +65,7 @@
           <ion-row>
             <ion-col col-10>
               <ion-item>
-                <ion-label stacked>Ambient temp. (<sup>º</sup>c)</ion-label>
+                <ion-label stacked>Ambient temperature (<sup>º</sup>C)</ion-label>
                 <ion-input name="ambient_temp" required data-val-required="Ambient temp. field is required" [(ngModel)]="report.fields.ambient_temp" type="number"></ion-input>
               </ion-item>
             </ion-col>
@@ -75,7 +75,7 @@
           <ion-row>
             <ion-col col-10>
               <ion-item>
-                <ion-label stacked>Surface temp. (<sup>º</sup>c)</ion-label>
+                <ion-label stacked>Medium or Surface temperature (<sup>º</sup>C)</ion-label>
                 <ion-input [disabled]="report.has_markers" name="surface_temp" required data-val-required="Surface temp. field is required" [(ngModel)]="report.fields.surface_temp" type="number"></ion-input>
               </ion-item>
             </ion-col>
