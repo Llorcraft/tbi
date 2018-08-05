@@ -5,7 +5,7 @@ import { ReportBase, Project } from "..";
 import { CalculatorFactory } from "../calculators/calculator.factory";
 import { Picture } from "../picture";
 import { /*ReportPictureSlideComponent,*/ ReportErrorsComponent } from "../../pages/reports";
-import { ProjectService } from "../../services/project.service";
+import { ReportService } from "../../services/report.service";
 
 export class BaseReportPage {
   @ViewChild('form') form: NgForm;
@@ -16,7 +16,7 @@ export class BaseReportPage {
   constructor(
     public report: ReportBase,
     protected navCtrl: NavController,
-    protected service: ProjectService,
+    protected service: ReportService,
     protected actionSheetCtrl: ActionSheetController,
   ) {
     [
@@ -27,8 +27,7 @@ export class BaseReportPage {
   }
 
   public save() {
-    this.report.project.reports.push(this.report);
-    this.service.save(this.report.project);
+    this.service.save(this.report);
     this.ask_for_more_reports(this.report.project);
   }
   public ask_for_more_reports(project: Project) {

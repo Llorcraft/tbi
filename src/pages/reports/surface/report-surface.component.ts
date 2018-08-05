@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { BaseReportPage, ReportSurface } from '../../../models/reports';
 import { NavController, NavParams, ActionSheetController } from 'ionic-angular';
-import { ProjectService } from '../../../services/project.service';
+import { ReportService } from '../../../services/report.service';
 
 @Component({
   selector: 'page-report-surface',
@@ -12,7 +12,7 @@ export class ReportSurfacePage extends BaseReportPage {
 
   constructor(protected navCtrl: NavController,
     navParams: NavParams,
-    protected service: ProjectService,
+    protected service: ReportService,
     protected actionSheetCtrl: ActionSheetController,
   ) {
     super(new ReportSurface(navParams.get('project')), navCtrl, service, actionSheetCtrl);
