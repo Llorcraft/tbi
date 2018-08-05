@@ -20,14 +20,14 @@ export class ReportMoreButtonComponent {
       role: 'cancel',
     }],
     time: [
-      ['1000 hours', 1],
-      ['2000 hours', 2],
-      ['3000 hours', 3],
-      ['4380 hours (1/2 year)', 4.38],
-      ['5000 hours', 5],
-      ['6000 hours', 6],
-      ['7000 hours', 7],
-      ['8760 hours (full year)', 8.76]
+      ['1000 hours', 1000],
+      ['2000 hours', 2000],
+      ['3000 hours', 3000],
+      ['4380 hours (1/2 year)', 4380],
+      ['5000 hours', 5000],
+      ['6000 hours', 6000],
+      ['7000 hours', 7000],
+      ['8760 hours (full year)', 8760]
     ],
     materials: [
       ['Defaul value', 0.8],

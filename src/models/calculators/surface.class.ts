@@ -139,19 +139,20 @@ export class Calculator {
 
   public execute(): ReportBase {
     this.fnc.forEach(f => f.apply(this));
-    console.table([
-      {
-        hr: this.hr ,
-        hcv: this.hcv,
-        hse: this.hse,
-        q: this.q,
-        Insulation_advice: this.Insulation_advice,
-        Savingkwh_min: this.Savingkwh_min,
-        Savingkwh_max: this.Savingkwh_max,
-        Savingε_min: this.Savingε_min,
-        Savingε_max: this.Savingε_max
-      }]);
+    // console.table([
+    //   {
+    //     hr: this.hr,
+    //     hcv: this.hcv,
+    //     hse: this.hse,
+    //     q: this.q,
+    //     Insulation_advice: this.Insulation_advice,
+    //     Savingkwh_min: this.Savingkwh_min,
+    //     Savingkwh_max: this.Savingkwh_max,
+    //     Savingε_min: this.Savingε_min,
+    //     Savingε_max: this.Savingε_max
+    //   }]);
     this.report.result = new Result({
+      advise: this.Insulation_advice,
       headLost: new Value({
         power: this.Qkwh,
         money: this.Qε

@@ -139,8 +139,8 @@
         <button ion-button small pull-right color="primary" (click)="calculate()" *ngIf="view!='edit_picture'">
           Calculate
         </button>
-        <button ion-button small pull-right color="primary" (click)="calculate()" *ngIf="view=='edit_picture'">
-          Save
+        <button ion-button small pull-right color="primary" (click)="save()" *ngIf="!!report.result">
+          Report
         </button>
       </ion-col>
     </ion-row>
