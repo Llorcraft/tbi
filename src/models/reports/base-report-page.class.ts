@@ -1,11 +1,12 @@
-import { NavController, ActionSheetController } from "ionic-angular";
+import { NavController, AlertController } from "ionic-angular";
 import { NgForm } from '@angular/forms';
 import { ViewChild } from "@angular/core";
 import { ReportBase, Project } from "..";
 import { CalculatorFactory } from "../calculators/calculator.factory";
 import { Picture } from "../picture";
-import { /*ReportPictureSlideComponent,*/ ReportErrorsComponent } from "../../pages/reports";
+import { ReportErrorsComponent, ReportsPage } from "../../pages/reports";
 import { ReportService } from "../../services/report.service";
+import { ProjectsPage } from "../../pages/projects/projects";
 
 export class BaseReportPage {
   @ViewChild('form') form: NgForm;
@@ -13,11 +14,12 @@ export class BaseReportPage {
   public calculator = new CalculatorFactory();
   protected view = 'form';
   protected editing_picture: Picture = new Picture();
+  protected segment = 'input';
   constructor(
     public report: ReportBase,
     protected navCtrl: NavController,
     protected service: ReportService,
-    protected actionSheetCtrl: ActionSheetController,
+    protected alertCtrl: AlertController,
   ) {
     [
       'https://restorationmasterfinder.com/restoration/wp-content/uploads/2016/08/pipe-burst.jpg',
@@ -27,30 +29,35 @@ export class BaseReportPage {
   }
 
   public save() {
+    const project = this.report.project;
     this.service.save(this.report);
-    this.ask_for_more_reports(this.report.project);
+    this.ask_for_more_reports(project);
   }
   public ask_for_more_reports(project: Project) {
-    let action_sheet = this.actionSheetCtrl.create({
-      cssClass: 'picture-action-sheet',
-      title: 'Create another report',
-      buttons: [
-        {
-          text: 'Safaty',
-        },
-        {
-          text: 'Maintenace'
-        },
-        {
-          text: 'Other'
-        },
-        {
-          text: 'Cancel',
-          role: 'cancel'
-        }
-      ]
-    });
-    action_sheet.present();
+          let confirm = this.alertCtrl.create({
+            title: `Create report`,
+            message: `Do you want to add another report associated to this component?`,
+            buttons: [
+              {
+                text: 'Yes',
+                handler: () => {
+                  this.navCtrl.push(ReportsPage, {
+                    report: this.report,
+                    project: project
+                  });
+                }
+              },
+              {
+                text: 'No',
+                handler: () => {
+                  this.navCtrl.push(ProjectsPage, {
+                    project: project
+                  });
+                }
+              }
+            ]
+          });
+          confirm.present();
   }
   public get has_results(): boolean {
     return !this.form.invalid && this.report.result !== null;

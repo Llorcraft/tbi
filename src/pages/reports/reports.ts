@@ -7,6 +7,7 @@ import { GenericReportPage } from './';
 import { ProjectsPage } from '../projects/projects';
 import { ReportRouter } from '../../models/report-router';
 import { Segment } from './segment/segment.class';
+import { SummaryPage } from '../summary/summary';
 
 @Component({
   selector: 'page-reports',
@@ -30,6 +31,9 @@ export class ReportsPage extends ReportRouter {
     this.segment.set(this.type);
   }
 
+  protected open_summary():void{
+    this.navCtrl.push(SummaryPage, {project: this.project});
+  }
 
   public navigate_to(name: string | number, report_name: string): void {
     let page: any = null

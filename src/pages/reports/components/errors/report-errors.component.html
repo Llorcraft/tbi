@@ -1,9 +1,9 @@
-<ng-container *ngIf="!!errors?.length">
-<ion-title>Warning</ion-title>
+<ion-col col-12 *ngIf="!!errors?.length">
+<ion-title col-12>Warnings</ion-title>
 <!-- <p>Report contains error, resuelva los errores para poder realizar el cálculo.</p> -->
 <ul>
     <li *ngFor="let e of errors">
       {{e.message}}
     </li>
   </ul>
-</ng-container>
+</ion-col>

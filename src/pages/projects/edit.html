@@ -4,16 +4,23 @@
       {{ !project.id ? 'New project' : 'Edit project' }}
     </ion-title>
   </ion-navbar>
+  <ion-segment [(ngModel)]="segment">
+    <ion-segment-button value="properties">
+      Properties
+    </ion-segment-button>
+    <ion-segment-button value="files">
+      Files
+    </ion-segment-button>
+  </ion-segment>
 </ion-header>
 
 <ion-content>
   <ion-grid>
-    <ion-row>
-      <ion-col col-md-6 col-sm-12 border-right>
+    <ion-row *ngIf="segment=='properties'">
+      <ion-col col-12>
         <ion-row>
           <ion-col col-md-6 col-12>
             <ion-row>
-              <ion-title col-12>Project Properties</ion-title>
               <ion-item>
                 <ion-label stacked>Name</ion-label>
                 <ion-input type="text" [(ngModel)]="project.name"></ion-input>
@@ -89,8 +96,9 @@
           </ion-col>
         </ion-row>
       </ion-col>
-      <ion-col col-md-6 col-12>
-        <ion-title>Files</ion-title>
+    </ion-row>
+    <ion-row *ngIf="segment=='files'">
+      <ion-col col-12>
         <ion-list id="document-list" [class.editable]="edit_mode">
           <ion-item *ngFor="let f of files">
             <ion-icon name="document-pdf" color="gray" item-start></ion-icon>
@@ -101,10 +109,6 @@
       </ion-col>
     </ion-row>
   </ion-grid>
-
-
-
-
 </ion-content>
 
 <ion-footer>
@@ -116,10 +120,10 @@
         </button>
       </ion-col>
       <ion-col col-9 text-right no-padding>
-        <button ion-button small color="light">
+        <button *ngIf="segment=='files'" ion-button small color="light">
           Upload file
         </button>
-        <button ion-button small color="primary" (click)="save()">
+        <button *ngIf="segment=='properties'" ion-button small color="primary" (click)="save()">
           Save
         </button>
       </ion-col>

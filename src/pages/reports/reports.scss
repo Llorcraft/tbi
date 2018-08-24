@@ -14,3 +14,12 @@ ion-card {
     }
   }
 }
+ion-icon[tooltip]{
+  position: absolute;
+  right: 2rem;
+  top: 2rem;
+  border-radius: 50%;
+  color: #fff;
+  font-size: 2.5rem;
+  font-weight: 600;
+}

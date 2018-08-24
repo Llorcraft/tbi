@@ -1,7 +1,9 @@
 import { NgModule, ErrorHandler } from '@angular/core';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
+import { TooltipsModule } from 'ionic-tooltips';
 import { MyApp } from './app.component';
 
 /*Pages*/
@@ -11,6 +13,7 @@ import { ProjectReportsPage } from '../pages/home/home';
 import { ProjectsPage } from '../pages/projects/projects';
 import { EditProjectPage } from '../pages/projects/edit';
 import { ProjectPage } from '../pages/projects/project';
+import { SummaryPage } from '../pages/summary/summary';
 
 /*Plugins*/
 import { Camera } from '@ionic-native/camera';
@@ -23,6 +26,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 
 /*Services*/
 import { ProjectService } from '../services';
+import { ReportService } from '../services/report.service';
 import { InitPage } from '../pages/init/init';
 import { PicturesPage } from '../pages/pictures/pictures';
 
@@ -77,7 +81,6 @@ import {
   ReportEditPictureComponent
 } from '../pages/reports'
 
-
 @NgModule({
   declarations: [
     MyApp,
@@ -91,6 +94,7 @@ import {
     ReportsPage,
     InitPage,
     PicturesPage,
+    SummaryPage,
     //
     ReportEditPictureComponent,
     ReportPictureSlideComponent,
@@ -140,6 +144,7 @@ import {
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     FormsModule,
     IonicModule.forRoot(MyApp, {
       iconMode: 'ios',
@@ -147,8 +152,8 @@ import {
       modalLeave: 'modal-slide-out',
       tabsPlacement: 'bottom',
       pageTransition: 'ios-transition'
-    }
-    )
+    }),
+    TooltipsModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -163,6 +168,7 @@ import {
     ReportsPage,
     InitPage,
     PicturesPage,
+    SummaryPage,
     //Reports
     ReportAreaModalComponent,
     ReportTempMarkersWindowComponent,
@@ -171,6 +177,7 @@ import {
   ],
   providers: [
     /*App services*/
+    ReportService,
     ProjectService,
     Camera,
     StatusBar,

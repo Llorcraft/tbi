@@ -3,12 +3,18 @@
     <ion-col col-12>
       <ion-row head-lost>
         <ion-col col-12>
-          <h1 no-padding no-margin>Heat loss</h1>
+          <h1 no-padding no-margin class="text-center">Heat loss</h1>
         </ion-col>
         <ion-col col-12>
           <ion-row>
-            <ion-col col-12 data-measure="kWh/a">{{ report.result.headLost.power | number: '1.0-0'}}</ion-col>
-            <ion-col col-12 data-measure="€/a">{{ report.result.headLost.money | number: '1.0-0'}}</ion-col>
+            <ion-col col-2></ion-col>
+            <ion-col col-8 text-center>{{ report.result.headLost.power | number: '1.0-0'}}</ion-col>
+            <ion-col col-2 data-measure="kWh/a"></ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col col-2></ion-col>
+            <ion-col col-8 text-center>{{ report.result.headLost.money | number: '1.0-0'}}</ion-col>
+            <ion-col col-2 data-measure="€/a"></ion-col>
           </ion-row>
         </ion-col>
       </ion-row>
@@ -18,19 +24,21 @@
         </ion-col>
         <ion-col col-12>
           <ion-row>
-            <ion-col col-5 data-measure="kWh/a">{{ report.result.savingPotentialMin.power | number: '1.0-0'}}</ion-col>
+            <ion-col col-4>{{ report.result.savingPotentialMin.power | number: '1.0-0'}}</ion-col>
             <ion-col col-2 text-center>--></ion-col>
-            <ion-col col-5 data-measure="kWh/a">{{ report.result.savingPotentialMax.power | number: '1.0-0'}}</ion-col>
+            <ion-col col-4>{{ report.result.savingPotentialMax.power | number: '1.0-0'}}</ion-col>
+            <ion-col col-2 data-measure="kWh/a"></ion-col>
           </ion-row>
           <ion-row>
-            <ion-col col-5 data-measure="€/a">{{ report.result.savingPotentialMin.money | number: '1.0-0'}}</ion-col>
+            <ion-col col-4>{{ report.result.savingPotentialMin.money | number: '1.0-0'}}</ion-col>
             <ion-col col-2 text-center>--></ion-col>
-            <ion-col col-5 data-measure="€/a">{{ report.result.savingPotentialMax.money | number: '1.0-0'}}</ion-col>
+            <ion-col col-4>{{ report.result.savingPotentialMax.money | number: '1.0-0'}}</ion-col>
+            <ion-col col-2 data-measure="€/a"></ion-col>
           </ion-row>
         </ion-col>
       </ion-row>
       <ion-row>
-        <ion-col>
+        <ion-col message>
           <h3> {{report.result.advise}}</h3>
         </ion-col>
       </ion-row>

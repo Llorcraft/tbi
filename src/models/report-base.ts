@@ -4,13 +4,14 @@ import { Page } from 'ionic-angular/umd/navigation/nav-util';
 
 export class ReportBase {
   public project: Project = null;
-  public id: number;
+  public id: string = '';
   public name: string = '';
   public path: string = '';
   public page: Page = null;
   public fields: Fields = new Fields();
   public pictures: Picture[] = [];
   public result: Result = null;
+  public relative_to: string = ''
   public get has_markers(): boolean {
     const has_markers = !!this.pictures.filter(p => !!p.has_markers).length;
     if (has_markers) this.update_surface_temp();
@@ -35,26 +36,14 @@ export class ReportBase {
   }
 
   toJSON = () => {
-    this.page = null;
-    delete (this.page);
-    this.project = null;
-    delete (this.project);
-    return this;
+    const report = new ReportBase(this.project, this);
+    report.page = null;
+    delete (report.page);
+    report.project = null;
+    delete (report.project);
+    return report;
   }
 }
-
-// export class MediumTemp {
-//   public value?: number = 0;
-//   public markers: Marker[] = [];
-//   public pictures: Picture[] = [];
-
-//   constructor(mt?: Partial<MediumTemp>) {
-//     if (!mt) return;
-//     Object.assign(this, mt);
-//     this.markers = (mt.markers || []).map(m => new Marker(m));
-//     this.pictures = (mt.pictures || []).map(m => new Picture(m));
-//   }
-// }
 
 class Fields {
   public location: string = '';

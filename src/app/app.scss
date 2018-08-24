@@ -162,3 +162,14 @@ button[with-action] {
   border: 1px solid #ccc;
   border-radius: 4px;
 }
+
+.item-md.item-input.ng-valid.item-input-has-value:not(.input-has-focus):not(.item-input-has-focus) .item-inner, .item-md.item-input.ng-valid.input-has-value:not(.input-has-focus):not(.item-input-has-focus) .item-inner {
+    border-bottom:1px solid #dedede;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+
+.grid[v-center] {
+  height: 100%;
+  justify-content: center;
+}

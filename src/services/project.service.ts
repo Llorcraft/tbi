@@ -15,7 +15,6 @@ export class ProjectService {
       console.warn('Invalid project version');
       return [];
     }
-
   }
 
   public get_all(): Project[] {

@@ -9,6 +9,7 @@ import { Picture } from '../../../../models/picture';
 
 export class ReportPictureSlideComponent {
     @Input() report: ReportBase;
+    @Input() label: boolean;
     @Output() onStartEdit = new EventEmitter<Picture>();;
 
     public edit(picture: Picture): void{

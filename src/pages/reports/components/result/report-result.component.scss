@@ -1,19 +1,52 @@
+$color-blue: rgb(48, 84, 150);
 report-result {
   [head-lost] {
+    border: 1px solid $color-blue;
+    border-radius: .5rem;
+    padding: 1rem 2rem;
+    background: rgba(48, 84, 150, .2);
+    width: 100%;
+    h1 {
+      text-align: center;
+    }
     h4 {
       font-size: 2rem;
     }
     font-size: 2rem;
-    color: RGB(48, 84, 150);
+    color: $color-blue;
   }
   [saving-potential] {
     margin-top: 2rem;
     padding-top: 2rem;
-    border-top: 1px solid #aaa;
+    border: 1px solid rgb(84, 130, 53);
+    border-radius: .5rem;
+    padding: 1rem 2rem;
+    background: rgba(84, 130, 53, .2);
+    width: 100%;
+    h1 {
+      text-align: center;
+    }
     h4 {
       font-size: 2rem;
     }
     font-size: 2rem;
-    color: RGB(84, 130, 53);
+    color: rgb(84, 130, 53);
+    ion-row {
+      ion-col:nth-child(3) {
+        text-align: right;
+      }
+    }
+  }
+  [message] {
+    border: 1px solid darken(rgb(251,252,197), 60);
+    border-radius: .5rem;
+    padding: 1rem 2rem;
+    background: rgb(251,252,197);
+    width: 100%;
+    margin-top: 2rem;
+    h3 {
+      text-align: center;
+      color: darken(rgb(251,252,197), 60)!important;
+    }
   }
 }

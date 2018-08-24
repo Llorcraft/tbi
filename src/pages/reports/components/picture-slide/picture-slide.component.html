@@ -1,20 +1,27 @@
-<ion-row>
-    <ion-col col-10 [ngClass]="{'item-input-has-value': !!report.pictures.length}">
-        <ion-label stacked>Pictures ({{report.pictures.length}})</ion-label>
+<!-- <ion-row>
+    <ion-col  col-10 [ngClass]="{'item-input-has-value': !!report.pictures.length}">
+        <ion-label *ngIf="!!label" stacked>Pictures ({{report.pictures.length}})</ion-label>
     </ion-col>
     <ion-col col-2 style="padding-left: 14px">
         <button (click)="show_modal()" no-padding ion-button small color="light" class="with-action">
             <ion-icon name="camera"></ion-icon>
         </button>
     </ion-col>
-</ion-row>
+</ion-row> -->
 <ion-row>
-    <ion-col col-10 no-padding>
-        <ion-slides no-padding pager="true" zomm="true">
-            <ion-slide *ngFor="let picture of report.pictures">
-                <img [src]="picture.src" (click)="edit(picture)">
-                <div class="markers">Markers: {{picture.markers.length}}</div>
-            </ion-slide>
-        </ion-slides>
-    </ion-col>
+  <ion-col col-12>
+    <ion-slides no-padding pager="true" zomm="true">
+      <ion-slide *ngFor="let picture of report.pictures">
+        <img [src]="picture.src" (click)="edit(picture)">
+        <div class="markers">Markers: {{picture.markers.length}}</div>
+      </ion-slide>
+    </ion-slides>
+  </ion-col>
 </ion-row>
+<!-- <ion-row>
+  <ion-col col-12 text-center>
+    <button (click)="show_modal()" ion-button color="light">
+      <ion-icon name="camera"></ion-icon> Take picture
+    </button>
+  </ion-col>
+</ion-row> -->

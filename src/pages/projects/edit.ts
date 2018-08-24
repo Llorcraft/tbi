@@ -6,7 +6,6 @@ import { ProjectService } from '../../services/project.service';
 import { FileChooser } from '@ionic-native/file-chooser';
 import { FilePath } from '@ionic-native/file-path';
 import { FileOpener } from '@ionic-native/file-opener';
-
 import * as $ from 'jquery';
 import { Camera, CameraOptions } from '@ionic-native/camera';
 import { NON_PICTURE } from '../../const/images';
@@ -83,6 +82,27 @@ export class EditProjectPage extends ProjectPageBase {
           handler: () => {
             let options: CameraOptions = {
               quality: 100,
+              destinationType: this.camera.DestinationType.DATA_URL,
+              encodingType: this.camera.EncodingType.JPEG,
+              mediaType: this.camera.MediaType.PICTURE,
+              allowEdit: true
+            };
+
+            this.camera.getPicture(options).then((imageData) => {
+              project.picture = 'data:image/jpeg;base64,' + imageData;
+              setTimeout(() => this.service.save(project), 500);
+            }, (err) => {
+              console.log(err);
+            });
+          }
+        },
+        {
+          text: 'From gallery',
+          icon: 'images',
+          handler: () => {
+            let options: CameraOptions = {
+              quality: 100,
+              sourceType: this.camera.PictureSourceType.PHOTOLIBRARY,
               destinationType: this.camera.DestinationType.DATA_URL,
               encodingType: this.camera.EncodingType.JPEG,
               mediaType: this.camera.MediaType.PICTURE,

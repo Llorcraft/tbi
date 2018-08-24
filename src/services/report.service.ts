@@ -10,6 +10,7 @@ export class ReportService {
 
     public save(report: ReportBase): void {
         if (!!report.project.reports.filter(r => report.id).length) this.remove(report);
+        if(!report.id) report.id = Math.random().toString().substr(2);
         report.project.reports.push(report);
         this.service.save(report.project);
     }

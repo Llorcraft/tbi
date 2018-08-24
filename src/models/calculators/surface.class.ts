@@ -69,14 +69,14 @@ export class Calculator {
   public Rle_max: number = 1;
   /*Report and Project propesties*/
   public δ: number = 0.00000005670367;
-  public θse = this.report.fields.surface_temp;
-  public θa = this.report.fields.ambient_temp;
-  public Ot = this.report.fields.operational_time;
-  public ε = this.report.fields.surface_material;
-  public Σ = this.report.project.price;
-  public S = this.report.fields.surface;
-  public l = this.report.fields.longitud;
-  public n = this.report.fields.number;
+  public θse = Number(this.report.fields.surface_temp);
+  public θa = Number(this.report.fields.ambient_temp);
+  public Ot = Number(this.report.fields.operational_time);
+  public ε = Number(this.report.fields.surface_material);
+  public Σ = Number(this.report.project.price);
+  public S = Number(this.report.fields.surface);
+  public l = Number(this.report.fields.longitud);
+  public n = Number(this.report.fields.number);
 
   private get_l(index: number) {
     if (this.Δθ <= 80) return [20, 100][index] / 1000;
