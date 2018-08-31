@@ -75,7 +75,7 @@ export class Calculator {
   public ε = Number(this.report.fields.surface_material);
   public Σ = Number(this.report.project.price);
   public S = Number(this.report.fields.surface);
-  public l = Number(this.report.fields.longitud);
+  public l = Number(this.report.fields.length);
   public n = Number(this.report.fields.number);
 
   private get_l(index: number) {

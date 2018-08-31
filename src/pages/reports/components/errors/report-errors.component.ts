@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, EventEmitter } from '@angular/core';
 import { NgForm, ValidationErrors } from '@angular/forms';
 
 @Component({
@@ -12,7 +12,8 @@ export class ReportErrorsComponent {
   set form(form: NgForm) {
     if(!!this._form) return;
     this._form = form;
-    this._form.valueChanges.subscribe((ev) => {
+    form.valueChanges.subscribe((ev) => {
+      this.on_change.emit(form);
       this.update();
     });
     this.update();
@@ -21,6 +22,7 @@ export class ReportErrorsComponent {
     return this._form;
   }
   public errors = [];
+  public on_change: EventEmitter<NgForm> = new EventEmitter<NgForm>();
 
   constructor() {
   }

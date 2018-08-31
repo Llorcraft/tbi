@@ -34,7 +34,7 @@ export class Project {
   public picture: string = NON_PICTURE;
   public documents: Document[] = [];
   public reports: ReportBase[] = [];
-  public price: number = 0;
+  public price?: number = null;
   public people: People = new People();
 
   constructor(project?: Partial<Project>) {

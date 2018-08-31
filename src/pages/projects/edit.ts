@@ -9,6 +9,7 @@ import { FileOpener } from '@ionic-native/file-opener';
 import * as $ from 'jquery';
 import { Camera, CameraOptions } from '@ionic-native/camera';
 import { NON_PICTURE } from '../../const/images';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'page-edit-project',
@@ -21,6 +22,7 @@ export class EditProjectPage extends ProjectPageBase {
   public files: any[] = [];
   public edit_mode = false;
   public error: string = '';
+  public form: NgForm;
 
   constructor(
     public navCtrl: NavController,
@@ -56,9 +58,15 @@ export class EditProjectPage extends ProjectPageBase {
     $('.tabbar').addClass('show-tabbar');
   }
 
+  protected on_focus(event: FocusEvent) {
+    const elm = (event.currentTarget as HTMLElement);
+    elm.scrollIntoView();
+    elm.closest('.scroll-content').scrollTop += Number(elm.getAttribute('scroll')) || 0;
+  }
+
   public open_file(file: string): void {
     this.fileOpener.open(file, 'application/pdf')
-        .catch(err => this.error = JSON.stringify(err, null, 2));
+      .catch(err => this.error = JSON.stringify(err, null, 2));
   }
 
   public save(): void {
@@ -140,8 +148,8 @@ export class EditProjectPage extends ProjectPageBase {
       .then(uri => {
         this.files.push(uri);
         this.filePath.resolveNativePath(uri)
-            .then(filePath => this.files.push(filePath))
-            .catch(err => this.error = JSON.stringify(err, null, 2));
+          .then(filePath => this.files.push(filePath))
+          .catch(err => this.error = JSON.stringify(err, null, 2));
         //this.files.push(uri)
       })
       .catch(e => this.files.push(e));

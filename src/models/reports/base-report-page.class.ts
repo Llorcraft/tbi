@@ -6,7 +6,6 @@ import { CalculatorFactory } from "../calculators/calculator.factory";
 import { Picture } from "../picture";
 import { ReportErrorsComponent, ReportsPage } from "../../pages/reports";
 import { ReportService } from "../../services/report.service";
-import { ProjectsPage } from "../../pages/projects/projects";
 
 export class BaseReportPage {
   @ViewChild('form') form: NgForm;
@@ -28,53 +27,68 @@ export class BaseReportPage {
     ].forEach(p => this.report.pictures.push(new Picture({ src: p })));
   }
 
+  protected on_focus(event: FocusEvent){
+    (event.currentTarget as HTMLElement).scrollIntoView();
+  }
+  
+  private start_changes_observer(): void {
+    this.errors.form = this.form;
+    this.errors.on_change.subscribe((form: NgForm) => {
+      this.view = 'form';
+      this.report.result = null;
+    })
+  }
+
   public save() {
     const project = this.report.project;
     this.service.save(this.report);
     this.ask_for_more_reports(project);
   }
   public ask_for_more_reports(project: Project) {
-          let confirm = this.alertCtrl.create({
-            title: `Create report`,
-            message: `Do you want to add another report associated to this component?`,
-            buttons: [
-              {
-                text: 'Yes',
-                handler: () => {
-                  this.navCtrl.push(ReportsPage, {
-                    report: this.report,
-                    project: project
-                  });
-                }
-              },
-              {
-                text: 'No',
-                handler: () => {
-                  this.navCtrl.push(ProjectsPage, {
-                    project: project
-                  });
-                }
-              }
-            ]
-          });
-          confirm.present();
+    let confirm = this.alertCtrl.create({
+      title: `Create report`,
+      message: `Do you want to add another report associated to this component?`,
+      buttons: [
+        {
+          text: 'Yes',
+          handler: () => {
+            this.navCtrl.push(ReportsPage, {
+              report: this.report,
+              project: project
+            });
+          }
+        },
+        {
+          text: 'No',
+          handler: () => {
+            this.navCtrl.push(ReportsPage, {
+              project: project
+            });
+          }
+        }
+      ]
+    });
+    confirm.present();
   }
   public get has_results(): boolean {
     return !this.form.invalid && this.report.result !== null;
   }
   protected go_back(): BaseReportPage {
-    this.navCtrl.pop();
+    if (this.view === 'edit_picture') {
+      this.view = 'form';
+    } else {
+      this.navCtrl.pop();
+    }
     return this;
   };
 
   protected calculate(): ReportBase {
-    if (!this.errors.form) this.errors.form = this.form;
+    this.start_changes_observer();
     if (!this.form.invalid) {
       this.view = 'result';
       return this.calculator.calculate(this.report);
     } else {
       this.view = 'form';
-      ;
     }
   }
 

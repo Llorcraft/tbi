@@ -8,8 +8,8 @@ export class ReportRouter {
     public navCtrl: NavController) {
   }
 
-  public navigate_to_report(id: number): ReportRouter {
-    const report = this.create_report(id);
+  public navigate_to_report(path: string): ReportRouter {
+    const report = this.create_report(path);
     this.navCtrl.push(report.page, {
       project: this.project,
       report: report
@@ -17,8 +17,8 @@ export class ReportRouter {
     return this;
   }
 
-  public create_report(id: number): ReportBase {
-    switch (id) {
+  public create_report(path: string): ReportBase {
+    switch (path) {
       case REPORT.INSULATION.UNINSULATED_EQUIPMENTS.SURFACE:
         return factory.Report.Insulation.InunsulatedEquipment.Factory.Surface();
     }

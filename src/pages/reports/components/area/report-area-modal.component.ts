@@ -17,25 +17,25 @@ export class ReportAreaModalComponent{
     cilinder: 1,
     circle: 2
   };
-  @ViewChild(Slides) slides: Slides;
+  //@ViewChild(Slides) slides: Slides;
 
   constructor(private viewCtrl: ViewController) {
   }
 
-  protected set_active_segment(): ReportAreaModalComponent{
-    this.segment.value = ['cube', 'cilinder', 'circle'][this.slides.getActiveIndex()];
-    return this;
-  }
+  // protected set_active_segment(): ReportAreaModalComponent{
+  //   this.segment.value = ['cube', 'cilinder', 'circle'][this.slides.getActiveIndex()];
+  //   return this;
+  // }
   protected close(): ReportAreaModalComponent {
     this.viewCtrl.dismiss(null);
     return this;
   }
 
   private get_surface(): number {
-    switch (this.slides.getActiveIndex()) {
-      case 1:
+    switch (this.segment.value) {
+      case 'cilinder':
         return 2 * Math.PI * this.radius * this.height;
-      case 2:
+      case 'circle':
         return Math.PI * Math.sqrt(this.radius);
       default:
         return 2 * (this.width * this.deep + this.width * this.height + this.deep * this.height);
@@ -47,8 +47,8 @@ export class ReportAreaModalComponent{
     return this;
   }
 
-  protected segmentChanged(selected: Segment): ReportAreaModalComponent {
-    this.slides.slideTo(this.segment[selected.value]);
-    return this;
-  }
+  // protected segmentChanged(selected: Segment): ReportAreaModalComponent {
+  //   this.slides.slideTo(this.segment[selected.value]);
+  //   return this;
+  // }
 }

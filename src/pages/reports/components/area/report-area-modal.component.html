@@ -1,5 +1,5 @@
 <ion-toolbar>
-  <ion-segment [(ngModel)]="segment.value" color="primary" (ionChange)="segmentChanged($event)">
+  <ion-segment [(ngModel)]="segment.value" color="primary">
     <ion-segment-button value="cube">
       Cube
     </ion-segment-button>
@@ -13,86 +13,75 @@
 </ion-toolbar>
 
 <ion-content>
-  <ion-slides #slides (ionSlideDidChange)="set_active_segment()">
-    <ion-slide active>
-      <ion-grid>
-        <ion-row>
-          <ion-col col-12 col-md-8>
-            <div svg="area-cube" padding></div>
-          </ion-col>
-          <ion-col col-12 col-md-4>
-            <ion-row>
-              <ion-col col-12>
-                <ion-item>
-                  <ion-label stacked>a (m)</ion-label>
-                  <ion-input type="number" [(ngModel)]="width"></ion-input>
-                </ion-item>
-              </ion-col>
-              <ion-col col-12>
-                <ion-item>
-                  <ion-label stacked>b (m)</ion-label>
-                  <ion-input type="number" [(ngModel)]="deep"></ion-input>
-                </ion-item>
-              </ion-col>
-              <ion-col col-12>
-                <ion-item>
-                  <ion-label stacked>h (m)</ion-label>
-                  <ion-input type="number" [(ngModel)]="height"></ion-input>
-                </ion-item>
-              </ion-col>
-            </ion-row>
-          </ion-col>
-        </ion-row>
-      </ion-grid>
-    </ion-slide>
-    <ion-slide>
-      <ion-grid>
-        <ion-row>
-          <ion-col col-12 col-md-8>
-            <div svg="area-cilinder" padding></div>
-          </ion-col>
-          <ion-col col-12 col-md-4>
-            <ion-row>
-              <ion-col col-12>
-                <ion-item>
-                  <ion-label stacked>h (m)</ion-label>
-                  <ion-input type="number" [(ngModel)]="height"></ion-input>
-                </ion-item>
-              </ion-col>
-              <ion-col col-12>
-                <ion-item>
-                  <ion-label stacked>r (m)</ion-label>
-                  <ion-input type="number" [(ngModel)]="radius"></ion-input>
-                </ion-item>
-              </ion-col>
-            </ion-row>
-          </ion-col>
-        </ion-row>
-      </ion-grid>
-    </ion-slide>
-    <ion-slide>
-      <ion-grid>
-        <ion-row>
-          <ion-col col-12 col-md-8>
-            <div svg="area-circle" padding></div>
-          </ion-col>
-          <ion-col col-12 col-md-4>
-            <ion-row>
-              <ion-col col-12>
-                <ion-item>
-                  <ion-label stacked>r (m)</ion-label>
-                  <ion-input type="number" [(ngModel)]="radius"></ion-input>
-                </ion-item>
-              </ion-col>
-            </ion-row>
-          </ion-col>
-        </ion-row>
-      </ion-grid>
-    </ion-slide>
-
-  </ion-slides>
-
-
+    <ion-grid [hidden]="segment.value!='cube'">
+      <ion-row>
+        <ion-col col-12 col-md-8>
+          <div svg="area-cube" padding></div>
+        </ion-col>
+        <ion-col col-12 col-md-4>
+          <ion-row>
+            <ion-col col-12>
+              <ion-item>
+                <ion-label stacked>a (m)</ion-label>
+                <ion-input type="number" [(ngModel)]="width"></ion-input>
+              </ion-item>
+            </ion-col>
+            <ion-col col-12>
+              <ion-item>
+                <ion-label stacked>b (m)</ion-label>
+                <ion-input type="number" [(ngModel)]="deep"></ion-input>
+              </ion-item>
+            </ion-col>
+            <ion-col col-12>
+              <ion-item>
+                <ion-label stacked>h (m)</ion-label>
+                <ion-input type="number" [(ngModel)]="height"></ion-input>
+              </ion-item>
+            </ion-col>
+          </ion-row>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    <ion-grid [hidden]="segment.value!='cilinder'">
+      <ion-row>
+        <ion-col col-12 col-md-8>
+          <div svg="area-cilinder" padding></div>
+        </ion-col>
+        <ion-col col-12 col-md-4>
+          <ion-row>
+            <ion-col col-12>
+              <ion-item>
+                <ion-label stacked>h (m)</ion-label>
+                <ion-input type="number" [(ngModel)]="height"></ion-input>
+              </ion-item>
+            </ion-col>
+            <ion-col col-12>
+              <ion-item>
+                <ion-label stacked>r (m)</ion-label>
+                <ion-input type="number" [(ngModel)]="radius"></ion-input>
+              </ion-item>
+            </ion-col>
+          </ion-row>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    <ion-grid [hidden]="segment.value!='circle'">
+      <ion-row>
+        <ion-col col-12 col-md-8>
+          <div svg="area-circle" padding></div>
+        </ion-col>
+        <ion-col col-12 col-md-4>
+          <ion-row>
+            <ion-col col-12>
+              <ion-item>
+                <ion-label stacked>r (m)</ion-label>
+                <ion-input type="number" [(ngModel)]="radius"></ion-input>
+              </ion-item>
+            </ion-col>
+          </ion-row>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
 </ion-content>
 
 <ion-footer>

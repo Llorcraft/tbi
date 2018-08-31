@@ -4,26 +4,29 @@
       Surface
     </ion-title>
   </ion-navbar>
+
+  <ion-segment [(ngModel)]="segment">
+    <ion-segment-button value="input">
+      Input
+    </ion-segment-button>
+    <ion-segment-button value="pictures">
+      Pictures ({{report.pictures.length}})
+    </ion-segment-button>
+  </ion-segment>
+
 </ion-header>
 
 <ion-content>
-  <ion-grid *ngIf="view!=='edit_picture'">
-    <ion-row>
+
+  <ion-grid full-height with-footer [hidden]="view=='edit_picture'">
+    <ion-row full-height>
       <ion-col col-12 col-md-6 no-padding>
-        <ion-segment [(ngModel)]="segment">
-          <ion-segment-button value="input">
-            Input
-          </ion-segment-button>
-          <ion-segment-button value="pictures">
-            Pictures ({{report.pictures.length}})
-          </ion-segment-button>
-        </ion-segment>
-        <form novalidate #form="ngForm" *ngIf="view!='edit_picture' && segment=='input'">
+        <form novalidate #form="ngForm" [hidden]="segment!='input'">
           <ion-row>
             <ion-col col-12>
               <ion-item>
                 <ion-label stacked>Component/Location</ion-label>
-                <ion-input name="location" required data-val-required="Please input Component/Location" minlength="5" data-val-minlength="Component/Location field is too short, type 5 characters at less"
+                <ion-input (focus)="on_focus($event)" name="location" required data-val-required="Please input Component/Location"
                   [(ngModel)]="report.fields.location" type="text"></ion-input>
               </ion-item>
             </ion-col>
@@ -45,7 +48,7 @@
               <ion-item>
                 <ion-label stacked>Surface (m
                   <sup>2</sup>)</ion-label>
-                <ion-input name="surface" required data-val-required="Please input surface in m²" [(ngModel)]="report.fields.surface" type="number"
+                  <ion-input (focus)="on_focus($event)" name="surface" required data-val-required="Please input surface in m²" [(ngModel)]="report.fields.surface" type="number"
                   [(ngModel)]="surface"></ion-input>
               </ion-item>
             </ion-col>
@@ -57,7 +60,7 @@
             <ion-col col-10>
               <ion-item>
                 <ion-label stacked>Surface material</ion-label>
-                <ion-input name="surface_material" required data-val-required="Please input surface emissivity" [(ngModel)]="report.fields.surface_material"
+                <ion-input (focus)="on_focus($event)" name="surface_material" required data-val-required="Please input surface emissivity" [(ngModel)]="report.fields.surface_material"
                   type="number"></ion-input>
               </ion-item>
             </ion-col>
@@ -70,7 +73,7 @@
               <ion-item>
                 <ion-label stacked>Ambient temperature (
                   <sup>º</sup>C)</ion-label>
-                <ion-input name="ambient_temp" required data-val-required="Please input Ambient temperature" [(ngModel)]="report.fields.ambient_temp"
+                  <ion-input (focus)="on_focus($event)" name="ambient_temp" required data-val-required="Please input Ambient temperature" [(ngModel)]="report.fields.ambient_temp"
                   type="number"></ion-input>
               </ion-item>
             </ion-col>
@@ -81,7 +84,7 @@
               <ion-item>
                 <ion-label stacked>Medium or Surface temperature (
                   <sup>º</sup>C)</ion-label>
-                <ion-input [disabled]="report.has_markers" name="surface_temp" required data-val-required="Please input Medium or Surface temperature"
+                  <ion-input (focus)="on_focus($event)" [disabled]="report.has_markers" name="surface_temp" required data-val-required="Please input Medium or Surface temperature"
                   [(ngModel)]="report.fields.surface_temp" type="number"></ion-input>
               </ion-item>
             </ion-col>
@@ -91,20 +94,16 @@
           </ion-row>
         </form>
         <ion-row *ngIf="segment=='pictures'">
-            <ion-col col-12 picture-slide [label]="false" [report]="report" (onStartEdit)="on_picture_start_edit($event)">
-            </ion-col>
-          </ion-row>  
+          <ion-col col-12 picture-slide [label]="false" [report]="report" (onStartEdit)="on_picture_start_edit($event)">
+          </ion-col>
+        </ion-row>
       </ion-col>
 
-      <ion-col col-12 col-md-6 no-padding>
-        <ion-row col-12 *ngIf="view!='result' && !report.result">
-            <report-errors padding #errors col-12></report-errors>
-        </ion-row>
-        <ion-row *ngIf="view=='result' && !form.invalid">
-          <report-result [report]="this.report" col-12></report-result>
-        </ion-row>
-
+      <ion-col col-12 col-md-6 no-padding style="display: flex!important;align-content: center!important;align-items: center!important;">
+        <report-errors padding #errors col-12 *ngIf="view!='result' && !report.result"></report-errors>
+        <report-result col-12 [report]="report" *ngIf="view=='result' && (!!form && !form.invalid)"></report-result>
       </ion-col>
+
     </ion-row>
   </ion-grid>
 
@@ -116,15 +115,12 @@
   <ion-grid no-padding>
     <ion-row no-padding>
       <ion-col col-6 no-padding>
-        <button ion-button small color="light" (click)="navCtrl.pop()" *ngIf="['form'].lastIndexOf(view)!==-1">
-          <ion-icon name="arrow-back"></ion-icon>&nbsp;Back
-        </button>
-        <button ion-button small color="light" (click)="view='form'" *ngIf="['edit_picture', 'result'].lastIndexOf(view)!==-1">
+        <button ion-button small color="light" (click)="go_back()">
           <ion-icon name="arrow-back"></ion-icon>&nbsp;Back
         </button>
       </ion-col>
       <ion-col col-6 text-right no-padding *ngIf="view!='edit_picture' && segment==='input'">
-        <button ion-button small pull-right color="primary" (click)="calculate()" *ngIf="view!='edit_picture'">
+        <button ion-button small pull-right color="primary" (click)="calculate()" *ngIf="view!='edit_picture' && !report.result">
           Calculate
         </button>
         <button ion-button small pull-right color="primary" (click)="save()" *ngIf="!!report.result && !form.invalid">
@@ -132,9 +128,9 @@
         </button>
       </ion-col>
       <ion-col col-6 text-right no-padding *ngIf="segment==='pictures' && !report.result">
-          <button (click)="show_modal()" ion-button small pull-right color="success">
-              <ion-icon name="camera"></ion-icon> Take picture
-          </button>
+        <button (click)="show_modal()" ion-button small pull-right color="success">
+          <ion-icon name="camera"></ion-icon> Take picture
+        </button>
       </ion-col>
     </ion-row>
   </ion-grid>

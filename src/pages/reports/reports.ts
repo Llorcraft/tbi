@@ -1,7 +1,7 @@
 import { REPORT } from './../../const/report.const';
 import { Component } from '@angular/core';
 import { NavController, NavParams, AlertController } from 'ionic-angular';
-import { Project } from '../../models';
+import { Project, ReportBase } from '../../models';
 import { ProjectService } from '../../services/project.service';
 import { GenericReportPage } from './';
 import { ProjectsPage } from '../projects/projects';
@@ -16,6 +16,7 @@ import { SummaryPage } from '../summary/summary';
 
 export class ReportsPage extends ReportRouter {
   public project: Project;
+  public report: ReportBase;
   public type: string = "";
   public segment: Segment = new Segment();
   public REPORT = REPORT;
@@ -26,8 +27,10 @@ export class ReportsPage extends ReportRouter {
     public service: ProjectService) {
 
     super(navParams.get('project') as Project, navCtrl);
+    debugger;
     this.project = navParams.get('project');
     this.type = navParams.get('type') || '';
+    this.report = navParams.get('report');
     this.segment.set(this.type);
   }
 
