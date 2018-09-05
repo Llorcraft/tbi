@@ -11,7 +11,7 @@
 <ion-row>
   <ion-col col-12>
     <ion-slides no-padding pager="true" zomm="true">
-      <ion-slide *ngFor="let picture of component.pictures">
+      <ion-slide *ngFor="let picture of component.images">
         <img [src]="picture.src" (click)="edit(picture)">
         <div class="markers">Markers: {{picture.markers.length}}</div>
       </ion-slide>

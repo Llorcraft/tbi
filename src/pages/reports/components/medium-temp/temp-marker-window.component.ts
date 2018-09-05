@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Marker } from './../../../../models/marker';
 import { ViewController, NavParams } from 'ionic-angular';
+import { Picture } from '../../../../models/picture';
 
 @Component({
   selector: 'markers-window',
@@ -13,12 +14,15 @@ export class ReportTempMarkersWindowComponent {
   protected get disabled(): boolean {
     return this.markers.filter(m => m.hasValue).length === 0;
   }
-  constructor(private viewCtrl: ViewController, params: NavParams) {
-    this.markers = Array.apply(null, { length: 10 })
-      .map(p => new Marker({ temperature: null }));
+  constructor(private viewCtrl: ViewController, private params: NavParams) {
+    const markers = [].concat.apply([], params.data.pictures.sort(p1 => !p1.src).map(p => p.markers));
+    this.markers = markers.slice(0, 10);
   }
 
   protected calculate(): ReportTempMarkersWindowComponent {
+    this.params.data.pictures.forEach((p: Picture) => p.markers = p.markers.sort(m => m.temperature).reverse());
+    this.params.data.pictures.filter((p: Picture) => !!p.src).forEach((p: Picture) => p.markers = p.markers.filter(m => m.hasValue));
+
     this.viewCtrl.dismiss(this.markers.filter(m => m.hasValue));
     return this;
   }

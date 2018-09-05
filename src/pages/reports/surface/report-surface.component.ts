@@ -50,7 +50,7 @@ export class ReportSurfacePage extends BaseReportPage {
           handler: () => this.before_calculate(this.report.component.fields.surface_temp = this.report.component.min_temp)
         },
         {
-          text: `Maximun ${this.report.component.max_temp}ºC`,
+          text: `Maximum ${this.report.component.max_temp}ºC`,
           handler: () => this.before_calculate(this.report.component.fields.surface_temp = this.report.component.max_temp)
         }
       ]

@@ -46,8 +46,11 @@ export class BaseReportPage {
   }
 
   protected on_focus(event: FocusEvent) {
-    (event.currentTarget as HTMLElement).scrollIntoView();
+    const elm = (event.currentTarget as HTMLElement);
+    elm.scrollIntoView();
+    elm.closest('.scroll-content').scrollTop += Number(elm.getAttribute('scroll')) || 0;
   }
+
 
   private start_changes_observer(): void {
     this.errors.form = this.form;
@@ -58,7 +61,6 @@ export class BaseReportPage {
   }
 
   public save() {
-    debugger;
     if (!!this.form.invalid) return;
     const project = this.report.component.project;
     this.service.save(this.report);
@@ -83,7 +85,8 @@ export class BaseReportPage {
           text: 'No',
           handler: () => {
             this.navCtrl.push(ReportsPage, {
-              project: project
+              project: project, 
+              message: `“${this.report.component.fields.location}” have been saved. You are going to start reports on a new component.`
             });
           }
         }

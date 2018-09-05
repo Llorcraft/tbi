@@ -1,6 +1,7 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, Output, Input } from '@angular/core';
 import { ModalController } from 'ionic-angular';
 import { ReportTempMarkersWindowComponent } from '../..';
+import { TbiComponent } from '../../../../models/component';
 
 @Component({
   selector: 'medium-temp',
@@ -10,13 +11,16 @@ import { ReportTempMarkersWindowComponent } from '../..';
 export class ReportMediumTempButtonsComponent {
   protected show = { markers: true, pictures: true };
   @Output('change') change = new EventEmitter<number>();
+  @Input() component: TbiComponent;
   @Output() value: number;
 
   constructor(private modalCtrl: ModalController) { }
 
   protected show_markers(): ReportMediumTempButtonsComponent {
     const modal = this.modalCtrl.create(ReportTempMarkersWindowComponent,
-      null,
+      { 
+        pictures: this.component.pictures
+      },
       {
         cssClass: "modal-window-markers",
         showBackdrop: true,

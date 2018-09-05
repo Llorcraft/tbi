@@ -4,16 +4,16 @@ export class Picture {
   public src: string = '';
   public markers: Marker[] = [];
   public get has_markers(): boolean {
-    return !!this.markers.length;
+    return !!this.markers.map(m => m.hasValue).length;
   }
   public get min_temp(): number {
-    return !this.has_markers ? null : this.markers.map(m => m.temperature).sort()[0];
+    return !this.has_markers ? null : this.markers.filter(m => m.hasValue).map(m => m.temperature).sort()[0];
   }
   public get max_temp(): number {
-    return !this.has_markers ? null : this.markers.map(m => m.temperature).sort().reverse()[0];
+    return !this.has_markers ? null : this.markers.filter(m => m.hasValue).map(m => m.temperature).sort().reverse()[0];
   }
   public get surface_temp(): number {
-    return !this.markers.length ? null : eval(this.markers.map(m => m.temperature).join('+')) / this.markers.length;
+    return !this.has_markers ? null : eval(this.markers.filter(m => m.hasValue).map(m => m.temperature).join('+')) / this.markers.map(m => m.hasValue).length;
   }
   constructor(item?: Partial<Picture>) {
     if (!!item) {

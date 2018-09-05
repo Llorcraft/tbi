@@ -77,7 +77,7 @@ export class Calculator {
   public Ot = Number(this.report.component.fields.operational_time);
   public ε = Number(this.report.component.fields.surface_material);
   public Σ = Number(this.report.component.project.price);
-  public S = Number(this.report.component.fields.surface);
+  public S = Number(this.report.component.fields.surface || 1);
   public l = Number(this.report.component.fields.length);
   public n = Number(this.report.component.fields.number);
 

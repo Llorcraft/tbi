@@ -5,19 +5,11 @@
     </ion-title>
     <ion-buttons end>
       <button ion-button color="light" on-tap="take_picture()">
-        <ion-icon name="md-camera"></ion-icon>&nbsp;Picture
+        <ion-icon name="md-camera"></ion-icon>&nbsp;Take a picture
       </button>
     </ion-buttons>
   </ion-navbar>
 
-  <ion-segment [(ngModel)]="segment" [disabled]="view=='edit_picture'">
-    <ion-segment-button value="input">
-      Input
-    </ion-segment-button>
-    <ion-segment-button value="pictures">
-      Pictures ({{report.component.pictures.length}})
-    </ion-segment-button>
-  </ion-segment>
 
 </ion-header>
 
@@ -25,13 +17,22 @@
 
   <ion-grid full-height with-footer [hidden]="view=='edit_picture'">
     <ion-row full-height>
-      <ion-col col-12 col-md-6 no-padding>
+      <ion-col col-12 col-md-6 no-padding fixed-segment>
+        <ion-segment [(ngModel)]="segment" [disabled]="view=='edit_picture'">
+          <ion-segment-button value="input">
+            Input
+          </ion-segment-button>
+          <ion-segment-button value="pictures">
+            Pictures ({{report.component.images.length}})
+          </ion-segment-button>
+        </ion-segment>
+
         <form novalidate #form="ngForm" [hidden]="segment!='input'">
           <ion-row>
             <ion-col col-12>
               <ion-item>
                 <ion-label stacked>Component/Location</ion-label>
-                <ion-input (focus)="on_focus($event)" name="location" required data-val-required="Please input Component/Location"
+                <ion-input scroll="-80" (focus)="on_focus($event)" name="location" required data-val-required="Please input Component/Location"
                   [(ngModel)]="report.component.fields.location" type="text"></ion-input>
               </ion-item>
             </ion-col>
@@ -95,7 +96,8 @@
               </ion-item>
             </ion-col>
             <ion-col col-2>
-              <medium-temp #medium (change)="report.component.fields.surface_temp=medium.value" modal-button pull-left></medium-temp>
+              <!-- <medium-temp #medium (change)="report.component.fields.surface_temp=medium.value" modal-button pull-left></medium-temp> -->
+              <medium-temp #medium [component]="report.component" modal-button pull-left></medium-temp>
             </ion-col>
           </ion-row>
         </form>
@@ -105,7 +107,7 @@
         </ion-row>
       </ion-col>
 
-      <ion-col col-12 col-md-6 no-padding style="display: flex!important;align-content: center!important;align-items: center!important;">
+      <ion-col col-12 col-md-6 no-padding style="display: flex!important;align-content: top!important;align-items: top!important;">
         <report-errors padding #errors col-12 *ngIf="view!='result' && !report.result"></report-errors>
         <report-result col-12 [report]="report" *ngIf="view=='result' && (!!form && !form.invalid)"></report-result>
       </ion-col>

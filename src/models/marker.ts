@@ -1,11 +1,11 @@
 export class Marker {
   public x: number = 0;
   public y: number = 0;
-  public temperature: number = 0;
+  public temperature?: number = null;
   public get hasValue(): boolean {
-    return !(null === this.temperature
-      || 'undefined' === typeof this.temperature
-      || '' === this.temperature.toString());
+    return 'null' != this.temperature.toString()
+      && 'undefined' != typeof this.temperature.toString()
+      && '' != this.temperature.toString();
   }
 
   public get position(): string {

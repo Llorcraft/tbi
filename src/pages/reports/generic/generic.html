@@ -4,8 +4,9 @@
       {{report.component.project.name}} - CUSTOM
     </ion-title>
     <ion-buttons end>
-      <button ion-button color="royal" (click)="show_pictures()">
-        <ion-icon name="camera"></ion-icon>&nbsp;Pictures</button>
+      <button ion-button color="light" on-tap="take_picture()">
+          <ion-icon name="md-camera"></ion-icon>&nbsp;Take a picture
+      </button>
     </ion-buttons>
   </ion-navbar>
 </ion-header>
