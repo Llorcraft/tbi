@@ -1,13 +1,21 @@
 import { ReportBase, Project } from "../models";
 import { ReportSurface } from "../models/reports";
+import { TbiComponent } from "../models/component";
+import { ReportGeneric } from "../models/reports/report-generic.class";
 
 export namespace Report {
+  export class Factory {
+    public static base_path =  'Insulation\\Un-Insulated Equipments\\';
+    public static Generic(project?: Project, component?: TbiComponent, item?: ReportBase): ReportBase {
+      return new ReportGeneric(project, component || new TbiComponent(project), item);
+    }
+  }
   export namespace Insulation {
     export namespace InunsulatedEquipment {
       export class Factory {
         public static base_path =  'Insulation\\Un-Insulated Equipments\\';
-        public static Surface(project?: Project, item?: ReportBase): ReportBase {
-          return new ReportSurface(project, item);
+        public static Surface(project?: Project, component?: TbiComponent, item?: ReportBase): ReportBase {
+          return new ReportSurface(project, component || new TbiComponent(project), item);
         }
         // public static Pipe(): ReportBase {
         //   return new ReportBase({

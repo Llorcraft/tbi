@@ -6,11 +6,14 @@ import { CalculatorFactory } from "../calculators/calculator.factory";
 import { Picture } from "../picture";
 import { ReportErrorsComponent, ReportsPage } from "../../pages/reports";
 import { ReportService } from "../../services/report.service";
+import { CameraService } from "../../services/camera";
+import { More } from "../../const/more/more";
 
 export class BaseReportPage {
   @ViewChild('form') form: NgForm;
   @ViewChild('errors') errors: ReportErrorsComponent;
   public calculator = new CalculatorFactory();
+  public edit_surface_material = false;
   protected view = 'form';
   protected editing_picture: Picture = new Picture();
   protected segment = 'input';
@@ -19,18 +22,33 @@ export class BaseReportPage {
     protected navCtrl: NavController,
     protected service: ReportService,
     protected alertCtrl: AlertController,
+    protected camera: CameraService
   ) {
     [
       'https://restorationmasterfinder.com/restoration/wp-content/uploads/2016/08/pipe-burst.jpg',
       'http://www.wklawyers.com/wp-content/uploads/2015/02/plumbing-leak-pipe-burst-attorney.jpg',
       'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ9QhRSAcVUI3nmDVmShbEX_BcSqx2rGJkzWshEVKV5SPvwEA0LHQ'
-    ].forEach(p => this.report.pictures.push(new Picture({ src: p })));
+    ].forEach(p => this.report.component.pictures.push(new Picture({ src: p })));
   }
 
-  protected on_focus(event: FocusEvent){
+  public toggle_surface_material(value: boolean) {
+    this.edit_surface_material = value;
+    setTimeout(() => {
+      if (!!value) document.getElementsByName('surface_material')[1].focus();
+    }, 200);
+  }
+
+  public set_surface_material(index?: number, event?: number | Event) {
+    console.warn(typeof event == 'object')
+    const material = More.MATERIALS.find(c => c[1] == index);
+    this.report.component.fields.surface_material_index = typeof event == 'object' ? null : index;
+    this.report.component.fields.surface_material = !!material ? Number(material[2]) : !!index ? Number(index) : index;
+  }
+
+  protected on_focus(event: FocusEvent) {
     (event.currentTarget as HTMLElement).scrollIntoView();
   }
-  
+
   private start_changes_observer(): void {
     this.errors.form = this.form;
     this.errors.on_change.subscribe((form: NgForm) => {
@@ -40,10 +58,13 @@ export class BaseReportPage {
   }
 
   public save() {
-    const project = this.report.project;
+    debugger;
+    if (!!this.form.invalid) return;
+    const project = this.report.component.project;
     this.service.save(this.report);
     this.ask_for_more_reports(project);
   }
+
   public ask_for_more_reports(project: Project) {
     let confirm = this.alertCtrl.create({
       title: `Create report`,
@@ -70,9 +91,11 @@ export class BaseReportPage {
     });
     confirm.present();
   }
+
   public get has_results(): boolean {
     return !this.form.invalid && this.report.result !== null;
   }
+
   protected go_back(): BaseReportPage {
     if (this.view === 'edit_picture') {
       this.view = 'form';
@@ -95,5 +118,9 @@ export class BaseReportPage {
   protected on_picture_start_edit(picture: Picture): void {
     this.editing_picture = picture;
     this.view = 'edit_picture';
+  }
+
+  public take_picture() {
+    this.camera.take_picture().subscribe(d => this.report.component.pictures.push(new Picture({ src: d })));
   }
 }

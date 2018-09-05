@@ -167,6 +167,7 @@ button[with-action] {
   padding: .5rem .5rem .5rem 1rem;
   border: 1px solid #ccc;
   border-radius: 4px;
+  width: 3rem;
 }
 
 .item-md.item-input.ng-valid.item-input-has-value:not(.input-has-focus):not(.item-input-has-focus) .item-inner,
@@ -179,4 +180,18 @@ button[with-action] {
 .grid[v-center] {
   height: 100%;
   justify-content: center;
+}
+
+
+.alert-md .alert-head {
+  padding: 10px;
+  text-align: center;
+}
+
+.alert-md .alert-message, .alert-md .alert-input-group{
+  padding: 0 10px!important;
+}
+
+.alert-md .alert-button-group{
+  padding: 0 10px!important;
 }

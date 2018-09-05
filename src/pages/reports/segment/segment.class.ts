@@ -9,8 +9,8 @@ export class Segment {
     this.value = 0;
     const options = {
       '': [],
-      'insulation': ['UN-Insulated Equipments', 'Insulated Equipments', 'Cold Insulation'],
-      'hot-surface': ['UN-Insulated Equipments', 'Insulated Equipments']
+      'insulation': ['UN-Insulated Equipment', 'Insulated Equipment', 'Cold Insulation'],
+      'hot-surface': ['UN-Insulated Equipment', 'Insulated Equipment']
     }
     this.options = options[option] || [];
     this.hidden = !this.options.length;

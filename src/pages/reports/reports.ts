@@ -3,11 +3,11 @@ import { Component } from '@angular/core';
 import { NavController, NavParams, AlertController } from 'ionic-angular';
 import { Project, ReportBase } from '../../models';
 import { ProjectService } from '../../services/project.service';
-import { GenericReportPage } from './';
 import { ProjectsPage } from '../projects/projects';
 import { ReportRouter } from '../../models/report-router';
 import { Segment } from './segment/segment.class';
 import { SummaryPage } from '../summary/summary';
+import { TbiComponent } from '../../models/component';
 
 @Component({
   selector: 'page-reports',
@@ -15,7 +15,6 @@ import { SummaryPage } from '../summary/summary';
 })
 
 export class ReportsPage extends ReportRouter {
-  public project: Project;
   public report: ReportBase;
   public type: string = "";
   public segment: Segment = new Segment();
@@ -25,27 +24,20 @@ export class ReportsPage extends ReportRouter {
     public navParams: NavParams,
     public alertCtrl: AlertController,
     public service: ProjectService) {
-
-    super(navParams.get('project') as Project, navCtrl);
-    debugger;
-    this.project = navParams.get('project');
+    super(navParams.get('project') as Project, navParams.get('component') as TbiComponent, navCtrl);
     this.type = navParams.get('type') || '';
     this.report = navParams.get('report');
     this.segment.set(this.type);
   }
 
-  protected open_summary():void{
-    this.navCtrl.push(SummaryPage, {project: this.project});
+  protected open_summary(): void {
+    this.navCtrl.push(SummaryPage, { project: this.project });
   }
 
   public navigate_to(name: string | number, report_name: string): void {
     let page: any = null
-    let params: any = { project: this.project, parent: this };
+    let params: any = { project: this.project, parent: this, component: this.component };
     switch (name) {
-      case 'generic':
-        page = GenericReportPage;
-        params.report_name = report_name;
-        break;
       default:
         page = ReportsPage;
         params.type = name;

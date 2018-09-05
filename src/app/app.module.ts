@@ -27,6 +27,10 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 /*Services*/
 import { ProjectService } from '../services';
 import { ReportService } from '../services/report.service';
+import { ComponentService } from '../services/component.service';
+import { CameraService } from '../services/camera';
+
+import { ReportSafetSurfacePage } from '../pages/reports/safety/surface';
 import { InitPage } from '../pages/init/init';
 import { PicturesPage } from '../pages/pictures/pictures';
 
@@ -63,7 +67,7 @@ import { SvgCircleAreaComponent } from '../components/svg/svg-circle-area.compon
 import { SvgHousekeepingComponent } from '../components/svg/svg-housekeeping.component';
 import { SvgStructuralComponent } from '../components/svg/svg-structural.component';
 //Reports
-import { ReportSafetSurfacePage } from '../pages/reports/safety/surface';
+
 import {
   GenericReportPage,
   ReportHeaderComponent,
@@ -81,6 +85,9 @@ import {
   ReportEditPictureComponent
 } from '../pages/reports'
 
+//Pipes
+import { SurfaceMaterialPipe } from '../pipes/surface-material.pipe';
+
 @NgModule({
   declarations: [
     MyApp,
@@ -95,6 +102,8 @@ import {
     InitPage,
     PicturesPage,
     SummaryPage,
+    //Pipes
+    SurfaceMaterialPipe,
     //
     ReportEditPictureComponent,
     ReportPictureSlideComponent,
@@ -179,6 +188,8 @@ import {
     /*App services*/
     ReportService,
     ProjectService,
+    ComponentService,
+    CameraService,
     Camera,
     StatusBar,
     SplashScreen,

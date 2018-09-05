@@ -24,11 +24,11 @@
             <ion-row>
               <ion-title col-12>Name</ion-title>
               <ion-item>
-                <ion-input (focus)="on_focus($event)" type="text" [(ngModel)]="project.name" name="name" scroll="70"></ion-input>
+                <ion-input autocomplete="off" tabindex="1" (focus)="on_focus($event)" type="text" [(ngModel)]="project.name" name="name" scroll="-70"></ion-input>
               </ion-item>
               <ion-title col-12>Energy Price</ion-title>
               <ion-item>
-                <ion-input (focus)="on_focus($event)" type="text" [(ngModel)]="project.price" name="price"></ion-input>
+                <ion-input autocomplete="off" tabindex="2" (focus)="on_focus($event)" type="number" [(ngModel)]="project.price" name="price" scroll="-70"></ion-input>
               </ion-item>
             </ion-row>
           </ion-col>
@@ -43,13 +43,13 @@
             <ion-row mb-3>
               <ion-title col-12>Project Leader</ion-title>
               <ion-item col-md-5 col-12>
-                  <ion-input (focus)="on_focus($event)" [(ngModel)]="project.people.leader.name" placeholder="Name" name="leader-name"></ion-input>
+                  <ion-input autocomplete="off" tabindex="2" (focus)="on_focus($event)" [(ngModel)]="project.people.leader.name" placeholder="Name" name="leader-name" scroll="-70"></ion-input>
               </ion-item>
               <ion-item col-md-4 col-12>
-                  <ion-input (focus)="on_focus($event)" type="email" [(ngModel)]="project.people.leader.email" placeholder="Email" name="leader-email"></ion-input>
+                  <ion-input autocomplete="off" tabindex="3" (focus)="on_focus($event)" type="email" [(ngModel)]="project.people.leader.email" placeholder="Email" name="leader-email" scroll="-70"></ion-input>
               </ion-item>
               <ion-item col-md-3 col-12>
-                  <ion-input (focus)="on_focus($event)" type="phone" [(ngModel)]="project.people.leader.phone" placeholder="Phone" name="leader-phone"></ion-input>
+                  <ion-input autocomplete="off" tabindex="4" (focus)="on_focus($event)" type="phone" [(ngModel)]="project.people.leader.phone" placeholder="Phone" name="leader-phone" scroll="-70"></ion-input>
               </ion-item>
             </ion-row>
           </ion-col>
@@ -57,13 +57,13 @@
             <ion-row mb-3>
               <ion-title col-12>Energy Manager</ion-title>
               <ion-item col-md-5 col-12>
-                  <ion-input (focus)="on_focus($event)" [(ngModel)]="project.people.energy_manager.name" placeholder="Name" name="energy-name"></ion-input>
+                  <ion-input autocomplete="off" tabindex="5" (focus)="on_focus($event)" [(ngModel)]="project.people.energy_manager.name" placeholder="Name" name="energy-name" scroll="-70"></ion-input>
               </ion-item>
               <ion-item col-md-4 col-12>
-                <ion-input (focus)="on_focus($event)" type="email" [(ngModel)]="project.people.energy_manager.email" placeholder="Email" name="energy-email"></ion-input>
+                <ion-input autocomplete="off" tabindex="6" (focus)="on_focus($event)" type="email" [(ngModel)]="project.people.energy_manager.email" placeholder="Email" name="energy-email" scroll="-70"></ion-input>
               </ion-item>
               <ion-item col-md-3 col-12>
-                <ion-input (focus)="on_focus($event)" type="phone" [(ngModel)]="project.people.energy_manager.phone" placeholder="Phone" name="energy-phone"></ion-input>
+                <ion-input autocomplete="off" tabindex="7" (focus)="on_focus($event)" type="phone" [(ngModel)]="project.people.energy_manager.phone" placeholder="Phone" name="energy-phone" scroll="-70"></ion-input>
               </ion-item>
             </ion-row>
           </ion-col>
@@ -71,13 +71,13 @@
             <ion-row mb-3>
               <ion-title col-12>Maintenance Manager</ion-title>
               <ion-item col-md-5 col-12>
-                <ion-input (focus)="on_focus($event)" [(ngModel)]="project.people.maintenance_manager.name" placeholder="Name" name="maintenance-name"></ion-input>
+                <ion-input autocomplete="off" tabindex="8" (focus)="on_focus($event)" [(ngModel)]="project.people.maintenance_manager.name" placeholder="Name" name="maintenance-name" scroll="-70"></ion-input>
               </ion-item>
               <ion-item col-md-4 col-12>
-                <ion-input (focus)="on_focus($event)" type="email" [(ngModel)]="project.people.maintenance_manager.email" placeholder="Email" name="maintenance-email"></ion-input>
+                <ion-input autocomplete="off" tabindex="9" (focus)="on_focus($event)" type="email" [(ngModel)]="project.people.maintenance_manager.email" placeholder="Email" name="maintenance-email" scroll="-70"></ion-input>
               </ion-item>
               <ion-item col-md-3 col-12>
-                <ion-input (focus)="on_focus($event)" type="phone" [(ngModel)]="project.people.maintenance_manager.phone" placeholder="Phone" name="maintenance-phone"></ion-input>
+                <ion-input autocomplete="off" tabindex="10" (focus)="on_focus($event)" type="phone" [(ngModel)]="project.people.maintenance_manager.phone" placeholder="Phone" name="maintenance-phone" scroll="-70"></ion-input>
               </ion-item>
             </ion-row>
           </ion-col>
@@ -85,13 +85,13 @@
             <ion-row>
               <ion-title col-12>HSE Manager</ion-title>
               <ion-item col-md-5 col-12>
-                <ion-input (focus)="on_focus($event)" autocomplete="off" [(ngModel)]="project.people.hse_manager.name" placeholder="Name" name="hse-name"></ion-input>
+                <ion-input autocomplete="off" tabindex="11" (focus)="on_focus($event)" autocomplete="off" [(ngModel)]="project.people.hse_manager.name" placeholder="Name" name="hse-name" scroll="-70"></ion-input>
               </ion-item>
               <ion-item col-md-4 col-12>
-                <ion-input (focus)="on_focus($event)" type="email" [(ngModel)]="project.people.hse_manager.email" placeholder="Email" name="hse-email"></ion-input>
+                <ion-input autocomplete="off" tabindex="12" (focus)="on_focus($event)" type="email" [(ngModel)]="project.people.hse_manager.email" placeholder="Email" name="hse-email" scroll="-70"></ion-input>
               </ion-item>
               <ion-item col-md-3 col-12>
-                <ion-input (focus)="on_focus($event)" type="phone" [(ngModel)]="project.people.hse_manager.phone" placeholder="Phone" name="hse-phone"></ion-input>
+                <ion-input autocomplete="off" tabindex="13" (focus)="on_focus($event)" type="phone" [(ngModel)]="project.people.hse_manager.phone" placeholder="Phone" name="hse-phone" scroll="-70"></ion-input>
               </ion-item>
             </ion-row>
           </ion-col>

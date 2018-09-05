@@ -11,7 +11,6 @@ export class InitPage {
   constructor(
     public appCtrl: NavController) {
       this.save();
-      //debugger
   }
 
   public save(): void {

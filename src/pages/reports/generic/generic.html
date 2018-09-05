@@ -1,7 +1,7 @@
 <ion-header>
   <ion-navbar hideBackButton>
     <ion-title>
-      {{project.name}} - {{report_name}}
+      {{report.component.project.name}} - CUSTOM
     </ion-title>
     <ion-buttons end>
       <button ion-button color="royal" (click)="show_pictures()">
@@ -11,28 +11,25 @@
 </ion-header>
 
 <ion-content>
-  <ion-grid class="full-height">
-    <ion-row>
-      <ion-col col-md-6 col-sm-12>
+  <ion-grid full-height with-footer>
+    <ion-row full-height>
+      <ion-col col-6>
         <ion-list>
-          <ion-item>
-            <ion-label floating>Component/Location</ion-label>
-            <ion-input type="text" [(ngModel)]="location"></ion-input>
-          </ion-item>
-          <ion-item>
-            <ion-label floating>Leakage - urgent to fix </ion-label>
-            <ion-textarea rows="6" [(ngModel)]="leakage"></ion-textarea>
-          </ion-item>
+          <form novalidate #form="ngForm">
+            <ion-item>
+              <ion-label stacked>Component/Location</ion-label>
+              <ion-input (focus)="on_focus($event)" name="location" required data-val-required="Please input Component/Location"
+                [(ngModel)]="report.component.fields.location" type="text"></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-label stacked>Leakage - urgent to fix </ion-label>
+              <ion-textarea rows="6" [(ngModel)]="report.component.fields.leakage" name="leakage" required data-val-required="Please input leakage"></ion-textarea>
+            </ion-item>
+          </form>
+          <report-errors padding #errors col-12></report-errors>
         </ion-list>
       </ion-col>
-      <ion-col col-md-6 col-sm-12>
-        <ion-list id="document-list">
-          <ion-item *ngFor="let f of project.documents">
-            <ion-icon name="document-pdf" color="gray" item-start></ion-icon>
-            <span>{{f}}</span>
-            <ion-icon name="md-remove-circle" color="danger" item-end></ion-icon>
-          </ion-item>
-        </ion-list>
+      <ion-col col-6 picture-slide [label]="false" [component]="report.component" (onStartEdit)="on_picture_start_edit($event)">
       </ion-col>
     </ion-row>
   </ion-grid>
@@ -47,8 +44,8 @@
           </button>
         </ion-col>
         <ion-col col-6 text-right>
-          <button small ion-button color="light" (click)="navCtrl.pop()">
-            Save report
+          <button small ion-button color="primary" (click)="save()" >
+            Report
           </button>
         </ion-col>
       </ion-row>

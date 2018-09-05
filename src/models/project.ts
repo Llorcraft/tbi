@@ -1,6 +1,7 @@
 import { ReportBase } from '.';
 import { Document } from './';
 import { NON_PICTURE } from '../const/images';
+import { TbiComponent } from './component';
 
 class People {
   public leader: Contact = new Contact();
@@ -33,19 +34,24 @@ export class Project {
   public user: string = '';
   public picture: string = NON_PICTURE;
   public documents: Document[] = [];
-  public reports: ReportBase[] = [];
+  public components: TbiComponent[] = [];
   public price?: number = null;
   public people: People = new People();
 
   constructor(project?: Partial<Project>) {
     if (!project) return;
     Object.assign(this, project);
-    this.price = Number(project.price) || 0;
-    this.reports = project.reports.map(p => new ReportBase(this, p));
+    this.price = Number(project.price) || null;
+    this.components = project.components.map(c => new TbiComponent(this, c));
     this.people = new People(project.people);
   }
 
-  public get_reports_route(route: string): ReportBase[] {
-    return this.reports.filter(r => !!r.path.match(new RegExp(route, 'i')));
+  private flatten(arr: any[]): any[] {
+    return [].concat.apply([], arr);
+  }
+
+  public get_reports_by_type(type: string): ReportBase[] {
+    const reports = this.components.map(c => c.reports.filter(r => !!r.path.match(new RegExp(type, 'gi'))));
+    return this.flatten(reports);
   }
 }

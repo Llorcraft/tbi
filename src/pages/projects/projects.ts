@@ -6,7 +6,7 @@ import { ProjectPageBase } from './project-page-base';
 import { EditProjectPage } from './edit';
 import { ScreenOrientation } from '@ionic-native/screen-orientation';
 import { ReportsPage } from '../reports';
-import { ReportCategory } from '../../models';
+import { ReportCategory, ReportBase } from '../../models';
 
 @Component({
   selector: 'page-project',
@@ -40,6 +40,7 @@ export class ProjectsPage extends ProjectPageBase {
   public open_report(project: Project): void {
     this.navCtrl.push(ReportsPage, {
       project: project,
+      report: null,
       parent: this
     })
   }
@@ -134,5 +135,9 @@ export class ProjectsPage extends ProjectPageBase {
 
   after_delete() {
     this.load();
+  }
+
+  get_by_type(project: Project, type: string): ReportBase[]{
+    return project.get_reports_by_type(type);
   }
 }

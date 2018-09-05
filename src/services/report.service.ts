@@ -1,23 +1,24 @@
 import { Injectable } from '@angular/core';
 import { Project } from '../models';
 import { ReportBase } from '../models';
-import { ProjectService } from './project.service';
+import { ComponentService } from './component.service';
 
 @Injectable()
 export class ReportService {
 
-    constructor(private service: ProjectService) { }
+    constructor(private service: ComponentService) { }
 
     public save(report: ReportBase): void {
-        if (!!report.project.reports.filter(r => report.id).length) this.remove(report);
+        if (!!report.component.reports.filter(r => report.id === r.id).length) this.remove(report);
         if(!report.id) report.id = Math.random().toString().substr(2);
-        report.project.reports.push(report);
-        this.service.save(report.project);
+        report.component.reports.push(report);
+
+        this.service.save(report.component);
     }
 
     public remove(report: ReportBase): Project {
-        report.project.reports = report.project.reports.filter(r => r.id !== report.id);
-        return report.project
+        report.component.reports = report.component.reports.filter(r => r.id !== report.id);
+        return report.component.project
     }
 
 }

@@ -2,16 +2,20 @@ import { Project, ReportBase } from ".";
 import * as factory from './../factories/report.factory';
 import { REPORT } from "../const/report.const";
 import { NavController } from "ionic-angular";
+import { TbiComponent } from "./component";
 
 export class ReportRouter {
   constructor(public project: Project,
+    public component: TbiComponent,
     public navCtrl: NavController) {
+    this.component = this.component || new TbiComponent(this.project);
   }
 
   public navigate_to_report(path: string): ReportRouter {
     const report = this.create_report(path);
     this.navCtrl.push(report.page, {
       project: this.project,
+      component: this.component || new TbiComponent(this.project),
       report: report
     });
     return this;
@@ -20,7 +24,9 @@ export class ReportRouter {
   public create_report(path: string): ReportBase {
     switch (path) {
       case REPORT.INSULATION.UNINSULATED_EQUIPMENTS.SURFACE:
-        return factory.Report.Insulation.InunsulatedEquipment.Factory.Surface();
+        return factory.Report.Insulation.InunsulatedEquipment.Factory.Surface(this.project, this.component, null);
+        case REPORT.GENERIC:
+        return factory.Report.Factory.Generic(this.project, this.component, null);        
     }
   }
 }

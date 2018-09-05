@@ -20,6 +20,5 @@ export class ReportSafetSurfacePage {
     public service: ProjectService,
     public appCtrl: NavController,
     public project: Project) {
-      debugger;
     }
   }

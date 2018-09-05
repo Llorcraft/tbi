@@ -5,7 +5,8 @@ export const REPORT = {
       PIPE: 2,
       FLANGE: 3,
       VALVE: 4,
-      OTHER: 5
+      GENERIC: `Insulation\\Un-Insulated Equipments\\Generic`
     }
-  }
+  },
+  GENERIC: `Generic`
 }

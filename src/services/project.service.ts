@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Project } from '../models';
 
-const STORAGE_KEY: string = 'tbi-app';
+const STORAGE_KEY: string = 'tbi-app-v3';
 
 @Injectable()
 export class ProjectService {

@@ -1,5 +1,6 @@
 import { Component, Output, Input, EventEmitter } from '@angular/core';
 import { ActionSheetController, ActionSheet, ActionSheetButton } from 'ionic-angular';
+import { More } from '../../../../const/more/more';
 
 @Component({
   selector: 'more',
@@ -19,24 +20,8 @@ export class ReportMoreButtonComponent {
       text: 'Cancel',
       role: 'cancel',
     }],
-    time: [
-      ['1000 hours', 1000],
-      ['2000 hours', 2000],
-      ['3000 hours', 3000],
-      ['4380 hours (1/2 year)', 4380],
-      ['5000 hours', 5000],
-      ['6000 hours', 6000],
-      ['7000 hours', 7000],
-      ['8760 hours (full year)', 8760]
-    ],
-    materials: [
-      ['Defaul value', 0.8],
-      ['Metallic bright', 0.3],
-      ['Metallic', 0.6],
-      ['Corroded', 0.8],
-      ['Painted', 0.8],
-      ['Non metallic', 0.9]
-    ]
+    time: More.TIMES,
+    materials: More.MATERIALS
   }
   protected show_options(): ActionSheet {
     let buttons = this.options[this.type].map(b => {

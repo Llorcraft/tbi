@@ -1,5 +1,8 @@
 import { ICalculator } from "./calculator.factory";
-import { ReportBase, Result, Value } from "../report-base";
+import { ReportBase } from "../report-base";
+import { Value } from "../value";
+import { Result } from "../result";
+
 
 export class SurfaceDecorator implements ICalculator {
   public calculate(report: ReportBase): ReportBase {
@@ -69,14 +72,14 @@ export class Calculator {
   public Rle_max: number = 1;
   /*Report and Project propesties*/
   public δ: number = 0.00000005670367;
-  public θse = Number(this.report.fields.surface_temp);
-  public θa = Number(this.report.fields.ambient_temp);
-  public Ot = Number(this.report.fields.operational_time);
-  public ε = Number(this.report.fields.surface_material);
-  public Σ = Number(this.report.project.price);
-  public S = Number(this.report.fields.surface);
-  public l = Number(this.report.fields.length);
-  public n = Number(this.report.fields.number);
+  public θse = Number(this.report.component.fields.surface_temp);
+  public θa = Number(this.report.component.fields.ambient_temp);
+  public Ot = Number(this.report.component.fields.operational_time);
+  public ε = Number(this.report.component.fields.surface_material);
+  public Σ = Number(this.report.component.project.price);
+  public S = Number(this.report.component.fields.surface);
+  public l = Number(this.report.component.fields.length);
+  public n = Number(this.report.component.fields.number);
 
   private get_l(index: number) {
     if (this.Δθ <= 80) return [20, 100][index] / 1000;
