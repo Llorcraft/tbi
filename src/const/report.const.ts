@@ -3,7 +3,7 @@ export const REPORT = {
     UNINSULATED_EQUIPMENTS: {
       SURFACE: `Insulation\\Un-Insulated Equipments\\Surface`,
       PIPE: 2,
-      FLANGE: 3,
+      FLANGE: `Insulation\\Un-Insulated Equipments\\Flange`,
       VALVE: 4,
       GENERIC: `Insulation\\Un-Insulated Equipments\\Generic`
     }

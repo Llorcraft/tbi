@@ -9,7 +9,8 @@ export class CalculatorFactory {
     }
 
     constructor(){
-        this.decorators.set(`Insulation\\Un-Insulated Equipments\\Surface`, ()=> new SurfaceDecorator())
+        this.decorators.set(`Insulation\\Un-Insulated Equipments\\Surface`, ()=> new SurfaceDecorator());
+        this.decorators.set(`Insulation\\Un-Insulated Equipments\\Flange`, ()=> new SurfaceDecorator())
     }
 }
 

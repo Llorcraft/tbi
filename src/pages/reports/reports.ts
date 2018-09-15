@@ -1,6 +1,6 @@
 import { REPORT } from './../../const/report.const';
 import { Component } from '@angular/core';
-import { NavController, NavParams, AlertController, ToastController } from 'ionic-angular';
+import { NavController, NavParams, AlertController} from 'ionic-angular';
 import { Project, ReportBase } from '../../models';
 import { ProjectService } from '../../services/project.service';
 import { ProjectsPage } from '../projects/projects';
@@ -23,8 +23,7 @@ export class ReportsPage extends ReportRouter {
     public navCtrl: NavController,
     public navParams: NavParams,
     public alertCtrl: AlertController,
-    public service: ProjectService,
-    private toastCtrl: ToastController) {
+    public service: ProjectService) {
     super(navParams.get('project') as Project, navParams.get('component') as TbiComponent, navCtrl);
     this.type = navParams.get('type') || '';
     this.report = navParams.get('report');
@@ -34,12 +33,12 @@ export class ReportsPage extends ReportRouter {
   ionViewDidLoad() {
     if (!this.navParams.get('message')) return;
 
-    let toast = this.toastCtrl.create({
+    let toast = this.alertCtrl.create({
+      title: null,
       message: this.navParams.get('message'),
-      duration: 10000,
-      position: 'middle',
-      showCloseButton: true,
-      closeButtonText: 'OK'
+      buttons: [{
+        text: 'OK'
+      }]
     });
     toast.present();
   }

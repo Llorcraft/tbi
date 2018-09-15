@@ -8,6 +8,7 @@ import { ReportErrorsComponent, ReportsPage } from "../../pages/reports";
 import { ReportService } from "../../services/report.service";
 import { CameraService } from "../../services/camera";
 import { More } from "../../const/more/more";
+import { TbiComponent } from "../component";
 
 export class BaseReportPage {
   @ViewChild('form') form: NgForm;
@@ -17,6 +18,9 @@ export class BaseReportPage {
   protected view = 'form';
   protected editing_picture: Picture = new Picture();
   protected segment = 'input';
+
+  private _original_component: TbiComponent;
+
   constructor(
     public report: ReportBase,
     protected navCtrl: NavController,
@@ -24,6 +28,9 @@ export class BaseReportPage {
     protected alertCtrl: AlertController,
     protected camera: CameraService
   ) {
+    this._original_component = this.report.component;
+    this.report.component = new TbiComponent(this._original_component.project, this._original_component);
+    this.report.component.id = this._original_component.id;
     [
       'https://restorationmasterfinder.com/restoration/wp-content/uploads/2016/08/pipe-burst.jpg',
       'http://www.wklawyers.com/wp-content/uploads/2015/02/plumbing-leak-pipe-burst-attorney.jpg',
@@ -47,10 +54,16 @@ export class BaseReportPage {
 
   protected on_focus(event: FocusEvent) {
     const elm = (event.currentTarget as HTMLElement);
-    elm.scrollIntoView();
-    elm.closest('.scroll-content').scrollTop += Number(elm.getAttribute('scroll')) || 0;
+    elm.scrollIntoView(false);
+    elm.scrollIntoView({ block: "end", behavior: "smooth" });
+    const elementRect = elm.getBoundingClientRect();
+    const absoluteElementTop = elementRect.top;
+    elm.closest('.scroll-content').scrollTo(0, absoluteElementTop + Number(elm.getAttribute('scroll')) || 0);
   }
 
+  protected on_keypress(event: KeyboardEvent) {
+    if (event.which === 13) this.calculate();
+  }
 
   private start_changes_observer(): void {
     this.errors.form = this.form;
@@ -63,6 +76,8 @@ export class BaseReportPage {
   public save() {
     if (!!this.form.invalid) return;
     const project = this.report.component.project;
+    if (!this.report.component.reports.find(c => c.id === this.report.id)) this.report.component.reports.push(this.report);
+    if (!project.components.find(c => c.id === this.report.component.id)) project.components.push(this.report.component);
     this.service.save(this.report);
     this.ask_for_more_reports(project);
   }
@@ -71,6 +86,7 @@ export class BaseReportPage {
     let confirm = this.alertCtrl.create({
       title: `Create report`,
       message: `Do you want to add another report associated to this component?`,
+      enableBackdropDismiss: false,
       buttons: [
         {
           text: 'Yes',
@@ -85,7 +101,7 @@ export class BaseReportPage {
           text: 'No',
           handler: () => {
             this.navCtrl.push(ReportsPage, {
-              project: project, 
+              project: project,
               message: `“${this.report.component.fields.location}” have been saved. You are going to start reports on a new component.`
             });
           }
@@ -103,6 +119,7 @@ export class BaseReportPage {
     if (this.view === 'edit_picture') {
       this.view = 'form';
     } else {
+      this.report.component = this._original_component;
       this.navCtrl.pop();
     }
     return this;

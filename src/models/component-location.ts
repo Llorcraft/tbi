@@ -1,30 +1,32 @@
 import { ReportBase } from "./report-base";
 import { Fields } from "./fields";
 import { Value } from "./value";
+import { TbiComponent } from "./component";
 
 export class ComponentLocation {
     public name: string;
     public section_input: SectionInput;
     public section_energy: SectionEnergy
     public reports: Map<string, ReportBase> = new Map<string, ReportBase>();
-    constructor(reports: ReportBase[]) {
+    public insulated: boolean = false;
+    constructor(public component: TbiComponent) {
         ['Insulation', 'Safety', 'Maintenance', 'Custom'].forEach(key => {
-            this.reports[key] = reports.filter(r => r.path.startsWith(key))
+            this.reports[key] = this.component.reports.filter(r => r.path.startsWith(key))
         });
-        this.name = reports[0].component.fields.location;
-        this.section_input = new SectionInput(reports.find(r => r.path.startsWith('Insulation')));
-        this.section_energy = new SectionEnergy(reports.find(r => r.path.startsWith('Insulation')))
+        this.name = this.component.fields.location;
+        this.section_input = new SectionInput(component);
+        this.section_energy = new SectionEnergy(component.reports.find(r => r.path.startsWith('Insulation')))
+
+        this.insulated = !!this.reports['Insulation'].length && this.reports['Insulation'].find((r: ReportBase) => -1 !== r.path.lastIndexOf('\\Insulated'));
     }
 }
 
 class SectionInput {
     public fields: Fields;
-    constructor(report: ReportBase) {
-        this.fields = report.component.fields;
-        // this.surface = report.fields.surface_temp;
-        // this.dimension = report.fields.surface;
-        // this.length = report.fields.length;
-        //const x = report.fields.surface_temp
+    public dimension?: number;
+    constructor(component: TbiComponent) {
+        this.fields = component.fields;
+        this.dimension = !!this.fields.surface ? this.fields.surface : !!this.fields.length ? this.fields.length : null;
     }
 }
 

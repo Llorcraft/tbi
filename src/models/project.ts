@@ -3,7 +3,7 @@ import { Document } from './';
 import { NON_PICTURE } from '../const/images';
 import { TbiComponent } from './component';
 
-class People {
+export class People {
   public leader: Contact = new Contact();
   public energy_manager: Contact = new Contact();
   public maintenance_manager: Contact = new Contact();
@@ -27,7 +27,7 @@ export class Contact {
 }
 
 export class Project {
-  public id: string = '';
+  public id: string = Math.random().toString().substr(2);
   public name: string = '';
   public desc: string = '';
   public date: Date = new Date();

@@ -22,11 +22,8 @@ form{
   transition: margin ease-in-out .25s;
 }
 
-#document-list.editable ion-item ion-icon[name="document"] {
-  //margin-left: -60px;
-}
-
 page-edit-project {
+  ion-title[text-left] .toolbar-title {text-align: left!important}
   ion-grid {
     //height: 100% !important;
     ion-row {
@@ -38,11 +35,6 @@ page-edit-project {
         height: auto;
       }
 
-    }
-  }
-  [small-title] {
-    ion-title > div{
-      //font-size: 1.5rem!important;
     }
   }
 }

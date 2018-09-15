@@ -162,8 +162,8 @@ ion-footer {
   }
 }
 
-button.with-action,
-button[with-action] {
+.with-action,
+[with-action] {
   padding: .5rem .5rem .5rem 1rem;
   border: 1px solid #ccc;
   border-radius: 4px;
@@ -173,8 +173,11 @@ button[with-action] {
 .item-md.item-input.ng-valid.item-input-has-value:not(.input-has-focus):not(.item-input-has-focus) .item-inner,
 .item-md.item-input.ng-valid.input-has-value:not(.input-has-focus):not(.item-input-has-focus) .item-inner {
   border-bottom: 1px solid #dedede;
-  -webkit-box-shadow: none;
-  box-shadow: none;
+}
+
+.item-inner{
+  -webkit-box-shadow: none!important;
+  box-shadow: none!important;
 }
 
 .grid[v-center] {
@@ -194,4 +197,26 @@ button[with-action] {
 
 .alert-md .alert-button-group{
   padding: 0 10px!important;
+}
+
+ion-header {
+  ion-navbar {
+    ion-buttons[end]{
+      button {
+        border: 1px solid #fff;
+        height: 42px;
+        padding: 0 1rem;
+      }
+    }
+  }
+}
+
+ion-input {
+  &.hidden {
+    display: none;
+  }
+}
+
+form {
+  padding-bottom: 3rem;
 }

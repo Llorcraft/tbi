@@ -8,7 +8,7 @@ export class ReportRouter {
   constructor(public project: Project,
     public component: TbiComponent,
     public navCtrl: NavController) {
-    this.component = this.component || new TbiComponent(this.project);
+    //this.component = this.component || new TbiComponent(this.project);
   }
 
   public navigate_to_report(path: string): ReportRouter {
@@ -25,8 +25,10 @@ export class ReportRouter {
     switch (path) {
       case REPORT.INSULATION.UNINSULATED_EQUIPMENTS.SURFACE:
         return factory.Report.Insulation.InunsulatedEquipment.Factory.Surface(this.project, this.component, null);
-        case REPORT.GENERIC:
-        return factory.Report.Factory.Generic(this.project, this.component, null);        
+      case REPORT.INSULATION.UNINSULATED_EQUIPMENTS.FLANGE:
+        return factory.Report.Insulation.InunsulatedEquipment.Factory.Flange(this.project, this.component, null);
+      case REPORT.GENERIC:
+        return factory.Report.Factory.Generic(this.project, this.component, null);
     }
   }
 }

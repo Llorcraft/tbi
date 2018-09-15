@@ -10,26 +10,14 @@ export class ReportBase {
   public page: Page = null;
   public result: Result = null;
   public project: Project = null;
-  public component?: TbiComponent = null
+  public component?: TbiComponent = null;
 
   constructor(project: Project, component?: TbiComponent, item?: Partial<ReportBase>) {
     if (!!item) {
       Object.assign(this, item);
       this.project = project;
-      this.component = component || new TbiComponent(project, null);
+      this.component = component;
       this.result = new Result(item.result);
     }
-  }
-
-  toJSON = () => {
-    debugger;
-    const report = new ReportBase(this.project, this.component, this);
-    report.page = null;
-    delete (report.page);
-    report.project = null;
-    delete (report.project);
-    report.component = null;
-    delete (report.component);
-    return report;
   }
 }

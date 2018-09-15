@@ -25,6 +25,7 @@ export class ReportMediumTempButtonsComponent {
         cssClass: "modal-window-markers",
         showBackdrop: true,
         enableBackdropDismiss: false
+        
       });
     modal.onDidDismiss(v => {
       if (!v || !v.length) return

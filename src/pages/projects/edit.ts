@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams, AlertController, ActionSheetController } from 'ionic-angular';
+import { NavController, NavParams, AlertController, ActionSheetController, Keyboard } from 'ionic-angular';
 import { ProjectPageBase } from './project-page-base';
 import { Project } from '../../models';
 import { ProjectService } from '../../services/project.service';
@@ -33,6 +33,7 @@ export class EditProjectPage extends ProjectPageBase {
     private filePath: FilePath,
     public actionSheetCtrl: ActionSheetController,
     private camera: Camera,
+    private keyboard: Keyboard,
     private fileOpener: FileOpener) {
 
     super(alertCtrl, service);
@@ -58,10 +59,22 @@ export class EditProjectPage extends ProjectPageBase {
     $('.tabbar').addClass('show-tabbar');
   }
 
+  protected hide_keyboard(){
+    this.keyboard.close();
+  }
+
+  protected on_keypress(event: KeyboardEvent) {
+    console.log(event.which)
+    //if (event.which === 13) this.save();
+  }
+
   protected on_focus(event: FocusEvent) {
     const elm = (event.currentTarget as HTMLElement);
-    elm.scrollIntoView();
-    elm.closest('.scroll-content').scrollTop += Number(elm.getAttribute('scroll')) || 0;
+    elm.scrollIntoView(false);
+    elm.scrollIntoView({ block: "end", behavior: "smooth" });
+    const elementRect = elm.getBoundingClientRect();
+    const absoluteElementTop = elementRect.top;
+    elm.closest('.scroll-content').scrollTo(0, absoluteElementTop + Number(elm.getAttribute('scroll')) || 0);
   }
 
   public open_file(file: string): void {

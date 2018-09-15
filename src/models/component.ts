@@ -11,9 +11,7 @@ export class TbiComponent {
     public fields: Fields = new Fields();
     public pictures: Picture[] = [];
     public get has_markers(): boolean {
-        debugger;
         const has_markers = !!this.pictures.filter(p => !!p.has_markers).length;
-        //if (has_markers) this.update_surface_temp();
         return has_markers;
     }
     public get images(): Picture[] {
@@ -31,12 +29,13 @@ export class TbiComponent {
 
     constructor(project: Project, item?: Partial<TbiComponent>) {
         this.project = project;
-        this.pictures = [new Picture({ markers: Array.apply(null, { length: 10 }).map(m => new Marker()) })];
-        if (!!item) {
+        if(!item)
+            this.pictures = [new Picture({ markers: Array.apply(null, { length: 10 }).map(m => new Marker()) })];
+        else if (!!item) {
             Object.assign(this, item);
             this.fields = new Fields(item.fields);
             this.project = project;
-            this.pictures = this.pictures.concat((item.pictures || []).map(p => new Picture(p)));
+            this.pictures = (item.pictures || []).map(p => new Picture(p));
         }
     }
 
@@ -51,10 +50,7 @@ export class TbiComponent {
         return this.reports.filter(r => !!r.path.match(new RegExp(type, 'gi')));
     }
 
-    toJSON = () => {
-        const component = new TbiComponent(this.project, this);
-        component.project = null;
-        delete (component.project);
-        return component;
-    }
 }
+
+
+

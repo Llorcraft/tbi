@@ -21,7 +21,7 @@ report-result {
       font-size: 2rem;
     }
     font-size: 2rem;
-    color: darken(rgb(255,0,0), 0)!important;;
+    color: darken(rgb(255,0,0), 0)!important;
   }
   [saving-potential] {
     margin-top: .3rem;
@@ -57,4 +57,9 @@ report-result {
       color: rgb(48, 84, 150);
     }
   }
+
+  span{
+    font-size: 2rem;
+  }
 }
+

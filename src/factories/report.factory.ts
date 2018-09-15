@@ -1,5 +1,5 @@
 import { ReportBase, Project } from "../models";
-import { ReportSurface } from "../models/reports";
+import { ReportSurface, ReportFlange } from "../models/reports";
 import { TbiComponent } from "../models/component";
 import { ReportGeneric } from "../models/reports/report-generic.class";
 
@@ -13,9 +13,11 @@ export namespace Report {
   export namespace Insulation {
     export namespace InunsulatedEquipment {
       export class Factory {
-        public static base_path =  'Insulation\\Un-Insulated Equipments\\';
         public static Surface(project?: Project, component?: TbiComponent, item?: ReportBase): ReportBase {
           return new ReportSurface(project, component || new TbiComponent(project), item);
+        }
+        public static Flange(project?: Project, component?: TbiComponent, item?: ReportBase): ReportBase {
+          return new ReportFlange(project, component || new TbiComponent(project), item);
         }
         // public static Pipe(): ReportBase {
         //   return new ReportBase({

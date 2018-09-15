@@ -1,21 +1,41 @@
 @import "./cards.scss";
+
+[card-container] {
+  text-align: center;
+  ion-card {
+    margin: 1rem 0 !important;
+    display: block;
+    width: 100%;
+    text-align: center;
+
+    svg#insulation {
+      width: 60%;
+      margin-top: .75rem;
+      margin-bottom: -1.3rem;
+    }
+  }
+}
+
 ion-card {
-  margin: 27px 10px !important;
   svg {
+
     g,
     path {
       fill: #fff;
     }
+
     &+h1,
     &+h3 {
       color: #fff;
     }
+
     line {
       stroke: #fff;
     }
   }
 }
-ion-icon[tooltip]{
+
+ion-icon[tooltip] {
   position: absolute;
   right: 2rem;
   top: 2rem;

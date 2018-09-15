@@ -4,9 +4,11 @@ import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { TooltipsModule } from 'ionic-tooltips';
-import { MyApp } from './app.component';
+import { SQLite, SQLiteObject } from '@ionic-native/sqlite';
+
 
 /*Pages*/
+import { MyApp } from './app.component';
 import { AboutPage } from '../pages/about/about';
 import { ContactPage } from '../pages/contact/contact';
 import { ProjectReportsPage } from '../pages/home/home';
@@ -14,6 +16,7 @@ import { ProjectsPage } from '../pages/projects/projects';
 import { EditProjectPage } from '../pages/projects/edit';
 import { ProjectPage } from '../pages/projects/project';
 import { SummaryPage } from '../pages/summary/summary';
+import { SummaryEditPage } from '../pages/summary/summary-edit';
 
 /*Plugins*/
 import { Camera } from '@ionic-native/camera';
@@ -29,8 +32,10 @@ import { ProjectService } from '../services';
 import { ReportService } from '../services/report.service';
 import { ComponentService } from '../services/component.service';
 import { CameraService } from '../services/camera';
+import { DataBaseService } from '../services/database.service';
 
-import { ReportSafetSurfacePage } from '../pages/reports/safety/surface';
+// import { ReportSafetSurfacePage } from '../pages/reports/safety/surface';
+
 import { InitPage } from '../pages/init/init';
 import { PicturesPage } from '../pages/pictures/pictures';
 
@@ -82,11 +87,13 @@ import {
   ReportTempMarkersWindowComponent,
   ReportResultComponent,
   ReportPictureSlideComponent,
-  ReportEditPictureComponent
+  ReportEditPictureComponent,
+  ReportFlangePage
 } from '../pages/reports'
 
 //Pipes
 import { SurfaceMaterialPipe } from '../pipes/surface-material.pipe';
+
 
 @NgModule({
   declarations: [
@@ -102,6 +109,7 @@ import { SurfaceMaterialPipe } from '../pipes/surface-material.pipe';
     InitPage,
     PicturesPage,
     SummaryPage,
+    SummaryEditPage,
     //Pipes
     SurfaceMaterialPipe,
     //
@@ -116,8 +124,9 @@ import { SurfaceMaterialPipe } from '../pipes/surface-material.pipe';
     ReportTempMarkersWindowComponent,
     ReportErrorsComponent,
     ReportResultComponent,
-    ReportSafetSurfacePage,
+    //ReportSafetSurfacePage,
     ReportSurfacePage,
+    ReportFlangePage,
     //Components
     SvgInsulationComponent,
     SvgCustomComponent,
@@ -178,11 +187,13 @@ import { SurfaceMaterialPipe } from '../pipes/surface-material.pipe';
     InitPage,
     PicturesPage,
     SummaryPage,
+    SummaryEditPage,
     //Reports
     ReportAreaModalComponent,
     ReportTempMarkersWindowComponent,
     ReportSurfacePage,
-    ReportSafetSurfacePage
+    ReportFlangePage
+    //ReportSafetSurfacePage
   ],
   providers: [
     /*App services*/
@@ -198,6 +209,8 @@ import { SurfaceMaterialPipe } from '../pipes/surface-material.pipe';
     FilePath,
     ScreenOrientation,
     { provide: ErrorHandler, useClass: IonicErrorHandler },
+    SQLite,
+    DataBaseService
   ]
 })
 export class AppModule { }

@@ -5,7 +5,6 @@ import { Fields } from '../models';
 @Pipe({ name: 'surface_material' })
 export class SurfaceMaterialPipe implements PipeTransform {
     transform(field?: Fields): string {
-        debugger;
         const material = More.MATERIALS.find(t => t[1] == field.surface_material_index);
         return !!material ? `${material[0]}` : `${field.surface_material || ''}`;
     }

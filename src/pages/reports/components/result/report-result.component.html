@@ -1,15 +1,17 @@
 <ion-grid>
   <ion-row>
-    <ion-col col-4 img-container [style.backgroundImage]="'url('+ report.component.pictures[0]?.src +')'"></ion-col>
+    <ion-col col-4 img-container [style.backgroundImage]="'url('+ report.component.images[0]?.src +')'"></ion-col>
 
     <ion-col col-8>
       <ion-row head-lost>
         <h1 col-12 no-padding no-margin class="text-center">Heat loss</h1>
         <ion-col col-10 text-center>
-          <span data-measure="kWh/a">{{ report.result.headLost.power | number: '1.0-0'}}</span>
+          <span *ngIf="!!report.component.fields.surface">{{ report.result.headLost.power | number: '1.0-0'}} kWh</span>
+          <span *ngIf="!report.component.fields.surface">{{ report.result.headLost.power | number: '1.0-0'}} kWh/m<sup>2</sup></span>
         </ion-col>
         <ion-col col-10 text-center>
-          <span data-measure="€/a">{{ report.result.headLost.money | number: '1.0-0'}}</span>
+          <span *ngIf="!!report.component.fields.surface">{{ report.result.headLost.money | number: '1.0-0'}} €</span>
+          <span *ngIf="!report.component.fields.surface">{{ report.result.headLost.money | number: '1.0-0'}} €/m<sup>2</sup></span>
         </ion-col>
       </ion-row>
     </ion-col>
@@ -22,24 +24,28 @@
     <ion-col col-12>
       <ion-row>
         <ion-col col-5 text-right>
-          <span data-measure="kWh/a">{{ report.result.savingPotentialMin.power | number: '1.0-0'}}</span>
+          <span *ngIf="!!report.component.fields.surface">{{ report.result.savingPotentialMin.power | number: '1.0-0'}}</span>
+          <span *ngIf="!report.component.fields.surface">{{ report.result.savingPotentialMin.power | number: '1.0-0'}}</span>
         </ion-col>
         <ion-col col-2 text-center>
           <ion-icon name="md-arrow-forward"></ion-icon>
         </ion-col>
         <ion-col col-5 text-left>
-          <span data-measure="kWh/a">{{ report.result.savingPotentialMax.power | number: '1.0-0'}}</span>
+          <span *ngIf="!!report.component.fields.surface">{{ report.result.savingPotentialMax.power | number: '1.0-0'}} kWh</span>
+          <span *ngIf="!report.component.fields.surface">{{ report.result.savingPotentialMax.power | number: '1.0-0'}} kWh/m<sup>2</sup></span>
         </ion-col>
       </ion-row>
       <ion-row>
         <ion-col col-5 text-right>
-          <span data-measure="€/a">{{ report.result.savingPotentialMin.money | number: '1.0-0'}}</span>
+          <span *ngIf="!!report.component.fields.surface">{{ report.result.savingPotentialMin.money | number: '1.0-0'}}</span>
+          <span *ngIf="!report.component.fields.surface">{{ report.result.savingPotentialMin.money | number: '1.0-0'}}</span>
         </ion-col>
         <ion-col col-2 text-center>
           <ion-icon name="md-arrow-forward"></ion-icon>
         </ion-col>
         <ion-col col-5 text-left>
-          <span data-measure="€/a">{{ report.result.savingPotentialMax.money | number: '1.0-0'}}</span>
+          <span *ngIf="!!report.component.fields.surface">{{ report.result.savingPotentialMax.money | number: '1.0-0'}} €</span>
+          <span *ngIf="!report.component.fields.surface">{{ report.result.savingPotentialMax.money | number: '1.0-0'}} €/m<sup>2</sup></span>
         </ion-col>
       </ion-row>
     </ion-col>

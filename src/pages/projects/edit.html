@@ -3,6 +3,11 @@
     <ion-title>
       {{ !project.id ? 'New project' : 'Edit project' }}
     </ion-title>
+    <ion-buttons end>
+      <button ion-button color="light" (click)="ask_for_change_picture(project)">
+        <ion-icon name="md-camera"></ion-icon>&nbsp;Take a picture
+      </button>
+    </ion-buttons>
   </ion-navbar>
   <ion-segment [(ngModel)]="segment">
     <ion-segment-button value="properties">
@@ -22,13 +27,13 @@
         <ion-row>
           <ion-col col-md-6 col-12>
             <ion-row>
-              <ion-title col-12>Name</ion-title>
+              <ion-title col-12 col-12 text-left>Name</ion-title>
               <ion-item>
-                <ion-input autocomplete="off" tabindex="1" (focus)="on_focus($event)" type="text" [(ngModel)]="project.name" name="name" scroll="-70"></ion-input>
+                <ion-input tabindex="1" (focus)="on_focus($event)" (keypress)="on_keypress($event)" type="text" [(ngModel)]="project.name" name="name" scroll="-200"></ion-input>
               </ion-item>
-              <ion-title col-12>Energy Price</ion-title>
+              <ion-title col-12 col-12 text-left>Energy Price (&euro;/kWh)</ion-title>
               <ion-item>
-                <ion-input autocomplete="off" tabindex="2" (focus)="on_focus($event)" type="number" [(ngModel)]="project.price" name="price" scroll="-70"></ion-input>
+                <ion-input tabindex="2" (focus)="on_focus($event)" (keypress)="on_keypress($event)" type="number" [(ngModel)]="project.price" name="price" scroll="-200"></ion-input>
               </ion-item>
             </ion-row>
           </ion-col>
@@ -41,57 +46,57 @@
         <ion-row small-title>
           <ion-col col-12>
             <ion-row mb-3>
-              <ion-title col-12>Project Leader</ion-title>
+              <ion-title col-12 col-12 text-left>Project Leader</ion-title>
               <ion-item col-md-5 col-12>
-                  <ion-input autocomplete="off" tabindex="2" (focus)="on_focus($event)" [(ngModel)]="project.people.leader.name" placeholder="Name" name="leader-name" scroll="-70"></ion-input>
+                  <ion-input tabindex="3" (focus)="on_focus($event)" (keypress)="on_keypress($event)" [(ngModel)]="project.people.leader.name" placeholder="Name" name="leader-name" scroll="-200"></ion-input>
               </ion-item>
               <ion-item col-md-4 col-12>
-                  <ion-input autocomplete="off" tabindex="3" (focus)="on_focus($event)" type="email" [(ngModel)]="project.people.leader.email" placeholder="Email" name="leader-email" scroll="-70"></ion-input>
+                  <ion-input tabindex="4" (focus)="on_focus($event)" (keypress)="on_keypress($event)" type="email" [(ngModel)]="project.people.leader.email" placeholder="Email" name="leader-email" scroll="-200"></ion-input>
               </ion-item>
               <ion-item col-md-3 col-12>
-                  <ion-input autocomplete="off" tabindex="4" (focus)="on_focus($event)" type="phone" [(ngModel)]="project.people.leader.phone" placeholder="Phone" name="leader-phone" scroll="-70"></ion-input>
+                  <ion-input tabindex="5" (focus)="on_focus($event)" (keypress)="on_keypress($event)" type="phone" [(ngModel)]="project.people.leader.phone" placeholder="Phone" name="leader-phone" scroll="-200"></ion-input>
               </ion-item>
             </ion-row>
           </ion-col>
           <ion-col col-12>
             <ion-row mb-3>
-              <ion-title col-12>Energy Manager</ion-title>
+              <ion-title col-12 col-12 text-left>Energy Manager</ion-title>
               <ion-item col-md-5 col-12>
-                  <ion-input autocomplete="off" tabindex="5" (focus)="on_focus($event)" [(ngModel)]="project.people.energy_manager.name" placeholder="Name" name="energy-name" scroll="-70"></ion-input>
+                  <ion-input tabindex="6" (focus)="on_focus($event)" (keypress)="on_keypress($event)" [(ngModel)]="project.people.energy_manager.name" placeholder="Name" name="energy-name" scroll="-200"></ion-input>
               </ion-item>
               <ion-item col-md-4 col-12>
-                <ion-input autocomplete="off" tabindex="6" (focus)="on_focus($event)" type="email" [(ngModel)]="project.people.energy_manager.email" placeholder="Email" name="energy-email" scroll="-70"></ion-input>
+                <ion-input tabindex="7" (focus)="on_focus($event)" (keypress)="on_keypress($event)" type="email" [(ngModel)]="project.people.energy_manager.email" placeholder="Email" name="energy-email" scroll="-200"></ion-input>
               </ion-item>
               <ion-item col-md-3 col-12>
-                <ion-input autocomplete="off" tabindex="7" (focus)="on_focus($event)" type="phone" [(ngModel)]="project.people.energy_manager.phone" placeholder="Phone" name="energy-phone" scroll="-70"></ion-input>
+                <ion-input tabindex="8" (focus)="on_focus($event)" (keypress)="on_keypress($event)" type="phone" [(ngModel)]="project.people.energy_manager.phone" placeholder="Phone" name="energy-phone" scroll="-200"></ion-input>
               </ion-item>
             </ion-row>
           </ion-col>
           <ion-col col-12>
             <ion-row mb-3>
-              <ion-title col-12>Maintenance Manager</ion-title>
+              <ion-title col-12 col-12 text-left>Maintenance Manager</ion-title>
               <ion-item col-md-5 col-12>
-                <ion-input autocomplete="off" tabindex="8" (focus)="on_focus($event)" [(ngModel)]="project.people.maintenance_manager.name" placeholder="Name" name="maintenance-name" scroll="-70"></ion-input>
+                <ion-input tabindex="9" (focus)="on_focus($event)" (keypress)="on_keypress($event)" [(ngModel)]="project.people.maintenance_manager.name" placeholder="Name" name="maintenance-name" scroll="-200"></ion-input>
               </ion-item>
               <ion-item col-md-4 col-12>
-                <ion-input autocomplete="off" tabindex="9" (focus)="on_focus($event)" type="email" [(ngModel)]="project.people.maintenance_manager.email" placeholder="Email" name="maintenance-email" scroll="-70"></ion-input>
+                <ion-input tabindex="10" (focus)="on_focus($event)" (keypress)="on_keypress($event)" type="email" [(ngModel)]="project.people.maintenance_manager.email" placeholder="Email" name="maintenance-email" scroll="-200"></ion-input>
               </ion-item>
               <ion-item col-md-3 col-12>
-                <ion-input autocomplete="off" tabindex="10" (focus)="on_focus($event)" type="phone" [(ngModel)]="project.people.maintenance_manager.phone" placeholder="Phone" name="maintenance-phone" scroll="-70"></ion-input>
+                <ion-input tabindex="11" (focus)="on_focus($event)" (keypress)="on_keypress($event)" type="phone" [(ngModel)]="project.people.maintenance_manager.phone" placeholder="Phone" name="maintenance-phone" scroll="-200"></ion-input>
               </ion-item>
             </ion-row>
           </ion-col>
           <ion-col col-12>
             <ion-row>
-              <ion-title col-12>HSE Manager</ion-title>
+              <ion-title col-12 text-left>HSE Manager</ion-title>
               <ion-item col-md-5 col-12>
-                <ion-input autocomplete="off" tabindex="11" (focus)="on_focus($event)" autocomplete="off" [(ngModel)]="project.people.hse_manager.name" placeholder="Name" name="hse-name" scroll="-70"></ion-input>
+                <ion-input tabindex="12" (focus)="on_focus($event)" (keypress)="on_keypress($event)" [(ngModel)]="project.people.hse_manager.name" placeholder="Name" name="hse-name" scroll="-100"></ion-input>
               </ion-item>
               <ion-item col-md-4 col-12>
-                <ion-input autocomplete="off" tabindex="12" (focus)="on_focus($event)" type="email" [(ngModel)]="project.people.hse_manager.email" placeholder="Email" name="hse-email" scroll="-70"></ion-input>
+                <ion-input tabindex="13" (focus)="on_focus($event)" (keypress)="on_keypress($event)" type="email" [(ngModel)]="project.people.hse_manager.email" placeholder="Email" name="hse-email" scroll="-100"></ion-input>
               </ion-item>
               <ion-item col-md-3 col-12>
-                <ion-input autocomplete="off" tabindex="13" (focus)="on_focus($event)" type="phone" [(ngModel)]="project.people.hse_manager.phone" placeholder="Phone" name="hse-phone" scroll="-70"></ion-input>
+                <ion-input tabindex="14" (focus)="on_focus($event)" (keypress)="on_keypress($event)" type="phone" [(ngModel)]="project.people.hse_manager.phone" placeholder="Phone" name="hse-phone" scroll="-100"></ion-input>
               </ion-item>
             </ion-row>
           </ion-col>
@@ -117,7 +122,7 @@
   <ion-grid no-padding>
     <ion-row no-padding>
       <ion-col col-3 no-padding>
-        <button ion-button small color="light" (click)="after_delete()">
+        <button tabindex="15" ion-button small color="light" (click)="after_delete()">
           <ion-icon name="arrow-back"></ion-icon>Back
         </button>
       </ion-col>
@@ -125,7 +130,7 @@
         <button *ngIf="segment=='files'" ion-button small color="light">
           Upload file
         </button>
-        <button *ngIf="segment=='properties'" ion-button small color="primary" (click)="save()">
+        <button tabindex="14" *ngIf="segment=='properties'" ion-button small color="primary" (focus)="hide_keyboard()" (click)="save()">
           Save
         </button>
       </ion-col>

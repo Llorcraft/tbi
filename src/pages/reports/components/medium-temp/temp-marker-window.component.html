@@ -14,11 +14,11 @@
 <ion-footer>
   <ion-grid no-padding>
     <ion-row no-padding>
-      <ion-col col-6 no-padding>
-        <button [disabled]="disabled" (click)="calculate()" ion-button small block>OK</button>
-      </ion-col>
-      <ion-col col-6 no-padding>
+      <!-- <ion-col col-6 no-padding>
         <button (click)="close()" ion-button small block pull-right color="light">Cancel</button>
+      </ion-col> -->
+      <ion-col col-12 no-padding text-center>
+        <button (click)="calculate()" ion-button small color="light">Close</button>
       </ion-col>
     </ion-row>
   </ion-grid>

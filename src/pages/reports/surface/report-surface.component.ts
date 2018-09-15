@@ -28,18 +28,34 @@ export class ReportSurfacePage extends BaseReportPage {
 
   private before_calculate(temp: number) {
     this.report.component.fields.surface_temp = temp;
-    setTimeout(() => {
-      this.calculate();
-    }, 200);
+    // setTimeout(() => {
+    //   this.calculate();
+    // }, 200);
+  }
+
+  private _average_temp?: number = null;
+  protected set average_temp(value: number) {
+    this._average_temp = value;
+  }
+  protected get average_temp(): number {
+    if (!this.report.component.has_markers) {
+      this._average_temp = null;
+    }
+    this._average_temp = this.report.component.surface_temp;
+    return this._average_temp;
+    //result.push([`Average ${this.report.component.surface_temp}ºC`], [this.report.component.surface_temp]);
+    //result.push([`Minimum ${this.report.component.min_temp}ºC`], [this.report.component.min_temp]);
+    //result.push([`Maximum ${this.report.component.max_temp}ºC`], [this.report.component.max_temp]);
   }
 
   protected ask_calculate(): ReportBase {
-    if (this.report.component.fields.surface_temp != null
+    if (isNaN(this.report.component.fields.surface_temp)
       || !this.report.component.has_markers) return this.calculate();
     let confirm = this.alertCtrl.create({
       title: `Surface`,
       message: `Which temperature would you like to use for calculation?`,
       cssClass: `ion-dialog-horizontal`,
+      enableBackdropDismiss: false,
       buttons: [
         {
           text: `Average ${this.report.component.surface_temp}ºC`,

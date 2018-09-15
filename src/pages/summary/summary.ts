@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
-import { NavController, ActionSheetController, AlertController, NavParams } from 'ionic-angular';
+import { AlertController, NavParams, ModalController, NavController } from 'ionic-angular';
 import { ScreenOrientation } from '@ionic-native/screen-orientation';
-import { Project, ComponentLocation, Value, ReportBase } from '../../models';
+import { Project, ComponentLocation, Value } from '../../models';
+import { ProjectService } from '../../services/project.service';
+import { SummaryEditPage } from './summary-edit';
 
 @Component({
   selector: 'page-summary',
@@ -11,21 +13,22 @@ import { Project, ComponentLocation, Value, ReportBase } from '../../models';
 export class SummaryPage {
   private orientation: string;
   public project: Project;
-  public components: ComponentLocation[];
+  public components: ComponentLocation[] = [];
   public heat_lost: Value = new Value();
   public saving_potential_min: Value = new Value();
   public saving_potential_max: Value = new Value();
 
   constructor(
-    public navCtrl: NavController,
-    public navParams: NavParams,
-    public alertCtrl: AlertController,
-    public actionSheetCtrl: ActionSheetController,
+    protected navParams: NavParams,
+    protected alertCtrl: AlertController,
+    protected modalCtrl: ModalController,
+    protected service: ProjectService,
+    protected navCtrl: NavController,
     orientation: ScreenOrientation) {
 
-    this.project = navParams.get('project');
-    //this.components = this.group_components();
-    this.components.forEach(c=> {
+    this.project = this.navParams.get('project');
+    this.components = (this.project.components || []).map(c => new ComponentLocation(c));
+    this.components.forEach(c => {
       this.heat_lost.money += c.section_energy.heat_lost.money;
       this.heat_lost.power += c.section_energy.heat_lost.power;
       this.saving_potential_max.money += c.section_energy.saving_potential_max.money;
@@ -40,18 +43,43 @@ export class SummaryPage {
     );
   }
 
-  // private group_components(): ComponentLocation[] {
-  //   const group = this.project.component.reports.reduce(function (rv, x) {
-  //     (rv[x.fields.location] = rv[x.fields.location] || []).push(x);
-  //     return rv;
-  //   }, {});
-  //   const result = Object.keys(group).map(k => new ComponentLocation(group[k]));
-  //   return result;
-  // }
+  protected remove(cl: ComponentLocation) {
+    let confirm = this.alertCtrl.create({
+      title: `Remove`,
+      message: `Do you agree to remove permanently '${cl.name}' component?`,
+      buttons: [
+        {
+          text: 'Agree',
+          handler: () => {
+            this.components = this.components.filter(c => c !== cl);
+            this.project.components = this.project.components.filter(c => c !== cl.component);
+            this.service.save(this.project);
+          }
+        },
+        {
+          text: 'Disagree',
+        }
+      ]
+    });
+    confirm.present();
+  }
 
-  protected edit_report(report: ReportBase):void{
-    console.table([report]);
-    console.table([report.component.project]);
+  protected edit(cl: ComponentLocation) {
+    const modal = this.modalCtrl.create(SummaryEditPage,
+      {
+        tbi_component: cl.component
+      },
+      {
+        cssClass: "modal-window-markers",
+        showBackdrop: true,
+        enableBackdropDismiss: false
+
+      });
+    modal.onDidDismiss(v => {
+      debugger;
+    });
+    modal.present();
+    return this;
   }
 
   ionViewWillEnter() {

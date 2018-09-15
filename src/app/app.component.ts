@@ -3,6 +3,7 @@ import { Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { InitPage } from '../pages/init/init';
+import { DataBaseService } from '../services/database.service';
 
 @Component({
   templateUrl: 'app.html'
@@ -10,7 +11,7 @@ import { InitPage } from '../pages/init/init';
 export class MyApp {
   rootPage:any = InitPage;
 
-  constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen) {
+  constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen, private service: DataBaseService) {
     platform.ready().then(() => {
       //throw 'error'
       // Okay, so the platform is ready and our plugins are available.
