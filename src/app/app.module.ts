@@ -4,7 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { TooltipsModule } from 'ionic-tooltips';
-import { SQLite, SQLiteObject } from '@ionic-native/sqlite';
+import { SQLite } from '@ionic-native/sqlite';
 
 
 /*Pages*/
@@ -32,7 +32,7 @@ import { ProjectService } from '../services';
 import { ReportService } from '../services/report.service';
 import { ComponentService } from '../services/component.service';
 import { CameraService } from '../services/camera';
-import { DataBaseService } from '../services/database.service';
+import { DataBaseService} from '../services/database.service';
 
 // import { ReportSafetSurfacePage } from '../pages/reports/safety/surface';
 
@@ -93,6 +93,7 @@ import {
 
 //Pipes
 import { SurfaceMaterialPipe } from '../pipes/surface-material.pipe';
+import { SQLiteMock } from '../services/sqlite-mock.service';
 
 
 @NgModule({
@@ -209,7 +210,7 @@ import { SurfaceMaterialPipe } from '../pipes/surface-material.pipe';
     FilePath,
     ScreenOrientation,
     { provide: ErrorHandler, useClass: IonicErrorHandler },
-    SQLite,
+    { provide: SQLite, useClass: SQLiteMock },
     DataBaseService
   ]
 })

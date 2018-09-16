@@ -2,13 +2,14 @@ import { Injectable } from '@angular/core';
 import { Project } from '../models';
 import { ProjectJson } from '../models/project.json';
 import { AlertController } from 'ionic-angular';
+import { DataBaseService } from './database.service';
 
 const STORAGE_KEY: string = 'tbi-app-v3';
 
 @Injectable()
 export class ProjectService {
 
-  constructor(private alertCtrl: AlertController) { }
+  constructor(private alertCtrl: AlertController, private db: DataBaseService) { }
 
   private get_from_storage(): Project[] {
     try {

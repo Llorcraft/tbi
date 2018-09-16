@@ -33,7 +33,6 @@ export class Fields {
     this.emissivity = this.number_or_null(f.emissivity);
     this.nominal_diameter = this.number_or_null(f.nominal_diameter);
     this.leakage = f.leakage;
-    debugger;
   }
 
   private number_or_null(value?: number | string): number{
