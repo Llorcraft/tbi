@@ -13,7 +13,7 @@ export class CameraService {
             destinationType: this.camera.DestinationType.DATA_URL,
             encodingType: this.camera.EncodingType.JPEG,
             mediaType: this.camera.MediaType.PICTURE,
-            allowEdit: true
+            allowEdit: false
         };
         this.camera.getPicture(options).then(d => promise.next('data:image/jpeg;base64,' + d));
         return promise;

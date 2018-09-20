@@ -1,6 +1,7 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { Picture } from '../../../../models/picture';
-import { TbiComponent } from '../../../../models/component';
+import { ReportBase } from '../../../../models';
+import { NON_PICTURE } from '../../../../const/images';
 
 @Component({
     selector: '[picture-slide]',
@@ -8,10 +9,11 @@ import { TbiComponent } from '../../../../models/component';
 })
 
 export class ReportPictureSlideComponent {
-    @Input() component: TbiComponent;
+    @Input() report: ReportBase;
     @Input() label: boolean;
     @Output() onStartEdit = new EventEmitter<Picture>();;
 
+    protected NON_PICTURE: string = NON_PICTURE
     public edit(picture: Picture): void{
         this.onStartEdit.emit(picture)
     }

@@ -2,6 +2,8 @@ import { Project } from './project';
 import { Page } from 'ionic-angular/umd/navigation/nav-util';
 import { Result } from './result';
 import { TbiComponent } from './component';
+import { Picture } from './picture';
+import { Marker } from './marker';
 
 export class ReportBase {
   public id: string = '';
@@ -11,13 +13,17 @@ export class ReportBase {
   public result: Result = null;
   public project: Project = null;
   public component?: TbiComponent = null;
+  public pictures: Picture[] = []
 
   constructor(project: Project, component?: TbiComponent, item?: Partial<ReportBase>) {
     if (!!item) {
       Object.assign(this, item);
+      this.pictures = (item.pictures || []).map(p => new Picture(p));
       this.project = project;
       this.component = component;
       this.result = new Result(item.result);
+    } else {
+      this.pictures = [new Picture({ markers: Array.apply(null, { length: 10 }).map(m => new Marker()) })];
     }
   }
 }

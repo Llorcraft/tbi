@@ -1,7 +1,7 @@
 import { ReportBase } from '.';
 import { Document } from './';
-import { NON_PICTURE } from '../const/images';
 import { TbiComponent } from './component';
+import { ModelWithPicture } from './model-with-picture';
 
 export class People {
   public leader: Contact = new Contact();
@@ -26,22 +26,25 @@ export class Contact {
   }
 }
 
-export class Project {
-  public id: string = Math.random().toString().substr(2);
+export class Project extends ModelWithPicture{
   public name: string = '';
   public desc: string = '';
   public date: Date = new Date();
   public user: string = '';
-  public picture: string = NON_PICTURE;
   public documents: Document[] = [];
   public components: TbiComponent[] = [];
   public price?: number = null;
   public people: People = new People();
 
   constructor(project?: Partial<Project>) {
+    super(project);
     if (!project) return;
-    Object.assign(this, project);
+    this.name = project.name || '';
+    this.desc = project.desc || '';
+    this.date = project.date || new Date();
+    this.user = project.user || '';
     this.price = Number(project.price) || null;
+    //this.documents = Objetener del localstorage
     this.components = project.components.map(c => new TbiComponent(this, c));
     this.people = new People(project.people);
   }

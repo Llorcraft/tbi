@@ -1,3 +1,4 @@
+export { ReportPipePage } from './pipe/report-pipe.component';
 export { ReportFlangePage } from './flange/report-flange.component';
 export { ReportEditPictureComponent } from './components/edit-picture/edit-picture.component';
 export { ReportPictureSlideComponent } from './components/picture-slide/picture-slide.component';

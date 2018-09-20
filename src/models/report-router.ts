@@ -27,6 +27,8 @@ export class ReportRouter {
         return factory.Report.Insulation.InunsulatedEquipment.Factory.Surface(this.project, this.component, null);
       case REPORT.INSULATION.UNINSULATED_EQUIPMENTS.FLANGE:
         return factory.Report.Insulation.InunsulatedEquipment.Factory.Flange(this.project, this.component, null);
+      case REPORT.INSULATION.UNINSULATED_EQUIPMENTS.PIPE:
+        return factory.Report.Insulation.InunsulatedEquipment.Factory.Pipe(this.project, this.component, null);
       case REPORT.GENERIC:
         return factory.Report.Factory.Generic(this.project, this.component, null);
     }

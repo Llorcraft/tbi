@@ -36,7 +36,7 @@ export class ReportAreaModalComponent {
       case 'circle':
         return Math.PI * Math.sqrt(this.radius || 0);
       default:
-        return 2 * ((this.width || 0) * (this.deep || 0) + (this.width || 0) * (this.height || 0) + (this.deep || 0) * (this.height || 0));
+        return 2 * ((this.width || 0) * (this.height || 0) + (this.deep || 0) * (this.height || 0));
     }
   }
 

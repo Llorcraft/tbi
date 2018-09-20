@@ -20,7 +20,8 @@ export class BaseReportPage {
   protected segment = 'input';
 
   private _original_component: TbiComponent;
-
+  public unknow_surface: boolean = false;
+  
   constructor(
     public report: ReportBase,
     protected navCtrl: NavController,
@@ -35,17 +36,17 @@ export class BaseReportPage {
       'https://restorationmasterfinder.com/restoration/wp-content/uploads/2016/08/pipe-burst.jpg',
       'http://www.wklawyers.com/wp-content/uploads/2015/02/plumbing-leak-pipe-burst-attorney.jpg',
       'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ9QhRSAcVUI3nmDVmShbEX_BcSqx2rGJkzWshEVKV5SPvwEA0LHQ'
-    ].forEach(p => this.report.component.pictures.push(new Picture({ src: p })));
+    ].forEach(p => this.report.pictures.push(new Picture({ picture: p })));
   }
 
-  public toggle_surface_material(value: boolean) {
+  protected toggle_surface_material(value: boolean) {
     this.edit_surface_material = value;
     setTimeout(() => {
       if (!!value) document.getElementsByName('surface_material')[1].focus();
     }, 200);
   }
 
-  public set_surface_material(index?: number, event?: number | Event) {
+  protected set_surface_material(index?: number, event?: number | Event) {
     console.warn(typeof event == 'object')
     const material = More.MATERIALS.find(c => c[1] == index);
     this.report.component.fields.surface_material_index = typeof event == 'object' ? null : index;
@@ -73,7 +74,7 @@ export class BaseReportPage {
     })
   }
 
-  public save() {
+  protected save() {
     if (!!this.form.invalid) return;
     const project = this.report.component.project;
     if (!this.report.component.reports.find(c => c.id === this.report.id)) this.report.component.reports.push(this.report);
@@ -82,7 +83,7 @@ export class BaseReportPage {
     this.ask_for_more_reports(project);
   }
 
-  public ask_for_more_reports(project: Project) {
+  protected ask_for_more_reports(project: Project) {
     let confirm = this.alertCtrl.create({
       title: `Create report`,
       message: `Do you want to add another report associated to this component?`,
@@ -111,7 +112,7 @@ export class BaseReportPage {
     confirm.present();
   }
 
-  public get has_results(): boolean {
+  protected get has_results(): boolean {
     return !this.form.invalid && this.report.result !== null;
   }
 
@@ -140,7 +141,53 @@ export class BaseReportPage {
     this.view = 'edit_picture';
   }
 
-  public take_picture() {
-    this.camera.take_picture().subscribe(d => this.report.component.pictures.push(new Picture({ src: d })));
+  protected take_picture() {
+    this.camera.take_picture().subscribe(d => this.report.pictures.push(new Picture({ picture: d })));
+  }
+
+  protected toggle_know() {
+    if (!!this.unknow_surface) this.report.component.fields.surface = null;
+  }
+
+  protected before_calculate(temp: number) {
+    this.report.component.fields.surface_temp = temp;
+  }
+
+  private _average_temp?: number = null;
+  protected set average_temp(value: number) {
+    this._average_temp = value;
+  }
+  protected get average_temp(): number {
+    if (!this.report.component.has_markers) {
+      this._average_temp = null;
+    }
+    this._average_temp = this.report.component.surface_temp;
+    return this._average_temp;
+  }
+
+  protected ask_calculate(): ReportBase {
+    if (isNaN(this.report.component.fields.surface_temp)
+      || !this.report.component.has_markers) return this.calculate();
+    let confirm = this.alertCtrl.create({
+      title: `Temperature`,
+      message: `Which temperature would you like to use for calculation?`,
+      cssClass: `ion-dialog-horizontal`,
+      enableBackdropDismiss: false,
+      buttons: [
+        {
+          text: `Average ${this.report.component.surface_temp}ºC`,
+          handler: () => this.before_calculate(this.report.component.fields.surface_temp = this.report.component.surface_temp)
+        },
+        {
+          text: `Minimum ${this.report.component.min_temp}ºC`,
+          handler: () => this.before_calculate(this.report.component.fields.surface_temp = this.report.component.min_temp)
+        },
+        {
+          text: `Maximum ${this.report.component.max_temp}ºC`,
+          handler: () => this.before_calculate(this.report.component.fields.surface_temp = this.report.component.max_temp)
+        }
+      ]
+    });
+    confirm.present();
   }
 }

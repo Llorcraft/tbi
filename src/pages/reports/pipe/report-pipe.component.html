@@ -1,7 +1,7 @@
 <ion-header>
   <ion-navbar hideBackButton>
     <ion-title>
-      Surface
+      Pipe
     </ion-title>
     <ion-buttons end>
       <button ion-button color="light" on-tap="take_picture()">
@@ -18,22 +18,19 @@
   <ion-grid full-height with-footer [hidden]="view=='edit_picture'">
     <ion-row full-height>
       <ion-col col-12 col-md-6 no-padding>
-        <!-- <ion-segment [(ngModel)]="segment" [disabled]="view=='edit_picture'">
-          <ion-segment-button value="input">
-            Input
-          </ion-segment-button>
-          <ion-segment-button value="pictures">
-            Pictures ({{report.component.images.length}})
-          </ion-segment-button>
-        </ion-segment> -->
-
         <form novalidate #form="ngForm" [hidden]="segment!='input'" (submit)="calculate()">
           <ion-row>
-            <ion-col col-12>
+            <ion-col col-8>
               <ion-item>
                 <ion-label stacked>Component/Location</ion-label>
-                <ion-input tabindex="1" scroll="-80" (focus)="on_focus($event)" name="location" required data-val-required="Please input Component/Location"
+                <ion-input tabindex="1" name="location" required data-val-required="Please input Component/Location"
                   [(ngModel)]="report.component.fields.location" type="text"></ion-input>
+              </ion-item>
+            </ion-col>
+            <ion-col col-4>
+              <ion-item>
+                <ion-label stacked>Length (m)</ion-label>
+                  <ion-input tabindex="1" name="number" required data-val-required="Please input length" [(ngModel)]="report.component.fields.length" type="number"></ion-input>
               </ion-item>
             </ion-col>
           </ion-row>
@@ -50,19 +47,12 @@
             </ion-col>
           </ion-row>
           <ion-row>
-            <ion-col col-6>
+            <ion-col col-10>
               <ion-item>
-                <ion-label stacked>Surface (m<sup>2</sup>)</ion-label>
-                    <ion-input tabindex="3" [disabled]="unknow_surface" (focus)="on_focus($event)" name="surface" required data-val-required="Please input surface in m²" [(ngModel)]="report.component.fields.surface" type="number"
-                    [(ngModel)]="surface"></ion-input>
+                <ion-label stacked>Nominal diameter (DN)</ion-label>
+                  <ion-input tabindex="3" (focus)="on_focus($event)" name="nominal_diameter" required data-val-required="Please input Nominal diameter" [(ngModel)]="report.component.fields.nominal_diameter"
+                  type="number"></ion-input>
               </ion-item>
-            </ion-col>
-            <ion-col col-4 toggle-container style="padding-top: 2.5rem">
-                <ion-label stacked>Unknown</ion-label>
-                <ion-toggle [(ngModel)]="unknow_surface" (ionChange)="toggle_know()" name="unknow_surface"></ion-toggle>
-            </ion-col>
-            <ion-col col-2>
-              <area [hidden]="unknow_surface" pull-left #area (change)="report.component.fields.surface=area.value" modal-button />
             </ion-col>
           </ion-row>
           <ion-row>

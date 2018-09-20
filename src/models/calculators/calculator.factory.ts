@@ -1,5 +1,5 @@
 import { ReportBase } from "../report-base";
-import { SurfaceDecorator } from ".";
+import { SurfaceDecorator, FlangeDecorator, PipeDecorator } from ".";
 
 export class CalculatorFactory {
     public decorators = new Map<string, Function>();
@@ -10,7 +10,8 @@ export class CalculatorFactory {
 
     constructor(){
         this.decorators.set(`Insulation\\Un-Insulated Equipments\\Surface`, ()=> new SurfaceDecorator());
-        this.decorators.set(`Insulation\\Un-Insulated Equipments\\Flange`, ()=> new SurfaceDecorator())
+        this.decorators.set(`Insulation\\Un-Insulated Equipments\\Flange`, ()=> new FlangeDecorator());
+        this.decorators.set(`Insulation\\Un-Insulated Equipments\\Pipe`, ()=> new PipeDecorator())
     }
 }
 

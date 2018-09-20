@@ -30,7 +30,7 @@
           <report-errors padding #errors col-12></report-errors>
         </ion-list>
       </ion-col>
-      <ion-col col-6 picture-slide [label]="false" [component]="report.component" (onStartEdit)="on_picture_start_edit($event)">
+      <ion-col col-6 picture-slide [label]="false" [report]="report" (onStartEdit)="on_picture_start_edit($event)">
       </ion-col>
     </ion-row>
   </ion-grid>

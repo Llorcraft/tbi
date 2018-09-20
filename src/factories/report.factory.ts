@@ -2,6 +2,7 @@ import { ReportBase, Project } from "../models";
 import { ReportSurface, ReportFlange } from "../models/reports";
 import { TbiComponent } from "../models/component";
 import { ReportGeneric } from "../models/reports/report-generic.class";
+import { ReportPipe } from "../models/reports/report-pipe.class";
 
 export namespace Report {
   export class Factory {
@@ -19,12 +20,9 @@ export namespace Report {
         public static Flange(project?: Project, component?: TbiComponent, item?: ReportBase): ReportBase {
           return new ReportFlange(project, component || new TbiComponent(project), item);
         }
-        // public static Pipe(): ReportBase {
-        //   return new ReportBase({
-        //     name: `Pipes`,
-        //     path: `${this.base_path}Pipes`
-        //   });
-        // }
+        public static Pipe(project?: Project, component?: TbiComponent, item?: ReportBase): ReportBase {
+          return new ReportPipe(project, component || new TbiComponent(project), item);
+        }
         // public static Flange(): ReportBase {
         //   return new ReportBase({
         //     name: 'Flange',

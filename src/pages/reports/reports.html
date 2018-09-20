@@ -45,7 +45,7 @@
     <ng-container *ngSwitchCase="'insulation'">
       <ion-row *ngIf="segment.value==0">
         <ion-col  card-container offset-md-3 col-md-3 col-sm-6>
-          <ion-card>
+          <ion-card on-tap="navigate_to_report(REPORT.INSULATION.UNINSULATED_EQUIPMENTS.PIPE)">
             <span svg="pipe"></span>
             <h1>Pipe</h1>
           </ion-card>

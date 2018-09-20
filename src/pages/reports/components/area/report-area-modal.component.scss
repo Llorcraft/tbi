@@ -6,7 +6,7 @@
     overflow: hidden!important;
   }
   .modal-wrapper {
-    $height: 450;
+    $height: 500;
     $width: 450;
     height: $height * 1px;
     width: $width * 1px;
@@ -23,7 +23,7 @@
       }
       ion-toolbar {
         .toolbar-background {
-          background: #fff !important;
+          background: #ccc !important;
         }
       }
     }

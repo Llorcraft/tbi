@@ -1,7 +1,7 @@
 <ion-header>
   <ion-navbar hideBackButton>
     <ion-title>
-      Surface
+      Flange
     </ion-title>
     <ion-buttons end>
       <button ion-button color="light" on-tap="take_picture()">
@@ -18,22 +18,21 @@
   <ion-grid full-height with-footer [hidden]="view=='edit_picture'">
     <ion-row full-height>
       <ion-col col-12 col-md-6 no-padding>
-        <!-- <ion-segment [(ngModel)]="segment" [disabled]="view=='edit_picture'">
-          <ion-segment-button value="input">
-            Input
-          </ion-segment-button>
-          <ion-segment-button value="pictures">
-            Pictures ({{report.component.images.length}})
-          </ion-segment-button>
-        </ion-segment> -->
 
         <form novalidate #form="ngForm" [hidden]="segment!='input'" (submit)="calculate()">
           <ion-row>
-            <ion-col col-12>
+            <ion-col col-8>
               <ion-item>
                 <ion-label stacked>Component/Location</ion-label>
-                <ion-input tabindex="1" scroll="-80" (focus)="on_focus($event)" name="location" required data-val-required="Please input Component/Location"
+                <ion-input tabindex="1" name="location" required data-val-required="Please input Component/Location"
                   [(ngModel)]="report.component.fields.location" type="text"></ion-input>
+              </ion-item>
+            </ion-col>
+            <ion-col col-4>
+              <ion-item>
+                <ion-label stacked>Item number</ion-label>
+                  <ion-input tabindex="2"  name="number" required data-val-required="Please input Item number" [(ngModel)]="report.component.fields.number"
+                  type="number"></ion-input>
               </ion-item>
             </ion-col>
           </ion-row>
@@ -41,7 +40,7 @@
             <ion-col col-10>
               <ion-item>
                 <ion-label stacked>Operational time (hours)</ion-label>
-                <ion-input tabindex="2" required data-val-required="Please input operational time" name="operational_time" [(ngModel)]="report.component.fields.operational_time"
+                <ion-input tabindex="3" required data-val-required="Please input operational time" name="operational_time" [(ngModel)]="report.component.fields.operational_time"
                   type="number"></ion-input>
               </ion-item>
             </ion-col>
@@ -50,27 +49,25 @@
             </ion-col>
           </ion-row>
           <ion-row>
-            <ion-col col-6>
+            <ion-col col-10>
               <ion-item>
-                <ion-label stacked>Surface (m<sup>2</sup>)</ion-label>
-                    <ion-input tabindex="3" [disabled]="unknow_surface" (focus)="on_focus($event)" name="surface" required data-val-required="Please input surface in m²" [(ngModel)]="report.component.fields.surface" type="number"
-                    [(ngModel)]="surface"></ion-input>
+                <ion-label stacked>Nominal diameter (DN)</ion-label>
+                  <ion-input tabindex="4" (focus)="on_focus($event)" name="nominal_diameter" required data-val-required="Please input Nominal diameter" [(ngModel)]="report.component.fields.nominal_diameter"
+                  type="number"></ion-input>
               </ion-item>
             </ion-col>
-            <ion-col col-4 toggle-container style="padding-top: 2.5rem">
-                <ion-label stacked>Unknown</ion-label>
-                <ion-toggle [(ngModel)]="unknow_surface" (ionChange)="toggle_know()" name="unknow_surface"></ion-toggle>
-            </ion-col>
             <ion-col col-2>
-              <area [hidden]="unknow_surface" pull-left #area (change)="report.component.fields.surface=area.value" modal-button />
-            </ion-col>
+              <div (click)="set_length()" tabindex="-1" pull-left no-padding ion-button small color="light" class="with-action">
+                  <ion-icon name="custom-flange"></ion-icon>
+                </div>
+          </ion-col>
           </ion-row>
           <ion-row>
             <ion-col col-10>
               <ion-item class="edit_surface_material" [class.editable]="edit_surface_material">
                 <ion-label stacked>Surface material (ε)</ion-label>
-                <ion-input tabindex="4" class="literal" (focus)="toggle_surface_material(true)" [value]="report.component.fields.surface_material_friendly" type="text"></ion-input>
-                <ion-input tabindex="5" class="numeric" (focusout)="toggle_surface_material(false)" (focus)="on_focus($event)" name="surface_material" required data-val-required="Please input surface emissivity" [(ngModel)]="report.component.fields.surface_material" type="number" (change)="set_surface_material(report.component.fields.surface_material, $event)"></ion-input>
+                <ion-input tabindex="5" class="literal" (focus)="toggle_surface_material(true)" [value]="report.component.fields.surface_material_friendly" type="text"></ion-input>
+                <ion-input tabindex="6" class="numeric" (focusout)="toggle_surface_material(false)" (focus)="on_focus($event)" name="surface_material" required data-val-required="Please input surface emissivity" [(ngModel)]="report.component.fields.surface_material" type="number" (change)="set_surface_material(report.component.fields.surface_material, $event)"></ion-input>
               </ion-item>
             </ion-col>
             <ion-col col-2>
@@ -86,20 +83,19 @@
               </ion-item>
             </ion-col>
             <ion-col col-2>
-              <!-- <medium-temp #medium (change)="report.component.fields.surface_temp=medium.value" modal-button pull-left></medium-temp> -->
-              <medium-temp #medium [report]="report" modal-button pull-left></medium-temp>
+                <medium-temp #medium [report]="report" modal-button pull-left></medium-temp>
             </ion-col>
           </ion-row>
           <ion-row>
               <ion-col col-10>
                 <ion-item>
                   <ion-label stacked>Ambient temperature (<sup>º</sup>C)</ion-label>
-                    <ion-input tabindex="6" (focus)="on_focus($event)"  (keypress)="on_keypress($event)"  name="ambient_temp" required data-val-required="Please input Ambient temperature" [(ngModel)]="report.component.fields.ambient_temp"
+                    <ion-input tabindex="8" (focus)="on_focus($event)" (keypress)="on_keypress($event)" name="ambient_temp" required data-val-required="Please input Ambient temperature" [(ngModel)]="report.component.fields.ambient_temp"
                     type="number"></ion-input>
                 </ion-item>
               </ion-col>
               <ion-col col-2></ion-col>
-            </ion-row>
+          </ion-row>
         </form>
       </ion-col>
 
@@ -141,18 +137,18 @@
   <ion-grid no-padding>
     <ion-row no-padding>
       <ion-col col-6 no-padding>
-        <button tabindex="9" *ngIf="view!='edit_picture'" ion-button small color="light" (click)="go_back()">
+        <button tabindex="11" *ngIf="view!='edit_picture'" ion-button small color="light" (click)="go_back()">
           <ion-icon name="arrow-back"></ion-icon>&nbsp;Back
         </button>
-        <button tabindex="9" *ngIf="view=='edit_picture'" ion-button small color="light" (click)="go_back()">
+        <button tabindex="11" *ngIf="view=='edit_picture'" ion-button small color="light" (click)="go_back()">
             Close
           </button>
       </ion-col>
       <ion-col col-6 text-right no-padding *ngIf="view!='edit_picture' && segment==='input'">
-        <button tabindex="8" ion-button small pull-right color="primary" (click)="calculate()" *ngIf="view!='edit_picture' && !report.result">
+        <button tabindex="9" ion-button small pull-right color="primary" (click)="calculate()" *ngIf="view!='edit_picture' && !report.result">
           Calculate
         </button>
-        <button tabindex="10" ion-button small pull-right color="primary" (click)="save()" *ngIf="!!report.result && !form.invalid">
+        <button tabindex="9" ion-button small pull-right color="primary" (click)="save()" *ngIf="!!report.result && !form.invalid">
           Report
         </button>
       </ion-col>
