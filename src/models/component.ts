@@ -2,9 +2,6 @@ import { ReportBase } from "./report-base";
 import { Picture } from "./picture";
 import { Fields } from "./fields";
 import { Project } from "./project";
-import { REPORT } from "../const";
-import { ReportSurface, ReportFlange, ReportPipe, ReportValve } from "./reports";
-import { ReportGeneric } from "./reports/report-generic.class";
 
 export class TbiComponent {
     public id: string = '';

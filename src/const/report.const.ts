@@ -8,7 +8,8 @@ export const REPORT = {
       GENERIC: `Insulation\\Un-Insulated Equipments\\Generic`
     },
     INSULATED_EQUIPMENTS: {
-      SURFACE: `Insulation\\Insulated Equipments\\Surface`
+      SURFACE: `Insulation\\Insulated Equipments\\Surface`,
+      PIPE: `Insulation\\Insulated Equipments\\Pipe`,
     }
   },
   GENERIC: `Generic`

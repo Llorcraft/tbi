@@ -2,7 +2,7 @@ import { Project, ReportBase } from ".";
 import { REPORT } from "../const/report.const";
 import { NavController } from "ionic-angular";
 import { TbiComponent } from "./component";
-import { ReportFlange, ReportPipe, ReportSurface, ReportValve, ReportInsulatedSurface } from "./reports";
+import { ReportFlange, ReportPipe, ReportSurface, ReportValve, ReportInsulatedSurface, ReportInsulatedPipe } from "./reports";
 import { ReportGeneric } from "./reports/report-generic.class";
 
 export class ReportRouter {
@@ -33,6 +33,8 @@ export class ReportRouter {
         return new ReportFlange(this.project, this.component, report);
       case REPORT.INSULATION.UNINSULATED_EQUIPMENTS.PIPE:
         return new ReportPipe(this.project, this.component, report);
+        case REPORT.INSULATION.INSULATED_EQUIPMENTS.PIPE:
+        return new ReportInsulatedPipe(this.project, this.component, report);
       case REPORT.INSULATION.UNINSULATED_EQUIPMENTS.VALVE:
         return new ReportValve(this.project, this.component, report);
       default:

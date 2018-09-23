@@ -11,10 +11,11 @@ export class CalculatorFactory {
 
     constructor(){
         this.decorators.set(REPORT.INSULATION.UNINSULATED_EQUIPMENTS.SURFACE, ()=> new SurfaceDecorator());
-        this.decorators.set(REPORT.INSULATION.INSULATED_EQUIPMENTS.SURFACE, ()=> new ISurfaceDecorator());
         this.decorators.set(REPORT.INSULATION.UNINSULATED_EQUIPMENTS.FLANGE, ()=> new FlangeDecorator());
-        this.decorators.set(REPORT.INSULATION.UNINSULATED_EQUIPMENTS.PIPE, ()=> new IPipeDecorator());
+        this.decorators.set(REPORT.INSULATION.UNINSULATED_EQUIPMENTS.PIPE, ()=> new PipeDecorator());
         this.decorators.set(REPORT.INSULATION.UNINSULATED_EQUIPMENTS.VALVE, ()=> new ValveDecorator());
+        this.decorators.set(REPORT.INSULATION.INSULATED_EQUIPMENTS.SURFACE, ()=> new ISurfaceDecorator());
+        this.decorators.set(REPORT.INSULATION.INSULATED_EQUIPMENTS.PIPE, ()=> new IPipeDecorator());
     }
 }
 

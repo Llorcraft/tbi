@@ -16,3 +16,4 @@ export { ReportTempMarkersWindowComponent } from './components/medium-temp/temp-
 export { ReportResultComponent } from './components/result/report-result.component';
 export { ReportValvePage } from './valve/report-valve.component';
 export { ReportInsulatedSurfacePage } from './isurface/report-isurface.component';
+export { ReportInsulatedPipePage } from './ipipe/report-ipipe.component';

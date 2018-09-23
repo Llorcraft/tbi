@@ -1,7 +1,7 @@
 <ion-header>
   <ion-navbar hideBackButton>
     <ion-title>
-      Pipe
+      {{report.name}}
     </ion-title>
     <ion-buttons end>
       <button ion-button color="light" on-tap="take_picture()">
@@ -46,6 +46,16 @@
               <more pull-left #time (change)="report.component.fields.operational_time=time.value" [type]="'time'" modal-button></more>
             </ion-col>
           </ion-row>
+          <ion-row *ngIf="!!report.insulated">
+            <ion-col col-10>
+              <ion-item>
+                <ion-label stacked>Medium temperature (<sup>º</sup>C)</ion-label>
+                  <ion-input tabindex="2" name="medium_temp" required data-val-required="Please input medium temperature" [(ngModel)]="report.component.fields.medium_temp"
+                  type="number"></ion-input>
+              </ion-item>
+            </ion-col>
+            <ion-col col-2></ion-col>
+        </ion-row>
           <ion-row>
             <ion-col col-10>
               <ion-item>
