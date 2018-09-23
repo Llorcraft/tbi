@@ -1,7 +1,6 @@
 import { ICalculator } from "./calculator.factory";
 import { ReportBase } from "../report-base";
-import { BaseCalculator } from "./base-calculator.class";
-import { ThicknessFlageAndValve } from "./thickness";
+import { Thickness } from "./thickness";
 
 
 export class FlangeDecorator implements ICalculator {
@@ -10,8 +9,11 @@ export class FlangeDecorator implements ICalculator {
     }
 }
 
-class FlangeCalculator extends ThicknessFlageAndValve {
-    
+class FlangeCalculator extends Thickness {
+    public get default_length(): number {
+        return .5;
+    }
+
     constructor(report: ReportBase) {
         super(report, [
         /*00*/() => this.Δθ = Math.abs(this.θse - this.θa),
@@ -48,8 +50,8 @@ class FlangeCalculator extends ThicknessFlageAndValve {
         /*40*/() => this.Sp = Math.PI * this.De_min,
         /*48*/() => this.ql_ref_pb = this.ql - (10000 * this.c * this.Sp),
         /*06*/() => this.Qε = this.Qkwh * this.Σ,
-        /*22*/() => this.Qkwh_min = this.ql_min * this.l * this.Ot * this.n * 1 / 1000,
-        /*23*/() => this.Qkwh_max = this.ql_max * this.l * this.Ot * this.n * 1 / 1000,
+        /*22*/() => this.Qkwh_min = this.ql_min * this.l * this.Ot * this.n / 1000,
+        /*23*/() => this.Qkwh_max = this.ql_max * this.l * this.Ot * this.n / 1000,
         /*24*/() => this.Qε_min = this.Qkwh_min * this.Σ,
         /*25*/() => this.Qε_max = this.Qkwh_max * this.Σ,
         /*26*/() => this.Savingkwh_min = this.Qkwh - this.Qkwh_min,

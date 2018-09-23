@@ -39,6 +39,33 @@ export class BaseReportPage {
     ].forEach(p => this.report.pictures.push(new Picture({ picture: p })));
   }
 
+  protected set_length(message: string, default_value: number) {
+    let alert = this.alertCtrl.create({
+      title: `Equivalent length<br><small>${message}</small>`,
+      inputs: [
+        {
+          name: 'length',
+          placeholder: 'm',
+          type: 'number',
+          value: null != this.report.component.fields.length ? this.report.component.fields.length.toString() : default_value.toString()
+        }
+      ],
+      buttons: [
+        {
+          text: 'Cancel',
+          role: 'cancel'
+        },
+        {
+          text: 'Ok',
+          handler: (data) => {
+            this.report.component.fields.length = ('' != data.length) ? parseFloat(data.length) : default_value;
+          }
+        }
+      ]
+    });
+    alert.present();
+  }
+
   protected toggle_surface_material(value: boolean) {
     this.edit_surface_material = value;
     setTimeout(() => {

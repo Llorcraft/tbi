@@ -1,6 +1,6 @@
 import { ICalculator } from "./calculator.factory";
 import { ReportBase } from "../report-base";
-import { ThicknessSurfaceAndPipe } from "./thickness";
+import { Thickness } from "./thickness";
 
 
 export class SurfaceDecorator implements ICalculator {
@@ -9,7 +9,7 @@ export class SurfaceDecorator implements ICalculator {
   }
 }
 
-class SurfaceCalculator extends ThicknessSurfaceAndPipe {
+class SurfaceCalculator extends Thickness {
   constructor(report: ReportBase) {
     super(report, [
       /*00*/() => this.Δθ = Math.abs(this.θse - this.θa),

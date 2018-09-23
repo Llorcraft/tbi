@@ -3,41 +3,42 @@ import { ReportBase } from "../report-base";
 import { Thickness } from "./thickness";
 
 
-export class PipeDecorator implements ICalculator {
+export class ValveDecorator implements ICalculator {
   public calculate(report: ReportBase): ReportBase {
-    return new PipeCalculator(report).execute();
+    return new ValveCalculator(report).execute();
   }
 }
 
-class PipeCalculator extends Thickness {
+class ValveCalculator extends Thickness{
   constructor(report: ReportBase) {
     super(report, [
         // /*02*/() => this.hcv = 1.74 * Math.pow(this.Δθ, 1 / 3),
         // /*04*/() => this.q = this.hse * this.Δθ,
-        /**00*/() => this.Δθ = Math.abs(this.θse - this.θa),
-        /**01*/() => this.hr = this.ε * this.δ * (Math.pow(this.θse + 273, 4) - Math.pow(this.θa + 273, 4)) / ((this.θse + 273) - (this.θa + 273)),
-        /**07*/() => this.θm_min = (this.θse + this.θa) / 2,
-        /**08*/() => this.θm_max = (this.θse + this.θa) / 2,
-        /**09*/() => this.λm_min = this.a + this.b * this.θm_min + this.c * Math.pow(this.θm_min, 2) + this.d * Math.pow(this.θm_min, 3),
-        /**10*/() => this.λm_max = this.a + this.b * this.θm_max + this.c * Math.pow(this.θm_max, 2) + this.d * Math.pow(this.θm_max, 3),
-        /**11*/() => this.λdes_min = this.λm_min * this.Ft,
-        /**12*/() => this.λdes_max = this.λm_max * this.Ft,
-        /**13*/() => this.e_min = this.get_l(0),
-        /**14*/() => this.e_max = this.get_l(1),
+        /*00*/() => this.Δθ = Math.abs(this.θse - this.θa),
+        /*01*/() => this.hr = this.ε * this.δ * (Math.pow(this.θse + 273, 4) - Math.pow(this.θa + 273, 4)) / ((this.θse + 273) - (this.θa + 273)),
+        /*07*/() => this.θm_min = (this.θse + this.θa + 35) / 2,
+        /*08*/() => this.θm_max = (this.θse + this.θa + 20) / 2,
+        /*09*/() => this.λm_min = this.a + this.b * this.θm_min + this.c * Math.pow(this.θm_min, 2) + this.d * Math.pow(this.θm_min, 3),
+        /*10*/() => this.λm_max = this.a + this.b * this.θm_max + this.c * Math.pow(this.θm_max, 2) + this.d * Math.pow(this.θm_max, 3),
+        /*11*/() => this.λdes_min = this.λm_min * this.Ft,
+        /*12*/() => this.λdes_max = this.λm_max * this.Ft,
+        /*13*/() => this.e_min = this.get_l(0),
+        /*14*/() => this.e_max = this.get_l(1),
+        /*36*/() => this.De_min = this.De + 2 * this.e_min,
+        /*37*/() => this.De_max = this.De + 2 * this.e_max,
 
         /**32*/() => this.lort = Math.pow(this.De, 3) * this.Δθ,
-        /**36*/() => this.De_min = this.De + 2 * this.e_min,
-        /**37*/() => this.De_max = this.De + 2 * this.e_max,
+        /**32min*/() => this.lort_min = Math.pow(this.De_min, 3) * this.Δθ,
+        /**32max*/() => this.lort_max = Math.pow(this.De_max, 3) * this.Δθ,
         /**33*/() => this.hcv_laminar = 1.25 * Math.pow(this.Δθ / this.De, 0.25),
         /**33min*/() => this.hcv_laminar_min = 1.25 * Math.pow(this.Δθ / this.De_min, 0.25),
-        /**34min*/() => this.hcv_laminar_max = 1.25 * Math.pow(this.Δθ / this.De_max, 0.25),
+        /**33max*/() => this.hcv_laminar_max = 1.25 * Math.pow(this.Δθ / this.De_max, 0.25),
         /**34*/() => this.hcv_turbulent = 1.21 * Math.pow(this.Δθ, 0.33),
         /**35*/() => this.hse = this.hr + (this.lort < 10 ? this.hcv_laminar : this.hcv_turbulent),
-        /**35min*/() => this.hse_min = this.hr + (this.lort < 10 ? this.hcv_laminar_min : this.hcv_turbulent),
-        /**35max*/() => this.hse_max = this.hr + (this.lort < 10 ? this.hcv_laminar_max : this.hcv_turbulent),
+        /**35min*/() => this.hse_min = this.hr + (this.lort_min < 10 ? this.hcv_laminar_min : this.hcv_turbulent),
+        /**35max*/() => this.hse_max = this.hr + (this.lort_max < 10 ? this.hcv_laminar_max : this.hcv_turbulent),
         /**42*/() => this.Rle = 1 / (this.hse * Math.PI * this.De),
         /**43*/() => this.ql = this.Δθ / this.Rle,
-        ///*41*/() => this.qref_pb = this.q - ((10000 * this.Cpb_surface_pipe) / this.Ot / this.Σ),
         /**42min*/() => this.Rle_min = 1 / (this.hse_min * Math.PI * this.De_min),
         /**42max*/() => this.Rle_max = 1 / (this.hse_max * Math.PI * this.De_max),
         /**38*/() => this.Rins_min = (Math.log(this.De_min / this.De)) / (2 * Math.PI * this.λdes_min),
@@ -45,10 +46,11 @@ class PipeCalculator extends Thickness {
         /**45*/() => this.ql_min = this.Δθ / (this.Rle_min + this.Rins_min),
         /**46*/() => this.ql_max = this.Δθ / (this.Rle_max + this.Rins_max),
         //*47*/() => this.Qkwh = this.ql * this.l * this.Ot * this.l * 1 / 1000,
-        /**40*/() => this.Sp = Math.PI * this.De_min,
-        /**44*/() => this.Qkwh =  this.ql * this.l * this.Ot * 1 / 1000,
-        /**44min*/() => this.Qkwh_min =  this.ql_min * this.l * this.Ot * 1 / 1000,
-        /**44max*/() => this.Qkwh_max =  this.ql_max * this.l * this.Ot * 1 / 1000,
+         ///*41*/() => this.qref_pb = this.q - ((10000 * this.Cpb_surface_pipe) / this.Ot / this.Σ),
+        /*40*/() => this.Sp = Math.PI * this.De_min,
+        /*44*/() => this.Qkwh = this.ql * this.l * this.n * this.Ot * 1 / 1000,
+        /*44min*/() => this.Qkwh_min = this.ql_min * this.l * this.n * this.Ot / 1000,
+        /*44max*/() => this.Qkwh_max = this.ql_max * this.l * this.n * this.Ot / 1000,
         /*48*/() => this.ql_ref_pb = this.ql - ((10000 * this.Cpb_surface_pipe * this.Sp) / (this.Ot * this.Σ)),
         /*06*/() => this.Qε = this.Qkwh * this.Σ,
         /*24*/() => this.Qε_min = this.Qkwh_min * this.Σ,

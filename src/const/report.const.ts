@@ -4,7 +4,7 @@ export const REPORT = {
       SURFACE: `Insulation\\Un-Insulated Equipments\\Surface`,
       PIPE: `Insulation\\Un-Insulated Equipments\\Pipe`,
       FLANGE: `Insulation\\Un-Insulated Equipments\\Flange`,
-      VALVE:  `Insulation\\Un-Insulated Equipments\\Pipe`,
+      VALVE:  `Insulation\\Un-Insulated Equipments\\Valve`,
       GENERIC: `Insulation\\Un-Insulated Equipments\\Generic`
     }
   },

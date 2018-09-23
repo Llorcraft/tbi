@@ -1,5 +1,6 @@
 import { ReportBase } from "../report-base";
-import { SurfaceDecorator, FlangeDecorator, PipeDecorator } from ".";
+import { SurfaceDecorator, FlangeDecorator, PipeDecorator, ValveDecorator } from ".";
+import { REPORT } from "../../const";
 
 export class CalculatorFactory {
     public decorators = new Map<string, Function>();
@@ -9,9 +10,10 @@ export class CalculatorFactory {
     }
 
     constructor(){
-        this.decorators.set(`Insulation\\Un-Insulated Equipments\\Surface`, ()=> new SurfaceDecorator());
-        this.decorators.set(`Insulation\\Un-Insulated Equipments\\Flange`, ()=> new FlangeDecorator());
-        this.decorators.set(`Insulation\\Un-Insulated Equipments\\Pipe`, ()=> new PipeDecorator())
+        this.decorators.set(REPORT.INSULATION.UNINSULATED_EQUIPMENTS.SURFACE, ()=> new SurfaceDecorator());
+        this.decorators.set(REPORT.INSULATION.UNINSULATED_EQUIPMENTS.FLANGE, ()=> new FlangeDecorator());
+        this.decorators.set(REPORT.INSULATION.UNINSULATED_EQUIPMENTS.PIPE, ()=> new PipeDecorator());
+        this.decorators.set(REPORT.INSULATION.UNINSULATED_EQUIPMENTS.VALVE, ()=> new ValveDecorator());
     }
 }
 

@@ -1,23 +1,24 @@
 import { ReportBase } from './../report-base';
-import { ReportFlangePage } from '../../pages/reports';
 import { Project } from '..';
 import { REPORT } from '../../const';
 import { TbiComponent } from '../component';
+import { ReportValvePage } from '../../pages/reports';
 
-export class ReportFlange extends ReportBase {
-  public page = ReportFlangePage;
+export class ReportValve extends ReportBase {
+  public page = ReportValvePage;
   public id = '';
-  public name = `Flange`;
-  public path = REPORT.INSULATION.UNINSULATED_EQUIPMENTS.FLANGE;
+  public name = `Valve`;
+  public path = REPORT.INSULATION.UNINSULATED_EQUIPMENTS.VALVE;
 
-  constructor(public project: Project, public component?: TbiComponent, item?: ReportFlange) {
+  constructor(public project: Project, public component?: TbiComponent, item?: ReportValve) {
     super(project, component, item);
-    this.component.fields.location = 'Test flange borrar';
+    this.component.fields.location = 'Test valve borrar';
     this.component.fields.operational_time = 8760;
     this.component.fields.nominal_diameter = 200;
+    this.component.fields.length = 1;
     this.component.fields.number = 1;
     this.component.fields.surface_material = 0.8;
-    this.component.fields.ambient_temp = 12;
+    this.component.fields.ambient_temp = 25;
     this.component.fields.surface_temp = 250;
   }
 }

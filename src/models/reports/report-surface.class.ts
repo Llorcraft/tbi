@@ -10,6 +10,13 @@ export class ReportSurface extends ReportBase {
   public name = `Surface`;
   public path = REPORT.INSULATION.UNINSULATED_EQUIPMENTS.SURFACE;
 
+  public get potential_measure(): string {
+    return (!this.component || !this.component.fields || null == this.component.fields.surface) ? 'kWh/m2' : 'kWh';
+  }
+  public get money_measure(): string {
+    return (!this.component || !this.component.fields || null == this.component.fields.surface) ? '€/m2' : '€';
+  }
+
   constructor(public project: Project, public component?: TbiComponent, item?: ReportSurface) {
     super(project, component, item);
   }

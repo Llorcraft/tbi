@@ -13,7 +13,13 @@ export class ReportBase {
   public result: Result = null;
   public project: Project = null;
   public component?: TbiComponent = null;
-  public pictures: Picture[] = []
+  public pictures: Picture[] = [];
+  public get potential_measure(): string {
+    return 'kWh/a';
+  }
+  public get money_measure(): string {
+    return '€/a';
+  }
 
   constructor(project: Project, component?: TbiComponent, item?: Partial<ReportBase>) {
     if (!!item) {

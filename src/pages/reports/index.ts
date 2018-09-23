@@ -14,3 +14,4 @@ export { ReportMoreButtonComponent} from './components/more/more-button.componen
 export { ReportMediumTempButtonsComponent } from './components/medium-temp/medium-temp-buttons.component';
 export { ReportTempMarkersWindowComponent } from './components/medium-temp/temp-marker-window.component';
 export { ReportResultComponent } from './components/result/report-result.component';
+export { ReportValvePage } from './valve/report-valve.component';

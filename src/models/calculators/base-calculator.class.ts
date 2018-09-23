@@ -38,7 +38,7 @@ export class BaseCalculator {
     public b: number = 0.0001173;
     public c: number = 0.00000007545;
     public Cpb_surface_pipe: number = 1.6;
-    public Cpb_valve_flange: number = 3;
+    public Cpb_valve_flange: number = 5;
     public d: number = 0.0000000007109;
     public Ft: number = 1.5;
     public Δθ: number = 1;
@@ -54,6 +54,8 @@ export class BaseCalculator {
     public Insulation_advice: string = '';
     public minimum_potential_explanation = '';
     public lort: number = 1;
+    public lort_min: number = 1;
+    public lort_max: number = 1;
     public get De(): number {
         const range = [
             [10, 0.018],
@@ -117,26 +119,45 @@ export class BaseCalculator {
     public ε = Number(this.report.component.fields.surface_material);
     public Σ = Number(this.report.component.project.price);
     public S = Number(this.report.component.fields.surface || 1);
-    public l = Number(this.report.component.fields.length || 0.5);
+    public l = Number(this.report.component.fields.length || this.default_length);
     public n = Number(this.report.component.fields.number);
     public DN = Number(this.report.component.fields.nominal_diameter || 0);
 
+    public get default_length(): number {
+        return 1;
+    }
+
     protected get_l(index: number) {
-        throw('Not implemented');
+        throw ('Not implemented');
     }
 
     public execute(): ReportBase {
         this.fnc.forEach(f => f.apply(this));
         console.table({
-            'Qε': this.Qε,
-            'Qε_min': this.Qε_min,
-            'Qε_max': this.Qε_max,
-            'Savingkwh_min': this.Savingkwh_min,
-            'Savingkwh_max': this.Savingkwh_max,
-            'Savingε_min': this.Savingε_min,
-            'Savingε_max': this.Savingε_max,
-            'Insulation_advice': this.Insulation_advice,
-            'ql_ref_pb': this.ql_ref_pb
+            // '07 => this.θm_min': this.θm_min,
+            // '08 => this.θm_max': this.θm_max,
+            // '09 => this.λm_min': this.λm_min,
+            // '10 => this.λm_max': this.λm_max,
+            // '11 => this.λdes_min': this.λdes_min,
+            // '12 => this.λdes_max': this.λdes_max,
+            // '36 => this.De_min': this.De_min,
+            // '37 => this.De_max': this.De_max,
+            // '38 => this.Rins_min': this.Rins_min,
+            // '39 => this.Rins_max': this.Rins_max,
+            // '45 => this.ql_min': this.ql_min,
+            // '46 => this.ql_max': this.ql_max,
+            'l': this.l,
+            '44 => this.Qkwh': this.Qkwh,
+            '44min => this.Qkwh_min': this.Qkwh_min,
+            '44max => this.Qkwh_max': this.Qkwh_max,
+            '48 => this.ql_ref_pb': this.ql_ref_pb,
+            '06 => this.Qε': this.Qε,
+            '24 => this.Qε_min': this.Qε_min,
+            '25 => this.Qε_max': this.Qε_max,
+            '26 => this.Savingkwh_min': this.Savingkwh_min,
+            '27 => this.Savingkwh_max': this.Savingkwh_max,
+            '28 => this.Savingε_min': this.Savingε_min,
+            '29 => this.Savingε_max': this.Savingε_max,
         })
         this.report.result = new Result({
             advise: this.Insulation_advice,

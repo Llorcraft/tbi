@@ -87,7 +87,8 @@ import {
   ReportPictureSlideComponent,
   ReportEditPictureComponent,
   ReportFlangePage,
-  ReportPipePage
+  ReportPipePage,
+  ReportValvePage
 } from '../pages/reports'
 
 //Pipes
@@ -127,6 +128,7 @@ import { SurfaceMaterialPipe } from '../pipes/surface-material.pipe';
     ReportSurfacePage,
     ReportFlangePage,
     ReportPipePage,
+    ReportValvePage,
     //Components
     SvgInsulationComponent,
     SvgCustomComponent,
@@ -194,7 +196,7 @@ import { SurfaceMaterialPipe } from '../pipes/surface-material.pipe';
     ReportSurfacePage,
     ReportFlangePage,
     ReportPipePage,
-    //ReportSafetSurfacePage
+    ReportValvePage
   ],
   providers: [
     /*App services*/
