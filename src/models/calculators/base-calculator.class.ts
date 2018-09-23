@@ -6,7 +6,9 @@ export class BaseCalculator {
     constructor(protected report: ReportBase, protected fnc: Function[]) { }
 
     public hr: number = 1;
+    public hr_min: number = 1;
     public hcv: number = 1;
+    public hcv_min: number = 1;
     public hcv_laminar: number = 1;
     public hcv_laminar_min: number = 1;
     public hcv_laminar_max: number = 1;
@@ -130,38 +132,28 @@ export class BaseCalculator {
     public get default_length(): number {
         return 1;
     }
-
     protected get_l(index: number) {
-        throw ('Not implemented');
+        if (this.Δθ <= 80) return [20, 100][index] / 1000;
+        if (this.Δθ <= 150) return [30, 180][index] / 1000;
+        if (this.Δθ <= 250) return [50, 250][index] / 1000;
+        return [80, 300][index] / 1000;
     }
 
     public execute(): ReportBase {
         this.fnc.forEach(f => f.apply(this));
         console.table({
-            // '07 => this.θm_min': this.θm_min,
-            // '08 => this.θm_max': this.θm_max,
-            // '09 => this.λm_min': this.λm_min,
-            // '10 => this.λm_max': this.λm_max,
-            // '11 => this.λdes_min': this.λdes_min,
-            // '12 => this.λdes_max': this.λdes_max,
-            // '36 => this.De_min': this.De_min,
-            // '37 => this.De_max': this.De_max,
-            // '38 => this.Rins_min': this.Rins_min,
-            // '39 => this.Rins_max': this.Rins_max,
-            // '45 => this.ql_min': this.ql_min,
-            // '46 => this.ql_max': this.ql_max,
-            'l': this.l,
-            '44 => this.Qkwh': this.Qkwh,
-            '44min => this.Qkwh_min': this.Qkwh_min,
-            '44max => this.Qkwh_max': this.Qkwh_max,
-            '48 => this.ql_ref_pb': this.ql_ref_pb,
-            '06 => this.Qε': this.Qε,
-            '24 => this.Qε_min': this.Qε_min,
-            '25 => this.Qε_max': this.Qε_max,
-            '26 => this.Savingkwh_min': this.Savingkwh_min,
-            '27 => this.Savingkwh_max': this.Savingkwh_max,
-            '28 => this.Savingε_min': this.Savingε_min,
-            '29 => this.Savingε_max': this.Savingε_max,
+            '01 => this.hr': this.hr,
+            '01min => this.hr_min': this.hr_min,
+            '02 => this.hcv': this.hcv,
+            '02min => this.hcv_min': this.hcv_min,
+            '03 => this.hse': this.hse,
+            '03min => this.hse_min': this.hse_min,
+            '05 => this.Qkwh': this.Qkwh,
+            '04 => this.q': this.q,
+            '20 => this.q_min': this.q_min,
+            '21 => this.q_max': this.q_max,
+            '22 => this.Qkwh_min': this.Qkwh_min,
+            '23 => this.Qkwh_max': this.Qkwh_max,
         })
         this.report.result = new Result({
             advise: this.Insulation_advice,

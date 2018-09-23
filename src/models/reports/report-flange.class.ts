@@ -3,12 +3,15 @@ import { ReportFlangePage } from '../../pages/reports';
 import { Project } from '..';
 import { REPORT } from '../../const';
 import { TbiComponent } from '../component';
+import { ICalculator } from '../calculators/calculator.factory';
+import { FlangeDecorator } from '../calculators';
 
 export class ReportFlange extends ReportBase {
   public page = ReportFlangePage;
   public id = '';
   public name = `Flange`;
   public path = REPORT.INSULATION.UNINSULATED_EQUIPMENTS.FLANGE;
+  public calculator: ICalculator = new FlangeDecorator
 
   constructor(public project: Project, public component?: TbiComponent, item?: ReportFlange) {
     super(project, component, item);

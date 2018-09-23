@@ -47,7 +47,6 @@ export class ReportsPage extends ReportRouter {
   protected disabled_for(family: string) {
     switch (family) {
       case 'insulation':
-        console.log(!!this.component.reports.filter(r => !!r.path.match(/insulation/gi)).length);
         return !!this.component.reports.filter(r => !!r.path.match(/insulation/gi)).length;
       default:
         return false;

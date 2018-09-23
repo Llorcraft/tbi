@@ -12,6 +12,7 @@ export class Fields {
   }
   public ambient_temp?: number = null;
   public surface_temp?: number = null;
+  public medium_temp?: number = null;
   public length?: number = null;
   public number?: number = null;
   public dimension?: number = null;
@@ -27,6 +28,7 @@ export class Fields {
     this.surface_material = this.number_or_null(f.surface_material);
     this.ambient_temp = this.number_or_null(f.ambient_temp);
     this.surface_temp = this.number_or_null(f.surface_temp);
+    this.medium_temp = this.number_or_null(f.medium_temp);
     this.length = this.number_or_null(f.length);
     this.number = this.number_or_null(f.number);
     this.dimension = this.number_or_null(f.dimension);

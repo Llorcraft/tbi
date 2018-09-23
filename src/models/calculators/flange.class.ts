@@ -1,6 +1,6 @@
 import { ICalculator } from "./calculator.factory";
 import { ReportBase } from "../report-base";
-import { Thickness } from "./thickness";
+import { BaseCalculator } from "./base-calculator.class";
 
 
 export class FlangeDecorator implements ICalculator {
@@ -9,7 +9,7 @@ export class FlangeDecorator implements ICalculator {
     }
 }
 
-class FlangeCalculator extends Thickness {
+class FlangeCalculator extends BaseCalculator {
     public get default_length(): number {
         return .5;
     }

@@ -1,6 +1,6 @@
 import { ICalculator } from "./calculator.factory";
 import { ReportBase } from "../report-base";
-import { Thickness } from "./thickness";
+import { BaseCalculator } from "./base-calculator.class";
 
 
 export class ValveDecorator implements ICalculator {
@@ -9,7 +9,7 @@ export class ValveDecorator implements ICalculator {
   }
 }
 
-class ValveCalculator extends Thickness{
+class ValveCalculator extends BaseCalculator{
   constructor(report: ReportBase) {
     super(report, [
         // /*02*/() => this.hcv = 1.74 * Math.pow(this.Δθ, 1 / 3),

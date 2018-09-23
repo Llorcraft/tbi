@@ -4,6 +4,7 @@ import { Result } from './result';
 import { TbiComponent } from './component';
 import { Picture } from './picture';
 import { Marker } from './marker';
+import { ICalculator } from './calculators/calculator.factory';
 
 export class ReportBase {
   public id: string = '';
@@ -20,7 +21,8 @@ export class ReportBase {
   public get money_measure(): string {
     return '€/a';
   }
-
+  public calculator: ICalculator = null;
+  
   constructor(project: Project, component?: TbiComponent, item?: Partial<ReportBase>) {
     if (!!item) {
       Object.assign(this, item);
