@@ -81,7 +81,7 @@
             <ion-col col-10>
               <ion-item>
                 <ion-label stacked>Medium or Surface temperature (<sup>º</sup>C)</ion-label>
-                  <ion-input tabindex="7" (focus)="on_focus($event)" name="surface_temp" required data-val-required="Please input Medium or Surface temperature"
+                  <ion-input tabindex="6" (focus)="on_focus($event)" name="surface_temp" required data-val-required="Please input Medium or Surface temperature"
                   [(ngModel)]="report.component.fields.surface_temp" type="number"></ion-input>
               </ion-item>
             </ion-col>
@@ -94,7 +94,7 @@
               <ion-col col-10>
                 <ion-item>
                   <ion-label stacked>Ambient temperature (<sup>º</sup>C)</ion-label>
-                    <ion-input tabindex="6" (focus)="on_focus($event)"  (keypress)="on_keypress($event)"  name="ambient_temp" required data-val-required="Please input Ambient temperature" [(ngModel)]="report.component.fields.ambient_temp"
+                    <ion-input tabindex="7" (focus)="on_focus($event)"  (keypress)="on_keypress($event)"  name="ambient_temp" required data-val-required="Please input Ambient temperature" [(ngModel)]="report.component.fields.ambient_temp"
                     type="number"></ion-input>
                 </ion-item>
               </ion-col>

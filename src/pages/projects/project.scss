@@ -1,10 +1,12 @@
 ion-card {
   border: 1px solid #96be10;
-  border-radius: 2rem!important;
-  background: #96be10!important;
+  border-radius: 2rem !important;
+  background: #96be10 !important;
+
   h1 {
     color: #fff;
   }
+
   svg {
     width: 40%;
     height: auto;
@@ -12,6 +14,22 @@ ion-card {
 
     * {
       fill: #fff;
+    }
+  }
+
+  &.disabled {
+    border: 1px solid #aaa;
+    background: #aaa !important;
+    pointer-events: none;
+
+    h1 {
+      color: #888 !important;
+    }
+
+    svg {
+      * {
+        fill: #888 !important;
+      }
     }
   }
 }

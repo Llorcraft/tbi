@@ -4,6 +4,7 @@ import { ScreenOrientation } from '@ionic-native/screen-orientation';
 import { Project, ComponentLocation, Value } from '../../models';
 import { ProjectService } from '../../services/project.service';
 import { SummaryEditPage } from './summary-edit';
+import { ReportRouter } from '../../models/report-router';
 
 @Component({
   selector: 'page-summary',
@@ -76,7 +77,15 @@ export class SummaryPage {
 
       });
     modal.onDidDismiss(v => {
-      debugger;
+      const project = this.service.get_all().find(p => !!p.components.filter(p => !!p.reports.find(r => r.id == v)).length);
+      const component = project.components.find(p => !!p.reports.find(r => r.id == v));
+      const report = component.reports.find(r => r.id == v);
+      (new ReportRouter(project, component, this.navCtrl)).navigate_to_report(report.path, report);
+      // this.navCtrl.push(report.page, {
+      //   project: project,
+      //   component: component,
+      //   report: report
+      // });
     });
     modal.present();
     return this;

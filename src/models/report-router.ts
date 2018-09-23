@@ -1,38 +1,39 @@
 import { Project, ReportBase } from ".";
-import * as factory from './../factories/report.factory';
 import { REPORT } from "../const/report.const";
 import { NavController } from "ionic-angular";
 import { TbiComponent } from "./component";
+import { ReportFlange, ReportPipe, ReportSurface, ReportValve } from "./reports";
+import { ReportGeneric } from "./reports/report-generic.class";
 
 export class ReportRouter {
   constructor(public project: Project,
     public component: TbiComponent,
     public navCtrl: NavController) {
-    //this.component = this.component || new TbiComponent(this.project);
+    this.component = this.component || new TbiComponent(this.project);
   }
 
-  public navigate_to_report(path: string): ReportRouter {
-    const report = this.create_report(path);
-    this.navCtrl.push(report.page, {
+  public navigate_to_report(path: string, report?: ReportBase, event?: MouseEvent): ReportRouter {
+    const r = this.create_report(path, report)
+    this.navCtrl.push(r.page, {
       project: this.project,
-      component: this.component || new TbiComponent(this.project),
-      report: report
+      component: this.component,
+      report: r
     });
     return this;
   }
 
-  public create_report(path: string): ReportBase {
+  public create_report(path: string, report?: ReportBase): ReportBase {
     switch (path) {
       case REPORT.INSULATION.UNINSULATED_EQUIPMENTS.SURFACE:
-        return factory.Report.Insulation.InunsulatedEquipment.Factory.Surface(this.project, this.component, null);
+        return new ReportSurface(this.project, this.component, report);
       case REPORT.INSULATION.UNINSULATED_EQUIPMENTS.FLANGE:
-        return factory.Report.Insulation.InunsulatedEquipment.Factory.Flange(this.project, this.component, null);
+        return new ReportFlange(this.project, this.component, report);
       case REPORT.INSULATION.UNINSULATED_EQUIPMENTS.PIPE:
-        return factory.Report.Insulation.InunsulatedEquipment.Factory.Pipe(this.project, this.component, null);
-        case REPORT.INSULATION.UNINSULATED_EQUIPMENTS.VALVE:
-        return factory.Report.Insulation.InunsulatedEquipment.Factory.Valve(this.project, this.component, null);
-      case REPORT.GENERIC:
-        return factory.Report.Factory.Generic(this.project, this.component, null);
+        return new ReportPipe(this.project, this.component, report);
+      case REPORT.INSULATION.UNINSULATED_EQUIPMENTS.VALVE:
+        return new ReportValve(this.project, this.component, report);
+      default:
+        return new ReportGeneric(this.project, this.component, report);
     }
   }
 }

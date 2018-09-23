@@ -114,7 +114,11 @@ export class BaseCalculator {
     /*Report and Project propesties*/
     public δ: number = 0.00000005670367;
     public θse = Number(this.report.component.fields.surface_temp);
+    public θse_min: number = this.θse;
+    public θse_max: number = this.θse;
     public θa = Number(this.report.component.fields.ambient_temp);
+    public θa_min: number = this.θa;
+    public θa_max: number = this.θa;
     public Ot = Number(this.report.component.fields.operational_time);
     public ε = Number(this.report.component.fields.surface_material);
     public Σ = Number(this.report.component.project.price);

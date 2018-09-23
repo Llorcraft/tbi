@@ -1,6 +1,6 @@
 import { ICalculator } from "./calculator.factory";
 import { ReportBase } from "../report-base";
-import { ThicknessFlageAndValve } from "./thickness";
+import { Thickness } from "./thickness";
 
 
 export class BackupDecorator implements ICalculator {
@@ -9,7 +9,7 @@ export class BackupDecorator implements ICalculator {
     }
 }
 
-class BackupCalculator extends ThicknessFlageAndValve {
+class BackupCalculator extends Thickness {
     constructor(report: ReportBase) {
         super(report, [
         /*00*/() => this.Δθ = Math.abs(this.θse - this.θa),

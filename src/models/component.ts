@@ -2,6 +2,9 @@ import { ReportBase } from "./report-base";
 import { Picture } from "./picture";
 import { Fields } from "./fields";
 import { Project } from "./project";
+import { REPORT } from "../const";
+import { ReportSurface, ReportFlange, ReportPipe, ReportValve } from "./reports";
+import { ReportGeneric } from "./reports/report-generic.class";
 
 export class TbiComponent {
     public id: string = '';
@@ -34,7 +37,7 @@ export class TbiComponent {
             this.fields = new Fields(item.fields);
             this.project = project;
             this.id = item.id || Math.random().toString().substr(2);
-            this.reports = (item.reports || []).map(r => new ReportBase(this.project, this, r));
+            this.reports = (item.reports || []).map(r => new ReportBase(project, this, r));
         }
     }
     // private update_surface_temp(): TbiComponent {

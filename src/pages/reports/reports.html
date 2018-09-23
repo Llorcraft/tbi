@@ -15,7 +15,7 @@
   <ion-grid [ngSwitch]="type" v-center style="margin-left: 0">
     <ng-container *ngSwitchCase="''">
       <ion-row>
-        <ion-col  card-container col-md-3 offset-md-3 col-sm-6>
+        <ion-col card-container col-md-3 offset-md-3 col-sm-6>
           <ion-card (click)="navigate_to('insulation')">
             <span svg="insulation"></span>
             <h1>Insulation</h1>
@@ -44,26 +44,26 @@
 
     <ng-container *ngSwitchCase="'insulation'">
       <ion-row *ngIf="segment.value==0">
-        <ion-col  card-container offset-md-3 col-md-3 col-sm-6>
-          <ion-card on-tap="navigate_to_report(REPORT.INSULATION.UNINSULATED_EQUIPMENTS.PIPE)">
+        <ion-col card-container offset-md-3 col-md-3 col-sm-6>
+          <ion-card [class.disabled]="disabled_for('insulation')"  on-tap="navigate_to_report(REPORT.INSULATION.UNINSULATED_EQUIPMENTS.PIPE, null, $event)">
             <span svg="pipe"></span>
             <h1>Pipe</h1>
           </ion-card>
         </ion-col>
-        <ion-col  card-container col-md-3 col-sm-6>
-          <ion-card on-tap="navigate_to_report(REPORT.INSULATION.UNINSULATED_EQUIPMENTS.VALVE)">
+        <ion-col card-container col-md-3 col-sm-6>
+          <ion-card [class.disabled]="disabled_for('insulation')" on-tap="navigate_to_report(REPORT.INSULATION.UNINSULATED_EQUIPMENTS.VALVE, null, $event)">
             <span svg="valve"></span>
             <h1>Valve</h1>
           </ion-card>
         </ion-col>
-        <ion-col  card-container offset-md-3 col-md-3 col-sm-6>
-          <ion-card on-tap="navigate_to_report(REPORT.INSULATION.UNINSULATED_EQUIPMENTS.FLANGE)">
+        <ion-col [class.disabled]="disabled_for('insulation')" card-container offset-md-3 col-md-3 col-sm-6>
+          <ion-card on-tap="navigate_to_report(REPORT.INSULATION.UNINSULATED_EQUIPMENTS.FLANGE, null, $event)">
             <span svg="flange"></span>
             <h1>Flange</h1>
           </ion-card>
         </ion-col>
-        <ion-col  card-container col-md-3 col-sm-6>
-          <ion-card on-tap="navigate_to_report(REPORT.INSULATION.UNINSULATED_EQUIPMENTS.SURFACE)">
+        <ion-col card-container col-md-3 col-sm-6>
+          <ion-card [class.disabled]="disabled_for('insulation')" on-tap="navigate_to_report(REPORT.INSULATION.UNINSULATED_EQUIPMENTS.SURFACE, null, $event)">
             <span svg="surface"></span>
             <h1>Surface</h1>
           </ion-card>

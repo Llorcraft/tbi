@@ -64,8 +64,8 @@ export class EditProjectPage extends ProjectPageBase {
   }
 
   protected on_keypress(event: KeyboardEvent) {
-    console.log(event.which)
-    //if (event.which === 13) this.save();
+    //console.log(event.which)
+    if (event.which === 13) this.save();
   }
 
   protected on_focus(event: FocusEvent) {

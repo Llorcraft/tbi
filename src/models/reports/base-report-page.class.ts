@@ -15,13 +15,13 @@ export class BaseReportPage {
   @ViewChild('errors') errors: ReportErrorsComponent;
   public calculator = new CalculatorFactory();
   public edit_surface_material = false;
-  protected view = 'form';
+  protected view: string = 'form';
   protected editing_picture: Picture = new Picture();
   protected segment = 'input';
 
   private _original_component: TbiComponent;
   public unknow_surface: boolean = false;
-  
+
   constructor(
     public report: ReportBase,
     protected navCtrl: NavController,
@@ -32,11 +32,17 @@ export class BaseReportPage {
     this._original_component = this.report.component;
     this.report.component = new TbiComponent(this._original_component.project, this._original_component);
     this.report.component.id = this._original_component.id;
-    [
-      'https://restorationmasterfinder.com/restoration/wp-content/uploads/2016/08/pipe-burst.jpg',
-      'http://www.wklawyers.com/wp-content/uploads/2015/02/plumbing-leak-pipe-burst-attorney.jpg',
-      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ9QhRSAcVUI3nmDVmShbEX_BcSqx2rGJkzWshEVKV5SPvwEA0LHQ'
-    ].forEach(p => this.report.pictures.push(new Picture({ picture: p })));
+    // [
+    //   'https://restorationmasterfinder.com/restoration/wp-content/uploads/2016/08/pipe-burst.jpg',
+    //   'http://www.wklawyers.com/wp-content/uploads/2015/02/plumbing-leak-pipe-burst-attorney.jpg',
+    //   'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ9QhRSAcVUI3nmDVmShbEX_BcSqx2rGJkzWshEVKV5SPvwEA0LHQ'
+    // ].forEach(p => this.report.pictures.push(new Picture({ picture: p })));
+    
+    // if (!!this.report.component.fields.location) {
+    //   //this.calculate();
+    //   this.calculator.calculate(this.report);
+    //   this.view = 'result';
+    // }
   }
 
   protected set_length(message: string, default_value: number) {
@@ -120,6 +126,7 @@ export class BaseReportPage {
           text: 'Yes',
           handler: () => {
             this.navCtrl.push(ReportsPage, {
+              component: this.report.component,
               report: this.report,
               project: project
             });

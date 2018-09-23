@@ -1,6 +1,6 @@
 import { REPORT } from './../../const/report.const';
 import { Component } from '@angular/core';
-import { NavController, NavParams, AlertController} from 'ionic-angular';
+import { NavController, NavParams, AlertController } from 'ionic-angular';
 import { Project, ReportBase } from '../../models';
 import { ProjectService } from '../../services/project.service';
 import { ProjectsPage } from '../projects/projects';
@@ -24,6 +24,7 @@ export class ReportsPage extends ReportRouter {
     public navParams: NavParams,
     public alertCtrl: AlertController,
     public service: ProjectService) {
+
     super(navParams.get('project') as Project, navParams.get('component') as TbiComponent, navCtrl);
     this.type = navParams.get('type') || '';
     this.report = navParams.get('report');
@@ -41,6 +42,16 @@ export class ReportsPage extends ReportRouter {
       }]
     });
     toast.present();
+  }
+
+  protected disabled_for(family: string) {
+    switch (family) {
+      case 'insulation':
+        console.log(!!this.component.reports.filter(r => !!r.path.match(/insulation/gi)).length);
+        return !!this.component.reports.filter(r => !!r.path.match(/insulation/gi)).length;
+      default:
+        return false;
+    }
   }
 
   protected open_summary(): void {
