@@ -1,3 +1,4 @@
+export { ReportInsulatedSurface } from './report-isurface.class';
 export { ReportValve } from './report-valve.class';
 export { ReportPipe } from './report-pipe.class';
 export { ReportFlange } from './report-flange.class';

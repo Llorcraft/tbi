@@ -15,3 +15,4 @@ export { ReportMediumTempButtonsComponent } from './components/medium-temp/mediu
 export { ReportTempMarkersWindowComponent } from './components/medium-temp/temp-marker-window.component';
 export { ReportResultComponent } from './components/result/report-result.component';
 export { ReportValvePage } from './valve/report-valve.component';
+export { ReportInsulatedSurfacePage } from './isurface/report-isurface.component';

@@ -89,7 +89,7 @@ import {
   ReportFlangePage,
   ReportPipePage,
   ReportValvePage,
-  //ReportInsulatedSurfacePage
+  ReportInsulatedSurfacePage
 } from '../pages/reports'
 
 //Pipes
@@ -127,7 +127,7 @@ import { SurfaceMaterialPipe } from '../pipes/surface-material.pipe';
     ReportResultComponent,
     //ReportSafetSurfacePage,
     ReportSurfacePage,
-    //ReportInsulatedSurfacePage,
+    ReportInsulatedSurfacePage,
     ReportFlangePage,
     ReportPipePage,
     ReportValvePage,
@@ -196,7 +196,7 @@ import { SurfaceMaterialPipe } from '../pipes/surface-material.pipe';
     ReportAreaModalComponent,
     ReportTempMarkersWindowComponent,
     ReportSurfacePage,
-    //ReportInsulatedSurfacePage,
+    ReportInsulatedSurfacePage,
     ReportFlangePage,
     ReportPipePage,
     ReportValvePage

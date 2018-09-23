@@ -92,7 +92,7 @@
           </ion-card>
         </ion-col>
         <ion-col  card-container col-md-3 col-sm-6>
-          <ion-card>
+          <ion-card [class.disabled]="disabled_for('insulation')" on-tap="navigate_to_report(REPORT.INSULATION.INSULATED_EQUIPMENTS.SURFACE, null, $event)">
             <span svg="insulated-surface"></span>
             <h1>Surface</h1>
           </ion-card>
