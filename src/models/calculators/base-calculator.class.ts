@@ -42,6 +42,7 @@ export class BaseCalculator {
     public Cpb_surface_pipe: number = 1.6;
     public Cpb_valve_flange: number = 5;
     public d: number = 0.0000000007109;
+    public ε_default = 0.8;
     public Ft: number = 1.5;
     public Δθ: number = 1;
     public e_min: number = 1;
@@ -49,6 +50,7 @@ export class BaseCalculator {
     public hse_min: number = 0;
     public hse_max: number = 0;
     public hcv_turbulent: number = 1;
+    public hcv_turbulent_min: number = 1;
     public Rse_min: number = 1;
     public Rse_max: number = 1;
     public Rins_min: number = 1;
@@ -141,19 +143,13 @@ export class BaseCalculator {
 
     public execute(): ReportBase {
         this.fnc.forEach(f => f.apply(this));
+        console.clear();
         console.table({
-            '01 => this.hr': this.hr,
-            '01min => this.hr_min': this.hr_min,
-            '02 => this.hcv': this.hcv,
-            '02min => this.hcv_min': this.hcv_min,
-            '03 => this.hse': this.hse,
-            '03min => this.hse_min': this.hse_min,
-            '05 => this.Qkwh': this.Qkwh,
-            '04 => this.q': this.q,
-            '20 => this.q_min': this.q_min,
-            '21 => this.q_max': this.q_max,
-            '22 => this.Qkwh_min': this.Qkwh_min,
-            '23 => this.Qkwh_max': this.Qkwh_max,
+            'ql': this.ql,
+            'Rins_min': this.Rins_min,
+            'Rins_max': this.Rins_max,
+            'ql_min': this.ql_min,
+            'ql_max': this.ql_max,
         })
         this.report.result = new Result({
             advise: this.Insulation_advice,

@@ -11,7 +11,7 @@ import { CameraService } from '../../../services/camera';
 
 export class ReportInsulatedSurfacePage extends BaseReportPage {
   public unknow_surface: boolean = false;
-
+  
   constructor(protected navCtrl: NavController,
     navParams: NavParams,
     protected service: ReportService,

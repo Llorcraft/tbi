@@ -15,6 +15,7 @@ export class ReportBase {
   public project: Project = null;
   public component?: TbiComponent = null;
   public pictures: Picture[] = [];
+  public insulated: boolean = false;
   public get potential_measure(): string {
     return 'kWh/a';
   }

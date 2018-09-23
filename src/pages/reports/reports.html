@@ -57,7 +57,7 @@
           </ion-card>
         </ion-col>
         <ion-col [class.disabled]="disabled_for('insulation')" card-container offset-md-3 col-md-3 col-sm-6>
-          <ion-card on-tap="navigate_to_report(REPORT.INSULATION.UNINSULATED_EQUIPMENTS.FLANGE, null, $event)">
+          <ion-card [class.disabled]="disabled_for('insulation')" on-tap="navigate_to_report(REPORT.INSULATION.UNINSULATED_EQUIPMENTS.FLANGE, null, $event)">
             <span svg="flange"></span>
             <h1>Flange</h1>
           </ion-card>
@@ -79,7 +79,7 @@
 
       <ion-row *ngIf="segment.value==1">
         <ion-col  card-container col-md-3 col-sm-6 offset-md-2>
-          <ion-card>
+          <ion-card [class.disabled]="disabled_for('insulation')" on-tap="navigate_to_report(REPORT.INSULATION.INSULATED_EQUIPMENTS.PIPE, null, $event)">
             <span svg="pipe-insulation"></span>
             <h1>Pipe</h1>
           </ion-card>

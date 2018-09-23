@@ -18,21 +18,12 @@
   <ion-grid full-height with-footer [hidden]="view=='edit_picture'">
     <ion-row full-height>
       <ion-col col-12 col-md-6 no-padding>
-        <!-- <ion-segment [(ngModel)]="segment" [disabled]="view=='edit_picture'">
-          <ion-segment-button value="input">
-            Input
-          </ion-segment-button>
-          <ion-segment-button value="pictures">
-            Pictures ({{report.component.images.length}})
-          </ion-segment-button>
-        </ion-segment> -->
-
         <form novalidate #form="ngForm" [hidden]="segment!='input'" (submit)="calculate()">
           <ion-row>
             <ion-col col-12>
               <ion-item>
                 <ion-label stacked>Component/Location</ion-label>
-                <ion-input tabindex="1" scroll="-80" (focus)="on_focus($event)" name="location" required data-val-required="Please input Component/Location"
+                <ion-input tabindex="1" scroll="-80" name="location" required data-val-required="Please input Component/Location"
                   [(ngModel)]="report.component.fields.location" type="text"></ion-input>
               </ion-item>
             </ion-col>
@@ -49,6 +40,16 @@
               <more pull-left #time (change)="report.component.fields.operational_time=time.value" [type]="'time'" modal-button></more>
             </ion-col>
           </ion-row>
+          <ion-row *ngIf="!!report.insulated">
+            <ion-col col-10>
+              <ion-item>
+                <ion-label stacked>Medium temperature (<sup>º</sup>C)</ion-label>
+                  <ion-input tabindex="2" name="medium_temp" required data-val-required="Please input medium temperature" [(ngModel)]="report.component.fields.medium_temp"
+                  type="number"></ion-input>
+              </ion-item>
+            </ion-col>
+            <ion-col col-2></ion-col>
+        </ion-row>
           <ion-row>
             <ion-col col-6>
               <ion-item>
@@ -99,7 +100,7 @@
                 </ion-item>
               </ion-col>
               <ion-col col-2></ion-col>
-            </ion-row>
+          </ion-row>
         </form>
       </ion-col>
 
