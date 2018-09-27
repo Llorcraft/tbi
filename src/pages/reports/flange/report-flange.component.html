@@ -15,20 +15,20 @@
 
 <ion-content>
 
-  <ion-grid full-height with-footer [hidden]="view=='edit_picture'">
-    <ion-row full-height>
+  <ion-grid [hidden]="view=='edit_picture'">
+    <ion-row>
       <ion-col col-12 col-md-6 no-padding>
 
         <form novalidate #form="ngForm" [hidden]="segment!='input'" (submit)="calculate()">
           <ion-row>
-            <ion-col col-8>
+            <ion-col col-7>
               <ion-item>
                 <ion-label stacked>Component/Location</ion-label>
                 <ion-input tabindex="1" name="location" required data-val-required="Please input Component/Location"
                   [(ngModel)]="report.component.fields.location" type="text"></ion-input>
               </ion-item>
             </ion-col>
-            <ion-col col-4>
+            <ion-col col-3>
               <ion-item>
                 <ion-label stacked>Item number</ion-label>
                   <ion-input tabindex="2"  name="number" required data-val-required="Please input Item number" [(ngModel)]="report.component.fields.number"
@@ -65,7 +65,7 @@
           <ion-row>
             <ion-col col-10>
               <ion-item class="edit_surface_material" [class.editable]="edit_surface_material">
-                <ion-label stacked>Surface material (ε)</ion-label>
+                <ion-label stacked>Surface material [ε]</ion-label>
                 <ion-input tabindex="5" class="literal" (focus)="toggle_surface_material(true)" [value]="report.component.fields.surface_material_friendly" type="text"></ion-input>
                 <ion-input tabindex="6" class="numeric" (focusout)="toggle_surface_material(false)" (focus)="on_focus($event)" name="surface_material" required data-val-required="Please input surface emissivity" [(ngModel)]="report.component.fields.surface_material" type="number" (change)="set_surface_material(report.component.fields.surface_material, $event)"></ion-input>
               </ion-item>

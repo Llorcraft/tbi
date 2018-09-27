@@ -23,7 +23,6 @@ export class ReportRouter {
   }
 
   public create_report(path: string, report?: ReportBase): ReportBase {
-    debugger;
     switch (path) {
       case REPORT.INSULATION.UNINSULATED_EQUIPMENTS.SURFACE:
         return new ReportSurface(this.project, this.component, report);

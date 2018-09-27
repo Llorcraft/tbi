@@ -1,5 +1,4 @@
 import { ReportBase } from "./report-base";
-import { Picture } from "./picture";
 import { Fields } from "./fields";
 import { Project } from "./project";
 
@@ -8,25 +7,25 @@ export class TbiComponent {
     public project: Project = null;
     public reports: ReportBase[] = [];
     public fields: Fields = new Fields();
-    public get pictures(): Picture[] {
-        return this.reports.map(r => r.pictures).reduce((a, b) => [...a, ...b], []);
-    };
-    public get has_markers(): boolean {
-        const has_markers = !!this.pictures.filter(p => !!p.has_markers).length;
-        return has_markers;
-    }
-    public get images(): Picture[] {
-        return this.pictures.filter(p => !!p.picture);
-    }
-    public get min_temp(): number {
-        return !this.has_markers ? 0 : this.pictures.filter(p => p.has_markers).map(m => m.min_temp).sort()[0];
-    }
-    public get max_temp(): number {
-        return !this.has_markers ? 0 : this.pictures.filter(p => p.has_markers).map(m => m.max_temp).sort().reverse()[0];
-    }
-    public get surface_temp(): number {
-        return !this.has_markers ? 0 : eval(this.pictures.filter(p => p.has_markers).map(m => m.surface_temp).join('+')) / this.pictures.filter(p => p.has_markers).length;
-    }
+    // public get pictures(): Picture[] {
+    //     return this.reports.map(r => r.pictures).reduce((a, b) => [...a, ...b], []);
+    // };
+    // public get has_markers(): boolean {
+    //     const has_markers = !!this.pictures.filter(p => !!p.has_markers).length;
+    //     return has_markers;
+    // }
+    // public get images(): Picture[] {
+    //     return this.pictures.filter(p => !!p.picture);
+    // }
+    // public get min_temp(): number {
+    //     return !this.has_markers ? 0 : this.pictures.filter(p => p.has_markers).map(m => m.min_temp).sort()[0];
+    // }
+    // public get max_temp(): number {
+    //     return !this.has_markers ? 0 : this.pictures.filter(p => p.has_markers).map(m => m.max_temp).sort().reverse()[0];
+    // }
+    // public get surface_temp(): number {
+    //     return !this.has_markers ? 0 : eval(this.pictures.filter(p => p.has_markers).map(m => m.surface_temp).join('+')) / this.pictures.filter(p => p.has_markers).length;
+    // }
 
     constructor(project: Project, item?: Partial<TbiComponent>) {
         this.project = project;

@@ -7,7 +7,7 @@ import { ReportInsulatedPipe } from '../../../models/reports/report-ipipe.class'
 
 @Component({
   selector: 'page-report-pipe',
-  templateUrl: '../pipe/report-pipe.component.html'
+  templateUrl: 'report-ipipe.component.html'
 })
 
 export class ReportInsulatedPipePage extends BaseReportPage {

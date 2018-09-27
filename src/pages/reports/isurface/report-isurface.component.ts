@@ -6,7 +6,7 @@ import { CameraService } from '../../../services/camera';
 
 @Component({
   selector: 'page-report-surface',
-  templateUrl: '../surface/report-surface.component.html'
+  templateUrl: 'report-isurface.component.html'
 })
 
 export class ReportInsulatedSurfacePage extends BaseReportPage {

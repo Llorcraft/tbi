@@ -1,25 +1,27 @@
 import { Injectable } from '@angular/core';
 import { Project } from '../models';
 import { ProjectJson } from '../models/project.json';
-import { AlertController } from 'ionic-angular';
+import { FileService } from './file.service';
+import { MessageService } from './messages.service';
 
 const STORAGE_KEY: string = 'tbi-app-v4';
 
 @Injectable()
 export class ProjectService {
 
-  constructor(private alertCtrl: AlertController) { }
+  constructor(private file: FileService, private message: MessageService) { }
 
   private get_from_storage(): Project[] {
     try {
       return JSON.parse(localStorage.getItem(STORAGE_KEY)) as Project[];
     } catch (ex) {
-      console.warn('Invalid project version');
+      this.message.alert('Error', 'Invalid project version');
       return [];
     }
   }
 
   public get_all(): Project[] {
+    this.file.read().then(r => this.message.alert('Leido', r));
     return (this.get_from_storage() || []).map(p => new Project(p));
   }
 
@@ -27,16 +29,7 @@ export class ProjectService {
     try {
       localStorage.setItem(STORAGE_KEY, JSON.stringify(projects.map(p => new ProjectJson(p))));
     } catch (ex) {
-      let confirm = this.alertCtrl.create({
-        title: `Error`,
-        message: JSON.stringify(ex, null, 2),
-        buttons: [
-          {
-            text: 'Agree'
-          }
-        ]
-      });
-      confirm.present();
+      this.message.alert('Error', JSON.stringify(ex, null, 2));
     }
   }
 

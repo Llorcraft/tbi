@@ -170,11 +170,11 @@
       <td rowspan="2" text-center>{{i+1}}</td>
       <td rowspan="2" class="b-right">{{c.name}}</td>
       <td text-center class="bg-green c-blue">{{c.section_energy.heat_lost.power | number: '1.0-3'}}</td>
-      <td class="bg-green c-blue mesure b-right">kWh<span *ngIf="!c.section_input.dimension">/m<sup>2</sup></span></td>
+      <td class="bg-green c-blue mesure b-right">kWh</td>
       <td text-right class="bg-green c-gree">{{c.section_energy.saving_potential_min.power | number: '1.0-3'}}</td>
       <td text-center class="bg-green c-gree"><ion-icon name="md-arrow-forward"></ion-icon></td>
       <td text-right class="bg-green c-gree">{{c.section_energy.saving_potential_max.power | number: '1.0-3'}}</td>
-      <td class="bg-green c-gree mesure b-right">kWh<span *ngIf="!c.section_input.dimension">/m<sup>2</sup></span></td>
+      <td class="bg-green c-gree mesure b-right">kWh</td>
       <td rowspan="2" text-center class="bg-red">
         <a href="#" *ngFor="let r of c.reports['Safety']">{{r.path}}</a>
       </td>

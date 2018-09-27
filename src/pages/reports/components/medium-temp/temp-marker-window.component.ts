@@ -15,8 +15,8 @@ export class ReportTempMarkersWindowComponent {
     return this.markers.filter(m => m.hasValue).length === 0;
   }
   constructor(private viewCtrl: ViewController, private params: NavParams) {
-    const markers = [].concat.apply([], params.data.pictures.sort(p1 => !p1.picture).map(p => p.markers));
-    this.markers = markers.slice(0, 10);
+    const markers = [].concat.apply([], params.data.pictures.sort((p: Picture) => !p.has_markers).map(p => p.markers));
+    this.markers = markers.sort((m: Marker) => !m.hasValue).slice(0, 10);
   }
 
   protected calculate(): ReportTempMarkersWindowComponent {

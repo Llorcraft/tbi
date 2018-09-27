@@ -37,7 +37,7 @@ export class BaseReportPage {
     //   'http://www.wklawyers.com/wp-content/uploads/2015/02/plumbing-leak-pipe-burst-attorney.jpg',
     //   'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ9QhRSAcVUI3nmDVmShbEX_BcSqx2rGJkzWshEVKV5SPvwEA0LHQ'
     // ].forEach(p => this.report.pictures.push(new Picture({ picture: p })));
-    
+
     // if (!!this.report.component.fields.location) {
     //   //this.calculate();
     //   this.calculator.calculate(this.report);
@@ -175,8 +175,25 @@ export class BaseReportPage {
     this.view = 'edit_picture';
   }
 
+  public alert(message: string){
+    let confirm = this.alertCtrl.create({
+      title: `Create report`,
+      message: message,
+      enableBackdropDismiss: false,
+      buttons: [
+        {
+          text: 'Agree'
+        }]
+    })
+    confirm.present();
+  }
   protected take_picture() {
-    this.camera.take_picture().subscribe(d => this.report.pictures.push(new Picture({ picture: d })));
+    //this.alert('Hacer foto');
+    this.camera.take_picture().subscribe(d => {
+      //this.alert('Foto hecha');
+      this.report.pictures.push(new Picture({ picture: d }));
+      //this.alert(this.report.pictures.length.toString());
+    });
   }
 
   protected toggle_know() {
@@ -192,16 +209,16 @@ export class BaseReportPage {
     this._average_temp = value;
   }
   protected get average_temp(): number {
-    if (!this.report.component.has_markers) {
+    if (!this.report.has_markers) {
       this._average_temp = null;
     }
-    this._average_temp = this.report.component.surface_temp;
+    this._average_temp = this.report.surface_temp;
     return this._average_temp;
   }
 
   protected ask_calculate(): ReportBase {
     if (isNaN(this.report.component.fields.surface_temp)
-      || !this.report.component.has_markers) return this.calculate();
+      || !this.report.has_markers) return this.calculate();
     let confirm = this.alertCtrl.create({
       title: `Temperature`,
       message: `Which temperature would you like to use for calculation?`,
@@ -209,16 +226,16 @@ export class BaseReportPage {
       enableBackdropDismiss: false,
       buttons: [
         {
-          text: `Average ${this.report.component.surface_temp}ºC`,
-          handler: () => this.before_calculate(this.report.component.fields.surface_temp = this.report.component.surface_temp)
+          text: `Average ${this.report.surface_temp}ºC`,
+          handler: () => this.before_calculate(this.report.component.fields.surface_temp = this.report.surface_temp)
         },
         {
-          text: `Minimum ${this.report.component.min_temp}ºC`,
-          handler: () => this.before_calculate(this.report.component.fields.surface_temp = this.report.component.min_temp)
+          text: `Minimum ${this.report.min_temp}ºC`,
+          handler: () => this.before_calculate(this.report.component.fields.surface_temp = this.report.min_temp)
         },
         {
-          text: `Maximum ${this.report.component.max_temp}ºC`,
-          handler: () => this.before_calculate(this.report.component.fields.surface_temp = this.report.component.max_temp)
+          text: `Maximum ${this.report.max_temp}ºC`,
+          handler: () => this.before_calculate(this.report.component.fields.surface_temp = this.report.max_temp)
         }
       ]
     });

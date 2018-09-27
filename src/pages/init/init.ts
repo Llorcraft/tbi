@@ -7,7 +7,7 @@ import { ProjectsPage } from '../projects/projects';
   templateUrl: 'init.html'
 })
 export class InitPage {
-  public user_name: string = 'Luis';
+  public user_name: string = '';
   constructor(
     public appCtrl: NavController) {
       this.save();

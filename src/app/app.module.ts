@@ -22,6 +22,7 @@ import { Camera } from '@ionic-native/camera';
 import { FileChooser } from '@ionic-native/file-chooser';
 import { FilePath } from '@ionic-native/file-path';
 import { FileOpener } from '@ionic-native/file-opener';
+import { File } from '@ionic-native/file';
 import { ScreenOrientation } from '@ionic-native/screen-orientation';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -31,6 +32,8 @@ import { ProjectService } from '../services';
 import { ReportService } from '../services/report.service';
 import { ComponentService } from '../services/component.service';
 import { CameraService } from '../services/camera';
+import { FileService } from '../services/file.service';
+import { MessageService } from '../services/messages.service';
 
 // import { ReportSafetSurfacePage } from '../pages/reports/safety/surface';
 
@@ -205,6 +208,7 @@ import { SurfaceMaterialPipe } from '../pipes/surface-material.pipe';
   ],
   providers: [
     /*App services*/
+    MessageService,
     ReportService,
     ProjectService,
     ComponentService,
@@ -215,7 +219,9 @@ import { SurfaceMaterialPipe } from '../pipes/surface-material.pipe';
     FileChooser,
     FileOpener,
     FilePath,
+    File,
     ScreenOrientation,
+    FileService,
     { provide: ErrorHandler, useClass: IonicErrorHandler }
   ]
 })

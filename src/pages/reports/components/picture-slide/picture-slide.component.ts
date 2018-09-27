@@ -17,4 +17,6 @@ export class ReportPictureSlideComponent {
     public edit(picture: Picture): void{
         this.onStartEdit.emit(picture)
     }
+
+    
 }

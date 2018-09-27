@@ -1,8 +1,8 @@
 <ion-row>
   <ion-col col-12 text-center>
-    <img [src]="NON_PICTURE" class="non-picture">
-    <ion-slides no-padding pager="true" zoom="true" *ngIf="!!report && !!report.images && !!report.length">
-      <ion-slide *ngFor="let picture of report.images">
+    <img [src]="NON_PICTURE" class="non-picture" *ngIf="!report || !report.pictures.length"/>
+    <ion-slides no-padding pager="true" zoom="true" *ngIf="!!report && !!report.pictures.length">
+      <ion-slide *ngFor="let picture of report.pictures">
         <img [src]="picture.picture" (click)="edit(picture)">
         <div class="markers">Markers: {{picture.markers.length}}</div>
       </ion-slide>

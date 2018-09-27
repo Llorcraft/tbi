@@ -38,7 +38,8 @@ class SectionEnergy {
     public tbi: string;
     private advises: Map<string, string> = new Map<string, string>([
         ['System OK', 'OK'],
-        ['Insulation recommended', 'Recommended']
+        ['Insulation recommended', 'Recommended'],
+        ['SAFETY-Insulation recommended', 'SAFETY-Recommended']
     ])
     constructor(report: ReportBase) {
         this.heat_lost = report.result.headLost;

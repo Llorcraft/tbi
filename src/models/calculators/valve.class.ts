@@ -59,7 +59,7 @@ class ValveCalculator extends BaseCalculator{
         /*27*/() => this.Savingkwh_max = this.Qkwh - this.Qkwh_max,
         /*28*/() => this.Savingε_min = this.Qε - this.Qε_min,
         /*29*/() => this.Savingε_max = this.Qε - this.Qε_max,
-        /*30*/() => this.Insulation_advice = this.ql_ref_pb > this.ql_min ? 'Insulation recommended' : 'System OK',
+        /*30*/() => this.Insulation_advice = this.ql_ref_pb > this.ql_min ? 'SAFETY-Insulation recommended' : 'System OK',
     ]);
 
   }

@@ -19,11 +19,11 @@ export class ReportInsulatedSurface extends ReportBase {
 
   constructor(public project: Project, public component?: TbiComponent, item?: ReportInsulatedSurface) {
     super(project, component, item);
-    this.component.fields.location = 'Test isurface borrar';
-    this.component.fields.operational_time = 8760;
-    this.component.fields.surface = 20;
-    this.component.fields.surface_material = 0.6;
-    this.component.fields.ambient_temp = 12;
-    this.component.fields.surface_temp = 89;
+    // this.component.fields.location = 'Test isurface borrar';
+    // this.component.fields.operational_time = 8760;
+    // this.component.fields.surface = 20;
+    // this.component.fields.surface_material = 0.6;
+    // this.component.fields.ambient_temp = 12;
+    // this.component.fields.surface_temp = 89;
   }
 }

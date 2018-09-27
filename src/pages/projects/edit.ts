@@ -59,7 +59,7 @@ export class EditProjectPage extends ProjectPageBase {
     $('.tabbar').addClass('show-tabbar');
   }
 
-  protected hide_keyboard(){
+  protected hide_keyboard() {
     this.keyboard.close();
   }
 
@@ -93,6 +93,23 @@ export class EditProjectPage extends ProjectPageBase {
     this.edit_mode = !!this.files.length
   }
 
+  private open_camera() {
+    let options: CameraOptions = {
+      quality: 50,
+      destinationType: this.camera.DestinationType.DATA_URL,
+      encodingType: this.camera.EncodingType.JPEG,
+      mediaType: this.camera.MediaType.PICTURE,
+      allowEdit: false
+    };
+
+    this.camera.getPicture(options).then((imageData) => {
+      this.project.picture = 'data:image/jpeg;base64,' + imageData;
+      //setTimeout(() => this.service.save(this.project), 500);
+    }, (err) => {
+      console.log(err);
+    });
+  }
+
   public ask_for_change_picture(project: Project) {
     let action_sheet = this.actionSheetCtrl.create({
       cssClass: 'picture-action-sheet',
@@ -101,20 +118,7 @@ export class EditProjectPage extends ProjectPageBase {
           text: 'Take picture',
           icon: 'camera',
           handler: () => {
-            let options: CameraOptions = {
-              quality: 100,
-              destinationType: this.camera.DestinationType.DATA_URL,
-              encodingType: this.camera.EncodingType.JPEG,
-              mediaType: this.camera.MediaType.PICTURE,
-              allowEdit: true
-            };
-
-            this.camera.getPicture(options).then((imageData) => {
-              project.picture = 'data:image/jpeg;base64,' + imageData;
-              setTimeout(() => this.service.save(project), 500);
-            }, (err) => {
-              console.log(err);
-            });
+            this.open_camera();
           }
         },
         {
@@ -122,17 +126,17 @@ export class EditProjectPage extends ProjectPageBase {
           icon: 'images',
           handler: () => {
             let options: CameraOptions = {
-              quality: 100,
+              quality: 50,
               sourceType: this.camera.PictureSourceType.PHOTOLIBRARY,
               destinationType: this.camera.DestinationType.DATA_URL,
               encodingType: this.camera.EncodingType.JPEG,
               mediaType: this.camera.MediaType.PICTURE,
-              allowEdit: true
+              allowEdit: false
             };
 
             this.camera.getPicture(options).then((imageData) => {
               project.picture = 'data:image/jpeg;base64,' + imageData;
-              setTimeout(() => this.service.save(project), 500);
+              //setTimeout(() => this.service.save(project), 500);
             }, (err) => {
               console.log(err);
             });
