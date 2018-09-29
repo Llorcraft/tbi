@@ -6,9 +6,9 @@ import { CalculatorFactory } from "../calculators/calculator.factory";
 import { Picture } from "../picture";
 import { ReportErrorsComponent, ReportsPage } from "../../pages/reports";
 import { ReportService } from "../../services/report.service";
-import { CameraService } from "../../services/camera";
 import { More } from "../../const/more/more";
 import { TbiComponent } from "../component";
+import { PictureService } from "../../services/picture.service";
 
 export class BaseReportPage {
   @ViewChild('form') form: NgForm;
@@ -27,7 +27,7 @@ export class BaseReportPage {
     protected navCtrl: NavController,
     protected service: ReportService,
     protected alertCtrl: AlertController,
-    protected camera: CameraService
+    protected camera: PictureService
   ) {
     this._original_component = this.report.component;
     this.report.component = new TbiComponent(this._original_component.project, this._original_component);
@@ -189,7 +189,7 @@ export class BaseReportPage {
   }
   protected take_picture() {
     //this.alert('Hacer foto');
-    this.camera.take_picture().subscribe(d => {
+    this.camera.take_picture().then(d => {
       //this.alert('Foto hecha');
       this.report.pictures.push(new Picture({ picture: d }));
       //this.alert(this.report.pictures.length.toString());

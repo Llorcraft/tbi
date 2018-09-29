@@ -23,6 +23,7 @@ export class ProjectJson {
     this.date = project.date;
     this.user = project.user;
     this.price = project.price;
+    this.picture = project.picture;
     this.components = project.components.map(c => new TbiComponentJson(c));
     this.people = new People(project.people);
   }

@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams, AlertController } from 'ionic-angular';
 import { ReportService } from '../../../services/report.service';
-import { CameraService } from '../../../services/camera';
+import { PictureService } from '../../../services/picture.service';
 import { ReportGeneric } from '../../../models/reports/report-generic.class';
 import { BaseReportPage } from '../../../models/reports';
 
@@ -16,7 +16,7 @@ export class GenericReportPage extends BaseReportPage {
     navParams: NavParams,
     protected service: ReportService,
     protected alertCtrl: AlertController,
-    protected camera: CameraService
+    protected camera: PictureService
   ) {
     super(new ReportGeneric(navParams.get('project'), navParams.get('component')), navCtrl, service, alertCtrl, camera);
   }

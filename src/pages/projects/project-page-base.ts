@@ -32,9 +32,8 @@ export class ProjectPageBase {
   }
 
   public delete(project: Project): void {
-    this.service.delete(project);
-    this.after_delete();
+    this.service.delete(project).then(() => this.after_delete());
   }
 
-  protected after_delete():void{}
+  protected after_delete(): void { }
 }

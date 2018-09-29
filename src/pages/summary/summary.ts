@@ -77,15 +77,12 @@ export class SummaryPage {
 
       });
     modal.onDidDismiss(v => {
-      const project = this.service.get_all().find(p => !!p.components.filter(p => !!p.reports.find(r => r.id == v)).length);
-      const component = project.components.find(p => !!p.reports.find(r => r.id == v));
-      const report = component.reports.find(r => r.id == v);
-      (new ReportRouter(project, component, this.navCtrl)).navigate_to_report(report.path, report);
-      // this.navCtrl.push(report.page, {
-      //   project: project,
-      //   component: component,
-      //   report: report
-      // });
+      this.service.get_all().then(projects => {
+        const project = projects.find(p => !!p.components.filter(p => !!p.reports.find(r => r.id == v)).length);
+        const component = project.components.find(p => !!p.reports.find(r => r.id == v));
+        const report = component.reports.find(r => r.id == v);
+        (new ReportRouter(project, component, this.navCtrl)).navigate_to_report(report.path, report);
+      });
     });
     modal.present();
     return this;

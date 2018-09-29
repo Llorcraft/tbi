@@ -6,10 +6,8 @@ import { ProjectService } from '../../services/project.service';
 import { FileChooser } from '@ionic-native/file-chooser';
 import { FilePath } from '@ionic-native/file-path';
 import { FileOpener } from '@ionic-native/file-opener';
-import * as $ from 'jquery';
-import { Camera, CameraOptions } from '@ionic-native/camera';
-import { NON_PICTURE } from '../../const/images';
 import { NgForm } from '@angular/forms';
+import { PictureService } from '../../services/picture.service';
 
 @Component({
   selector: 'page-edit-project',
@@ -17,7 +15,6 @@ import { NgForm } from '@angular/forms';
 })
 export class EditProjectPage extends ProjectPageBase {
   public project: Project;
-  public original_project: Project;
   public segment: string = 'properties';
   public files: any[] = [];
   public edit_mode = false;
@@ -32,13 +29,12 @@ export class EditProjectPage extends ProjectPageBase {
     private fileChooser: FileChooser,
     private filePath: FilePath,
     public actionSheetCtrl: ActionSheetController,
-    private camera: Camera,
+    private picture: PictureService,
     private keyboard: Keyboard,
     private fileOpener: FileOpener) {
 
     super(alertCtrl, service);
-    this.original_project = navParams.get("project");
-    this.project = new Project(this.original_project);
+    this.project = navParams.get("project");
     this.edit_mode = false;
     this.files = !this.project.id ? [] : [
       'Berly.2016.T2.130.pdf',
@@ -52,12 +48,12 @@ export class EditProjectPage extends ProjectPageBase {
       'Gas.PDF'];
   }
 
-  ionViewDidLoad() {
-    $('.tabbar').removeClass('show-tabbar');
-  }
-  ionViewWillLeave() {
-    $('.tabbar').addClass('show-tabbar');
-  }
+  // ionViewDidLoad() {
+  //   $('.tabbar').removeClass('show-tabbar');
+  // }
+  // ionViewWillLeave() {
+  //   $('.tabbar').addClass('show-tabbar');
+  // }
 
   protected hide_keyboard() {
     this.keyboard.close();
@@ -83,9 +79,7 @@ export class EditProjectPage extends ProjectPageBase {
   }
 
   public save(): void {
-    this.original_project = this.project;
-    this.service.save(this.project);
-    this.after_delete();
+    this.service.save(this.project).then(() => this.navCtrl.pop());
   }
 
   private delete_file(file: string): void {
@@ -94,20 +88,7 @@ export class EditProjectPage extends ProjectPageBase {
   }
 
   private open_camera() {
-    let options: CameraOptions = {
-      quality: 50,
-      destinationType: this.camera.DestinationType.DATA_URL,
-      encodingType: this.camera.EncodingType.JPEG,
-      mediaType: this.camera.MediaType.PICTURE,
-      allowEdit: false
-    };
-
-    this.camera.getPicture(options).then((imageData) => {
-      this.project.picture = 'data:image/jpeg;base64,' + imageData;
-      //setTimeout(() => this.service.save(this.project), 500);
-    }, (err) => {
-      console.log(err);
-    });
+    this.picture.take_picture(false, 80).then(p => this.project.picture = p);
   }
 
   public ask_for_change_picture(project: Project) {
@@ -125,21 +106,7 @@ export class EditProjectPage extends ProjectPageBase {
           text: 'From gallery',
           icon: 'images',
           handler: () => {
-            let options: CameraOptions = {
-              quality: 50,
-              sourceType: this.camera.PictureSourceType.PHOTOLIBRARY,
-              destinationType: this.camera.DestinationType.DATA_URL,
-              encodingType: this.camera.EncodingType.JPEG,
-              mediaType: this.camera.MediaType.PICTURE,
-              allowEdit: false
-            };
-
-            this.camera.getPicture(options).then((imageData) => {
-              project.picture = 'data:image/jpeg;base64,' + imageData;
-              //setTimeout(() => this.service.save(project), 500);
-            }, (err) => {
-              console.log(err);
-            });
+            this.picture.get_picture(false, 80).then(p => project.picture = p);
           }
         },
         {
@@ -148,10 +115,10 @@ export class EditProjectPage extends ProjectPageBase {
           icon: 'trash',
           cssClass: 'disable',
           handler: () => {
-            project.picture = NON_PICTURE;
-            this.service.save(project);
+            project.picture = '';
           }
-        }, {
+        }
+        , {
           text: 'Cancel',
           role: 'cancel'
         }
@@ -187,14 +154,16 @@ export class EditProjectPage extends ProjectPageBase {
         {
           text: 'Disagree'
         }
-
       ]
     });
     confirm.present();
   }
 
   after_delete(): void {
-    this.navCtrl.pop();
+    this.service.get(this.project.id).then(p => {
+      p => this.project;
+      this.navCtrl.pop();
+    });
   }
 
   edit() {

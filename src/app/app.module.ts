@@ -7,6 +7,7 @@ import { TooltipsModule } from 'ionic-tooltips';
 
 
 /*Pages*/
+import { InitPage } from '../pages/init/init';
 import { MyApp } from './app.component';
 import { AboutPage } from '../pages/about/about';
 import { ContactPage } from '../pages/contact/contact';
@@ -16,6 +17,7 @@ import { EditProjectPage } from '../pages/projects/edit';
 import { ProjectPage } from '../pages/projects/project';
 import { SummaryPage } from '../pages/summary/summary';
 import { SummaryEditPage } from '../pages/summary/summary-edit';
+import { PicturesPage } from '../pages/pictures/pictures';
 
 /*Plugins*/
 import { Camera } from '@ionic-native/camera';
@@ -31,14 +33,14 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { ProjectService } from '../services';
 import { ReportService } from '../services/report.service';
 import { ComponentService } from '../services/component.service';
-import { CameraService } from '../services/camera';
+import { FileDeviceService } from '../services/file-device.service';
 import { FileService } from '../services/file.service';
+import { FileLocalService } from '../services/file-local.service';
 import { MessageService } from '../services/messages.service';
+import { PictureService } from '../services/picture.service';
 
 // import { ReportSafetSurfacePage } from '../pages/reports/safety/surface';
 
-import { InitPage } from '../pages/init/init';
-import { PicturesPage } from '../pages/pictures/pictures';
 
 /*Components*/
 import { SvgInsulationComponent } from '../components/svg/svg-insulation.component';
@@ -212,17 +214,23 @@ import { SurfaceMaterialPipe } from '../pipes/surface-material.pipe';
     ReportService,
     ProjectService,
     ComponentService,
-    CameraService,
-    Camera,
     StatusBar,
     SplashScreen,
     FileChooser,
     FileOpener,
     FilePath,
     File,
+    Camera,
     ScreenOrientation,
-    FileService,
-    { provide: ErrorHandler, useClass: IonicErrorHandler }
+    //PictureDeviceService,
+    //PictureLocalService,
+    FileDeviceService,
+    FileLocalService,
+    { provide: ErrorHandler, useClass: IonicErrorHandler },
+    //Mock services
+    //{ provide: PictureService, useClass: PictureDeviceService },
+    PictureService,
+    { provide: FileService, useClass: FileDeviceService }
   ]
 })
 export class AppModule { }

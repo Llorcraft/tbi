@@ -1,5 +1,5 @@
 import { Project } from './../../models/project';
-import { ProjectService } from './../../services';
+import { ProjectService } from '../../services/project.service';
 import { Component } from '@angular/core';
 import { NavController, Platform, ActionSheetController, AlertController, NavParams } from 'ionic-angular';
 import { ProjectPageBase } from './project-page-base';
@@ -94,8 +94,10 @@ export class ProjectsPage extends ProjectPageBase {
   }
 
   public load(): void {
-    this.projects = this.service.get_all();
-    if (!this.projects.length) this.edit_mode = false;
+    this.service.get_all().then(p => {
+      this.projects = p;
+      if (!this.projects.length) this.edit_mode = false;
+    });
   }
 
   public open(project: Project): void {
@@ -133,11 +135,24 @@ export class ProjectsPage extends ProjectPageBase {
     this.edit_mode = false;
   }
 
+  public create_db(): void {
+    this.service.create_database().then(blob => {
+      var a = document.createElement("a"),
+        url = URL.createObjectURL(blob);
+      a.href = url;
+      a.download = 'db.txt';
+      a.click();
+      setTimeout(function () {
+        window.URL.revokeObjectURL(url);
+      }, 0);
+    })
+  }
+
   after_delete() {
     this.load();
   }
 
-  get_by_type(project: Project, type: string): ReportBase[]{
+  get_by_type(project: Project, type: string): ReportBase[] {
     return project.get_reports_by_type(type);
   }
 }
