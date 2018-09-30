@@ -12,5 +12,7 @@ export const REPORT = {
       PIPE: `Insulation\\Insulated Equipments\\Pipe`,
     }
   },
-  GENERIC: `Generic`
+  GENERIC: `Generic`,
+  DAMAGED: 'Damaged',
+  CONDENSATION: 'Condensation'
 }

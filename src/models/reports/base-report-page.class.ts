@@ -8,7 +8,8 @@ import { ReportErrorsComponent, ReportsPage } from "../../pages/reports";
 import { ReportService } from "../../services/report.service";
 import { More } from "../../const/more/more";
 import { TbiComponent } from "../component";
-import { PictureService } from "../../services/picture.service";
+import { Camera } from "@ionic-native/camera";
+import { MessageService } from "../../services/messages.service";
 
 export class BaseReportPage {
   @ViewChild('form') form: NgForm;
@@ -27,7 +28,8 @@ export class BaseReportPage {
     protected navCtrl: NavController,
     protected service: ReportService,
     protected alertCtrl: AlertController,
-    protected camera: PictureService
+    protected camera: Camera,
+    protected message: MessageService,
   ) {
     this._original_component = this.report.component;
     this.report.component = new TbiComponent(this._original_component.project, this._original_component);
@@ -99,7 +101,7 @@ export class BaseReportPage {
     if (event.which === 13) this.calculate();
   }
 
-  private start_changes_observer(): void {
+  protected start_changes_observer(): void {
     this.errors.form = this.form;
     this.errors.on_change.subscribe((form: NgForm) => {
       this.view = 'form';
@@ -160,8 +162,9 @@ export class BaseReportPage {
     return this;
   };
 
-  protected calculate(): ReportBase {
+  protected calculate() {
     this.start_changes_observer();
+    this.errors.page = this;
     if (!this.form.invalid) {
       this.view = 'result';
       return this.calculator.calculate(this.report);
@@ -170,12 +173,13 @@ export class BaseReportPage {
     }
   }
 
+
   protected on_picture_start_edit(picture: Picture): void {
     this.editing_picture = picture;
     this.view = 'edit_picture';
   }
 
-  public alert(message: string){
+  public alert(message: string) {
     let confirm = this.alertCtrl.create({
       title: `Create report`,
       message: message,
@@ -189,12 +193,20 @@ export class BaseReportPage {
   }
   protected take_picture() {
     //this.alert('Hacer foto');
-    this.camera.take_picture().then(d => {
-      //this.alert('Foto hecha');
-      this.report.pictures.push(new Picture({ picture: d }));
-      //this.alert(this.report.pictures.length.toString());
-    });
+    this.camera.getPicture({
+      quality: 80,
+      sourceType: this.camera.PictureSourceType.CAMERA,
+      destinationType: this.camera.DestinationType.DATA_URL,
+      encodingType: this.camera.EncodingType.JPEG,
+      mediaType: this.camera.MediaType.PICTURE,
+      allowEdit: false
+    }).then(d => this.report.pictures.push(new Picture({ picture: 'data:image/jpeg;base64,' + d })))
+      .catch(ex => {
+        this.message.alert('Error take picture', JSON.stringify(ex, null, 2));
+      });
   }
+
+
 
   protected toggle_know() {
     if (!!this.unknow_surface) this.report.component.fields.surface = null;

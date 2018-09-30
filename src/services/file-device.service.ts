@@ -12,30 +12,34 @@ export class FileDeviceService extends FileService {
 
     private create_file(filename: string): Promise<FileEntry> {
         return new Promise<FileEntry>((resolve, reject) => {
-            this.file.createFile(this.file.externalRootDirectory, `${filename}.json`, false)
+            this.file.writeFile(this.file.externalRootDirectory, `${filename}.json`, '', { append: true })
                 .then(r => resolve(r))
-                .catch(ex => {
-                    reject(ex);
-                    this.message.alert('Error create file', JSON.stringify(ex, null, 2));
+                .catch(_ => {
+                    this.file.writeFile(this.file.externalRootDirectory, `${filename}.json`, '', { replace: true })
+                        .then(r => resolve(r))
+                        .catch(ex => {
+                            reject(ex.message);
+                            this.message.alert('Error create file', JSON.stringify(ex, null, 2));
+                        })
                 });
         })
 
     }
 
-    public read_text(filename: string): Promise<string> {
+    public async read_text(filename: string): Promise<string> {
+        await this.create_file(filename);
         return new Promise<string>((resolve, reject) => {
-            this.create_file(filename).then(() => {
-                this.file.readAsText(this.file.externalRootDirectory, `${filename}.json`)
-                    .then(r => resolve(r))
-                    .catch(ex => {
-                        reject(ex.message);
-                        this.message.alert('Error read file', JSON.stringify(ex, null, 2));
-                    });
-            });
+            this.file.readAsText(this.file.externalRootDirectory, `${filename}.json`)
+                .then(r => resolve(r))
+                .catch(ex => {
+                    reject(ex.message);
+                    this.message.alert('Error read file', JSON.stringify(ex, null, 2));
+                });
         });
     }
 
-    public write_text(filename: string, content: string): Promise<boolean> {
+    public async write_text(filename: string, content: string): Promise<boolean> {
+        await this.create_file(filename);
         return new Promise<boolean>((resolve, reject) => {
             this.file.writeFile(this.file.externalRootDirectory, `${filename}.json`, content, { replace: true })
                 .then(() => resolve(true))

@@ -7,7 +7,9 @@ import { FileChooser } from '@ionic-native/file-chooser';
 import { FilePath } from '@ionic-native/file-path';
 import { FileOpener } from '@ionic-native/file-opener';
 import { NgForm } from '@angular/forms';
-import { PictureService } from '../../services/picture.service';
+import { Camera } from '@ionic-native/camera';
+import { MessageService } from '../../services/messages.service';
+
 
 @Component({
   selector: 'page-edit-project',
@@ -29,7 +31,8 @@ export class EditProjectPage extends ProjectPageBase {
     private fileChooser: FileChooser,
     private filePath: FilePath,
     public actionSheetCtrl: ActionSheetController,
-    private picture: PictureService,
+    private camera: Camera,
+    private message: MessageService,
     private keyboard: Keyboard,
     private fileOpener: FileOpener) {
 
@@ -88,7 +91,31 @@ export class EditProjectPage extends ProjectPageBase {
   }
 
   private open_camera() {
-    this.picture.take_picture(false, 80).then(p => this.project.picture = p);
+    this.camera.getPicture({
+      quality: 80,
+      sourceType: this.camera.PictureSourceType.CAMERA,
+      destinationType: this.camera.DestinationType.DATA_URL,
+      encodingType: this.camera.EncodingType.JPEG,
+      mediaType: this.camera.MediaType.PICTURE,
+      allowEdit: false
+    }).then(d => this.project.picture = 'data:image/jpeg;base64,' + d)
+      .catch(ex => {
+        this.message.alert('Error take picture', JSON.stringify(ex, null, 2));
+      });
+  }
+
+  private open_gallery() {
+    this.camera.getPicture({
+      quality: 80,
+      sourceType: this.camera.PictureSourceType.PHOTOLIBRARY,
+      destinationType: this.camera.DestinationType.DATA_URL,
+      encodingType: this.camera.EncodingType.JPEG,
+      mediaType: this.camera.MediaType.PICTURE,
+      allowEdit: false
+    }).then(d => this.project.picture = 'data:image/jpeg;base64,' + d)
+      .catch(ex => {
+        this.message.alert('Error take picture', JSON.stringify(ex, null, 2));
+      });
   }
 
   public ask_for_change_picture(project: Project) {
@@ -106,7 +133,7 @@ export class EditProjectPage extends ProjectPageBase {
           text: 'From gallery',
           icon: 'images',
           handler: () => {
-            this.picture.get_picture(false, 80).then(p => project.picture = p);
+            this.open_gallery();
           }
         },
         {

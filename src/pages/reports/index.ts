@@ -17,3 +17,5 @@ export { ReportResultComponent } from './components/result/report-result.compone
 export { ReportValvePage } from './valve/report-valve.component';
 export { ReportInsulatedSurfacePage } from './isurface/report-isurface.component';
 export { ReportInsulatedPipePage } from './ipipe/report-ipipe.component';
+export { ReportDamagedPage } from './damaged/report-damaged.component';
+export { ReportCondensationPage } from './condensation/report-condensation.component';

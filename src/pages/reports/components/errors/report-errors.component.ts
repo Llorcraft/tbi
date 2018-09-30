@@ -1,5 +1,6 @@
 import { Component, Input, EventEmitter } from '@angular/core';
 import { NgForm, ValidationErrors } from '@angular/forms';
+import { BaseReportPage } from '../../../../models/reports/base-report-page.class';
 
 @Component({
   selector: 'report-errors',
@@ -8,6 +9,7 @@ import { NgForm, ValidationErrors } from '@angular/forms';
 
 export class ReportErrorsComponent {
   private _form?: NgForm;
+  public page:  BaseReportPage;
   @Input('form')
   set form(form: NgForm) {
     if(!!this._form) return;

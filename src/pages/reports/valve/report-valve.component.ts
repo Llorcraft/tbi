@@ -2,7 +2,9 @@ import { Component } from '@angular/core';
 import { BaseReportPage, ReportValve } from '../../../models/reports';
 import { NavController, NavParams, AlertController } from 'ionic-angular';
 import { ReportService } from '../../../services/report.service';
-import { PictureService } from '../../../services/picture.service';
+import { Camera } from '@ionic-native/camera';
+import { MessageService } from '../../../services/messages.service';
+
 
 @Component({
   selector: 'page-report-valve',
@@ -16,8 +18,9 @@ export class ReportValvePage extends BaseReportPage {
     navParams: NavParams,
     protected service: ReportService,
     protected alertCtrl: AlertController,
-    protected camera: PictureService
+    protected camera: Camera,
+    protected message: MessageService,
   ) {
-    super(new ReportValve(navParams.get('project'), navParams.get('component')), navCtrl, service, alertCtrl, camera);
+    super(new ReportValve(navParams.get('project'), navParams.get('component')), navCtrl, service, alertCtrl, camera, message);
   }
 }

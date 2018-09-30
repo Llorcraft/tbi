@@ -1,3 +1,5 @@
+export { ReportCondensation } from './report-condensation.class';
+export { ReportDamaged } from './report-damaged.class';
 export { ReportInsulatedPipe } from './report-ipipe.class';
 export { ReportInsulatedSurface } from './report-isurface.class';
 export { ReportValve } from './report-valve.class';

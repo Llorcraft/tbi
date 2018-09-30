@@ -152,7 +152,7 @@ export class ProjectsPage extends ProjectPageBase {
     this.load();
   }
 
-  get_by_type(project: Project, type: string): ReportBase[] {
-    return project.get_reports_by_type(type);
+  get_by_type(project: Project, type: string[]): ReportBase[] {
+    return project.get_reports_by_types(type);
   }
 }

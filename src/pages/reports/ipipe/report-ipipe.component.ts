@@ -2,8 +2,9 @@ import { Component } from '@angular/core';
 import { BaseReportPage } from '../../../models/reports';
 import { NavController, NavParams, AlertController } from 'ionic-angular';
 import { ReportService } from '../../../services/report.service';
-import { PictureService } from '../../../services/picture.service';
 import { ReportInsulatedPipe } from '../../../models/reports/report-ipipe.class';
+import { Camera } from '@ionic-native/camera';
+import { MessageService } from '../../../services/messages.service';
 
 @Component({
   selector: 'page-report-pipe',
@@ -15,8 +16,9 @@ export class ReportInsulatedPipePage extends BaseReportPage {
     navParams: NavParams,
     protected service: ReportService,
     protected alertCtrl: AlertController,
-    protected camera: PictureService
+    protected camera: Camera,
+    protected message: MessageService,
   ) {
-    super(new ReportInsulatedPipe(navParams.get('project'), navParams.get('component')), navCtrl, service, alertCtrl, camera);
+    super(new ReportInsulatedPipe(navParams.get('project'), navParams.get('component')), navCtrl, service, alertCtrl, camera, message);
   }
 }

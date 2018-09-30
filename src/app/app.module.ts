@@ -95,7 +95,9 @@ import {
   ReportPipePage,
   ReportValvePage,
   ReportInsulatedSurfacePage,
-  ReportInsulatedPipePage
+  ReportInsulatedPipePage,
+  ReportDamagedPage,
+  ReportCondensationPage
 } from '../pages/reports'
 
 //Pipes
@@ -137,6 +139,8 @@ import { SurfaceMaterialPipe } from '../pipes/surface-material.pipe';
     ReportPipePage,
     ReportInsulatedPipePage,
     ReportValvePage,
+    ReportDamagedPage,
+    ReportCondensationPage,
     //Components
     SvgInsulationComponent,
     SvgCustomComponent,
@@ -206,7 +210,9 @@ import { SurfaceMaterialPipe } from '../pipes/surface-material.pipe';
     ReportFlangePage,
     ReportPipePage,
     ReportInsulatedPipePage,
-    ReportValvePage
+    ReportValvePage,
+    ReportDamagedPage,
+    ReportCondensationPage
   ],
   providers: [
     /*App services*/
@@ -230,7 +236,7 @@ import { SurfaceMaterialPipe } from '../pipes/surface-material.pipe';
     //Mock services
     //{ provide: PictureService, useClass: PictureDeviceService },
     PictureService,
-    { provide: FileService, useClass: FileDeviceService }
+    { provide: FileService, useClass: FileLocalService }
   ]
 })
 export class AppModule { }
