@@ -5,6 +5,7 @@ import { Project, ComponentLocation, Value } from '../../models';
 import { ProjectService } from '../../services/project.service';
 import { SummaryEditPage } from './summary-edit';
 import { ReportRouter } from '../../models/report-router';
+import { ReportsPage } from '../reports';
 
 @Component({
   selector: 'page-summary',
@@ -42,6 +43,13 @@ export class SummaryPage {
     orientation.onChange().subscribe(
       () => this.orientation = orientation.type
     );
+  }
+
+  public go_to_reports(){
+    this.navCtrl.push(ReportsPage, {
+      project: this.project,
+      parent: this
+    });
   }
 
   protected remove(cl: ComponentLocation) {

@@ -15,8 +15,8 @@
 
 <ion-content>
 
-  <ion-grid full-height with-footer [hidden]="view=='edit_picture'">
-    <ion-row full-height>
+  <ion-grid [hidden]="view=='edit_picture'">
+    <ion-row>
       <ion-col col-12 col-md-6 no-padding>
         <form novalidate #form="ngForm" [hidden]="segment!='input'" (submit)="calculate()">
           <ion-row>

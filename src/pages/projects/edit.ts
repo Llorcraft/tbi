@@ -62,20 +62,6 @@ export class EditProjectPage extends ProjectPageBase {
     this.keyboard.close();
   }
 
-  protected on_keypress(event: KeyboardEvent) {
-    //console.log(event.which)
-    if (event.which === 13) this.save();
-  }
-
-  protected on_focus(event: FocusEvent) {
-    const elm = (event.currentTarget as HTMLElement);
-    elm.scrollIntoView(false);
-    elm.scrollIntoView({ block: "end", behavior: "smooth" });
-    const elementRect = elm.getBoundingClientRect();
-    const absoluteElementTop = elementRect.top;
-    elm.closest('.scroll-content').scrollTo(0, absoluteElementTop + Number(elm.getAttribute('scroll')) || 0);
-  }
-
   public open_file(file: string): void {
     this.fileOpener.open(file, 'application/pdf')
       .catch(err => this.error = JSON.stringify(err, null, 2));

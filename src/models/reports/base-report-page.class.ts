@@ -10,8 +10,9 @@ import { More } from "../../const/more/more";
 import { TbiComponent } from "../component";
 import { Camera } from "@ionic-native/camera";
 import { MessageService } from "../../services/messages.service";
+import { ScrollToComponent } from "../../pages/scroll_to_component.class";
 
-export class BaseReportPage {
+export class BaseReportPage extends ScrollToComponent {
   @ViewChild('form') form: NgForm;
   @ViewChild('errors') errors: ReportErrorsComponent;
   public calculator = new CalculatorFactory();
@@ -22,7 +23,7 @@ export class BaseReportPage {
 
   private _original_component: TbiComponent;
   public unknow_surface: boolean = false;
-
+  public editable: boolean = false;
   constructor(
     public report: ReportBase,
     protected navCtrl: NavController,
@@ -31,9 +32,12 @@ export class BaseReportPage {
     protected camera: Camera,
     protected message: MessageService,
   ) {
+    super();
     this._original_component = this.report.component;
     this.report.component = new TbiComponent(this._original_component.project, this._original_component);
     this.report.component.id = this._original_component.id;
+
+    this.editable = !this.report.component.reports.filter(r => !!r.path.match(/[surface|pipe|valve|flange]/gi) && !!r.result).length;
     // [
     //   'https://restorationmasterfinder.com/restoration/wp-content/uploads/2016/08/pipe-burst.jpg',
     //   'http://www.wklawyers.com/wp-content/uploads/2015/02/plumbing-leak-pipe-burst-attorney.jpg',
@@ -75,6 +79,7 @@ export class BaseReportPage {
   }
 
   protected toggle_surface_material(value: boolean) {
+    if (!this.editable) return;
     this.edit_surface_material = value;
     setTimeout(() => {
       if (!!value) document.getElementsByName('surface_material')[1].focus();
@@ -86,19 +91,6 @@ export class BaseReportPage {
     const material = More.MATERIALS.find(c => c[1] == index);
     this.report.component.fields.surface_material_index = typeof event == 'object' ? null : index;
     this.report.component.fields.surface_material = !!material ? Number(material[2]) : !!index ? Number(index) : index;
-  }
-
-  protected on_focus(event: FocusEvent) {
-    const elm = (event.currentTarget as HTMLElement);
-    elm.scrollIntoView(false);
-    elm.scrollIntoView({ block: "end", behavior: "smooth" });
-    const elementRect = elm.getBoundingClientRect();
-    const absoluteElementTop = elementRect.top;
-    elm.closest('.scroll-content').scrollTo(0, absoluteElementTop + Number(elm.getAttribute('scroll')) || 0);
-  }
-
-  protected on_keypress(event: KeyboardEvent) {
-    if (event.which === 13) this.calculate();
   }
 
   protected start_changes_observer(): void {
@@ -139,7 +131,7 @@ export class BaseReportPage {
           handler: () => {
             this.navCtrl.push(ReportsPage, {
               project: project,
-              message: `“${this.report.component.fields.location}” have been saved. You are going to start reports on a new component.`
+              message: `“${this.report.component.fields.location}” has been saved. You are going to start reports on a new component.`
             });
           }
         }
