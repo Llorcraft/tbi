@@ -15,7 +15,7 @@
 
 <ion-content>
 
-  <ion-grid [hidden]="view=='edit_picture'">
+    <ion-grid [hidden]="view=='edit_picture'" class="fixed-col">
     <ion-row >
       <ion-col col-12 col-md-6 no-padding>
 
@@ -58,7 +58,7 @@
               <ion-item>
                 <ion-label stacked>Item number</ion-label>
                   <ion-input tabindex="3" (focus)="on_focus($event)" name="number" required data-val-required="Please input Item number" [(ngModel)]="report.component.fields.number"
-                  type="number"></ion-input>
+                  type="number" min="0"></ion-input>
               </ion-item>
             </ion-col>
           </ion-row>
@@ -90,7 +90,7 @@
               <ion-col col-10>
                 <ion-item>
                   <ion-label stacked>Ambient temperature (<sup>º</sup>C)</ion-label>
-                    <ion-input tabindex="6" (focus)="on_focus($event)" (keypress)="on_keypress($event)" name="ambient_temp" required data-val-required="Please input Ambient temperature" [(ngModel)]="report.component.fields.ambient_temp"
+                    <ion-input tabindex="6" (focus)="on_focus($event)" (keyup.enter)="on_keypress($event)" name="ambient_temp" required data-val-required="Please input Ambient temperature" [(ngModel)]="report.component.fields.ambient_temp"
                     type="number"></ion-input>
                 </ion-item>
               </ion-col>
@@ -129,7 +129,7 @@
     </ion-row>
   </ion-grid>
 
-  <edit-picture *ngIf="view=='edit_picture'" [picture]="editing_picture"></edit-picture>
+  <edit-picture *ngIf="view=='edit_picture'"  [report]="report"  [picture]="editing_picture" ></edit-picture>
 
 </ion-content>
 
@@ -145,10 +145,10 @@
           </button>
       </ion-col>
       <ion-col col-6 text-right no-padding *ngIf="view!='edit_picture' && segment==='input'">
-        <button tabindex="9" ion-button small pull-right color="primary" (click)="calculate()" *ngIf="view!='edit_picture' && !report.result">
+        <button id="submit-button" tabindex="9" ion-button small pull-right color="primary" (click)="calculate()" *ngIf="view!='edit_picture' && !report.result">
           Calculate
         </button>
-        <button tabindex="9" ion-button small pull-right color="primary" (click)="save()" *ngIf="!!report.result && !form.invalid">
+        <button id="submit-button" tabindex="9" ion-button small pull-right color="primary" (click)="save()" *ngIf="!!report.result && !form.invalid">
           Report
         </button>
       </ion-col>

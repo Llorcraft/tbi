@@ -16,7 +16,7 @@
     <ng-container *ngSwitchCase="''">
       <ion-row>
         <ion-col card-container col-md-3 offset-md-3 col-sm-6>
-          <ion-card (click)="navigate_to('insulation')">
+          <ion-card (click)="navigate_to('insulation')" [class.disabled]="disabled_for('insulation')">
             <span svg="insulation"></span>
             <h1>Insulation</h1>
           </ion-card>

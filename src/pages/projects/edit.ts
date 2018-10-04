@@ -58,6 +58,13 @@ export class EditProjectPage extends ProjectPageBase {
   //   $('.tabbar').addClass('show-tabbar');
   // }
 
+  public on_focus(event: FocusEvent) {
+    const elm = (event.currentTarget as HTMLElement);
+    const offset = 170;
+    elm.closest('.scroll-content').scrollTo(0, 0);
+    elm.closest('.scroll-content').scrollTo(0, elm.closest('ion-item').getBoundingClientRect().top - offset);
+  }
+
   protected hide_keyboard() {
     this.keyboard.close();
   }

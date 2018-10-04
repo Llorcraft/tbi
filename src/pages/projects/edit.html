@@ -96,7 +96,7 @@
                 <ion-input tabindex="10" (focus)="on_focus($event)"  type="email" [(ngModel)]="project.people.hse_manager.email" placeholder="Email" name="hse-email" scroll="-60"></ion-input>
               </ion-item>
               <ion-item col-md-3 col-12>
-                <ion-input tabindex="10" (focus)="on_focus($event)"  type="phone" [(ngModel)]="project.people.hse_manager.phone" placeholder="Phone" name="hse-phone" scroll="-60"></ion-input>
+                <ion-input tabindex="10" (focus)="on_focus($event)"  (keyup.enter)="on_keypress($event)"  type="phone" [(ngModel)]="project.people.hse_manager.phone" placeholder="Phone" name="hse-phone" scroll="-60"></ion-input>
               </ion-item>
             </ion-row>
           </ion-col>
@@ -130,7 +130,7 @@
         <button *ngIf="segment=='files'" ion-button small color="light">
           Upload file
         </button>
-        <button tabindex="15" *ngIf="segment=='properties'" ion-button small color="primary" (focus)="hide_keyboard()" (click)="save()">
+        <button id="submit-button" id="submit-button" tabindex="15" *ngIf="segment=='properties'" ion-button small color="primary" (click)="save()">
           Save
         </button>
       </ion-col>

@@ -254,12 +254,12 @@ ion-icon {
   }
 }
 
-ion-item .item-inner {
+ion-item .item-inner, .list-md .item-input {
   box-shadow: none !important;
   border-bottom-color: #ddd !important;
 }
 
-ion-grid.grid:not([v-center]) {
+ion-grid.grid.fixed-col {
   &>ion-row.row {
     >ion-col.col:nth-child(2) {
       position: fixed;

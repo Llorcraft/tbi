@@ -1,4 +1,5 @@
 export class Marker {
+  public id: string = ''; 
   public x: number = 0;
   public y: number = 0;
   public temperature?: number = null;
@@ -24,6 +25,7 @@ export class Marker {
   constructor(item?: Partial<Marker>) {
     if (!!item) {
       Object.assign(this, item);
+      this.id = item.id || Math.random().toString().substr(2);
     }
   }
 }

@@ -19,7 +19,7 @@ export class ReportMediumTempButtonsComponent {
   protected show_markers(): ReportMediumTempButtonsComponent {
     const modal = this.modalCtrl.create(ReportTempMarkersWindowComponent,
       { 
-        pictures: this.report.pictures
+        report: this.report
       },
       {
         cssClass: "modal-window-markers",
