@@ -14,7 +14,10 @@ export class ProjectService {
   public async get_all(): Promise<Project[]> {
     return new Promise<Project[]>((resolve, reject) => {
       this.file.read_text(STORAGE_KEY)
-        .then(r => resolve((JSON.parse(r || '[]') as Project[]).map(p => new Project(p))))
+        .then(r => {
+          //window['projects'] = JSON.parse(r || '[]');
+          resolve((JSON.parse(r || '[]') as Project[]).map(p => new Project(p)));
+        })
         .catch(ex => {
           reject(ex);
           this.message.alert('Error', JSON.stringify(ex, null, 2));

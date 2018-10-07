@@ -1,3 +1,4 @@
+export { ReportFooterComponent } from './components/report-footer/report-footer.component';
 export { ReportPipePage } from './pipe/report-pipe.component';
 export { ReportFlangePage } from './flange/report-flange.component';
 export { ReportEditPictureComponent } from './components/edit-picture/edit-picture.component';
@@ -7,7 +8,6 @@ export { ReportsPage } from './reports';
 export { GenericReportPage } from './generic/generic';
 export { ReportSurfacePage } from './surface/report-surface.component';
 export { ReportHeaderComponent } from './components/header/report-header.component';
-export { ReportFooterComponent } from './components/footer/report-footer.component';
 export { ReportAreaButtonComponent } from './components/area/report-area-button.component';
 export { ReportAreaModalComponent } from './components/area/report-area-modal.component';
 export { ReportMoreButtonComponent} from './components/more/more-button.component';
@@ -19,3 +19,4 @@ export { ReportInsulatedSurfacePage } from './isurface/report-isurface.component
 export { ReportInsulatedPipePage } from './ipipe/report-ipipe.component';
 export { ReportDamagedPage } from './damaged/report-damaged.component';
 export { ReportCondensationPage } from './condensation/report-condensation.component';
+export { ReportLeakagePage } from './leakage/report-leakage.component';

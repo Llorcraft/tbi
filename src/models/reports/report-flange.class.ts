@@ -8,7 +8,6 @@ import { FlangeDecorator } from '../calculators';
 
 export class ReportFlange extends ReportBase {
   public page = ReportFlangePage;
-  public id = '';
   public name = `Flange`;
   public path = REPORT.INSULATION.UNINSULATED_EQUIPMENTS.FLANGE;
   public calculator: ICalculator = new FlangeDecorator

@@ -7,7 +7,6 @@ import { ReportDamagedPage } from '../../pages/reports';
 
 export class ReportDamaged extends ReportBase {
   public page = ReportDamagedPage;
-  public id = '';
   public name = `Damaged`;
   public path = REPORT.DAMAGED;
   public calculator: ICalculator;

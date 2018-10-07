@@ -10,7 +10,7 @@ import { NON_PICTURE } from '../../../../const/images';
 
 export class ReportPictureSlideComponent {
     @Input() report: ReportBase;
-    @Input() label: boolean;
+    @Input() editable: boolean;
     @Output() onStartEdit = new EventEmitter<Picture>();;
 
     protected NON_PICTURE: string = NON_PICTURE

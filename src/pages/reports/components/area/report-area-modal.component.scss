@@ -7,11 +7,11 @@
   }
   .modal-wrapper {
     $height: 500;
-    $width: 450;
+    $width: 50%;
     height: $height * 1px;
-    width: $width * 1px;
-    top: calc(50% - 225px);
-    left: calc(50% - 200px);
+    width: $width;
+    top: 10%;
+    left: 25%;
     area-modal {
       background: #fff;
       .scroll-content {
@@ -19,7 +19,12 @@
         display: block;
       }
       [svg] {
-
+        height: 100%;
+        width: auto; 
+        svg {
+          height: 70%;
+          margin-top: 0;
+        }
       }
       ion-toolbar {
         .toolbar-background {

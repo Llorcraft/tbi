@@ -18,6 +18,7 @@ export class Fields {
   public dimension?: number = null;
   public emissivity?: number = null;
   public leakage: string = '';
+  public comment: string = '';
   public nominal_diameter?: number = null;
   public main_dimension: number = null;
   public damaged_cladding_selection: number = null;
@@ -67,6 +68,7 @@ export class Fields {
     this.emissivity = this.number_or_null(f.emissivity);
     this.nominal_diameter = this.number_or_null(f.nominal_diameter);
     this.leakage = f.leakage;
+    this.comment = f.comment;
     this.main_dimension = this.number_or_null(f.main_dimension);
     this.damaged_cladding = !!f.damaged_cladding;
     this.damaged_insulation = !!f.damaged_insulation;

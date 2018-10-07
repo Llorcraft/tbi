@@ -6,7 +6,6 @@ import { ReportValvePage } from '../../pages/reports';
 
 export class ReportValve extends ReportBase {
   public page = ReportValvePage;
-  public id = '';
   public name = `Valve`;
   public path = REPORT.INSULATION.UNINSULATED_EQUIPMENTS.VALVE;
   public calculator

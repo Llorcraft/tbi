@@ -42,7 +42,7 @@ export class ReportEditPictureComponent {
     private show_prompt(event: MouseEvent, marker: Marker): void {
         let alert = this.alertCtrl.create({
             title: 'Enter temperature',
-            cssClass: `ion-dialog-horizontal`,
+            cssClass: `ion-dialog-horizontal mt-4`,
             inputs: [
                 {
                     name: 'temperature',

@@ -4,7 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { TooltipsModule } from 'ionic-tooltips';
-
+import { UniqueDeviceID } from '@ionic-native/unique-device-id';
 
 /*Pages*/
 import { InitPage } from '../pages/init/init';
@@ -74,6 +74,8 @@ import { SvgCubeAreaComponent } from '../components/svg/svg-cube-area.component'
 import { SvgCircleAreaComponent } from '../components/svg/svg-circle-area.component';
 import { SvgHousekeepingComponent } from '../components/svg/svg-housekeeping.component';
 import { SvgStructuralComponent } from '../components/svg/svg-structural.component';
+import { SvgRectangleAreaComponent } from '../components/svg/svg-rectangle-area.component';
+
 //Reports
 
 import {
@@ -97,11 +99,14 @@ import {
   ReportInsulatedSurfacePage,
   ReportInsulatedPipePage,
   ReportDamagedPage,
-  ReportCondensationPage
+  ReportCondensationPage,
+  ReportLeakagePage
 } from '../pages/reports'
 
 //Pipes
 import { SurfaceMaterialPipe } from '../pipes/surface-material.pipe';
+
+
 
 
 @NgModule({
@@ -141,6 +146,7 @@ import { SurfaceMaterialPipe } from '../pipes/surface-material.pipe';
     ReportValvePage,
     ReportDamagedPage,
     ReportCondensationPage,
+    ReportLeakagePage,
     //Components
     SvgInsulationComponent,
     SvgCustomComponent,
@@ -171,6 +177,7 @@ import { SurfaceMaterialPipe } from '../pipes/surface-material.pipe';
     SvgCilinderAreaComponent,
     SvgCubeAreaComponent,
     SvgCircleAreaComponent,
+    SvgRectangleAreaComponent,
     SvgHousekeepingComponent,
     SvgStructuralComponent
   ],
@@ -203,6 +210,7 @@ import { SurfaceMaterialPipe } from '../pipes/surface-material.pipe';
     SummaryPage,
     SummaryEditPage,
     //Reports
+    ReportFooterComponent,
     ReportAreaModalComponent,
     ReportTempMarkersWindowComponent,
     ReportSurfacePage,
@@ -212,7 +220,8 @@ import { SurfaceMaterialPipe } from '../pipes/surface-material.pipe';
     ReportInsulatedPipePage,
     ReportValvePage,
     ReportDamagedPage,
-    ReportCondensationPage
+    ReportCondensationPage,
+    ReportLeakagePage
   ],
   providers: [
     /*App services*/
@@ -232,6 +241,7 @@ import { SurfaceMaterialPipe } from '../pipes/surface-material.pipe';
     //PictureLocalService,
     FileDeviceService,
     FileLocalService,
+    UniqueDeviceID,
     { provide: ErrorHandler, useClass: IonicErrorHandler },
     //Mock services
     //{ provide: PictureService, useClass: PictureDeviceService },

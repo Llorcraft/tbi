@@ -7,11 +7,24 @@ import { ViewController, NavParams } from 'ionic-angular';
   templateUrl: './temp-marker-window.component.html'
 })
 
-export class ReportTempMarkersWindowComponent {
+export class ReportTempMarkersWindowComponent  {
 
   protected markers: any[] = [];
   protected get disabled(): boolean {
     return this.markers.filter(m => m.hasValue).length === 0;
+  }
+
+  public on_focus(event: FocusEvent) {
+    const elm = (event.currentTarget as HTMLElement);
+    elm.closest('.scroll-content').scrollTo(0, 0);
+    elm.closest('.scroll-content').scrollTo(0, elm.closest('ion-item').getBoundingClientRect().top - 100);
+  }
+
+  protected on_keypress(event: KeyboardEvent) {
+    if (event.which === 13) {
+      (event.currentTarget as HTMLElement).closest('.scroll-content').scrollTo(0, 0);
+      this.calculate();
+    }
   }
 
   constructor(private viewCtrl: ViewController, private params: NavParams) {

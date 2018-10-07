@@ -7,7 +7,6 @@ import { ReportCondensationPage } from '../../pages/reports';
 
 export class ReportCondensation extends ReportBase {
   public page = ReportCondensationPage;
-  public id = '';
   public name = `Condensation`;
   public path = REPORT.CONDENSATION;
   public calculator: ICalculator;

@@ -21,7 +21,7 @@ export class ReportCondensationPage extends BaseReportPage {
     protected camera: Camera,
     protected message: MessageService,
   ) {
-    super(new ReportCondensation(navParams.get('project'), navParams.get('component')), navCtrl, service, alertCtrl, camera,message);
+    super(new ReportCondensation(navParams.data.project, navParams.data.component, navParams.data.report), navCtrl, service, alertCtrl, camera,message);
       if(!!this.report.component.fields.condensation_selection) this.selection[this.report.component.fields.condensation_selection] = true;
   }
 

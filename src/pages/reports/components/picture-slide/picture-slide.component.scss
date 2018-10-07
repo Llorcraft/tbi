@@ -10,7 +10,7 @@ img.non-picture {
   ion-slides {
     ion-slide {
       .slide-zoom {
-        margin: 1rem 0;
+        margin: 0 0 1rem;
         img {
           border-radius: 20px;
           width: 85%;
@@ -26,5 +26,10 @@ img.non-picture {
       bottom: 0;
     }
     
+  }
+  
+  button[ion-button][round][outline]{
+    padding: 1.5rem 0!important;
+    width: 97%;
   }
 }

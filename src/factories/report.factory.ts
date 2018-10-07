@@ -11,23 +11,20 @@ export namespace Report {
       return new ReportGeneric(project, component || new TbiComponent(project), item);
     }
   }
+
   export namespace Insulation {
     export namespace InunsulatedEquipment {
       export class Factory {
         public static Surface(project?: Project, component?: TbiComponent, item?: ReportSurface): ReportBase {
-          debugger;
           return new ReportSurface(project, component || new TbiComponent(project), item);
         }
         public static Flange(project?: Project, component?: TbiComponent, item?: ReportFlange): ReportBase {
-          debugger;
           return new ReportFlange(project, component || new TbiComponent(project), item);
         }
         public static Pipe(project?: Project, component?: TbiComponent, item?: ReportPipe): ReportBase {
-          debugger;
           return new ReportPipe(project, component || new TbiComponent(project), item);
         }
         public static Valve(project?: Project, component?: TbiComponent, item?: ReportValve): ReportBase {
-          debugger;
           return new ReportValve(project, component || new TbiComponent(project), item);
         }
       }

@@ -46,10 +46,16 @@ export class ReportsPage extends ReportRouter {
 
   protected disabled_for(family: string) {
     switch (family) {
+      case 'leakage':
+        return this.component.reports.filter(r => !!r.path.match(/leakage/gi)).length >= 2;
+      case 'damaged':
+        return this.component.reports.filter(r => !!r.path.match(/damaged/gi)).length >= 2;
+      case 'condensation':
+        return this.component.reports.filter(r => !!r.path.match(/condensation/gi)).length >= 2;
       case 'insulation':
         return !!this.component.reports.filter(r => !!r.path.match(/insulation/gi)).length;
       default:
-        return false;
+        return this.component.reports.filter(r => !!r.path.match(/generic/gi)).length >= 2;
     }
   }
 

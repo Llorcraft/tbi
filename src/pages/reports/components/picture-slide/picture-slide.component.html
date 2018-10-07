@@ -9,3 +9,20 @@
     </ion-slides>
   </ion-col>
 </ion-row>
+<ion-row *ngIf="!!report.component.has_markers(report)" text-center>
+    <ion-col col-4>
+      <button ion-button round outline small color="royal" (click)="report.component.fields.surface_temp=report.component.min_temp(report)">
+        Minimun<br>{{report.component.min_temp(report) | number: '1.2-2'}}ºC
+      </button>
+    </ion-col>
+    <ion-col col-4>
+      <button ion-button round outline small color="royal" (click)="report.component.fields.surface_temp=report.component.medium_temp(report)">
+        Average<br>{{report.component.medium_temp(report) | number: '1.2-2'}}ºC
+      </button>
+    </ion-col>
+    <ion-col col-4>
+      <button ion-button round outline small color="royal" (click)="report.component.fields.surface_temp=report.component.max_temp(report)">
+        Maximun<br>{{report.component.max_temp(report) | number: '1.2-2'}}ºC
+      </button>
+    </ion-col>
+  </ion-row>

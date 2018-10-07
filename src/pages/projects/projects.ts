@@ -7,6 +7,7 @@ import { EditProjectPage } from './edit';
 import { ScreenOrientation } from '@ionic-native/screen-orientation';
 import { ReportsPage } from '../reports';
 import { ReportCategory, ReportBase } from '../../models';
+import { UniqueDeviceID } from '@ionic-native/unique-device-id';
 
 @Component({
   selector: 'page-project',
@@ -27,9 +28,15 @@ export class ProjectsPage extends ProjectPageBase {
     public platform: Platform,
     public alertCtrl: AlertController,
     public actionSheetCtrl: ActionSheetController,
-    orientation: ScreenOrientation) {
+    orientation: ScreenOrientation,
+    uuid: UniqueDeviceID) {
 
     super(alertCtrl, service);
+
+    uuid.get()
+      .then((uuid: any) => console.log(uuid))
+      .catch((error: any) => console.log(error));
+
     this.orientation = orientation.type;
     this.user_name = this.navParams.get("user_name") || this.user_name
     orientation.onChange().subscribe(

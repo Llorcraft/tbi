@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
 import { AlertController, NavParams, ModalController, NavController } from 'ionic-angular';
 import { ScreenOrientation } from '@ionic-native/screen-orientation';
-import { Project, ComponentLocation, Value } from '../../models';
+import { Project, Value, ReportBase } from '../../models';
 import { ProjectService } from '../../services/project.service';
 import { SummaryEditPage } from './summary-edit';
 import { ReportRouter } from '../../models/report-router';
 import { ReportsPage } from '../reports';
+import { TbiComponent } from '../../models/component';
 
 @Component({
   selector: 'page-summary',
@@ -15,11 +16,17 @@ import { ReportsPage } from '../reports';
 export class SummaryPage {
   private orientation: string;
   public project: Project;
-  public components: ComponentLocation[] = [];
+  public components: TbiComponent[] = [];
   public heat_lost: Value = new Value();
   public saving_potential_min: Value = new Value();
   public saving_potential_max: Value = new Value();
-
+  public advises: Map<string, string> = new Map<string, string>([
+    ['', ''],
+    ['System OK', 'OK'],
+    ['Insulation recommended', 'Recommended'],
+    ['SAFETY-Insulation recommended', 'SAFETY-Recommended'],
+    ['Savings can be achieved by increasing the insulant performance or thickness', 'SAVINGS-achieved']
+  ])
   constructor(
     protected navParams: NavParams,
     protected alertCtrl: AlertController,
@@ -29,15 +36,7 @@ export class SummaryPage {
     orientation: ScreenOrientation) {
 
     this.project = this.navParams.get('project');
-    this.components = (this.project.components || []).map(c => new ComponentLocation(c));
-    this.components.forEach(c => {
-      this.heat_lost.money += c.section_energy.heat_lost.money;
-      this.heat_lost.power += c.section_energy.heat_lost.power;
-      this.saving_potential_max.money += c.section_energy.saving_potential_max.money;
-      this.saving_potential_min.money += c.section_energy.saving_potential_min.money;
-      this.saving_potential_max.power += c.section_energy.saving_potential_max.power;
-      this.saving_potential_min.power += c.section_energy.saving_potential_min.power;
-    });
+    this.components = this.project.components || [];
 
     this.orientation = orientation.type;
     orientation.onChange().subscribe(
@@ -45,23 +44,23 @@ export class SummaryPage {
     );
   }
 
-  public go_to_reports(){
+  public go_to_reports() {
     this.navCtrl.push(ReportsPage, {
       project: this.project,
       parent: this
     });
   }
 
-  protected remove(cl: ComponentLocation) {
+  protected remove(cl: TbiComponent) {
     let confirm = this.alertCtrl.create({
       title: `Remove`,
-      message: `Do you agree to remove permanently '${cl.name}' component?`,
+      message: `Do you agree to remove permanently '${cl.fields.location}' component?`,
       buttons: [
         {
           text: 'Agree',
           handler: () => {
             this.components = this.components.filter(c => c !== cl);
-            this.project.components = this.project.components.filter(c => c !== cl.component);
+            this.project.components = this.project.components.filter(c => c !== cl);
             this.service.save(this.project);
           }
         },
@@ -73,10 +72,14 @@ export class SummaryPage {
     confirm.present();
   }
 
-  protected edit(cl: ComponentLocation) {
+  public open(report: ReportBase){
+    (new ReportRouter(report.component.project, report.component, this.navCtrl)).navigate_to_report(report.path, report.summary_id, report);
+  }
+
+  protected edit(cl: TbiComponent) {
     const modal = this.modalCtrl.create(SummaryEditPage,
       {
-        tbi_component: cl.component
+        tbi_component: cl
       },
       {
         cssClass: "modal-window-markers",
@@ -85,12 +88,9 @@ export class SummaryPage {
 
       });
     modal.onDidDismiss(v => {
-      this.service.get_all().then(projects => {
-        const project = projects.find(p => !!p.components.filter(p => !!p.reports.find(r => r.id == v)).length);
-        const component = project.components.find(p => !!p.reports.find(r => r.id == v));
-        const report = component.reports.find(r => r.id == v);
-        (new ReportRouter(project, component, this.navCtrl)).navigate_to_report(report.path, report);
-      });
+      if (!v) return this;
+      const report = cl.reports.find(r => r.id == v);
+      (new ReportRouter(cl.project, cl, this.navCtrl)).navigate_to_report(report.path, report.summary_id, report);
     });
     modal.present();
     return this;

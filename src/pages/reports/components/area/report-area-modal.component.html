@@ -3,6 +3,9 @@
     <ion-segment-button value="cube">
       Prism
     </ion-segment-button>
+    <ion-segment-button value="rectangle">
+      Rectangle
+    </ion-segment-button>
     <ion-segment-button value="cilinder">
       Cilinder
     </ion-segment-button>
@@ -47,6 +50,32 @@
         </ion-col>
       </ion-row>
     </ion-grid>
+    <ion-grid [hidden]="segment.value!='rectangle'">
+      <ion-col col-12 style="padding-top: 1rem">
+          <strong>&nbsp;</strong>
+      </ion-col>
+    <ion-row>
+      <ion-col col-12 col-md-8>
+        <div svg="area-rectangle" padding></div>
+      </ion-col>
+      <ion-col col-12 col-md-4>
+        <ion-row>
+          <ion-col col-12>
+            <ion-item>
+              <ion-label stacked>a (m)</ion-label>
+              <ion-input type="number" tabindex="6" id="rectangle-a" [(ngModel)]="width"></ion-input>
+            </ion-item>
+          </ion-col>
+          <ion-col col-12>
+            <ion-item>
+              <ion-label stacked>b (m)</ion-label>
+              <ion-input type="number" tabindex="7" id="rectangle-b" [(ngModel)]="height"></ion-input>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
     <ion-grid [hidden]="segment.value!='cilinder'">
         <ion-col col-12 style="padding-top: 1rem">
             <strong>* Only lateral walls</strong>

@@ -1,6 +1,6 @@
 import { NavController, AlertController } from "ionic-angular";
 import { NgForm } from '@angular/forms';
-import { ViewChild } from "@angular/core";
+import { ViewChild, OnInit } from "@angular/core";
 import { ReportBase, Project } from "..";
 import { CalculatorFactory } from "../calculators/calculator.factory";
 import { Picture } from "../picture";
@@ -12,7 +12,7 @@ import { Camera } from "@ionic-native/camera";
 import { MessageService } from "../../services/messages.service";
 import { ScrollToComponent } from "../../pages/scroll_to_component.class";
 
-export class BaseReportPage extends ScrollToComponent {
+export class BaseReportPage extends ScrollToComponent implements OnInit {
   @ViewChild('form') form: NgForm;
   @ViewChild('errors') errors: ReportErrorsComponent;
   public calculator = new CalculatorFactory();
@@ -38,17 +38,10 @@ export class BaseReportPage extends ScrollToComponent {
     this.report.component.id = this._original_component.id;
 
     this.editable = !this.report.component.reports.filter(r => !!r.path.match(/[surface|pipe|valve|flange]/gi) && !!r.result).length;
-    // [
-    //   'https://restorationmasterfinder.com/restoration/wp-content/uploads/2016/08/pipe-burst.jpg',
-    //   'http://www.wklawyers.com/wp-content/uploads/2015/02/plumbing-leak-pipe-burst-attorney.jpg',
-    //   'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ9QhRSAcVUI3nmDVmShbEX_BcSqx2rGJkzWshEVKV5SPvwEA0LHQ'
-    // ].forEach(p => this.report.pictures.push(new Picture({ picture: p })));
+  }
 
-    // if (!!this.report.component.fields.location) {
-    //   //this.calculate();
-    //   this.calculator.calculate(this.report);
-    //   this.view = 'result';
-    // }
+  ngOnInit(): void {
+    if(!!this.report.id && !this.report.path.match(/generic/gi)) setTimeout(()=>this.calculate(), 250);
   }
 
   protected set_length(message: string, default_value: number) {
@@ -113,6 +106,7 @@ export class BaseReportPage extends ScrollToComponent {
   protected ask_for_more_reports(project: Project) {
     let confirm = this.alertCtrl.create({
       title: `Create report`,
+      cssClass: `ion-dialog-horizontal`,
       message: `Do you want to add another report associated to this component?`,
       enableBackdropDismiss: false,
       buttons: [
@@ -134,6 +128,9 @@ export class BaseReportPage extends ScrollToComponent {
               message: `“${this.report.component.fields.location}” has been saved. You are going to start reports on a new component.`
             });
           }
+        }, {
+          text: 'Cancel',
+          role: 'cancel'
         }
       ]
     });

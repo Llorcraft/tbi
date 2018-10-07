@@ -30,6 +30,15 @@
             <ion-col col-12></ion-col>
           </ion-row>
           <ion-row>
+              <ion-col col-10>
+                <ion-item>
+                  <ion-label stacked>Summary Id</ion-label>
+                  <ion-input tabindex="2" (focus)="on_focus($event)" name="summary_id" [(ngModel)]="report.summary_id" required data-val-required="Please input summary id"
+                    type="text"></ion-input>
+                </ion-item>
+              </ion-col>
+            </ion-row>
+          <ion-row>
             <ion-col col-10>
               <ion-item>
                 <ion-label stacked>Operational time (hours)</ion-label>
@@ -156,10 +165,10 @@
       </ion-col>
       <ion-col col-12 col-md-6 no-padding>
         <ion-row>
-        <ion-col  *ngIf="view!='result' && (!errors || !errors.errors.length)" col-12 picture-slide [label]="false" [report]="report" (onStartEdit)="on_picture_start_edit($event)">
+            <ion-col  *ngIf="view!='result' && (!errors || !errors.errors.length)" col-12 picture-slide  [report]="report" [editable]="editable"  (onStartEdit)="on_picture_start_edit($event)">
         </ion-col>
       </ion-row>
-      <report-errors padding #errors col-12 *ngIf="view!='result' && !report.result"></report-errors>
+      <report-errors padding #errors col-12 [hidden]="view=='!result' && report.result"></report-errors>
       <div col-12 p-4 *ngIf="view=='result' && (!!form && !form.invalid)">
         <h3 class="damaged-result" *ngIf="report.component.fields.damaged_cladding">Cladding holds insualtion in place an protect it from external agents ensuring its performance.</h3>
         <h3 class="damaged-result" *ngIf="damaged_cladding[1]">The insulation is not protected anymore, water or other agent could get in.</h3>
@@ -181,25 +190,4 @@
 
 </ion-content>
 
-<ion-footer>
-  <ion-grid no-padding>
-    <ion-row no-padding>
-      <ion-col col-6 no-padding>
-        <button tabindex="11" *ngIf="view!='edit_picture'" ion-button small color="light" (click)="go_back()">
-          <ion-icon name="arrow-back"></ion-icon>&nbsp;Back
-        </button>
-        <button tabindex="10" *ngIf="view=='edit_picture'" ion-button small color="light" (click)="go_back()">
-            Close
-        </button>
-      </ion-col>
-      <ion-col col-6 text-right no-padding *ngIf="view!='edit_picture' && segment==='input'">
-          <button id="submit-button" tabindex="8" ion-button small pull-right color="primary" (click)="calculate()" *ngIf="view!='edit_picture' && view!='result'">
-            Validate
-          </button>
-          <button id="submit-button" tabindex="9" ion-button small pull-right color="primary" (click)="save()" *ngIf="view=='result' && !form.invalid">
-            Report
-          </button>
-        </ion-col>
-    </ion-row>
-  </ion-grid>
-</ion-footer>
+<report-footer [parent]="this" [calculate_text]="'Validate'"></report-footer>

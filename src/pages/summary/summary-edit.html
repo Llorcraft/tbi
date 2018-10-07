@@ -3,9 +3,9 @@
     Reports
   </ion-list-header>
 
-  <ion-item *ngFor="let r of reports">
+  <ion-item *ngFor="let r of reports; let i=index" [attr.title]="r.summary_id">
     <ion-label>{{r.name}}</ion-label>
-    <ion-radio value="{{r.id}}"></ion-radio>
+    <ion-radio checked="true" value="{{r.id}}"></ion-radio>
   </ion-item>
 
 </ion-list>

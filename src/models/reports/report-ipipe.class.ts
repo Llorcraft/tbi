@@ -6,7 +6,6 @@ import { ReportInsulatedPipePage } from '../../pages/reports';
 
 export class ReportInsulatedPipe extends ReportBase {
   public page = ReportInsulatedPipePage;
-  public id = '';
   public name = `Insulated Pipe`;
   public path = REPORT.INSULATION.INSULATED_EQUIPMENTS.PIPE;
   public insulated = true;

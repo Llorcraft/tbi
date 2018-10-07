@@ -145,11 +145,14 @@ export class BaseCalculator {
         this.fnc.forEach(f => f.apply(this));
         console.clear();
         console.table({
-            'ql': this.ql,
-            'Rins_min': this.Rins_min,
-            'Rins_max': this.Rins_max,
-            'ql_min': this.ql_min,
-            'ql_max': this.ql_max,
+            'Savingkwh_min': this.Savingkwh_min,
+            'Savingkwh_max': this.Savingkwh_max,
+            'Qε': this.Qε,
+            'Qε_min': this.Qε_min,
+            'Qε_max': this.Qε_max,
+            'Qkwh': this.Qkwh,
+            'Qkwh_min': this.Qkwh_min,
+            'Qkwh_max': this.Qkwh_max,
         })
         this.report.result = new Result({
             advise: this.Insulation_advice,

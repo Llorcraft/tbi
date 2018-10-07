@@ -3,34 +3,61 @@ import { Fields } from "./fields";
 import { Project } from "./project";
 import { Marker } from "./marker";
 import { Picture } from "./picture";
+import { Result } from "./result";
 
 export class TbiComponent {
     public id: string = '';
     public project: Project = null;
     public reports: ReportBase[] = [];
     public fields: Fields = new Fields();
-    public summary_id: string;
     public markers: Marker[];
 
     private flatten(arr: any[]): any[] {
         return [].concat.apply([], arr);
     }
 
+    public get result(): Result {
+        const report = this.reports.find(r => !!(r.readonly_summary_id || r.summary_id).match(/[surface|pipe|valve|flange]/gi));
+        return !!report ? report.result : null;
+    }
+
+    public get insulated(): boolean {
+        const report = this.reports.find(r => !!r.path.match(/\\insulated/gi));
+        return !!report;
+    }
+
+    public reports_by_type(types: string[]): ReportBase[] {
+        let result: ReportBase[] = []
+        types.forEach(type => {
+            let filter = this.reports.filter(r => !!(r.readonly_summary_id || r.summary_id).match(new RegExp(type, 'gi')));
+            this.flatten(filter).forEach(r => result.push(r));
+        })
+        return result;
+    }
+
     public get pictures(): Picture[] {
         return this.flatten(this.reports.map(r => r.pictures));
     }
-    public get has_markers(): boolean {
-        const has_markers = !!this.markers.length && !!this.reports.find(r=>!!r.pictures.find(p=>!!p.markers_with_values.length));
-        return has_markers;
+    public all_markers(report: ReportBase): Marker[] {
+        return ((this.markers || []).filter(m => m.temperature != null) || [])
+            .concat(this.flatten(this.reports.filter(r => r.id != report.id).map(r => this.flatten(r.pictures.map(p => p.markers)))))
+            .concat(this.flatten(report.pictures.map(p => p.markers)));
     }
-    public get min_temp(): number {
-        return !this.has_markers ? 0 : this.markers.map(m => m.temperature).sort()[0];
+    public has_markers(report: ReportBase): boolean {
+        return !!this.all_markers(report).length;
     }
-    public get max_temp(): number {
-        return !this.has_markers ? 0 : this.markers.map(m => m.temperature).sort().reverse()[0];
+    public min_temp(report: ReportBase): number {
+        if (!this.has_markers(report)) return 0;
+        return this.all_markers(report).map(m => m.temperature).sort()[0];
     }
-    public get medium_temp(): number {
-        return !this.has_markers ? 0 : eval(this.pictures.filter(p => p.has_markers).map(m => m.surface_temp).join('+')) / this.pictures.filter(p => p.has_markers).length;
+    public max_temp(report: ReportBase): number {
+        if (!this.has_markers(report)) return 0;
+        return this.all_markers(report).map(m => m.temperature).sort().reverse()[0];
+    }
+    public medium_temp(report: ReportBase): number {
+        if (!this.has_markers(report)) return 0;
+        const markers = this.all_markers(report).map(m => parseFloat(m.temperature.toString()));
+        return Number((markers.reduce((a, t) => a + t, 0) / this.all_markers(report).length).toFixed(2));
     }
 
     constructor(project: Project, item?: Partial<TbiComponent>) {
@@ -39,7 +66,6 @@ export class TbiComponent {
             this.fields = new Fields(item.fields);
             this.project = project;
             this.id = item.id || Math.random().toString().substr(2);
-            this.summary_id = item.summary_id;
             this.reports = (item.reports || []).map(r => new ReportBase(project, this, r));
             this.markers = (item.markers || []).map(m => new Marker(m));
         }

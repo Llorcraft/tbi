@@ -7,12 +7,10 @@ export class TbiComponentJson {
     public id: string = '';
     public reports: ReportBaseJson[] = [];
     public fields: Fields = new Fields();
-    public summary_id: string;
     public markers: Marker[];
 
     constructor(item: Partial<TbiComponent>) {
         this.id = item.id;
-        this.summary_id = item.summary_id;
         this.reports = (item.reports || []).map(r => new ReportBaseJson(r))
         this.fields = new Fields(item.fields);
         this.markers = (item.markers || []).map(m => new Marker(m));

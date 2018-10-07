@@ -22,7 +22,7 @@ export class ReportDamagedPage extends BaseReportPage {
     protected camera: Camera,
     protected message: MessageService,
   ) {
-    super(new ReportDamaged(navParams.get('project'), navParams.get('component')), navCtrl, service, alertCtrl, camera, message);
+    super(new ReportDamaged(navParams.data.project, navParams.data.component, navParams.data.report), navCtrl, service, alertCtrl, camera, message);
 
     if (!!this.report.component.fields.damaged_cladding_selection) this.damaged_cladding[this.report.component.fields.damaged_cladding_selection] = !0;
     if (!!this.report.component.fields.damaged_insulation_selection) this.damaged_insulation[this.report.component.fields.damaged_insulation_selection] = !0;

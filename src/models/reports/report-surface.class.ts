@@ -6,7 +6,6 @@ import { TbiComponent } from '../component';
 
 export class ReportSurface extends ReportBase {
   public page = ReportSurfacePage;
-  public id = '';
   public name = `Surface`;
   public path = REPORT.INSULATION.UNINSULATED_EQUIPMENTS.SURFACE;
 

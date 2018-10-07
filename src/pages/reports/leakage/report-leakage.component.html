@@ -1,0 +1,97 @@
+<ion-header>
+  <ion-navbar hideBackButton>
+    <ion-title>
+      {{report.name}}
+    </ion-title>
+    <ion-buttons end>
+      <button ion-button color="light" on-tap="take_picture()">
+        <ion-icon name="md-camera"></ion-icon>&nbsp;Take a picture
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+
+
+</ion-header>
+
+<ion-content>
+
+  <ion-grid [hidden]="view=='edit_picture'" class="fixed-col">
+    <ion-row>
+      <ion-col col-12 col-md-6 no-padding>
+        <form novalidate #form="ngForm" [hidden]="segment!='input'" (submit)="calculate()">
+          <ion-row>
+            <ion-col col-10>
+              <ion-item>
+                <ion-label stacked>Component/Location</ion-label>
+                <ion-input [disabled]="!editable" tabindex="1" (focus)="on_focus($event)" name="location" required data-val-required="Please input Component/Location"
+                  [(ngModel)]="report.component.fields.location" type="text"></ion-input>
+              </ion-item>
+            </ion-col>
+            <ion-col col-2></ion-col>
+          </ion-row> 
+          <ion-row>
+            <ion-col col-10>
+              <ion-item>
+                <ion-label stacked>Operational time (hours)</ion-label>
+                <ion-input [disabled]="!editable" tabindex="2" (focus)="on_focus($event)" required data-val-required="Please input operational time" name="operational_time" [(ngModel)]="report.component.fields.operational_time"
+                  type="number"></ion-input>
+              </ion-item>
+            </ion-col>
+            <ion-col col-2>
+              <more pull-left *ngIf="editable" #time (change)="report.component.fields.operational_time=time.value" [type]="'time'" modal-button></more>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col col-10>
+              <ion-item>
+                <ion-label stacked>Medium temperature (<sup>º</sup>C)</ion-label>
+                  <ion-input [disabled]="!editable" tabindex="3" (focus)="on_focus($event)" name="surface_temp" required data-val-required="Please input Medium or Surface temperature"
+                  [(ngModel)]="report.component.fields.surface_temp" type="number"></ion-input>
+              </ion-item>
+            </ion-col>
+            <ion-col col-2>
+              <!-- <medium-temp #medium (change)="report.component.fields.surface_temp=medium.value" modal-button pull-left></medium-temp> -->
+              <medium-temp *ngIf="editable" #medium [report]="report" modal-button pull-left></medium-temp>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+              <ion-col col-10>
+                <ion-item>
+                  <ion-label stacked>Ambient temperature (<sup>º</sup>C)</ion-label>
+                    <ion-input [disabled]="!editable" tabindex="4" (focus)="on_focus($event)"  (keyup.enter)="on_keypress($event)"  name="ambient_temp" required data-val-required="Please input Ambient temperature" [(ngModel)]="report.component.fields.ambient_temp"
+                    type="number"></ion-input>
+                </ion-item>
+              </ion-col>
+              <ion-col col-2></ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col col-10>
+                <ion-item>
+                  <ion-label stacked>Leakage - urgent to fix </ion-label>
+                  <ion-textarea rows="6" tabindex="5" (focus)="on_focus($event)" [(ngModel)]="report.component.fields.leakage"
+                    name="leakage" required data-val-required="Please input leakage"></ion-textarea>
+                </ion-item>
+              </ion-col>
+            </ion-row>
+        </form>
+      </ion-col>
+
+      <ion-col col-12 col-md-6 no-padding>
+        <ion-row>
+            <ion-col *ngIf="view!='result' && (!errors || !errors.errors.length)" col-12 picture-slide  [report]="report" [editable]="editable"  (onStartEdit)="on_picture_start_edit($event)">
+        </ion-col>
+      </ion-row>
+     
+
+      <report-errors padding #errors col-12 [hidden]="view=='!result' && report.result"></report-errors>
+      <report-result col-12 [report]="report" *ngIf="view=='result' && (!!form && !form.invalid)"></report-result>
+      </ion-col>
+
+    </ion-row>
+  </ion-grid>
+
+  <edit-picture *ngIf="view=='edit_picture'"  [report]="report"  [picture]="editing_picture" ></edit-picture>
+
+</ion-content>
+
+<report-footer [parent]="this" [calculate_text]="'Validate'"></report-footer>

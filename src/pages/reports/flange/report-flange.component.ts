@@ -21,7 +21,7 @@ export class ReportFlangePage extends BaseReportPage {
     protected camera: Camera,
     protected message: MessageService,
   ) {
-    super(new ReportFlange(navParams.get('project'), navParams.get('component')), navCtrl, service, alertCtrl, camera, message);
+    super(new ReportFlange(navParams.data.project, navParams.data.component, navParams.data.report), navCtrl, service, alertCtrl, camera, message);
   }
 
 }

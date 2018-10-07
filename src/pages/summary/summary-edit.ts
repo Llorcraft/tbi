@@ -11,10 +11,12 @@ import { ReportBase } from '../../models';
 export class SummaryEditPage {
     public component: TbiComponent;
     public reports: ReportListItem[] = [];
+    public selected: string;
     private report_selected: any;
     constructor(private viewCtrl: ViewController, private params: NavParams) {
         this.component = this.params.data.tbi_component as TbiComponent;
-        this.reports = this.component.reports.map(r => new ReportListItem(r));
+        this.reports = this.component.reports;
+        this.report_selected = this.reports[0].id;
     }
 
     protected edit() {

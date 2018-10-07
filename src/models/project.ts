@@ -54,14 +54,14 @@ export class Project extends ModelWithPicture {
   }
 
   public get_reports_by_type(type: string): ReportBase[] {
-    const reports = this.components.map(c => c.reports.filter(r => !!r.path.match(new RegExp(type, 'gi'))));
+    const reports = this.components.map(c => c.reports.filter(r => !!r.readonly_summary_id.match(new RegExp(type, 'gi'))));
     return this.flatten(reports);
   }
 
   public get_reports_by_types(types: string[]): ReportBase[] {
     let result: ReportBase[] = []
     types.forEach(type => {
-      let filter = this.components.map(c => c.reports.filter(r => !!r.path.match(new RegExp(type, 'gi'))));
+      let filter = this.components.map(c => c.reports.filter(r => !!r.readonly_summary_id.match(new RegExp(type, 'gi'))));
       this.flatten(filter).forEach(r => result.push(r));
     })
     return result;

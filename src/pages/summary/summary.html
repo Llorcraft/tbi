@@ -5,149 +5,11 @@
 </ion-header>
 
 <ion-content>
-  <!-- <table>
-    <thead>
-      <tr class="text-center">
-        <th colspan="3"></th>
-        <th colspan="4">Input</th>
-        <th colspan="7">Energy analysis</th>
-        <th>Safety</th>
-        <th>Maint.</th>
-        <th>Others</th>
-        <th colspan="7">Input</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr class="text-center">
-        <td rowspan="2" colspan="3">Component/Location</td>
-        <td rowspan="2" class="vertical">
-         <div><span>Surface<br>Temp.(&deg;C)</span></div>
-        </td>
-        <td rowspan="2" class="vertical">
-          <div><span one-line>Dimension</span></div>
-        </td>
-        <td rowspan="2" class="vertical">
-          <div><span>Length (m)</span></div>
-        </td>
-        <td rowspan="2" class="vertical">
-          <div><span>Items<br>number</span></div>
-        </td>
-
-        <td rowspan="2" text-middle>Heat lost</td>
-        <td colspan="4">Potential savings</td>
-        <td rowspan="2" class="vertical">
-            <div><span one-line>Insultated</span></div>
-        </td>
-        <td rowspan="2">TBi</td>
-
-        <td class="bg-red" rowspan="2"></td>
-        <td class="bg-blue" rowspan="2"></td>
-        <td class="bg-gray" rowspan="2"></td>
-
-        <td rowspan="2" class="vertical">
-          <div><span>Operational<br>time (hours)</span></div>
-        </td>
-        <td rowspan="2" class="vertical">
-          <div><span one-line>Surface (m<sup>2</sup>)</span></div>
-        </td>
-        <td rowspan="2" class="vertical">
-          <div><span one-line>DN</span></div>
-        </td>
-        <td rowspan="2" class="vertical">
-          <div><span one-line>Number</span></div>
-        </td>
-        <td rowspan="2" class="vertical">
-          <div><span>Length<br>or Leq</span></div>
-        </td>
-        <td rowspan="2" class="vertical">
-          <div><span one-line>Emissivity</span></div>
-        </td>
-        <td rowspan="2" class="vertical">
-          <div><span>Ambient<br>Temp (&deg;C)</span></div>
-        </td>
-      </tr>
-
-      <tr class="text-center">
-        <td>From</td>
-        <td></td>
-        <td>To</td>
-        <td>Units</td>
-      </tr>
-
-      <tr *ngFor="let c of components; let i=index">
-        <td text-center>{{i + 1}}</td>
-        <td text-center><ion-icon name="md-image"></ion-icon></td>
-        <td text-center name><a href="#">{{c.name}}</a></td>
-        <td text-center>{{c.section_input.fields.surface_temp}}</td>
-        <td text-center>{{c.section_input.fields.surface}}</td>
-        <td text-center>{{c.section_input.fields.length}}</td>
-        <td text-center>{{c.section_input.fields.number}}</td>
-        <td class="c-blue">
-          <div text-right>{{c.section_energy.heat_lost.power | number: '1.0-2'}}</div>
-          <div text-right>{{c.section_energy.heat_lost.money | number: '1.0-2'}}</div>
-        </td>
-        <td class="c-green">
-            <div text-right>{{c.section_energy.saving_potential_min.power | number: '1.0-2'}}</div>
-            <div text-right>{{c.section_energy.saving_potential_min.money | number: '1.0-2'}}</div>
-        </td>
-        <td class="c-green" text-center><ion-icon name="md-arrow-forward"></ion-icon></td>
-        <td class="c-green">
-            <div text-right>{{c.section_energy.saving_potential_max.power | number: '1.0-2'}}</div>
-            <div text-right>{{c.section_energy.saving_potential_max.money | number: '1.0-2'}}</div>
-        </td>
-        <td>
-            <div>kWh/a</div>
-            <div>€</div>
-        </td>
-        <td text-center>{{c.section_energy.insulated}}</td>
-        <td text-center>{{c.section_energy.tbi}}</td>
-        <td class="bg-red">
-          <div *ngFor="let r of c.reports['Insulation']"><a (click)="edit_report(r)">{{r.name}}</a></div>
-        </td>
-        <td class="bg-blue">
-          <div *ngFor="let r of c.reports['Maintenance']"><a (click)="edit_report(r)">{{r.name}}</a></div>
-        </td>
-        <td class="bg-gray">
-            <div *ngFor="let r of c.reports['Custom']"><a (click)="edit_report(r)">{{r.name}}</a></div>
-        </td>
-        <td text-right>{{c.section_input.fields.operational_time}}</td>
-        <td text-right></td>
-        <td text-right>{{c.section_input.fields.surface}}</td>
-        <td text-right>{{c.section_input.fields.number}}</td>
-        <td text-right>{{c.section_input.fields.length}}</td>
-        <td text-right>{{c.section_input.fields.emissivity}}</td>
-        <td text-right>{{c.section_input.fields.ambient_temp}}</td>
-      </tr>
-    </tbody>
-    <tfoot>
-      <tr>
-        <td text-right colspan="7">TOTAL</td>
-        <td class="c-blue">
-          <div text-right>{{heat_lost.power | number: '1.0-2'}}</div>
-          <div text-right>{{heat_lost.money | number: '1.0-2'}}</div>
-        </td>
-        <td class="c-green">
-            <div text-right>{{saving_potential_min.power | number: '1.0-2'}}</div>
-            <div text-right>{{saving_potential_min.money | number: '1.0-2'}}</div>
-        </td>
-        <td class="c-green" text-center><ion-icon name="md-arrow-forward"></ion-icon></td>
-        <td class="c-green">
-            <div text-right>{{saving_potential_max.power | number: '1.0-2'}}</div>
-            <div text-right>{{saving_potential_max.money | number: '1.0-2'}}</div>
-        </td>
-        <td>
-            <div>kWh/a</div>
-            <div>€</div>
-        </td>
-        <td class="bg-gray" colspan="12"></td>
-      </tr>
-    </tfoot>
-  </table> -->
 <table>
   <thead>
     <tr>
-      <th colspan="2" rowspan="2">Component / Location</th>
-      <th colspan="6" class="bg-green">Energy analysis</th>
+      <th colspan="2"></th>
+      <th colspan="6" class="bg-green" style="border-bottom: 5px solid #fff;">Energy analysis</th>
       <th rowspan="2" class="bg-red">Safety</th>
       <th rowspan="2" class="bg-blue">Maintenance</th>
       <th rowspan="2" class="bg-gray">Others</th>
@@ -156,8 +18,9 @@
       <th colspan="2" rowspan="3">Actions</th>
     </tr>
     <tr>
-      <th colspan="2" style="border-left: 1px solid #444">Energy Loss<br>per year</th>
-      <th colspan="4" style="border-left: 1px solid #444">Potential Savings<br>per year</th>
+      <th colspan="2" style="border-right: 1px solid #444">Component / Location</th>
+      <th colspan="2" style="border-top: 1px solid #444; border-right: 1px solid #444">Energy Loss<br>per year</th>
+      <th colspan="4" style="border-top: 1px solid #444; border-right: 1px solid #444">Potential Savings<br>per year</th>
       <th>Insulation Advise</th>
       <th class="vertical"><div><span one-line>Insulated</span></div></th>
       <th class="vertical"><div><span one-line>Surface temp</span></div></th>
@@ -167,42 +30,63 @@
   </thead>
   <tbody *ngFor="let c of components; let i=index">
     <tr>
-      <td rowspan="2" text-center>{{i+1}}</td>
-      <td rowspan="2" class="b-right">{{c.name}}</td>
-      <td text-center class="bg-green c-blue">{{c.section_energy.heat_lost.power | number: '1.0-3'}}</td>
-      <td class="bg-green c-blue mesure b-right">kWh</td>
-      <td text-right class="bg-green c-gree">{{c.section_energy.saving_potential_min.power | number: '1.0-3'}}</td>
-      <td text-center class="bg-green c-gree"><ion-icon name="md-arrow-forward"></ion-icon></td>
-      <td text-right class="bg-green c-gree">{{c.section_energy.saving_potential_max.power | number: '1.0-3'}}</td>
-      <td class="bg-green c-gree mesure b-right">kWh</td>
-      <td rowspan="2" text-center class="bg-red">
-        <a href="#" *ngFor="let r of c.reports['Safety']">{{r.path}}</a>
+      <td rowspan="2" double-border text-center>{{i+1}}</td>
+      <td rowspan="2" double-border class="b-right">{{c.fields.location}}</td>
+      
+      <ng-container *ngIf="!!c.result">
+        <td text-center class="bg-light-red c-red">{{c.result.headLost.power | number: '1.0-0'}}</td>
+        <td class="bg-light-red c-red b-right">kWh</td>
+        <td text-right class="bg-green c-gree">{{c.result.savingPotentialMin?.power | number: '1.0-0'}}</td>
+        <td text-center class="bg-green c-gree"><ion-icon name="md-arrow-forward"></ion-icon></td>
+        <td text-right class="bg-green c-gree">{{c.result.savingPotentialMax?.power | number: '1.0-0'}}</td>
+        <td class="bg-green c-gree mesure b-right">kWh</td>
+      </ng-container>
+      <ng-container *ngIf="!c.result">
+          <td text-center class="bg-red c-bg-red"></td>
+          <td class="bg-green c-blue mesure b-right"></td>
+          <td text-right class="bg-green c-gree"></td>
+          <td text-center class="bg-green c-gree"></td>
+          <td text-right class="bg-green c-gree"></td>
+          <td class="bg-green c-gree mesure b-right"></td>
+      </ng-container>
+
+      <td rowspan="2" double-border text-center class="bg-red">
+        <a href="#" (click)="open(r)" *ngFor="let r of c.reports_by_type(['safety'])">{{r.name}}</a>
       </td>
-      <td rowspan="2" text-center class="bg-blue">
-        <a href="#" *ngFor="let r of c.reports['Maintenance']">{{r.path}}</a>
+      <td rowspan="2" double-border text-center class="bg-blue">
+        <a href="#" (click)="open(r)" *ngFor="let r of c.reports_by_type(['mantenance', 'condensation', 'damaged'])">{{r.name}}</a>
       </td>
-      <td rowspan="2" text-center class="bg-gray">
-        <a href="#" *ngFor="let r of c.reports['Custom']">{{r.path}}</a>
+      <td rowspan="2" double-border text-center class="bg-gray">
+        <a href="#" (click)="open(r)" *ngFor="let r of c.reports_by_type(['generic', 'custom'])">{{r.name}}</a>
       </td>
-      <td rowspan="2" text-center>{{c.section_energy.tbi}}</td>
-      <td rowspan="2" text-center>{{c.insulated ? 'Y' : 'N'}}</td>
-      <td rowspan="2" text-center>{{c.section_input.fields.surface_temp}}&deg;C</td>
-      <td rowspan="2" text-center>
-        <span *ngIf="!!c.section_input.fields.surface">{{c.section_input.fields.surface}} m<sup>2</sup></span>
-        <span *ngIf="!!c.section_input.fields.length">{{c.section_input.fields.length}}</span>
+      <td rowspan="2" double-border text-center>{{advises.get(c.result.advise)}}</td>
+      <td rowspan="2" double-border text-center>{{!!c.insulated ? 'Y' : 'N'}}</td>
+      <td rowspan="2" double-border text-center>{{c.fields.surface_temp}}&deg;C</td>
+      <td rowspan="2" double-border text-center>
+        <span *ngIf="!!c.surface">{{c.fields.surface}} m<sup>2</sup></span>
+        <span>{{c.fields.main_dimension}}</span>
       </td>
-      <td rowspan="2" text-center>{{c.section_input.fields.number}}</td>
-      <td text-center rowspan="2"><ion-icon (click)="edit(c)" name="md-create"></ion-icon></td>
-      <td text-center rowspan="2"><ion-icon (click)="remove(c)" name="md-trash"></ion-icon></td>
+      <td rowspan="2" double-border text-center>{{c.fields.number}}</td>
+      <td text-center double-border rowspan="2"><ion-icon (click)="edit(c)" name="md-create"></ion-icon></td>
+      <td text-center double-border rowspan="2"><ion-icon (click)="remove(c)" name="md-trash"></ion-icon></td>
     </tr>
-    <tr>
-      <td text-right class="c-blue">{{c.section_energy.heat_lost.money | number: '1.0-3'}}</td>
-      <td class="c-blue mesure b-right">€<span *ngIf="!c.section_input.dimension">/m<sup>2</sup></span></td>
-      <td text-right class="c-gree">{{c.section_energy.saving_potential_min.money | number: '1.0-3'}}</td>
-      <td text-center class="c-gree"><ion-icon name="md-arrow-forward"></ion-icon></td>
-      <td text-right class="c-gree">{{c.section_energy.saving_potential_max.money | number: '1.0-3'}}</td>
-      <td class="c-gree mesure b-right">€<span *ngIf="!c.section_input.dimension">/m<sup>2</sup></span></td>
+
+    <tr *ngIf="!!c.result">
+      <td double-border text-right class="c-red">{{c.result.headLost?.money | number: '1.0-0'}}</td>
+      <td double-border class="c-red mesure b-right">€<span *ngIf="!!c.insulated">/m<sup>2</sup></span></td>
+      <td double-border text-right class="c-gree">{{c.result.savingPotentialMin?.money | number: '1.0-0'}}</td>
+      <td double-border text-center class="c-gree"><ion-icon name="md-arrow-forward"></ion-icon></td>
+      <td double-border text-right class="c-gree">{{c.result.savingPotentialMax?.money | number: '1.0-0'}}</td>
+      <td double-border class="c-gree mesure b-right">€<span *ngIf="!!c.insulated">/m<sup>2</sup></span></td>
     </tr>
+    <tr *ngIf="!c.result">
+        <td double-border text-right class="c-blue"></td>
+        <td double-border class="c-blue mesure b-right"></td>
+        <td double-border text-right class="c-gree"></td>
+        <td double-border text-center class="c-gree"></td>
+        <td double-border text-right class="c-gree"></td>
+        <td double-border class="c-gree mesure b-right"></td>
+      </tr>
   </tbody>
 </table>
 </ion-content>
