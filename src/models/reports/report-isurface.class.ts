@@ -1,13 +1,12 @@
 import { ReportBase } from './../report-base';
 import { ReportInsulatedSurfacePage } from '../../pages/reports';
 import { Project } from '..';
-import { REPORT } from '../../const';
 import { TbiComponent } from '../component';
 
 export class ReportInsulatedSurface extends ReportBase {
   public page = ReportInsulatedSurfacePage;
   public name = `Insulated Surface`;
-  public path = REPORT.INSULATION.INSULATED_EQUIPMENTS.SURFACE;
+  //public path = REPORT.INSULATION.INSULATED_EQUIPMENTS.SURFACE;
   public insulated: boolean = true;
 
   public get potential_measure(): string {

@@ -17,6 +17,7 @@ export class ReportBase {
   public insulated: boolean = false;
   public summary_id: string = '';
   public readonly_summary_id: string = '';
+  public comment: string = '';
   public get potential_measure(): string {
     return 'kWh/a';
   }
@@ -44,14 +45,16 @@ public get surface_temp(): number {
       this.pictures = (item.pictures || []).map(p => new Picture(p));
       this.project = project;
       this.component = component;
+      this.path = item.path;
       this.id = item.id;      
       this.result = new Result(item.result);
       this.summary_id = item.summary_id;
       this.readonly_summary_id = item.readonly_summary_id;
+      this.comment = item.comment;
     } else {
-      // this.pictures.push(new Picture({
-      //   picture: 'http://farm9.static.flickr.com/8347/8207715477_1df6bbb52c.jpg'
-      // }))
+      this.pictures.push(new Picture({
+        picture: 'http://farm9.static.flickr.com/8347/8207715477_1df6bbb52c.jpg'
+      }))
     }
   }
 }

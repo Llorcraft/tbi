@@ -1,6 +1,5 @@
 import { ReportBase } from './../report-base';
 import { Project } from '..';
-import { REPORT } from '../../const';
 import { TbiComponent } from '../component';
 import { ICalculator } from '../calculators/calculator.factory';
 import { ReportCondensationPage } from '../../pages/reports';
@@ -8,7 +7,7 @@ import { ReportCondensationPage } from '../../pages/reports';
 export class ReportCondensation extends ReportBase {
   public page = ReportCondensationPage;
   public name = `Condensation`;
-  public path = REPORT.CONDENSATION;
+  //public path = REPORT.CONDENSATION;
   public calculator: ICalculator;
 
   constructor(public project: Project, public component?: TbiComponent, item?: ReportCondensation) {

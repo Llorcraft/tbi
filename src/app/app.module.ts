@@ -1,3 +1,4 @@
+import { HttpModule } from '@angular/http';
 import { NgModule, ErrorHandler } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
@@ -38,7 +39,7 @@ import { FileService } from '../services/file.service';
 import { FileLocalService } from '../services/file-local.service';
 import { MessageService } from '../services/messages.service';
 import { PictureService } from '../services/picture.service';
-
+import { LicencesService } from '../services/licences.service';
 // import { ReportSafetSurfacePage } from '../pages/reports/safety/surface';
 
 
@@ -105,6 +106,7 @@ import {
 
 //Pipes
 import { SurfaceMaterialPipe } from '../pipes/surface-material.pipe';
+
 
 
 
@@ -183,6 +185,7 @@ import { SurfaceMaterialPipe } from '../pipes/surface-material.pipe';
   ],
   imports: [
     BrowserModule,
+    HttpModule,
     BrowserAnimationsModule,
     FormsModule,
     IonicModule.forRoot(MyApp, {
@@ -245,6 +248,7 @@ import { SurfaceMaterialPipe } from '../pipes/surface-material.pipe';
     { provide: ErrorHandler, useClass: IonicErrorHandler },
     //Mock services
     //{ provide: PictureService, useClass: PictureDeviceService },
+    LicencesService,
     PictureService,
     { provide: FileService, useClass: FileLocalService }
   ]

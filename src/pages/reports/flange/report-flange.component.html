@@ -101,7 +101,7 @@
 
       <ion-col col-12 col-md-6 no-padding>
         <ion-row>
-            <ion-col  *ngIf="view!='result' && (!errors || !errors.errors.length)" col-12 picture-slide  [report]="report" [editable]="editable"  (onStartEdit)="on_picture_start_edit($event)">
+            <ion-col *ngIf="view!='result' && (!errors || !errors.errors.length)" col-12 picture-slide  [report]="report" [editable]="editable"  (onStartEdit)="on_picture_start_edit($event)">
         </ion-col>
       </ion-row>
 

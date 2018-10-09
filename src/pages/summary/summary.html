@@ -5,7 +5,7 @@
 </ion-header>
 
 <ion-content>
-<table>
+<table class="data">
   <thead>
     <tr>
       <th colspan="2"></th>
@@ -29,37 +29,34 @@
     </tr>
   </thead>
   <tbody *ngFor="let c of components; let i=index">
-    <tr>
+    <tr [class.disabled]="c.fields.unknow_surface">
       <td rowspan="2" double-border text-center>{{i+1}}</td>
       <td rowspan="2" double-border class="b-right">{{c.fields.location}}</td>
       
       <ng-container *ngIf="!!c.result">
         <td text-center class="bg-light-red c-red">{{c.result.headLost.power | number: '1.0-0'}}</td>
-        <td class="bg-light-red c-red b-right">kWh</td>
+        <td class="bg-light-red c-red b-right">kWh<span *ngIf="c.fields.unknow_surface">/m<sup>2</sup></span></td>
         <td text-right class="bg-green c-gree">{{c.result.savingPotentialMin?.power | number: '1.0-0'}}</td>
         <td text-center class="bg-green c-gree"><ion-icon name="md-arrow-forward"></ion-icon></td>
         <td text-right class="bg-green c-gree">{{c.result.savingPotentialMax?.power | number: '1.0-0'}}</td>
-        <td class="bg-green c-gree mesure b-right">kWh</td>
+        <td class="bg-green c-gree mesure b-right">kWh<span *ngIf="c.fields.unknow_surface">/m<sup>2</sup></span></td>
       </ng-container>
       <ng-container *ngIf="!c.result">
-          <td text-center class="bg-red c-bg-red"></td>
-          <td class="bg-green c-blue mesure b-right"></td>
-          <td text-right class="bg-green c-gree"></td>
-          <td text-center class="bg-green c-gree"></td>
-          <td text-right class="bg-green c-gree"></td>
-          <td class="bg-green c-gree mesure b-right"></td>
+          <td colspan="2" class="b-right"></td>
+          <td colspan="4" class="b-right"></td>
       </ng-container>
 
       <td rowspan="2" double-border text-center class="bg-red">
-        <a href="#" (click)="open(r)" *ngFor="let r of c.reports_by_type(['safety'])">{{r.name}}</a>
+        <a href="#" (click)="open(r)" *ngFor="let r of c.reports_by_type('safety')">{{r.name}}</a>
       </td>
       <td rowspan="2" double-border text-center class="bg-blue">
-        <a href="#" (click)="open(r)" *ngFor="let r of c.reports_by_type(['mantenance', 'condensation', 'damaged'])">{{r.name}}</a>
+        <a href="#" (click)="open(r)" *ngFor="let r of c.reports_by_type('mantenance|condensation|damaged')">{{r.name}}</a>
       </td>
       <td rowspan="2" double-border text-center class="bg-gray">
-        <a href="#" (click)="open(r)" *ngFor="let r of c.reports_by_type(['generic', 'custom'])">{{r.name}}</a>
+        <a href="#" (click)="open(r)" *ngFor="let r of c.reports_by_type('generic|custom')">{{r.name}}</a>
       </td>
-      <td rowspan="2" double-border text-center>{{advises.get(c.result.advise)}}</td>
+      <td rowspan="2" *ngIf="!!c.result" double-border text-center>{{advises.get(c.result.advise)}}</td>
+      <td rowspan="2" *ngIf="!c.result" double-border text-center></td>
       <td rowspan="2" double-border text-center>{{!!c.insulated ? 'Y' : 'N'}}</td>
       <td rowspan="2" double-border text-center>{{c.fields.surface_temp}}&deg;C</td>
       <td rowspan="2" double-border text-center>
@@ -71,24 +68,55 @@
       <td text-center double-border rowspan="2"><ion-icon (click)="remove(c)" name="md-trash"></ion-icon></td>
     </tr>
 
-    <tr *ngIf="!!c.result">
+    <tr *ngIf="!!c.result" [class.disabled]="c.fields.unknow_surface">
       <td double-border text-right class="c-red">{{c.result.headLost?.money | number: '1.0-0'}}</td>
-      <td double-border class="c-red mesure b-right">€<span *ngIf="!!c.insulated">/m<sup>2</sup></span></td>
+      <td double-border class="c-red mesure b-right">€<span *ngIf="c.fields.unknow_surface">/m<sup>2</sup></span></td>
       <td double-border text-right class="c-gree">{{c.result.savingPotentialMin?.money | number: '1.0-0'}}</td>
       <td double-border text-center class="c-gree"><ion-icon name="md-arrow-forward"></ion-icon></td>
       <td double-border text-right class="c-gree">{{c.result.savingPotentialMax?.money | number: '1.0-0'}}</td>
-      <td double-border class="c-gree mesure b-right">€<span *ngIf="!!c.insulated">/m<sup>2</sup></span></td>
+      <td double-border class="c-gree mesure b-right">€<span *ngIf="c.fields.unknow_surface">/m<sup>2</sup></span></td>
     </tr>
-    <tr *ngIf="!c.result">
-        <td double-border text-right class="c-blue"></td>
-        <td double-border class="c-blue mesure b-right"></td>
-        <td double-border text-right class="c-gree"></td>
-        <td double-border text-center class="c-gree"></td>
-        <td double-border text-right class="c-gree"></td>
-        <td double-border class="c-gree mesure b-right"></td>
+    <tr *ngIf="!c.result" [class.disabled]="c.fields.unknow_surface">
+        <td double-border colspan="2" class="b-right"></td>
+        <td double-border colspan="4" class="b-right"></td>
       </tr>
   </tbody>
 </table>
+<ion-grid *ngIf="!!totals">
+  <ion-row>
+    <ion-col col-10 offset-1 text-center>
+      <table class="total red">
+        <tr>
+          <td>Energy loss per year</td>
+          <td text-right>{{totals.headLost.power | number: '1.0-0'}}</td>
+          <td>kWh</td>
+        </tr>
+        <tr>
+          <td>Money loss per year</td>
+          <td text-right>{{totals.headLost.money | number: '1.0-0'}}</td>
+          <td>€</td>
+        </tr>
+      </table>
+
+      <table class="total green">
+          <tr>
+            <td>Potential energy saving per year</td>
+            <td text-right>{{totals.savingPotentialMin.power | number: '1.0-0'}}</td>
+            <td text-center><ion-icon name="md-arrow-forward"></ion-icon></td>
+            <td text-right>{{totals.savingPotentialMax.power | number: '1.0-0'}}</td>
+            <td>kWh</td>
+          </tr>
+          <tr>
+            <td>Potential money saving per year</td>
+            <td text-right>{{totals.savingPotentialMin.money | number: '1.0-0'}}</td>
+            <td text-center><ion-icon name="md-arrow-forward"></ion-icon></td>
+            <td text-right>{{totals.savingPotentialMax.money | number: '1.0-0'}}</td>
+            <td>€</td>
+          </tr>
+        </table>  
+    </ion-col>
+  </ion-row>
+</ion-grid>
 </ion-content>
 
 <ion-footer>

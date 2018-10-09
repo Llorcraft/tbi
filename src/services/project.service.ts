@@ -3,20 +3,21 @@ import { Project } from '../models';
 import { ProjectJson } from '../models/project.json';
 import { FileService } from './file.service';
 import { MessageService } from './messages.service';
+import { LicencesService } from './licences.service';
 
-const STORAGE_KEY: string = 'tbi-app-v4';
+const STORAGE_KEY: string = 'tbi-app-v5';
 
 @Injectable()
 export class ProjectService {
 
-  constructor(private file: FileService, private message: MessageService) { }
+  constructor(private file: FileService, private message: MessageService, private licences: LicencesService) { }
 
   public async get_all(): Promise<Project[]> {
     return new Promise<Project[]>((resolve, reject) => {
       this.file.read_text(STORAGE_KEY)
         .then(r => {
-          //window['projects'] = JSON.parse(r || '[]');
-          resolve((JSON.parse(r || '[]') as Project[]).map(p => new Project(p)));
+          this.licences.projects = (JSON.parse(r || '[]') as Project[]).map(p => new Project(p));
+          resolve(this.licences.projects);
         })
         .catch(ex => {
           reject(ex);

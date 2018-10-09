@@ -11,12 +11,14 @@ export class ReportBaseJson {
   public insulated: boolean = false;
   public summary_id: string = '';
   public readonly_summary_id: string = '';
+  public comment: string = '';
 
   constructor(item: Partial<ReportBase>) {
       this.id = item.id;
       this.name = item.name;
       this.path = item.path;
       this.summary_id = item.summary_id;
+      this.comment = item.comment;
       this.readonly_summary_id = item.readonly_summary_id || item.summary_id;
       this.insulated = !!item.insulated;
       this.result = new Result(item.result);

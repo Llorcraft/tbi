@@ -10,13 +10,13 @@ export class Picture extends ModelWithPicture {
     return this.markers.filter(m => m.hasValue);
   }
   public get min_temp(): number {
-    return !this.has_markers ? null : this.markers.filter(m => m.hasValue).map(m => m.temperature).sort()[0];
+    return !this.has_markers ? null : this.markers.filter(m => m.hasValue).map(m => Number(m.temperature)).sort((a, b) => Number(a) > Number(b) ? 1 : -1)[0];
   }
   public get max_temp(): number {
-    return !this.has_markers ? null : this.markers.filter(m => m.hasValue).map(m => m.temperature).sort().reverse()[0];
+    return !this.has_markers ? null : this.markers.filter(m => m.hasValue).map(m => Number(m.temperature)).sort((a, b) => Number(a) > Number(b) ? -1 : 1)[0];
   }
   public get surface_temp(): number {
-    return !this.has_markers ? null : eval(this.markers.filter(m => m.hasValue).map(m => m.temperature).join('+')) / this.markers.filter(m => m.hasValue).length;
+    return !this.has_markers ? null : eval(this.markers.filter(m => m.hasValue).map(m => Number(m.temperature)).join('+')) / this.markers.filter(m => m.hasValue).length;
   }
   constructor(item?: Partial<Picture>) {
     super(item)

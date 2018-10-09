@@ -59,7 +59,7 @@ export class EditProjectPage extends ProjectPageBase {
   // }
 
   public on_focus(event: FocusEvent) {
-    const elm = (event.currentTarget as HTMLElement);
+    const elm = (event.currentTarget || event.target) as HTMLElement
     const offset = 170;
     elm.closest('.scroll-content').scrollTo(0, 0);
     elm.closest('.scroll-content').scrollTo(0, elm.closest('ion-item').getBoundingClientRect().top - offset);

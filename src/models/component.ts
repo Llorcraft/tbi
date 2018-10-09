@@ -17,7 +17,7 @@ export class TbiComponent {
     }
 
     public get result(): Result {
-        const report = this.reports.find(r => !!(r.readonly_summary_id || r.summary_id).match(/[surface|pipe|valve|flange]/gi));
+        const report = this.reports.find(r => !!(r.readonly_summary_id || r.summary_id).match(/(surface|pipe|valve|flange)/gi));
         return !!report ? report.result : null;
     }
 
@@ -26,13 +26,14 @@ export class TbiComponent {
         return !!report;
     }
 
-    public reports_by_type(types: string[]): ReportBase[] {
-        let result: ReportBase[] = []
-        types.forEach(type => {
-            let filter = this.reports.filter(r => !!(r.readonly_summary_id || r.summary_id).match(new RegExp(type, 'gi')));
-            this.flatten(filter).forEach(r => result.push(r));
-        })
-        return result;
+    public reports_by_type(type: string): ReportBase[] {
+        // let result: ReportBase[] = []
+        // types.forEach(type => {
+        //     let filter = this.reports.filter(r => !!(r.readonly_summary_id || r.summary_id).match(new RegExp(type, 'gi')));
+        //     this.flatten(filter).forEach(r => result.push(r));
+        // })
+        // return result;
+        return this.reports.filter(r => !!r.path.match(new RegExp('(' + type +')', 'gi')));
     }
 
     public get pictures(): Picture[] {
@@ -48,16 +49,16 @@ export class TbiComponent {
     }
     public min_temp(report: ReportBase): number {
         if (!this.has_markers(report)) return 0;
-        return this.all_markers(report).map(m => m.temperature).sort()[0];
+        return this.all_markers(report).map(m => Number(m.temperature)).sort((a, b) => Number(a) > Number(b) ? 1 : -1)[0];
     }
     public max_temp(report: ReportBase): number {
         if (!this.has_markers(report)) return 0;
-        return this.all_markers(report).map(m => m.temperature).sort().reverse()[0];
+        return this.all_markers(report).map(m => Number(m.temperature)).sort((a, b) => Number(a) > Number(b) ? -1 : 1)[0];
     }
     public medium_temp(report: ReportBase): number {
         if (!this.has_markers(report)) return 0;
         const markers = this.all_markers(report).map(m => parseFloat(m.temperature.toString()));
-        return Number((markers.reduce((a, t) => a + t, 0) / this.all_markers(report).length).toFixed(2));
+        return Number((markers.reduce((a, t) => a + Number(t), 0) / this.all_markers(report).length).toFixed(2));
     }
 
     constructor(project: Project, item?: Partial<TbiComponent>) {
@@ -78,7 +79,7 @@ export class TbiComponent {
     // }
 
     public get_reports_by_type(type: string): ReportBase[] {
-        return this.reports.filter(r => !!r.path.match(new RegExp(type, 'gi')));
+        return this.reports.filter(r => !!r.path.match(new RegExp('(' + type +')', 'gi')));
     }
 
 }

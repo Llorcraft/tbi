@@ -27,6 +27,7 @@ export class Fields {
   public damaged_insulation_other: string = '';
   public condensation_selection: number = null;
   public condensation_other: string = '';
+  public unknow_surface: boolean = false
 
   private _damaged_cladding: boolean = false
   public get damaged_cladding(): boolean {
@@ -77,7 +78,8 @@ export class Fields {
     this.damaged_insulation_selection = this.number_or_null(f.damaged_insulation_selection);
     this.damaged_insulation_other = f.damaged_insulation_other;
     this.condensation_selection = this.number_or_null(f.condensation_selection);
-    this.condensation_other = f.condensation_other || ''
+    this.condensation_other = f.condensation_other || '';
+    this.unknow_surface = !!f.unknow_surface;
   }
 
   private number_or_null(value?: number | string): number {

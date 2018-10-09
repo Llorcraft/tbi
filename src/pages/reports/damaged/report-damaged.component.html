@@ -77,14 +77,6 @@
           <ion-row>
             <ion-col col-10>
               <ion-item>
-                <ion-label stacked>Main dimension (m<sup>2</sup>)</ion-label>
-                <ion-input type="number" tabindex="8" (focus)="on_focus($event)" (keyup.enter)="on_keypress($event)" name="main_dimension" [(ngModel)]="report.component.fields.main_dimension"></ion-input>
-              </ion-item>
-            </ion-col>
-          </ion-row>
-          <ion-row>
-            <ion-col col-10>
-              <ion-item>
                 <ion-label stacked style="margin-top: 1.4rem;color: #999;">Damaged cladding</ion-label>
                   <ion-toggle [(ngModel)]="report.component.fields.damaged_cladding" name="damaged_cladding"></ion-toggle>
               </ion-item>
@@ -160,7 +152,17 @@
                    
                   </ion-list>
               </ion-col>
-        </ion-row>
+          </ion-row>
+
+          <ion-row>
+              <ion-col col-10>
+                <ion-item>
+                  <ion-label stacked>Main dimension (m<sup>2</sup>)</ion-label>
+                  <ion-input type="number" tabindex="8" (focus)="on_focus($event)" (keyup.enter)="on_keypress($event)" name="main_dimension" [(ngModel)]="report.component.fields.main_dimension"></ion-input>
+                </ion-item>
+              </ion-col>
+            </ion-row>
+
         </form>
       </ion-col>
       <ion-col col-12 col-md-6 no-padding>
@@ -168,19 +170,23 @@
             <ion-col  *ngIf="view!='result' && (!errors || !errors.errors.length)" col-12 picture-slide  [report]="report" [editable]="editable"  (onStartEdit)="on_picture_start_edit($event)">
         </ion-col>
       </ion-row>
+
       <report-errors padding #errors col-12 [hidden]="view=='!result' && report.result"></report-errors>
-      <div col-12 p-4 *ngIf="view=='result' && (!!form && !form.invalid)">
-        <h3 class="damaged-result" *ngIf="report.component.fields.damaged_cladding">Cladding holds insualtion in place an protect it from external agents ensuring its performance.</h3>
-        <h3 class="damaged-result" *ngIf="damaged_cladding[1]">The insulation is not protected anymore, water or other agent could get in.</h3>
-        <h3 class="damaged-result" *ngIf="damaged_cladding[2]">There is a reduction of the insulation thickness, higher energy conmsuption. The system is not watertight anhmore.</h3>
-        <h3 class="damaged-result" *ngIf="damaged_cladding[3]">Probably, there is a leak above in the system. Jacketing as a protecting layer gets weaker.</h3>
 
-        <h3 class="damaged-result" *ngIf="report.component.fields.damaged_insulation">Any damage in the insulant leads to reduce its thermal performance and to increase the energy consumption.</h3>
-        <h3 class="damaged-result" *ngIf="damaged_insulation[1]">A lack of insulation in a system means an easy way out/in for the heat increasing the energy consumption.</h3>
-        <h3 class="damaged-result" *ngIf="damaged_insulation[2]">Moisture inside the insulation structure can reduce the thermal performance up to 50% and increase the risk of CUI.</h3>
-        <h3 class="damaged-result" *ngIf="damaged_insulation[3]">Heat cycles and external condition changes affect the estructure of the insulant reducing its performance.</h3>
+      <ion-row col-12 p-4 *ngIf="view=='result' && (!!form && !form.invalid)" mx-3>
+        
+        <ion-col col-4 img-container [style.backgroundImage]="'url('+ first_picture +')'"></ion-col>
+        <ion-col col-8 class="damaged-result" *ngIf="report.component.fields.damaged_cladding">Cladding holds insualtion in place an protect it from external agents ensuring its performance.</ion-col>
+        <ion-col col-12 class="damaged-result" *ngIf="report.component.fields.damaged_cladding_selection == 1">The insulation is not protected anymore, water or other agent could get in.</ion-col>
+        <ion-col col-12 class="damaged-result" *ngIf="report.component.fields.damaged_cladding_selection == 2">There is a reduction of the insulation thickness, higher energy conmsuption. The system is not watertight anhmore.</ion-col>
+        <ion-col col-12 class="damaged-result" *ngIf="report.component.fields.damaged_cladding_selection == 3">Probably, there is a leak above in the system. Jacketing as a protecting layer gets weaker.</ion-col>
 
-      </div>
+        <ion-col col-8 class="damaged-result" *ngIf="report.component.fields.damaged_insulation">Any damage in the insulant leads to reduce its thermal performance and to increase the energy consumption.</ion-col>
+        <ion-col col-12 class="damaged-result" *ngIf="report.component.fields.damaged_insulation_selection == 1">A lack of insulation in a system means an easy way out/in for the heat increasing the energy consumption.</ion-col>
+        <ion-col col-12 class="damaged-result" *ngIf="report.component.fields.damaged_insulation_selection == 2">Moisture inside the insulation structure can reduce the thermal performance up to 50% and increase the risk of CUI.</ion-col>
+        <ion-col col-12 class="damaged-result" *ngIf="report.component.fields.damaged_insulation_selection == 3">Heat cycles and external condition changes affect the estructure of the insulant reducing its performance.</ion-col>
+
+      </ion-row>
       </ion-col>
 
     </ion-row>

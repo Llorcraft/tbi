@@ -4,7 +4,7 @@ page-summary {
     padding: 1rem;
   }
 
-  table {
+  table.data {
     width: calc(100%);
     border-spacing: 0;
     border-collapse: separate;
@@ -15,9 +15,12 @@ page-summary {
     tr {
       
         td[double-border] {
-          border-bottom: double #444
+          border-bottom: double #333;
         }
       
+        &.disabled {
+          td.c-red, td.c-gree {color: #aaa!important;}
+        }
 
       &.text-center {
 
@@ -50,6 +53,7 @@ page-summary {
         color: #fff;
         border: 5px solid #fff;
         border-top: 0;
+        min-width: 150px;
       }
 
       &.bg-blue {
@@ -58,6 +62,7 @@ page-summary {
         border-left: 5px solid #fff;
         border-right: 5px solid #fff;
         border-bottom: 5px solid #fff;
+        min-width: 150px;
 
         &-light {
           background-color: rgb(221, 235, 247);
@@ -73,6 +78,7 @@ page-summary {
         border-left: 5px solid #fff;
         border-right: 5px solid #fff;
         border-bottom: 5px solid #fff;
+        min-width: 150px;
       }
 
       &.vertical {
@@ -174,13 +180,13 @@ page-summary {
 
       &.c-red {
         color: rgb(255, 0, 0);
-
+        
         &.bg-light-red {
           background-color: rgb(253, 241, 231);
         }
       }
 
-      &.c-green {
+      &.c-gree {
         color: rgb(55, 86, 35)
       }
 
@@ -228,6 +234,27 @@ page-summary {
       td {
         font-weight: 400;
         background: #eee;
+      }
+    }
+  }
+
+  table.total {
+    display: inline-block;
+    border-spacing: 1rem;
+    border-collapse: separate;
+    border: 2px solid red;
+    margin: 1rem;
+    background: rgb(253, 241, 231);
+    td {
+      font-size: 1.2rem;
+      text-align: left;
+      color: red;
+    }
+    &.green {
+      border-color: rgb(84, 130, 53);
+      background: rgb(242, 242, 242);
+      td {
+        color: rgb(84, 130, 53)
       }
     }
   }

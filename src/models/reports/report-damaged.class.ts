@@ -1,6 +1,5 @@
 import { ReportBase } from './../report-base';
 import { Project } from '..';
-import { REPORT } from '../../const';
 import { TbiComponent } from '../component';
 import { ICalculator } from '../calculators/calculator.factory';
 import { ReportDamagedPage } from '../../pages/reports';
@@ -8,7 +7,7 @@ import { ReportDamagedPage } from '../../pages/reports';
 export class ReportDamaged extends ReportBase {
   public page = ReportDamagedPage;
   public name = `Damaged`;
-  public path = REPORT.DAMAGED;
+  //public path = REPORT.DAMAGED;
   public calculator: ICalculator;
 
   constructor(public project: Project, public component?: TbiComponent, item?: ReportDamaged) {

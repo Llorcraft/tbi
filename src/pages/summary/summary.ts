@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { AlertController, NavParams, ModalController, NavController } from 'ionic-angular';
 import { ScreenOrientation } from '@ionic-native/screen-orientation';
-import { Project, Value, ReportBase } from '../../models';
+import { Project, Value, ReportBase, Result } from '../../models';
 import { ProjectService } from '../../services/project.service';
 import { SummaryEditPage } from './summary-edit';
 import { ReportRouter } from '../../models/report-router';
@@ -26,7 +26,8 @@ export class SummaryPage {
     ['Insulation recommended', 'Recommended'],
     ['SAFETY-Insulation recommended', 'SAFETY-Recommended'],
     ['Savings can be achieved by increasing the insulant performance or thickness', 'SAVINGS-achieved']
-  ])
+  ]);
+  public totals: Result = new Result()
   constructor(
     protected navParams: NavParams,
     protected alertCtrl: AlertController,
@@ -37,6 +38,17 @@ export class SummaryPage {
 
     this.project = this.navParams.get('project');
     this.components = this.project.components || [];
+
+    this.components.filter(c => !!c.result && !c.fields.unknow_surface)
+      .map(c => c.result)
+      .forEach(r => {
+        this.totals.headLost.power += r.headLost.power;
+        this.totals.headLost.money += r.headLost.money;
+        this.totals.savingPotentialMin.power += r.savingPotentialMin.power;
+        this.totals.savingPotentialMin.money += r.savingPotentialMin.money;
+        this.totals.savingPotentialMax.power += r.savingPotentialMax.power;
+        this.totals.savingPotentialMax.money += r.savingPotentialMax.money;
+      });
 
     this.orientation = orientation.type;
     orientation.onChange().subscribe(
@@ -72,7 +84,7 @@ export class SummaryPage {
     confirm.present();
   }
 
-  public open(report: ReportBase){
+  public open(report: ReportBase) {
     (new ReportRouter(report.component.project, report.component, this.navCtrl)).navigate_to_report(report.path, report.summary_id, report);
   }
 

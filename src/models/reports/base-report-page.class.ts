@@ -11,13 +11,14 @@ import { TbiComponent } from "../component";
 import { Camera } from "@ionic-native/camera";
 import { MessageService } from "../../services/messages.service";
 import { ScrollToComponent } from "../../pages/scroll_to_component.class";
+import { NON_PICTURE } from "../../const/images";
 
 export class BaseReportPage extends ScrollToComponent implements OnInit {
   @ViewChild('form') form: NgForm;
   @ViewChild('errors') errors: ReportErrorsComponent;
   public calculator = new CalculatorFactory();
   public edit_surface_material = false;
-  protected view: string = 'form';
+  public view: string = 'form';
   protected editing_picture: Picture = new Picture();
   protected segment = 'input';
 
@@ -37,11 +38,15 @@ export class BaseReportPage extends ScrollToComponent implements OnInit {
     this.report.component = new TbiComponent(this._original_component.project, this._original_component);
     this.report.component.id = this._original_component.id;
 
-    this.editable = !this.report.component.reports.filter(r => !!r.path.match(/[surface|pipe|valve|flange]/gi) && !!r.result).length;
+    this.editable = !this.report.component.reports.filter(r => !!r.path.match(/(surface|pipe|valve|flange)/gi) && !!r.result).length;
   }
 
   ngOnInit(): void {
-    if(!!this.report.id && !this.report.path.match(/generic/gi)) setTimeout(()=>this.calculate(), 250);
+    if (!!this.report.id && !!this.report.path.match(/(pipe|surface|valve|flange)/gi)) setTimeout(() => this.calculate(), 250);
+  }
+
+  public get first_picture(): string {
+    return this.report.pictures.length ? this.report.pictures[0].picture : NON_PICTURE;
   }
 
   protected set_length(message: string, default_value: number) {
@@ -143,15 +148,41 @@ export class BaseReportPage extends ScrollToComponent implements OnInit {
 
   protected go_back(): BaseReportPage {
     if (this.view === 'edit_picture') {
+      (document.getElementsByTagName('ion-buttons')[0] as any).style.display = 'initial';
       this.view = 'form';
     } else {
-      this.report.component = this._original_component;
-      this.navCtrl.pop();
+      if (this.form.dirty || !this.form.pristine) {
+        let confirm = this.alertCtrl.create({
+          title: `Leave report`,
+          cssClass: `ion-dialog-horizontal`,
+          message: `Do you want to leave this report?`,
+          enableBackdropDismiss: false,
+          buttons: [
+            {
+              text: 'Yes',
+              handler: () => {
+                this.report.component = this._original_component;
+                this.navCtrl.pop();
+              }
+            },
+            {
+              text: 'No',
+              role: 'cancel'
+            }
+          ]
+        });
+        confirm.present();
+      } else {
+        this.report.component = this._original_component;
+        this.navCtrl.pop();
+      }
     }
     return this;
   };
 
   protected calculate() {
+    const _contents = document.getElementsByClassName('scroll-content');
+    _contents[_contents.length - 1].scrollTo(0, 0);
     this.start_changes_observer();
     this.errors.page = this;
     if (!this.form.invalid) {
@@ -164,6 +195,7 @@ export class BaseReportPage extends ScrollToComponent implements OnInit {
 
 
   protected on_picture_start_edit(picture: Picture): void {
+    (document.getElementsByTagName('ion-buttons')[0] as any).style.display = 'none';
     this.editing_picture = picture;
     this.view = 'edit_picture';
   }
@@ -198,7 +230,7 @@ export class BaseReportPage extends ScrollToComponent implements OnInit {
 
 
   protected toggle_know() {
-    if (!!this.unknow_surface) this.report.component.fields.surface = null;
+    if (!!this.report.component.fields.unknow_surface) this.report.component.fields.surface = null;
   }
 
   protected before_calculate(temp: number) {

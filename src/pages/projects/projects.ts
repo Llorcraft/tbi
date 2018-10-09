@@ -8,6 +8,7 @@ import { ScreenOrientation } from '@ionic-native/screen-orientation';
 import { ReportsPage } from '../reports';
 import { ReportCategory, ReportBase } from '../../models';
 import { UniqueDeviceID } from '@ionic-native/unique-device-id';
+import { LicencesService } from '../../services/licences.service';
 
 @Component({
   selector: 'page-project',
@@ -29,6 +30,7 @@ export class ProjectsPage extends ProjectPageBase {
     public alertCtrl: AlertController,
     public actionSheetCtrl: ActionSheetController,
     orientation: ScreenOrientation,
+    public licences: LicencesService,
     uuid: UniqueDeviceID) {
 
     super(alertCtrl, service);
@@ -45,12 +47,17 @@ export class ProjectsPage extends ProjectPageBase {
   }
 
   public open_report(project: Project): void {
-    this.navCtrl.push(ReportsPage, {
-      project: project,
-      report: null,
-      parent: this
-    })
+    if (this.licences.lock) {
+      this.alert_licence();
+    } else {
+      this.navCtrl.push(ReportsPage, {
+        project: project,
+        report: null,
+        parent: this
+      });
+    }
   }
+
   ask_for_action(project: Project) {
     this.actionSheetCtrl.create({
       //title: 'What would you like to do?',
@@ -90,6 +97,27 @@ export class ProjectsPage extends ProjectPageBase {
         }, {
           text: 'Cancel',
           //icon: 'thumbs-down',
+          role: 'cancel'
+        }
+      ]
+    }).present();
+  }
+
+
+
+  alert_licence() {
+    this.alertCtrl.create({
+      title: 'Licence',
+      message: 'To create more projects upgrade to Pro or Enterprise version',
+      cssClass: 'project-action-sheet',
+      buttons: [
+        {
+          text: 'Upgrade',
+          handler: () => {
+          }
+        },
+        {
+          text: 'Cancel',
           role: 'cancel'
         }
       ]
@@ -138,6 +166,11 @@ export class ProjectsPage extends ProjectPageBase {
     setTimeout(() => this.create(), 200);
   }
   public create(): void {
+    if (this.licences.type == 'BASIC' && !this.edit_mode) {
+      this.alert_licence();
+      return;
+    }
+
     setTimeout(() => this.navigate_to_edit(new Project()), this.edit_mode ? 200 : 0);
     this.edit_mode = false;
   }
@@ -159,7 +192,11 @@ export class ProjectsPage extends ProjectPageBase {
     this.load();
   }
 
-  get_by_type(project: Project, type: string[]): ReportBase[] {
-    return project.get_reports_by_types(type);
+  private flatten(arr: any[]): any[] {
+    return [].concat.apply([], arr);
+  }
+  get_by_type(project: Project, type: string): ReportBase[] {
+    //return project.get_reports_by_types(type);
+    return this.flatten(project.components.map(c => c.reports)).filter(r => !!r.path.match(new RegExp('(' + type + ')', 'gi')));
   }
 }

@@ -45,13 +45,13 @@
             <ion-col col-6>
               <ion-item>
                 <ion-label stacked>Surface (m<sup>2</sup>)</ion-label>
-                    <ion-input tabindex="4" (focus)="on_focus($event)" [disabled]="unknow_surface" name="surface" required data-val-required="Please input surface in m²" [(ngModel)]="report.component.fields.surface" type="number"
+                    <ion-input tabindex="4" (focus)="on_focus($event)" [disabled]="report.component.fields.unknow_surface" name="surface" required data-val-required="Please input surface in m²" [(ngModel)]="report.component.fields.surface" type="number"
                     [(ngModel)]="surface"></ion-input>
               </ion-item>
             </ion-col>
             <ion-col col-4 toggle-container style="padding-top: 2.5rem">
                 <ion-label stacked>Unknown</ion-label>
-                <ion-toggle [(ngModel)]="unknow_surface" (ionChange)="toggle_know()" name="unknow_surface"></ion-toggle>
+                <ion-toggle [(ngModel)]="report.component.fields.unknow_surface" (ionChange)="toggle_know()" name="unknow_surface"></ion-toggle>
             </ion-col>
             <ion-col col-2>
               <area [hidden]="unknow_surface" pull-left #area (change)="report.component.fields.surface=area.value" modal-button />

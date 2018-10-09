@@ -15,7 +15,7 @@ export class ReportTempMarkersWindowComponent  {
   }
 
   public on_focus(event: FocusEvent) {
-    const elm = (event.currentTarget as HTMLElement);
+    const elm = (event.currentTarget || event.target) as HTMLElement
     elm.closest('.scroll-content').scrollTo(0, 0);
     elm.closest('.scroll-content').scrollTo(0, elm.closest('ion-item').getBoundingClientRect().top - 100);
   }

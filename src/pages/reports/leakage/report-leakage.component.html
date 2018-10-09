@@ -67,9 +67,9 @@
             <ion-row>
               <ion-col col-10>
                 <ion-item>
-                  <ion-label stacked>Leakage - urgent to fix </ion-label>
-                  <ion-textarea rows="6" tabindex="5" (focus)="on_focus($event)" [(ngModel)]="report.component.fields.leakage"
-                    name="leakage" required data-val-required="Please input leakage"></ion-textarea>
+                    <ion-label stacked>Comment</ion-label>
+                    <ion-textarea rows="6" tabindex="3" (focus)="on_focus($event)" [(ngModel)]="report.comment"
+                      name="comment" required data-val-required="Please input a comment"></ion-textarea>
                 </ion-item>
               </ion-col>
             </ion-row>
@@ -94,4 +94,4 @@
 
 </ion-content>
 
-<report-footer [parent]="this" [calculate_text]="'Validate'"></report-footer>
+<report-footer [parent]="this" [calculate_text]="'Report'"></report-footer>

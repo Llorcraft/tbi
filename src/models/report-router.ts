@@ -28,27 +28,37 @@ export class ReportRouter {
     //if (!!_report) return _report;
     switch (path) {
       case REPORT.INSULATION.UNINSULATED_EQUIPMENTS.SURFACE:
+      case REPORT.SAFETY.HOT_SURFACE.UNINSULATED_EQUIPMENTS.SURFACE:
         _report = new ReportSurface(this.project, this.component, report);
         break;
       case REPORT.INSULATION.INSULATED_EQUIPMENTS.SURFACE:
+      case REPORT.SAFETY.HOT_SURFACE.INSULATED_EQUIPMENTS.SURFACE:
         _report = new ReportInsulatedSurface(this.project, this.component, report);
         break;
       case REPORT.INSULATION.UNINSULATED_EQUIPMENTS.FLANGE:
+      case REPORT.SAFETY.HOT_SURFACE.UNINSULATED_EQUIPMENTS.FLANGE:
         _report = new ReportFlange(this.project, this.component, report);
         break;
       case REPORT.INSULATION.UNINSULATED_EQUIPMENTS.PIPE:
+      case REPORT.SAFETY.HOT_SURFACE.UNINSULATED_EQUIPMENTS.PIPE:
         _report = new ReportPipe(this.project, this.component, report);
         break;
       case REPORT.INSULATION.INSULATED_EQUIPMENTS.PIPE:
+      case REPORT.SAFETY.HOT_SURFACE.INSULATED_EQUIPMENTS.PIPE:
         _report = new ReportInsulatedPipe(this.project, this.component, report);
         break;
       case REPORT.INSULATION.UNINSULATED_EQUIPMENTS.VALVE:
+      case REPORT.SAFETY.HOT_SURFACE.UNINSULATED_EQUIPMENTS.VALVE:
         _report = new ReportValve(this.project, this.component, report);
         break;
-      case REPORT.DAMAGED:
+      case REPORT.INSULATION.INSULATED_EQUIPMENTS.DAMAGED:
+      case REPORT.INSULATION.COLD_INSULATION.DAMAGED:
+      case REPORT.SAFETY.HOT_SURFACE.INSULATED_EQUIPMENTS.DAMAGED:
+      case REPORT.MANTENANCE.DAMAGED:
         _report = new ReportDamaged(this.project, this.component, report);
         break;
-      case REPORT.CONDENSATION:
+      case REPORT.INSULATION.COLD_INSULATION.CONDENSATION:
+      case REPORT.MANTENANCE.DAMAGED:
         _report = new ReportCondensation(this.project, this.component, report);
         break;
       case REPORT.MANTENANCE.LEAKAGE:
@@ -58,6 +68,7 @@ export class ReportRouter {
         _report = new ReportGeneric(this.project, this.component, report);
         break;
     }
+    _report.path = path;
     _report.summary_id = summary_id;
     _report.readonly_summary_id = summary_id;
     return _report;

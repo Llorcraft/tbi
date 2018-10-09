@@ -29,6 +29,9 @@ export class ReportErrorsComponent {
   constructor() {
   }
 
+  understood(){
+    this.page.view = 'form';
+  }
   private update(): ReportErrorsComponent {
     this.errors = [];
     Object.keys(this._form.controls).forEach(key => {

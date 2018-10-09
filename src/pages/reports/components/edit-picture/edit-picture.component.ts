@@ -1,4 +1,4 @@
-import { Component, Input} from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Picture } from '../../../../models/picture';
 import { Marker } from '../../../../models/marker';
 import { AlertController, AlertButton } from 'ionic-angular';
@@ -40,6 +40,7 @@ export class ReportEditPictureComponent {
     }
 
     private show_prompt(event: MouseEvent, marker: Marker): void {
+        if (!this.report.path.match(/(surface|pipe|valve|flange)/gi)) return;
         let alert = this.alertCtrl.create({
             title: 'Enter temperature',
             cssClass: `ion-dialog-horizontal mt-4`,

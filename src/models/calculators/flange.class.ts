@@ -48,7 +48,7 @@ class FlangeCalculator extends BaseCalculator {
         /*46*/() => this.ql_max = this.Δθ / (this.Rle_max + this.Rins_max),
         /*47*/() => this.Qkwh = this.ql * this.l * this.Ot * this.n * 1 / 1000,
         /*40*/() => this.Sp = Math.PI * this.De_min,
-        /*48*/() => this.ql_ref_pb = this.ql - (10000 * this.c * this.Sp),
+        /*48*/() => this.ql_ref_pb = this.ql - (10000 * this.Cpb_valve_flange * this.Sp / this.Ot / this.Σ),
         /*06*/() => this.Qε = this.Qkwh * this.Σ,
         /*22*/() => this.Qkwh_min = this.ql_min * this.l * this.Ot * this.n / 1000,
         /*23*/() => this.Qkwh_max = this.ql_max * this.l * this.Ot * this.n / 1000,
@@ -58,7 +58,7 @@ class FlangeCalculator extends BaseCalculator {
         /*27*/() => this.Savingkwh_max = this.Qkwh - this.Qkwh_max,
         /*28*/() => this.Savingε_min = this.Qε - this.Qε_min,
         /*29*/() => this.Savingε_max = this.Qε - this.Qε_max,
-        /*30*/() => this.Insulation_advice = this.qref_pb > this.q_min ? 'Insulation recommended' : 'System OK',
+        /*30*/() => this.Insulation_advice = this.ql_ref_pb > this.ql_min ? 'Insulation recommended' : 'System OK',
         ]);
     }
 }

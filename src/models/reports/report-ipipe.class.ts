@@ -1,13 +1,12 @@
 import { ReportBase } from './../report-base';
 import { Project } from '..';
-import { REPORT } from '../../const';
 import { TbiComponent } from '../component';
 import { ReportInsulatedPipePage } from '../../pages/reports';
 
 export class ReportInsulatedPipe extends ReportBase {
   public page = ReportInsulatedPipePage;
   public name = `Insulated Pipe`;
-  public path = REPORT.INSULATION.INSULATED_EQUIPMENTS.PIPE;
+  //public path = REPORT.INSULATION.INSULATED_EQUIPMENTS.PIPE;
   public insulated = true;
 
   constructor(public project: Project, public component?: TbiComponent, item?: ReportInsulatedPipe) {

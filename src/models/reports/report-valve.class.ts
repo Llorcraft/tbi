@@ -1,13 +1,12 @@
 import { ReportBase } from './../report-base';
 import { Project } from '..';
-import { REPORT } from '../../const';
 import { TbiComponent } from '../component';
 import { ReportValvePage } from '../../pages/reports';
 
 export class ReportValve extends ReportBase {
   public page = ReportValvePage;
-  public name = `Valve`;
-  public path = REPORT.INSULATION.UNINSULATED_EQUIPMENTS.VALVE;
+  public name = `Uninsulated Valve`;
+  //public path = REPORT.INSULATION.UNINSULATED_EQUIPMENTS.VALVE;
   public calculator
 
   constructor(public project: Project, public component?: TbiComponent, item?: ReportValve) {

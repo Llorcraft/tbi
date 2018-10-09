@@ -28,7 +28,7 @@
                   [(ngModel)]="report.component.fields.location" type="text"></ion-input>
               </ion-item>
             </ion-col>
-            <ion-input type="hidden" name="length" required data-val-required="Please input equivalent length" [(ngModel)]="report.component.fields.length"></ion-input>
+            <ion-input type="hidden" name="length" [(ngModel)]="report.component.fields.length"></ion-input>
             <ion-col col-2>
               <div (click)="set_length('Default value for valves 1m', 1)" tabindex="-1" pull-left no-padding ion-button small color="light" class="with-action">
                   <ion-icon name="custom-valve"></ion-icon>
