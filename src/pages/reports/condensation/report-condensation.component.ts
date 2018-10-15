@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { BaseReportPage, ReportCondensation } from '../../../models/reports';
-import { NavController, NavParams, AlertController, TextInput } from 'ionic-angular';
+import { NavController, NavParams, AlertController } from 'ionic-angular';
 import { ReportService } from '../../../services/report.service';
 import { ReportBase } from '../../../models/report-base';
 import { Camera } from '@ionic-native/camera';
@@ -12,7 +12,6 @@ import { MessageService } from '../../../services/messages.service';
 })
 
 export class ReportCondensationPage extends BaseReportPage {
-  public selection: boolean[] = [!1, !1, !1, !1];
 
   constructor(protected navCtrl: NavController,
     navParams: NavParams,
@@ -21,21 +20,8 @@ export class ReportCondensationPage extends BaseReportPage {
     protected camera: Camera,
     protected message: MessageService,
   ) {
-    super(new ReportCondensation(navParams.data.project, navParams.data.component, navParams.data.report), navCtrl, service, alertCtrl, camera,message);
-      if(!!this.report.component.fields.condensation_selection) this.selection[this.report.component.fields.condensation_selection] = true;
+    super(new ReportCondensation(navParams.data.project, navParams.data.component, navParams.data.report), navCtrl, service, alertCtrl, camera, message);
   }
-
-  public set_other(input: TextInput) {
-    this.report.component.fields.condensation_other = input.value;
-  }
-
-    public set_selection(index: number, event: MouseEvent) {
-    this.report.component.fields.condensation_selection = Boolean((event.currentTarget as any).children[1].attributes['aria-checked'].value) ? index : null
-    this.selection.forEach((c, i) => {
-      this.selection[i] = i == this.report.component.fields.condensation_selection;
-    });
-  }
-
 
   protected calculate(): ReportBase {
     this.start_changes_observer();

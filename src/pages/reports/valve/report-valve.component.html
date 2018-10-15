@@ -21,38 +21,11 @@
 
         <form novalidate #form="ngForm" [hidden]="segment!='input'" (submit)="calculate()">
           <ion-row>
-            <ion-col col-10>
+            <ion-col col-7>
               <ion-item>
                 <ion-label stacked>Component/Location</ion-label>
                 <ion-input tabindex="1" (focus)="on_focus($event)" name="location" required data-val-required="Please input Component/Location"
                   [(ngModel)]="report.component.fields.location" type="text"></ion-input>
-              </ion-item>
-            </ion-col>
-            <ion-input type="hidden" name="length" [(ngModel)]="report.component.fields.length"></ion-input>
-            <ion-col col-2>
-              <div (click)="set_length('Default value for valves 1m', 1)" tabindex="-1" pull-left no-padding ion-button small color="light" class="with-action">
-                  <ion-icon name="custom-valve"></ion-icon>
-                </div>
-            </ion-col>
-          </ion-row>
-          <ion-row>
-            <ion-col col-10>
-              <ion-item>
-                <ion-label stacked>Operational time (hours)</ion-label>
-                <ion-input tabindex="2" (focus)="on_focus($event)" required data-val-required="Please input operational time" name="operational_time" [(ngModel)]="report.component.fields.operational_time"
-                  type="number"></ion-input>
-              </ion-item>
-            </ion-col>
-            <ion-col col-2>
-              <more pull-left #time (change)="report.component.fields.operational_time=time.value" [type]="'time'" modal-button></more>
-            </ion-col>
-          </ion-row>
-          <ion-row>
-            <ion-col col-7>
-              <ion-item>
-                <ion-label stacked>Nominal diameter (DN)</ion-label>
-                  <ion-input tabindex="3" (focus)="on_focus($event)" name="nominal_diameter" required data-val-required="Please input Nominal diameter" [(ngModel)]="report.component.fields.nominal_diameter"
-                  type="number"></ion-input>
               </ion-item>
             </ion-col>
             <ion-col col-3>
@@ -61,6 +34,33 @@
                   <ion-input tabindex="3" (focus)="on_focus($event)" name="number" required data-val-required="Please input Item number" [(ngModel)]="report.component.fields.number"
                   type="number" min="0"></ion-input>
               </ion-item>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col col-10>
+              <ion-item>
+                <ion-label stacked>Operational time (hours)</ion-label>
+                <ion-input tabindex="3" (focus)="on_focus($event)" required data-val-required="Please input operational time" name="operational_time" [(ngModel)]="report.component.fields.operational_time"
+                  type="number"></ion-input>
+              </ion-item>
+            </ion-col>
+            <ion-col col-2>
+              <more pull-left #time (change)="report.component.fields.operational_time=time.value" [type]="'time'" modal-button></more>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col col-10>
+              <ion-item>
+                <ion-label stacked>Nominal diameter (DN)</ion-label>
+                  <ion-input tabindex="4" (focus)="on_focus($event)" name="nominal_diameter" required data-val-required="Please input Nominal diameter" [(ngModel)]="report.component.fields.nominal_diameter"
+                  type="number"></ion-input>
+              </ion-item>
+            </ion-col>
+            <ion-input type="hidden" name="length" [(ngModel)]="report.component.fields.length"></ion-input>
+            <ion-col col-2>
+              <div (click)="set_length('Default value for valves 1m', 1)" tabindex="-1" pull-left no-padding ion-button small color="light" class="with-action">
+                  <ion-icon name="custom-valve"></ion-icon>
+                </div>
             </ion-col>
           </ion-row>
           <ion-row>

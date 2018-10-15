@@ -44,7 +44,7 @@ export class Project extends ModelWithPicture {
     this.date = project.date || new Date();
     this.user = project.user || '';
     this.price = Number(project.price) || null;
-    //this.documents = Objetener del localstorage
+    this.documents = (project.documents || []).map(d => new Document(d));
     this.components = project.components.map(c => new TbiComponent(this, c));
     this.people = new People(project.people);
   }

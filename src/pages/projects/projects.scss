@@ -1,11 +1,14 @@
 [license-alert] {
-  position: absolute;
-  left: .5rem;
-  top: .5rem;
-  padding: .5rem 1rem 0;
+  padding: 1rem;
   border-radius: .5rem;
   background: rgb(241, 129, 88);
   color: #fff;
+  position: absolute;
+  bottom: 3rem;
+
+  button {
+    margin-top: 1.5rem;
+  }
 }
 
 ion-grid[projects] {

@@ -1,14 +1,14 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams, AlertController, ActionSheetController, Keyboard } from 'ionic-angular';
 import { ProjectPageBase } from './project-page-base';
-import { Project } from '../../models';
+import { Project, Document } from '../../models';
 import { ProjectService } from '../../services/project.service';
-import { FileChooser } from '@ionic-native/file-chooser';
-import { FilePath } from '@ionic-native/file-path';
-import { FileOpener } from '@ionic-native/file-opener';
 import { NgForm } from '@angular/forms';
 import { Camera } from '@ionic-native/camera';
 import { MessageService } from '../../services/messages.service';
+import { FileService } from '../../services/file.service';
+import { FileOpener } from '@ionic-native/file-opener';
+
 
 
 @Component({
@@ -18,7 +18,6 @@ import { MessageService } from '../../services/messages.service';
 export class EditProjectPage extends ProjectPageBase {
   public project: Project;
   public segment: string = 'properties';
-  public files: any[] = [];
   public edit_mode = false;
   public error: string = '';
   public form: NgForm;
@@ -28,29 +27,17 @@ export class EditProjectPage extends ProjectPageBase {
     public navParams: NavParams,
     public alertCtrl: AlertController,
     public service: ProjectService,
-    private fileChooser: FileChooser,
-    private filePath: FilePath,
+    private file: FileService,
     public actionSheetCtrl: ActionSheetController,
     private camera: Camera,
     private message: MessageService,
     private keyboard: Keyboard,
-    private fileOpener: FileOpener) {
+    private opener: FileOpener) {
 
     super(alertCtrl, service);
     this.project = navParams.get("project");
     this.edit_mode = false;
-    this.files = !this.project.id ? [] : [
-      'Berly.2016.T2.130.pdf',
-      'Declaracion Luis 2016.pdf',
-      'Gas.PDF',
-      'Berly.2016.T2.130.pdf',
-      'Declaracion Luis 2016.pdf',
-      'Gas.PDF',
-      'Berly.2016.T2.130.pdf',
-      'Declaracion Luis 2016.pdf',
-      'Gas.PDF'];
   }
-
   // ionViewDidLoad() {
   //   $('.tabbar').removeClass('show-tabbar');
   // }
@@ -69,18 +56,14 @@ export class EditProjectPage extends ProjectPageBase {
     this.keyboard.close();
   }
 
-  public open_file(file: string): void {
-    this.fileOpener.open(file, 'application/pdf')
-      .catch(err => this.error = JSON.stringify(err, null, 2));
-  }
-
   public save(): void {
     this.service.save(this.project).then(() => this.navCtrl.pop());
   }
 
-  private delete_file(file: string): void {
-    this.files = this.files.filter(f => f != file);
-    this.edit_mode = !!this.files.length
+  private delete_file(file: Document): void {
+    this.project.documents = this.project.documents.filter(f => f != file);
+    this.file.delete(file);
+    this.edit_mode = !!this.project.documents.length
   }
 
   private open_camera() {
@@ -147,23 +130,29 @@ export class EditProjectPage extends ProjectPageBase {
     action_sheet.present();
   }
 
-  link_file(file: string) {
-    this.fileChooser.open()
-      .then(uri => {
-        this.files.push(uri);
-        this.filePath.resolveNativePath(uri)
-          .then(filePath => this.files.push(filePath))
-          .catch(err => this.error = JSON.stringify(err, null, 2));
-        //this.files.push(uri)
-      })
-      .catch(e => this.files.push(e));
+  public open_file(file: Document): void {
+    this.opener.open(`${file.folder}/${file.file}`, file.mime)
+      .then(() => console.log('File opened'))
+      .catch(err => this.message.alert('Open', `${err.message}\n${file.folder}/${file.file}`));
+    // this.viewer.viewDocument(`${file.folder}/${file.file}`, file.mime, { title: file.file }, null, null,
+    //   () => {
+    //     this.message.alert("Open", 'No viewer installed for this file type');
+    //   }, (ex) => {
+    //     this.message.alert('Error', ex.message);
+    //   });
   }
 
-  ask_for_delete(file: string): void {
+  choose_file() {
+    this.file.select_file().then(d => {
+      this.project.documents.push(d)
+    });
+  }
+
+  ask_for_delete(file: Document): void {
     this.remove_mode = true;
     let confirm = this.alertCtrl.create({
       title: `Remove`,
-      message: `Do you agree to remove '${file}'?`,
+      message: `Do you agree to remove '${file.file}'?`,
       buttons: [
         {
           text: 'Agree',

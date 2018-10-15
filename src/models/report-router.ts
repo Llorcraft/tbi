@@ -58,7 +58,7 @@ export class ReportRouter {
         _report = new ReportDamaged(this.project, this.component, report);
         break;
       case REPORT.INSULATION.COLD_INSULATION.CONDENSATION:
-      case REPORT.MANTENANCE.DAMAGED:
+      case REPORT.MANTENANCE.CONDENSATION:
         _report = new ReportCondensation(this.project, this.component, report);
         break;
       case REPORT.MANTENANCE.LEAKAGE:

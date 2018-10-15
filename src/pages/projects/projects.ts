@@ -166,7 +166,7 @@ export class ProjectsPage extends ProjectPageBase {
     setTimeout(() => this.create(), 200);
   }
   public create(): void {
-    if (this.licences.type == 'BASIC' && !this.edit_mode) {
+    if (this.licences.type == 'BASIC' && !this.edit_mode && this.projects.length > 0) {
       this.alert_licence();
       return;
     }

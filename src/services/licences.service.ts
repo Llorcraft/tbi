@@ -5,7 +5,7 @@ import { Project } from '../models';
 @Injectable()
 export class LicencesService {
     public lock: boolean = false;
-    private _licence_type: string = 'BASIC';
+    private _licence_type: string = 'PRO';
     public get type(): string {
         return this._licence_type;
     }

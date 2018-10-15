@@ -23,7 +23,7 @@
             <ion-col col-10>
               <ion-item>
                 <ion-label stacked>Component/Location</ion-label>
-                <ion-input tabindex="1" name="location" required data-val-required="Please input Component/Location"
+                <ion-input tabindex="1" (focus)="on_focus($event)" name="location" required data-val-required="Please input Component/Location"
                   [(ngModel)]="report.component.fields.location" type="text"></ion-input>
               </ion-item>
             </ion-col>
@@ -33,7 +33,7 @@
             <ion-col col-10>
               <ion-item>
                 <ion-label stacked>Operational time (hours)</ion-label>
-                <ion-input tabindex="2" name="operational_time" [(ngModel)]="report.component.fields.operational_time"
+                <ion-input tabindex="2" (focus)="on_focus($event)" name="operational_time" [(ngModel)]="report.component.fields.operational_time"
                   type="number"></ion-input>
               </ion-item>
             </ion-col>
@@ -45,8 +45,8 @@
             <ion-col col-10>
               <ion-item class="edit_surface_material" [class.editable]="edit_surface_material">
                 <ion-label stacked>Surface material [ε]</ion-label>
-                <ion-input tabindex="5" class="literal" (focus)="toggle_surface_material(true)" [value]="report.component.fields.surface_material_friendly" type="text"></ion-input>
-                <ion-input tabindex="6" class="numeric" (focusout)="toggle_surface_material(false)" name="surface_material" [(ngModel)]="report.component.fields.surface_material" type="number" (change)="set_surface_material(report.component.fields.surface_material, $event)"></ion-input>
+                <ion-input tabindex="5" class="literal" (focus)="on_focus($event);toggle_surface_material(true)" [value]="report.component.fields.surface_material_friendly" type="text"></ion-input>
+                <ion-input tabindex="6" class="numeric" (focus)="on_focus($event)" (focusout)="toggle_surface_material(false)" name="surface_material" [(ngModel)]="report.component.fields.surface_material" type="number" (change)="set_surface_material(report.component.fields.surface_material, $event)"></ion-input>
               </ion-item>
             </ion-col>
             <ion-col col-2>
@@ -57,7 +57,7 @@
             <ion-col col-10>
               <ion-item>
                 <ion-label stacked>Medium or Surface temperature (<sup>º</sup>C)</ion-label>
-                  <ion-input tabindex="7" (focus)="on_focus($event)" scroll="-80" name="surface_temp" [(ngModel)]="report.component.fields.surface_temp" type="number"></ion-input>
+                  <ion-input tabindex="7" (focus)="on_focus($event)" (keyup.enter)="on_keypress($event)" name="surface_temp" [(ngModel)]="report.component.fields.surface_temp" type="number"></ion-input>
               </ion-item>
             </ion-col>
             <ion-col col-2>
@@ -68,28 +68,28 @@
               <ion-col col-6>
                 <ion-item>
                   <ion-label stacked style="margin-top: 1.4rem;color: #999;">Ice block</ion-label>
-                    <ion-toggle [(ngModel)]="selection[1]" (click)="set_selection(1, $event)" name="condesation_1"></ion-toggle>
+                    <ion-toggle [(ngModel)]="report.component.fields.condensation_ice_block" name="ice_block"></ion-toggle>
                 </ion-item>
               </ion-col>
               <ion-col col-6></ion-col>
               <ion-col col-6>
                 <ion-item>
                   <ion-label stacked style="margin-top: 1.4rem;color: #999;">Wet surface</ion-label>
-                    <ion-toggle [(ngModel)]="selection[2]" (click)="set_selection(2, $event)" name="condesation_2"></ion-toggle>
+                    <ion-toggle [(ngModel)]="report.component.fields.condensation_wet_surface" name="wet_surface"></ion-toggle>
                 </ion-item>
               </ion-col>
               <ion-col col-6></ion-col>
               <ion-col col-6>
                   <ion-item>
                     <ion-label stacked style="margin-top: 1.4rem;color: #999;">Others</ion-label>
-                    <ion-toggle [(ngModel)]="selection[3]" (click)="set_selection(3, $event)" name="condesation_3"></ion-toggle>
+                    <ion-toggle [(ngModel)]="report.component.fields.condensation_other" name="other"></ion-toggle>
                   </ion-item>
                 </ion-col>
           </ion-row>
           <ion-row>
-            <ion-col col-10 *ngIf="report.component.fields.condensation_selection==3">
+            <ion-col col-10 *ngIf="report.component.fields.condensation_other">
               <ion-item>
-                  <ion-input tabindex="10" id="condensation_other_input" (ionChange)="set_other($event)" [(ngModel)]="this.report.component.fields.condensation_other" scroll="-80" name="condensation_other" placeholder="Type your text here"></ion-input>
+                  <ion-input tabindex="10" [(ngModel)]="report.component.fields.condensation_other_text" name="other_text" placeholder="Type your text here"></ion-input>
               </ion-item>
             </ion-col>
           </ion-row>

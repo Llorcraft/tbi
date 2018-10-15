@@ -25,6 +25,7 @@ export class ProjectJson {
     this.price = project.price;
     this.picture = project.picture;
     this.components = project.components.map(c => new TbiComponentJson(c));
+    this.documents = project.documents || [];
     this.people = new People(project.people);
   }
 

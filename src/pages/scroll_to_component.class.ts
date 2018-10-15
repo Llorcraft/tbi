@@ -8,6 +8,7 @@ export class ScrollToComponent {
   }
 
   public on_focus(event: FocusEvent) {
+    event.preventDefault();
     setTimeout(() => {
       const elm = (event.currentTarget || event.target) as HTMLElement;
       const offset = 60;

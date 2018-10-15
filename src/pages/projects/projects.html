@@ -5,18 +5,6 @@
 </ion-header>
 
 <ion-content>
-  <div license-alert *ngIf="1==1" col-5>
-    <ion-grid no-padding  style="zoom: .8">
-      <ion-row no-padding>
-        <ion-col col-12 no-padding>
-          La versión BASIC solo le permite crear 5 componentes, contrate la versión PRO o ENTERPRISE y disfrute de todas sus ventajas.
-        </ion-col>
-        <ion-col col-4 offset-8 text-right>
-          <button ion-button small round color="light" outline>Upgrade NOW</button>
-        </ion-col>
-      </ion-row>
-    </ion-grid>
-  </div>
   <ion-grid projects>
     <ion-row>
       <ion-col col-xs-3 col-sm-2>
@@ -88,6 +76,19 @@
         </ion-col>
     </ion-row>
   </ion-grid>
+
+  <div license-alert *ngIf="licences.type=='BASIC'" col-6 offset-3>
+    <ion-grid no-padding>
+      <ion-row no-padding>
+        <ion-col col-12 no-padding>
+          La versión BASIC solo le permite crear 5 componentes, contrate la versión PRO o ENTERPRISE y disfrute de todas sus ventajas.
+        </ion-col>
+        <ion-col col-4 offset-8 text-right>
+          <button ion-button small round color="light" outline>Upgrade NOW</button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
 </ion-content>
 
 <ion-footer>

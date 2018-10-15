@@ -47,18 +47,19 @@
       </ng-container>
 
       <td rowspan="2" double-border text-center class="bg-red">
-        <a href="#" (click)="open(r)" *ngFor="let r of c.reports_by_type('safety')">{{r.name}}</a>
+        <a href="#" (click)="open(r)" *ngFor="let r of c.reports_by_type('safety')">{{r.summary_id}}</a>
       </td>
       <td rowspan="2" double-border text-center class="bg-blue">
-        <a href="#" (click)="open(r)" *ngFor="let r of c.reports_by_type('mantenance|condensation|damaged')">{{r.name}}</a>
+        <a href="#" (click)="open(r)" *ngFor="let r of c.reports_by_type('mantenance|condensation|damaged')">{{r.summary_id}}</a>
       </td>
       <td rowspan="2" double-border text-center class="bg-gray">
-        <a href="#" (click)="open(r)" *ngFor="let r of c.reports_by_type('generic|custom')">{{r.name}}</a>
+        <a href="#" (click)="open(r)" *ngFor="let r of c.reports_by_type('generic|custom')">{{r.summary_id}}</a>
       </td>
       <td rowspan="2" *ngIf="!!c.result" double-border text-center>{{advises.get(c.result.advise)}}</td>
       <td rowspan="2" *ngIf="!c.result" double-border text-center></td>
       <td rowspan="2" double-border text-center>{{!!c.insulated ? 'Y' : 'N'}}</td>
-      <td rowspan="2" double-border text-center>{{c.fields.surface_temp}}&deg;C</td>
+      <td *ngIf="null!=c.fields.surface_temp" rowspan="2" double-border text-center>{{c.fields.surface_temp}}&deg;C</td>
+      <td *ngIf="null==c.fields.surface_temp" rowspan="2" double-border text-center>&nbsp;</td>
       <td rowspan="2" double-border text-center>
         <span *ngIf="!!c.surface">{{c.fields.surface}} m<sup>2</sup></span>
         <span>{{c.fields.main_dimension}}</span>

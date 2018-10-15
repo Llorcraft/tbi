@@ -2,7 +2,6 @@ import { AlertController } from 'ionic-angular';
 import { Project } from '../../models';
 import { ProjectService } from '../../services/project.service';
 import { ScrollToComponent } from '../scroll_to_component.class';
-import { TbiComponent } from '../../models/component';
 
 export class ProjectPageBase extends ScrollToComponent {
   protected remove_mode: boolean = false;

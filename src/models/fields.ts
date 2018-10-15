@@ -25,8 +25,43 @@ export class Fields {
   public damaged_cladding_other: string = '';
   public damaged_insulation_selection: number = null;
   public damaged_insulation_other: string = '';
-  public condensation_selection: number = null;
-  public condensation_other: string = '';
+
+  private _condensation_ice_block: boolean = false
+  public get condensation_ice_block(): boolean {
+    return this._condensation_ice_block;
+  }
+  public set condensation_ice_block(value: boolean) {
+    this._condensation_ice_block = value;
+    if (!!value) {
+      this.condensation_wet_surface = this.condensation_other = false
+    }
+  }
+
+  private _condensation_wet_surface: boolean = false;
+  public get condensation_wet_surface(): boolean {
+    return this._condensation_wet_surface;
+  }
+  public set condensation_wet_surface(value: boolean) {
+    this._condensation_wet_surface = value;
+    if (!!value) {
+      this.condensation_ice_block = this.condensation_other = false;
+    }
+  }
+
+  private _condensation_other: boolean = false;
+  public get condensation_other(): boolean {
+    return this._condensation_other;
+  };
+  public set condensation_other(value: boolean) {
+    this._condensation_other = value;
+    if (!value) {
+      this.condensation_other_text = '';
+    } else {
+      this.condensation_ice_block = this.condensation_wet_surface = false;
+    }
+  };
+
+  public condensation_other_text: string = '';
   public unknow_surface: boolean = false
 
   private _damaged_cladding: boolean = false
@@ -77,8 +112,10 @@ export class Fields {
     this.damaged_cladding_other = f.damaged_cladding_other || '';
     this.damaged_insulation_selection = this.number_or_null(f.damaged_insulation_selection);
     this.damaged_insulation_other = f.damaged_insulation_other;
-    this.condensation_selection = this.number_or_null(f.condensation_selection);
-    this.condensation_other = f.condensation_other || '';
+    this.condensation_ice_block = !!f.condensation_ice_block;
+    this.condensation_wet_surface = !!f.condensation_wet_surface;
+    this.condensation_other = !!f.condensation_other;
+    this.condensation_other_text = f.condensation_other_text || '';
     this.unknow_surface = !!f.unknow_surface;
   }
 

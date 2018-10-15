@@ -5,7 +5,6 @@ import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { TooltipsModule } from 'ionic-tooltips';
-import { UniqueDeviceID } from '@ionic-native/unique-device-id';
 
 /*Pages*/
 import { InitPage } from '../pages/init/init';
@@ -29,7 +28,8 @@ import { File } from '@ionic-native/file';
 import { ScreenOrientation } from '@ionic-native/screen-orientation';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
-
+import { UniqueDeviceID } from '@ionic-native/unique-device-id';
+import { FileTransfer } from '@ionic-native/file-transfer';
 /*Services*/
 import { ProjectService } from '../services';
 import { ReportService } from '../services/report.service';
@@ -234,7 +234,6 @@ import { SurfaceMaterialPipe } from '../pipes/surface-material.pipe';
     ComponentService,
     StatusBar,
     SplashScreen,
-    FileChooser,
     FileOpener,
     FilePath,
     File,
@@ -244,13 +243,15 @@ import { SurfaceMaterialPipe } from '../pipes/surface-material.pipe';
     //PictureLocalService,
     FileDeviceService,
     FileLocalService,
+    FileChooser,
     UniqueDeviceID,
+    FileTransfer,
     { provide: ErrorHandler, useClass: IonicErrorHandler },
     //Mock services
     //{ provide: PictureService, useClass: PictureDeviceService },
     LicencesService,
     PictureService,
-    { provide: FileService, useClass: FileLocalService }
+    { provide: FileService, useClass: FileDeviceService }
   ]
 })
 export class AppModule { }

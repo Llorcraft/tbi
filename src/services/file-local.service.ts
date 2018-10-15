@@ -1,10 +1,19 @@
 import { Injectable } from '@angular/core';
 import { FileService } from './file.service';
+import { Document } from '../models';
 
 @Injectable()
 export class FileLocalService extends FileService {
     constructor() {
         super();
+    }
+
+    public delete(file: Document): Promise<boolean> {
+        throw new Error("Method not implemented.");
+    }
+
+    public select_file(): Promise<Document> {
+        throw new Error("Method not implemented.");
     }
 
     public read_text(filename: string): Promise<string> {
