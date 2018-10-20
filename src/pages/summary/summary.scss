@@ -4,6 +4,11 @@ page-summary {
     padding: 1rem;
   }
 
+  .summary-total {
+    position: fixed;
+    top: 0px;
+  }
+
   table.data {
     width: calc(100%);
     border-spacing: 0;
@@ -11,7 +16,7 @@ page-summary {
     font-size: 1rem;
     background: #fff;
     border-bottom: 1px solid #444;
-
+    margin-top: 130px;
     tr {
       
         td[double-border] {
@@ -256,6 +261,33 @@ page-summary {
       td {
         color: rgb(84, 130, 53)
       }
+    }
+  }
+}
+
+
+.modal-window-summary {
+  .scroll-content{
+    overflow: auto!important;
+  }
+  .modal-wrapper {
+    $height: 550;
+    height: $height * 1px;
+    width: 30%;
+    top: calc(50% - 275px);
+    left: 35%;
+    background: #fff;
+    area-modal {
+      background: #fff;
+      .scroll-content {
+        display: block;
+      }
+    }
+  }
+
+  ion-toolbar {
+    .toolbar-background {
+      background: #fff !important;
     }
   }
 }

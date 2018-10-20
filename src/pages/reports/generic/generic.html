@@ -24,7 +24,7 @@
             <ion-col col-10>
               <ion-item>
                 <ion-label stacked>Component/Location</ion-label>
-                <ion-input [disabled]="!editable" tabindex="1" (focus)="on_focus($event)" name="location" required data-val-required="Please input Component/Location"
+                <ion-input [disabled]="!editable" tabindex="1" (ionFocus)="on_focus($event)" name="location" required data-val-required="Please input Component/Location"
                   [(ngModel)]="report.component.fields.location" type="text"></ion-input>
               </ion-item>
             </ion-col>
@@ -33,7 +33,7 @@
             <ion-col col-10>
               <ion-item>
                 <ion-label stacked>Summary Id</ion-label>
-                <ion-input tabindex="2" (focus)="on_focus($event)" name="summary_id" [(ngModel)]="report.summary_id" required data-val-required="Please input summary id"
+                <ion-input tabindex="2" (ionFocus)="on_focus($event)" name="summary_id" [(ngModel)]="report.summary_id" required data-val-required="Please input summary id"
                   type="text"></ion-input>
               </ion-item>
             </ion-col>
@@ -42,7 +42,7 @@
             <ion-col col-10>
               <ion-item>
                 <ion-label stacked>Comment</ion-label>
-                <ion-textarea rows="6" tabindex="3" (focus)="on_focus($event)" [(ngModel)]="report.comment"
+                <ion-textarea rows="6" tabindex="3" (ionFocus)="on_focus($event)" [(ngModel)]="report.comment"
                   name="comment" required data-val-required="Please input a comment"></ion-textarea>
               </ion-item>
             </ion-col>

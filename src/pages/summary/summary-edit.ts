@@ -26,6 +26,10 @@ export class SummaryEditPage {
     protected close() {
         this.viewCtrl.dismiss(null);
     }
+
+    friendly_path(report: ReportBase): string {
+        return report.path.replace(/(\\|\/)/gi, ' ');
+    }
 }
 
 class ReportListItem {

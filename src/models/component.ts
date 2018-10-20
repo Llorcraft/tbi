@@ -16,6 +16,9 @@ export class TbiComponent {
         return [].concat.apply([], arr);
     }
 
+    public get is_hot():boolean{
+        return (this.fields.surface_temp || 0) > 35
+    }
     public get result(): Result {
         const report = this.reports.find(r => !!(r.readonly_summary_id || r.summary_id).match(/(surface|pipe|valve|flange)/gi));
         return !!report ? report.result : null;
@@ -27,13 +30,13 @@ export class TbiComponent {
     }
 
     public reports_by_type(type: string): ReportBase[] {
-        // let result: ReportBase[] = []
-        // types.forEach(type => {
-        //     let filter = this.reports.filter(r => !!(r.readonly_summary_id || r.summary_id).match(new RegExp(type, 'gi')));
-        //     this.flatten(filter).forEach(r => result.push(r));
-        // })
-        // return result;
-        return this.reports.filter(r => !!r.path.match(new RegExp('(' + type +')', 'gi')));
+        let result = this.reports.filter(r => !!r.path.match(new RegExp('(' + type + ')', 'gi')));
+        if (type.lastIndexOf('hot') != -1) {
+            let r = this.reports.find(r => !!r.path.match(/(surface|pipe|valve|flange)/gi) && (this.is_hot));
+            if (!!r) result.push(r);
+        }
+        return result;
+
     }
 
     public get pictures(): Picture[] {
@@ -79,7 +82,7 @@ export class TbiComponent {
     // }
 
     public get_reports_by_type(type: string): ReportBase[] {
-        return this.reports.filter(r => !!r.path.match(new RegExp('(' + type +')', 'gi')));
+        return this.reports.filter(r => !!r.path.match(new RegExp('(' + type + ')', 'gi')));
     }
 
 }

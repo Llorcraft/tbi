@@ -46,16 +46,16 @@ export class ReportsPage extends ReportRouter {
 
   protected disabled_for(family: string) {
     switch (family) {
-      case 'custom':
-        return this.component.reports.filter(r => r.path == REPORT.CUSTOM).length >= 2;
-      case 'safety':
-        return this.component.reports.filter(r => !!r.path.match(/safety/gi)).length >= 2;
-      case 'maintenance':
-        return this.component.reports.filter(r => !!r.path.match(/maintenance/gi)).length >= 2;
+      // case 'custom':
+      //   return this.component.reports.filter(r => r.path == REPORT.CUSTOM).length >= 2;
+      // case 'safety':
+      //   return this.component.reports.filter(r => !!r.path.match(/safety/gi)).length >= 2;
+      // case 'maintenance':
+      //   return this.component.reports.filter(r => !!r.path.match(/maintenance/gi)).length >= 2;
       case 'insulation':
         return this.component.reports.filter(r => !!r.path.match(/insulation/gi)).length >= 1;
       default:
-        return this.component.reports.filter(r => !!r.path.match(/(generic)/gi)).length >= 2;
+        return false;
     }
   }
 

@@ -4,10 +4,10 @@ import { ProjectPageBase } from './project-page-base';
 import { Project, Document } from '../../models';
 import { ProjectService } from '../../services/project.service';
 import { NgForm } from '@angular/forms';
-import { Camera } from '@ionic-native/camera';
 import { MessageService } from '../../services/messages.service';
 import { FileService } from '../../services/file.service';
 import { FileOpener } from '@ionic-native/file-opener';
+import { PictureService } from '../../services';
 
 
 
@@ -29,27 +29,32 @@ export class EditProjectPage extends ProjectPageBase {
     public service: ProjectService,
     private file: FileService,
     public actionSheetCtrl: ActionSheetController,
-    private camera: Camera,
+    private picture: PictureService,
     private message: MessageService,
-    private keyboard: Keyboard,
+    protected keyboard: Keyboard,
     private opener: FileOpener) {
 
-    super(alertCtrl, service);
+    super(alertCtrl, service, keyboard);
     this.project = navParams.get("project");
     this.edit_mode = false;
+    //this.project.documents.push(new Document({ file: 'lolo.pdf' }))
+    //this.keyboard.onClose(() => document.querySelectorAll('.scroll-content').forEach((x) => x.scrollTo(0, 0)));
   }
-  // ionViewDidLoad() {
-  //   $('.tabbar').removeClass('show-tabbar');
-  // }
-  // ionViewWillLeave() {
-  //   $('.tabbar').addClass('show-tabbar');
-  // }
 
-  public on_focus(event: FocusEvent) {
-    const elm = (event.currentTarget || event.target) as HTMLElement
+  public on_focus(event: any) {
+    const elm = event._elementRef.nativeElement
     const offset = 170;
-    elm.closest('.scroll-content').scrollTo(0, 0);
-    elm.closest('.scroll-content').scrollTo(0, elm.closest('ion-item').getBoundingClientRect().top - offset);
+    elm.closest('.scroll-content').scrollTo(0, elm.closest('.scroll-content').scrollTop - 50);
+    this.scroll(elm.closest('.scroll-content'), elm.closest('.scroll-content').scrollTop + elm.closest('ion-item').getBoundingClientRect().top - offset);
+  }
+
+  scroll(elm: any, top: number) {
+    if (elm.scrollTop < top) {
+      elm.scrollTo(0, elm.scrollTop += 50);
+      setTimeout(() => this.scroll(elm, top), 1);
+    } else {
+      elm.scrollTo(0, top)
+    }
   }
 
   protected hide_keyboard() {
@@ -67,28 +72,13 @@ export class EditProjectPage extends ProjectPageBase {
   }
 
   private open_camera() {
-    this.camera.getPicture({
-      quality: 80,
-      sourceType: this.camera.PictureSourceType.CAMERA,
-      destinationType: this.camera.DestinationType.DATA_URL,
-      encodingType: this.camera.EncodingType.JPEG,
-      mediaType: this.camera.MediaType.PICTURE,
-      allowEdit: false
-    }).then(d => this.project.picture = 'data:image/jpeg;base64,' + d)
-      .catch(ex => {
-        this.message.alert('Error take picture', JSON.stringify(ex, null, 2));
-      });
+    this.picture.take_picture()
+      .then(d => this.project.picture = d)
   }
 
   private open_gallery() {
-    this.camera.getPicture({
-      quality: 80,
-      sourceType: this.camera.PictureSourceType.PHOTOLIBRARY,
-      destinationType: this.camera.DestinationType.DATA_URL,
-      encodingType: this.camera.EncodingType.JPEG,
-      mediaType: this.camera.MediaType.PICTURE,
-      allowEdit: false
-    }).then(d => this.project.picture = 'data:image/jpeg;base64,' + d)
+    this.picture.get_picture()
+      .then(d => this.project.picture = d)
       .catch(ex => {
         this.message.alert('Error take picture', JSON.stringify(ex, null, 2));
       });
@@ -134,12 +124,6 @@ export class EditProjectPage extends ProjectPageBase {
     this.opener.open(`${file.folder}/${file.file}`, file.mime)
       .then(() => console.log('File opened'))
       .catch(err => this.message.alert('Open', `${err.message}\n${file.folder}/${file.file}`));
-    // this.viewer.viewDocument(`${file.folder}/${file.file}`, file.mime, { title: file.file }, null, null,
-    //   () => {
-    //     this.message.alert("Open", 'No viewer installed for this file type');
-    //   }, (ex) => {
-    //     this.message.alert('Error', ex.message);
-    //   });
   }
 
   choose_file() {
@@ -151,7 +135,7 @@ export class EditProjectPage extends ProjectPageBase {
   ask_for_delete(file: Document): void {
     this.remove_mode = true;
     let confirm = this.alertCtrl.create({
-      title: `Remove`,
+      //title: `Remove`,
       message: `Do you agree to remove '${file.file}'?`,
       buttons: [
         {

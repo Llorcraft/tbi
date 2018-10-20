@@ -29,11 +29,11 @@
             <ion-row>
               <ion-title col-12 col-12 text-left>Name</ion-title>
               <ion-item>
-                <ion-input tabindex="1" (focus)="on_focus($event)"  type="text" [(ngModel)]="project.name" name="name"></ion-input>
+                <ion-input tabindex="1" (ionFocus)="on_focus($event)"  type="text" [(ngModel)]="project.name" name="name"></ion-input>
               </ion-item>
               <ion-title col-12 col-12 text-left>Energy Price (&euro;/kWh)</ion-title>
               <ion-item>
-                <ion-input tabindex="2" (focus)="on_focus($event)"  type="number" [(ngModel)]="project.price" name="price" scroll="40"></ion-input>
+                <ion-input tabindex="2" (ionFocus)="on_focus($event)"  type="number" [(ngModel)]="project.price" name="price" scroll="40"></ion-input>
               </ion-item>
             </ion-row>
           </ion-col>
@@ -48,13 +48,13 @@
             <ion-row mb-3>
               <ion-title col-12 col-12 text-left>Project Leader</ion-title>
               <ion-item col-md-5 col-12>
-                  <ion-input tabindex="4" (focus)="on_focus($event)"  [(ngModel)]="project.people.leader.name" placeholder="Name" name="leader-name" scroll="60"></ion-input>
+                  <ion-input tabindex="4" (ionFocus)="on_focus($event)"  [(ngModel)]="project.people.leader.name" placeholder="Name" name="leader-name" scroll="60"></ion-input>
               </ion-item>
               <ion-item col-md-4 col-12>
-                  <ion-input tabindex="4" (focus)="on_focus($event)"  type="email" [(ngModel)]="project.people.leader.email" placeholder="Email" name="leader-email" scroll="60"></ion-input>
+                  <ion-input tabindex="4" (ionFocus)="on_focus($event)"  type="email" [(ngModel)]="project.people.leader.email" placeholder="Email" name="leader-email" scroll="60"></ion-input>
               </ion-item>
               <ion-item col-md-3 col-12>
-                  <ion-input tabindex="4" (focus)="on_focus($event)"  type="phone" [(ngModel)]="project.people.leader.phone" placeholder="Phone" name="leader-phone" scroll="60"></ion-input>
+                  <ion-input tabindex="4" (ionFocus)="on_focus($event)"  type="phone" [(ngModel)]="project.people.leader.phone" placeholder="Phone" name="leader-phone" scroll="60"></ion-input>
               </ion-item>
             </ion-row>
           </ion-col>
@@ -62,13 +62,13 @@
             <ion-row mb-3>
               <ion-title col-12 col-12 text-left>Energy Manager</ion-title>
               <ion-item col-md-5 col-12>
-                  <ion-input tabindex="6" (focus)="on_focus($event)"  [(ngModel)]="project.people.energy_manager.name" placeholder="Name" name="energy-name" scroll="20"></ion-input>
+                  <ion-input tabindex="6" (ionFocus)="on_focus($event)"  [(ngModel)]="project.people.energy_manager.name" placeholder="Name" name="energy-name" scroll="20"></ion-input>
               </ion-item>
               <ion-item col-md-4 col-12>
-                <ion-input tabindex="6" (focus)="on_focus($event)"  type="email" [(ngModel)]="project.people.energy_manager.email" placeholder="Email" name="energy-email" scroll="20"></ion-input>
+                <ion-input tabindex="6" (ionFocus)="on_focus($event)"  type="email" [(ngModel)]="project.people.energy_manager.email" placeholder="Email" name="energy-email" scroll="20"></ion-input>
               </ion-item>
               <ion-item col-md-3 col-12>
-                <ion-input tabindex="6" (focus)="on_focus($event)"  type="phone" [(ngModel)]="project.people.energy_manager.phone" placeholder="Phone" name="energy-phone" scroll="20"></ion-input>
+                <ion-input tabindex="6" (ionFocus)="on_focus($event)"  type="phone" [(ngModel)]="project.people.energy_manager.phone" placeholder="Phone" name="energy-phone" scroll="20"></ion-input>
               </ion-item>
             </ion-row>
           </ion-col>
@@ -76,13 +76,13 @@
             <ion-row mb-3>
               <ion-title col-12 col-12 text-left>Maintenance Manager</ion-title>
               <ion-item col-md-5 col-12>
-                <ion-input tabindex="8" (focus)="on_focus($event)"  [(ngModel)]="project.people.maintenance_manager.name" placeholder="Name" name="maintenance-name" scroll="-20"></ion-input>
+                <ion-input tabindex="8" (ionFocus)="on_focus($event)"  [(ngModel)]="project.people.maintenance_manager.name" placeholder="Name" name="maintenance-name" scroll="-20"></ion-input>
               </ion-item>
               <ion-item col-md-4 col-12>
-                <ion-input tabindex="8" (focus)="on_focus($event)"  type="email" [(ngModel)]="project.people.maintenance_manager.email" placeholder="Email" name="maintenance-email" scroll="-20"></ion-input>
+                <ion-input tabindex="8" (ionFocus)="on_focus($event)"  type="email" [(ngModel)]="project.people.maintenance_manager.email" placeholder="Email" name="maintenance-email" scroll="-20"></ion-input>
               </ion-item>
               <ion-item col-md-3 col-12>
-                <ion-input tabindex="8" (focus)="on_focus($event)"  type="phone" [(ngModel)]="project.people.maintenance_manager.phone" placeholder="Phone" name="maintenance-phone" scroll="-20"></ion-input>
+                <ion-input tabindex="8" (ionFocus)="on_focus($event)"  type="phone" [(ngModel)]="project.people.maintenance_manager.phone" placeholder="Phone" name="maintenance-phone" scroll="-20"></ion-input>
               </ion-item>
             </ion-row>
           </ion-col>
@@ -90,13 +90,13 @@
             <ion-row>
               <ion-title col-12 text-left>HSE Manager</ion-title>
               <ion-item col-md-5 col-12>
-                <ion-input tabindex="10" (focus)="on_focus($event)"  [(ngModel)]="project.people.hse_manager.name" placeholder="Name" name="hse-name" scroll="-60"></ion-input>
+                <ion-input tabindex="10" (ionFocus)="on_focus($event)"  [(ngModel)]="project.people.hse_manager.name" placeholder="Name" name="hse-name" scroll="-60"></ion-input>
               </ion-item>
               <ion-item col-md-4 col-12>
-                <ion-input tabindex="10" (focus)="on_focus($event)"  type="email" [(ngModel)]="project.people.hse_manager.email" placeholder="Email" name="hse-email" scroll="-60"></ion-input>
+                <ion-input tabindex="10" (ionFocus)="on_focus($event)"  type="email" [(ngModel)]="project.people.hse_manager.email" placeholder="Email" name="hse-email" scroll="-60"></ion-input>
               </ion-item>
               <ion-item col-md-3 col-12>
-                <ion-input tabindex="10" (focus)="on_focus($event)"  (keyup.enter)="on_keypress($event)"  type="phone" [(ngModel)]="project.people.hse_manager.phone" placeholder="Phone" name="hse-phone" scroll="-60"></ion-input>
+                <ion-input tabindex="10" (ionFocus)="on_focus($event)"  (keyup.enter)="on_keypress($event)"  type="phone" [(ngModel)]="project.people.hse_manager.phone" placeholder="Phone" name="hse-phone" scroll="-60"></ion-input>
               </ion-item>
             </ion-row>
           </ion-col>
@@ -110,7 +110,7 @@
           <ion-item *ngFor="let f of project.documents">
             <ion-icon name="document-{{f.extension}}" color="gray" item-start></ion-icon>
             <span (click)="open_file(f)">{{f.file}}</span>
-            <ion-icon (click)="ask_for_delete(f)" name="md-remove-circle" color="danger" item-end></ion-icon>
+            <ion-icon (click)="ask_for_delete(f)" name="md-trash" color="red" item-end></ion-icon>
           </ion-item>
         </ion-list>
       </ion-col>

@@ -1,4 +1,4 @@
-import { AlertController } from 'ionic-angular';
+import { AlertController, Keyboard } from 'ionic-angular';
 import { Project } from '../../models';
 import { ProjectService } from '../../services/project.service';
 import { ScrollToComponent } from '../scroll_to_component.class';
@@ -8,15 +8,16 @@ export class ProjectPageBase extends ScrollToComponent {
   
   constructor(
     public alertCtrl: AlertController,
-    public service: ProjectService) {
-      super();
+    public service: ProjectService,
+    protected keyboard: Keyboard) {
+      super(keyboard);
   }
 
   public delete_project(project: Project, event: Event) {
     event.stopPropagation();
     this.remove_mode = true;
     let confirm = this.alertCtrl.create({
-      title: `Remove`,
+      //title: `Remove`,
       message: `Do you agree to remove permanently '${project.name}'?`,
       buttons: [
         {

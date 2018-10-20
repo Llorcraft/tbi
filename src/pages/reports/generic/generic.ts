@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams, AlertController } from 'ionic-angular';
+import { NavController, NavParams, AlertController, Keyboard } from 'ionic-angular';
 import { ReportService } from '../../../services/report.service';
 import { ReportGeneric } from '../../../models/reports/report-generic.class';
 import { BaseReportPage } from '../../../models/reports';
-import { Camera } from '@ionic-native/camera';
 import { MessageService } from '../../../services/messages.service';
 import { ReportBase } from '../../../models';
+import { PictureService } from '../../../services';
 
 @Component({
   selector: 'page-generic-report',
@@ -18,10 +18,11 @@ export class GenericReportPage extends BaseReportPage {
     navParams: NavParams,
     protected service: ReportService,
     protected alertCtrl: AlertController,
-    protected camera: Camera,
+    protected picture: PictureService,
     protected message: MessageService,
+    protected keyboard: Keyboard
   ) {
-    super(new ReportGeneric(navParams.data.project, navParams.data.component, navParams.data.report), navCtrl, service, alertCtrl, camera, message);
+    super(new ReportGeneric(navParams.data.project, navParams.data.component, navParams.data.report), navCtrl, service, alertCtrl, picture, message, keyboard);
   }
 
   protected calculate(): ReportBase {

@@ -1,7 +1,7 @@
 import { Project } from './../../models/project';
 import { ProjectService } from '../../services/project.service';
 import { Component } from '@angular/core';
-import { NavController, Platform, ActionSheetController, AlertController, NavParams } from 'ionic-angular';
+import { NavController, Platform, ActionSheetController, AlertController, NavParams, Keyboard } from 'ionic-angular';
 import { ProjectPageBase } from './project-page-base';
 import { EditProjectPage } from './edit';
 import { ScreenOrientation } from '@ionic-native/screen-orientation';
@@ -31,9 +31,10 @@ export class ProjectsPage extends ProjectPageBase {
     public actionSheetCtrl: ActionSheetController,
     orientation: ScreenOrientation,
     public licences: LicencesService,
-    uuid: UniqueDeviceID) {
+    uuid: UniqueDeviceID,
+    protected keyboard: Keyboard) {
 
-    super(alertCtrl, service);
+    super(alertCtrl, service, keyboard);
 
     uuid.get()
       .then((uuid: any) => console.log(uuid))
@@ -107,7 +108,7 @@ export class ProjectsPage extends ProjectPageBase {
 
   alert_licence() {
     this.alertCtrl.create({
-      title: 'Licence',
+      //title: 'Licence',
       message: 'To create more projects upgrade to Pro or Enterprise version',
       cssClass: 'project-action-sheet',
       buttons: [

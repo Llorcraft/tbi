@@ -8,6 +8,10 @@ export class FileLocalService extends FileService {
         super();
     }
 
+    public create_picture(uri: string): Promise<Document> {
+        throw new Error("Method not implemented.");
+    }
+
     public delete(file: Document): Promise<boolean> {
         throw new Error("Method not implemented.");
     }

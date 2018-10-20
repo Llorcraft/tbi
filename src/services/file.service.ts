@@ -13,4 +13,6 @@ export abstract class FileService {
     public abstract select_file():Promise<Document>;
 
     public abstract delete(file: Document): Promise<boolean>;
+
+    public abstract create_picture(uri: string): Promise<Document>
 }

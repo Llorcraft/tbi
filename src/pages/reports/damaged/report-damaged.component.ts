@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
 import { BaseReportPage, ReportDamaged } from '../../../models/reports';
-import { NavController, NavParams, AlertController, TextInput } from 'ionic-angular';
+import { NavController, NavParams, AlertController, TextInput, Keyboard } from 'ionic-angular';
 import { ReportService } from '../../../services/report.service';
 import { ReportBase } from '../../../models/report-base';
-import { Camera } from '@ionic-native/camera';
 import { MessageService } from '../../../services/messages.service';
+import { PictureService } from '../../../services';
 
 @Component({
   selector: 'page-report-damaged',
@@ -19,10 +19,11 @@ export class ReportDamagedPage extends BaseReportPage {
     navParams: NavParams,
     protected service: ReportService,
     protected alertCtrl: AlertController,
-    protected camera: Camera,
+    protected picture: PictureService,
     protected message: MessageService,
+    protected keyboard: Keyboard
   ) {
-    super(new ReportDamaged(navParams.data.project, navParams.data.component, navParams.data.report), navCtrl, service, alertCtrl, camera, message);
+    super(new ReportDamaged(navParams.data.project, navParams.data.component, navParams.data.report), navCtrl, service, alertCtrl, picture, message, keyboard);
 
     if (!!this.report.component.fields.damaged_cladding_selection) this.damaged_cladding[this.report.component.fields.damaged_cladding_selection] = !0;
     if (!!this.report.component.fields.damaged_insulation_selection) this.damaged_insulation[this.report.component.fields.damaged_insulation_selection] = !0;

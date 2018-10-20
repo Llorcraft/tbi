@@ -51,10 +51,6 @@ public get surface_temp(): number {
       this.summary_id = item.summary_id;
       this.readonly_summary_id = item.readonly_summary_id;
       this.comment = item.comment;
-    } else {
-      this.pictures.push(new Picture({
-        picture: 'http://farm9.static.flickr.com/8347/8207715477_1df6bbb52c.jpg'
-      }))
     }
   }
 }

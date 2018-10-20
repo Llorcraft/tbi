@@ -143,12 +143,12 @@ export class BaseCalculator {
 
     public execute(): ReportBase {
         this.fnc.forEach(f => f.apply(this));
-        console.clear();
-        console.table({
-            'this.Sp': this.Sp,
-            'this.ql_ref_pb': this.ql_ref_pb,
-            'this.ql_min': this.ql_min,
-        })
+        // console.clear();
+        // console.table({
+        //     'this.Sp': this.Sp,
+        //     'this.ql_ref_pb': this.ql_ref_pb,
+        //     'this.ql_min': this.ql_min,
+        // })
         this.report.result = new Result({
             advise: this.Insulation_advice,
             headLost: new Value({

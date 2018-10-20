@@ -21,7 +21,7 @@ export class ReportEditPictureComponent {
             this.show_prompt(event, null);
         } else {
             let alert = this.alertCtrl.create({
-                title: 'Temperature',
+                //title: 'Temperature',
                 message: `This component already has ${this.max_markers} temperature markers`,
                 cssClass: `ion-dialog-horizontal`,
                 buttons: [
@@ -42,7 +42,7 @@ export class ReportEditPictureComponent {
     private show_prompt(event: MouseEvent, marker: Marker): void {
         if (!this.report.path.match(/(surface|pipe|valve|flange)/gi)) return;
         let alert = this.alertCtrl.create({
-            title: 'Enter temperature',
+            //title: 'Enter temperature',
             cssClass: `ion-dialog-horizontal mt-4`,
             inputs: [
                 {

@@ -4,7 +4,7 @@
   </ion-list-header>
 
   <ion-item *ngFor="let r of reports; let i=index" [attr.title]="r.summary_id">
-    <ion-label>{{r.name}}</ion-label>
+    <ion-label>{{friendly_path(r)}}</ion-label>
     <ion-radio checked="true" value="{{r.id}}"></ion-radio>
   </ion-item>
 

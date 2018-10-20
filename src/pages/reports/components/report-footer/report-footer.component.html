@@ -2,18 +2,20 @@
   <ion-grid no-padding>
     <ion-row no-padding>
       <ion-col col-6 no-padding>
-        <button tabindex="11" *ngIf="view!='parent.edit_picture'" ion-button small color="light" (click)="parent.go_back()">
-          <ion-icon name="arrow-back"></ion-icon>&nbsp;Back
-        </button>
-        <button tabindex="11" *ngIf="view=='parent.edit_picture'" ion-button small color="light" (click)="parent.go_back()">
-          Close
+        <button tabindex="22" *ngIf="parent.view!='edit_picture'" ion-button small color="light" (click)="parent.go_back()">
+          &nbsp;Back
         </button>
       </ion-col>
-      <ion-col col-6 text-right no-padding *ngIf="view!='parent.edit_picture' && parent.segment==='input'">
-        <button id="submit-button" tabindex="8" ion-button small pull-right color="primary" (click)="parent.calculate()" *ngIf="parent.view!='edit_picture' && parent.view!='result'">
+      <ion-col col-6 text-right no-padding *ngIf="parent.view=='edit_picture'">
+        <button tabindex="22" ion-button small color="royal" (click)="parent.go_back()">
+          Report
+        </button>
+      </ion-col>
+      <ion-col col-6 text-right no-padding *ngIf="parent.view!='edit_picture' && parent.segment==='input'">
+        <button id="submit-button" tabindex="20" ion-button small pull-right color="primary" (click)="parent.calculate()" *ngIf="parent.view!='edit_picture' && parent.view!='result'">
           {{calculate_text}}
         </button>
-        <button id="submit-button" tabindex="9" ion-button small pull-right color="primary" (click)="parent.save()" *ngIf="parent.view=='result' && !parent.form.invalid">
+        <button id="submit-button" tabindex="21" ion-button small pull-right color="primary" (click)="parent.save()" *ngIf="parent.view=='result' && !parent.form.invalid">
           Report
         </button>
       </ion-col>

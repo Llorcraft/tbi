@@ -1,23 +1,31 @@
 import { Component } from '@angular/core';
 import { Marker } from './../../../../models/marker';
-import { ViewController, NavParams } from 'ionic-angular';
+import { ViewController, NavParams, Keyboard } from 'ionic-angular';
+import { ScrollToComponent } from '../../../scroll_to_component.class';
 
 @Component({
   selector: 'markers-window',
   templateUrl: './temp-marker-window.component.html'
 })
 
-export class ReportTempMarkersWindowComponent  {
+export class ReportTempMarkersWindowComponent extends ScrollToComponent {
 
   protected markers: any[] = [];
   protected get disabled(): boolean {
     return this.markers.filter(m => m.hasValue).length === 0;
   }
 
-  public on_focus(event: FocusEvent) {
-    const elm = (event.currentTarget || event.target) as HTMLElement
-    elm.closest('.scroll-content').scrollTo(0, 0);
-    elm.closest('.scroll-content').scrollTo(0, elm.closest('ion-item').getBoundingClientRect().top - 100);
+  // public on_focus(event: FocusEvent) {
+  //   const elm = (event.currentTarget || event.target) as HTMLElement
+  //   elm.closest('.scroll-content').scrollTo(0, 0);
+  //   elm.closest('.scroll-content').scrollTo(0, elm.closest('ion-item').getBoundingClientRect().top - 100);
+  // }
+
+  public on_focus(event: any) {
+    const elm = event._elementRef.nativeElement
+    const offset = 40;
+    elm.closest('.scroll-content').scrollTo(0, elm.closest('.scroll-content').scrollTop - 50);
+    this.scroll(elm.closest('.scroll-content'), elm.closest('.scroll-content').scrollTop + elm.closest('ion-item').getBoundingClientRect().top - offset);
   }
 
   protected on_keypress(event: KeyboardEvent) {
@@ -27,7 +35,9 @@ export class ReportTempMarkersWindowComponent  {
     }
   }
 
-  constructor(private viewCtrl: ViewController, private params: NavParams) {
+  constructor(private viewCtrl: ViewController, private params: NavParams, protected keyboard: Keyboard) {
+    super(keyboard);
+
     let others_reports_markers = this.params.data.report.component.reports.filter(r => r != this.params.data.report).flatMap(r => r.pictures.flatMap(p => p.markers.map(m => ({ parent: p, marker: m, order: `2${m.hasValue ? 0 : 1}` }))));
     let report_marker = this.params.data.report.pictures.flatMap(p => p.markers.map(m => ({ parent: p, marker: m, order: `1${m.hasValue ? 0 : 1}` })));
     params.data.report.component.markers = params.data.report.component.markers.concat(Array.apply(null, { length: 10 }).slice(others_reports_markers.length + report_marker.length + params.data.report.component.markers.length, 10).map(x => new Marker()));

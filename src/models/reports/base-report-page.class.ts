@@ -1,4 +1,4 @@
-import { NavController, AlertController } from "ionic-angular";
+import { NavController, AlertController, Keyboard } from "ionic-angular";
 import { NgForm } from '@angular/forms';
 import { ViewChild, OnInit } from "@angular/core";
 import { ReportBase, Project } from "..";
@@ -8,10 +8,10 @@ import { ReportErrorsComponent, ReportsPage } from "../../pages/reports";
 import { ReportService } from "../../services/report.service";
 import { More } from "../../const/more/more";
 import { TbiComponent } from "../component";
-import { Camera } from "@ionic-native/camera";
 import { MessageService } from "../../services/messages.service";
 import { ScrollToComponent } from "../../pages/scroll_to_component.class";
 import { NON_PICTURE } from "../../const/images";
+import { PictureService } from "../../services";
 
 export class BaseReportPage extends ScrollToComponent implements OnInit {
   @ViewChild('form') form: NgForm;
@@ -30,10 +30,12 @@ export class BaseReportPage extends ScrollToComponent implements OnInit {
     protected navCtrl: NavController,
     protected service: ReportService,
     protected alertCtrl: AlertController,
-    protected camera: Camera,
+    protected picture: PictureService,
     protected message: MessageService,
+    protected keyboard: Keyboard
   ) {
-    super();
+    super(keyboard);
+    
     this._original_component = this.report.component;
     this.report.component = new TbiComponent(this._original_component.project, this._original_component);
     this.report.component.id = this._original_component.id;
@@ -51,7 +53,7 @@ export class BaseReportPage extends ScrollToComponent implements OnInit {
 
   protected set_length(message: string, default_value: number) {
     let alert = this.alertCtrl.create({
-      title: `Equivalent length<br><small>${message}</small>`,
+      //title: `Equivalent length<br><small>${message}</small>`,
       inputs: [
         {
           name: 'length',
@@ -110,11 +112,24 @@ export class BaseReportPage extends ScrollToComponent implements OnInit {
 
   protected ask_for_more_reports(project: Project) {
     let confirm = this.alertCtrl.create({
-      title: `Create report`,
+      //title: `Create report`,
       cssClass: `ion-dialog-horizontal`,
       message: `Do you want to add another report associated to this component?`,
       enableBackdropDismiss: false,
       buttons: [
+        {
+          text: 'No',
+          handler: () => {
+            this.navCtrl.push(ReportsPage, {
+              project: project,
+              message: `“${this.report.component.fields.location}” has been saved. You are going to start reports on a new component.`
+            });
+          }
+        }, 
+        {
+          text: 'Cancel',
+          role: 'cancel'
+        },
         {
           text: 'Yes',
           handler: () => {
@@ -124,18 +139,6 @@ export class BaseReportPage extends ScrollToComponent implements OnInit {
               project: project
             });
           }
-        },
-        {
-          text: 'No',
-          handler: () => {
-            this.navCtrl.push(ReportsPage, {
-              project: project,
-              message: `“${this.report.component.fields.location}” has been saved. You are going to start reports on a new component.`
-            });
-          }
-        }, {
-          text: 'Cancel',
-          role: 'cancel'
         }
       ]
     });
@@ -153,7 +156,7 @@ export class BaseReportPage extends ScrollToComponent implements OnInit {
     } else {
       if (this.form.dirty || !this.form.pristine) {
         let confirm = this.alertCtrl.create({
-          title: `Leave report`,
+          //title: `Leave report`,
           cssClass: `ion-dialog-horizontal`,
           message: `Do you want to leave this report?`,
           enableBackdropDismiss: false,
@@ -202,7 +205,7 @@ export class BaseReportPage extends ScrollToComponent implements OnInit {
 
   public alert(message: string) {
     let confirm = this.alertCtrl.create({
-      title: `Create report`,
+      //title: `Create report`,
       message: message,
       enableBackdropDismiss: false,
       buttons: [
@@ -214,20 +217,9 @@ export class BaseReportPage extends ScrollToComponent implements OnInit {
   }
   protected take_picture() {
     //this.alert('Hacer foto');
-    this.camera.getPicture({
-      quality: 80,
-      sourceType: this.camera.PictureSourceType.CAMERA,
-      destinationType: this.camera.DestinationType.DATA_URL,
-      encodingType: this.camera.EncodingType.JPEG,
-      mediaType: this.camera.MediaType.PICTURE,
-      allowEdit: false
-    }).then(d => this.report.pictures.push(new Picture({ picture: 'data:image/jpeg;base64,' + d })))
-      .catch(ex => {
-        this.message.alert('Error take picture', JSON.stringify(ex, null, 2));
-      });
+    this.picture.take_picture().then(d => this.report.pictures.push(new Picture({ picture: d })))
+      .catch(ex => this.message.alert('Error take picture', JSON.stringify(ex, null, 2)));
   }
-
-
 
   protected toggle_know() {
     if (!!this.report.component.fields.unknow_surface) this.report.component.fields.surface = null;
@@ -253,7 +245,7 @@ export class BaseReportPage extends ScrollToComponent implements OnInit {
     if (isNaN(this.report.component.fields.surface_temp)
       || !this.report.has_markers) return this.calculate();
     let confirm = this.alertCtrl.create({
-      title: `Temperature`,
+      //title: `Temperature`,
       message: `Which temperature would you like to use for calculation?`,
       cssClass: `ion-dialog-horizontal`,
       enableBackdropDismiss: false,

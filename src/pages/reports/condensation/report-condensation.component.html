@@ -16,14 +16,14 @@
 <ion-content>
 
   <ion-grid [hidden]="view=='edit_picture'">
-    <ion-row >
+    <ion-row>
       <ion-col col-12 col-md-6 no-padding>
         <form novalidate #form="ngForm" [hidden]="segment!='input'" (submit)="calculate()">
           <ion-row>
             <ion-col col-10>
               <ion-item>
                 <ion-label stacked>Component/Location</ion-label>
-                <ion-input tabindex="1" (focus)="on_focus($event)" name="location" required data-val-required="Please input Component/Location"
+                <ion-input tabindex="1" (ionFocus)="on_focus($event)" name="location" required data-val-required="Please input Component/Location"
                   [(ngModel)]="report.component.fields.location" type="text"></ion-input>
               </ion-item>
             </ion-col>
@@ -32,105 +32,102 @@
           <ion-row>
             <ion-col col-10>
               <ion-item>
+                <ion-label stacked>Summary Id</ion-label>
+                <ion-input tabindex="2" (ionFocus)="on_focus($event)" name="summary_id" [(ngModel)]="report.summary_id"
+                  required data-val-required="Please input summary id" type="text"></ion-input>
+              </ion-item>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col col-10>
+              <ion-item>
                 <ion-label stacked>Operational time (hours)</ion-label>
-                <ion-input tabindex="2" (focus)="on_focus($event)" name="operational_time" [(ngModel)]="report.component.fields.operational_time"
+                <ion-input tabindex="3" (ionFocus)="on_focus($event)" name="operational_time" [(ngModel)]="report.component.fields.operational_time"
                   type="number"></ion-input>
               </ion-item>
             </ion-col>
             <ion-col col-2>
-              <more pull-left #time (change)="report.component.fields.operational_time=time.value" [type]="'time'" modal-button></more>
+              <more pull-left #time (change)="report.component.fields.operational_time=time.value" [type]="'time'"
+                modal-button></more>
             </ion-col>
           </ion-row>
           <ion-row>
             <ion-col col-10>
               <ion-item class="edit_surface_material" [class.editable]="edit_surface_material">
                 <ion-label stacked>Surface material [ε]</ion-label>
-                <ion-input tabindex="5" class="literal" (focus)="on_focus($event);toggle_surface_material(true)" [value]="report.component.fields.surface_material_friendly" type="text"></ion-input>
-                <ion-input tabindex="6" class="numeric" (focus)="on_focus($event)" (focusout)="toggle_surface_material(false)" name="surface_material" [(ngModel)]="report.component.fields.surface_material" type="number" (change)="set_surface_material(report.component.fields.surface_material, $event)"></ion-input>
+                <ion-input tabindex="4" class="literal" (ionFocus)="on_focus($event);toggle_surface_material(true)"
+                  [value]="report.component.fields.surface_material_friendly" type="text"></ion-input>
+                <ion-input tabindex="5" class="numeric" (ionFocus)="on_focus($event)" (focusout)="toggle_surface_material(false)"
+                  name="surface_material" [(ngModel)]="report.component.fields.surface_material" type="number" (change)="set_surface_material(report.component.fields.surface_material, $event)"></ion-input>
               </ion-item>
             </ion-col>
             <ion-col col-2>
-              <more pull-left #material (change)="set_surface_material(material.value, $event)" [type]="'materials'" modal-button></more>
+              <more pull-left #material (change)="set_surface_material(material.value, $event)" [type]="'materials'"
+                modal-button></more>
             </ion-col>
           </ion-row>
           <ion-row>
             <ion-col col-10>
               <ion-item>
-                <ion-label stacked>Medium or Surface temperature (<sup>º</sup>C)</ion-label>
-                  <ion-input tabindex="7" (focus)="on_focus($event)" (keyup.enter)="on_keypress($event)" name="surface_temp" [(ngModel)]="report.component.fields.surface_temp" type="number"></ion-input>
+                <ion-label stacked>Medium temperature (<sup>º</sup>C)</ion-label>
+                <ion-input tabindex="6" (ionFocus)="on_focus($event)" (keyup.enter)="on_keypress($event)" name="surface_temp"
+                  [(ngModel)]="report.component.fields.surface_temp" type="number"></ion-input>
               </ion-item>
-            </ion-col>
-            <ion-col col-2>
-              <medium-temp #medium [report]="report" modal-button pull-left></medium-temp>
             </ion-col>
           </ion-row>
           <ion-row>
-              <ion-col col-6>
-                <ion-item>
-                  <ion-label stacked style="margin-top: 1.4rem;color: #999;">Ice block</ion-label>
-                    <ion-toggle [(ngModel)]="report.component.fields.condensation_ice_block" name="ice_block"></ion-toggle>
-                </ion-item>
-              </ion-col>
-              <ion-col col-6></ion-col>
-              <ion-col col-6>
-                <ion-item>
-                  <ion-label stacked style="margin-top: 1.4rem;color: #999;">Wet surface</ion-label>
-                    <ion-toggle [(ngModel)]="report.component.fields.condensation_wet_surface" name="wet_surface"></ion-toggle>
-                </ion-item>
-              </ion-col>
-              <ion-col col-6></ion-col>
-              <ion-col col-6>
-                  <ion-item>
-                    <ion-label stacked style="margin-top: 1.4rem;color: #999;">Others</ion-label>
-                    <ion-toggle [(ngModel)]="report.component.fields.condensation_other" name="other"></ion-toggle>
-                  </ion-item>
-                </ion-col>
+            <ion-col col-6>
+              <ion-item>
+                <ion-label stacked style="margin-top: 1.4rem;color: #999;">Ice block</ion-label>
+                <ion-toggle tabindex="7" [(ngModel)]="report.component.fields.condensation_ice_block" name="ice_block"></ion-toggle>
+              </ion-item>
+            </ion-col>
+            <ion-col col-6></ion-col>
+            <ion-col col-6>
+              <ion-item>
+                <ion-label stacked style="margin-top: 1.4rem;color: #999;">Wet surface</ion-label>
+                <ion-toggle tabindex="8" [(ngModel)]="report.component.fields.condensation_wet_surface" name="wet_surface"></ion-toggle>
+              </ion-item>
+            </ion-col>
+            <ion-col col-6></ion-col>
+            <ion-col col-6>
+              <ion-item>
+                <ion-label stacked style="margin-top: 1.4rem;color: #999;">Others</ion-label>
+                <ion-toggle tabindex="9" [(ngModel)]="report.component.fields.condensation_other" name="other"></ion-toggle>
+              </ion-item>
+            </ion-col>
           </ion-row>
           <ion-row>
             <ion-col col-10 *ngIf="report.component.fields.condensation_other">
               <ion-item>
-                  <ion-input tabindex="10" [(ngModel)]="report.component.fields.condensation_other_text" name="other_text" placeholder="Type your text here"></ion-input>
+                <ion-input tabindex="10" [(ngModel)]="report.component.fields.condensation_other_text" name="other_text"
+                  placeholder="Comments"></ion-input>
               </ion-item>
             </ion-col>
           </ion-row>
         </form>
       </ion-col>
       <ion-col col-12 col-md-6 no-padding>
+        
         <ion-row>
-            <ion-col  *ngIf="view!='result' && (!errors || !errors.errors.length)" col-12 picture-slide [editable]="false" [report]="report" (onStartEdit)="on_picture_start_edit($event)">
-        </ion-col>
-      </ion-row>
-      <ion-row *ngIf="!!report.has_markers && view=='form'" text-center>
-        <ion-col col-4>
-          <button ion-button round outline color="royal" (click)="before_calculate(report.min_temp)">
-            Minimun<br>{{report.min_temp}}ºC
-          </button>
-        </ion-col>
-        <ion-col col-4>
-          <button ion-button round outline color="royal" (click)="before_calculate(report.surface_temp)">
-            Average<br>{{report.surface_temp}}ºC
-          </button>
-        </ion-col>
-        <ion-col col-4>
-          <button ion-button round outline color="royal" (click)="before_calculate(report.max_temp)">
-            Maximun<br>{{report.max_temp}}ºC
-          </button>
-        </ion-col>
-      </ion-row>
+            <ion-col  *ngIf="view!='result' && (!errors || !errors.errors.length)" col-12 picture-slide  [report]="report" [editable]="editable"  (onStartEdit)="on_picture_start_edit($event)"></ion-col>
+        </ion-row>
 
-      <report-errors padding #errors col-12 [hidden]="view=='!result' && report.result"></report-errors>
-      <div col-12 p-4 *ngIf="view=='result' && (!!form && !form.invalid)">
-        <h3 class="damaged-result">Insulation in cold systems is critical not only for energy efficiency but for safety and process requirements.</h3>
-        <h3 class="damaged-result" *ngIf="selection[1]">Ice block indicates the failure of the insulation system (or the lack of it). A part from the potential energy savings, its weight represents a risk for the installation break down.</h3>
-        <h3 class="damaged-result" *ngIf="selection[2]">Condensations indicates the need of a better insulation solution to bring the surface temperature above the dew point.</h3>
-        <h3 class="damaged-result" *ngIf="selection[3]">{{report.component.fields.condensation_other}}</h3>
-      </div>
+        <report-errors padding #errors col-12 [hidden]="view=='!result' && report.result"></report-errors>
+
+        <ion-row col-12 p-4 *ngIf="view=='result' && (!!form && !form.invalid)">
+          <ion-col col-4 img-container [style.backgroundImage]="'url('+ first_picture +')'"></ion-col>
+          <ion-col col-8 class="damaged-result">Insulation in cold systems is critical not only for energy efficiency but for safety and process requirements.</ion-col>
+          <ion-col col-8 class="damaged-result" *ngIf="report.component.fields.condensation_ice_block">Ice block indicates the failure of the insulation system (or the lack of it). A part from the potential energy savings, its weight represents a risk for the installation break down.</ion-col>
+          <ion-col col-8 class="damaged-result" *ngIf="report.component.fields.condensation_wet_surface">Condensations indicates the need of a better insulation solution to bring the surface temperature above the dew point.</ion-col>
+        </ion-row>
+
       </ion-col>
 
     </ion-row>
   </ion-grid>
 
-  <edit-picture *ngIf="view=='edit_picture'"  [report]="report"  [picture]="editing_picture" ></edit-picture>
+  <edit-picture *ngIf="view=='edit_picture'" [report]="report" [picture]="editing_picture"></edit-picture>
 
 </ion-content>
 

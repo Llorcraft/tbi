@@ -23,7 +23,7 @@
             <ion-col col-10>
               <ion-item>
                 <ion-label stacked>Component/Location</ion-label>
-                <ion-input [disabled]="!editable" tabindex="1" (focus)="on_focus($event)" name="location" required data-val-required="Please input Component/Location"
+                <ion-input [disabled]="!editable" tabindex="1" (ionFocus)="on_focus($event)" name="location" required data-val-required="Please input Component/Location"
                   [(ngModel)]="report.component.fields.location" type="text"></ion-input>
               </ion-item>
             </ion-col>
@@ -32,8 +32,17 @@
           <ion-row>
             <ion-col col-10>
               <ion-item>
+                <ion-label stacked>Summary Id</ion-label>
+                <ion-input tabindex="2" (ionFocus)="on_focus($event)" name="summary_id" [(ngModel)]="report.summary_id" required data-val-required="Please input summary id"
+                  type="text"></ion-input>
+              </ion-item>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col col-10>
+              <ion-item>
                 <ion-label stacked>Operational time (hours)</ion-label>
-                <ion-input [disabled]="!editable" tabindex="2" (focus)="on_focus($event)" required data-val-required="Please input operational time" name="operational_time" [(ngModel)]="report.component.fields.operational_time"
+                <ion-input [disabled]="!editable" tabindex="3" (ionFocus)="on_focus($event)" required data-val-required="Please input operational time" name="operational_time" [(ngModel)]="report.component.fields.operational_time"
                   type="number"></ion-input>
               </ion-item>
             </ion-col>
@@ -44,31 +53,27 @@
           <ion-row>
             <ion-col col-10>
               <ion-item>
+                <ion-label stacked>Medium</ion-label>
+                  <ion-input [disabled]="!editable" tabindex="4" (ionFocus)="on_focus($event)"  (keyup.enter)="on_keypress($event)"  name="medium" [(ngModel)]="report.component.fields.medium"
+                  type="number"></ion-input>
+              </ion-item>
+            </ion-col>
+            <ion-col col-2></ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col col-10>
+              <ion-item>
                 <ion-label stacked>Medium temperature (<sup>º</sup>C)</ion-label>
-                  <ion-input [disabled]="!editable" tabindex="3" (focus)="on_focus($event)" name="surface_temp" required data-val-required="Please input Medium or Surface temperature"
+                  <ion-input [disabled]="!editable" tabindex="5" (ionFocus)="on_focus($event)" name="surface_temp" required data-val-required="Please input Medium or Surface temperature"
                   [(ngModel)]="report.component.fields.surface_temp" type="number"></ion-input>
               </ion-item>
             </ion-col>
-            <ion-col col-2>
-              <!-- <medium-temp #medium (change)="report.component.fields.surface_temp=medium.value" modal-button pull-left></medium-temp> -->
-              <medium-temp *ngIf="editable" #medium [report]="report" modal-button pull-left></medium-temp>
-            </ion-col>
           </ion-row>
-          <ion-row>
-              <ion-col col-10>
-                <ion-item>
-                  <ion-label stacked>Ambient temperature (<sup>º</sup>C)</ion-label>
-                    <ion-input [disabled]="!editable" tabindex="4" (focus)="on_focus($event)"  (keyup.enter)="on_keypress($event)"  name="ambient_temp" required data-val-required="Please input Ambient temperature" [(ngModel)]="report.component.fields.ambient_temp"
-                    type="number"></ion-input>
-                </ion-item>
-              </ion-col>
-              <ion-col col-2></ion-col>
-            </ion-row>
             <ion-row>
               <ion-col col-10>
                 <ion-item>
                     <ion-label stacked>Comment</ion-label>
-                    <ion-textarea rows="6" tabindex="3" (focus)="on_focus($event)" [(ngModel)]="report.comment"
+                    <ion-textarea rows="6" tabindex="6" (ionFocus)="on_focus($event)" (keyup.enter)="on_keypress($event)"  [(ngModel)]="report.comment"
                       name="comment" required data-val-required="Please input a comment"></ion-textarea>
                 </ion-item>
               </ion-col>

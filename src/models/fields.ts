@@ -21,10 +21,11 @@ export class Fields {
   public comment: string = '';
   public nominal_diameter?: number = null;
   public main_dimension: number = null;
-  public damaged_cladding_selection: number = null;
+  public damaged_cladding_selection: number = 4;
   public damaged_cladding_other: string = '';
-  public damaged_insulation_selection: number = null;
+  public damaged_insulation_selection: number = 4;
   public damaged_insulation_other: string = '';
+  public medium: string = '';
 
   private _condensation_ice_block: boolean = false
   public get condensation_ice_block(): boolean {
@@ -48,7 +49,7 @@ export class Fields {
     }
   }
 
-  private _condensation_other: boolean = false;
+  private _condensation_other: boolean = true;
   public get condensation_other(): boolean {
     return this._condensation_other;
   };
@@ -72,7 +73,7 @@ export class Fields {
     this._damaged_cladding = value;
     if (!!value)
       this.damaged_insulation = false;
-    this.damaged_insulation_selection = null;
+    //this.damaged_insulation_selection = null;
     this.damaged_insulation_other = '';
   };
 
@@ -84,7 +85,7 @@ export class Fields {
     this._damaged_insulation = value;
     if (!!value)
       this.damaged_cladding = false;
-    this.damaged_cladding_selection = null;
+    //this.damaged_cladding_selection = null;
     this.damaged_cladding_other = '';
   };
 
@@ -105,6 +106,7 @@ export class Fields {
     this.nominal_diameter = this.number_or_null(f.nominal_diameter);
     this.leakage = f.leakage;
     this.comment = f.comment;
+    this.medium = f.medium;
     this.main_dimension = this.number_or_null(f.main_dimension);
     this.damaged_cladding = !!f.damaged_cladding;
     this.damaged_insulation = !!f.damaged_insulation;

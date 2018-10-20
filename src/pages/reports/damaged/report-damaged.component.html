@@ -23,7 +23,7 @@
             <ion-col col-10>
               <ion-item>
                 <ion-label stacked>Component/Location</ion-label>
-                <ion-input [disabled]="!editable" tabindex="1" (focus)="on_focus($event)" name="location" required data-val-required="Please input Component/Location"
+                <ion-input [disabled]="!editable" tabindex="1" (ionFocus)="on_focus($event)" name="location" required data-val-required="Please input Component/Location"
                   [(ngModel)]="report.component.fields.location" type="text"></ion-input>
               </ion-item>
             </ion-col>
@@ -33,7 +33,7 @@
               <ion-col col-10>
                 <ion-item>
                   <ion-label stacked>Summary Id</ion-label>
-                  <ion-input tabindex="2" (focus)="on_focus($event)" name="summary_id" [(ngModel)]="report.summary_id" required data-val-required="Please input summary id"
+                  <ion-input tabindex="2" (ionFocus)="on_focus($event)" name="summary_id" [(ngModel)]="report.summary_id" required data-val-required="Please input summary id"
                     type="text"></ion-input>
                 </ion-item>
               </ion-col>
@@ -42,7 +42,7 @@
             <ion-col col-10>
               <ion-item>
                 <ion-label stacked>Operational time (hours)</ion-label>
-                <ion-input [disabled]="!editable" tabindex="2" (focus)="on_focus($event)" required data-val-required="Please input operational time" name="operational_time" [(ngModel)]="report.component.fields.operational_time"
+                <ion-input [disabled]="!editable" tabindex="2" (ionFocus)="on_focus($event)" required data-val-required="Please input operational time" name="operational_time" [(ngModel)]="report.component.fields.operational_time"
                   type="number"></ion-input>
               </ion-item>
             </ion-col>
@@ -54,8 +54,8 @@
             <ion-col col-10>
               <ion-item class="edit_surface_material" [class.editable]="edit_surface_material">
                 <ion-label stacked>Surface material [ε]</ion-label>
-                <ion-input [disabled]="!editable" tabindex="5" class="literal" (focus)="on_focus($event);toggle_surface_material(true)" [value]="report.component.fields.surface_material_friendly" type="text"></ion-input>
-                <ion-input [disabled]="!editable" tabindex="6" class="numeric" (focus)="on_focus($event)" (focusout)="toggle_surface_material(false)" name="surface_material" required data-val-required="Please input surface emissivity" [(ngModel)]="report.component.fields.surface_material" type="number" (change)="set_surface_material(report.component.fields.surface_material, $event)"></ion-input>
+                <ion-input [disabled]="!editable" tabindex="5" class="literal" (ionFocus)="on_focus($event);toggle_surface_material(true)" [value]="report.component.fields.surface_material_friendly" type="text"></ion-input>
+                <ion-input [disabled]="!editable" tabindex="6" class="numeric" (ionFocus)="on_focus($event)" (focusout)="toggle_surface_material(false)" name="surface_material" required data-val-required="Please input surface emissivity" [(ngModel)]="report.component.fields.surface_material" type="number" (change)="set_surface_material(report.component.fields.surface_material, $event)"></ion-input>
               </ion-item>
             </ion-col>
             <ion-col col-2>
@@ -65,13 +65,10 @@
           <ion-row>
             <ion-col col-10>
               <ion-item>
-                <ion-label stacked>Medium or Surface temperature (<sup>º</sup>C)</ion-label>
-                  <ion-input [disabled]="!editable" tabindex="7" (focus)="on_focus($event)" scroll="-80" name="surface_temp" required data-val-required="Please input Medium or Surface temperature"
+                <ion-label stacked>Medium temperature (<sup>º</sup>C)</ion-label>
+                  <ion-input [disabled]="!editable" tabindex="7" (ionFocus)="on_focus($event)" scroll="-80" name="surface_temp" required data-val-required="Please input Medium temperature"
                   [(ngModel)]="report.component.fields.surface_temp" type="number"></ion-input>
               </ion-item>
-            </ion-col>
-            <ion-col col-2>
-              <medium-temp *ngIf="editable" #medium [report]="report" modal-button pull-left></medium-temp>
             </ion-col>
           </ion-row>
           <ion-row>
@@ -106,7 +103,7 @@
                 </ion-item>
 
                 <ion-item *ngIf="report.component.fields.damaged_cladding_selection==4">
-                  <ion-input tabindex="10" id="damaged_cladding_other_input" (ionChange)="set_damaged_cladding_other($event)" [(ngModel)]="damaged_cladding_other" scroll="-80" name="damaged_cladding_other" placeholder="Type your text here"></ion-input>
+                  <ion-input tabindex="10" id="damaged_cladding_other_input" (ionChange)="set_damaged_cladding_other($event)" [(ngModel)]="damaged_cladding_other" scroll="-80" name="damaged_cladding_other" placeholder="Comments"></ion-input>
               </ion-item>
               
               </ion-list>
@@ -147,7 +144,7 @@
                      </ion-item>
         
                      <ion-item *ngIf="report.component.fields.damaged_insulation_selection==4">
-                        <ion-input tabindex="11" id="damaged_insulation_other_input" (ionChange)="set_damaged_insulation_other($event)" [(ngModel)]="damaged_insulation_other" scroll="-80" name="damaged_insulation_other" placeholder="Type your text here"></ion-input>
+                        <ion-input tabindex="11" id="damaged_insulation_other_input" (ionChange)="set_damaged_insulation_other($event)" [(ngModel)]="damaged_insulation_other" scroll="-80" name="damaged_insulation_other" placeholder="Comments"></ion-input>
                    </ion-item>
                    
                   </ion-list>
@@ -158,7 +155,7 @@
               <ion-col col-10>
                 <ion-item>
                   <ion-label stacked>Main dimension (m<sup>2</sup>)</ion-label>
-                  <ion-input type="number" tabindex="8" (focus)="on_focus($event)" (keyup.enter)="on_keypress($event)" name="main_dimension" [(ngModel)]="report.component.fields.main_dimension"></ion-input>
+                  <ion-input type="number" tabindex="8" (ionFocus)="on_focus($event)" (keyup.enter)="on_keypress($event)" name="main_dimension" [(ngModel)]="report.component.fields.main_dimension"></ion-input>
                 </ion-item>
               </ion-col>
             </ion-row>
@@ -167,9 +164,8 @@
       </ion-col>
       <ion-col col-12 col-md-6 no-padding>
         <ion-row>
-            <ion-col  *ngIf="view!='result' && (!errors || !errors.errors.length)" col-12 picture-slide  [report]="report" [editable]="editable"  (onStartEdit)="on_picture_start_edit($event)">
-        </ion-col>
-      </ion-row>
+            <ion-col  *ngIf="view!='result' && (!errors || !errors.errors.length)" col-12 picture-slide  [report]="report" [editable]="editable"  (onStartEdit)="on_picture_start_edit($event)"></ion-col>
+        </ion-row>
 
       <report-errors padding #errors col-12 [hidden]="view=='!result' && report.result"></report-errors>
 

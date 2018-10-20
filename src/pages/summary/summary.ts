@@ -63,9 +63,15 @@ export class SummaryPage {
     });
   }
 
-  protected remove(cl: TbiComponent) {
+  ellipsis(text: string, size: number = 30): string {
+    return text.length + 3  <= size ? text: text.substr(0, size) + '...';
+  }
+  protected remove(cl: TbiComponent, event: Event) {
+    event.preventDefault();
+    event.cancelBubble = true;
+    
     let confirm = this.alertCtrl.create({
-      title: `Remove`,
+      //title: `Remove`,
       message: `Do you agree to remove permanently '${cl.fields.location}' component?`,
       buttons: [
         {
@@ -84,7 +90,8 @@ export class SummaryPage {
     confirm.present();
   }
 
-  public open(report: ReportBase) {
+  public open(report: ReportBase, event: Event) {
+    event.cancelBubble = true;
     (new ReportRouter(report.component.project, report.component, this.navCtrl)).navigate_to_report(report.path, report.summary_id, report);
   }
 
@@ -94,7 +101,7 @@ export class SummaryPage {
         tbi_component: cl
       },
       {
-        cssClass: "modal-window-markers",
+        cssClass: "modal-window-summary",
         showBackdrop: true,
         enableBackdropDismiss: false
 

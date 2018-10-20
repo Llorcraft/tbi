@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
 import { BaseReportPage, ReportCondensation } from '../../../models/reports';
-import { NavController, NavParams, AlertController } from 'ionic-angular';
+import { NavController, NavParams, AlertController, Keyboard } from 'ionic-angular';
 import { ReportService } from '../../../services/report.service';
 import { ReportBase } from '../../../models/report-base';
-import { Camera } from '@ionic-native/camera';
 import { MessageService } from '../../../services/messages.service';
+import { PictureService } from '../../../services';
 
 @Component({
   selector: 'page-report-condensation',
@@ -17,10 +17,11 @@ export class ReportCondensationPage extends BaseReportPage {
     navParams: NavParams,
     protected service: ReportService,
     protected alertCtrl: AlertController,
-    protected camera: Camera,
+    protected picture: PictureService,
     protected message: MessageService,
+    protected keyboard: Keyboard
   ) {
-    super(new ReportCondensation(navParams.data.project, navParams.data.component, navParams.data.report), navCtrl, service, alertCtrl, camera, message);
+    super(new ReportCondensation(navParams.data.project, navParams.data.component, navParams.data.report), navCtrl, service, alertCtrl, picture, message, keyboard);
   }
 
   protected calculate(): ReportBase {

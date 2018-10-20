@@ -7,7 +7,7 @@ export class MessageService {
 
     alert(title: string, message: string){
         let confirm = this.alertCtrl.create({
-            title: title,
+            //title: title,
             message: message,
             buttons: [
               {

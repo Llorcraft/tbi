@@ -239,7 +239,6 @@ import { SurfaceMaterialPipe } from '../pipes/surface-material.pipe';
     File,
     Camera,
     ScreenOrientation,
-    //PictureDeviceService,
     //PictureLocalService,
     FileDeviceService,
     FileLocalService,
@@ -251,7 +250,7 @@ import { SurfaceMaterialPipe } from '../pipes/surface-material.pipe';
     //{ provide: PictureService, useClass: PictureDeviceService },
     LicencesService,
     PictureService,
-    { provide: FileService, useClass: FileDeviceService }
+    { provide: FileService, useClass: FileLocalService }
   ]
 })
 export class AppModule { }

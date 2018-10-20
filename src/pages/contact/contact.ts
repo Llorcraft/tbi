@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams, AlertController } from 'ionic-angular';
+import { NavController, NavParams, AlertController, Keyboard } from 'ionic-angular';
 import { Project } from '../../models';
 import { ProjectService } from '../../services';
 import { ProjectPageBase } from '../projects/project-page-base';
@@ -16,9 +16,11 @@ export class ContactPage extends ProjectPageBase {
     public navCtrl: NavController,
     public navParams: NavParams,
     public alertCtrl: AlertController,
-    public service: ProjectService) {
+    public service: ProjectService,
+    protected keyboard: Keyboard) {
 
-    super(alertCtrl, service);
+    super(alertCtrl, service, keyboard);
+    
     this.original_project = navParams.get("project");
     this.project = new Project(this.original_project);
   }
