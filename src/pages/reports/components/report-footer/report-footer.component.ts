@@ -6,9 +6,11 @@ import { BaseReportPage } from '../../../../models/reports';
     templateUrl: './report-footer.component.html'
 })
 export class ReportFooterComponent implements OnInit{
+    @Input() parent: BaseReportPage;
+    @Input() calculate_text?: string
+
     ngOnInit(): void {
         this.calculate_text = this.calculate_text || 'Calculate';
     }
-    @Input() parent: BaseReportPage;
-    @Input() calculate_text?: string
+
 }

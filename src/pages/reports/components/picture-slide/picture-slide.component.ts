@@ -17,7 +17,6 @@ export class ReportPictureSlideComponent implements OnInit {
 
     ngOnInit(): void {
         this.can_edit = !!this.report.path.match(/(surface|pipe|valve|flange)/gi);
-        console.log('Can edit', this.can_edit)
     }
 
     protected NON_PICTURE: string = NON_PICTURE

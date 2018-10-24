@@ -139,13 +139,14 @@ export class EditProjectPage extends ProjectPageBase {
       message: `Do you agree to remove '${file.file}'?`,
       buttons: [
         {
-          text: 'Agree',
+          text: 'Yes',
           handler: () => {
             this.delete_file(file);
           }
         },
         {
-          text: 'Disagree'
+          text: 'No',
+          role: 'cancel'
         }
       ]
     });

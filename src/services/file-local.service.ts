@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { FileService } from './file.service';
 import { Document } from '../models';
+import { Picture } from '../models/picture';
 
 @Injectable()
 export class FileLocalService extends FileService {
@@ -8,11 +9,17 @@ export class FileLocalService extends FileService {
         super();
     }
 
+    public working_folder: string = 'D:\\Sofware Factory\\tbi\\src\\assets\\';
+
     public create_picture(uri: string): Promise<Document> {
         throw new Error("Method not implemented.");
     }
 
-    public delete(file: Document): Promise<boolean> {
+    public get_documents(): Promise<Document[]>{
+        throw new Error("Method not implemented.");
+    }
+
+    public delete(file: Document | Picture): Promise<boolean> {
         throw new Error("Method not implemented.");
     }
 

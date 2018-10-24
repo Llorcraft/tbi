@@ -2,11 +2,11 @@
   <ion-grid no-padding>
     <ion-row no-padding>
       <ion-col col-6 no-padding>
-        <button tabindex="22" *ngIf="parent.view!='edit_picture'" ion-button small color="light" (click)="parent.go_back()">
-          &nbsp;Back
+        <button tabindex="22" *ngIf="(parent.view!='edit_picture') || (parent.view=='edit_picture' && !parent.is_energy_report)" ion-button small color="light" (click)="parent.go_back()">
+          <ion-icon name="arrow-back"></ion-icon>&nbsp;Back
         </button>
       </ion-col>
-      <ion-col col-6 text-right no-padding *ngIf="parent.view=='edit_picture'">
+      <ion-col col-6 text-right no-padding *ngIf="parent.view=='edit_picture' && parent.is_energy_report">
         <button tabindex="22" ion-button small color="royal" (click)="parent.go_back()">
           Report
         </button>

@@ -28,6 +28,16 @@ export class ReportMoreButtonComponent {
       return ({
         text: b[0],
         handler: () => {
+          const _elem = (this.type == 'time')
+            ? document.querySelector('input[name="surface"]')
+            : document.querySelector('input[name="surface_temp"]');
+          if (!!_elem) {
+            setTimeout(() => {
+              _elem.dispatchEvent(new FocusEvent('focus'));
+              (<any>_elem).focus();
+              (<any>_elem).select();
+            }, 250);
+          }
           this.value = b[1];
           this.change.next(this.value);
         }

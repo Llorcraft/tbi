@@ -1,11 +1,15 @@
 <ion-header>
   <ion-navbar hideBackButton>
     <ion-title>
-      {{name}}
+      {{parent.report.name}}
     </ion-title>
     <ion-buttons end>
-      <button ion-button color="light">
-        <ion-icon name="md-images"></ion-icon>Pictures</button>
+      <button ion-button *ngIf="parent.view!='edit_picture'" color="light" on-tap="parent.take_picture()">
+        <ion-icon name="md-camera"></ion-icon>&nbsp;Take a picture
+      </button>
+      <button ion-button *ngIf="parent.view=='edit_picture'" color="danger" on-tap="parent.delete_picture()">
+        <ion-icon name="md-trash"></ion-icon>&nbsp;Remove
+      </button>
     </ion-buttons>
   </ion-navbar>
 </ion-header>

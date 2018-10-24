@@ -1,17 +1,4 @@
-<ion-header>
-  <ion-navbar hideBackButton>
-    <ion-title>
-      {{report.name}}
-    </ion-title>
-    <ion-buttons end>
-      <button ion-button color="light" on-tap="take_picture()">
-        <ion-icon name="md-camera"></ion-icon>&nbsp;Take a picture
-      </button>
-    </ion-buttons>
-  </ion-navbar>
-
-
-</ion-header>
+<report-header [parent]="this"></report-header>
 
 <ion-content>
 
@@ -42,7 +29,7 @@
             <ion-col col-10>
               <ion-item>
                 <ion-label stacked>Operational time (hours)</ion-label>
-                <ion-input [disabled]="!editable" tabindex="3" (ionFocus)="on_focus($event)" required data-val-required="Please input operational time" name="operational_time" [(ngModel)]="report.component.fields.operational_time"
+                <ion-input [disabled]="!editable" tabindex="3" (ionFocus)="on_focus($event)" name="operational_time" [(ngModel)]="report.component.fields.operational_time"
                   type="number"></ion-input>
               </ion-item>
             </ion-col>
@@ -54,7 +41,7 @@
             <ion-col col-10>
               <ion-item>
                 <ion-label stacked>Medium</ion-label>
-                  <ion-input [disabled]="!editable" tabindex="4" (ionFocus)="on_focus($event)"  (keyup.enter)="on_keypress($event)"  name="medium" [(ngModel)]="report.component.fields.medium"
+                  <ion-input [disabled]="!editable" tabindex="4" (ionFocus)="on_focus($event)" (keyup.enter)="on_keypress($event)"  name="medium" [(ngModel)]="report.component.fields.medium"
                   type="number"></ion-input>
               </ion-item>
             </ion-col>
@@ -64,8 +51,8 @@
             <ion-col col-10>
               <ion-item>
                 <ion-label stacked>Medium temperature (<sup>º</sup>C)</ion-label>
-                  <ion-input [disabled]="!editable" tabindex="5" (ionFocus)="on_focus($event)" name="surface_temp" required data-val-required="Please input Medium or Surface temperature"
-                  [(ngModel)]="report.component.fields.surface_temp" type="number"></ion-input>
+                  <ion-input [disabled]="!editable" tabindex="5" (ionFocus)="on_focus($event)" name="surface_temp" [pattern]="patterns.REQUIRED_NUMBER" data-val-pattern="Please input a valid Medium temperature"
+                  [(ngModel)]="report.component.fields.surface_temp" type="tel"></ion-input>
               </ion-item>
             </ion-col>
           </ion-row>
@@ -74,7 +61,7 @@
                 <ion-item>
                     <ion-label stacked>Comment</ion-label>
                     <ion-textarea rows="6" tabindex="6" (ionFocus)="on_focus($event)" (keyup.enter)="on_keypress($event)"  [(ngModel)]="report.comment"
-                      name="comment" required data-val-required="Please input a comment"></ion-textarea>
+                      name="comment"></ion-textarea>
                 </ion-item>
               </ion-col>
             </ion-row>

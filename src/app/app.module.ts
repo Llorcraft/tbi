@@ -1,4 +1,4 @@
-import { HttpModule } from '@angular/http';
+import { HttpModule, Http } from '@angular/http';
 import { NgModule, ErrorHandler } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
@@ -9,7 +9,7 @@ import { TooltipsModule } from 'ionic-tooltips';
 /*Pages*/
 import { InitPage } from '../pages/init/init';
 import { MyApp } from './app.component';
-import { AboutPage } from '../pages/about/about';
+import { DownloadPage } from '../pages/download/download';
 import { ContactPage } from '../pages/contact/contact';
 import { ProjectReportsPage } from '../pages/home/home';
 import { ProjectsPage } from '../pages/projects/projects';
@@ -106,6 +106,7 @@ import {
 
 //Pipes
 import { SurfaceMaterialPipe } from '../pipes/surface-material.pipe';
+import { GlobalErrorHandler } from '../models/errors/global-error';
 
 
 
@@ -114,7 +115,7 @@ import { SurfaceMaterialPipe } from '../pipes/surface-material.pipe';
 @NgModule({
   declarations: [
     MyApp,
-    AboutPage,
+    DownloadPage,
     ContactPage,
     ProjectReportsPage,
     ProjectsPage,
@@ -200,7 +201,7 @@ import { SurfaceMaterialPipe } from '../pipes/surface-material.pipe';
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    AboutPage,
+    DownloadPage,
     ContactPage,
     ProjectReportsPage,
     ProjectsPage,
@@ -213,6 +214,7 @@ import { SurfaceMaterialPipe } from '../pipes/surface-material.pipe';
     SummaryPage,
     SummaryEditPage,
     //Reports
+    ReportHeaderComponent,
     ReportFooterComponent,
     ReportAreaModalComponent,
     ReportTempMarkersWindowComponent,
@@ -245,7 +247,8 @@ import { SurfaceMaterialPipe } from '../pipes/surface-material.pipe';
     FileChooser,
     UniqueDeviceID,
     FileTransfer,
-    { provide: ErrorHandler, useClass: IonicErrorHandler },
+    { provide: ErrorHandler, useClass: GlobalErrorHandler, deps: [MessageService, Http] },
+    //{ provide: ErrorHandler, useClass: IonicErrorHandler },
     //Mock services
     //{ provide: PictureService, useClass: PictureDeviceService },
     LicencesService,

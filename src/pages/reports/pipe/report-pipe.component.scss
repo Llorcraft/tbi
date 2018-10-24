@@ -22,23 +22,6 @@
   }
 }
 
-ion-alert.ion-dialog-horizontal {
-  .alert-button-group-vertical {
-    flex-direction: row;
-    justify-content: space-between;
-
-    button.alert-button {
-      margin: .5rem 0;
-      max-width: 33%;
-      text-align: center;
-
-      .button-inner {
-        flex-flow: column;
-      }
-    }
-  }
-}
-
 [fixed-segment] {
   padding-top: 67px !important;
 

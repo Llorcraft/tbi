@@ -1,11 +1,13 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, ViewEncapsulation } from '@angular/core';
+import { BaseReportPage } from '../../../../models/reports';
 
 @Component({
   selector: 'report-header',
-  templateUrl: './report-header.component.html'
+  templateUrl: './report-header.component.html',
+  encapsulation: ViewEncapsulation.None
 })
 export class ReportHeaderComponent {
 
-  @Input() name: string
+  @Input() parent: BaseReportPage;
 
 }

@@ -4,9 +4,7 @@ export class Marker {
   public y: number = 0;
   public temperature?: number = null;
   public get hasValue(): boolean {
-    return 'null' != String(this.temperature)
-      && 'undefined' != typeof String(this.temperature.toString)
-      && '' != String(this.temperature);
+    return !isNaN(parseFloat(String(this.temperature)));
   }
 
   public get position(): string {

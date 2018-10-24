@@ -37,7 +37,7 @@ export class SummaryPage {
     orientation: ScreenOrientation) {
 
     this.project = this.navParams.get('project');
-    this.components = this.project.components || [];
+    this.components = (this.project.components || []).sort((a, b) => a.date < b.date ? 1 : -1);
 
     this.components.filter(c => !!c.result && !c.fields.unknow_surface)
       .map(c => c.result)
@@ -64,18 +64,18 @@ export class SummaryPage {
   }
 
   ellipsis(text: string, size: number = 30): string {
-    return text.length + 3  <= size ? text: text.substr(0, size) + '...';
+    return text.length + 3 <= size ? text : text.substr(0, size) + '...';
   }
   protected remove(cl: TbiComponent, event: Event) {
     event.preventDefault();
     event.cancelBubble = true;
-    
+
     let confirm = this.alertCtrl.create({
       //title: `Remove`,
       message: `Do you agree to remove permanently '${cl.fields.location}' component?`,
       buttons: [
         {
-          text: 'Agree',
+          text: 'Yes',
           handler: () => {
             this.components = this.components.filter(c => c !== cl);
             this.project.components = this.project.components.filter(c => c !== cl);
@@ -83,7 +83,8 @@ export class SummaryPage {
           }
         },
         {
-          text: 'Disagree',
+          text: 'No',
+          role: 'cancel'
         }
       ]
     });

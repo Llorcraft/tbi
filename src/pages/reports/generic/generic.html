@@ -1,17 +1,4 @@
-<ion-header>
-  <ion-navbar hideBackButton>
-    <ion-title>
-      {{report.summary_id}}
-    </ion-title>
-    <ion-buttons end>
-      <button ion-button color="light" on-tap="take_picture()">
-        <ion-icon name="md-camera"></ion-icon>&nbsp;Take a picture
-      </button>
-    </ion-buttons>
-  </ion-navbar>
-
-
-</ion-header>
+<report-header [parent]="this"></report-header>
 
 <ion-content>
 
@@ -38,12 +25,19 @@
               </ion-item>
             </ion-col>
           </ion-row>
+          <ion-row [hidden]="true">
+            <ion-col>
+              <ion-item>
+                <ion-input type="hidden" name="pictures" required data-val-required="Please take a picture" [(ngModel)]="picture_qty"></ion-input>
+              </ion-item>
+            </ion-col>
+          </ion-row>
           <ion-row>
             <ion-col col-10>
               <ion-item>
                 <ion-label stacked>Comment</ion-label>
-                <ion-textarea rows="6" tabindex="3" (ionFocus)="on_focus($event)" [(ngModel)]="report.comment"
-                  name="comment" required data-val-required="Please input a comment"></ion-textarea>
+                <ion-textarea rows="6" tabindex="3"  (ionFocus)="on_focus($event)" [(ngModel)]="report.comment"
+                  name="comment"></ion-textarea>
               </ion-item>
             </ion-col>
           </ion-row>

@@ -1,7 +1,7 @@
 export const More =
 {
     MATERIALS: [
-        ['Default value  [0.80]', 10000000000, 0.80],
+        ['General value  [0.80]', 10000000000, 0.80],
         ['Metallic bright   [0.30]', 10000000001, 0.30],
         ['Metallic   [0.60]', 10000000002, 0.60],
         ['Corroded  [0.80]', 10000000003, 0.80],

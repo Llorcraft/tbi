@@ -11,12 +11,13 @@ export class TbiComponent {
     public reports: ReportBase[] = [];
     public fields: Fields = new Fields();
     public markers: Marker[];
+    public date: Date = new Date();
 
     private flatten(arr: any[]): any[] {
         return [].concat.apply([], arr);
     }
 
-    public get is_hot():boolean{
+    public get is_hot(): boolean {
         return (this.fields.surface_temp || 0) > 35
     }
     public get result(): Result {
@@ -69,6 +70,7 @@ export class TbiComponent {
         if (!!item) {
             this.fields = new Fields(item.fields);
             this.project = project;
+            if (!!item.date) this.date = item.date instanceof Date ? item.date : new Date(String(item.date))
             this.id = item.id || Math.random().toString().substr(2);
             this.reports = (item.reports || []).map(r => new ReportBase(project, this, r));
             this.markers = (item.markers || []).map(m => new Marker(m));

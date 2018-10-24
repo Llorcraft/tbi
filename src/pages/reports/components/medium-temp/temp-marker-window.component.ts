@@ -1,7 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { Marker } from './../../../../models/marker';
 import { ViewController, NavParams, Keyboard } from 'ionic-angular';
 import { ScrollToComponent } from '../../../scroll_to_component.class';
+import { Patterns } from '../../../../const/patterns';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'markers-window',
@@ -9,7 +11,8 @@ import { ScrollToComponent } from '../../../scroll_to_component.class';
 })
 
 export class ReportTempMarkersWindowComponent extends ScrollToComponent {
-
+  @ViewChild(NgForm)form: NgForm;
+  public patterns: any = Patterns;
   protected markers: any[] = [];
   protected get disabled(): boolean {
     return this.markers.filter(m => m.hasValue).length === 0;
@@ -23,8 +26,8 @@ export class ReportTempMarkersWindowComponent extends ScrollToComponent {
 
   public on_focus(event: any) {
     const elm = event._elementRef.nativeElement
-    const offset = 40;
-    elm.closest('.scroll-content').scrollTo(0, elm.closest('.scroll-content').scrollTop - 50);
+    const offset = 100;
+    elm.closest('.scroll-content').scrollTo(0, elm.closest('.scroll-content').scrollTop - offset);
     this.scroll(elm.closest('.scroll-content'), elm.closest('.scroll-content').scrollTop + elm.closest('ion-item').getBoundingClientRect().top - offset);
   }
 

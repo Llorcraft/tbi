@@ -9,6 +9,7 @@ import { ReportsPage } from '../reports';
 import { ReportCategory, ReportBase } from '../../models';
 import { UniqueDeviceID } from '@ionic-native/unique-device-id';
 import { LicencesService } from '../../services/licences.service';
+import { DownloadPage } from '../download/download';
 
 @Component({
   selector: 'page-project',
@@ -177,16 +178,17 @@ export class ProjectsPage extends ProjectPageBase {
   }
 
   public create_db(): void {
-    this.service.create_database().then(blob => {
-      var a = document.createElement("a"),
-        url = URL.createObjectURL(blob);
-      a.href = url;
-      a.download = 'db.txt';
-      a.click();
-      setTimeout(function () {
-        window.URL.revokeObjectURL(url);
-      }, 0);
-    })
+    this.navCtrl.push(DownloadPage);
+    // this.service.create_database().then(blob => {
+    //   var a = document.createElement("a"),
+    //     url = URL.createObjectURL(blob);
+    //   a.href = url;
+    //   a.download = 'db.zip';
+    //   a.click();
+    //   setTimeout(function () {
+    //     window.URL.revokeObjectURL(url);
+    //   }, 0);
+    // })
   }
 
   after_delete() {

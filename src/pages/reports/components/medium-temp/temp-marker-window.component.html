@@ -2,10 +2,13 @@
   <form novalidate #form="ngForm">
   <ion-grid>
     <ion-row>
-      <ion-col col-6  *ngFor="let m of markers; let i=index">
+      <ion-col col-6 *ngFor="let m of markers; let i=index">
         <ion-item>
           <ion-label stacked>P{{(i + 1).toString().padStart(2, '0')}}</ion-label>
-          <ion-input (ionFocus)="on_focus($event)" (keyup.enter)="on_keypress($event)" [ngModelOptions]="{standalone: true}" name="point" [(ngModel)]="m.marker.temperature" type="number"></ion-input>
+          <ion-input (ionFocus)="on_focus($event)" (keyup.enter)="on_keypress($event)" [ngModelOptions]="{standalone: true}" [name]="'point_' + i" 
+          [(ngModel)]="m.marker.temperature" 
+          [pattern]="patterns.REQUIRED_NUMBER" data-val-pattern="Please input a valid temperature" 
+          type="tel"></ion-input>
         </ion-item>
       </ion-col>
     </ion-row>

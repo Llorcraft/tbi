@@ -11,7 +11,7 @@ export class MessageService {
             message: message,
             buttons: [
               {
-                text: 'Agree'
+                text: 'Ok'
               }
             ]
           });

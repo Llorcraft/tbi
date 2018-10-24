@@ -8,12 +8,14 @@ export class TbiComponentJson {
     public reports: ReportBaseJson[] = [];
     public fields: Fields = new Fields();
     public markers: Marker[];
+    public date: Date;
 
     constructor(item: Partial<TbiComponent>) {
         this.id = item.id;
         this.reports = (item.reports || []).map(r => new ReportBaseJson(r))
         this.fields = new Fields(item.fields);
         this.markers = (item.markers || []).map(m => new Marker(m));
+        this.date = item.date || new Date();
     }
 
 }

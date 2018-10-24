@@ -1,16 +1,16 @@
 import { Injectable, EventEmitter } from '@angular/core';
 import { MessageService } from './messages.service';
-import { File, FileEntry } from '@ionic-native/file'
+import { File, FileEntry, Entry } from '@ionic-native/file'
 import { FileService } from './file.service';
 import { FileChooser } from '@ionic-native/file-chooser';
 import { FilePath } from '@ionic-native/file-path';
 import { Document } from '../models';
 import { FileTransfer } from '@ionic-native/file-transfer';
 import * as JSZip from 'jszip';
+import { Picture } from '../models/picture';
 
 @Injectable()
 export class FileDeviceService extends FileService {
-    private working_folder: string;
     private download_emiter: EventEmitter<boolean> = new EventEmitter<boolean>();
     private total_files: string[] = [];
 
@@ -22,6 +22,17 @@ export class FileDeviceService extends FileService {
         this.create_folder('pictures');
     }
 
+    public async get_documents(): Promise<Document[]> {
+        return new Promise<Document[]>((resolve) => {
+            this.files_in(`files`)
+                .then(files =>
+                    resolve(files.map(f => new Document({
+                        file: f.name,
+                        folder: f.fullPath.replace(f.name, '')
+                    }))))
+        });
+    }
+
     public create_picture(uri: string): Promise<Document> {
         return new Promise<Document>((resolve) => {
 
@@ -31,7 +42,9 @@ export class FileDeviceService extends FileService {
 
                     this.transfer.create().download(uri, `${this.working_folder}pictures/${file}`)
                         .then(() => resolve(new Document({ file: file, folder: `${this.working_folder}pictures` })))
-                        .catch(() => this.message.alert('Error', 'No access permission to source file.\nTry select file from another location.'))
+                        .catch((ex) => {
+                            throw ex;
+                        })
                 });
         });
     }
@@ -46,8 +59,8 @@ export class FileDeviceService extends FileService {
 
                     this.transfer.create().download(uri, `${this.working_folder}files/${file}`)
                         .then(() => resolve(new Document({ file: file, folder: `${this.working_folder}files` })))
-                        .catch(() => this.message.alert('Error', 'No access permission to source file.\nTry select file from another location.'))
-                    //.catch(ex => this.message.alert('Error', JSON.stringify(ex, null, 2)));
+                        .catch(ex => { throw ex; })
+                        .catch(ex => { throw ex; });
                 });
         });
     }
@@ -56,7 +69,7 @@ export class FileDeviceService extends FileService {
         try {
             this.file.createDir(this.working_folder, type, false);
         } catch (ex) {
-            this.message.alert('Error', `${type}\n${ex.message}`);
+            throw ex;
         }
     }
 
@@ -80,20 +93,30 @@ export class FileDeviceService extends FileService {
                         .then(r => resolve(r))
                         .catch(ex => {
                             reject(ex.message);
-                            this.message.alert('Error create file', JSON.stringify(ex, null, 2));
+                            throw ex;
                         })
                 });
-        })
-
+        });
     }
 
-    public delete(file: Document): Promise<boolean> {
+    private split_path(path: string): any {
+        let _split = path.split('/');
+        return {
+            file: _split[_split.length - 1],
+            folder: path.replace(_split[_split.length - 1], '')
+        }
+    }
+
+    public delete(file: Document | Picture): Promise<boolean> {
+        const _folder = file instanceof Document ? file.folder : this.split_path(file.picture).folder;
+        const _file = file instanceof Document ? file.file : this.split_path(file.picture).file;
+
         return new Promise<boolean>((resolve, reject) => {
-            this.file.removeFile(file.folder, file.file)
+            this.file.removeFile(_folder, _file)
                 .then(r => resolve(r.success))
-                .catch((ex) => {
-                    this.message.alert('Error', ex.message);
+                .catch(ex => {
                     reject(ex.message);
+                    throw ex;
                 })
         });
     }
@@ -105,7 +128,7 @@ export class FileDeviceService extends FileService {
                 .then(r => resolve(r))
                 .catch(ex => {
                     reject(ex.message);
-                    this.message.alert('Error read file', JSON.stringify(ex, null, 2));
+                    throw ex;
                 });
         });
     }
@@ -117,7 +140,7 @@ export class FileDeviceService extends FileService {
                 .then(() => resolve(true))
                 .catch(ex => {
                     reject(ex);
-                    this.message.alert('Error write file', JSON.stringify(ex, null, 2));
+                    throw ex;
                 });
         });
     }
@@ -173,7 +196,11 @@ export class FileDeviceService extends FileService {
         });
     }
 
-    public async files_in(folder: string) {
-        return await this.file.listDir(this.working_folder, folder)
+    public files_in(folder: string): Promise<Entry[]> {
+        return new Promise<Entry[]>(resolve => {
+            this.file.listDir(this.working_folder, folder)
+                .then(e => resolve(e))
+                .catch(ex => { throw ex; });
+        });
     }
 }

@@ -24,6 +24,7 @@ export class ReportEditPictureComponent {
                 //title: 'Temperature',
                 message: `This component already has ${this.max_markers} temperature markers`,
                 cssClass: `ion-dialog-horizontal`,
+                enableBackdropDismiss: false,
                 buttons: [
                     {
                         text: 'Ok',
@@ -43,13 +44,14 @@ export class ReportEditPictureComponent {
         if (!this.report.path.match(/(surface|pipe|valve|flange)/gi)) return;
         let alert = this.alertCtrl.create({
             //title: 'Enter temperature',
-            cssClass: `ion-dialog-horizontal mt-4`,
+            cssClass: `ion-dialog-horizontal margin-top`,
+            enableBackdropDismiss: false,
             inputs: [
                 {
                     name: 'temperature',
                     placeholder: 'ºC',
-                    type: 'number',
-                    value: !!marker ? marker.temperature.toString() : ''
+                    type: 'tel',
+                    value: !isNaN(parseFloat(String(marker))) ? marker.temperature.toString() : ''
                 }
             ],
             buttons: [
@@ -60,7 +62,7 @@ export class ReportEditPictureComponent {
                 {
                     text: 'Ok',
                     handler: (data) => {
-                        if (data.temperature === '') return
+                        if (isNaN(parseFloat(String(data.temperature)))) return
                         if (!!marker) {
                             marker.temperature = data.temperature;
                         } else {

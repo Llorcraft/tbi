@@ -3,10 +3,19 @@ import { ModelWithPicture } from "./model-with-picture";
 
 export class Picture extends ModelWithPicture {
   public markers: Marker[] = [];
+  public get file(): string {
+    const _split = (this.picture || '').split('/');
+    if (_split.length < 2) return '';
+    return _split[_split.length-1];
+  }
+  public get folder(): string {
+    if(!this.picture) return '';
+    return this.picture.replace(this.file, '');
+  }
   public get has_markers(): boolean {
     return !!this.markers.filter(m => m.hasValue).length;
   }
-  public get markers_with_values(): Marker[]{
+  public get markers_with_values(): Marker[] {
     return this.markers.filter(m => m.hasValue);
   }
   public get min_temp(): number {

@@ -10,10 +10,11 @@ export class InitPage {
   public user_name: string = '';
   constructor(
     public appCtrl: NavController) {
-      this.save();
+      //this.save();
   }
 
   public save(): void {
+    localStorage.setItem('tbi-user', this.user_name);
     this.appCtrl.setRoot(ProjectsPage, { user_name: this.user_name });
   }
 }

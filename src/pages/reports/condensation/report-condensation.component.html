@@ -1,17 +1,4 @@
-<ion-header>
-  <ion-navbar hideBackButton>
-    <ion-title>
-      {{report.name}}
-    </ion-title>
-    <ion-buttons end>
-      <button ion-button color="light" on-tap="take_picture()">
-        <ion-icon name="md-camera"></ion-icon>&nbsp;Take a picture
-      </button>
-    </ion-buttons>
-  </ion-navbar>
-
-
-</ion-header>
+<report-header [parent]="this"></report-header>
 
 <ion-content>
 
@@ -71,7 +58,8 @@
               <ion-item>
                 <ion-label stacked>Medium temperature (<sup>º</sup>C)</ion-label>
                 <ion-input tabindex="6" (ionFocus)="on_focus($event)" (keyup.enter)="on_keypress($event)" name="surface_temp"
-                  [(ngModel)]="report.component.fields.surface_temp" type="number"></ion-input>
+                  [pattern]="patterns.REQUIRED_NUMBER" data-val-pattern="Please input a valid Medium temperature" 
+                  [(ngModel)]="report.component.fields.surface_temp" type="tel"></ion-input>
               </ion-item>
             </ion-col>
           </ion-row>

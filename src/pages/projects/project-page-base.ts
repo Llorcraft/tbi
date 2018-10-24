@@ -21,13 +21,14 @@ export class ProjectPageBase extends ScrollToComponent {
       message: `Do you agree to remove permanently '${project.name}'?`,
       buttons: [
         {
-          text: 'Agree',
+          text: 'Yes',
           handler: () => {
             this.delete(project);
           }
         },
         {
-          text: 'Disagree',
+          text: 'No',
+          role: 'candel'
         }
       ]
     });
