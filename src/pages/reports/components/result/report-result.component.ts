@@ -1,6 +1,6 @@
 import { Component, Input} from '@angular/core';
-import { ReportBase } from '../../../../models';
 import { NON_PICTURE } from '../../../../const/images/non-picture';
+import { BaseReportPage } from '../../../../models/reports';
 
 @Component({
     selector: 'report-result',
@@ -8,9 +8,9 @@ import { NON_PICTURE } from '../../../../const/images/non-picture';
 })
 
 export class ReportResultComponent {
-    @Input() report: ReportBase;
+    @Input() parent: BaseReportPage;
     protected get first_picture(): string{
-        return this.report.pictures.length ? this.report.pictures[0].picture : NON_PICTURE;
+        return this.parent.report.pictures.length ? this.parent.report.pictures[0].picture : NON_PICTURE;
     } 
     constructor() { }
 

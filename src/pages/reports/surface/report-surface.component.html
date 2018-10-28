@@ -99,7 +99,7 @@
       
 
       <report-errors padding #errors col-12 [hidden]="view=='!result' && report.result"></report-errors>
-      <report-result col-12 [report]="report" *ngIf="view=='result' && (!!form && !form.invalid)"></report-result>
+      <report-result col-12 [parent]="this" *ngIf="view=='result' && (!!form && !form.invalid)"></report-result>
       </ion-col>
 
     </ion-row>

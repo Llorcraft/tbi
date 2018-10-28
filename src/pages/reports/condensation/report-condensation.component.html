@@ -16,6 +16,13 @@
             </ion-col>
             <ion-col col-12></ion-col>
           </ion-row>
+          <ion-row [hidden]="true">
+            <ion-col>
+              <ion-item>
+                <ion-input type="hidden" name="pictures" required data-val-required="Please take a picture" [(ngModel)]="picture_qty"></ion-input>
+              </ion-item>
+            </ion-col>
+          </ion-row>
           <ion-row>
             <ion-col col-10>
               <ion-item>

@@ -1,15 +1,15 @@
 <ion-grid>
   <ion-row>
-    <ion-col col-4 img-container [style.backgroundImage]="'url('+ first_picture +')'"></ion-col>
+    <ion-col col-4 on-tap="parent.view='form'" img-container [style.backgroundImage]="'url('+ first_picture +')'"></ion-col>
 
     <ion-col col-8>
       <ion-row head-lost>
         <h1 col-12 no-padding no-margin class="text-center">Heat loss</h1>
         <ion-col col-10 text-center>
-          <span>{{ report.result.headLost.power | number: '1.0-0'}} {{report.potential_measure}}</span>
+          <span>{{ parent.report.result.headLost.power | number: '1.0-0'}} {{parent.report.potential_measure}}</span>
         </ion-col>
         <ion-col col-10 text-center>
-          <span>{{ report.result.headLost.money | number: '1.0-0'}} {{report.money_measure}}</span>
+          <span>{{ parent.report.result.headLost.money | number: '1.0-0'}} {{parent.report.money_measure}}</span>
         </ion-col>
       </ion-row>
     </ion-col>
@@ -22,24 +22,24 @@
     <ion-col col-12>
       <ion-row>
         <ion-col col-3 text-right>
-          <span>{{ report.result.savingPotentialMin.power | number: '1.0-0'}}</span>
+          <span>{{ parent.report.result.savingPotentialMin.power | number: '1.0-0'}}</span>
         </ion-col>
         <ion-col col-2 text-center>
           <ion-icon name="md-arrow-forward"></ion-icon>
         </ion-col>
         <ion-col col-7 text-left>
-          <span>{{ report.result.savingPotentialMax.power | number: '1.0-0'}} {{report.potential_measure}}</span>
+          <span>{{ parent.report.result.savingPotentialMax.power | number: '1.0-0'}} {{parent.report.potential_measure}}</span>
         </ion-col>
       </ion-row>
       <ion-row>
         <ion-col col-3 text-right>
-          <span style="white-space: nowrap">{{ report.result.savingPotentialMin.money | number: '1.0-0'}}</span>
+          <span style="white-space: nowrap">{{ parent.report.result.savingPotentialMin.money | number: '1.0-0'}}</span>
         </ion-col>
         <ion-col col-2 text-center>
           <ion-icon name="md-arrow-forward"></ion-icon>
         </ion-col>
         <ion-col col-7 text-left>
-          <span style="white-space: nowrap">{{ report.result.savingPotentialMax.money | number: '1.0-0'}} {{report.money_measure}}</span>
+          <span style="white-space: nowrap">{{ parent.report.result.savingPotentialMax.money | number: '1.0-0'}} {{parent.report.money_measure}}</span>
         </ion-col>
       </ion-row>
     </ion-col>
@@ -47,7 +47,7 @@
 
   <ion-row>
     <ion-col message>
-      <h4> {{report.result.advise}}</h4>
+      <h4> {{parent.report.result.advise}}</h4>
     </ion-col>
   </ion-row>
 

@@ -1,12 +1,12 @@
 page-summary {
   .scroll-content {
     overflow: auto;
-    padding: 1rem;
+    padding: 0 1rem 1rem;
   }
 
   .summary-total {
-    position: fixed;
-    top: 40px;
+    //position: fixed;
+    //top: 40px;
   }
 
   table.data {
@@ -16,7 +16,7 @@ page-summary {
     font-size: 1rem;
     background: #fff;
     border-bottom: 1px solid #444;
-    margin-top: 130px;
+    margin-top: 0;
     tr {
       
         td[double-border] {

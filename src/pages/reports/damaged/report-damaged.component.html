@@ -3,58 +3,71 @@
 <ion-content>
 
   <ion-grid [hidden]="view=='edit_picture'" class="fixed-col">
-    <ion-row >
+    <ion-row>
       <ion-col col-12 col-md-6 no-padding>
         <form novalidate #form="ngForm" [hidden]="segment!='input'" (submit)="calculate()">
           <ion-row>
             <ion-col col-10>
               <ion-item>
                 <ion-label stacked>Component/Location</ion-label>
-                <ion-input [disabled]="!editable" tabindex="1" (ionFocus)="on_focus($event)" name="location" required data-val-required="Please input Component/Location"
-                  [(ngModel)]="report.component.fields.location" type="text"></ion-input>
+                <ion-input [disabled]="!editable" tabindex="1" (ionFocus)="on_focus($event)" name="location" required
+                  data-val-required="Please input Component/Location" [(ngModel)]="report.component.fields.location"
+                  type="text"></ion-input>
               </ion-item>
             </ion-col>
             <ion-col col-12></ion-col>
           </ion-row>
           <ion-row>
-              <ion-col col-10>
-                <ion-item>
-                  <ion-label stacked>Summary Id</ion-label>
-                  <ion-input tabindex="2" (ionFocus)="on_focus($event)" name="summary_id" [(ngModel)]="report.summary_id" required data-val-required="Please input summary id"
-                    type="text"></ion-input>
-                </ion-item>
-              </ion-col>
-            </ion-row>
+            <ion-col col-10>
+              <ion-item>
+                <ion-label stacked>Summary Id</ion-label>
+                <ion-input tabindex="2" (ionFocus)="on_focus($event)" name="summary_id" [(ngModel)]="report.summary_id"
+                  required data-val-required="Please input summary id" type="text"></ion-input>
+              </ion-item>
+            </ion-col>
+          </ion-row>
+          <ion-row [hidden]="true">
+            <ion-col>
+              <ion-item>
+                <ion-input type="hidden" name="pictures" required data-val-required="Please take a picture" [(ngModel)]="picture_qty"></ion-input>
+              </ion-item>
+            </ion-col>
+          </ion-row>
           <ion-row>
             <ion-col col-10>
               <ion-item>
                 <ion-label stacked>Operational time (hours)</ion-label>
-                <ion-input [disabled]="!editable" tabindex="2" (ionFocus)="on_focus($event)" required data-val-required="Please input operational time" name="operational_time" [(ngModel)]="report.component.fields.operational_time"
-                  type="number"></ion-input>
+                <ion-input [disabled]="!editable" tabindex="2" (ionFocus)="on_focus($event)"
+                  name="operational_time" [(ngModel)]="report.component.fields.operational_time" type="number"></ion-input>
               </ion-item>
             </ion-col>
             <ion-col col-2>
-              <more pull-left *ngIf="editable" #time (change)="report.component.fields.operational_time=time.value" [type]="'time'" modal-button></more>
+              <more pull-left *ngIf="editable" #time (change)="report.component.fields.operational_time=time.value"
+                [type]="'time'" modal-button></more>
             </ion-col>
           </ion-row>
           <ion-row>
             <ion-col col-10>
               <ion-item class="edit_surface_material" [class.editable]="edit_surface_material">
                 <ion-label stacked>Surface material [ε]</ion-label>
-                <ion-input [disabled]="!editable" tabindex="5" class="literal" (ionFocus)="on_focus($event);toggle_surface_material(true)" [value]="report.component.fields.surface_material_friendly" type="text"></ion-input>
-                <ion-input [disabled]="!editable" tabindex="6" class="numeric" (ionFocus)="on_focus($event)" (focusout)="toggle_surface_material(false)" name="surface_material" required data-val-required="Please input surface emissivity" [(ngModel)]="report.component.fields.surface_material" type="number" (change)="set_surface_material(report.component.fields.surface_material, $event)"></ion-input>
+                <ion-input [disabled]="!editable" tabindex="5" class="literal" (ionFocus)="on_focus($event);toggle_surface_material(true)"
+                  [value]="report.component.fields.surface_material_friendly" type="text"></ion-input>
+                <ion-input [disabled]="!editable" tabindex="6" class="numeric" (ionFocus)="on_focus($event)" (focusout)="toggle_surface_material(false)"
+                  name="surface_material" [(ngModel)]="report.component.fields.surface_material"
+                  type="number" (change)="set_surface_material(report.component.fields.surface_material, $event)"></ion-input>
               </ion-item>
             </ion-col>
             <ion-col col-2>
-              <more pull-left *ngIf="editable"  #material (change)="set_surface_material(material.value, $event)" [type]="'materials'" modal-button></more>
+              <more pull-left *ngIf="editable" #material (change)="set_surface_material(material.value, $event)" [type]="'materials'"
+                modal-button></more>
             </ion-col>
           </ion-row>
           <ion-row>
             <ion-col col-10>
               <ion-item>
                 <ion-label stacked>Medium temperature (<sup>º</sup>C)</ion-label>
-                  <ion-input [disabled]="!editable" tabindex="7" (ionFocus)="on_focus($event)" scroll="-80" name="surface_temp" 
-                  [pattern]="patterns.REQUIRED_NUMBER" data-val-pattern="Please input a valid Medium temperature" 
+                <ion-input [disabled]="!editable" tabindex="7" (ionFocus)="on_focus($event)" scroll="-80" name="surface_temp"
+                  [pattern]="patterns.REQUIRED_NUMBER" data-val-pattern="Please input a valid Medium temperature"
                   [(ngModel)]="report.component.fields.surface_temp" type="tel"></ion-input>
               </ion-item>
             </ion-col>
@@ -63,120 +76,133 @@
             <ion-col col-10>
               <ion-item>
                 <ion-label stacked style="margin-top: 1.4rem;color: #999;">Damaged cladding</ion-label>
-                  <ion-toggle [(ngModel)]="report.component.fields.damaged_cladding" name="damaged_cladding"></ion-toggle>
+                <ion-toggle [(ngModel)]="report.component.fields.damaged_cladding" name="damaged_cladding"></ion-toggle>
               </ion-item>
             </ion-col>
-          </ion-row>    
+          </ion-row>
           <ion-row *ngIf="report.component.fields.damaged_cladding">
             <ion-col col-9 offset-1>
               <ion-list radio-group [(ngModel)]="report.component.fields.damaged_cladding_selection" name="radio-cladding">
-               <ion-item>
+                <ion-item>
                   <ion-label>Lack of cladding</ion-label>
                   <ion-radio value="1"></ion-radio>
                 </ion-item>
-              
+
                 <ion-item>
                   <ion-label>Foot traffic/Dent</ion-label>
                   <ion-radio value="2"></ion-radio>
                 </ion-item>
-              
+
                 <ion-item>
                   <ion-label>Highly corred</ion-label>
                   <ion-radio value="3"></ion-radio>
                 </ion-item>
-              
+
                 <ion-item>
                   <ion-label>Other</ion-label>
                   <ion-radio value="4"></ion-radio>
                 </ion-item>
 
                 <ion-item *ngIf="report.component.fields.damaged_cladding_selection==4">
-                  <ion-input tabindex="10" id="damaged_cladding_other_input" (ionChange)="set_damaged_cladding_other($event)" [(ngModel)]="damaged_cladding_other" scroll="-80" name="damaged_cladding_other" placeholder="Comments"></ion-input>
-              </ion-item>
-              
+                  <ion-input tabindex="10" id="damaged_cladding_other_input" (ionChange)="set_damaged_cladding_other($event)"
+                    [(ngModel)]="damaged_cladding_other" scroll="-80" name="damaged_cladding_other" placeholder="Comments"></ion-input>
+                </ion-item>
+
               </ion-list>
             </ion-col>
           </ion-row>
-      
-              
+
+
           <ion-row>
             <ion-col col-10>
               <ion-item>
                 <ion-label stacked style="margin-top: 1.4rem;color: #999;">Damaged insulation</ion-label>
-                  <ion-toggle [(ngModel)]="report.component.fields.damaged_insulation" name="damaged_insulation"></ion-toggle>
+                <ion-toggle [(ngModel)]="report.component.fields.damaged_insulation" name="damaged_insulation"></ion-toggle>
               </ion-item>
             </ion-col>
           </ion-row>
 
           <ion-row *ngIf="report.component.fields.damaged_insulation">
             <ion-col col-9 offset-1>
-                <ion-list radio-group [(ngModel)]="report.component.fields.damaged_insulation_selection" name="radio-cladding">
-                    <ion-item>
-                       <ion-label>Lack of insulation</ion-label>
-                       <ion-radio value="1"></ion-radio>
-                     </ion-item>
-                   
-                     <ion-item>
-                       <ion-label>Wet insulation</ion-label>
-                       <ion-radio value="2"></ion-radio>
-                     </ion-item>
-                   
-                     <ion-item>
-                       <ion-label>Old insulation</ion-label>
-                       <ion-radio value="3"></ion-radio>
-                     </ion-item>
-                   
-                     <ion-item>
-                       <ion-label>Other</ion-label>
-                       <ion-radio value="4"></ion-radio>
-                     </ion-item>
-        
-                     <ion-item *ngIf="report.component.fields.damaged_insulation_selection==4">
-                        <ion-input tabindex="11" id="damaged_insulation_other_input" (ionChange)="set_damaged_insulation_other($event)" [(ngModel)]="damaged_insulation_other" scroll="-80" name="damaged_insulation_other" placeholder="Comments"></ion-input>
-                   </ion-item>
-                   
-                  </ion-list>
-              </ion-col>
+              <ion-list radio-group [(ngModel)]="report.component.fields.damaged_insulation_selection" name="radio-cladding">
+                <ion-item>
+                  <ion-label>Lack of insulation</ion-label>
+                  <ion-radio value="1"></ion-radio>
+                </ion-item>
+
+                <ion-item>
+                  <ion-label>Wet insulation</ion-label>
+                  <ion-radio value="2"></ion-radio>
+                </ion-item>
+
+                <ion-item>
+                  <ion-label>Old insulation</ion-label>
+                  <ion-radio value="3"></ion-radio>
+                </ion-item>
+
+                <ion-item>
+                  <ion-label>Other</ion-label>
+                  <ion-radio value="4"></ion-radio>
+                </ion-item>
+
+                <ion-item *ngIf="report.component.fields.damaged_insulation_selection==4">
+                  <ion-input tabindex="11" id="damaged_insulation_other_input" (ionChange)="set_damaged_insulation_other($event)"
+                    [(ngModel)]="damaged_insulation_other" scroll="-80" name="damaged_insulation_other" placeholder="Comments"></ion-input>
+                </ion-item>
+
+              </ion-list>
+            </ion-col>
           </ion-row>
 
           <ion-row>
-              <ion-col col-10>
-                <ion-item>
-                  <ion-label stacked>Main dimension (m<sup>2</sup>)</ion-label>
-                  <ion-input type="number" tabindex="8" (ionFocus)="on_focus($event)" (keyup.enter)="on_keypress($event)" name="main_dimension" [(ngModel)]="report.component.fields.main_dimension"></ion-input>
-                </ion-item>
-              </ion-col>
-            </ion-row>
+            <ion-col col-10>
+              <ion-item>
+                <ion-label stacked>Main dimension (m<sup>2</sup>)</ion-label>
+                <ion-input type="number" tabindex="8" (ionFocus)="on_focus($event)" (keyup.enter)="on_keypress($event)"
+                  name="main_dimension" [(ngModel)]="report.component.fields.main_dimension"></ion-input>
+              </ion-item>
+            </ion-col>
+          </ion-row>
 
         </form>
       </ion-col>
       <ion-col col-12 col-md-6 no-padding>
         <ion-row>
-            <ion-col  *ngIf="view!='result' && (!errors || !errors.errors.length)" col-12 picture-slide  [report]="report" [editable]="editable"  (onStartEdit)="on_picture_start_edit($event)"></ion-col>
+          <ion-col *ngIf="view!='result' && (!errors || !errors.errors.length)" col-12 picture-slide [report]="report"
+            [editable]="editable" (onStartEdit)="on_picture_start_edit($event)"></ion-col>
         </ion-row>
 
-      <report-errors padding #errors col-12 [hidden]="view=='!result' && report.result"></report-errors>
+        <report-errors padding #errors col-12 [hidden]="view=='!result' && report.result"></report-errors>
 
-      <ion-row col-12 p-4 *ngIf="view=='result' && (!!form && !form.invalid)" mx-3>
-        
-        <ion-col col-4 img-container [style.backgroundImage]="'url('+ first_picture +')'"></ion-col>
-        <ion-col col-8 class="damaged-result" *ngIf="report.component.fields.damaged_cladding">Cladding holds insualtion in place an protect it from external agents ensuring its performance.</ion-col>
-        <ion-col col-12 class="damaged-result" *ngIf="report.component.fields.damaged_cladding_selection == 1">The insulation is not protected anymore, water or other agent could get in.</ion-col>
-        <ion-col col-12 class="damaged-result" *ngIf="report.component.fields.damaged_cladding_selection == 2">There is a reduction of the insulation thickness, higher energy conmsuption. The system is not watertight anhmore.</ion-col>
-        <ion-col col-12 class="damaged-result" *ngIf="report.component.fields.damaged_cladding_selection == 3">Probably, there is a leak above in the system. Jacketing as a protecting layer gets weaker.</ion-col>
+        <ion-row col-12 p-4 *ngIf="view=='result' && (!!form && !form.invalid)" mx-3>
 
-        <ion-col col-8 class="damaged-result" *ngIf="report.component.fields.damaged_insulation">Any damage in the insulant leads to reduce its thermal performance and to increase the energy consumption.</ion-col>
-        <ion-col col-12 class="damaged-result" *ngIf="report.component.fields.damaged_insulation_selection == 1">A lack of insulation in a system means an easy way out/in for the heat increasing the energy consumption.</ion-col>
-        <ion-col col-12 class="damaged-result" *ngIf="report.component.fields.damaged_insulation_selection == 2">Moisture inside the insulation structure can reduce the thermal performance up to 50% and increase the risk of CUI.</ion-col>
-        <ion-col col-12 class="damaged-result" *ngIf="report.component.fields.damaged_insulation_selection == 3">Heat cycles and external condition changes affect the estructure of the insulant reducing its performance.</ion-col>
+          <ion-col col-4 img-container [style.backgroundImage]="'url('+ first_picture +')'"></ion-col>
+          <ion-col col-8 class="damaged-result" *ngIf="report.component.fields.damaged_cladding">Cladding holds
+            insualtion in place an protect it from external agents ensuring its performance.</ion-col>
+          <ion-col col-12 class="damaged-result" *ngIf="report.component.fields.damaged_cladding_selection == 1">The
+            insulation is not protected anymore, water or other agent could get in.</ion-col>
+          <ion-col col-12 class="damaged-result" *ngIf="report.component.fields.damaged_cladding_selection == 2">There
+            is a reduction of the insulation thickness, higher energy conmsuption. The system is not watertight
+            anhmore.</ion-col>
+          <ion-col col-12 class="damaged-result" *ngIf="report.component.fields.damaged_cladding_selection == 3">Probably,
+            there is a leak above in the system. Jacketing as a protecting layer gets weaker.</ion-col>
 
-      </ion-row>
+          <ion-col col-8 class="damaged-result" *ngIf="report.component.fields.damaged_insulation">Any damage in the
+            insulant leads to reduce its thermal performance and to increase the energy consumption.</ion-col>
+          <ion-col col-12 class="damaged-result" *ngIf="report.component.fields.damaged_insulation_selection == 1">A
+            lack of insulation in a system means an easy way out/in for the heat increasing the energy consumption.</ion-col>
+          <ion-col col-12 class="damaged-result" *ngIf="report.component.fields.damaged_insulation_selection == 2">Moisture
+            inside the insulation structure can reduce the thermal performance up to 50% and increase the risk of CUI.</ion-col>
+          <ion-col col-12 class="damaged-result" *ngIf="report.component.fields.damaged_insulation_selection == 3">Heat
+            cycles and external condition changes affect the estructure of the insulant reducing its performance.</ion-col>
+
+        </ion-row>
       </ion-col>
 
     </ion-row>
   </ion-grid>
 
-  <edit-picture *ngIf="view=='edit_picture'"  [report]="report"  [picture]="editing_picture" ></edit-picture>
+  <edit-picture *ngIf="view=='edit_picture'" [report]="report" [picture]="editing_picture"></edit-picture>
 
 </ion-content>
 

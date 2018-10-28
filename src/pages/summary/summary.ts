@@ -7,6 +7,8 @@ import { SummaryEditPage } from './summary-edit';
 import { ReportRouter } from '../../models/report-router';
 import { ReportsPage } from '../reports';
 import { TbiComponent } from '../../models/component';
+import { PDFExportComponent } from '@progress/kendo-angular-pdf-export';
+import { Group, exportPDF } from '@progress/kendo-drawing';
 
 @Component({
   selector: 'page-summary',
@@ -89,6 +91,16 @@ export class SummaryPage {
       ]
     });
     confirm.present();
+  }
+
+  public export_pdf(pdf: PDFExportComponent){
+    pdf.export().then((g: Group)=> {
+      debugger;
+      exportPDF(g).then(data => {
+        debugger;
+        throw new Error(data);
+      })
+    })
   }
 
   public open(report: ReportBase, event: Event) {

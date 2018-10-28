@@ -14,7 +14,7 @@
     <preference name="AndroidPersistentFileLocation" value="Compatibility" />
     <preference name="AndroidExtraFilesystems" value="files,files-external,documents,sdcard,cache,cache-external" />
     <preference name="ScrollEnabled" value="true" />
-    <preference name="android-minSdkVersion" value="17" />
+    <preference name="android-minSdkVersion" value="19" />
     <preference name="android-targetSdkVersion" value="7.0.0" />
     <preference name="BackupWebStorage" value="none" />
     <preference name="SplashMaintainAspectRatio" value="true" />
@@ -28,7 +28,7 @@
     <preference name="SplashScreenDelay" value="30000" />
     <platform name="android">
         <preference name="android-minSdkVersion" value="19" />
-        <preference name="android-targetSdkVersion" value="27" />
+        <preference name="android-targetSdkVersion" value="26" />
         <preference name="AndroidPersistentFileLocation" value="Internal" />
         <allow-intent href="market:*" />
         <icon density="ldpi" src="resources/android/icon/drawable-ldpi-icon.png" />
@@ -104,5 +104,5 @@
     <plugin name="cordova-plugin-inappbrowser" spec="^3.0.0" />
     <plugin name="cordova-plugin-document-viewer" spec="^0.9.10" />
     <plugin name="cordova-plugin-file-transfer" spec="^1.7.1" />
-    <engine name="android" spec="^6.1.1" />
+    <engine name="android" spec="7.0.0" />
 </widget>

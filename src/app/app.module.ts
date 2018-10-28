@@ -108,9 +108,7 @@ import {
 import { SurfaceMaterialPipe } from '../pipes/surface-material.pipe';
 import { GlobalErrorHandler } from '../models/errors/global-error';
 
-
-
-
+import { PDFExportModule } from '@progress/kendo-angular-pdf-export';
 
 @NgModule({
   declarations: [
@@ -194,9 +192,12 @@ import { GlobalErrorHandler } from '../models/errors/global-error';
       modalEnter: 'modal-slide-in',
       modalLeave: 'modal-slide-out',
       tabsPlacement: 'bottom',
-      pageTransition: 'ios-transition'
+      pageTransition: 'ios-transition',
+      scrollAssist: true,
+      autoFocusAssist: true
     }),
-    TooltipsModule
+    TooltipsModule,
+    PDFExportModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
