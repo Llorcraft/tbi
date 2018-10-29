@@ -40,15 +40,7 @@ export class EditProjectPage extends ProjectPageBase {
     //this.project.documents.push(new Document({ file: 'lolo.pdf' }))
     //this.keyboard.onClose(() => document.querySelectorAll('.scroll-content').forEach((x) => x.scrollTo(0, 0)));
   }
-
-  // ngAfterViewInit() {
-  //   this.keyboard.didShow.subscribe(event => {
-  //     this.elementRef.nativeElement.style.marginBottom = event.keyboardHeight + 'px';
-  //   });
-  //   this.keyboard.onKeyboardHide().subscribe(event => {
-  //     this.elementRef.nativeElement.style.marginBottom = '0px';
-  //   });
-  // }
+  
   public on_focus(event: any) {
     const elm = event._elementRef.nativeElement
     const offset = 170;

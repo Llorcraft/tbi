@@ -29,6 +29,10 @@ export class ReportAreaModalComponent {
     return this;
   }
 
+  key_enter(){
+    document.getElementById('area_calculate_btn').focus();
+  }
+
   private get_surface(): number {
     switch (this.segment.value) {
       case 'cilinder':

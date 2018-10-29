@@ -49,7 +49,7 @@
             <ion-col col-10>
               <ion-item class="edit_surface_material" [class.editable]="edit_surface_material">
                 <ion-label stacked>Surface material [ε]</ion-label>
-                <ion-input tabindex="4" class="literal" (ionFocus)="on_focus($event);toggle_surface_material(true)"
+                <ion-input tabindex="4" #after_time class="literal" (ionFocus)="on_focus($event);toggle_surface_material(true)"
                   [value]="report.component.fields.surface_material_friendly" type="text"></ion-input>
                 <ion-input tabindex="5" class="numeric" (ionFocus)="on_focus($event)" (focusout)="toggle_surface_material(false)"
                   name="surface_material" [(ngModel)]="report.component.fields.surface_material" type="number" (change)="set_surface_material(report.component.fields.surface_material, $event)"></ion-input>
@@ -64,7 +64,7 @@
             <ion-col col-10>
               <ion-item>
                 <ion-label stacked>Medium temperature (<sup>º</sup>C)</ion-label>
-                <ion-input tabindex="6" (ionFocus)="on_focus($event)" (keyup.enter)="on_keypress($event)" name="surface_temp"
+                <ion-input tabindex="6" #after_material (ionFocus)="on_focus($event)" (keyup.enter)="on_keypress($event)" name="surface_temp"
                   [pattern]="patterns.REQUIRED_NUMBER" data-val-pattern="Please input a valid Medium temperature" 
                   [(ngModel)]="report.component.fields.surface_temp" type="tel"></ion-input>
               </ion-item>

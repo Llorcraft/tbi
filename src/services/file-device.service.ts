@@ -20,6 +20,7 @@ export class FileDeviceService extends FileService {
         //this.file.externalRootDirectory
         this.create_folder('files');
         this.create_folder('pictures');
+        this.create_folder('temp');
     }
 
     public async get_documents(): Promise<Document[]> {
@@ -35,11 +36,9 @@ export class FileDeviceService extends FileService {
 
     public create_picture(uri: string): Promise<Document> {
         return new Promise<Document>((resolve) => {
-
             this.path.resolveNativePath(uri)
                 .then(path => {
                     let file = path.substring(path.lastIndexOf('/') + 1, path.length);
-
                     this.transfer.create().download(uri, `${this.working_folder}pictures/${file}`)
                         .then(() => resolve(new Document({ file: file, folder: `${this.working_folder}pictures` })))
                         .catch((ex) => {
@@ -74,7 +73,6 @@ export class FileDeviceService extends FileService {
     }
 
     public select_file(): Promise<Document> {
-
         return new Promise<Document>((resolve) => {
             this.chooser.open()
                 .then(uri => {
@@ -201,6 +199,33 @@ export class FileDeviceService extends FileService {
             this.file.listDir(this.working_folder, folder)
                 .then(e => resolve(e))
                 .catch(ex => { throw ex; });
+        });
+    }
+
+    public base64_to_uint(base64: string): Uint8Array {
+        let arr = base64.split(','),
+            bstr = atob(arr[1]),
+            n = bstr.length,
+            u8arr = new Uint8Array(n);
+        while (n--) {
+            u8arr[n] = bstr.charCodeAt(n);
+        }
+        return u8arr;
+    }
+
+    public create_pdf(base64: string, filename: string): Promise<string> {
+        return new Promise<string>((resolve, reject) => {
+            this.file.removeFile(this.working_folder,`${filename}.pdf`).then(()=>{
+                this.file.writeFile(this.working_folder,
+                    `${filename}.pdf`,
+                    this.base64_to_uint(base64).buffer,
+                    { replace: true })
+                    .then(r => resolve(`${this.working_folder}temp/${filename}.pdf`))
+                    .catch(ex => {
+                        //reject(ex.message);
+                        throw ex;
+                    })
+            });
         });
     }
 }

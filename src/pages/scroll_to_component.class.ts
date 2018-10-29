@@ -1,19 +1,13 @@
 import { Keyboard } from "ionic-angular";
 
 export class ScrollToComponent {
-  constructor(protected keyboard: Keyboard) {
-    // if (!!this.keyboard) {
-    //   this.keyboard.onClose(() => {
-    //     window.alert('Cerrado');
-    //     Array.from(document.querySelectorAll('.scroll-content'))
-    //       .forEach((x) => x.scrollTo(0, 0))
-    //   });
-    // }
-  }
+  constructor(protected keyboard: Keyboard) {}
+
   protected on_keypress(event: KeyboardEvent) {
     if (event.which === 13) {
       (event.currentTarget as HTMLElement).closest('.scroll-content').scrollTo(0, 0);
       document.getElementById('submit-button').focus();
+      //this.keyboard.hideFormAccessoryBar(true);
     }
   }
 
@@ -32,14 +26,4 @@ export class ScrollToComponent {
       elm.scrollTo(0, top)
     }
   }
-
-  // public on_focus(event: FocusEvent) {
-  //   event.preventDefault();
-  //   setTimeout(() => {
-  //     const elm = (event.currentTarget || event.target) as HTMLElement;
-  //     const offset = 60;
-  //     elm.closest('.scroll-content').scrollTo(0, 0);
-  //     elm.closest('.scroll-content').scrollTo(0, elm.closest('ion-item').getBoundingClientRect().top - offset);
-  //   }, 250);
-  // }
 }

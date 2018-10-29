@@ -28,7 +28,7 @@ export class SummaryEditPage {
     }
 
     friendly_path(report: ReportBase): string {
-        return report.path.replace(/(\\|\/)/gi, ' ');
+        return report.path.split(/(\\|\/)/gi)[0];
     }
 }
 

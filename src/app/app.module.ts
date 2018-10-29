@@ -254,7 +254,7 @@ import { PDFExportModule } from '@progress/kendo-angular-pdf-export';
     //{ provide: PictureService, useClass: PictureDeviceService },
     LicencesService,
     PictureService,
-    { provide: FileService, useClass: FileLocalService }
+    {provide: FileService, useClass: FileDeviceService}
   ]
 })
 export class AppModule { }

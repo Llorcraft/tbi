@@ -1,10 +1,10 @@
 import { NavController, AlertController, Keyboard } from "ionic-angular";
 import { NgForm } from '@angular/forms';
-import { ViewChild, OnInit } from "@angular/core";
+import { ViewChild, OnInit, AfterViewInit } from "@angular/core";
 import { ReportBase, Project } from "..";
 import { CalculatorFactory } from "../calculators/calculator.factory";
 import { Picture } from "../picture";
-import { ReportErrorsComponent, ReportsPage } from "../../pages/reports";
+import { ReportErrorsComponent, ReportsPage, ReportMoreButtonComponent } from "../../pages/reports";
 import { ReportService } from "../../services/report.service";
 import { More } from "../../const/more/more";
 import { TbiComponent } from "../component";
@@ -14,9 +14,15 @@ import { NON_PICTURE } from "../../const/images";
 import { PictureService } from "../../services";
 import { Patterns } from "../../const/patterns";
 
-export class BaseReportPage extends ScrollToComponent implements OnInit {
+export class BaseReportPage extends ScrollToComponent implements OnInit, AfterViewInit {
   @ViewChild('form') form: NgForm;
   @ViewChild('errors') errors: ReportErrorsComponent;
+  //Focus input after option select
+  @ViewChild('time', { read: ReportMoreButtonComponent }) time: ReportMoreButtonComponent;
+  @ViewChild('after_time') after_time;
+  @ViewChild('material', { read: ReportMoreButtonComponent }) material: ReportMoreButtonComponent;
+  @ViewChild('after_material') after_material;
+
   public calculator = new CalculatorFactory();
   public edit_surface_material = false;
   public view: string = 'form';
@@ -42,7 +48,6 @@ export class BaseReportPage extends ScrollToComponent implements OnInit {
     protected keyboard: Keyboard
   ) {
     super(keyboard);
-
     this._original_component = this.report.component;
     this.report.component = new TbiComponent(this._original_component.project, this._original_component);
     this.report.component.id = this._original_component.id;
@@ -55,8 +60,26 @@ export class BaseReportPage extends ScrollToComponent implements OnInit {
     // }))
   }
 
+  ngAfterViewInit() {
+    const wait: number = 1000;
+    if (!!this.time) {
+      this.time.change.subscribe(v => {
+        setTimeout(() => this.after_time.setFocus(), wait);
+      })
+    }
+    if (!!this.material) {
+      this.material.change.subscribe(v => {
+        setTimeout(() => this.after_material.setFocus(), wait);
+      })
+    }
+  }
   ngOnInit(): void {
     if (!!this.report.id && !!this.report.path.match(/(pipe|surface|valve|flange)/gi)) setTimeout(() => this.calculate(), 250);
+  }
+
+  set_operational_time() {
+    this.report.component.fields.operational_time = this.time.value;
+    setTimeout(() => this.after_time.setFocus(), 400);
   }
 
   public get first_picture(): string {
@@ -229,7 +252,7 @@ export class BaseReportPage extends ScrollToComponent implements OnInit {
       : 'Do you want to remove this picture?';
     const _buttons: any = !this.editing_picture.has_markers
       ? [{ text: 'Yes', handler: () => this.remove_picture(false) }, { text: 'No', role: 'cancel' }]
-      : [{ text: 'Yes', handler: () => this.remove_picture(true) }, { text: 'No', handler: ()=> this.remove_picture(false) }, { text: 'Cancel', role: 'cancel' }];
+      : [{ text: 'Yes', handler: () => this.remove_picture(true) }, { text: 'No', handler: () => this.remove_picture(false) }, { text: 'Cancel', role: 'cancel' }];
     let confirm = this.alertCtrl.create({
       message: _message,
       cssClass: `ion-dialog-horizontal`,

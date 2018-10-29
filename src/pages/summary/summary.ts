@@ -9,6 +9,9 @@ import { ReportsPage } from '../reports';
 import { TbiComponent } from '../../models/component';
 import { PDFExportComponent } from '@progress/kendo-angular-pdf-export';
 import { Group, exportPDF } from '@progress/kendo-drawing';
+import { ProjectsPage } from '../projects/projects';
+import { FileService, MessageService } from '../../services';
+import { FileOpener } from '@ionic-native/file-opener';
 
 @Component({
   selector: 'page-summary',
@@ -36,6 +39,9 @@ export class SummaryPage {
     protected modalCtrl: ModalController,
     protected service: ProjectService,
     protected navCtrl: NavController,
+    private message: MessageService,
+    private opener: FileOpener,
+    private file: FileService,
     orientation: ScreenOrientation) {
 
     this.project = this.navParams.get('project');
@@ -58,6 +64,10 @@ export class SummaryPage {
     );
   }
 
+  public go_to_projects() {
+    this.navCtrl.push(ProjectsPage);
+  }
+
   public go_to_reports() {
     this.navCtrl.push(ReportsPage, {
       project: this.project,
@@ -65,9 +75,10 @@ export class SummaryPage {
     });
   }
 
-  ellipsis(text: string, size: number = 30): string {
+  ellipsis(text: string, size: number = 40): string {
     return text.length + 3 <= size ? text : text.substr(0, size) + '...';
   }
+
   protected remove(cl: TbiComponent, event: Event) {
     event.preventDefault();
     event.cancelBubble = true;
@@ -93,12 +104,10 @@ export class SummaryPage {
     confirm.present();
   }
 
-  public export_pdf(pdf: PDFExportComponent){
-    pdf.export().then((g: Group)=> {
-      debugger;
+  public export_pdf(pdf: PDFExportComponent) {
+    pdf.export().then((g: Group) => {
       exportPDF(g).then(data => {
-        debugger;
-        throw new Error(data);
+        this.file.create_pdf(data, 'prueba').then(r => this.opener.open(r, 'application/pdf'))
       })
     })
   }
@@ -108,7 +117,11 @@ export class SummaryPage {
     (new ReportRouter(report.component.project, report.component, this.navCtrl)).navigate_to_report(report.path, report.summary_id, report);
   }
 
-  protected edit(cl: TbiComponent) {
+  protected edit(cl: TbiComponent): SummaryPage {
+    if (cl.reports.length == 1) {
+      (new ReportRouter(cl.project, cl, this.navCtrl)).navigate_to_report(cl.reports[0].path, cl.reports[0].summary_id, cl.reports[0]);
+      return this;
+    }
     const modal = this.modalCtrl.create(SummaryEditPage,
       {
         tbi_component: cl

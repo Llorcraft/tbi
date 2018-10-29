@@ -11,6 +11,14 @@ export class FileLocalService extends FileService {
 
     public working_folder: string = 'D:\\Sofware Factory\\tbi\\src\\assets\\';
 
+    public create_pdf(base64: string, filename: string): Promise<string>{
+        throw new Error("Method not implemented.");
+    }
+    
+    public base64_to_uint(base64: string): Uint8Array{
+        throw new Error("Method not implemented.");
+    }
+
     public create_picture(uri: string): Promise<Document> {
         throw new Error("Method not implemented.");
     }

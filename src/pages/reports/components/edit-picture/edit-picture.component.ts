@@ -43,7 +43,7 @@ export class ReportEditPictureComponent {
     private show_prompt(event: MouseEvent, marker: Marker): void {
         if (!this.report.path.match(/(surface|pipe|valve|flange)/gi)) return;
         let alert = this.alertCtrl.create({
-            //title: 'Enter temperature',
+            message: 'Measurement',
             cssClass: `ion-dialog-horizontal margin-top`,
             enableBackdropDismiss: false,
             inputs: [
@@ -61,6 +61,7 @@ export class ReportEditPictureComponent {
                 },
                 {
                     text: 'Ok',
+                    role: 'submit',
                     handler: (data) => {
                         if (isNaN(parseFloat(String(data.temperature)))) return
                         if (!!marker) {

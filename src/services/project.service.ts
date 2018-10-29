@@ -21,7 +21,7 @@ export class ProjectService {
         })
         .catch(ex => {
           reject(ex);
-          this.message.alert('Error', JSON.stringify(ex, null, 2));
+          //throw new Error(ex);
         });
     })
   }

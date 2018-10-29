@@ -32,7 +32,7 @@
             <ion-col col-7>
               <ion-item>
                 <ion-label stacked>External diameter (mm)</ion-label>
-                  <ion-input tabindex="3" (ionFocus)="on_focus($event)" name="nominal_diameter" required data-val-required="Please input Nominal diameter" [(ngModel)]="report.component.fields.nominal_diameter"
+                  <ion-input #after_time tabindex="3" (ionFocus)="on_focus($event)" name="nominal_diameter" required data-val-required="Please input Nominal diameter" [(ngModel)]="report.component.fields.nominal_diameter"
                   type="number"></ion-input>
               </ion-item>
             </ion-col>
@@ -60,7 +60,7 @@
             <ion-col col-10>
               <ion-item>
                 <ion-label stacked>Medium temperature (<sup>º</sup>C)</ion-label>
-                  <ion-input tabindex="7" (ionFocus)="on_focus($event)" name="medium_temp" 
+                  <ion-input #after_material tabindex="7" (ionFocus)="on_focus($event)" name="medium_temp" 
                   [pattern]="patterns.REQUIRED_NUMBER" data-val-pattern="Please input a valid Medium temperature" 
                   required data-val-required="Please input Medium temperature"  
                   [(ngModel)]="report.component.fields.medium_temp"
