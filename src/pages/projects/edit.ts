@@ -41,21 +41,21 @@ export class EditProjectPage extends ProjectPageBase {
     //this.keyboard.onClose(() => document.querySelectorAll('.scroll-content').forEach((x) => x.scrollTo(0, 0)));
   }
   
-  public on_focus(event: any) {
+  public on_focus(event: any, scroll: number = 0) {
     const elm = event._elementRef.nativeElement
-    const offset = 170;
+    const offset = 170  - scroll;
     elm.closest('.scroll-content').scrollTo(0, elm.closest('.scroll-content').scrollTop - 50);
     this.scroll(elm.closest('.scroll-content'), elm.closest('.scroll-content').scrollTop + elm.closest('ion-item').getBoundingClientRect().top - offset);
   }
 
-  scroll(elm: any, top: number) {
-    if (elm.scrollTop < top) {
-      elm.scrollTo(0, elm.scrollTop += 50);
-      setTimeout(() => this.scroll(elm, top), 1);
-    } else {
-      elm.scrollTo(0, top)
-    }
-  }
+  // scroll(elm: any, top: number) {
+  //   if (elm.scrollTop < top) {
+  //     elm.scrollTo(0, top);
+  //     setTimeout(() => this.scroll(elm, top), 1);
+  //   } else {
+  //     elm.scrollTo(0, top)
+  //   }
+  // }
 
   protected hide_keyboard() {
     this.keyboard.close();

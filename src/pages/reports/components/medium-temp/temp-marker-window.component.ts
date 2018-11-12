@@ -11,7 +11,7 @@ import { NgForm } from '@angular/forms';
 })
 
 export class ReportTempMarkersWindowComponent extends ScrollToComponent {
-  @ViewChild(NgForm)form: NgForm;
+  @ViewChild(NgForm) form: NgForm;
   public patterns: any = Patterns;
   protected markers: any[] = [];
   protected get disabled(): boolean {
@@ -38,11 +38,17 @@ export class ReportTempMarkersWindowComponent extends ScrollToComponent {
     }
   }
 
+  private flatten(arr: any[]): any[] {
+    return [].concat.apply([], arr);
+  }
+
+  flatMap = (arr, f) => arr.reduce((x, y) => [...x, ...f(y)], []);
+
   constructor(private viewCtrl: ViewController, private params: NavParams, protected keyboard: Keyboard) {
     super(keyboard);
 
-    let others_reports_markers = this.params.data.report.component.reports.filter(r => r != this.params.data.report).flatMap(r => r.pictures.flatMap(p => p.markers.map(m => ({ parent: p, marker: m, order: `2${m.hasValue ? 0 : 1}` }))));
-    let report_marker = this.params.data.report.pictures.flatMap(p => p.markers.map(m => ({ parent: p, marker: m, order: `1${m.hasValue ? 0 : 1}` })));
+    let others_reports_markers = this.flatten(this.params.data.report.component.reports.filter(r => r != this.params.data.report)).map(r => this.flatMap(r.pictures, (p => p.markers.map(m => ({ parent: p, marker: m, order: `2${m.hasValue ? 0 : 1}` })))));
+    let report_marker = this.flatMap(this.params.data.report.pictures, (p => p.markers.map(m => ({ parent: p, marker: m, order: `1${m.hasValue ? 0 : 1}` }))));
     params.data.report.component.markers = params.data.report.component.markers.concat(Array.apply(null, { length: 10 }).slice(others_reports_markers.length + report_marker.length + params.data.report.component.markers.length, 10).map(x => new Marker()));
     let component_markers = params.data.report.component.markers.map(m => ({ parent: params.data.report.component, marker: m, order: `3${m.hasValue ? 0 : 1}` }));
     let markers = component_markers.concat(report_marker).concat(others_reports_markers);

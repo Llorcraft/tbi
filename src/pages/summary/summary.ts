@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { AlertController, NavParams, ModalController, NavController } from 'ionic-angular';
+import { AlertController, NavParams, ModalController, NavController, ActionSheetController } from 'ionic-angular';
 import { ScreenOrientation } from '@ionic-native/screen-orientation';
 import { Project, Value, ReportBase, Result } from '../../models';
 import { ProjectService } from '../../services/project.service';
@@ -36,6 +36,7 @@ export class SummaryPage {
   constructor(
     protected navParams: NavParams,
     protected alertCtrl: AlertController,
+    protected actionSheetCtrl: ActionSheetController,
     protected modalCtrl: ModalController,
     protected service: ProjectService,
     protected navCtrl: NavController,
@@ -45,7 +46,7 @@ export class SummaryPage {
     orientation: ScreenOrientation) {
 
     this.project = this.navParams.get('project');
-    this.components = (this.project.components || []).sort((a, b) => a.date < b.date ? 1 : -1);
+    this.components = (this.project.components || []).sort((a, b) => a.date > b.date ? 1 : -1);
 
     this.components.filter(c => !!c.result && !c.fields.unknow_surface)
       .map(c => c.result)
@@ -77,6 +78,51 @@ export class SummaryPage {
 
   ellipsis(text: string, size: number = 40): string {
     return text.length + 3 <= size ? text : text.substr(0, size) + '...';
+  }
+
+  add_report(type: string, event: Event):void{
+    event.cancelBubble = true;
+    event.preventDefault();
+    this.navCtrl.setRoot(ReportsPage, {
+      project: this.project,
+      parent: this,
+      to: type
+    });
+  }
+  async actions(cl: TbiComponent, event: Event) {
+    event.preventDefault();
+    event.cancelBubble = true;
+    const actionSheet = await this.actionSheetCtrl.create({
+      buttons: [
+        {
+          text: 'Add report',
+          icon: 'ios-add-circle',
+          handler: () => {
+            this.go_to_reports();
+          }
+        }, {
+          text: 'Edit',
+          icon: 'ios-create',
+          handler: () => {
+            this.edit(cl);
+          }
+        }, {
+          text: 'Delete',
+          role: 'ios-destructive',
+          icon: 'trash',
+          handler: () => {
+            this.remove(cl, event);
+          }
+        }, {
+          text: 'Cancel',
+          icon: 'close',
+          role: 'cancel',
+          handler: () => {
+            console.log('Cancel clicked');
+          }
+        }]
+    });
+    await actionSheet.present();
   }
 
   protected remove(cl: TbiComponent, event: Event) {

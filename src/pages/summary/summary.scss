@@ -20,7 +20,7 @@ page-summary {
     tr {
       
         td[double-border] {
-          border-bottom: double #333;
+          border-bottom: solid 1px #333;
         }
       
         &.disabled {
@@ -32,6 +32,7 @@ page-summary {
         th,
         td {
           text-align: center;
+          font-weight: 600!important;
         }
       }
     }
@@ -41,6 +42,12 @@ page-summary {
       font-weight: 500;
       padding: .3rem;
       white-space: nowrap;
+
+      svg {
+        fill: #fff;
+        width: 60%;
+        display: block;
+        margin: auto auto .5rem;      }
 
       &.bg-green {
         background-color: rgb(112, 173, 71);
@@ -115,7 +122,7 @@ page-summary {
     td {
       background: #fff;
       padding: .25rem;
-      font-weight: 100;
+      font-weight: 600;
       vertical-align: middle; //border: 1px solid #ccc;
 
       &:nth-child(1) {

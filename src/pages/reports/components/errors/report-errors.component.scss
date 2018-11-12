@@ -1,6 +1,7 @@
 report-errors {
-  display: inline-block;
+  display: block;
   width: 100%;
+  margin-top: 1rem;
   >ion-col {
     padding: 1rem 2rem !important;
     background-color: rgba(255, 69, 0, .1);

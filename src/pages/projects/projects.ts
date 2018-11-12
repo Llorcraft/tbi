@@ -10,6 +10,7 @@ import { ReportCategory, ReportBase } from '../../models';
 import { UniqueDeviceID } from '@ionic-native/unique-device-id';
 import { LicencesService } from '../../services/licences.service';
 import { DownloadPage } from '../download/download';
+import { SummaryPage } from '../summary/summary';
 
 @Component({
   selector: 'page-project',
@@ -36,6 +37,9 @@ export class ProjectsPage extends ProjectPageBase {
     protected keyboard: Keyboard) {
 
     super(alertCtrl, service, keyboard);
+    if(!!navParams.get('project')) {
+      this.navCtrl.push(SummaryPage, {project: navParams.get('project')});
+    }
 
     uuid.get()
       .then((uuid: any) => console.log(uuid))

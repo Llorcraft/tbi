@@ -1,10 +1,10 @@
 <report-header [parent]="this"></report-header>
 
-<ion-content>
+<ion-content #content>
 
   <ion-grid [hidden]="view=='edit_picture'">
     <ion-row>
-      <ion-col col-12 col-md-6 no-padding>
+      <ion-col col-12 col-lg-6 no-padding>
         <form novalidate #form="ngForm" [hidden]="segment!='input'" (submit)="calculate()">
           <ion-row>
             <ion-col col-10>
@@ -102,21 +102,17 @@
           </ion-row>
         </form>
       </ion-col>
-      <ion-col col-12 col-md-6 no-padding>
-        
+      <ion-col col-12 col-lg-6 no-padding>
         <ion-row>
-            <ion-col  *ngIf="view!='result' && (!errors || !errors.errors.length)" col-12 picture-slide  [report]="report" [editable]="editable"  (onStartEdit)="on_picture_start_edit($event)"></ion-col>
+            <ion-col col-12 picture-slide  [report]="report" [editable]="editable"  (onStartEdit)="on_picture_start_edit($event)"></ion-col>
         </ion-row>
-
         <report-errors padding #errors col-12 [hidden]="view=='!result' && report.result"></report-errors>
-
         <ion-row col-12 p-4 *ngIf="view=='result' && (!!form && !form.invalid)">
           <ion-col col-4 img-container [style.backgroundImage]="'url('+ first_picture +')'"></ion-col>
           <ion-col col-8 class="damaged-result">Insulation in cold systems is critical not only for energy efficiency but for safety and process requirements.</ion-col>
           <ion-col col-8 class="damaged-result" *ngIf="report.component.fields.condensation_ice_block">Ice block indicates the failure of the insulation system (or the lack of it). A part from the potential energy savings, its weight represents a risk for the installation break down.</ion-col>
           <ion-col col-8 class="damaged-result" *ngIf="report.component.fields.condensation_wet_surface">Condensations indicates the need of a better insulation solution to bring the surface temperature above the dew point.</ion-col>
         </ion-row>
-
       </ion-col>
 
     </ion-row>

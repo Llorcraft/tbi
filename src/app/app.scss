@@ -69,6 +69,7 @@ button {
 
     .toolbar-title {
       color: #fff; //width: auto;
+      text-align: left!important;
     }
   }
 }
@@ -232,7 +233,7 @@ ion-input {
 }
 
 form {
-  padding-bottom: 200vh;
+  //padding-bottom: 200vh;
 }
 
 ion-icon {
@@ -262,9 +263,9 @@ ion-item .item-inner, .list-md .item-input {
 ion-grid.grid.fixed-col {
   >ion-row.row {
     >ion-col.col:nth-child(2) {
-      position: fixed;
-      right: 15px;
-      padding: 0 1.5rem;
+      //position: fixed!important;
+      //right: 15px;
+      padding: 0 1.5rem 0 0;
     }
   }
 }

@@ -15,7 +15,7 @@ export class GlobalErrorHandler implements ErrorHandler {
                 {
                     color: 'danger',
                     fields: [
-                        { title: 'Message', value: err.message || err.toString(), short: false },
+                        //{ title: 'Message', value: err.message || err.toString(), short: false },
                         { title: 'Stack', value: err.stack || '', short: false },
                     ]
                 }
@@ -24,11 +24,15 @@ export class GlobalErrorHandler implements ErrorHandler {
         let _headers: Headers = new Headers();
 
         _headers.append("Content-type", "application/x-www-form-urlencoded; charset=UTF-8");
-        this.http.post('https://hooks.slack.com/services/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',
+        try {
+        this.http.post('https://hooks.slack.com/services/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',
             `payload=${JSON.stringify(_message, null, 2)}`, {
                 headers: _headers
             })
             .toPromise()
             .catch(ex => this.message.alert('Error', ex.toString()));
+        } catch (ex){
+            //
+        }
     }
 }

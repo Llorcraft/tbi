@@ -1,4 +1,4 @@
-import { NavController, AlertController, Keyboard } from "ionic-angular";
+import { NavController, AlertController, Keyboard, Content } from "ionic-angular";
 import { NgForm } from '@angular/forms';
 import { ViewChild, OnInit, AfterViewInit } from "@angular/core";
 import { ReportBase, Project } from "..";
@@ -13,6 +13,7 @@ import { ScrollToComponent } from "../../pages/scroll_to_component.class";
 import { NON_PICTURE } from "../../const/images";
 import { PictureService } from "../../services";
 import { Patterns } from "../../const/patterns";
+import { ProjectsPage } from "../../pages/projects/projects";
 
 export class BaseReportPage extends ScrollToComponent implements OnInit, AfterViewInit {
   @ViewChild('form') form: NgForm;
@@ -22,6 +23,7 @@ export class BaseReportPage extends ScrollToComponent implements OnInit, AfterVi
   @ViewChild('after_time') after_time;
   @ViewChild('material', { read: ReportMoreButtonComponent }) material: ReportMoreButtonComponent;
   @ViewChild('after_material') after_material;
+  @ViewChild(Content) content: Content
 
   public calculator = new CalculatorFactory();
   public edit_surface_material = false;
@@ -143,7 +145,10 @@ export class BaseReportPage extends ScrollToComponent implements OnInit, AfterVi
     if (!this.report.component.reports.find(c => c.id === this.report.id)) this.report.component.reports.push(this.report);
     if (!project.components.find(c => c.id === this.report.component.id)) project.components.push(this.report.component);
     this.service.save(this.report);
-    this.ask_for_more_reports(project);
+    //this.ask_for_more_reports(project);
+
+    //this.navCtrl.push(ProjectPage, { project: project });
+    this.navCtrl.setRoot(ProjectsPage, { project: project }, {animate: false, direction: 'backward'});
   }
 
   protected ask_for_more_reports(project: Project) {
@@ -220,12 +225,15 @@ export class BaseReportPage extends ScrollToComponent implements OnInit, AfterVi
   };
 
   protected calculate() {
-    const _contents = document.getElementsByClassName('scroll-content');
-    _contents[_contents.length - 1].scrollTo(0, 0);
+    //const _contents = document.getElementsByClassName('scroll-content');
+    //_contents[_contents.length - 1].scrollTo(0, 0);
+    //this.content.scrollToTop(500);
+    setTimeout(()=>this.content.scrollToBottom(250), 500);
     this.start_changes_observer();
     this.errors.page = this;
     if (!this.form.invalid) {
       this.view = 'result';
+      //this.content.scrollToTop(500);
       return this.calculator.calculate(this.report);
     } else {
       this.view = 'form';

@@ -29,8 +29,10 @@ export class ReportsPage extends ReportRouter {
     this.type = navParams.get('type') || '';
     this.report = navParams.get('report');
     this.segment.set(this.type);
+    if(!!navParams.get('to'))this.navigate_to(navParams.get('to'), '');
   }
 
+  
   ionViewDidLoad() {
     if (!this.navParams.get('message')) return;
 
@@ -64,14 +66,16 @@ export class ReportsPage extends ReportRouter {
   }
 
   public navigate_to(name: string | number, report_name: string): void {
-    let page: any = null
-    let params: any = { project: this.project, parent: this, component: this.component };
-    switch (name) {
-      default:
-        page = ReportsPage;
-        params.type = name;
-    }
-    this.navCtrl.push(page, params);
+    // let page: any = null
+    // let params: any = { project: this.project, parent: this, component: this.component };
+    // switch (name) {
+    //   default:
+    //     page = ReportsPage;
+    //     params.type = name;
+    // }
+    //this.navCtrl.push(page, params);
+    this.navCtrl.push(ReportsPage, { type: name, project: this.project, parent: this, component: this.component });
+
   }
   public go_back(): void {
     if (!this.type)

@@ -24,5 +24,4 @@ export class ReportFlangePage extends BaseReportPage {
   ) {
     super(new ReportFlange(navParams.data.project, navParams.data.component, navParams.data.report), navCtrl, service, alertCtrl, picture, message, keyboard);
   }
-
 }

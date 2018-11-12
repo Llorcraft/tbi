@@ -1,4 +1,4 @@
-<ion-grid>
+<!-- <ion-grid>
   <ion-row>
     <ion-col col-4 on-tap="parent.view='form'" img-container [style.backgroundImage]="'url('+ first_picture +')'"></ion-col>
 
@@ -51,10 +51,80 @@
     </ion-col>
   </ion-row>
 
+</ion-grid> -->
+
+<ion-grid>
   <ion-row>
     <ion-col message>
       <h4> {{parent.report.result.advise}}</h4>
     </ion-col>
   </ion-row>
+  <ion-row>
+    <ion-col text-center>
+      <table cellspacing="0" cellpadding="0" border="0" class="result-chart">
+        <thead>
+          <tr>
+            <th colspan="2"></th>
+            <th>Current<br>Insulation</th>
+            <th>Basic<br>Insulation</th>
+            <th>Economical<br>Insulation</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="section" rowspan="3"><strong>Potential<br>Savings</strong></td>
+            <td class="scale"><span>{{scale.max | number: '1.1-1'}}</span></td>
+            <td class="b-line bar" rowspan="3">
 
+            </td>
+            <td class="b-line bar" rowspan="3">
+              <div style.height="{{bars.basic.savings[0]}}px" class="blue">
+                <span>{{bars.basic.savings[1] | number: '1.0-0'}}€</span>
+              </div>
+            </td>
+            <td class="b-line bar" rowspan="3">
+              <div style.height="{{bars.economical.savings[0]}}px" class="green">
+                <span>{{bars.economical.savings[1] | number: '1.0-0'}}€</span>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td class="scale"><span>{{scale.medium | number: '1.1-1'}}</span></td>
+          </tr>
+          <tr>
+            <td class="scale"><span>{{scale.min | number: '1.1-1'}}</span><span class="kwh">KWh</span></td>
+          </tr>
+        </tbody>
+        <tbody class="inverse">
+          <tr>
+            <td class="section" rowspan="3"><strong>Energy<br>Losses</strong></td>
+            <td class="scale inverse"><span>{{scale.min | number: '1.1-1'}}</span></td>
+            <td class="bar" rowspan="3">
+              <div style.height="{{bars.current.losses[0]}}px" class="gray pattern">
+                <span style.marginTop="{{bars.current.losses[0] + 3}}px">{{bars.current.losses[1] | number: '1.0-0'}}€</span>
+              </div>
+            </td>
+            <td class="bar" rowspan="3">
+              <div style.height="{{bars.basic.losses[0]}}px" class="blue pattern">
+                <span style.marginTop="{{bars.basic.losses[0] + 3}}px">{{bars.basic.losses[1] | number: '1.0-0'}}€</span>
+              </div>
+            </td>
+            <td class="bar" rowspan="3">
+              <div style.height="{{bars.economical.losses[0]}}px" class="green pattern">
+                <span style.marginTop="{{bars.economical.losses[0] + 3}}px">{{bars.economical.losses[1] | number:
+                  '1.0-0'}}€</span>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td class="scale inverse"><span>{{scale.medium | number: '1.1-1'}}</span></td>
+          </tr>
+          <tr>
+            <td class="scale inverse"><span>-{{scale.max | number: '1.1-1'}}</span></td>
+          </tr>
+        </tbody>
+      </table>
+
+    </ion-col>
+  </ion-row>
 </ion-grid>
