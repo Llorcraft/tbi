@@ -45,20 +45,6 @@ export class SummaryPage {
     private file: FileService,
     orientation: ScreenOrientation) {
 
-    this.project = this.navParams.get('project');
-    this.components = (this.project.components || []).sort((a, b) => a.date > b.date ? 1 : -1);
-
-    this.components.filter(c => !!c.result && !c.fields.unknow_surface)
-      .map(c => c.result)
-      .forEach(r => {
-        this.totals.headLost.power += r.headLost.power;
-        this.totals.headLost.money += r.headLost.money;
-        this.totals.savingPotentialMin.power += r.savingPotentialMin.power;
-        this.totals.savingPotentialMin.money += r.savingPotentialMin.money;
-        this.totals.savingPotentialMax.power += r.savingPotentialMax.power;
-        this.totals.savingPotentialMax.money += r.savingPotentialMax.money;
-      });
-
     this.orientation = orientation.type;
     orientation.onChange().subscribe(
       () => this.orientation = orientation.type
@@ -80,7 +66,7 @@ export class SummaryPage {
     return text.length + 3 <= size ? text : text.substr(0, size) + '...';
   }
 
-  add_report(type: string, event: Event):void{
+  add_report(type: string, event: Event): void {
     event.cancelBubble = true;
     event.preventDefault();
     this.navCtrl.setRoot(ReportsPage, {
@@ -89,6 +75,7 @@ export class SummaryPage {
       to: type
     });
   }
+
   async actions(cl: TbiComponent, event: Event) {
     event.preventDefault();
     event.cancelBubble = true;
@@ -188,8 +175,28 @@ export class SummaryPage {
   }
 
   ionViewWillEnter() {
-
+    setTimeout(() => this.get_project(), 0);
   }
 
+  get_project(): void {
+    this.service.get(this.navParams.get('project').id).then(project => {
+      this.project = project;
+      //this.project = this.navParams.get('project');
+      this.components = [].concat((this.project.components || [])).sort((a, b) => a.date > b.date ? 1 : -1);
 
+      console.clear();
+      this.project.components.forEach(c => console.table(c.reports[0].result))
+
+      this.components.filter(c => !!c.result && !c.fields.unknow_surface)
+        .map(c => c.result)
+        .forEach(r => {
+          this.totals.headLost.power += r.headLost.power;
+          this.totals.headLost.money += r.headLost.money;
+          this.totals.savingPotentialMin.power += r.savingPotentialMin.power;
+          this.totals.savingPotentialMin.money += r.savingPotentialMin.money;
+          this.totals.savingPotentialMax.power += r.savingPotentialMax.power;
+          this.totals.savingPotentialMax.money += r.savingPotentialMax.money;
+        });
+    });
+  }
 }

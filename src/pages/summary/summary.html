@@ -1,6 +1,6 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>Summary - {{project.name}}</ion-title>
+    <ion-title>Summary - {{project?.name}}</ion-title>
     <ion-buttons end>
       <button ion-button on-tap="export_pdf(pdf)">
         <!-- <ion-icon name="document-pdf"></ion-icon>&nbsp;PDF -->
@@ -12,7 +12,7 @@
 <ion-content>
   <kendo-pdf-export #pdf paperSize="A4" margin=".5cm" [scale]="0.5" landscape="true">
 
-    <ion-grid class="summary-total" *ngIf="!!totals">
+    <!-- <ion-grid class="summary-total" *ngIf="!!totals">
       <ion-row>
         <ion-col col-12 text-center>
           <table class="total red">
@@ -50,7 +50,7 @@
           </table>
         </ion-col>
       </ion-row>
-    </ion-grid>
+    </ion-grid> -->
     <table class="data">
       <thead>
         <tr>
@@ -76,7 +76,7 @@
           <th colspan="2" style="border-top: 1px solid #444; border-right: 1px solid #444; color: red">Energy Loss<br>per year</th>
           <th colspan="4" style="border-top: 1px solid #444; border-right: 1px solid #444; color: #375623">Potential Savings<br>per
             year</th>
-          <th>Insulation Advise</th>
+          <th>Insulation<br>Advise</th>
           <th class="vertical">
             <div><span one-line>Insulated</span></div>
           </th>
@@ -100,38 +100,42 @@
           <td rowspan="2" double-border class="b-right" style="min-width: 10vw">
               {{ellipsis(c.fields.location)}}
           </td>
-          <ng-container *ngIf="!!c.result">
-            <td text-right class="bg-light-red c-red">{{c.result.headLost.power / 1000 | number: '1.1-1'}}</td>
-            <td class="bg-light-red c-red b-right">MWh<span *ngIf="c.fields.unknow_surface">/m<sup>2</sup></span></td>
-            <td text-right class="bg-green c-gree">{{c.result.savingPotentialMin?.power / 1000 | number: '1.1-1'}}</td>
-            <td text-center class="bg-green c-gree p-0" style="width: 15px; padding: 0">
+            <td *ngIf="!!c.result" text-right class="bg-light-red c-red">{{c.result.headLost.power / 1000 | number: '1.1-1'}}</td>
+            <td *ngIf="!!c.result" class="bg-light-red c-red b-right">MWh<span *ngIf="c.fields.unknow_surface">/m<sup>2</sup></span></td>
+            <td *ngIf="!!c.result" text-right class="bg-green c-gree">{{c.result.savingPotentialMin?.power / 1000 | number: '1.1-1'}}</td>
+            <td *ngIf="!!c.result" text-center class="bg-green c-gree p-0" style="width: 15px; padding: 0; white-space: nowrap">
               <!-- <ion-icon name="md-arrow-forward"></ion-icon> -->
               --
             </td>
-            <td text-left class="bg-green c-gree">{{c.result.savingPotentialMax?.power / 1000 | number: '1.1-1'}}</td>
-            <td class="bg-green c-gree mesure b-right">MWh<span *ngIf="c.fields.unknow_surface">/m<sup>2</sup></span></td>
-          </ng-container>
-          <ng-container *ngIf="!c.result">
-            <td colspan="2" class="b-right"></td>
-            <td colspan="4" class="b-right"></td>
-          </ng-container>
+            <td *ngIf="!!c.result" text-left class="bg-green c-gree">{{c.result.savingPotentialMax?.power / 1000 | number: '1.1-1'}}</td>
+            <td *ngIf="!!c.result" class="bg-green c-gree mesure b-right">MWh<span *ngIf="c.fields.unknow_surface">/m<sup>2</sup></span></td>
+            <td *ngIf="!c.result" colspan="2" class="b-right"></td>
+            <td *ngIf="!c.result" colspan="4" class="b-right"></td>
 
           <td rowspan="2" double-border text-center class="bg-red">
-            <ion-icon pull-left name="md-add-circle" (click)="add_report('safety', $event)"></ion-icon>
             <ng-container *ngFor="let r of c.reports_by_type('safety|hot')">
               <a href="#" (click)="open(r, $event)" *ngIf="!r.component.is_hot">{{r.summary_id}}</a>
               <a href="#" (click)="open(r, $event)" *ngIf="!!r.component.is_hot">Hot surface</a>
             </ng-container>
+            <ion-icon name="md-add-circle" (click)="add_report('safety', $event)"></ion-icon>
           </td>
           <td rowspan="2" double-border text-center class="bg-blue">
-              <ion-icon pull-left name="md-add-circle" (click)="add_report('maintenance', $event)"></ion-icon>
-              <a href="#" (click)="open(r, $event)" *ngFor="let r of c.reports_by_type('mantenance|condensation|damaged')">{{r.summary_id}}</a>
+            <a href="#" (click)="open(r, $event)" *ngFor="let r of c.reports_by_type('mantenance|condensation|damaged')">{{r.summary_id}}</a>
+            <ion-icon name="md-add-circle" (click)="add_report('maintenance', $event)"></ion-icon>
           </td>
           <td rowspan="2" double-border text-center class="bg-gray">
-              <ion-icon pull-left name="md-add-circle" (click)="add_report('generic', $event)"></ion-icon>
-              <a href="#" (click)="open(r, $event)" *ngFor="let r of c.reports_by_type('generic|custom')">{{r.summary_id}}</a>
+            <a href="#" (click)="open(r, $event)" *ngFor="let r of c.reports_by_type('generic|custom')">{{r.summary_id}}</a>
+            <ion-icon name="md-add-circle" (click)="add_report('generic', $event)"></ion-icon>
           </td>
-          <td rowspan="2" *ngIf="!!c.result" double-border text-center>{{advises.get(c.result.advise)}}</td>
+          <td rowspan="2" *ngIf="!!c.result" double-border text-center>
+            <ng-container [ngSwitch]="advises.get(c.result.advise)">
+              <span advise-picture *ngSwitchCase="'Recommended'" svg="insulation"></span>
+              <span advise-picture *ngSwitchCase="'Maintenance'" svg="mechanical"></span>
+              <span advise-picture *ngSwitchCase="'Unknow surface'" svg="surface"></span>
+              <span advise-picture *ngSwitchCase="'OK'" svg="like"></span>
+              <span advise-picture *ngSwitchCase="'Increase'" svg="increase"></span>
+            </ng-container>
+          </td>
           <td rowspan="2" *ngIf="!c.result" double-border text-center></td>
           <td rowspan="2" double-border text-center>{{!!c.insulated ? 'Y' : 'N'}}</td>
           <td *ngIf="null!=c.fields.surface_temp" rowspan="2" double-border text-center>{{c.fields.surface_temp}}</td>
@@ -147,7 +151,7 @@
           <td double-border text-right class="c-red">{{c.result.headLost?.money | number: '1.0-0'}}</td>
           <td double-border class="c-red mesure b-right">€<span *ngIf="c.fields.unknow_surface">/m<sup>2</sup></span></td>
           <td double-border text-right class="c-gree">{{c.result.savingPotentialMin?.money | number: '1.0-0'}}</td>
-          <td double-border text-center class="c-gree p-0" style="width: 15px; padding: 0">
+          <td double-border text-center class="c-gree p-0" style="width: 15px; padding: 0; white-space: nowrap;">
             <!-- <ion-icon name="md-arrow-forward"></ion-icon> -->
             --
           </td>
@@ -159,8 +163,49 @@
           <td double-border colspan="4" class="b-right"></td>
         </tr>
       </tbody>
+      <tfoot>
+        <tr>
+          <td rowspan="2" colspan="2" double-border class="b-right" text-right>
+              TOTAL PROJECT
+          </td>
+          <td text-right class="bg-light-red c-red">{{totals.headLost.power / 1000 | number: '1.1-1'}}</td>
+          <td class="bg-light-red c-red b-right">MWh</td>
+          <td text-right class="bg-green c-gree">{{totals.savingPotentialMin?.power / 1000 | number: '1.1-1'}}</td>
+          <td text-center class="bg-green c-gree p-0" style="width: 15px; padding: 0; white-space: nowrap">--</td>
+          <td text-left class="bg-green c-gree">{{totals.savingPotentialMax?.power / 1000 | number: '1.1-1'}}</td>
+          <td class="bg-green c-gree mesure b-right">MWh</td>
+        </tr>
+
+        <tr >
+          <td double-border text-right class="c-red">{{totals.headLost?.money | number: '1.0-0'}}</td>
+          <td double-border class="c-red mesure b-right">€</td>
+          <td double-border text-right class="c-gree">{{totals.savingPotentialMin?.money | number: '1.0-0'}}</td>
+          <td double-border text-center class="c-gree p-0" style="width: 15px; padding: 0; white-space: nowrap;">--</td>
+          <td double-border text-left class="c-gree">{{totals.savingPotentialMax?.money | number: '1.0-0'}}</td>
+          <td double-border class="c-gree mesure b-right">€</td>
+        </tr>
+      </tfoot>
     </table>
 
+    <!-- <ion-grid style="margin-top: 2rem">
+      <ion-row>
+        <ion-col col-6 col-lg-4>
+          <span class="legend" advise-picture svg="like"></span><strong>System OK</strong>
+        </ion-col>
+        <ion-col col-6 col-lg-4>
+          <span class="legend" advise-picture svg="insulation"></span><strong>Insulation recommended</strong>
+        </ion-col>
+        <ion-col col-6 col-lg-4>
+          <span class="legend" advise-picture svg="mechanical"></span><strong>Maintenace</strong>
+        </ion-col>
+        <ion-col col-6 col-lg-4>
+          <span class="legend" advise-picture svg="surface"></span><strong>Surface unknown</strong>
+        </ion-col>
+        <ion-col col-6 col-lg-4>
+          <span class="legend" advise-picture svg="increase"></span><strong>Increace performance or thickness</strong>
+        </ion-col>
+      </ion-row>
+    </ion-grid> -->
   </kendo-pdf-export>
 </ion-content>
 
@@ -172,11 +217,11 @@
           HOME
         </button>
       </ion-col>
-      <!-- <ion-col col-6 text-right>
+      <ion-col col-6 text-right>
         <button tabindex="15" ion-button small color="primary" (click)="go_to_reports()">
           New component
         </button>
-      </ion-col> -->
+      </ion-col>
     </ion-row>
   </ion-grid>
 </ion-footer>

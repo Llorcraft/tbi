@@ -75,6 +75,7 @@ export class BaseReportPage extends ScrollToComponent implements OnInit, AfterVi
       })
     }
   }
+
   ngOnInit(): void {
     if (!!this.report.id && !!this.report.path.match(/(pipe|surface|valve|flange)/gi)) setTimeout(() => this.calculate(), 250);
   }
@@ -144,11 +145,11 @@ export class BaseReportPage extends ScrollToComponent implements OnInit, AfterVi
     const project = this.report.component.project;
     if (!this.report.component.reports.find(c => c.id === this.report.id)) this.report.component.reports.push(this.report);
     if (!project.components.find(c => c.id === this.report.component.id)) project.components.push(this.report.component);
-    this.service.save(this.report);
+    this.service.save(this.report).then(p => {
+      this.navCtrl.setRoot(ProjectsPage, { project: p, summary: true }, { animate: true, direction: 'backward' });
+    });
     //this.ask_for_more_reports(project);
-
     //this.navCtrl.push(ProjectPage, { project: project });
-    this.navCtrl.setRoot(ProjectsPage, { project: project }, {animate: false, direction: 'backward'});
   }
 
   protected ask_for_more_reports(project: Project) {
@@ -228,7 +229,7 @@ export class BaseReportPage extends ScrollToComponent implements OnInit, AfterVi
     //const _contents = document.getElementsByClassName('scroll-content');
     //_contents[_contents.length - 1].scrollTo(0, 0);
     //this.content.scrollToTop(500);
-    setTimeout(()=>this.content.scrollToBottom(250), 500);
+    //setTimeout(()=>this.content.scrollToBottom(250), 500);
     this.start_changes_observer();
     this.errors.page = this;
     if (!this.form.invalid) {

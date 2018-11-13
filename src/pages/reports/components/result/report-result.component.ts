@@ -19,34 +19,39 @@ export class ReportResultComponent implements AfterContentInit {
     }
 
     initialize_values(): void {
-        const height = 115;
+        const height = 130;
 
-        this.scale.max = Math.ceil(this.parent.report.result.headLost.power / 100) + 3;
+        this.scale.max = this.up(this.parent.report.result.headLost.power / 100);
         this.scale.medium = Math.ceil(this.scale.max / 1.5);
-        this.scale.min = Math.ceil(this.scale.max / 3)
-        this.scale.max += 1;
+        this.scale.min = Math.ceil(this.scale.max / 2)
+        this.scale.max;
 
         this.bars.current.losses = [
-            this.parent.report.result.headLost.power / 100 * height / (this.scale.max + 1),
-            this.parent.report.result.headLost.money
+            (this.parent.report.result.headLost.power / 100 * height / (this.scale.max)),
+            this.down(this.parent.report.result.headLost.money)
+        ];
+
+        this.bars.basic.losses = [
+            (this.parent.report.result.headLost.power - this.parent.report.result.savingPotentialMin.power) / 100 * height / (this.scale.max),
+            this.up(this.parent.report.result.headLost.money - this.parent.report.result.savingPotentialMin.money)
+            //this.up(this.parent.report.result.savingPotentialMin.money)
         ];
 
         this.bars.basic.savings = [
-            this.parent.report.result.savingPotentialMin.power / 100 * height / (this.scale.max + 1),
-            this.parent.report.result.savingPotentialMin.money
+            (this.bars.current.losses[0] - this.bars.basic.losses[0]),
+            (this.bars.current.losses[1] - this.bars.basic.losses[1])
         ];
-        this.bars.basic.losses = [
-            (this.parent.report.result.headLost.power - this.parent.report.result.savingPotentialMin.power) / 100 * height / (this.scale.max + 1),
-            this.parent.report.result.headLost.money - this.parent.report.result.savingPotentialMin.money
+        
+
+        this.bars.economical.losses = [
+            (this.parent.report.result.headLost.power - this.parent.report.result.savingPotentialMax.power) / 100 * height / (this.scale.max),
+            //this.up(this.bars.current.losses[1] - this.parent.report.result.savingPotentialMax.money)
+            this.up(this.parent.report.result.headLost.money-this.parent.report.result.savingPotentialMax.money)
         ];
 
         this.bars.economical.savings = [
-            this.parent.report.result.savingPotentialMax.power / 100 * height / (this.scale.max + 1),
-            this.parent.report.result.savingPotentialMax.money
-        ];
-        this.bars.economical.losses = [
-            (this.parent.report.result.headLost.power - this.parent.report.result.savingPotentialMax.power) / 100 * height / (this.scale.max + 1),
-            this.parent.report.result.headLost.money - this.parent.report.result.savingPotentialMax.money
+            (this.bars.current.losses[0] - this.bars.economical.losses[0]),
+            (this.bars.current.losses[1] - this.bars.economical.losses[1])
         ];
     }
 
@@ -68,6 +73,14 @@ export class ReportResultComponent implements AfterContentInit {
         min: 0,
         medium: 0,
         max: 0
+    }
+
+    down(value: number): number {
+        return value > 1000 ? Math.floor(Math.trunc(value) / 100) * 100 : Math.floor(Math.trunc(value) / 10) * 10;
+    }
+
+    up(value: number): number {
+        return value > 1000 ? Math.ceil(Math.trunc(value) / 100) * 100 : Math.ceil(Math.trunc(value) / 10) * 10;
     }
     constructor() {
     }

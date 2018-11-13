@@ -12,6 +12,7 @@ import { LicencesService } from '../../services/licences.service';
 import { DownloadPage } from '../download/download';
 import { SummaryPage } from '../summary/summary';
 
+
 @Component({
   selector: 'page-project',
   templateUrl: 'projects.html'
@@ -37,9 +38,10 @@ export class ProjectsPage extends ProjectPageBase {
     protected keyboard: Keyboard) {
 
     super(alertCtrl, service, keyboard);
-    if(!!navParams.get('project')) {
-      this.navCtrl.push(SummaryPage, {project: navParams.get('project')});
-    }
+    
+    // if (!!navParams.get('project')) {
+    //   this.open_report(navParams.get('project'));
+    // }
 
     uuid.get()
       .then((uuid: any) => console.log(uuid))
@@ -50,6 +52,10 @@ export class ProjectsPage extends ProjectPageBase {
     orientation.onChange().subscribe(
       () => this.orientation = orientation.type
     );
+
+    if (!!navParams.get('summary'))
+    this.navCtrl.setRoot(SummaryPage, { project: navParams.get('project') }, { animate: true, direction: 'backward' });
+
   }
 
   public open_report(project: Project): void {

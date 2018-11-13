@@ -29,10 +29,12 @@ export class ReportsPage extends ReportRouter {
     this.type = navParams.get('type') || '';
     this.report = navParams.get('report');
     this.segment.set(this.type);
-    if(!!navParams.get('to'))this.navigate_to(navParams.get('to'), '');
+
+    if (!!navParams.get('to'))
+      this.navigate_to(navParams.get('to'), '');
   }
 
-  
+
   ionViewDidLoad() {
     if (!this.navParams.get('message')) return;
 

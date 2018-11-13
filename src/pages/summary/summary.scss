@@ -1,4 +1,27 @@
 page-summary {
+  [advise-picture] {
+    &>svg {
+      width: 60%;
+    }
+
+    &.legend {
+      &>svg {
+        width: 3rem;
+        float: left;
+
+        * {
+          fill: #aaa;
+        }
+      }
+
+      &+strong {
+        color: #aaa;
+        line-height: 3rem;
+        margin-left: .5rem;
+      }
+    }
+  }
+
   .scroll-content {
     overflow: auto;
     padding: 0 1rem 1rem;
@@ -15,24 +38,29 @@ page-summary {
     border-collapse: separate;
     font-size: 1rem;
     background: #fff;
-    border-bottom: 1px solid #444;
+    //border-bottom: 1px solid #444;
     margin-top: 0;
+
     tr {
-      
-        td[double-border] {
-          border-bottom: solid 1px #333;
+
+      td[double-border] {
+        border-bottom: solid 1px #333;
+      }
+
+      &.disabled {
+
+        td.c-red,
+        td.c-gree {
+          color: #aaa !important;
         }
-      
-        &.disabled {
-          td.c-red, td.c-gree {color: #aaa!important;}
-        }
+      }
 
       &.text-center {
 
         th,
         td {
           text-align: center;
-          font-weight: 600!important;
+          font-weight: 600 !important;
         }
       }
     }
@@ -47,7 +75,8 @@ page-summary {
         fill: #fff;
         width: 60%;
         display: block;
-        margin: auto auto .5rem;      }
+        margin: auto auto .5rem;
+      }
 
       &.bg-green {
         background-color: rgb(112, 173, 71);
@@ -192,7 +221,7 @@ page-summary {
 
       &.c-red {
         color: rgb(255, 0, 0);
-        
+
         &.bg-light-red {
           background-color: rgb(253, 241, 231);
         }
@@ -244,8 +273,12 @@ page-summary {
 
     tfoot {
       td {
-        font-weight: 400;
-        background: #eee;
+        font-weight: 600;
+        background: #fff;
+
+        &.bg-green {
+          background: rgb(226, 239, 218)
+        }
       }
     }
   }
@@ -257,14 +290,17 @@ page-summary {
     border: 2px solid red;
     margin: 1rem;
     background: rgb(253, 241, 231);
+
     td {
       font-size: 1.2rem;
       text-align: left;
       color: red;
     }
+
     &.green {
       border-color: rgb(84, 130, 53);
       background: rgb(242, 242, 242);
+
       td {
         color: rgb(84, 130, 53)
       }
@@ -274,9 +310,10 @@ page-summary {
 
 
 .modal-window-summary {
-  .scroll-content{
-    overflow: auto!important;
+  .scroll-content {
+    overflow: auto !important;
   }
+
   .modal-wrapper {
     $height: 550;
     height: $height * 1px;
@@ -284,8 +321,10 @@ page-summary {
     top: calc(50% - 275px);
     left: 35%;
     background: #fff;
+
     area-modal {
       background: #fff;
+
       .scroll-content {
         display: block;
       }

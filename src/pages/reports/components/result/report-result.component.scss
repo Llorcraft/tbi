@@ -1,51 +1,51 @@
 report-result {
   display: block;
-  margin-top: -1rem;
-  // [img-container]{
-  //   background: center center no-repeat;
-  //   background-size: contain;
-  //   border-radius: .9rem;
-  //   box-sizing: border-box;
-  //   -moz-box-sizing: border-box;
-  //   -webkit-box-sizing: border-box;
-  //   border: 4px solid #fff;
-  // }
-  // [head-lost] {
-  //   border: 1px solid  darken(rgb(255,0,0), 0);
-  //   border-radius: .5rem;
-  //   padding: 1rem 2rem;
-  //   background: rgba(255,0,0, .3);
-  //   width: 100%;
-  //   h1 {
-  //     text-align: center;
-  //   }
-  //   h4 {
-  //     font-size: 2rem;
-  //   }
-  //   font-size: 2rem;
-  //   color: darken(rgb(255,0,0), 0)!important;
-  // }
-  // [saving-potential] {
-  //   margin-top: .3rem;
-  //   border: 1px solid rgb(84, 130, 53);
-  //   border-radius: .5rem;
-  //   padding: 1rem 2rem;
-  //   background: rgba(84, 130, 53, .2);
-  //   width: 100%;
-  //   h1 {
-  //     text-align: center;
-  //   }
-  //   h4 {
-  //     font-size: 2rem;
-  //   }
-  //   font-size: 2rem;
-  //   color: rgb(84, 130, 53);
-  //   ion-row {
-  //     ion-col:nth-child(3) {
-  //       text-align: right;
-  //     }
-  //   }
-  // }
+  margin-top: 0;
+  [img-container]{
+    background: center center no-repeat;
+    background-size: contain;
+    border-radius: .9rem;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    border: 4px solid #fff;
+  }
+  [head-lost] {
+    border: 1px solid  darken(rgb(255,0,0), 0);
+    border-radius: .5rem;
+    padding: 1rem 2rem;
+    background: rgba(255,0,0, .3);
+    width: 100%;
+    h1 {
+      text-align: center;
+    }
+    h4 {
+      font-size: 2rem;
+    }
+    font-size: 2rem;
+    color: darken(rgb(255,0,0), 0)!important;
+  }
+  [saving-potential] {
+    margin-top: .3rem;
+    border: 1px solid rgb(84, 130, 53);
+    border-radius: .5rem;
+    padding: 1rem 2rem;
+    background: rgba(84, 130, 53, .2);
+    width: 100%;
+    h1 {
+      text-align: center;
+    }
+    h4 {
+      font-size: 2rem;
+    }
+    font-size: 2rem;
+    color: rgb(84, 130, 53);
+    ion-row {
+      ion-col:nth-child(3) {
+        text-align: right;
+      }
+    }
+  }
   [message] {
     border: 1px solid rgb(48, 84, 150);
     border-radius: .5rem;
@@ -66,7 +66,8 @@ report-result {
   // }
   table.result-chart {
     //font-family: Verdana, Geneva, Tahoma, sans-serif;
-    font-size: 1rem;
+    zoom: 1.5;
+    font-size: .8rem;
     color: #7f7f7f;
     margin: auto;
 
@@ -76,11 +77,11 @@ report-result {
     }
 
     thead th:nth-child(3) {
-      color: #0070c0
+      color: #4b71c1
     }
 
     thead th:nth-child(4) {
-      color: #92d050
+      color: #6daf3d
     }
 
     tbody td.space {
@@ -94,63 +95,71 @@ report-result {
     }
 
     tbody td.bar {
-      width: 100px;
+      width: 35%;
       vertical-align: bottom;
-      padding: 0 10px;
+      padding: 0 5px;
       text-align: center;
     }
 
     tbody td.bar div {
       display: block;
-      margin-left: 20%;
-      width: 60%;
+      margin-left: 10%;
+      width: 90%;
     }
 
     tbody td.bar div.gray {
-      background-color: #aaa;
-      border: 1px solid #aaa;
+      background-color: #7f7f7f;
+      //border: 1px solid #7f7f7f;
     }
 
     tbody td.bar div.gray.pattern {
-      background: repeating-linear-gradient(45deg, #aaa, #aaa 5px, #fff 5px, #fff 10px);
+      background: #7f7f7f;
     }
 
     tbody td.bar div.blue {
-      background-color: #0070c0;
-      border: 1px solid #0070c0;
-      color: #0070c0
+      background-color: #7db2dc;
+      //border: 1px solid #7db2dc;
+      color: #4b71c1
     }
 
     tbody td.bar div.blue.pattern {
-      background: repeating-linear-gradient(45deg, #0070c0, #0070c0 5px, #fff 5px, #fff 10px);
+      //background: repeating-linear-gradient(45deg, #7db2dc, #7db2dc 5px, #fff 5px, #fff 10px);
+      //border: 1px solid #4b71c1;
+      background: #4b71c1;
+      color: #7f7f7f
     }
 
     tbody td.bar div.green {
-      background-color: #92d050;
-      border: 1px solid #92d050;
-      color: #92d050;
+      background-color: #c6e7a2;
+      //border: 1px solid #c6e7a2;
+      color: #6daf3d;
     }
 
     tbody td.bar div.green.pattern {
-      background: repeating-linear-gradient(45deg, #92d050, #92d050 5px, #fff 5px, #fff 10px);
+      //background: repeating-linear-gradient(45deg, #c6e7a2, #c6e7a2 5px, #fff 5px, #fff 10px);
+      background: #6daf3d;
+      //border: 1px solid #6daf3d;
+      color: #7f7f7f
     }
 
     tbody td.scale {
       border-right: 1px solid #7f7f7f;
       text-align: right;
       width: 40px;
-      height: 30px;
+      height: 60px;
       vertical-align: top;
       padding-bottom: 20px;
       padding-top: 0;
       padding-right: 5px;
-      font-size: 1rem;
+      //font-size: 1rem;
+      font-weight: 600;
     }
 
     tbody td.scale .kwh {
-      float: right;
-      margin-top: 25px;
-      margin-bottom: -26px;
+      margin-top: 62px;
+      //margin-bottom: -34px;
+      position: absolute;
+      margin-left: -31px;
     }
 
     tbody td.scale.inverse {
@@ -165,7 +174,7 @@ report-result {
     }
 
     tbody td.b-line {
-      border-bottom: 1px solid #7f7f7f;
+      border-bottom: 5px solid white;
     }
 
     tbody.inverse td.bar {
@@ -174,14 +183,14 @@ report-result {
 
     tbody.inverse td.bar div>span {
       font-weight: 600;
-      font-size: .9rem;
+      //font-size: .8rem;
       float: left;
       width: 100%;
     }
 
     tbody:not(.inverse) td.bar div>span {
       font-weight: 600;
-      font-size: .7rem;
+      //font-size: .8rem;
       float: left;
       width: 100%;
       margin-top: -15px;

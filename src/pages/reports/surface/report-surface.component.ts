@@ -14,7 +14,7 @@ export class ReportSurfacePage extends BaseReportPage {
   public unknow_surface: boolean = false;
 
   constructor(protected navCtrl: NavController,
-    navParams: NavParams,
+    navParams: NavParams, 
     protected service: ReportService,
     protected alertCtrl: AlertController,
     protected picture: PictureService,

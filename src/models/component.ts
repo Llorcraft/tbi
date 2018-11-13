@@ -20,10 +20,7 @@ export class TbiComponent {
     public get is_hot(): boolean {
         return (this.fields.surface_temp || 0) > 35
     }
-    public get result(): Result {
-        const report = this.reports.find(r => !!(r.readonly_summary_id || r.summary_id).match(/(surface|pipe|valve|flange)/gi));
-        return !!report ? report.result : null;
-    }
+    public result: Result
 
     public get insulated(): boolean {
         const report = this.reports.find(r => !!r.path.match(/\\insulated/gi));
@@ -74,6 +71,10 @@ export class TbiComponent {
             this.id = item.id || Math.random().toString().substr(2);
             this.reports = (item.reports || []).map(r => new ReportBase(project, this, r));
             this.markers = (item.markers || []).map(m => new Marker(m));
+
+            const report = this.reports.find(r => !!(r.path).match(/(surface|pipe|valve|flange)/gi));
+            this.result = !!report ? report.result : null;
+            
         }
     }
     // private update_surface_temp(): TbiComponent {

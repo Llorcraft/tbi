@@ -76,7 +76,8 @@ import { SvgCircleAreaComponent } from '../components/svg/svg-circle-area.compon
 import { SvgHousekeepingComponent } from '../components/svg/svg-housekeeping.component';
 import { SvgStructuralComponent } from '../components/svg/svg-structural.component';
 import { SvgRectangleAreaComponent } from '../components/svg/svg-rectangle-area.component';
-
+import { SvgLikeComponent } from '../components/svg/svg-like.component';
+import { SvgIncreaseComponent } from '../components/svg/svg-increase.component';
 //Reports
 
 import {
@@ -180,7 +181,9 @@ import { PDFExportModule } from '@progress/kendo-angular-pdf-export';
     SvgCircleAreaComponent,
     SvgRectangleAreaComponent,
     SvgHousekeepingComponent,
-    SvgStructuralComponent
+    SvgStructuralComponent,
+    SvgLikeComponent,
+    SvgIncreaseComponent
   ],
   imports: [
     BrowserModule,
@@ -248,8 +251,8 @@ import { PDFExportModule } from '@progress/kendo-angular-pdf-export';
     FileChooser,
     UniqueDeviceID,
     FileTransfer,
-    { provide: ErrorHandler, useClass: GlobalErrorHandler, deps: [MessageService, Http] },
-    //{ provide: ErrorHandler, useClass: IonicErrorHandler },
+    //{ provide: ErrorHandler, useClass: GlobalErrorHandler, deps: [MessageService, Http] },
+    { provide: ErrorHandler, useClass: IonicErrorHandler },
     //Mock services
     //{ provide: PictureService, useClass: PictureDeviceService },
     LicencesService,

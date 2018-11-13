@@ -8,12 +8,14 @@ export class ReportService {
 
     constructor(private service: ComponentService) { }
 
-    public save(report: ReportBase): void {
-        if (!!report.component.reports.filter(r => report.id === r.id).length) this.remove(report);
-        if(!report.id) report.id = Math.random().toString().substr(2);
-        report.component.reports.push(report);
+    public save(report: ReportBase): Promise<Project> {
+        return new Promise<Project>(resolve => {
+            if (!!report.component.reports.filter(r => report.id === r.id).length) this.remove(report);
+            if (!report.id) report.id = Math.random().toString().substr(2);
+            report.component.reports.push(report);
 
-        this.service.save(report.component);
+            this.service.save(report.component).then(p => resolve(p));
+        })
     }
 
     public remove(report: ReportBase): Project {
