@@ -28,6 +28,7 @@ export class ReportsPage extends ReportRouter {
     super(navParams.get('project') as Project, navParams.get('component') as TbiComponent, navCtrl);
     this.type = navParams.get('type') || '';
     this.report = navParams.get('report');
+    console.table(this.component)
     this.segment.set(this.type);
 
     if (!!navParams.get('to'))

@@ -12,10 +12,11 @@ export class ScrollToComponent {
   }
 
   public on_focus(event: any) {
-    const elm = event._elementRef.nativeElement
-    const offset = 60;
-    elm.closest('.scroll-content').scrollTo(0, elm.closest('.scroll-content').scrollTop - 50);
-    this.scroll(elm.closest('.scroll-content'), elm.closest('.scroll-content').scrollTop + elm.closest('ion-item').getBoundingClientRect().top - offset);
+    return;
+    // const elm = event._elementRef.nativeElement
+    // const offset = 60;
+    // elm.closest('.scroll-content').scrollTo(0, elm.closest('.scroll-content').scrollTop - 50);
+    // this.scroll(elm.closest('.scroll-content'), elm.closest('.scroll-content').scrollTop + elm.closest('ion-item').getBoundingClientRect().top - offset);
   }
 
   protected scroll(elm: any, top: number) {

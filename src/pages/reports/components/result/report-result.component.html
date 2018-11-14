@@ -65,9 +65,13 @@
         <thead>
           <tr>
             <th colspan="2"></th>
-            <th>Current<br>System</th>
-            <th>Basic<br>Insulation</th>
-            <th>Economical<br>Insulation</th>
+            <th rowspan="2">Current<br>system</th>
+            <th colspan="2">Insulation system</th>
+          </tr>
+          <tr>
+            <th colspan="2"></th>
+            <th class="dashed-top dashed-left">Basic</th>
+            <th class="dashed-top dashed-right">Economical</th>
           </tr>
         </thead>
         <tbody>
@@ -77,12 +81,13 @@
             <td class="b-line bar" rowspan="2">
 
             </td>
-            <td class="b-line bar" rowspan="2">
+            <td class="b-line bar dashed-left" rowspan="2">
               <div style.height="{{bars.basic.savings[0]}}px" class="blue">
-                <span title="{{parent.report.result.savingPotentialMin.power}}">{{bars.basic.savings[1] | number: '1.0-0'}}€</span>
+                <span title="{{parent.report.result.savingPotentialMin.power}}">{{bars.basic.savings[1] | number:
+                  '1.0-0'}}€</span>
               </div>
             </td>
-            <td class="b-line bar" rowspan="2">
+            <td class="b-line bar dashed-right" rowspan="2">
               <div style.height="{{bars.economical.savings[0]}}px" class="green">
                 <span>{{bars.economical.savings[1] | number: '1.0-0'}}€</span>
               </div>
@@ -101,12 +106,12 @@
                 <span style.marginTop="{{bars.current.losses[0] + 3}}px">{{bars.current.losses[1] | number: '1.0-0'}}€</span>
               </div>
             </td>
-            <td class="bar" rowspan="2">
+            <td class="bar dashed-left dashed-bottom" rowspan="2">
               <div style.height="{{bars.basic.losses[0]}}px" class="blue pattern">
                 <span style.marginTop="{{bars.basic.losses[0] + 3}}px">{{bars.basic.losses[1] | number: '1.0-0'}}€</span>
               </div>
             </td>
-            <td class="bar" rowspan="2">
+            <td class="bar  dashed-bottom dashed-right" rowspan="2">
               <div style.height="{{bars.economical.losses[0]}}px" class="green pattern">
                 <span style.marginTop="{{bars.economical.losses[0] + 3}}px">{{bars.economical.losses[1] | number:
                   '1.0-0'}}€</span>

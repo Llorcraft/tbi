@@ -227,14 +227,14 @@ export class BaseReportPage extends ScrollToComponent implements OnInit, AfterVi
 
   protected calculate() {
     //const _contents = document.getElementsByClassName('scroll-content');
-    //_contents[_contents.length - 1].scrollTo(0, 0);
+    //_contents[_contents.length - 1].scrollTo(100000, 0);
     //this.content.scrollToTop(500);
     //setTimeout(()=>this.content.scrollToBottom(250), 500);
     this.start_changes_observer();
     this.errors.page = this;
     if (!this.form.invalid) {
       this.view = 'result';
-      //this.content.scrollToTop(500);
+      //this.content.scrollToBottom(500);
       return this.calculator.calculate(this.report);
     } else {
       this.view = 'form';

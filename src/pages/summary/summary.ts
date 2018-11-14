@@ -55,9 +55,10 @@ export class SummaryPage {
     this.navCtrl.push(ProjectsPage);
   }
 
-  public go_to_reports() {
+  public go_to_reports(component: TbiComponent) {
     this.navCtrl.push(ReportsPage, {
       project: this.project,
+      component: component,
       parent: this
     });
   }
@@ -85,7 +86,7 @@ export class SummaryPage {
           text: 'Add report',
           icon: 'ios-add-circle',
           handler: () => {
-            this.go_to_reports();
+            this.go_to_reports(cl);
           }
         }, {
           text: 'Edit',
@@ -183,9 +184,6 @@ export class SummaryPage {
       this.project = project;
       //this.project = this.navParams.get('project');
       this.components = [].concat((this.project.components || [])).sort((a, b) => a.date > b.date ? 1 : -1);
-
-      console.clear();
-      this.project.components.forEach(c => console.table(c.reports[0].result))
 
       this.components.filter(c => !!c.result && !c.fields.unknow_surface)
         .map(c => c.result)

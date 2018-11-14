@@ -76,12 +76,12 @@ report-result {
       padding: 0 20px 20px;
     }
 
-    thead th:nth-child(3) {
-      color: #4b71c1
+    thead tr:last-of-type th:nth-child(2) {
+      color: #4b71c1;
     }
 
-    thead th:nth-child(4) {
-      color: #6daf3d
+    thead tr:last-of-type th:nth-child(3) {
+      color: #6daf3d;
     }
 
     tbody td.space {
@@ -103,7 +103,7 @@ report-result {
 
     tbody td.bar div {
       display: block;
-      margin-left: 10%;
+      margin: 0 5%;
       width: 90%;
     }
 
@@ -118,8 +118,8 @@ report-result {
 
     tbody td.bar div.blue {
       background-color: #7db2dc;
-      //border: 1px solid #7db2dc;
-      color: #4b71c1
+      background: repeating-linear-gradient(45deg, #fff, #7db2dc 2px, #fff 4px);
+      color: #4b71c1;
     }
 
     tbody td.bar div.blue.pattern {
@@ -130,7 +130,8 @@ report-result {
     }
 
     tbody td.bar div.green {
-      background-color: #c6e7a2;
+      background: repeating-linear-gradient(45deg, #fff, #c6e7a2 2px, #fff 4px);
+      //background-color: #c6e7a2;
       //border: 1px solid #c6e7a2;
       color: #6daf3d;
     }
@@ -173,8 +174,29 @@ report-result {
       width: 60px;
     }
 
+    tbody td, thead th {
+      $color: #4b71c1;
+      $width: 2;
+      $style: dashed;
+      &.dashed-{
+        &left{
+          border-left: $width * 1px $style $color
+        }
+        &right{
+          border-right: $width * 1px $style $color
+        }
+        &top{
+          border-top: $width * 1px $style $color;
+          padding-top: 1rem;
+        }
+        &bottom{
+          border-bottom: $width * 1px $style $color
+        }
+      }
+    }
     tbody td.b-line {
       border-bottom: 5px solid white;
+      //border-top: 1px dashed #7f7f7f;
     }
 
     tbody.inverse td.bar {

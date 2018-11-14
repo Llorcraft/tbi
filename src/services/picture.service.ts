@@ -16,6 +16,7 @@ export class PictureService {
                 destinationType: this.camera.DestinationType.NATIVE_URI,
                 encodingType: this.camera.EncodingType.JPEG,
                 mediaType: this.camera.MediaType.PICTURE,
+                correctOrientation: true,
                 allowEdit: false
             }).then(uri => {
                 this.file.create_picture(uri)
@@ -34,6 +35,7 @@ export class PictureService {
                 destinationType: this.camera.DestinationType.NATIVE_URI,
                 encodingType: this.camera.EncodingType.JPEG,
                 mediaType: this.camera.MediaType.PICTURE,
+                correctOrientation: true,
                 allowEdit: false
             }).then(uri => {
                 this.file.create_picture(uri)

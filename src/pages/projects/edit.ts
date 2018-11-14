@@ -42,10 +42,11 @@ export class EditProjectPage extends ProjectPageBase {
   }
   
   public on_focus(event: any, scroll: number = 0) {
-    const elm = event._elementRef.nativeElement
-    const offset = 170  - scroll;
-    elm.closest('.scroll-content').scrollTo(0, elm.closest('.scroll-content').scrollTop - 50);
-    this.scroll(elm.closest('.scroll-content'), elm.closest('.scroll-content').scrollTop + elm.closest('ion-item').getBoundingClientRect().top - offset);
+    return;
+    // const elm = event._elementRef.nativeElement
+    // const offset = 170  - scroll;
+    // elm.closest('.scroll-content').scrollTo(0, elm.closest('.scroll-content').scrollTop - 50);
+    // this.scroll(elm.closest('.scroll-content'), elm.closest('.scroll-content').scrollTop + elm.closest('ion-item').getBoundingClientRect().top - offset);
   }
 
   // scroll(elm: any, top: number) {

@@ -15,25 +15,25 @@
   <ion-grid [ngSwitch]="type" v-center style="margin-top: -2rem">
     <ng-container *ngSwitchCase="''">
       <ion-row>
-        <ion-col card-container col-md-3 offset-md-3 col-sm-6>
+        <ion-col card-container col-md-4 offset-md-4 col-sm-6>
           <ion-card (click)="navigate_to('insulation')" [class.disabled]="disabled_for('insulation')">
             <span svg="insulation"></span>
             <h1>Insulation</h1>
           </ion-card>
         </ion-col>
-        <ion-col  card-container col-md-3 col-sm-6>
+        <ion-col card-container col-md-4 offset-md-4 col-sm-6>
           <ion-card [class.disabled]="disabled_for('safety')" (click)="navigate_to('safety')">
             <span svg="safety"></span>
             <h1>Safety</h1>
           </ion-card>
         </ion-col>
-        <ion-col  card-container col-md-3 offset-md-3 col-sm-6>
+        <ion-col card-container col-md-4 offset-md-4 col-sm-6>
           <ion-card [class.disabled]="disabled_for('maintenance')" (click)="navigate_to('maintenance')">
             <span svg="maintenance"></span>
             <h1>Maintenance</h1>
           </ion-card>
         </ion-col>
-        <ion-col  card-container col-md-3 col-sm-6>
+        <ion-col card-container col-md-4 offset-md-4 col-sm-6>
           <ion-card [class.disabled]="disabled_for('custom')" on-tap="navigate_to_report(REPORT.CUSTOM, 'Others')">
             <span svg="custom"></span>
             <h1>Custom</h1>
