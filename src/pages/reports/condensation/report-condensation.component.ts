@@ -27,7 +27,8 @@ export class ReportCondensationPage extends BaseReportPage {
   protected calculate(): ReportBase {
     this.start_changes_observer();
     if (!this.form.invalid) {
-      this.view = 'result';
+      //this.view = 'result';
+      this.save();
     } else {
       this.view = 'form';
     }

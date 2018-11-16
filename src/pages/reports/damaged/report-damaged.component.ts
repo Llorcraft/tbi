@@ -29,14 +29,6 @@ export class ReportDamagedPage extends BaseReportPage {
     if (!!this.report.component.fields.damaged_insulation_selection) this.damaged_insulation[this.report.component.fields.damaged_insulation_selection] = !0;
   }
 
-  public set_damaged_cladding_other(input: TextInput) {
-    this.report.component.fields.damaged_cladding_other = input.value;
-  }
-
-  public set_damaged_insulation_other(input: TextInput) {
-    this.report.component.fields.damaged_insulation_other = input.value;
-  }
-
   public set_damaged_cladding(index: number, event: MouseEvent) {
     this.report.component.fields.damaged_cladding_selection = Boolean((event.currentTarget as any).children[1].attributes['aria-checked'].value) ? index : null
     this.damaged_cladding.forEach((c, i) => {
@@ -54,7 +46,8 @@ export class ReportDamagedPage extends BaseReportPage {
   protected calculate(): ReportBase {
     this.start_changes_observer();
     if (!this.form.invalid) {
-      this.view = 'result';
+      //this.view = 'result';
+      this.save();
     } else {
       this.view = 'form';
     }

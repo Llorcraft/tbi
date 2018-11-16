@@ -4,18 +4,17 @@
 
   <ion-grid [hidden]="view=='edit_picture'" class="fixed-col">
     <ion-row>
-      <ion-col col-12 col-lg-6 no-padding>
-
+      <ion-col col-7 col-lg-6 no-padding>
         <form novalidate #form="ngForm" [hidden]="segment!='input'" (submit)="calculate()">
           <ion-row>
-            <ion-col col-7>
+            <ion-col col-10>
               <ion-item>
                 <ion-label stacked>Component/Location</ion-label>
                 <ion-input tabindex="1" (ionFocus)="on_focus($event)" name="location" required data-val-required="Please input Component/Location"
                   [(ngModel)]="report.component.fields.location" type="text"></ion-input>
               </ion-item>
             </ion-col>
-            <ion-col col-3>
+            <ion-col col-10>
               <ion-item>
                 <ion-label stacked>Item number</ion-label>
                 <ion-input tabindex="3" (ionFocus)="on_focus($event)" name="number" required data-val-required="Please input Item number"
@@ -46,12 +45,12 @@
               </ion-item>
             </ion-col>
             <ion-input type="hidden" name="length" [(ngModel)]="report.component.fields.length"></ion-input>
-            <ion-col col-2>
+            <!-- <ion-col col-2>
               <div (click)="set_length('Default value for valves 1m', 1)" tabindex="-1" pull-left no-padding ion-button
                 small color="light" class="with-action">
                 <ion-icon name="custom-valve"></ion-icon>
               </div>
-            </ion-col>
+            </ion-col> -->
           </ion-row>
           <ion-row>
             <ion-col col-10>
@@ -97,18 +96,21 @@
         </form>
       </ion-col>
 
-      <ion-col col-12 col-lg-6 no-padding>
-        <ion-row>
-          <ion-col col-12 picture-slide [report]="report" [editable]="editable" 
-            (onStartEdit)="on_picture_start_edit($event)">
+      <ion-col col-5 col-lg-6 no-padding>
+          <ion-row>
+            <ion-col col-12 picture-slide [report]="report" [editable]="editable" (onStartEdit)="on_picture_start_edit($event)">
           </ion-col>
         </ion-row>
-
         <report-errors padding #errors col-12 [hidden]="view=='!result' && report.result"></report-errors>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col col-12>
         <report-result col-12 [parent]="this" *ngIf="view=='result' && (!!form && !form.invalid)"></report-result>
       </ion-col>
-
     </ion-row>
+
   </ion-grid>
 
   <edit-picture *ngIf="view=='edit_picture'" [report]="report" [picture]="editing_picture"></edit-picture>

@@ -4,7 +4,7 @@
 
   <ion-grid [hidden]="view=='edit_picture'" class="fixed-col">
     <ion-row>
-      <ion-col col-12 col-lg-6 no-padding>
+      <ion-col col-7 col-lg-6 no-padding>
         <form novalidate #form="ngForm" [hidden]="segment!='input'" (submit)="calculate()">
           <ion-row>
             <ion-col col-10>
@@ -33,6 +33,7 @@
               </ion-item>
             </ion-col>
           </ion-row>
+          <!--
           <ion-row>
             <ion-col col-10>
               <ion-item>
@@ -72,6 +73,7 @@
               </ion-item>
             </ion-col>
           </ion-row>
+          -->
           <ion-row>
             <ion-col col-10>
               <ion-item>
@@ -97,17 +99,6 @@
                   <ion-label>Highly corred</ion-label>
                   <ion-radio value="3"></ion-radio>
                 </ion-item>
-
-                <ion-item>
-                  <ion-label>Other</ion-label>
-                  <ion-radio value="4"></ion-radio>
-                </ion-item>
-
-                <ion-item *ngIf="report.component.fields.damaged_cladding_selection==4">
-                  <ion-input tabindex="10" id="damaged_cladding_other_input" (ionChange)="set_damaged_cladding_other($event)"
-                    [(ngModel)]="damaged_cladding_other" scroll="-80" name="damaged_cladding_other" placeholder="Comments"></ion-input>
-                </ion-item>
-
               </ion-list>
             </ion-col>
           </ion-row>
@@ -140,16 +131,7 @@
                   <ion-radio value="3"></ion-radio>
                 </ion-item>
 
-                <ion-item>
-                  <ion-label>Other</ion-label>
-                  <ion-radio value="4"></ion-radio>
-                </ion-item>
-
-                <ion-item *ngIf="report.component.fields.damaged_insulation_selection==4">
-                  <ion-input tabindex="11" id="damaged_insulation_other_input" (ionChange)="set_damaged_insulation_other($event)"
-                    [(ngModel)]="damaged_insulation_other" scroll="-80" name="damaged_insulation_other" placeholder="Comments"></ion-input>
-                </ion-item>
-
+                
               </ion-list>
             </ion-col>
           </ion-row>
@@ -157,26 +139,27 @@
           <ion-row>
             <ion-col col-10>
               <ion-item>
-                <ion-label stacked>Main dimension (m<sup>2</sup>)</ion-label>
-                <ion-input type="number" tabindex="8" (ionFocus)="on_focus($event)" (keyup.enter)="on_keypress($event)"
-                  name="main_dimension" [(ngModel)]="report.component.fields.main_dimension"></ion-input>
+                <ion-label stacked>Comments</ion-label>
+                <ion-input type="text" tabindex="8" (ionFocus)="on_focus($event)" (keyup.enter)="on_keypress($event)"
+                  name="Comments" [(ngModel)]="report.component.fields.damaged_comment"></ion-input>
               </ion-item>
             </ion-col>
           </ion-row>
 
         </form>
       </ion-col>
-      <ion-col col-12 col-lg-6 no-padding>
+      <ion-col col-5 col-lg-6 no-padding>
         <ion-row>
-          <ion-col col-12 picture-slide [report]="report"
-            [editable]="editable" (onStartEdit)="on_picture_start_edit($event)"></ion-col>
+          <ion-col col-12 picture-slide [report]="report" [editable]="false" (onStartEdit)="on_picture_start_edit($event)"></ion-col>
         </ion-row>
-
-        <report-errors padding #errors col-12 [hidden]="view=='!result' && report.result"></report-errors>
-
+      </ion-col>
+    </ion-row>
+    
+    <report-errors padding #errors col-12 [hidden]="view=='!result' && report.result"></report-errors>
+<!--
+    <ion-row>
+      <ion-col col-12>
         <ion-row col-12 p-4 *ngIf="view=='result' && (!!form && !form.invalid)" mx-3>
-
-          <ion-col col-4 img-container [style.backgroundImage]="'url('+ first_picture +')'"></ion-col>
           <ion-col col-8 class="damaged-result" *ngIf="report.component.fields.damaged_cladding">Cladding holds
             insualtion in place an protect it from external agents ensuring its performance.</ion-col>
           <ion-col col-12 class="damaged-result" *ngIf="report.component.fields.damaged_cladding_selection == 1">The
@@ -200,6 +183,7 @@
       </ion-col>
 
     </ion-row>
+    -->
   </ion-grid>
 
   <edit-picture *ngIf="view=='edit_picture'" [report]="report" [picture]="editing_picture"></edit-picture>

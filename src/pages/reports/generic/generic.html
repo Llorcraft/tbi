@@ -4,7 +4,7 @@
 
   <ion-grid [hidden]="view=='edit_picture'" class="fixed-col">
     <ion-row>
-      <ion-col col-8 col-lg-6 no-padding>
+      <ion-col col-7 col-lg-6 no-padding>
 
         <form novalidate #form="ngForm" [hidden]="segment!='input'" (submit)="calculate()">
           <ion-row>
@@ -44,7 +44,7 @@
         </form>
       </ion-col>
 
-      <ion-col col-4 col-lg-6 no-padding>
+      <ion-col col-5 col-lg-6 no-padding>
           <ion-row>
               <ion-col col-12 picture-slide  [report]="report" [editable]="editable"  (onStartEdit)="on_picture_start_edit($event)">
           </ion-col>
@@ -52,6 +52,7 @@
         <report-errors padding #errors col-12 [hidden]="view=='!result' && report.result"></report-errors>
       </ion-col>
     </ion-row>
+    
     <ion-row>
       <ion-col col-12>
         <report-result col-12 [parent]="this" *ngIf="view=='result' && (!!form && !form.invalid)"></report-result>

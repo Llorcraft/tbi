@@ -61,9 +61,9 @@ export class ReportRouter {
       case REPORT.MANTENANCE.CONDENSATION:
         _report = new ReportCondensation(this.project, this.component, report);
         break;
-      case REPORT.MANTENANCE.LEAKAGE:
-        _report = new ReportLeakage(this.project, this.component, report);
-        break;
+      // case REPORT.MANTENANCE.LEAKAGE:
+      //   _report = new ReportLeakage(this.project, this.component, report);
+      //   break;
       default:
         _report = new ReportGeneric(this.project, this.component, report);
         break;

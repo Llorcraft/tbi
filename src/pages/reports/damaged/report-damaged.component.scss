@@ -8,6 +8,13 @@ page-report-damaged {
     font-size: 1.6rem;
   }
 
+  .list-ios > .item-block:first-child {
+    border-top: none
+  }
+  .list-ios > .item-block {
+    border-bottom: 1px solid #ddd!important
+  }
+
   [img-container] {
     background: center center no-repeat;
     background-size: contain;
@@ -19,9 +26,9 @@ page-report-damaged {
     display: inline-block;
   }
 
-  input[placeholder=Comments] {
-    font-size: 1.2rem
-  }
+  // input[placeholder=Comments] {
+  //   font-size: 1.2rem
+  // }
 
   .item-radio.item-md ion-label {
     font-size: 1.2rem !important;

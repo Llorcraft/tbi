@@ -22,10 +22,8 @@ export class Fields {
   public nominal_diameter?: number = null;
   public main_dimension: number = null;
   public damaged_cladding_selection: number = 4;
-  public damaged_cladding_other: string = '';
   public damaged_insulation_selection: number = 4;
-  public damaged_insulation_other: string = '';
-  public medium: string = '';
+  public damaged_comment: string = '';
 
   private _condensation_ice_block: boolean = false
   public get condensation_ice_block(): boolean {
@@ -34,7 +32,7 @@ export class Fields {
   public set condensation_ice_block(value: boolean) {
     this._condensation_ice_block = value;
     if (!!value) {
-      this.condensation_wet_surface = this.condensation_other = false
+      this.condensation_wet_surface = false
     }
   }
 
@@ -45,24 +43,24 @@ export class Fields {
   public set condensation_wet_surface(value: boolean) {
     this._condensation_wet_surface = value;
     if (!!value) {
-      this.condensation_ice_block = this.condensation_other = false;
+      this.condensation_ice_block = false;
     }
   }
 
-  private _condensation_other: boolean = true;
-  public get condensation_other(): boolean {
-    return this._condensation_other;
-  };
-  public set condensation_other(value: boolean) {
-    this._condensation_other = value;
-    if (!value) {
-      this.condensation_other_text = '';
-    } else {
-      this.condensation_ice_block = this.condensation_wet_surface = false;
-    }
-  };
+  // private _condensation_other: boolean = true;
+  // public get condensation_other(): boolean {
+  //   return this._condensation_other;
+  // };
+  // public set condensation_other(value: boolean) {
+  //   this._condensation_other = value;
+  //   if (!value) {
+  //     //this.condensation_other_text = '';
+  //   } else {
+  //     this.condensation_ice_block = this.condensation_wet_surface = false;
+  //   }
+  // };
 
-  public condensation_other_text: string = '';
+  public condensation_comment: string = '';
   public unknow_surface: boolean = false
 
   private _damaged_cladding: boolean = false
@@ -71,10 +69,9 @@ export class Fields {
   };
   public set damaged_cladding(value: boolean) {
     this._damaged_cladding = value;
-    if (!!value)
-      this.damaged_insulation = false;
-    //this.damaged_insulation_selection = null;
-    this.damaged_insulation_other = '';
+    //if (!!value) this.damaged_insulation = false;
+    //this.damaged_insulation_other = '';
+    this.damaged_cladding_selection = !value ? null : 1;
   };
 
   private _damaged_insulation: boolean = false
@@ -83,10 +80,10 @@ export class Fields {
   };
   public set damaged_insulation(value: boolean) {
     this._damaged_insulation = value;
-    if (!!value)
-      this.damaged_cladding = false;
+    //if (!!value) this.damaged_cladding = false;
     //this.damaged_cladding_selection = null;
-    this.damaged_cladding_other = '';
+    //this.damaged_cladding_other = '';
+    this.damaged_insulation_selection = !value ? null : 1;
   };
 
 
@@ -106,18 +103,15 @@ export class Fields {
     this.nominal_diameter = this.number_or_null(f.nominal_diameter);
     this.leakage = f.leakage;
     this.comment = f.comment;
-    this.medium = f.medium;
     this.main_dimension = this.number_or_null(f.main_dimension);
     this.damaged_cladding = !!f.damaged_cladding;
     this.damaged_insulation = !!f.damaged_insulation;
     this.damaged_cladding_selection = this.number_or_null(f.damaged_cladding_selection);
-    this.damaged_cladding_other = f.damaged_cladding_other || '';
     this.damaged_insulation_selection = this.number_or_null(f.damaged_insulation_selection);
-    this.damaged_insulation_other = f.damaged_insulation_other;
+    this.damaged_comment = f.damaged_comment;
     this.condensation_ice_block = !!f.condensation_ice_block;
     this.condensation_wet_surface = !!f.condensation_wet_surface;
-    this.condensation_other = !!f.condensation_other;
-    this.condensation_other_text = f.condensation_other_text || '';
+    this.condensation_comment = f.condensation_comment || '';
     this.unknow_surface = !!f.unknow_surface;
   }
 
