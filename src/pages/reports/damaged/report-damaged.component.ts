@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { BaseReportPage, ReportDamaged } from '../../../models/reports';
-import { NavController, NavParams, AlertController, TextInput, Keyboard } from 'ionic-angular';
+import { NavController, NavParams, AlertController, Keyboard } from 'ionic-angular';
 import { ReportService } from '../../../services/report.service';
 import { ReportBase } from '../../../models/report-base';
 import { MessageService } from '../../../services/messages.service';

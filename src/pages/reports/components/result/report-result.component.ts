@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, AfterContentInit } from '@angular/core';
+import { Component, Input, AfterContentInit } from '@angular/core';
 import { NON_PICTURE } from '../../../../const/images/non-picture';
 import { BaseReportPage } from '../../../../models/reports';
 

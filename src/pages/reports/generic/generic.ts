@@ -6,7 +6,6 @@ import { BaseReportPage } from '../../../models/reports';
 import { MessageService } from '../../../services/messages.service';
 import { ReportBase } from '../../../models';
 import { PictureService } from '../../../services';
-import { ProjectsPage } from '../../projects/projects';
 
 @Component({
   selector: 'page-generic-report',

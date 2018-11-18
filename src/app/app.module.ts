@@ -1,4 +1,4 @@
-import { HttpModule, Http } from '@angular/http';
+import { HttpModule } from '@angular/http';
 import { NgModule, ErrorHandler } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
@@ -78,6 +78,7 @@ import { SvgStructuralComponent } from '../components/svg/svg-structural.compone
 import { SvgRectangleAreaComponent } from '../components/svg/svg-rectangle-area.component';
 import { SvgLikeComponent } from '../components/svg/svg-like.component';
 import { SvgIncreaseComponent } from '../components/svg/svg-increase.component';
+import { SvgEmptyComponent } from '../components/svg/svg-empty.component';
 //Reports
 
 import {
@@ -107,9 +108,11 @@ import {
 
 //Pipes
 import { SurfaceMaterialPipe } from '../pipes/surface-material.pipe';
-import { GlobalErrorHandler } from '../models/errors/global-error';
+//import { GlobalErrorHandler } from '../models/errors/global-error';
 
 import { PDFExportModule } from '@progress/kendo-angular-pdf-export';
+import { ToolsComponent } from '../components/tools/tools.component';
+import { Flashlight } from '@ionic-native/flashlight';
 
 @NgModule({
   declarations: [
@@ -128,7 +131,7 @@ import { PDFExportModule } from '@progress/kendo-angular-pdf-export';
     SummaryEditPage,
     //Pipes
     SurfaceMaterialPipe,
-    //
+    //Reports
     ReportEditPictureComponent,
     ReportPictureSlideComponent,
     ReportHeaderComponent,
@@ -150,6 +153,8 @@ import { PDFExportModule } from '@progress/kendo-angular-pdf-export';
     ReportCondensationPage,
     ReportLeakagePage,
     //Components
+    ToolsComponent,
+    SvgEmptyComponent,
     SvgInsulationComponent,
     SvgCustomComponent,
     SvgSafetyComponent,
@@ -230,7 +235,8 @@ import { PDFExportModule } from '@progress/kendo-angular-pdf-export';
     ReportValvePage,
     ReportDamagedPage,
     ReportCondensationPage,
-    ReportLeakagePage
+    ReportLeakagePage,
+    ToolsComponent
   ],
   providers: [
     /*App services*/
@@ -257,6 +263,7 @@ import { PDFExportModule } from '@progress/kendo-angular-pdf-export';
     //{ provide: PictureService, useClass: PictureDeviceService },
     LicencesService,
     PictureService,
+    Flashlight,
     {provide: FileService, useClass: FileDeviceService}
   ]
 })

@@ -4,11 +4,11 @@
       {{project.name}} - Reports
     </ion-title>
   </ion-navbar>
-  <ion-segment [(ngModel)]="segment.value">
+  <!-- <ion-segment [(ngModel)]="segment.value">
     <ion-segment-button *ngFor="let option of segment.options; let i=index" [value]="i">
       {{option}}
     </ion-segment-button>
-  </ion-segment>
+  </ion-segment> -->
 </ion-header>
 
 <ion-content>
@@ -43,7 +43,30 @@
     </ng-container>
 
     <ng-container *ngSwitchCase="'insulation'">
-      <ion-row *ngIf="segment.value==0">
+      <ion-row>
+        <ion-col card-container col-md-4 col-sm-6 offset-md-4>
+          <ion-card on-tap="navigate_to('insulation-uninsulated')">
+            <span svg="empty"></span>
+            <h1 empty>Uninsulated</h1>
+          </ion-card>
+        </ion-col>
+        <ion-col card-container col-md-4 col-sm-6 offset-md-4>
+          <ion-card on-tap="navigate_to('insulation-insulated')">
+            <span svg="empty"></span>
+            <h1 empty>Insulated</h1>
+          </ion-card>
+        </ion-col>
+        <ion-col card-container col-md-4 col-sm-6 offset-md-4>
+          <ion-card on-tap="navigate_to('cold-insulation')">
+            <span svg="empty"></span>
+            <h1 empty>Cold Insulation</h1>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+    </ng-container>
+
+    <ng-container *ngSwitchCase="'insulation-uninsulated'">
+      <ion-row>
         <ion-col card-container col-md-4 col-sm-6 offset-md-4>
           <ion-card [class.disabled]="disabled_for('insulation')" on-tap="navigate_to_report(REPORT.INSULATION.UNINSULATED_EQUIPMENTS.PIPE, 'Uninsulated pipe')">
             <span svg="pipe"></span>
@@ -69,8 +92,10 @@
           </ion-card>
         </ion-col>
       </ion-row>
+    </ng-container>
 
-      <ion-row *ngIf="segment.value==1">
+    <ng-container *ngSwitchCase="'insulation-insulated'">
+      <ion-row>
         <ion-col card-container col-md-4 col-sm-6 offset-md-4>
           <ion-card [class.disabled]="disabled_for('insulation')" on-tap="navigate_to_report(REPORT.INSULATION.INSULATED_EQUIPMENTS.PIPE, 'Insulated pipe')">
             <span svg="pipe-insulation"></span>
@@ -92,8 +117,10 @@
           </ion-card>
         </ion-col>
       </ion-row>
+    </ng-container>
 
-      <ion-row *ngIf="segment.value==2">
+    <ng-container *ngSwitchCase="'cold-insulation'">
+      <ion-row>
         <ion-col card-container col-md-4 col-sm-6 offset-md-4>
           <!-- <ion-card [class.disabled]="disabled_for('insulation')" on-tap="navigate_to_report(REPORT.INSULATION.COLD_INSULATION.ENERGY, 'Cold energy')"> -->
           <ion-card [class.disabled]="disabled_for('insulation')" (click)="navigate_to('hot-surface')">
@@ -121,7 +148,7 @@
     <ng-container *ngSwitchCase="'safety'">
       <ion-row>
         <ion-col card-container col-md-4 col-sm-6 offset-md-4>
-          <ion-card [class.disabled]="disabled_for('insulation')" (click)="navigate_to('hot-surface')">
+          <ion-card [class.disabled]="disabled_for('insulation')" (click)="navigate_to('insulation')">
             <span svg="hot-surface"></span>
             <h1>Hot Surface</h1>
           </ion-card>
@@ -205,7 +232,7 @@
       </ion-row>
     </ng-container>
 
-    <ng-container *ngSwitchCase="'hot-surface'">
+    <!-- <ng-container *ngSwitchCase="'hot-surface'">
       <ion-row *ngIf="segment.value==0">
         <ion-col card-container offset-md-3 col-md-3 col-sm-6>
           <ion-card [class.disabled]="disabled_for('insulation')" on-tap="navigate_to_report(REPORT.SAFETY.HOT_SURFACE.UNINSULATED_EQUIPMENTS.PIPE, 'Uninsulated pipe')">
@@ -256,7 +283,7 @@
         </ion-col>
       </ion-row>
 
-    </ng-container>
+    </ng-container> -->
   </ion-grid>
 </ion-content>
 

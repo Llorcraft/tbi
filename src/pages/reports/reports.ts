@@ -5,7 +5,7 @@ import { Project, ReportBase } from '../../models';
 import { ProjectService } from '../../services/project.service';
 import { ProjectsPage } from '../projects/projects';
 import { ReportRouter } from '../../models/report-router';
-import { Segment } from './segment/segment.class';
+//import { Segment } from './segment/segment.class';
 import { SummaryPage } from '../summary/summary';
 import { TbiComponent } from '../../models/component';
 
@@ -17,7 +17,7 @@ import { TbiComponent } from '../../models/component';
 export class ReportsPage extends ReportRouter {
   public report: ReportBase;
   public type: string = "";
-  public segment: Segment = new Segment();
+  //public segment: Segment = new Segment();
   public REPORT = REPORT;
   constructor(
     public navCtrl: NavController,
@@ -28,8 +28,7 @@ export class ReportsPage extends ReportRouter {
     super(navParams.get('project') as Project, navParams.get('component') as TbiComponent, navCtrl);
     this.type = navParams.get('type') || '';
     this.report = navParams.get('report');
-    console.table(this.component)
-    this.segment.set(this.type);
+    //this.segment.set(this.type);
 
     if (!!navParams.get('to'))
       this.navigate_to(navParams.get('to'), '');

@@ -11,6 +11,10 @@ ion-card {
     margin: 0 .25rem!important;
     font-size: 1.8rem!important;
     font-weight: normal!important;
+    &[empty]{
+      margin-top: -25%!important;
+      margin-bottom: 25%!important;
+    }
   }
   h3 {
     color: #fff!important;

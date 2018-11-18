@@ -69,7 +69,7 @@
             Others
           </th>
           <th class="bg-blue-light">TBI</th>
-          <th class="bg-green-light" colspan="4">Input</th>
+          <th class="bg-green-light" colspan="5">Input</th>
         </tr>
         <tr>
           <th colspan="2" style="border-right: 1px solid #444">Component / Location</th>
@@ -85,6 +85,9 @@
           </th>
           <th class="vertical">
             <div><span one-line>DN or Øe</span></div>
+          </th>
+          <th class="vertical">
+            <div><span one-line>Length</span></div>
           </th>
           <th class="vertical">
             <div><span one-line>Items number</span></div>
@@ -142,8 +145,9 @@
           <td *ngIf="null==c.fields.surface_temp" rowspan="2" double-border text-center>&nbsp;</td>
           <td rowspan="2" double-border text-center>
             <span *ngIf="!!c.surface">{{c.fields.surface}} m<sup>2</sup></span>
-            <span>{{c.fields.main_dimension}}</span>
+            <span>{{c.fields.main_dimension || c.fields.nominal_diameter}}</span>
           </td>
+          <td rowspan="2" double-border text-center>{{c.fields.length}}</td>
           <td rowspan="2" double-border text-center>{{c.fields.number}}</td>
         </tr>
 

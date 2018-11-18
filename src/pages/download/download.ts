@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
 import { FileService, ProjectService } from '../../services';
 import { Document } from '../../models';
 import { Picture } from '../../models/picture';
@@ -11,7 +10,7 @@ import { Picture } from '../../models/picture';
 export class DownloadPage {
   public files: Document[] = [];
   public pictures: Picture[] = [];
-  constructor(private navCtrl: NavController, private file: FileService, private service: ProjectService) {
+  constructor(private file: FileService, private service: ProjectService) {
     // for (let i = 1; i < 11; i++) {
     //   this.files.push(new Document({ 
     //     file: `Files ${i}`, 
@@ -27,8 +26,9 @@ export class DownloadPage {
     })
   }
 
-  private create_file() {
+  create_file() {
     this.service.create_database().then(blob => {
+      console.log(blob);
       //   var a = document.createElement("a"),
       //     url = URL.createObjectURL(blob);
       //   a.href = url;

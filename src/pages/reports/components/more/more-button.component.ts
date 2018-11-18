@@ -1,5 +1,5 @@
 import { Component, Output, Input, EventEmitter } from '@angular/core';
-import { ActionSheetController, ActionSheet, ActionSheetButton, Keyboard } from 'ionic-angular';
+import { ActionSheetController, ActionSheet, ActionSheetButton } from 'ionic-angular';
 import { More } from '../../../../const/more/more';
 
 @Component({
@@ -12,7 +12,7 @@ export class ReportMoreButtonComponent {
   @Input() cancelable?: boolean = true;
   @Output('change') change = new EventEmitter<number>();
   
-  constructor(private actionSheetCtrl: ActionSheetController, private keyboard: Keyboard) {
+  constructor(private actionSheetCtrl: ActionSheetController) {
   }
 
   private options = {
