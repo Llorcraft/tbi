@@ -67,13 +67,14 @@ export class SummaryPage {
     return text.length + 3 <= size ? text : text.substr(0, size) + '...';
   }
 
-  add_report(type: string, event: Event): void {
+  add_report(type: string, component: TbiComponent, event: Event): void {
     event.cancelBubble = true;
     event.preventDefault();
     this.navCtrl.setRoot(ReportsPage, {
       project: this.project,
       parent: this,
-      to: type
+      to: type,
+      component: component
     });
   }
 
@@ -95,6 +96,12 @@ export class SummaryPage {
             this.edit(cl);
           }
         }, {
+          text: 'Duplicate',
+          icon: 'ios-copy',
+          handler: () => {
+            this.duplicate(cl);
+          }
+        }, {
           text: 'Delete',
           role: 'ios-destructive',
           icon: 'trash',
@@ -111,6 +118,15 @@ export class SummaryPage {
         }]
     });
     await actionSheet.present();
+  }
+
+  duplicate(c: TbiComponent){
+    var component = new TbiComponent(c.project, c);
+    component.id = '';
+    this.project.components.push(component);
+    this.service.save(this.project).then(p => {
+      this.get_project();
+    })
   }
 
   protected remove(cl: TbiComponent, event: Event) {

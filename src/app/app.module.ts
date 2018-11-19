@@ -201,6 +201,7 @@ import { Flashlight } from '@ionic-native/flashlight';
       modalLeave: 'modal-slide-out',
       tabsPlacement: 'bottom',
       pageTransition: 'ios-transition',
+      scrollPadding: false,
       scrollAssist: true,
       autoFocusAssist: true
     }),

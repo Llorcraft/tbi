@@ -28292,7 +28292,7 @@ ion-icon[class*="document-unknown"] {
 
 tools ion-buttons {
   float: right;
-  margin-top: -2rem;
+  margin-top: -.5rem;
 }
 
 page-download ion-content ion-grid > ion-row:nth-child(2) {
@@ -28320,23 +28320,24 @@ page-home ion-badge {
   transition: margin ease-in-out .25s;
 }
 
-page-init ion-content {
-  background-size: auto 30%;
-  background-repeat: no-repeat;
-  background-position: 1rem 1rem;
-}
-
 page-init ion-content p {
   font-size: 90%;
   color: #666 !important;
 }
 
-page-init ion-content ion-list {
+page-init ion-content ion-grid ion-list {
   margin-top: 40%;
 }
 
-page-init ion-content ion-list ion-item {
+page-init ion-content ion-grid ion-list ion-item {
   background-color: transparent !important;
+}
+
+page-init ion-content .bg-logo {
+  min-height: 15rem;
+  background-size: auto 95%;
+  background-repeat: no-repeat;
+  background-position: center center;
 }
 
 form {
@@ -29201,6 +29202,28 @@ ion-col[toggle-container] ion-toggle {
 button[ion-button][round][outline] {
   padding: 1rem 0 !important;
   width: 100%;
+}
+
+page-summary ion-grid[legend] ion-title[text-left] {
+  margin: 2rem 0 1rem;
+}
+
+page-summary ion-grid[legend] ion-title[text-left] div.toolbar-title {
+  text-align: left !important;
+}
+
+page-summary ion-grid[legend] ion-row > ion-col[col-1] {
+  text-align: right !important;
+  padding: 0;
+}
+
+page-summary ion-grid[legend] ion-row > ion-col[col-1] svg {
+  height: 2rem !important;
+}
+
+page-summary ion-grid[legend] ion-row ion-col[col-11] {
+  line-height: 2.5rem;
+  padding: 0 0 0 .5rem;
 }
 
 page-summary [advise-picture] > svg {

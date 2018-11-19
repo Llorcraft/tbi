@@ -10,7 +10,7 @@ export class InitPage {
   public user_name: string = 'Dev';
   constructor(
     public appCtrl: NavController) {
-      this.save();
+      //this.save();
   }
 
   public save(): void {

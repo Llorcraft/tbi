@@ -1,4 +1,32 @@
 page-summary {
+
+  ion-grid[legend] {
+    ion-title[text-left] {
+      margin: 2rem 0 1rem;
+
+      div.toolbar-title {
+        text-align: left !important
+      }
+    }
+
+    ion-row {
+      >ion-col[col-1] {
+        text-align: right !important;
+        padding: 0;
+
+        svg {
+          height: 2rem !important;
+        }
+      }
+
+      ion-col[col-11] {
+        line-height: 2.5rem;
+        padding: 0 0 0 .5rem;
+      }
+    }
+
+  }
+
   [advise-picture] {
     &>svg {
       width: 60%;
