@@ -120,9 +120,11 @@ export class SummaryPage {
     await actionSheet.present();
   }
 
-  duplicate(c: TbiComponent){
+  duplicate(c: TbiComponent) {
     var component = new TbiComponent(c.project, c);
     component.id = '';
+    component.fields.location += ' Copy';
+    component.date = new Date();
     this.project.components.push(component);
     this.service.save(this.project).then(p => {
       this.get_project();
@@ -142,7 +144,7 @@ export class SummaryPage {
           handler: () => {
             this.components = this.components.filter(c => c !== cl);
             this.project.components = this.project.components.filter(c => c !== cl);
-            this.service.save(this.project);
+            this.service.save(this.project).then(() => this.get_project());
           }
         },
         {
@@ -196,6 +198,13 @@ export class SummaryPage {
   }
 
   get_project(): void {
+    this.totals.headLost.power = 0;
+    this.totals.headLost.money = 0;
+    this.totals.savingPotentialMin.power = 0;
+    this.totals.savingPotentialMin.money = 0;
+    this.totals.savingPotentialMax.power = 0;
+    this.totals.savingPotentialMax.money = 0;
+
     this.service.get(this.navParams.get('project').id).then(project => {
       this.project = project;
       //this.project = this.navParams.get('project');

@@ -1,7 +1,6 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>HOME</ion-title>
-    <tools></tools>
+    <ion-title></ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -95,12 +94,15 @@
 <ion-footer>
   <ion-grid>
     <ion-row>
-      <ion-col col-6 text-left>
+      <ion-col col-4 text-left>
         <button ion-button small color="light" (click)="create_db()">
           <ion-icon name="md-archive"></ion-icon>Download data
         </button>
       </ion-col>
-      <ion-col col-6 text-right>
+      <ion-col col-4 text-center>
+        <tools></tools>
+      </ion-col>
+      <ion-col col-4 text-right>
         <button ion-button small color="royal" (click)="create()">
           New project
         </button>

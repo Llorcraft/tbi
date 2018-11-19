@@ -10,18 +10,20 @@ page-summary {
     }
 
     ion-row {
+      margin: 2rem 0;
       >ion-col[col-1] {
         text-align: right !important;
         padding: 0;
 
         svg {
-          height: 2rem !important;
+          height: 1.3rem !important;
         }
       }
 
       ion-col[col-11] {
-        line-height: 2.5rem;
+        line-height: 1.9rem;
         padding: 0 0 0 .5rem;
+        font-size: .8rem;
       }
     }
 

@@ -1,6 +1,8 @@
 tools {
-  ion-buttons {
-    float: right;
-    margin-top: -.5rem;
+  button {
+    width: 3rem;
+    ion-icon {
+      margin-left: .5rem;
+    }
   }
 }

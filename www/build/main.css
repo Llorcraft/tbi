@@ -28290,9 +28290,12 @@ ion-icon[class*="document-unknown"] {
   height: calc(100% - 120px);
 }
 
-tools ion-buttons {
-  float: right;
-  margin-top: -.5rem;
+tools button {
+  width: 3rem;
+}
+
+tools button ion-icon {
+  margin-left: .5rem;
 }
 
 page-download ion-content ion-grid > ion-row:nth-child(2) {
@@ -28338,6 +28341,15 @@ page-init ion-content .bg-logo {
   background-size: auto 95%;
   background-repeat: no-repeat;
   background-position: center center;
+}
+
+ion-title.label div {
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  font-size: 1.2rem;
+  font-stretch: 100%;
+  font-style: normal;
+  font-weight: 400;
+  color: #999;
 }
 
 form {
@@ -28430,6 +28442,7 @@ ion-card.disabled svg * {
 ion-grid[projects] svg#insulation {
   width: 80%;
   margin-top: .5rem;
+  margin-left: .5rem;
 }
 
 ion-grid[projects] h5 {
@@ -29212,18 +29225,23 @@ page-summary ion-grid[legend] ion-title[text-left] div.toolbar-title {
   text-align: left !important;
 }
 
+page-summary ion-grid[legend] ion-row {
+  margin: 2rem 0;
+}
+
 page-summary ion-grid[legend] ion-row > ion-col[col-1] {
   text-align: right !important;
   padding: 0;
 }
 
 page-summary ion-grid[legend] ion-row > ion-col[col-1] svg {
-  height: 2rem !important;
+  height: 1.3rem !important;
 }
 
 page-summary ion-grid[legend] ion-row ion-col[col-11] {
-  line-height: 2.5rem;
+  line-height: 1.9rem;
   padding: 0 0 0 .5rem;
+  font-size: .8rem;
 }
 
 page-summary [advise-picture] > svg {

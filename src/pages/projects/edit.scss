@@ -1,44 +1,61 @@
-form{
-  overflow-y: scroll;
-}
-#document-list {
-  //height: calc(100% - .5rem);
-  overflow-y: auto;
-}
-
-#document-list ion-item ion-icon[name="md-remove-circle"] {
-  //margin-right: -60px;
-  //margin-left: 60px;
-  transition: margin ease-in-out .25s;
-}
-
-#document-list.editable ion-item ion-icon[name="md-remove-circle"] {
-  margin-right: 0;
-  margin-left: 0;
-}
-
-#document-list ion-item ion-icon[name="document"] {
-  margin-left: 0;
-  transition: margin ease-in-out .25s;
-}
-
-page-edit-project {
-  ion-title[text-left] .toolbar-title {text-align: left!important}
-  ion-grid {
-    //height: 100% !important;
-    ion-row {
-      //height: 100% !important;
-
-      img {
-        width: 80%;
-        max-width: 300px;
-        height: auto;
-      }
-
+  ion-title.label {
+    div {
+      font-family: Roboto, "Helvetica Neue", sans-serif;
+      font-size: 1.2rem;
+      font-stretch: 100%;
+      font-style: normal;
+      font-weight: 400;
+      color: #999;
     }
   }
-}
+
+  form {
+    overflow-y: scroll;
+  }
+
+  #document-list {
+    //height: calc(100% - .5rem);
+    overflow-y: auto;
+  }
+
+  #document-list ion-item ion-icon[name="md-remove-circle"] {
+    //margin-right: -60px;
+    //margin-left: 60px;
+    transition: margin ease-in-out .25s;
+  }
+
+  #document-list.editable ion-item ion-icon[name="md-remove-circle"] {
+    margin-right: 0;
+    margin-left: 0;
+  }
+
+  #document-list ion-item ion-icon[name="document"] {
+    margin-left: 0;
+    transition: margin ease-in-out .25s;
+  }
+
+  page-edit-project {
+    ion-title[text-left] .toolbar-title {
+      text-align: left !important
+    }
+
+    ion-grid {
+
+      //height: 100% !important;
+      ion-row {
+        //height: 100% !important;
+
+        img {
+          width: 80%;
+          max-width: 300px;
+          height: auto;
+        }
+
+      }
+    }
+  }
 
 
-ion-col { position: initial !important; }
-
+  ion-col {
+    position: initial !important;
+  }

@@ -4,5 +4,4 @@ import { Component } from '@angular/core';
   selector: '[svg="leakage"]',
   templateUrl: '../../assets/imgs/leakage.svg'
 })
-
 export class SvgLeakageComponent{}

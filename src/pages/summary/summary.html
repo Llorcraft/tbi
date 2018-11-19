@@ -97,9 +97,9 @@
         </tr>
       </thead>
       <tbody *ngFor="let c of components; let i=index">
-        <tr [class.disabled]="c.fields.unknow_surface" (click)="edit(c)">
-          <td rowspan="2" double-border text-center style="white-space: nowrap; padding-right: 1rem">
-            <ion-icon (click)="actions(c, $event)" name="md-menu" style="margin: 0 .25rem 0; float: left"></ion-icon>
+        <tr [class.disabled]="c.fields.unknow_surface">
+          <td rowspan="2" (click)="actions(c, $event)" double-border text-center style="white-space: nowrap; padding-right: 1rem">
+            <ion-icon name="md-menu" style="margin: 0 .25rem 0; float: left"></ion-icon>
             {{i+1}}-
           </td>
           <td rowspan="2" double-border class="b-right" style="min-width: 10vw">
@@ -217,7 +217,6 @@
     </ion-grid> -->
 
     <ion-grid legend>
-      <ion-title text-left>Legend</ion-title>
       <ion-row>
         <ion-col col-1 class="icon"><div svg="insulation" style="margin:.4rem 0 -.4rem"></div></ion-col>
         <ion-col col-11 class="text">Insulation recommended</ion-col>
