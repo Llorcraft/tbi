@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { AlertController, NavParams, ModalController, NavController, ActionSheetController } from 'ionic-angular';
+import { AlertController, NavParams, ModalController, NavController, ActionSheetController, Img } from 'ionic-angular';
 import { ScreenOrientation } from '@ionic-native/screen-orientation';
 import { Project, Value, ReportBase, Result } from '../../models';
 import { ProjectService } from '../../services/project.service';
@@ -156,10 +156,33 @@ export class SummaryPage {
     confirm.present();
   }
 
+  private hide_svg(pdf: any) {
+    Array.from(pdf.element.nativeElement.getElementsByTagName('svg'))
+      .forEach((svg: any, i: number) => {
+        if (i < 3) svg.style.fill = '#fff';
+        let img = document.createElement('img');
+        img.src = `data:image/svg+xml;base64,${window.btoa(new XMLSerializer().serializeToString(svg))}`;
+        img.width = svg.getBoundingClientRect().width;
+        //img.height = svg.getBoundingClientRect().height;
+        svg.parentElement.appendChild(img);
+      });
+    pdf.element.nativeElement.className = 'print'
+  }
+
+  private show_svg(pdf: any) {
+    Array.from(pdf.element.nativeElement.getElementsByTagName('img'))
+      .forEach((img: any) => img.remove());
+    pdf.element.nativeElement.className = '';
+  }
+
   public export_pdf(pdf: PDFExportComponent) {
+    this.hide_svg(pdf);
     pdf.export().then((g: Group) => {
       exportPDF(g).then(data => {
-        this.file.create_pdf(data, 'prueba').then(r => this.opener.open(r, 'application/pdf'))
+        this.file.create_pdf(data, `${(new Date()).getTime()}`).then(r => {
+          this.opener.open(r, 'application/pdf');
+          this.show_svg(pdf);
+        })
       })
     })
   }

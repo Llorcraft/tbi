@@ -12,12 +12,25 @@ export class FileLocalService extends FileService {
     public working_folder: string = 'D:\\Sofware Factory\\tbi\\src\\assets\\';
 
     public create_pdf(base64: string, filename: string): Promise<string>{
-        throw new Error("Method not implemented.");
+        return new Promise<string>((resolve, reject) => {
+            let blob = new Blob([this.base64_to_uint(base64)], {type: 'application/pdf'});
+            let newWindow = window.open('/', '_blank');
+            newWindow.location.href = URL.createObjectURL(blob);
+            resolve(filename);
+        });
     }
     
-    public base64_to_uint(base64: string): Uint8Array{
-        throw new Error("Method not implemented.");
+    public base64_to_uint(base64: string): Uint8Array {
+        let arr = base64.split(','),
+            bstr = atob(arr[1]),
+            n = bstr.length,
+            u8arr = new Uint8Array(n);
+        while (n--) {
+            u8arr[n] = bstr.charCodeAt(n);
+        }
+        return u8arr;
     }
+
 
     public create_picture(uri: string): Promise<Document> {
         throw new Error("Method not implemented.");

@@ -1,4 +1,4 @@
-import { HttpModule } from '@angular/http';
+import { HttpModule, Http } from '@angular/http';
 import { NgModule, ErrorHandler } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
@@ -113,6 +113,7 @@ import { SurfaceMaterialPipe } from '../pipes/surface-material.pipe';
 import { PDFExportModule } from '@progress/kendo-angular-pdf-export';
 import { ToolsComponent } from '../components/tools/tools.component';
 import { Flashlight } from '@ionic-native/flashlight';
+import { GlobalErrorHandler } from '../models/errors/global-error';
 
 @NgModule({
   declarations: [
@@ -258,8 +259,8 @@ import { Flashlight } from '@ionic-native/flashlight';
     FileChooser,
     UniqueDeviceID,
     FileTransfer,
-    //{ provide: ErrorHandler, useClass: GlobalErrorHandler, deps: [MessageService, Http] },
-    { provide: ErrorHandler, useClass: IonicErrorHandler },
+    { provide: ErrorHandler, useClass: GlobalErrorHandler, deps: [MessageService, Http] },
+    //{ provide: ErrorHandler, useClass: IonicErrorHandler },
     //Mock services
     //{ provide: PictureService, useClass: PictureDeviceService },
     LicencesService,

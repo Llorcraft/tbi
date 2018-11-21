@@ -1,5 +1,36 @@
 page-summary {
 
+  kendo-pdf-export {
+    img {
+      margin: auto;
+    }
+    span,
+    div {
+      svg {
+        &+img {
+          display: none;
+        }
+      }
+    }
+
+    &.print {
+      ion-icon {
+        display: none !important;
+      }
+
+      span,
+      div {
+        svg {
+          display: none !important;
+
+          &+img {
+            display: block;
+          }
+        }
+      }
+    }
+  }
+
   ion-grid[legend] {
     ion-title[text-left] {
       margin: 2rem 0 1rem;
@@ -11,6 +42,7 @@ page-summary {
 
     ion-row {
       margin: 2rem 0;
+
       >ion-col[col-1] {
         text-align: right !important;
         padding: 0;
@@ -28,6 +60,7 @@ page-summary {
     }
 
   }
+
 
   [advise-picture] {
     &>svg {

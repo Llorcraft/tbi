@@ -28298,6 +28298,11 @@ tools button ion-icon {
   margin-left: .5rem;
 }
 
+tools button.button-on {
+  -webkit-box-shadow: inset 2px 2px 2px rgba(0, 0, 0, 0.4);
+  box-shadow: inset 2px 2px 2px rgba(0, 0, 0, 0.4);
+}
+
 page-download ion-content ion-grid > ion-row:nth-child(2) {
   position: fixed;
   width: 100%;
@@ -29215,6 +29220,29 @@ ion-col[toggle-container] ion-toggle {
 button[ion-button][round][outline] {
   padding: 1rem 0 !important;
   width: 100%;
+}
+
+page-summary kendo-pdf-export img {
+  margin: auto;
+}
+
+page-summary kendo-pdf-export span svg + img,
+page-summary kendo-pdf-export div svg + img {
+  display: none;
+}
+
+page-summary kendo-pdf-export.print ion-icon {
+  display: none !important;
+}
+
+page-summary kendo-pdf-export.print span svg,
+page-summary kendo-pdf-export.print div svg {
+  display: none !important;
+}
+
+page-summary kendo-pdf-export.print span svg + img,
+page-summary kendo-pdf-export.print div svg + img {
+  display: block;
 }
 
 page-summary ion-grid[legend] ion-title[text-left] {
