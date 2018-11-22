@@ -20,12 +20,12 @@ export class ToolsComponent implements OnInit {
   ngOnInit(): void {
     this.flashlight_on = this.flashlight.isSwitchedOn();
 
-    if (!!(<any>window).plugins) {
+    //if (!!(<any>window).plugins) {
       (<any>window).plugins.packagemanager.show(true, (apps) => {
         let calc = apps.find((a => !!a.match(/calc/g))).split('/');
         this.calc_path = calc[calc.length - 1].split(';')[1];
       });
-    }
+    //}
   }
 
   toggle_light() {

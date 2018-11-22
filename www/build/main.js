@@ -4,6 +4,34 @@ webpackJsonp([0],{
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Result; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__value__ = __webpack_require__(169);
+
+var Result = /** @class */ (function () {
+    function Result(result) {
+        this.headLost = new __WEBPACK_IMPORTED_MODULE_0__value__["a" /* Value */]();
+        this.savingPotentialMin = new __WEBPACK_IMPORTED_MODULE_0__value__["a" /* Value */]();
+        this.savingPotentialMax = new __WEBPACK_IMPORTED_MODULE_0__value__["a" /* Value */]();
+        this.advise = '';
+        if (!result)
+            return;
+        Object.assign(this, result);
+        this.advise = result.advise;
+        this.headLost = new __WEBPACK_IMPORTED_MODULE_0__value__["a" /* Value */](result.headLost);
+        this.savingPotentialMin = new __WEBPACK_IMPORTED_MODULE_0__value__["a" /* Value */](result.savingPotentialMin);
+        this.savingPotentialMax = new __WEBPACK_IMPORTED_MODULE_0__value__["a" /* Value */](result.savingPotentialMax);
+    }
+    return Result;
+}());
+
+//# sourceMappingURL=result.js.map
+
+/***/ }),
+
+/***/ 101:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Picture; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__marker__ = __webpack_require__(75);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__model_with_picture__ = __webpack_require__(297);
@@ -88,114 +116,6 @@ var Picture = /** @class */ (function (_super) {
 }(__WEBPACK_IMPORTED_MODULE_1__model_with_picture__["a" /* ModelWithPicture */]));
 
 //# sourceMappingURL=picture.js.map
-
-/***/ }),
-
-/***/ 101:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return TbiComponent; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__report_base__ = __webpack_require__(24);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__fields__ = __webpack_require__(170);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__marker__ = __webpack_require__(75);
-
-
-
-var TbiComponent = /** @class */ (function () {
-    function TbiComponent(project, item) {
-        var _this = this;
-        this.id = '';
-        this.project = null;
-        this.reports = [];
-        this.fields = new __WEBPACK_IMPORTED_MODULE_1__fields__["a" /* Fields */]();
-        this.date = new Date();
-        this.project = project;
-        if (!!item) {
-            this.fields = new __WEBPACK_IMPORTED_MODULE_1__fields__["a" /* Fields */](item.fields);
-            this.project = project;
-            if (!!item.date)
-                this.date = item.date instanceof Date ? item.date : new Date(String(item.date));
-            this.id = item.id || Math.random().toString().substr(2);
-            this.reports = (item.reports || []).map(function (r) { return new __WEBPACK_IMPORTED_MODULE_0__report_base__["a" /* ReportBase */](project, _this, r); });
-            this.markers = (item.markers || []).map(function (m) { return new __WEBPACK_IMPORTED_MODULE_2__marker__["a" /* Marker */](m); });
-            var report = this.reports.find(function (r) { return !!(r.path).match(/(surface|pipe|valve|flange)/gi); });
-            this.result = !!report ? report.result : null;
-        }
-    }
-    TbiComponent.prototype.flatten = function (arr) {
-        return [].concat.apply([], arr);
-    };
-    Object.defineProperty(TbiComponent.prototype, "is_hot", {
-        get: function () {
-            return (this.fields.surface_temp || 0) > 35;
-        },
-        enumerable: true,
-        configurable: true
-    });
-    Object.defineProperty(TbiComponent.prototype, "insulated", {
-        get: function () {
-            var report = this.reports.find(function (r) { return !!r.path.match(/\\insulated/gi); });
-            return !!report;
-        },
-        enumerable: true,
-        configurable: true
-    });
-    TbiComponent.prototype.reports_by_type = function (type) {
-        var _this = this;
-        var result = this.reports.filter(function (r) { return !!r.path.match(new RegExp('(' + type + ')', 'gi')); });
-        if (type.lastIndexOf('hot') != -1) {
-            var r = this.reports.find(function (r) { return !!r.path.match(/(surface|pipe|valve|flange)/gi) && (_this.is_hot); });
-            if (!!r)
-                result.push(r);
-        }
-        return result;
-    };
-    Object.defineProperty(TbiComponent.prototype, "pictures", {
-        get: function () {
-            return this.flatten(this.reports.map(function (r) { return r.pictures; }));
-        },
-        enumerable: true,
-        configurable: true
-    });
-    TbiComponent.prototype.all_markers = function (report) {
-        var _this = this;
-        return ((this.markers || []).filter(function (m) { return m.temperature != null; }) || [])
-            .concat(this.flatten(this.reports.filter(function (r) { return r.id != report.id; }).map(function (r) { return _this.flatten(r.pictures.map(function (p) { return p.markers; })); })))
-            .concat(this.flatten(report.pictures.map(function (p) { return p.markers; })));
-    };
-    TbiComponent.prototype.has_markers = function (report) {
-        return !!this.all_markers(report).length;
-    };
-    TbiComponent.prototype.min_temp = function (report) {
-        if (!this.has_markers(report))
-            return 0;
-        return this.all_markers(report).map(function (m) { return Number(m.temperature); }).sort(function (a, b) { return Number(a) > Number(b) ? 1 : -1; })[0];
-    };
-    TbiComponent.prototype.max_temp = function (report) {
-        if (!this.has_markers(report))
-            return 0;
-        return this.all_markers(report).map(function (m) { return Number(m.temperature); }).sort(function (a, b) { return Number(a) > Number(b) ? -1 : 1; })[0];
-    };
-    TbiComponent.prototype.medium_temp = function (report) {
-        if (!this.has_markers(report))
-            return 0;
-        var markers = this.all_markers(report).map(function (m) { return parseFloat(m.temperature.toString()); });
-        return Number((markers.reduce(function (a, t) { return a + Number(t); }, 0) / this.all_markers(report).length).toFixed(2));
-    };
-    // private update_surface_temp(): TbiComponent {
-    //     const surface_temp = this.pictures.map(p => p.surface_temp).filter(p => p !== null);
-    //     if (surface_temp.length === 0) return;
-    //     this.fields.surface_temp = eval(surface_temp.join('+')) / surface_temp.length
-    //     return this;
-    // }
-    TbiComponent.prototype.get_reports_by_type = function (type) {
-        return this.reports.filter(function (r) { return !!r.path.match(new RegExp('(' + type + ')', 'gi')); });
-    };
-    return TbiComponent;
-}());
-
-//# sourceMappingURL=component.js.map
 
 /***/ }),
 
@@ -309,7 +229,7 @@ var MessageService = /** @class */ (function () {
 /* unused harmony export Contact */
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return Project; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0____ = __webpack_require__(46);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__component__ = __webpack_require__(101);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__component__ = __webpack_require__(76);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__model_with_picture__ = __webpack_require__(297);
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = Object.setPrototypeOf ||
@@ -447,7 +367,7 @@ var Value = /** @class */ (function () {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Fields; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__const_more_more__ = __webpack_require__(98);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__const_more_more__ = __webpack_require__(99);
 
 var Fields = /** @class */ (function () {
     function Fields(f) {
@@ -801,12 +721,12 @@ var REPORT = {
         }
     },
     MANTENANCE: {
-        LEAKAGE: 'Mantenance\\Leakege',
-        DAMAGED: "Mantenance\\Damaged",
-        CONDENSATION: "Mantenance\\Condensation",
-        STRUCTURAL: "Mantenance\\Structural",
-        MECHANICAL: "Mantenance\\Mechanical",
-        ELECTRICAL: "Mantenance\\Electrical",
+        LEAKAGE: 'Maintenance\\Leakege',
+        DAMAGED: "Maintenance\\Damaged",
+        CONDENSATION: "Maintenance\\Condensation",
+        STRUCTURAL: "Maintenance\\Structural",
+        MECHANICAL: "Maintenance\\Mechanical",
+        ELECTRICAL: "Maintenance\\Electrical",
     },
     CUSTOM: "Custom",
     DAMAGED: 'Damaged',
@@ -829,7 +749,7 @@ var REPORT = {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__summary_edit__ = __webpack_require__(308);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__models_report_router__ = __webpack_require__(306);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__reports__ = __webpack_require__(20);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__models_component__ = __webpack_require__(101);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__models_component__ = __webpack_require__(76);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__progress_kendo_drawing__ = __webpack_require__(309);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__projects_projects__ = __webpack_require__(74);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__services__ = __webpack_require__(17);
@@ -1119,7 +1039,7 @@ var SummaryPage = /** @class */ (function () {
     };
     SummaryPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-summary',template:/*ion-inline-start:"D:\Sofware Factory\tbi\src\pages\summary\summary.html"*/'<ion-header>\n\n  <ion-toolbar>\n\n    <ion-title>Summary - {{project?.name}}</ion-title>\n\n    <ion-buttons end>\n\n      <button ion-button on-tap="export_pdf(pdf)">\n\n        <ion-icon name="document-pdf"></ion-icon>&nbsp;PDF\n\n      </button>\n\n    </ion-buttons>\n\n  </ion-toolbar>\n\n</ion-header>\n\n\n\n<ion-content>\n\n  <kendo-pdf-export #pdf paperSize="A4" margin=".5cm" [scale]="0.5" landscape="true">\n\n\n\n    <!-- <ion-grid class="summary-total" *ngIf="!!totals">\n\n      <ion-row>\n\n        <ion-col col-12 text-center>\n\n          <table class="total red">\n\n            <tr>\n\n              <td class="c-red">Energy loss per year</td>\n\n              <td text-right>{{totals.headLost.power | number: \'1.0-0\'}}</td>\n\n              <td>kWh</td>\n\n            </tr>\n\n            <tr>\n\n              <td>Money loss per year</td>\n\n              <td text-right>{{totals.headLost.money | number: \'1.0-0\'}}</td>\n\n              <td>€</td>\n\n            </tr>\n\n          </table>\n\n\n\n          <table class="total green">\n\n            <tr>\n\n              <td>Potential energy saving per year</td>\n\n              <td text-right>{{totals.savingPotentialMin.power | number: \'1.0-0\'}}</td>\n\n              <td text-center>\n\n                <ion-icon name="md-arrow-forward"></ion-icon>\n\n              </td>\n\n              <td text-right>{{totals.savingPotentialMax.power | number: \'1.0-0\'}}</td>\n\n              <td>kWh</td>\n\n            </tr>\n\n            <tr>\n\n              <td>Potential money saving per year</td>\n\n              <td text-right>{{totals.savingPotentialMin.money | number: \'1.0-0\'}}</td>\n\n              <td text-center>\n\n                <ion-icon name="md-arrow-forward"></ion-icon>\n\n              </td>\n\n              <td text-right>{{totals.savingPotentialMax.money | number: \'1.0-0\'}}</td>\n\n              <td>€</td>\n\n            </tr>\n\n          </table>\n\n        </ion-col>\n\n      </ion-row>\n\n    </ion-grid> -->\n\n    <table class="data">\n\n      <thead>\n\n        <tr>\n\n          <th colspan="2"></th>\n\n          <th colspan="6" class="bg-green" style="border-bottom: 5px solid #fff;">Energy analysis</th>\n\n          <th rowspan="2" class="bg-red">\n\n            <span svg="safety"></span>\n\n            Safety\n\n          </th>\n\n          <th rowspan="2" class="bg-blue">\n\n            <span svg="maintenance"></span>\n\n            Maintenance\n\n          </th>\n\n          <th rowspan="2" class="bg-gray">\n\n            <span svg="custom"></span>\n\n            Others\n\n          </th>\n\n          <th class="bg-blue-light">TBI</th>\n\n          <th class="bg-green-light" colspan="5">Input</th>\n\n        </tr>\n\n        <tr>\n\n          <th colspan="2" style="border-right: 1px solid #444">Component / Location</th>\n\n          <th colspan="2" style="border-top: 1px solid #444; border-right: 1px solid #444; color: red">Energy Loss<br>per\n\n            year</th>\n\n          <th colspan="4" style="border-top: 1px solid #444; border-right: 1px solid #444; color: #375623">Potential\n\n            Savings<br>per\n\n            year</th>\n\n          <th>Insulation<br>Advise</th>\n\n          <th class="vertical">\n\n            <div><span one-line>Insulated</span></div>\n\n          </th>\n\n          <th class="vertical">\n\n            <div><span one-line>Surface (m<sup>2</sup>)</span></div>\n\n          </th>\n\n          <th class="vertical">\n\n            <div><span one-line>Diameter</span></div>\n\n          </th>\n\n          <th class="vertical">\n\n            <div><span one-line>Length</span></div>\n\n          </th>\n\n          <th class="vertical">\n\n            <div><span one-line>Items number</span></div>\n\n          </th>\n\n        </tr>\n\n      </thead>\n\n      <tbody *ngFor="let c of components; let i=index">\n\n        <tr [class.disabled]="c.fields.unknow_surface">\n\n          <td rowspan="2" (click)="actions(c, $event)" double-border text-center style="white-space: nowrap; padding-right: 1rem">\n\n            <ion-icon name="md-menu" style="margin: 0 .25rem 0; float: left"></ion-icon>\n\n            {{i+1}}-\n\n          </td>\n\n          <td rowspan="2" double-border class="b-right" style="min-width: 10vw">\n\n            {{ellipsis(c.fields.location)}}\n\n          </td>\n\n          <td *ngIf="!!c.result" text-right class="bg-light-red c-red">{{c.result.headLost.power / 1000 | number:\n\n            \'1.1-1\'}}</td>\n\n          <td *ngIf="!!c.result" class="bg-light-red c-red b-right">MWh<span *ngIf="c.fields.unknow_surface">/m<sup>2</sup></span></td>\n\n          <td *ngIf="!!c.result" text-right class="bg-green c-gree">{{c.result.savingPotentialMin?.power / 1000 |\n\n            number: \'1.1-1\'}}</td>\n\n          <td *ngIf="!!c.result" text-center class="bg-green c-gree p-0" style="width: 15px; padding: 0; white-space: nowrap">\n\n            <!-- <ion-icon name="md-arrow-forward"></ion-icon> -->\n\n            --\n\n          </td>\n\n          <td *ngIf="!!c.result" text-left class="bg-green c-gree">{{c.result.savingPotentialMax?.power / 1000 |\n\n            number: \'1.1-1\'}}</td>\n\n          <td *ngIf="!!c.result" class="bg-green c-gree mesure b-right">MWh<span *ngIf="c.fields.unknow_surface">/m<sup>2</sup></span></td>\n\n          <td *ngIf="!c.result" colspan="2" class="b-right"></td>\n\n          <td *ngIf="!c.result" colspan="4" class="b-right"></td>\n\n\n\n          <td rowspan="2" double-border text-center class="bg-red">\n\n            <ng-container *ngFor="let r of c.reports_by_type(\'safety|hot\')">\n\n              <a href="#" (click)="open(r, $event)" *ngIf="!r.component.is_hot">{{r.summary_id}}</a>\n\n              <a href="#" (click)="open(r, $event)" *ngIf="!!r.component.is_hot">Hot surface</a>\n\n            </ng-container>\n\n            <ion-icon name="md-add-circle" (click)="add_report(\'safety\', c, $event)"></ion-icon>\n\n          </td>\n\n          <td rowspan="2" double-border text-center class="bg-blue">\n\n            <a href="#" (click)="open(r, $event)" *ngFor="let r of c.reports_by_type(\'mantenance|condensation|damaged\')">{{r.summary_id}}</a>\n\n            <ion-icon name="md-add-circle" (click)="add_report(\'maintenance\',c , $event)"></ion-icon>\n\n          </td>\n\n          <td rowspan="2" double-border text-center class="bg-gray">\n\n            <a href="#" (click)="open(r, $event)" *ngFor="let r of c.reports_by_type(\'generic|custom\')">{{r.summary_id}}</a>\n\n            <ion-icon name="md-add-circle" (click)="add_report(\'maintenance\', c, $event)"></ion-icon>\n\n          </td>\n\n          <td rowspan="2" *ngIf="!!c.result" double-border text-center>\n\n            <ng-container [ngSwitch]="advises.get(c.result.advise)">\n\n              <span advise-picture *ngSwitchCase="\'Recommended\'" svg="insulation"></span>\n\n              <span advise-picture *ngSwitchCase="\'Maintenance\'" svg="mechanical"></span>\n\n              <span advise-picture *ngSwitchCase="\'Unknow surface\'" svg="surface"></span>\n\n              <span advise-picture *ngSwitchCase="\'OK\'" svg="like"></span>\n\n              <span advise-picture *ngSwitchCase="\'Increase\'" svg="increase"></span>\n\n            </ng-container>\n\n          </td>\n\n          <td rowspan="2" *ngIf="!c.result" double-border text-center></td>\n\n          <td rowspan="2" double-border text-center>{{!!c.insulated ? \'Y\' : \'N\'}}</td>\n\n          <td *ngIf="null!=c.fields.surface_temp" rowspan="2" double-border text-center>{{c.fields.surface}}</td>\n\n          <td *ngIf="null==c.fields.surface_temp" rowspan="2" double-border text-center>&nbsp;</td>\n\n          <td rowspan="2" double-border text-center>\n\n            <!-- <span *ngIf="!!c.surface">{{c.fields.surface}} m<sup>2</sup></span> -->\n\n            <span>{{c.fields.main_dimension || c.fields.nominal_diameter}}</span>\n\n          </td>\n\n          <td rowspan="2" double-border text-center>{{c.fields.length}}</td>\n\n          <td rowspan="2" double-border text-center>{{c.fields.number}}</td>\n\n        </tr>\n\n\n\n        <tr *ngIf="!!c.result" [class.disabled]="c.fields.unknow_surface">\n\n          <td double-border text-right class="c-red">{{c.result.headLost?.money | number: \'1.0-0\'}}</td>\n\n          <td double-border class="c-red mesure b-right">€<span *ngIf="c.fields.unknow_surface">/m<sup>2</sup></span></td>\n\n          <td double-border text-right class="c-gree">{{c.result.savingPotentialMin?.money | number: \'1.0-0\'}}</td>\n\n          <td double-border text-center class="c-gree p-0" style="width: 15px; padding: 0; white-space: nowrap;">\n\n            <!-- <ion-icon name="md-arrow-forward"></ion-icon> -->\n\n            --\n\n          </td>\n\n          <td double-border text-left class="c-gree">{{c.result.savingPotentialMax?.money | number: \'1.0-0\'}}</td>\n\n          <td double-border class="c-gree mesure b-right">€<span *ngIf="c.fields.unknow_surface">/m<sup>2</sup></span></td>\n\n        </tr>\n\n        <tr *ngIf="!c.result" [class.disabled]="c.fields.unknow_surface">\n\n          <td double-border colspan="2" class="b-right"></td>\n\n          <td double-border colspan="4" class="b-right"></td>\n\n        </tr>\n\n      </tbody>\n\n      <tfoot>\n\n        <tr>\n\n          <td rowspan="2" colspan="2" double-border class="b-right" text-right>\n\n            TOTAL PROJECT\n\n          </td>\n\n          <td text-right class="bg-light-red c-red">{{totals.headLost.power / 1000 | number: \'1.1-1\'}}</td>\n\n          <td class="bg-light-red c-red b-right">MWh</td>\n\n          <td text-right class="bg-green c-gree">{{totals.savingPotentialMin?.power / 1000 | number: \'1.1-1\'}}</td>\n\n          <td text-center class="bg-green c-gree p-0" style="width: 15px; padding: 0; white-space: nowrap">--</td>\n\n          <td text-left class="bg-green c-gree">{{totals.savingPotentialMax?.power / 1000 | number: \'1.1-1\'}}</td>\n\n          <td class="bg-green c-gree mesure b-right">MWh</td>\n\n        </tr>\n\n\n\n        <tr>\n\n          <td double-border text-right class="c-red">{{totals.headLost?.money | number: \'1.0-0\'}}</td>\n\n          <td double-border class="c-red mesure b-right">€</td>\n\n          <td double-border text-right class="c-gree">{{totals.savingPotentialMin?.money | number: \'1.0-0\'}}</td>\n\n          <td double-border text-center class="c-gree p-0" style="width: 15px; padding: 0; white-space: nowrap;">--</td>\n\n          <td double-border text-left class="c-gree">{{totals.savingPotentialMax?.money | number: \'1.0-0\'}}</td>\n\n          <td double-border class="c-gree mesure b-right">€</td>\n\n        </tr>\n\n      </tfoot>\n\n    </table>\n\n\n\n    <!-- <ion-grid style="margin-top: 2rem">\n\n      <ion-row>\n\n        <ion-col col-6 col-lg-4>\n\n          <span class="legend" advise-picture svg="like"></span><strong>System OK</strong>\n\n        </ion-col>\n\n        <ion-col col-6 col-lg-4>\n\n          <span class="legend" advise-picture svg="insulation"></span><strong>Insulation recommended</strong>\n\n        </ion-col>\n\n        <ion-col col-6 col-lg-4>\n\n          <span class="legend" advise-picture svg="mechanical"></span><strong>Maintenace</strong>\n\n        </ion-col>\n\n        <ion-col col-6 col-lg-4>\n\n          <span class="legend" advise-picture svg="surface"></span><strong>Surface unknown</strong>\n\n        </ion-col>\n\n        <ion-col col-6 col-lg-4>\n\n          <span class="legend" advise-picture svg="increase"></span><strong>Increace performance or thickness</strong>\n\n        </ion-col>\n\n      </ion-row>\n\n    </ion-grid> -->\n\n\n\n    <ion-grid legend>\n\n      <ion-row>\n\n        <ion-col col-1 class="icon"><div svg="insulation" style="margin:.4rem 0 -.4rem"></div></ion-col>\n\n        <ion-col col-11 class="text">Insulation recommended</ion-col>\n\n        <ion-col col-1 class="icon"><div svg="surface" style="margin:.2rem 0 -.2rem"></div></ion-col>\n\n        <ion-col col-11 class="text">Surface unknown</ion-col>\n\n        <ion-col col-1 class="icon"><div svg="maintenance"></div></ion-col>\n\n        <ion-col col-11 class="text">Maintenance</ion-col>\n\n        <ion-col col-1 class="icon"><div svg="like"></div></ion-col>\n\n        <ion-col col-11 class="text">System OK</ion-col>\n\n        <ion-col col-1 class="icon"><div svg="increase"></div></ion-col>\n\n        <ion-col col-11 class="text">Increase performance or thickness</ion-col>\n\n      </ion-row>\n\n    </ion-grid>\n\n\n\n  </kendo-pdf-export>\n\n\n\n</ion-content>\n\n\n\n<ion-footer>\n\n  <ion-grid no-padding>\n\n    <ion-row no-padding>\n\n      <ion-col col-4 no-padding>\n\n        <button ion-button small color="light" (click)="go_to_projects()">\n\n          HOME\n\n        </button>\n\n      </ion-col>\n\n      <ion-col col-4 text-center>\n\n        <tools></tools>\n\n      </ion-col>\n\n      <ion-col col-4 text-right>\n\n        <button tabindex="15" ion-button small color="primary" (click)="go_to_reports()">\n\n          New component\n\n        </button>\n\n      </ion-col>\n\n    </ion-row>\n\n  </ion-grid>\n\n</ion-footer>\n\n'/*ion-inline-end:"D:\Sofware Factory\tbi\src\pages\summary\summary.html"*/
+            selector: 'page-summary',template:/*ion-inline-start:"D:\Sofware Factory\tbi\src\pages\summary\summary.html"*/'<ion-header>\n\n  <ion-toolbar>\n\n    <ion-title>Summary - {{project?.name}}</ion-title>\n\n    <ion-buttons end>\n\n      <button ion-button on-tap="export_pdf(pdf)">\n\n        <ion-icon name="document-pdf"></ion-icon>&nbsp;PDF\n\n      </button>\n\n    </ion-buttons>\n\n  </ion-toolbar>\n\n</ion-header>\n\n\n\n<ion-content>\n\n  <kendo-pdf-export #pdf paperSize="A4" margin=".5cm" [scale]="0.5" landscape="true">\n\n\n\n    <!-- <ion-grid class="summary-total" *ngIf="!!totals">\n\n      <ion-row>\n\n        <ion-col col-12 text-center>\n\n          <table class="total red">\n\n            <tr>\n\n              <td class="c-red">Energy loss per year</td>\n\n              <td text-right>{{totals.headLost.power | number: \'1.0-0\'}}</td>\n\n              <td>kWh</td>\n\n            </tr>\n\n            <tr>\n\n              <td>Money loss per year</td>\n\n              <td text-right>{{totals.headLost.money | number: \'1.0-0\'}}</td>\n\n              <td>€</td>\n\n            </tr>\n\n          </table>\n\n\n\n          <table class="total green">\n\n            <tr>\n\n              <td>Potential energy saving per year</td>\n\n              <td text-right>{{totals.savingPotentialMin.power | number: \'1.0-0\'}}</td>\n\n              <td text-center>\n\n                <ion-icon name="md-arrow-forward"></ion-icon>\n\n              </td>\n\n              <td text-right>{{totals.savingPotentialMax.power | number: \'1.0-0\'}}</td>\n\n              <td>kWh</td>\n\n            </tr>\n\n            <tr>\n\n              <td>Potential money saving per year</td>\n\n              <td text-right>{{totals.savingPotentialMin.money | number: \'1.0-0\'}}</td>\n\n              <td text-center>\n\n                <ion-icon name="md-arrow-forward"></ion-icon>\n\n              </td>\n\n              <td text-right>{{totals.savingPotentialMax.money | number: \'1.0-0\'}}</td>\n\n              <td>€</td>\n\n            </tr>\n\n          </table>\n\n        </ion-col>\n\n      </ion-row>\n\n    </ion-grid> -->\n\n    <table class="data">\n\n      <thead>\n\n        <tr>\n\n          <th colspan="2"></th>\n\n          <th colspan="6" class="bg-green" style="border-bottom: 5px solid #fff;">Energy analysis</th>\n\n          <th rowspan="2" class="bg-red">\n\n            <span svg="safety"></span>\n\n            Safety\n\n          </th>\n\n          <th rowspan="2" class="bg-blue">\n\n            <span svg="maintenance"></span>\n\n            Maintenance\n\n          </th>\n\n          <th rowspan="2" class="bg-gray">\n\n            <span svg="custom"></span>\n\n            Others\n\n          </th>\n\n          <th class="bg-blue-light">TBI</th>\n\n          <th class="bg-green-light" colspan="5">Input</th>\n\n        </tr>\n\n        <tr>\n\n          <th colspan="2" style="border-right: 1px solid #444">Component / Location</th>\n\n          <th colspan="2" style="border-top: 1px solid #444; border-right: 1px solid #444; color: red">Energy Loss<br>per\n\n            year</th>\n\n          <th colspan="4" style="border-top: 1px solid #444; border-right: 1px solid #444; color: #375623">Potential\n\n            Savings<br>per\n\n            year</th>\n\n          <th>Insulation<br>Advise</th>\n\n          <th class="vertical">\n\n            <div><span one-line>Insulated</span></div>\n\n          </th>\n\n          <th class="vertical">\n\n            <div><span one-line>Surface (m<sup>2</sup>)</span></div>\n\n          </th>\n\n          <th class="vertical">\n\n            <div><span one-line>Diameter</span></div>\n\n          </th>\n\n          <th class="vertical">\n\n            <div><span one-line>Length</span></div>\n\n          </th>\n\n          <th class="vertical">\n\n            <div><span one-line>Items number</span></div>\n\n          </th>\n\n        </tr>\n\n      </thead>\n\n      <tbody *ngFor="let c of components; let i=index">\n\n        <tr [class.disabled]="c.fields.unknow_surface">\n\n          <td rowspan="2" (click)="actions(c, $event)" double-border text-center style="white-space: nowrap; padding-right: 1rem">\n\n            <ion-icon name="md-menu" style="margin: 0 .25rem 0; float: left"></ion-icon>\n\n            {{i+1}}-\n\n          </td>\n\n          <td rowspan="2" double-border class="b-right" style="min-width: 10vw">\n\n            {{ellipsis(c.fields.location)}}\n\n          </td>\n\n          <td *ngIf="!!c.result" text-right class="bg-light-red c-red">{{c.result.headLost.power / 1000 | number:\n\n            \'1.1-1\'}}</td>\n\n          <td *ngIf="!!c.result" class="bg-light-red c-red b-right">MWh<span *ngIf="c.fields.unknow_surface">/m<sup>2</sup></span></td>\n\n          <td *ngIf="!!c.result" text-right class="bg-green c-gree">{{c.result.savingPotentialMin?.power / 1000 |\n\n            number: \'1.1-1\'}}</td>\n\n          <td *ngIf="!!c.result" text-center class="bg-green c-gree p-0" style="width: 15px; padding: 0; white-space: nowrap">\n\n            <!-- <ion-icon name="md-arrow-forward"></ion-icon> -->\n\n            --\n\n          </td>\n\n          <td *ngIf="!!c.result" text-left class="bg-green c-gree">{{c.result.savingPotentialMax?.power / 1000 |\n\n            number: \'1.1-1\'}}</td>\n\n          <td *ngIf="!!c.result" class="bg-green c-gree mesure b-right">MWh<span *ngIf="c.fields.unknow_surface">/m<sup>2</sup></span></td>\n\n          <td *ngIf="!c.result" colspan="2" class="b-right"></td>\n\n          <td *ngIf="!c.result" colspan="4" class="b-right"></td>\n\n\n\n          <td rowspan="2" double-border text-center class="bg-red">\n\n            <ng-container *ngFor="let r of c.reports_by_type(\'safety|hot\')">\n\n              <a href="#" (click)="open(r, $event)" *ngIf="!r.component.is_hot">{{r.summary_id}}</a>\n\n              <a href="#" (click)="open(r, $event)" *ngIf="!!r.component.is_hot">Hot surface</a>\n\n            </ng-container>\n\n            <ion-icon name="md-add-circle" (click)="add_report(\'safety\', c, $event)"></ion-icon>\n\n          </td>\n\n          <td rowspan="2" double-border text-center class="bg-blue">\n\n            <a href="#" (click)="open(r, $event)" *ngFor="let r of c.reports_by_type(\'maintenance|condensation|damaged\')">{{r.summary_id}}</a>\n\n            <ion-icon name="md-add-circle" (click)="add_report(\'maintenance\',c , $event)"></ion-icon>\n\n          </td>\n\n          <td rowspan="2" double-border text-center class="bg-gray">\n\n            <a href="#" (click)="open(r, $event)" *ngFor="let r of c.reports_by_type(\'generic|custom\')">{{r.summary_id}}</a>\n\n            <ion-icon name="md-add-circle" (click)="add_report(\'maintenance\', c, $event)"></ion-icon>\n\n          </td>\n\n          <td rowspan="2" *ngIf="!!c.result" double-border text-center>\n\n            <ng-container [ngSwitch]="advises.get(c.result.advise)">\n\n              <span advise-picture *ngSwitchCase="\'Recommended\'" svg="insulation"></span>\n\n              <span advise-picture *ngSwitchCase="\'Maintenance\'" svg="mechanical"></span>\n\n              <span advise-picture *ngSwitchCase="\'Unknow surface\'" svg="surface"></span>\n\n              <span advise-picture *ngSwitchCase="\'OK\'" svg="like"></span>\n\n              <span advise-picture *ngSwitchCase="\'Increase\'" svg="increase"></span>\n\n            </ng-container>\n\n          </td>\n\n          <td rowspan="2" *ngIf="!c.result" double-border text-center></td>\n\n          <td rowspan="2" double-border text-center>{{!!c.insulated ? \'Y\' : \'N\'}}</td>\n\n          <td *ngIf="null!=c.fields.surface_temp" rowspan="2" double-border text-center>{{c.fields.surface}}</td>\n\n          <td *ngIf="null==c.fields.surface_temp" rowspan="2" double-border text-center>&nbsp;</td>\n\n          <td rowspan="2" double-border text-center>\n\n            <!-- <span *ngIf="!!c.surface">{{c.fields.surface}} m<sup>2</sup></span> -->\n\n            <span>{{c.fields.main_dimension || c.fields.nominal_diameter}}</span>\n\n          </td>\n\n          <td rowspan="2" double-border text-center>{{c.fields.length}}</td>\n\n          <td rowspan="2" double-border text-center>{{c.fields.number}}</td>\n\n        </tr>\n\n\n\n        <tr *ngIf="!!c.result" [class.disabled]="c.fields.unknow_surface">\n\n          <td double-border text-right class="c-red">{{c.result.headLost?.money | number: \'1.0-0\'}}</td>\n\n          <td double-border class="c-red mesure b-right">€<span *ngIf="c.fields.unknow_surface">/m<sup>2</sup></span></td>\n\n          <td double-border text-right class="c-gree">{{c.result.savingPotentialMin?.money | number: \'1.0-0\'}}</td>\n\n          <td double-border text-center class="c-gree p-0" style="width: 15px; padding: 0; white-space: nowrap;">\n\n            <!-- <ion-icon name="md-arrow-forward"></ion-icon> -->\n\n            --\n\n          </td>\n\n          <td double-border text-left class="c-gree">{{c.result.savingPotentialMax?.money | number: \'1.0-0\'}}</td>\n\n          <td double-border class="c-gree mesure b-right">€<span *ngIf="c.fields.unknow_surface">/m<sup>2</sup></span></td>\n\n        </tr>\n\n        <tr *ngIf="!c.result" [class.disabled]="c.fields.unknow_surface">\n\n          <td double-border colspan="2" class="b-right"></td>\n\n          <td double-border colspan="4" class="b-right"></td>\n\n        </tr>\n\n      </tbody>\n\n      <tfoot>\n\n        <tr>\n\n          <td rowspan="2" colspan="2" double-border class="b-right" text-right>\n\n            TOTAL PROJECT\n\n          </td>\n\n          <td text-right class="bg-light-red c-red">{{totals.headLost.power / 1000 | number: \'1.1-1\'}}</td>\n\n          <td class="bg-light-red c-red b-right">MWh</td>\n\n          <td text-right class="bg-green c-gree">{{totals.savingPotentialMin?.power / 1000 | number: \'1.1-1\'}}</td>\n\n          <td text-center class="bg-green c-gree p-0" style="width: 15px; padding: 0; white-space: nowrap">--</td>\n\n          <td text-left class="bg-green c-gree">{{totals.savingPotentialMax?.power / 1000 | number: \'1.1-1\'}}</td>\n\n          <td class="bg-green c-gree mesure b-right">MWh</td>\n\n        </tr>\n\n\n\n        <tr>\n\n          <td double-border text-right class="c-red">{{totals.headLost?.money | number: \'1.0-0\'}}</td>\n\n          <td double-border class="c-red mesure b-right">€</td>\n\n          <td double-border text-right class="c-gree">{{totals.savingPotentialMin?.money | number: \'1.0-0\'}}</td>\n\n          <td double-border text-center class="c-gree p-0" style="width: 15px; padding: 0; white-space: nowrap;">--</td>\n\n          <td double-border text-left class="c-gree">{{totals.savingPotentialMax?.money | number: \'1.0-0\'}}</td>\n\n          <td double-border class="c-gree mesure b-right">€</td>\n\n        </tr>\n\n      </tfoot>\n\n    </table>\n\n\n\n    <!-- <ion-grid style="margin-top: 2rem">\n\n      <ion-row>\n\n        <ion-col col-6 col-lg-4>\n\n          <span class="legend" advise-picture svg="like"></span><strong>System OK</strong>\n\n        </ion-col>\n\n        <ion-col col-6 col-lg-4>\n\n          <span class="legend" advise-picture svg="insulation"></span><strong>Insulation recommended</strong>\n\n        </ion-col>\n\n        <ion-col col-6 col-lg-4>\n\n          <span class="legend" advise-picture svg="mechanical"></span><strong>Maintenace</strong>\n\n        </ion-col>\n\n        <ion-col col-6 col-lg-4>\n\n          <span class="legend" advise-picture svg="surface"></span><strong>Surface unknown</strong>\n\n        </ion-col>\n\n        <ion-col col-6 col-lg-4>\n\n          <span class="legend" advise-picture svg="increase"></span><strong>Increace performance or thickness</strong>\n\n        </ion-col>\n\n      </ion-row>\n\n    </ion-grid> -->\n\n\n\n    <ion-grid legend>\n\n      <ion-row>\n\n        <ion-col col-1 class="icon"><div svg="insulation" style="margin:.4rem 0 -.4rem"></div></ion-col>\n\n        <ion-col col-11 class="text">Insulation recommended</ion-col>\n\n        <ion-col col-1 class="icon"><div svg="surface" style="margin:.2rem 0 -.2rem"></div></ion-col>\n\n        <ion-col col-11 class="text">Surface unknown</ion-col>\n\n        <ion-col col-1 class="icon"><div svg="maintenance"></div></ion-col>\n\n        <ion-col col-11 class="text">Maintenance</ion-col>\n\n        <ion-col col-1 class="icon"><div svg="like"></div></ion-col>\n\n        <ion-col col-11 class="text">System OK</ion-col>\n\n        <ion-col col-1 class="icon"><div svg="increase"></div></ion-col>\n\n        <ion-col col-11 class="text">Increase performance or thickness</ion-col>\n\n      </ion-row>\n\n    </ion-grid>\n\n\n\n  </kendo-pdf-export>\n\n\n\n</ion-content>\n\n\n\n<ion-footer>\n\n  <ion-grid no-padding>\n\n    <ion-row no-padding>\n\n      <ion-col col-4 no-padding>\n\n        <button ion-button small color="light" (click)="go_to_projects()">\n\n          HOME\n\n        </button>\n\n      </ion-col>\n\n      <ion-col col-4 text-center>\n\n        <tools></tools>\n\n      </ion-col>\n\n      <ion-col col-4 text-right>\n\n        <button tabindex="15" ion-button small color="primary" (click)="go_to_reports()">\n\n          New component\n\n        </button>\n\n      </ion-col>\n\n    </ion-row>\n\n  </ion-grid>\n\n</ion-footer>\n\n'/*ion-inline-end:"D:\Sofware Factory\tbi\src\pages\summary\summary.html"*/
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */],
             __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* AlertController */],
@@ -1270,8 +1190,8 @@ webpackEmptyAsyncContext.id = 213;
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ReportBase; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__result__ = __webpack_require__(99);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__picture__ = __webpack_require__(100);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__result__ = __webpack_require__(100);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__picture__ = __webpack_require__(101);
 
 
 var ReportBase = /** @class */ (function () {
@@ -1906,7 +1826,7 @@ var Patterns;
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ReportRouter; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__const_report_const__ = __webpack_require__(179);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__component__ = __webpack_require__(101);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__component__ = __webpack_require__(76);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__reports__ = __webpack_require__(21);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__reports_report_generic_class__ = __webpack_require__(307);
 
@@ -2347,53 +2267,53 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_28__services__ = __webpack_require__(17);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_29__services_report_service__ = __webpack_require__(30);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_30__services_component_service__ = __webpack_require__(176);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_31__services_file_device_service__ = __webpack_require__(607);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_31__services_file_device_service__ = __webpack_require__(606);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_32__services_file_service__ = __webpack_require__(54);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_33__services_file_local_service__ = __webpack_require__(661);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_33__services_file_local_service__ = __webpack_require__(660);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_34__services_messages_service__ = __webpack_require__(16);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_35__services_picture_service__ = __webpack_require__(301);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_36__services_licences_service__ = __webpack_require__(102);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_37__components_svg_svg_insulation_component__ = __webpack_require__(662);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_38__components_svg_svg_custom_component__ = __webpack_require__(663);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_39__components_svg_svg_safety_component__ = __webpack_require__(664);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_40__components_svg_svg_maintenance_component__ = __webpack_require__(665);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_41__components_svg_svg_flange_component__ = __webpack_require__(666);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_42__components_svg_svg_hot_surface_component__ = __webpack_require__(667);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_43__components_svg_svg_fire_protection_component__ = __webpack_require__(668);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_44__components_svg_svg_traffic_component__ = __webpack_require__(669);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_45__components_svg_svg_damage_insulation_component__ = __webpack_require__(670);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_46__components_svg_svg_damage_cladding_component__ = __webpack_require__(671);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_47__components_svg_svg_ice_wet_component__ = __webpack_require__(672);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_48__components_svg_svg_mechanical_component__ = __webpack_require__(673);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_49__components_svg_svg_electrical_component__ = __webpack_require__(674);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_50__components_svg_svg_leakage_component__ = __webpack_require__(675);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_51__components_svg_svg_other_safety_component__ = __webpack_require__(676);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_52__components_svg_svg_cold_component__ = __webpack_require__(677);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_53__components_svg_svg_pipe_insulation_component__ = __webpack_require__(678);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_54__components_svg_svg_pipe_component__ = __webpack_require__(679);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_55__components_svg_svg_valve_component__ = __webpack_require__(680);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_56__components_svg_svg_surface_component__ = __webpack_require__(681);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_57__components_svg_svg_damaged_cladding_component__ = __webpack_require__(682);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_58__components_svg_svg_damaged_insulation_component__ = __webpack_require__(683);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_59__components_svg_svg_energy_component__ = __webpack_require__(684);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_60__components_svg_svg_insulated_surface_component__ = __webpack_require__(685);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_61__components_svg_svg_others_component__ = __webpack_require__(686);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_62__components_svg_svg_insulated_others_component__ = __webpack_require__(687);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_63__components_svg_svg_cilinder_area_component__ = __webpack_require__(688);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_64__components_svg_svg_cube_area_component__ = __webpack_require__(689);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_65__components_svg_svg_circle_area_component__ = __webpack_require__(690);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_66__components_svg_svg_housekeeping_component__ = __webpack_require__(691);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_67__components_svg_svg_structural_component__ = __webpack_require__(692);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_68__components_svg_svg_rectangle_area_component__ = __webpack_require__(693);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_69__components_svg_svg_like_component__ = __webpack_require__(694);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_70__components_svg_svg_increase_component__ = __webpack_require__(695);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_71__components_svg_svg_empty_component__ = __webpack_require__(696);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_37__components_svg_svg_insulation_component__ = __webpack_require__(661);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_38__components_svg_svg_custom_component__ = __webpack_require__(662);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_39__components_svg_svg_safety_component__ = __webpack_require__(663);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_40__components_svg_svg_maintenance_component__ = __webpack_require__(664);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_41__components_svg_svg_flange_component__ = __webpack_require__(665);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_42__components_svg_svg_hot_surface_component__ = __webpack_require__(666);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_43__components_svg_svg_fire_protection_component__ = __webpack_require__(667);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_44__components_svg_svg_traffic_component__ = __webpack_require__(668);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_45__components_svg_svg_damage_insulation_component__ = __webpack_require__(669);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_46__components_svg_svg_damage_cladding_component__ = __webpack_require__(670);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_47__components_svg_svg_ice_wet_component__ = __webpack_require__(671);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_48__components_svg_svg_mechanical_component__ = __webpack_require__(672);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_49__components_svg_svg_electrical_component__ = __webpack_require__(673);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_50__components_svg_svg_leakage_component__ = __webpack_require__(674);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_51__components_svg_svg_other_safety_component__ = __webpack_require__(675);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_52__components_svg_svg_cold_component__ = __webpack_require__(676);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_53__components_svg_svg_pipe_insulation_component__ = __webpack_require__(677);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_54__components_svg_svg_pipe_component__ = __webpack_require__(678);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_55__components_svg_svg_valve_component__ = __webpack_require__(679);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_56__components_svg_svg_surface_component__ = __webpack_require__(680);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_57__components_svg_svg_damaged_cladding_component__ = __webpack_require__(681);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_58__components_svg_svg_damaged_insulation_component__ = __webpack_require__(682);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_59__components_svg_svg_energy_component__ = __webpack_require__(683);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_60__components_svg_svg_insulated_surface_component__ = __webpack_require__(684);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_61__components_svg_svg_others_component__ = __webpack_require__(685);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_62__components_svg_svg_insulated_others_component__ = __webpack_require__(686);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_63__components_svg_svg_cilinder_area_component__ = __webpack_require__(687);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_64__components_svg_svg_cube_area_component__ = __webpack_require__(688);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_65__components_svg_svg_circle_area_component__ = __webpack_require__(689);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_66__components_svg_svg_housekeeping_component__ = __webpack_require__(690);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_67__components_svg_svg_structural_component__ = __webpack_require__(691);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_68__components_svg_svg_rectangle_area_component__ = __webpack_require__(692);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_69__components_svg_svg_like_component__ = __webpack_require__(693);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_70__components_svg_svg_increase_component__ = __webpack_require__(694);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_71__components_svg_svg_empty_component__ = __webpack_require__(695);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_72__pages_reports__ = __webpack_require__(20);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_73__pipes_surface_material_pipe__ = __webpack_require__(697);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_74__progress_kendo_angular_pdf_export__ = __webpack_require__(698);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_75__components_tools_tools_component__ = __webpack_require__(704);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_73__pipes_surface_material_pipe__ = __webpack_require__(696);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_74__progress_kendo_angular_pdf_export__ = __webpack_require__(697);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_75__components_tools_tools_component__ = __webpack_require__(703);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_76__ionic_native_flashlight__ = __webpack_require__(397);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_77__models_errors_global_error__ = __webpack_require__(705);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_77__models_errors_global_error__ = __webpack_require__(704);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -2643,7 +2563,7 @@ var AppModule = /** @class */ (function () {
                 __WEBPACK_IMPORTED_MODULE_36__services_licences_service__["a" /* LicencesService */],
                 __WEBPACK_IMPORTED_MODULE_35__services_picture_service__["a" /* PictureService */],
                 __WEBPACK_IMPORTED_MODULE_76__ionic_native_flashlight__["a" /* Flashlight */],
-                { provide: __WEBPACK_IMPORTED_MODULE_32__services_file_service__["a" /* FileService */], useClass: __WEBPACK_IMPORTED_MODULE_33__services_file_local_service__["a" /* FileLocalService */] }
+                { provide: __WEBPACK_IMPORTED_MODULE_32__services_file_service__["a" /* FileService */], useClass: __WEBPACK_IMPORTED_MODULE_31__services_file_device_service__["a" /* FileDeviceService */] }
             ]
         })
     ], AppModule);
@@ -2662,7 +2582,7 @@ var AppModule = /** @class */ (function () {
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "e", function() { return __WEBPACK_IMPORTED_MODULE_0__value__["a"]; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__fields__ = __webpack_require__(170);
 /* unused harmony reexport Fields */
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__result__ = __webpack_require__(99);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__result__ = __webpack_require__(100);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "d", function() { return __WEBPACK_IMPORTED_MODULE_2__result__["a"]; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__component_location__ = __webpack_require__(467);
 /* unused harmony reexport ComponentLocation */
@@ -2923,8 +2843,8 @@ var TbiComponentJson = /** @class */ (function () {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ReportBaseJson; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__result__ = __webpack_require__(99);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__picture__ = __webpack_require__(100);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__result__ = __webpack_require__(100);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__picture__ = __webpack_require__(101);
 
 
 var ReportBaseJson = /** @class */ (function () {
@@ -3785,10 +3705,10 @@ var ReportSurface = /** @class */ (function (_super) {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_forms__ = __webpack_require__(18);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__calculators_calculator_factory__ = __webpack_require__(496);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__picture__ = __webpack_require__(100);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__picture__ = __webpack_require__(101);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pages_reports__ = __webpack_require__(20);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__const_more_more__ = __webpack_require__(98);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__component__ = __webpack_require__(101);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__const_more_more__ = __webpack_require__(99);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__component__ = __webpack_require__(76);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__pages_scroll_to_component_class__ = __webpack_require__(173);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__const_images__ = __webpack_require__(171);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__const_patterns__ = __webpack_require__(305);
@@ -3849,10 +3769,10 @@ var BaseReportPage = /** @class */ (function (_super) {
         _this.report.component.id = _this._original_component.id;
         _this.editable = !_this.report.component.reports.filter(function (r) { return !!r.path.match(/(surface|pipe|valve|flange)/gi) && !!r.result; }).length;
         _this.is_energy_report = !!_this.report.path.match(/(pipe|surface|valve|flange)/gi);
-        _this.report.pictures.push(new __WEBPACK_IMPORTED_MODULE_4__picture__["a" /* Picture */]({
-            picture: "data:image/jpeg;base64,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"
-        }));
         return _this;
+        // this.report.pictures.push(new Picture({
+        //   picture: "data:image/jpeg;base64,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"
+        // }))
     }
     Object.defineProperty(BaseReportPage.prototype, "picture_qty", {
         get: function () {
@@ -4008,7 +3928,7 @@ var BaseReportPage = /** @class */ (function (_super) {
         }
         else {
             if (this.form.dirty || !this.form.pristine) {
-                var confirm = this.alertCtrl.create({
+                var confirm_1 = this.alertCtrl.create({
                     //title: `Leave report`,
                     cssClass: "ion-dialog-horizontal",
                     message: "Do you want to leave this report?",
@@ -4027,7 +3947,7 @@ var BaseReportPage = /** @class */ (function (_super) {
                         }
                     ]
                 });
-                confirm.present();
+                confirm_1.present();
             }
             else {
                 this.report.component = this._original_component;
@@ -4157,15 +4077,15 @@ var BaseReportPage = /** @class */ (function (_super) {
     };
     __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_2__angular_core__["_8" /* ViewChild */])('form'),
-        __metadata("design:type", typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_forms__["d" /* NgForm */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_forms__["d" /* NgForm */]) === "function" && _a || Object)
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1__angular_forms__["d" /* NgForm */])
     ], BaseReportPage.prototype, "form", void 0);
     __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_2__angular_core__["_8" /* ViewChild */])('errors'),
-        __metadata("design:type", typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_5__pages_reports__["g" /* ReportErrorsComponent */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5__pages_reports__["g" /* ReportErrorsComponent */]) === "function" && _b || Object)
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_5__pages_reports__["g" /* ReportErrorsComponent */])
     ], BaseReportPage.prototype, "errors", void 0);
     __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_2__angular_core__["_8" /* ViewChild */])('time', { read: __WEBPACK_IMPORTED_MODULE_5__pages_reports__["o" /* ReportMoreButtonComponent */] }),
-        __metadata("design:type", typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_5__pages_reports__["o" /* ReportMoreButtonComponent */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5__pages_reports__["o" /* ReportMoreButtonComponent */]) === "function" && _c || Object)
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_5__pages_reports__["o" /* ReportMoreButtonComponent */])
     ], BaseReportPage.prototype, "time", void 0);
     __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_2__angular_core__["_8" /* ViewChild */])('after_time'),
@@ -4173,7 +4093,7 @@ var BaseReportPage = /** @class */ (function (_super) {
     ], BaseReportPage.prototype, "after_time", void 0);
     __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_2__angular_core__["_8" /* ViewChild */])('material', { read: __WEBPACK_IMPORTED_MODULE_5__pages_reports__["o" /* ReportMoreButtonComponent */] }),
-        __metadata("design:type", typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_5__pages_reports__["o" /* ReportMoreButtonComponent */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5__pages_reports__["o" /* ReportMoreButtonComponent */]) === "function" && _d || Object)
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_5__pages_reports__["o" /* ReportMoreButtonComponent */])
     ], BaseReportPage.prototype, "material", void 0);
     __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_2__angular_core__["_8" /* ViewChild */])('after_material'),
@@ -4181,10 +4101,9 @@ var BaseReportPage = /** @class */ (function (_super) {
     ], BaseReportPage.prototype, "after_material", void 0);
     __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_2__angular_core__["_8" /* ViewChild */])(__WEBPACK_IMPORTED_MODULE_0_ionic_angular__["c" /* Content */]),
-        __metadata("design:type", typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_0_ionic_angular__["c" /* Content */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0_ionic_angular__["c" /* Content */]) === "function" && _e || Object)
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_0_ionic_angular__["c" /* Content */])
     ], BaseReportPage.prototype, "content", void 0);
     return BaseReportPage;
-    var _a, _b, _c, _d, _e;
 }(__WEBPACK_IMPORTED_MODULE_8__pages_scroll_to_component_class__["a" /* ScrollToComponent */]));
 
 //# sourceMappingURL=base-report-page.class.js.map
@@ -4374,7 +4293,7 @@ var ReportFlangePage = /** @class */ (function (_super) {
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ReportEditPictureComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__models_picture__ = __webpack_require__(100);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__models_picture__ = __webpack_require__(101);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__models_marker__ = __webpack_require__(75);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ionic_angular__ = __webpack_require__(6);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__models__ = __webpack_require__(46);
@@ -5208,7 +5127,7 @@ var ReportAreaButtonComponent = /** @class */ (function () {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ReportMoreButtonComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(6);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__const_more_more__ = __webpack_require__(98);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__const_more_more__ = __webpack_require__(99);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -6284,7 +6203,7 @@ var PicturesPage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 607:
+/***/ 606:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -6297,7 +6216,7 @@ var PicturesPage = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__ionic_native_file_path__ = __webpack_require__(364);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__models__ = __webpack_require__(46);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__ionic_native_file_transfer__ = __webpack_require__(366);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_jszip__ = __webpack_require__(608);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_jszip__ = __webpack_require__(607);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_jszip___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_8_jszip__);
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = Object.setPrototypeOf ||
@@ -6620,14 +6539,14 @@ var FileDeviceService = /** @class */ (function (_super) {
 
 /***/ }),
 
-/***/ 613:
+/***/ 612:
 /***/ (function(module, exports) {
 
 /* (ignored) */
 
 /***/ }),
 
-/***/ 615:
+/***/ 614:
 /***/ (function(module, exports) {
 
 /* (ignored) */
@@ -6640,7 +6559,7 @@ var FileDeviceService = /** @class */ (function (_super) {
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return BaseCalculator; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__value__ = __webpack_require__(169);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__result__ = __webpack_require__(99);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__result__ = __webpack_require__(100);
 
 
 var BaseCalculator = /** @class */ (function () {
@@ -6828,7 +6747,7 @@ var BaseCalculator = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 661:
+/***/ 660:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -6919,7 +6838,7 @@ var FileLocalService = /** @class */ (function (_super) {
 
 /***/ }),
 
-/***/ 662:
+/***/ 661:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -6947,7 +6866,7 @@ var SvgInsulationComponent = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 663:
+/***/ 662:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -6975,7 +6894,7 @@ var SvgCustomComponent = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 664:
+/***/ 663:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -7003,7 +6922,7 @@ var SvgSafetyComponent = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 665:
+/***/ 664:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -7021,7 +6940,7 @@ var SvgMaintenanceComponent = /** @class */ (function () {
     }
     SvgMaintenanceComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: '[svg="maintenance"]',template:/*ion-inline-start:"D:\Sofware Factory\tbi\src\assets\imgs\maintenance.svg"*/'<svg id="mantenance" data-name="Capa 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 480"><title>mantenance</title><path d="M440,32H384V24a24,24,0,0,0-48,0v8H144V24a24,24,0,0,0-48,0v8H40A40,40,0,0,0,0,72V440a40,40,0,0,0,40,40H440a40,40,0,0,0,40-40V72A40,40,0,0,0,440,32Zm-88-8a8,8,0,0,1,16,0V88a8,8,0,0,1-16,0V24ZM336,88a24,24,0,0,0,48,0,20,20,0,0,1-4,40H340A20,20,0,0,1,336,88ZM112,24a8,8,0,0,1,16,0V88a8,8,0,0,1-16,0V24ZM96,88a24,24,0,0,0,48,0,20,20,0,0,1-4,40H100A20,20,0,0,1,96,88ZM464,440a24,24,0,0,1-24,24H40a24,24,0,0,1-24-24V176H464V440Zm0-280H16V72A24,24,0,0,1,40,48H96V72a36,36,0,0,0,4,72h40a36,36,0,0,0,4-72V48H336V72a36,36,0,0,0,4,72h40a36,36,0,0,0,4-72V48h56a24,24,0,0,1,24,24v88Z"/><rect x="96" y="192" width="16" height="16"/><rect x="64" y="192" width="16" height="16"/><rect x="32" y="192" width="16" height="16"/><path d="M433,376l-48-8a8,8,0,0,0-7,2l-6,6H264V360a8,8,0,0,0-8-8H223l-6,3-10,10-11-11-5-2H48a8,8,0,0,0-8,8v80a8,8,0,0,0,8,8H192l6-2,10-10,10,10,6,2h32a8,8,0,0,0,8-8V424H373l6,6,6,2h1l48-8a8,8,0,0,0,7-8V384A8,8,0,0,0,433,376Zm-185,8v48H227l-14-14a8,8,0,0,0-11,0l-14,14H56V368H188l15,14,6,2,6-3,13-13h22v16Zm176,25-37,6-5-5-6-2H264V392H376l6-2,5-5,37,6v18Z"/><path d="M424,296H372l-18-24,18-24h52a8,8,0,0,0,6-13l-32-40a8,8,0,0,0-6-3H344l-6,2-46,46H64a32,32,0,0,0,0,64H293l46,46,6,2h48a8,8,0,0,0,6-3l32-40A8,8,0,0,0,424,296Zm-36,40H347l-46-46-6-2H64a16,16,0,0,1,0-32H296l6-2,46-46h41l19,24H368a8,8,0,0,0-6,3l-24,32a8,8,0,0,0,0,10l24,32a8,8,0,0,0,6,3h39Z"/><rect x="72" y="384" width="56" height="16"/><rect x="144" y="384" width="16" height="16"/></svg>\n'/*ion-inline-end:"D:\Sofware Factory\tbi\src\assets\imgs\maintenance.svg"*/
+            selector: '[svg="maintenance"]',template:/*ion-inline-start:"D:\Sofware Factory\tbi\src\assets\imgs\maintenance.svg"*/'<svg id="maintenance" data-name="Capa 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 480"><title>maintenance</title><path d="M440,32H384V24a24,24,0,0,0-48,0v8H144V24a24,24,0,0,0-48,0v8H40A40,40,0,0,0,0,72V440a40,40,0,0,0,40,40H440a40,40,0,0,0,40-40V72A40,40,0,0,0,440,32Zm-88-8a8,8,0,0,1,16,0V88a8,8,0,0,1-16,0V24ZM336,88a24,24,0,0,0,48,0,20,20,0,0,1-4,40H340A20,20,0,0,1,336,88ZM112,24a8,8,0,0,1,16,0V88a8,8,0,0,1-16,0V24ZM96,88a24,24,0,0,0,48,0,20,20,0,0,1-4,40H100A20,20,0,0,1,96,88ZM464,440a24,24,0,0,1-24,24H40a24,24,0,0,1-24-24V176H464V440Zm0-280H16V72A24,24,0,0,1,40,48H96V72a36,36,0,0,0,4,72h40a36,36,0,0,0,4-72V48H336V72a36,36,0,0,0,4,72h40a36,36,0,0,0,4-72V48h56a24,24,0,0,1,24,24v88Z"/><rect x="96" y="192" width="16" height="16"/><rect x="64" y="192" width="16" height="16"/><rect x="32" y="192" width="16" height="16"/><path d="M433,376l-48-8a8,8,0,0,0-7,2l-6,6H264V360a8,8,0,0,0-8-8H223l-6,3-10,10-11-11-5-2H48a8,8,0,0,0-8,8v80a8,8,0,0,0,8,8H192l6-2,10-10,10,10,6,2h32a8,8,0,0,0,8-8V424H373l6,6,6,2h1l48-8a8,8,0,0,0,7-8V384A8,8,0,0,0,433,376Zm-185,8v48H227l-14-14a8,8,0,0,0-11,0l-14,14H56V368H188l15,14,6,2,6-3,13-13h22v16Zm176,25-37,6-5-5-6-2H264V392H376l6-2,5-5,37,6v18Z"/><path d="M424,296H372l-18-24,18-24h52a8,8,0,0,0,6-13l-32-40a8,8,0,0,0-6-3H344l-6,2-46,46H64a32,32,0,0,0,0,64H293l46,46,6,2h48a8,8,0,0,0,6-3l32-40A8,8,0,0,0,424,296Zm-36,40H347l-46-46-6-2H64a16,16,0,0,1,0-32H296l6-2,46-46h41l19,24H368a8,8,0,0,0-6,3l-24,32a8,8,0,0,0,0,10l24,32a8,8,0,0,0,6,3h39Z"/><rect x="72" y="384" width="56" height="16"/><rect x="144" y="384" width="16" height="16"/></svg>\n'/*ion-inline-end:"D:\Sofware Factory\tbi\src\assets\imgs\maintenance.svg"*/
         })
     ], SvgMaintenanceComponent);
     return SvgMaintenanceComponent;
@@ -7031,7 +6950,7 @@ var SvgMaintenanceComponent = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 666:
+/***/ 665:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -7059,7 +6978,7 @@ var SvgFlangeComponent = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 667:
+/***/ 666:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -7087,7 +7006,7 @@ var SvgHotSurfaceComponent = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 668:
+/***/ 667:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -7115,7 +7034,7 @@ var SvgFireProtectionComponent = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 669:
+/***/ 668:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -7143,7 +7062,7 @@ var SvgTrafficComponent = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 670:
+/***/ 669:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -7171,7 +7090,7 @@ var SvgDamageInsulationComponent = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 671:
+/***/ 670:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -7199,7 +7118,7 @@ var SvgDamageCladdingComponent = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 672:
+/***/ 671:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -7227,7 +7146,7 @@ var SvgIceWetComponent = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 673:
+/***/ 672:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -7255,7 +7174,7 @@ var SvgMechanicalComponent = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 674:
+/***/ 673:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -7283,7 +7202,7 @@ var SvgElectricalComponent = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 675:
+/***/ 674:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -7311,7 +7230,7 @@ var SvgLeakageComponent = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 676:
+/***/ 675:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -7339,7 +7258,7 @@ var SvgOtherSafetyComponent = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 677:
+/***/ 676:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -7367,7 +7286,7 @@ var SvgColdComponent = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 678:
+/***/ 677:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -7395,7 +7314,7 @@ var SvgPipeInsultationComponent = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 679:
+/***/ 678:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -7423,7 +7342,7 @@ var SvgPipeComponent = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 680:
+/***/ 679:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -7451,7 +7370,7 @@ var SvgValveComponent = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 681:
+/***/ 680:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -7479,7 +7398,7 @@ var SvgSurfaceComponent = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 682:
+/***/ 681:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -7507,7 +7426,7 @@ var SvgDamagedCladdingComponent = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 683:
+/***/ 682:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -7535,7 +7454,7 @@ var SvgDamagedInsulationComponent = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 684:
+/***/ 683:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -7563,7 +7482,7 @@ var SvgEnergyComponent = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 685:
+/***/ 684:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -7591,7 +7510,7 @@ var SvgInsulatedSurfaceComponent = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 686:
+/***/ 685:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -7619,7 +7538,7 @@ var SvgOthersComponent = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 687:
+/***/ 686:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -7647,7 +7566,7 @@ var SvgInsulatedOthersComponent = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 688:
+/***/ 687:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -7675,7 +7594,7 @@ var SvgCilinderAreaComponent = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 689:
+/***/ 688:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -7703,7 +7622,7 @@ var SvgCubeAreaComponent = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 690:
+/***/ 689:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -7731,7 +7650,7 @@ var SvgCircleAreaComponent = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 691:
+/***/ 690:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -7759,7 +7678,7 @@ var SvgHousekeepingComponent = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 692:
+/***/ 691:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -7787,7 +7706,7 @@ var SvgStructuralComponent = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 693:
+/***/ 692:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -7815,7 +7734,7 @@ var SvgRectangleAreaComponent = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 694:
+/***/ 693:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -7843,7 +7762,7 @@ var SvgLikeComponent = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 695:
+/***/ 694:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -7871,7 +7790,7 @@ var SvgIncreaseComponent = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 696:
+/***/ 695:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -7899,13 +7818,13 @@ var SvgEmptyComponent = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 697:
+/***/ 696:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SurfaceMaterialPipe; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__const_more_more__ = __webpack_require__(98);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__const_more_more__ = __webpack_require__(99);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -7931,7 +7850,7 @@ var SurfaceMaterialPipe = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 704:
+/***/ 703:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -7961,12 +7880,12 @@ var ToolsComponent = /** @class */ (function () {
     ToolsComponent.prototype.ngOnInit = function () {
         var _this = this;
         this.flashlight_on = this.flashlight.isSwitchedOn();
-        if (!!window.plugins) {
-            window.plugins.packagemanager.show(true, function (apps) {
-                var calc = apps.find((function (a) { return !!a.match(/calc/g); })).split('/');
-                _this.calc_path = calc[calc.length - 1].split(';')[1];
-            });
-        }
+        //if (!!(<any>window).plugins) {
+        window.plugins.packagemanager.show(true, function (apps) {
+            var calc = apps.find((function (a) { return !!a.match(/calc/g); })).split('/');
+            _this.calc_path = calc[calc.length - 1].split(';')[1];
+        });
+        //}
     };
     ToolsComponent.prototype.toggle_light = function () {
         if (!this.flashlight.isSwitchedOn()) {
@@ -7986,23 +7905,22 @@ var ToolsComponent = /** @class */ (function () {
             selector: 'tools',template:/*ion-inline-start:"D:\Sofware Factory\tbi\src\components\tools\tools.component.html"*/'  <button ion-button small icon-only color="light" (click)="open_calculator()">\n\n    <ion-icon name="ios-calculator"></ion-icon>\n\n  </button>\n\n  <button ion-button small icon-only color="light" [class.pushed]="flashlight_on" (click)="toggle_light()">\n\n    <ion-icon name="ios-sunny"></ion-icon>\n\n  </button>'/*ion-inline-end:"D:\Sofware Factory\tbi\src\components\tools\tools.component.html"*/,
             encapsulation: __WEBPACK_IMPORTED_MODULE_0__angular_core__["_11" /* ViewEncapsulation */].None
         }),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__ionic_native_flashlight__["a" /* Flashlight */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__ionic_native_flashlight__["a" /* Flashlight */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__services__["b" /* MessageService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__services__["b" /* MessageService */]) === "function" && _b || Object])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__ionic_native_flashlight__["a" /* Flashlight */], __WEBPACK_IMPORTED_MODULE_2__services__["b" /* MessageService */]])
     ], ToolsComponent);
     return ToolsComponent;
-    var _a, _b;
 }());
 
 //# sourceMappingURL=tools.component.js.map
 
 /***/ }),
 
-/***/ 705:
+/***/ 704:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return GlobalErrorHandler; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_http__ = __webpack_require__(122);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_add_operator_map__ = __webpack_require__(706);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_add_operator_map__ = __webpack_require__(705);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_rxjs_add_operator_map__);
 
 
@@ -8063,7 +7981,7 @@ var GlobalErrorHandler = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__services_licences_service__ = __webpack_require__(102);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__download_download__ = __webpack_require__(360);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__summary_summary__ = __webpack_require__(180);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__models_component__ = __webpack_require__(101);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__models_component__ = __webpack_require__(76);
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = Object.setPrototypeOf ||
         ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
@@ -8293,12 +8211,20 @@ var ProjectsPage = /** @class */ (function (_super) {
     };
     ProjectsPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_2__angular_core__["m" /* Component */])({
-            selector: 'page-project',template:/*ion-inline-start:"D:\Sofware Factory\tbi\src\pages\projects\projects.html"*/'<ion-header>\n\n  <ion-toolbar>\n\n    <ion-title></ion-title>\n\n  </ion-toolbar>\n\n</ion-header>\n\n\n\n<ion-content>\n\n  <ion-grid projects>\n\n    <ion-row>\n\n      <ion-col col-xs-3 col-sm-2>\n\n      </ion-col>\n\n      <ion-col col-xs-9 col-sm-10>\n\n        <ion-row no-margin no-padding>\n\n          <ion-col col-12>\n\n          </ion-col>\n\n        </ion-row>\n\n        <ion-row no-margin no-padding>\n\n          <ion-col col-8>\n\n          </ion-col>\n\n          <ion-col svg="insulation" col-sm-1 class="flex bg-gray">\n\n          </ion-col>\n\n          <ion-col svg="safety" col-sm-1 class="flex">\n\n          </ion-col>\n\n          <ion-col svg="maintenance" col-sm-1 class="flex bg-gray">\n\n          </ion-col>\n\n          <ion-col svg="custom" col-sm-1 class="flex">\n\n          </ion-col>\n\n        </ion-row>\n\n      </ion-col>\n\n    </ion-row>\n\n    <ion-row *ngFor="let p of projects">\n\n      <ion-col col-xs-3 col-sm-2 id="project-{{p.id}}" (click)="open_report(p)">\n\n        <img [src]="p.picture">\n\n      </ion-col>\n\n      <ion-col col-xs-9 col-sm-10 (click)="open_report(p)">\n\n        <ion-row no-margin no-padding>\n\n          <ion-col col-12>\n\n            <h1 no-margin>{{p.name}}</h1>\n\n          </ion-col>\n\n        </ion-row>\n\n        <ion-row no-margin no-padding>\n\n          <ion-col col-8>\n\n            <ion-row>\n\n              <h5 col-12 no-margin>Project Leader: {{p.people.leader.name || \'(none)\'}}</h5>\n\n              <!-- <h5 col-12 no-margin>Energy Manager: {{p.people.energy_manager.name || \'(none)\'}}</h5> -->\n\n            </ion-row>\n\n          </ion-col>\n\n          <ion-col col-md-1 class="flex bg-gray">\n\n            <h4 no-margin>{{get_by_type(p, \'pipe|surface|flange|valve\').length}}</h4>\n\n          </ion-col>\n\n          <ion-col col-md-1 class="flex">\n\n            <h4 no-margin>{{get_by_type(p, \'safety\').length}}</h4>\n\n          </ion-col>\n\n          <ion-col col-md-1 class="flex bg-gray">\n\n            <h4 no-margin>{{get_by_type(p, \'mantenance\').length}}</h4>\n\n          </ion-col>\n\n          <ion-col col-md-1 class="flex">\n\n            <h4 no-margin>{{get_by_type(p, \'custom\').length}}</h4>\n\n          </ion-col>\n\n        </ion-row>\n\n        <ion-row>\n\n          <ion-col col-12 text-right>\n\n            <button ion-button small pull-right color="royal" (click)="duplicate(p, $event)">\n\n              <ion-icon name="ios-copy"></ion-icon>Duplicate\n\n            </button>\n\n            <button ion-button small pull-right (click)="navigate_to_edit(p, $event)">\n\n              <ion-icon name="create"></ion-icon>Edit\n\n            </button>\n\n            <button ion-button small pull-right color="danger" (click)="this.delete_project(p, $event)">\n\n              <ion-icon name="trash"></ion-icon>Delete\n\n            </button>\n\n          </ion-col>\n\n        </ion-row>\n\n        <!-- <ion-row no-margin no-padding>\n\n            <ion-col col-12>\n\n              <p no-margin>{{p.desc}}</p>\n\n            </ion-col>\n\n          </ion-row> -->\n\n      </ion-col>\n\n    </ion-row>\n\n  </ion-grid>\n\n\n\n  <div license-alert *ngIf="licences.type==\'BASIC\'" col-6 offset-3>\n\n    <ion-grid no-padding>\n\n      <ion-row no-padding>\n\n        <ion-col col-12 no-padding>\n\n          La versión BASIC solo le permite crear 5 componentes, contrate la versión PRO o ENTERPRISE y disfrute de\n\n          todas sus ventajas.\n\n        </ion-col>\n\n        <ion-col col-4 offset-8 text-right>\n\n          <button ion-button small round color="light" outline>Upgrade NOW</button>\n\n        </ion-col>\n\n      </ion-row>\n\n    </ion-grid>\n\n  </div>\n\n</ion-content>\n\n\n\n<ion-footer>\n\n  <ion-grid>\n\n    <ion-row>\n\n      <ion-col col-4 text-left>\n\n        <button ion-button small color="light" (click)="create_db()">\n\n          <ion-icon name="md-archive"></ion-icon>Download data\n\n        </button>\n\n      </ion-col>\n\n      <ion-col col-4 text-center>\n\n        <tools></tools>\n\n      </ion-col>\n\n      <ion-col col-4 text-right>\n\n        <button ion-button small color="royal" (click)="create()">\n\n          New project\n\n        </button>\n\n      </ion-col>\n\n    </ion-row>\n\n  </ion-grid>\n\n</ion-footer>\n\n'/*ion-inline-end:"D:\Sofware Factory\tbi\src\pages\projects\projects.html"*/
+            selector: 'page-project',template:/*ion-inline-start:"D:\Sofware Factory\tbi\src\pages\projects\projects.html"*/'<ion-header>\n\n  <ion-toolbar>\n\n    <ion-title></ion-title>\n\n  </ion-toolbar>\n\n</ion-header>\n\n\n\n<ion-content>\n\n  <ion-grid projects>\n\n    <ion-row>\n\n      <ion-col col-xs-3 col-sm-2>\n\n      </ion-col>\n\n      <ion-col col-xs-9 col-sm-10>\n\n        <ion-row no-margin no-padding>\n\n          <ion-col col-12>\n\n          </ion-col>\n\n        </ion-row>\n\n        <ion-row no-margin no-padding>\n\n          <ion-col col-8>\n\n          </ion-col>\n\n          <ion-col svg="insulation" col-sm-1 class="flex bg-gray">\n\n          </ion-col>\n\n          <ion-col svg="safety" col-sm-1 class="flex">\n\n          </ion-col>\n\n          <ion-col svg="maintenance" col-sm-1 class="flex bg-gray">\n\n          </ion-col>\n\n          <ion-col svg="custom" col-sm-1 class="flex">\n\n          </ion-col>\n\n        </ion-row>\n\n      </ion-col>\n\n    </ion-row>\n\n    <ion-row *ngFor="let p of projects">\n\n      <ion-col col-xs-3 col-sm-2 id="project-{{p.id}}" (click)="open_report(p)">\n\n        <img [src]="p.picture">\n\n      </ion-col>\n\n      <ion-col col-xs-9 col-sm-10 (click)="open_report(p)">\n\n        <ion-row no-margin no-padding>\n\n          <ion-col col-12>\n\n            <h1 no-margin>{{p.name}}</h1>\n\n          </ion-col>\n\n        </ion-row>\n\n        <ion-row no-margin no-padding>\n\n          <ion-col col-8>\n\n            <ion-row>\n\n              <h5 col-12 no-margin>Project Leader: {{p.people.leader.name || \'(none)\'}}</h5>\n\n              <!-- <h5 col-12 no-margin>Energy Manager: {{p.people.energy_manager.name || \'(none)\'}}</h5> -->\n\n            </ion-row>\n\n          </ion-col>\n\n          <ion-col col-md-1 class="flex bg-gray">\n\n            <h4 no-margin>{{get_by_type(p, \'pipe|surface|flange|valve\').length}}</h4>\n\n          </ion-col>\n\n          <ion-col col-md-1 class="flex">\n\n            <h4 no-margin>{{get_by_type(p, \'safety\').length}}</h4>\n\n          </ion-col>\n\n          <ion-col col-md-1 class="flex bg-gray">\n\n            <h4 no-margin>{{get_by_type(p, \'maintenance\').length}}</h4>\n\n          </ion-col>\n\n          <ion-col col-md-1 class="flex">\n\n            <h4 no-margin>{{get_by_type(p, \'custom\').length}}</h4>\n\n          </ion-col>\n\n        </ion-row>\n\n        <ion-row>\n\n          <ion-col col-12 text-right>\n\n            <button ion-button small pull-right color="royal" (click)="duplicate(p, $event)">\n\n              <ion-icon name="ios-copy"></ion-icon>Duplicate\n\n            </button>\n\n            <button ion-button small pull-right (click)="navigate_to_edit(p, $event)">\n\n              <ion-icon name="create"></ion-icon>Edit\n\n            </button>\n\n            <button ion-button small pull-right color="danger" (click)="this.delete_project(p, $event)">\n\n              <ion-icon name="trash"></ion-icon>Delete\n\n            </button>\n\n          </ion-col>\n\n        </ion-row>\n\n        <!-- <ion-row no-margin no-padding>\n\n            <ion-col col-12>\n\n              <p no-margin>{{p.desc}}</p>\n\n            </ion-col>\n\n          </ion-row> -->\n\n      </ion-col>\n\n    </ion-row>\n\n  </ion-grid>\n\n\n\n  <div license-alert *ngIf="licences.type==\'BASIC\'" col-6 offset-3>\n\n    <ion-grid no-padding>\n\n      <ion-row no-padding>\n\n        <ion-col col-12 no-padding>\n\n          La versión BASIC solo le permite crear 5 componentes, contrate la versión PRO o ENTERPRISE y disfrute de\n\n          todas sus ventajas.\n\n        </ion-col>\n\n        <ion-col col-4 offset-8 text-right>\n\n          <button ion-button small round color="light" outline>Upgrade NOW</button>\n\n        </ion-col>\n\n      </ion-row>\n\n    </ion-grid>\n\n  </div>\n\n</ion-content>\n\n\n\n<ion-footer>\n\n  <ion-grid>\n\n    <ion-row>\n\n      <ion-col col-4 text-left>\n\n        <button ion-button small color="light" (click)="create_db()">\n\n          <ion-icon name="md-archive"></ion-icon>Download data\n\n        </button>\n\n      </ion-col>\n\n      <ion-col col-4 text-center>\n\n        <tools></tools>\n\n      </ion-col>\n\n      <ion-col col-4 text-right>\n\n        <button ion-button small color="royal" (click)="create()">\n\n          New project\n\n        </button>\n\n      </ion-col>\n\n    </ion-row>\n\n  </ion-grid>\n\n</ion-footer>\n\n'/*ion-inline-end:"D:\Sofware Factory\tbi\src\pages\projects\projects.html"*/
         }),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["h" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["h" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["i" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["i" /* NavParams */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1__services_project_service__["a" /* ProjectService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__services_project_service__["a" /* ProjectService */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["j" /* Platform */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["j" /* Platform */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["b" /* AlertController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["b" /* AlertController */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["a" /* ActionSheetController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["a" /* ActionSheetController */]) === "function" && _f || Object, typeof (_g = typeof __WEBPACK_IMPORTED_MODULE_6__ionic_native_screen_orientation__["a" /* ScreenOrientation */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_6__ionic_native_screen_orientation__["a" /* ScreenOrientation */]) === "function" && _g || Object, typeof (_h = typeof __WEBPACK_IMPORTED_MODULE_9__services_licences_service__["a" /* LicencesService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_9__services_licences_service__["a" /* LicencesService */]) === "function" && _h || Object, typeof (_j = typeof __WEBPACK_IMPORTED_MODULE_8__ionic_native_unique_device_id__["a" /* UniqueDeviceID */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_8__ionic_native_unique_device_id__["a" /* UniqueDeviceID */]) === "function" && _j || Object, typeof (_k = typeof __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["f" /* Keyboard */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["f" /* Keyboard */]) === "function" && _k || Object])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_3_ionic_angular__["h" /* NavController */],
+            __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["i" /* NavParams */],
+            __WEBPACK_IMPORTED_MODULE_1__services_project_service__["a" /* ProjectService */],
+            __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["j" /* Platform */],
+            __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["b" /* AlertController */],
+            __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["a" /* ActionSheetController */],
+            __WEBPACK_IMPORTED_MODULE_6__ionic_native_screen_orientation__["a" /* ScreenOrientation */],
+            __WEBPACK_IMPORTED_MODULE_9__services_licences_service__["a" /* LicencesService */],
+            __WEBPACK_IMPORTED_MODULE_8__ionic_native_unique_device_id__["a" /* UniqueDeviceID */],
+            __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["f" /* Keyboard */]])
     ], ProjectsPage);
     return ProjectsPage;
-    var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k;
 }(__WEBPACK_IMPORTED_MODULE_4__project_page_base__["a" /* ProjectPageBase */]));
 
 //# sourceMappingURL=projects.js.map
@@ -8361,7 +8287,115 @@ var Marker = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 98:
+/***/ 76:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return TbiComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__report_base__ = __webpack_require__(24);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__fields__ = __webpack_require__(170);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__marker__ = __webpack_require__(75);
+
+
+
+var TbiComponent = /** @class */ (function () {
+    function TbiComponent(project, item) {
+        var _this = this;
+        this.id = '';
+        this.project = null;
+        this.reports = [];
+        this.fields = new __WEBPACK_IMPORTED_MODULE_1__fields__["a" /* Fields */]();
+        this.date = new Date();
+        this.project = project;
+        if (!!item) {
+            this.fields = new __WEBPACK_IMPORTED_MODULE_1__fields__["a" /* Fields */](item.fields);
+            this.project = project;
+            if (!!item.date)
+                this.date = item.date instanceof Date ? item.date : new Date(String(item.date));
+            this.id = item.id || Math.random().toString().substr(2);
+            this.reports = (item.reports || []).map(function (r) { return new __WEBPACK_IMPORTED_MODULE_0__report_base__["a" /* ReportBase */](project, _this, r); });
+            this.markers = (item.markers || []).map(function (m) { return new __WEBPACK_IMPORTED_MODULE_2__marker__["a" /* Marker */](m); });
+            var report = this.reports.find(function (r) { return !!(r.path).match(/(surface|pipe|valve|flange)/gi); });
+            this.result = !!report ? report.result : null;
+        }
+    }
+    TbiComponent.prototype.flatten = function (arr) {
+        return [].concat.apply([], arr);
+    };
+    Object.defineProperty(TbiComponent.prototype, "is_hot", {
+        get: function () {
+            return (this.fields.surface_temp || 0) > 35;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(TbiComponent.prototype, "insulated", {
+        get: function () {
+            var report = this.reports.find(function (r) { return !!r.path.match(/\\insulated/gi); });
+            return !!report;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    TbiComponent.prototype.reports_by_type = function (type) {
+        var _this = this;
+        var result = this.reports.filter(function (r) { return !!r.path.match(new RegExp('(' + type + ')', 'gi')); });
+        if (type.lastIndexOf('hot') != -1) {
+            var r = this.reports.find(function (r) { return !!r.path.match(/(surface|pipe|valve|flange)/gi) && (_this.is_hot); });
+            if (!!r)
+                result.push(r);
+        }
+        return result;
+    };
+    Object.defineProperty(TbiComponent.prototype, "pictures", {
+        get: function () {
+            return this.flatten(this.reports.map(function (r) { return r.pictures; }));
+        },
+        enumerable: true,
+        configurable: true
+    });
+    TbiComponent.prototype.all_markers = function (report) {
+        var _this = this;
+        return ((this.markers || []).filter(function (m) { return m.temperature != null; }) || [])
+            .concat(this.flatten(this.reports.filter(function (r) { return r.id != report.id; }).map(function (r) { return _this.flatten(r.pictures.map(function (p) { return p.markers; })); })))
+            .concat(this.flatten(report.pictures.map(function (p) { return p.markers; })));
+    };
+    TbiComponent.prototype.has_markers = function (report) {
+        return !!this.all_markers(report).length;
+    };
+    TbiComponent.prototype.min_temp = function (report) {
+        if (!this.has_markers(report))
+            return 0;
+        return this.all_markers(report).map(function (m) { return Number(m.temperature); }).sort(function (a, b) { return Number(a) > Number(b) ? 1 : -1; })[0];
+    };
+    TbiComponent.prototype.max_temp = function (report) {
+        if (!this.has_markers(report))
+            return 0;
+        return this.all_markers(report).map(function (m) { return Number(m.temperature); }).sort(function (a, b) { return Number(a) > Number(b) ? -1 : 1; })[0];
+    };
+    TbiComponent.prototype.medium_temp = function (report) {
+        if (!this.has_markers(report))
+            return 0;
+        var markers = this.all_markers(report).map(function (m) { return parseFloat(m.temperature.toString()); });
+        return Number((markers.reduce(function (a, t) { return a + Number(t); }, 0) / this.all_markers(report).length).toFixed(2));
+    };
+    // private update_surface_temp(): TbiComponent {
+    //     const surface_temp = this.pictures.map(p => p.surface_temp).filter(p => p !== null);
+    //     if (surface_temp.length === 0) return;
+    //     this.fields.surface_temp = eval(surface_temp.join('+')) / surface_temp.length
+    //     return this;
+    // }
+    TbiComponent.prototype.get_reports_by_type = function (type) {
+        return this.reports.filter(function (r) { return !!r.path.match(new RegExp('(' + type + ')', 'gi')); });
+    };
+    return TbiComponent;
+}());
+
+//# sourceMappingURL=component.js.map
+
+/***/ }),
+
+/***/ 99:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -8387,34 +8421,6 @@ var More = {
     ]
 };
 //# sourceMappingURL=more.js.map
-
-/***/ }),
-
-/***/ 99:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Result; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__value__ = __webpack_require__(169);
-
-var Result = /** @class */ (function () {
-    function Result(result) {
-        this.headLost = new __WEBPACK_IMPORTED_MODULE_0__value__["a" /* Value */]();
-        this.savingPotentialMin = new __WEBPACK_IMPORTED_MODULE_0__value__["a" /* Value */]();
-        this.savingPotentialMax = new __WEBPACK_IMPORTED_MODULE_0__value__["a" /* Value */]();
-        this.advise = '';
-        if (!result)
-            return;
-        Object.assign(this, result);
-        this.advise = result.advise;
-        this.headLost = new __WEBPACK_IMPORTED_MODULE_0__value__["a" /* Value */](result.headLost);
-        this.savingPotentialMin = new __WEBPACK_IMPORTED_MODULE_0__value__["a" /* Value */](result.savingPotentialMin);
-        this.savingPotentialMax = new __WEBPACK_IMPORTED_MODULE_0__value__["a" /* Value */](result.savingPotentialMax);
-    }
-    return Result;
-}());
-
-//# sourceMappingURL=result.js.map
 
 /***/ })
 

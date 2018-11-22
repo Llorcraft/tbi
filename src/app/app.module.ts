@@ -267,7 +267,7 @@ import { GlobalErrorHandler } from '../models/errors/global-error';
     LicencesService,
     PictureService,
     Flashlight,
-    {provide: FileService, useClass: FileLocalService}
+    {provide: FileService, useClass: FileDeviceService}
   ]
 })
 export class AppModule { }

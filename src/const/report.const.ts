@@ -39,12 +39,12 @@ export const REPORT = {
     }
   },
   MANTENANCE: {
-    LEAKAGE: 'Mantenance\\Leakege',
-    DAMAGED: `Mantenance\\Damaged`,
-    CONDENSATION: `Mantenance\\Condensation`,
-    STRUCTURAL: `Mantenance\\Structural`,
-    MECHANICAL: `Mantenance\\Mechanical`,
-    ELECTRICAL: `Mantenance\\Electrical`,
+    LEAKAGE: 'Maintenance\\Leakege',
+    DAMAGED: `Maintenance\\Damaged`,
+    CONDENSATION: `Maintenance\\Condensation`,
+    STRUCTURAL: `Maintenance\\Structural`,
+    MECHANICAL: `Maintenance\\Mechanical`,
+    ELECTRICAL: `Maintenance\\Electrical`,
   },
   CUSTOM: `Custom`,
   DAMAGED: 'Damaged',
