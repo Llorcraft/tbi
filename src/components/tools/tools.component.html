@@ -1,6 +1,6 @@
   <button ion-button small icon-only color="light" (click)="open_calculator()">
     <ion-icon name="ios-calculator"></ion-icon>
   </button>
-  <button ion-button small icon-only color="light" (click)="toggle_light()">
-    <ion-icon name="ios-sunny" [class.button-on]="flashlight"></ion-icon>
+  <button ion-button small icon-only color="light" [class.pushed]="flashlight_on" (click)="toggle_light()">
+    <ion-icon name="ios-sunny"></ion-icon>
   </button>

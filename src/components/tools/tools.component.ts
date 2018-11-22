@@ -1,7 +1,6 @@
 import { Component, ViewEncapsulation, OnInit } from '@angular/core';
 import { Flashlight } from '@ionic-native/flashlight';
 import { MessageService } from '../../services';
-import { WebIntent, IntentOptions } from '@ionic-native/web-intent';
 
 @Component({
   selector: 'tools',
@@ -10,26 +9,26 @@ import { WebIntent, IntentOptions } from '@ionic-native/web-intent';
 })
 export class ToolsComponent implements OnInit {
   public flashlight_on: boolean;
-  public apps: any[] = [];
+  public calc_path: string = '';
+  private external_app: any = (window as any).startApp;
 
   constructor(
-    public flashlight: Flashlight, public message: MessageService, private webIntent: WebIntent) {
+    public flashlight: Flashlight, public message: MessageService) {
 
   }
 
   ngOnInit(): void {
     this.flashlight_on = this.flashlight.isSwitchedOn();
-    
-    (<any>window).plugins.packagemanager.show(true, (apps) => {
-      this.apps = apps.map(a => a.split(';')[1]);
 
-    }, (e) => {
-      this.message.alert('Error', e.message);
-    });
+    if (!!(<any>window).plugins) {
+      (<any>window).plugins.packagemanager.show(true, (apps) => {
+        let calc = apps.find((a => !!a.match(/calc/g))).split('/');
+        this.calc_path = calc[calc.length - 1].split(';')[1];
+      });
+    }
   }
 
   toggle_light() {
-    //this.message.alert('Flash', `${this.flashlight.isSwitchedOn()}`)
     if (!this.flashlight.isSwitchedOn()) {
       this.flashlight.switchOn();
       this.flashlight_on = true;
@@ -40,17 +39,7 @@ export class ToolsComponent implements OnInit {
   }
 
   open_calculator() {
-    const options: IntentOptions = {
-      action: this.webIntent.ACTION_VIEW,
-      url: this.apps.find(p=>!!p.match(/calc/g)),
-      type: 'application/vnd.android.package-archive'
-    };
-
-    this.webIntent.startActivity(options).then(() => {
-      this.message.alert('Ok', this.apps.find(p=>!!p.match(/calc/g)));
-    }, (err) => {
-      this.message.alert('Error', err.message);
-    });
+    this.external_app.set({ "application": this.calc_path }).start();
   }
 
 }

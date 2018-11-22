@@ -30,7 +30,6 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { UniqueDeviceID } from '@ionic-native/unique-device-id';
 import { FileTransfer } from '@ionic-native/file-transfer';
-import { WebIntent } from '@ionic-native/web-intent';
 
 /*Services*/
 import { ProjectService } from '../services';
@@ -268,8 +267,7 @@ import { GlobalErrorHandler } from '../models/errors/global-error';
     LicencesService,
     PictureService,
     Flashlight,
-    {provide: FileService, useClass: FileDeviceService},
-    WebIntent 
+    {provide: FileService, useClass: FileLocalService}
   ]
 })
 export class AppModule { }

@@ -107,5 +107,6 @@
     <plugin name="cordova-plugin-flashlight" spec="^3.2.0" />
     <plugin name="com-darryncampbell-cordova-plugin-intent" spec="^1.1.1" />
     <plugin name="cordova-plugin-packagemanager" spec="^0.1.7" />
+    <plugin name="com.lampa.startapp" spec="^6.1.6" />
     <engine name="android" spec="7.0.0" />
 </widget>

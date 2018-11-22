@@ -58,7 +58,7 @@
               </ion-item>
             </ion-row>
           </ion-col>
-          <!-- <ion-col col-12>
+          <ion-col col-12>
             <ion-row mb-3>
               <ion-title class="label"  col-12 col-12 text-left>Energy Manager</ion-title>
               <ion-item col-md-5 col-12>
@@ -71,7 +71,7 @@
                 <ion-input tabindex="6" (ionFocus)="on_focus($event)"  type="phone" [(ngModel)]="project.people.energy_manager.phone" placeholder="Phone" name="energy-phone" scroll="20"></ion-input>
               </ion-item>
             </ion-row>
-          </ion-col> -->
+          </ion-col>
           <ion-col col-12>
             <ion-row mb-3>
               <ion-title class="label"  col-12 col-12 text-left>Maintenance Manager</ion-title>
@@ -121,12 +121,15 @@
 <ion-footer>
   <ion-grid no-padding>
     <ion-row no-padding>
-      <ion-col col-3 no-padding>
+      <ion-col col-4 no-padding>
         <button tabindex="16" ion-button small color="light" (click)="after_delete()">
           <ion-icon name="arrow-back"></ion-icon>&nbsp;Back
         </button>
       </ion-col>
-      <ion-col col-9 text-right no-padding>
+      <ion-col col-4 text-center>
+        <tools></tools>
+      </ion-col>
+      <ion-col col-4 text-right no-padding>
         <button *ngIf="segment=='files'" ion-button small color="light" (tap)="choose_file()">
           Choose file
         </button>

@@ -28298,7 +28298,7 @@ tools button ion-icon {
   margin-left: .5rem;
 }
 
-tools button.button-on {
+tools button.pushed {
   -webkit-box-shadow: inset 2px 2px 2px rgba(0, 0, 0, 0.4);
   box-shadow: inset 2px 2px 2px rgba(0, 0, 0, 0.4);
 }
@@ -28445,9 +28445,9 @@ ion-card.disabled svg * {
 }
 
 ion-grid[projects] svg#insulation {
-  width: 80%;
-  margin-top: .5rem;
-  margin-left: .5rem;
+  width: 110% !important;
+  margin-top: .2rem;
+  margin-left: -.2rem;
 }
 
 ion-grid[projects] h5 {

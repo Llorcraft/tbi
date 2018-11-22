@@ -45,6 +45,7 @@
     "@types/cordova-plugin-file": "^4.3.2",
     "@types/jquery": "^3.3.1",
     "com-darryncampbell-cordova-plugin-intent": "^1.1.1",
+    "com.lampa.startapp": "^6.1.6",
     "com.telerik.plugins.nativepagetransitions": "^0.6.5",
     "cordova-android": "7.0.0",
     "cordova-android-support-gradle-release": "^1.4.4",
@@ -107,7 +108,8 @@
       "cordova-plugin-file-transfer": {},
       "cordova-plugin-flashlight": {},
       "com-darryncampbell-cordova-plugin-intent": {},
-      "cordova-plugin-packagemanager": {}
+      "cordova-plugin-packagemanager": {},
+      "com.lampa.startapp": {}
     },
     "platforms": [
       "android"

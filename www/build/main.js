@@ -6,7 +6,7 @@ webpackJsonp([0],{
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Picture; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__marker__ = __webpack_require__(75);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__model_with_picture__ = __webpack_require__(298);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__model_with_picture__ = __webpack_require__(297);
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = Object.setPrototypeOf ||
         ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
@@ -310,7 +310,7 @@ var MessageService = /** @class */ (function () {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return Project; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0____ = __webpack_require__(46);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__component__ = __webpack_require__(101);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__model_with_picture__ = __webpack_require__(298);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__model_with_picture__ = __webpack_require__(297);
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = Object.setPrototypeOf ||
         ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
@@ -430,7 +430,7 @@ var Value = /** @class */ (function () {
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return __WEBPACK_IMPORTED_MODULE_3__messages_service__["a"]; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__licences_service__ = __webpack_require__(102);
 /* unused harmony reexport LicencesService */
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__picture_service__ = __webpack_require__(302);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__picture_service__ = __webpack_require__(301);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return __WEBPACK_IMPORTED_MODULE_5__picture_service__["a"]; });
 
 
@@ -599,7 +599,7 @@ var Fields = /** @class */ (function () {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__non_picture__ = __webpack_require__(299);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__non_picture__ = __webpack_require__(298);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return __WEBPACK_IMPORTED_MODULE_0__non_picture__["a"]; });
 
 //# sourceMappingURL=index.js.map
@@ -826,11 +826,11 @@ var REPORT = {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_screen_orientation__ = __webpack_require__(178);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__models__ = __webpack_require__(46);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__services_project_service__ = __webpack_require__(53);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__summary_edit__ = __webpack_require__(309);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__models_report_router__ = __webpack_require__(307);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__summary_edit__ = __webpack_require__(308);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__models_report_router__ = __webpack_require__(306);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__reports__ = __webpack_require__(20);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__models_component__ = __webpack_require__(101);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__progress_kendo_drawing__ = __webpack_require__(310);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__progress_kendo_drawing__ = __webpack_require__(309);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__projects_projects__ = __webpack_require__(74);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__services__ = __webpack_require__(17);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__ionic_native_file_opener__ = __webpack_require__(174);
@@ -1119,7 +1119,7 @@ var SummaryPage = /** @class */ (function () {
     };
     SummaryPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-summary',template:/*ion-inline-start:"D:\Sofware Factory\tbi\src\pages\summary\summary.html"*/'<ion-header>\n\n  <ion-toolbar>\n\n    <ion-title>Summary - {{project?.name}}</ion-title>\n\n    <ion-buttons end>\n\n      <button ion-button on-tap="export_pdf(pdf)">\n\n        <ion-icon name="document-pdf"></ion-icon>&nbsp;PDF\n\n      </button>\n\n    </ion-buttons>\n\n  </ion-toolbar>\n\n</ion-header>\n\n\n\n<ion-content>\n\n  <kendo-pdf-export #pdf paperSize="A4" margin=".5cm" [scale]="0.5" landscape="true">\n\n\n\n    <!-- <ion-grid class="summary-total" *ngIf="!!totals">\n\n      <ion-row>\n\n        <ion-col col-12 text-center>\n\n          <table class="total red">\n\n            <tr>\n\n              <td class="c-red">Energy loss per year</td>\n\n              <td text-right>{{totals.headLost.power | number: \'1.0-0\'}}</td>\n\n              <td>kWh</td>\n\n            </tr>\n\n            <tr>\n\n              <td>Money loss per year</td>\n\n              <td text-right>{{totals.headLost.money | number: \'1.0-0\'}}</td>\n\n              <td>€</td>\n\n            </tr>\n\n          </table>\n\n\n\n          <table class="total green">\n\n            <tr>\n\n              <td>Potential energy saving per year</td>\n\n              <td text-right>{{totals.savingPotentialMin.power | number: \'1.0-0\'}}</td>\n\n              <td text-center>\n\n                <ion-icon name="md-arrow-forward"></ion-icon>\n\n              </td>\n\n              <td text-right>{{totals.savingPotentialMax.power | number: \'1.0-0\'}}</td>\n\n              <td>kWh</td>\n\n            </tr>\n\n            <tr>\n\n              <td>Potential money saving per year</td>\n\n              <td text-right>{{totals.savingPotentialMin.money | number: \'1.0-0\'}}</td>\n\n              <td text-center>\n\n                <ion-icon name="md-arrow-forward"></ion-icon>\n\n              </td>\n\n              <td text-right>{{totals.savingPotentialMax.money | number: \'1.0-0\'}}</td>\n\n              <td>€</td>\n\n            </tr>\n\n          </table>\n\n        </ion-col>\n\n      </ion-row>\n\n    </ion-grid> -->\n\n    <table class="data">\n\n      <thead>\n\n        <tr>\n\n          <th colspan="2"></th>\n\n          <th colspan="6" class="bg-green" style="border-bottom: 5px solid #fff;">Energy analysis</th>\n\n          <th rowspan="2" class="bg-red">\n\n            <span svg="safety"></span>\n\n            Safety\n\n          </th>\n\n          <th rowspan="2" class="bg-blue">\n\n            <span svg="maintenance"></span>\n\n            Maintenance\n\n          </th>\n\n          <th rowspan="2" class="bg-gray">\n\n            <span svg="custom"></span>\n\n            Others\n\n          </th>\n\n          <th class="bg-blue-light">TBI</th>\n\n          <th class="bg-green-light" colspan="5">Input</th>\n\n        </tr>\n\n        <tr>\n\n          <th colspan="2" style="border-right: 1px solid #444">Component / Location</th>\n\n          <th colspan="2" style="border-top: 1px solid #444; border-right: 1px solid #444; color: red">Energy Loss<br>per\n\n            year</th>\n\n          <th colspan="4" style="border-top: 1px solid #444; border-right: 1px solid #444; color: #375623">Potential\n\n            Savings<br>per\n\n            year</th>\n\n          <th>Insulation<br>Advise</th>\n\n          <th class="vertical">\n\n            <div><span one-line>Insulated</span></div>\n\n          </th>\n\n          <th class="vertical">\n\n            <div><span one-line>Surface (m<sup>2</sup>)</span></div>\n\n          </th>\n\n          <th class="vertical">\n\n            <div><span one-line>DN or Øe</span></div>\n\n          </th>\n\n          <th class="vertical">\n\n            <div><span one-line>Length</span></div>\n\n          </th>\n\n          <th class="vertical">\n\n            <div><span one-line>Items number</span></div>\n\n          </th>\n\n        </tr>\n\n      </thead>\n\n      <tbody *ngFor="let c of components; let i=index">\n\n        <tr [class.disabled]="c.fields.unknow_surface">\n\n          <td rowspan="2" (click)="actions(c, $event)" double-border text-center style="white-space: nowrap; padding-right: 1rem">\n\n            <ion-icon name="md-menu" style="margin: 0 .25rem 0; float: left"></ion-icon>\n\n            {{i+1}}-\n\n          </td>\n\n          <td rowspan="2" double-border class="b-right" style="min-width: 10vw">\n\n            {{ellipsis(c.fields.location)}}\n\n          </td>\n\n          <td *ngIf="!!c.result" text-right class="bg-light-red c-red">{{c.result.headLost.power / 1000 | number:\n\n            \'1.1-1\'}}</td>\n\n          <td *ngIf="!!c.result" class="bg-light-red c-red b-right">MWh<span *ngIf="c.fields.unknow_surface">/m<sup>2</sup></span></td>\n\n          <td *ngIf="!!c.result" text-right class="bg-green c-gree">{{c.result.savingPotentialMin?.power / 1000 |\n\n            number: \'1.1-1\'}}</td>\n\n          <td *ngIf="!!c.result" text-center class="bg-green c-gree p-0" style="width: 15px; padding: 0; white-space: nowrap">\n\n            <!-- <ion-icon name="md-arrow-forward"></ion-icon> -->\n\n            --\n\n          </td>\n\n          <td *ngIf="!!c.result" text-left class="bg-green c-gree">{{c.result.savingPotentialMax?.power / 1000 |\n\n            number: \'1.1-1\'}}</td>\n\n          <td *ngIf="!!c.result" class="bg-green c-gree mesure b-right">MWh<span *ngIf="c.fields.unknow_surface">/m<sup>2</sup></span></td>\n\n          <td *ngIf="!c.result" colspan="2" class="b-right"></td>\n\n          <td *ngIf="!c.result" colspan="4" class="b-right"></td>\n\n\n\n          <td rowspan="2" double-border text-center class="bg-red">\n\n            <ng-container *ngFor="let r of c.reports_by_type(\'safety|hot\')">\n\n              <a href="#" (click)="open(r, $event)" *ngIf="!r.component.is_hot">{{r.summary_id}}</a>\n\n              <a href="#" (click)="open(r, $event)" *ngIf="!!r.component.is_hot">Hot surface</a>\n\n            </ng-container>\n\n            <ion-icon name="md-add-circle" (click)="add_report(\'safety\', c, $event)"></ion-icon>\n\n          </td>\n\n          <td rowspan="2" double-border text-center class="bg-blue">\n\n            <a href="#" (click)="open(r, $event)" *ngFor="let r of c.reports_by_type(\'mantenance|condensation|damaged\')">{{r.summary_id}}</a>\n\n            <ion-icon name="md-add-circle" (click)="add_report(\'maintenance\',c , $event)"></ion-icon>\n\n          </td>\n\n          <td rowspan="2" double-border text-center class="bg-gray">\n\n            <a href="#" (click)="open(r, $event)" *ngFor="let r of c.reports_by_type(\'generic|custom\')">{{r.summary_id}}</a>\n\n            <ion-icon name="md-add-circle" (click)="add_report(\'maintenance\', c, $event)"></ion-icon>\n\n          </td>\n\n          <td rowspan="2" *ngIf="!!c.result" double-border text-center>\n\n            <ng-container [ngSwitch]="advises.get(c.result.advise)">\n\n              <span advise-picture *ngSwitchCase="\'Recommended\'" svg="insulation"></span>\n\n              <span advise-picture *ngSwitchCase="\'Maintenance\'" svg="mechanical"></span>\n\n              <span advise-picture *ngSwitchCase="\'Unknow surface\'" svg="surface"></span>\n\n              <span advise-picture *ngSwitchCase="\'OK\'" svg="like"></span>\n\n              <span advise-picture *ngSwitchCase="\'Increase\'" svg="increase"></span>\n\n            </ng-container>\n\n          </td>\n\n          <td rowspan="2" *ngIf="!c.result" double-border text-center></td>\n\n          <td rowspan="2" double-border text-center>{{!!c.insulated ? \'Y\' : \'N\'}}</td>\n\n          <td *ngIf="null!=c.fields.surface_temp" rowspan="2" double-border text-center>{{c.fields.surface_temp}}</td>\n\n          <td *ngIf="null==c.fields.surface_temp" rowspan="2" double-border text-center>&nbsp;</td>\n\n          <td rowspan="2" double-border text-center>\n\n            <span *ngIf="!!c.surface">{{c.fields.surface}} m<sup>2</sup></span>\n\n            <span>{{c.fields.main_dimension || c.fields.nominal_diameter}}</span>\n\n          </td>\n\n          <td rowspan="2" double-border text-center>{{c.fields.length}}</td>\n\n          <td rowspan="2" double-border text-center>{{c.fields.number}}</td>\n\n        </tr>\n\n\n\n        <tr *ngIf="!!c.result" [class.disabled]="c.fields.unknow_surface">\n\n          <td double-border text-right class="c-red">{{c.result.headLost?.money | number: \'1.0-0\'}}</td>\n\n          <td double-border class="c-red mesure b-right">€<span *ngIf="c.fields.unknow_surface">/m<sup>2</sup></span></td>\n\n          <td double-border text-right class="c-gree">{{c.result.savingPotentialMin?.money | number: \'1.0-0\'}}</td>\n\n          <td double-border text-center class="c-gree p-0" style="width: 15px; padding: 0; white-space: nowrap;">\n\n            <!-- <ion-icon name="md-arrow-forward"></ion-icon> -->\n\n            --\n\n          </td>\n\n          <td double-border text-left class="c-gree">{{c.result.savingPotentialMax?.money | number: \'1.0-0\'}}</td>\n\n          <td double-border class="c-gree mesure b-right">€<span *ngIf="c.fields.unknow_surface">/m<sup>2</sup></span></td>\n\n        </tr>\n\n        <tr *ngIf="!c.result" [class.disabled]="c.fields.unknow_surface">\n\n          <td double-border colspan="2" class="b-right"></td>\n\n          <td double-border colspan="4" class="b-right"></td>\n\n        </tr>\n\n      </tbody>\n\n      <tfoot>\n\n        <tr>\n\n          <td rowspan="2" colspan="2" double-border class="b-right" text-right>\n\n            TOTAL PROJECT\n\n          </td>\n\n          <td text-right class="bg-light-red c-red">{{totals.headLost.power / 1000 | number: \'1.1-1\'}}</td>\n\n          <td class="bg-light-red c-red b-right">MWh</td>\n\n          <td text-right class="bg-green c-gree">{{totals.savingPotentialMin?.power / 1000 | number: \'1.1-1\'}}</td>\n\n          <td text-center class="bg-green c-gree p-0" style="width: 15px; padding: 0; white-space: nowrap">--</td>\n\n          <td text-left class="bg-green c-gree">{{totals.savingPotentialMax?.power / 1000 | number: \'1.1-1\'}}</td>\n\n          <td class="bg-green c-gree mesure b-right">MWh</td>\n\n        </tr>\n\n\n\n        <tr>\n\n          <td double-border text-right class="c-red">{{totals.headLost?.money | number: \'1.0-0\'}}</td>\n\n          <td double-border class="c-red mesure b-right">€</td>\n\n          <td double-border text-right class="c-gree">{{totals.savingPotentialMin?.money | number: \'1.0-0\'}}</td>\n\n          <td double-border text-center class="c-gree p-0" style="width: 15px; padding: 0; white-space: nowrap;">--</td>\n\n          <td double-border text-left class="c-gree">{{totals.savingPotentialMax?.money | number: \'1.0-0\'}}</td>\n\n          <td double-border class="c-gree mesure b-right">€</td>\n\n        </tr>\n\n      </tfoot>\n\n    </table>\n\n\n\n    <!-- <ion-grid style="margin-top: 2rem">\n\n      <ion-row>\n\n        <ion-col col-6 col-lg-4>\n\n          <span class="legend" advise-picture svg="like"></span><strong>System OK</strong>\n\n        </ion-col>\n\n        <ion-col col-6 col-lg-4>\n\n          <span class="legend" advise-picture svg="insulation"></span><strong>Insulation recommended</strong>\n\n        </ion-col>\n\n        <ion-col col-6 col-lg-4>\n\n          <span class="legend" advise-picture svg="mechanical"></span><strong>Maintenace</strong>\n\n        </ion-col>\n\n        <ion-col col-6 col-lg-4>\n\n          <span class="legend" advise-picture svg="surface"></span><strong>Surface unknown</strong>\n\n        </ion-col>\n\n        <ion-col col-6 col-lg-4>\n\n          <span class="legend" advise-picture svg="increase"></span><strong>Increace performance or thickness</strong>\n\n        </ion-col>\n\n      </ion-row>\n\n    </ion-grid> -->\n\n\n\n    <ion-grid legend>\n\n      <ion-row>\n\n        <ion-col col-1 class="icon"><div svg="insulation" style="margin:.4rem 0 -.4rem"></div></ion-col>\n\n        <ion-col col-11 class="text">Insulation recommended</ion-col>\n\n        <ion-col col-1 class="icon"><div svg="surface" style="margin:.2rem 0 -.2rem"></div></ion-col>\n\n        <ion-col col-11 class="text">Surface unknown</ion-col>\n\n        <ion-col col-1 class="icon"><div svg="maintenance"></div></ion-col>\n\n        <ion-col col-11 class="text">Maintenance</ion-col>\n\n        <ion-col col-1 class="icon"><div svg="like"></div></ion-col>\n\n        <ion-col col-11 class="text">System OK</ion-col>\n\n        <ion-col col-1 class="icon"><div svg="increase"></div></ion-col>\n\n        <ion-col col-11 class="text">Increase performance or thickness</ion-col>\n\n      </ion-row>\n\n    </ion-grid>\n\n\n\n  </kendo-pdf-export>\n\n\n\n</ion-content>\n\n\n\n<ion-footer>\n\n  <ion-grid no-padding>\n\n    <ion-row no-padding>\n\n      <ion-col col-6 no-padding>\n\n        <button ion-button small color="light" (click)="go_to_projects()">\n\n          HOME\n\n        </button>\n\n      </ion-col>\n\n      <ion-col col-6 text-right>\n\n        <button tabindex="15" ion-button small color="primary" (click)="go_to_reports()">\n\n          New component\n\n        </button>\n\n      </ion-col>\n\n    </ion-row>\n\n  </ion-grid>\n\n</ion-footer>\n\n'/*ion-inline-end:"D:\Sofware Factory\tbi\src\pages\summary\summary.html"*/
+            selector: 'page-summary',template:/*ion-inline-start:"D:\Sofware Factory\tbi\src\pages\summary\summary.html"*/'<ion-header>\n\n  <ion-toolbar>\n\n    <ion-title>Summary - {{project?.name}}</ion-title>\n\n    <ion-buttons end>\n\n      <button ion-button on-tap="export_pdf(pdf)">\n\n        <ion-icon name="document-pdf"></ion-icon>&nbsp;PDF\n\n      </button>\n\n    </ion-buttons>\n\n  </ion-toolbar>\n\n</ion-header>\n\n\n\n<ion-content>\n\n  <kendo-pdf-export #pdf paperSize="A4" margin=".5cm" [scale]="0.5" landscape="true">\n\n\n\n    <!-- <ion-grid class="summary-total" *ngIf="!!totals">\n\n      <ion-row>\n\n        <ion-col col-12 text-center>\n\n          <table class="total red">\n\n            <tr>\n\n              <td class="c-red">Energy loss per year</td>\n\n              <td text-right>{{totals.headLost.power | number: \'1.0-0\'}}</td>\n\n              <td>kWh</td>\n\n            </tr>\n\n            <tr>\n\n              <td>Money loss per year</td>\n\n              <td text-right>{{totals.headLost.money | number: \'1.0-0\'}}</td>\n\n              <td>€</td>\n\n            </tr>\n\n          </table>\n\n\n\n          <table class="total green">\n\n            <tr>\n\n              <td>Potential energy saving per year</td>\n\n              <td text-right>{{totals.savingPotentialMin.power | number: \'1.0-0\'}}</td>\n\n              <td text-center>\n\n                <ion-icon name="md-arrow-forward"></ion-icon>\n\n              </td>\n\n              <td text-right>{{totals.savingPotentialMax.power | number: \'1.0-0\'}}</td>\n\n              <td>kWh</td>\n\n            </tr>\n\n            <tr>\n\n              <td>Potential money saving per year</td>\n\n              <td text-right>{{totals.savingPotentialMin.money | number: \'1.0-0\'}}</td>\n\n              <td text-center>\n\n                <ion-icon name="md-arrow-forward"></ion-icon>\n\n              </td>\n\n              <td text-right>{{totals.savingPotentialMax.money | number: \'1.0-0\'}}</td>\n\n              <td>€</td>\n\n            </tr>\n\n          </table>\n\n        </ion-col>\n\n      </ion-row>\n\n    </ion-grid> -->\n\n    <table class="data">\n\n      <thead>\n\n        <tr>\n\n          <th colspan="2"></th>\n\n          <th colspan="6" class="bg-green" style="border-bottom: 5px solid #fff;">Energy analysis</th>\n\n          <th rowspan="2" class="bg-red">\n\n            <span svg="safety"></span>\n\n            Safety\n\n          </th>\n\n          <th rowspan="2" class="bg-blue">\n\n            <span svg="maintenance"></span>\n\n            Maintenance\n\n          </th>\n\n          <th rowspan="2" class="bg-gray">\n\n            <span svg="custom"></span>\n\n            Others\n\n          </th>\n\n          <th class="bg-blue-light">TBI</th>\n\n          <th class="bg-green-light" colspan="5">Input</th>\n\n        </tr>\n\n        <tr>\n\n          <th colspan="2" style="border-right: 1px solid #444">Component / Location</th>\n\n          <th colspan="2" style="border-top: 1px solid #444; border-right: 1px solid #444; color: red">Energy Loss<br>per\n\n            year</th>\n\n          <th colspan="4" style="border-top: 1px solid #444; border-right: 1px solid #444; color: #375623">Potential\n\n            Savings<br>per\n\n            year</th>\n\n          <th>Insulation<br>Advise</th>\n\n          <th class="vertical">\n\n            <div><span one-line>Insulated</span></div>\n\n          </th>\n\n          <th class="vertical">\n\n            <div><span one-line>Surface (m<sup>2</sup>)</span></div>\n\n          </th>\n\n          <th class="vertical">\n\n            <div><span one-line>Diameter</span></div>\n\n          </th>\n\n          <th class="vertical">\n\n            <div><span one-line>Length</span></div>\n\n          </th>\n\n          <th class="vertical">\n\n            <div><span one-line>Items number</span></div>\n\n          </th>\n\n        </tr>\n\n      </thead>\n\n      <tbody *ngFor="let c of components; let i=index">\n\n        <tr [class.disabled]="c.fields.unknow_surface">\n\n          <td rowspan="2" (click)="actions(c, $event)" double-border text-center style="white-space: nowrap; padding-right: 1rem">\n\n            <ion-icon name="md-menu" style="margin: 0 .25rem 0; float: left"></ion-icon>\n\n            {{i+1}}-\n\n          </td>\n\n          <td rowspan="2" double-border class="b-right" style="min-width: 10vw">\n\n            {{ellipsis(c.fields.location)}}\n\n          </td>\n\n          <td *ngIf="!!c.result" text-right class="bg-light-red c-red">{{c.result.headLost.power / 1000 | number:\n\n            \'1.1-1\'}}</td>\n\n          <td *ngIf="!!c.result" class="bg-light-red c-red b-right">MWh<span *ngIf="c.fields.unknow_surface">/m<sup>2</sup></span></td>\n\n          <td *ngIf="!!c.result" text-right class="bg-green c-gree">{{c.result.savingPotentialMin?.power / 1000 |\n\n            number: \'1.1-1\'}}</td>\n\n          <td *ngIf="!!c.result" text-center class="bg-green c-gree p-0" style="width: 15px; padding: 0; white-space: nowrap">\n\n            <!-- <ion-icon name="md-arrow-forward"></ion-icon> -->\n\n            --\n\n          </td>\n\n          <td *ngIf="!!c.result" text-left class="bg-green c-gree">{{c.result.savingPotentialMax?.power / 1000 |\n\n            number: \'1.1-1\'}}</td>\n\n          <td *ngIf="!!c.result" class="bg-green c-gree mesure b-right">MWh<span *ngIf="c.fields.unknow_surface">/m<sup>2</sup></span></td>\n\n          <td *ngIf="!c.result" colspan="2" class="b-right"></td>\n\n          <td *ngIf="!c.result" colspan="4" class="b-right"></td>\n\n\n\n          <td rowspan="2" double-border text-center class="bg-red">\n\n            <ng-container *ngFor="let r of c.reports_by_type(\'safety|hot\')">\n\n              <a href="#" (click)="open(r, $event)" *ngIf="!r.component.is_hot">{{r.summary_id}}</a>\n\n              <a href="#" (click)="open(r, $event)" *ngIf="!!r.component.is_hot">Hot surface</a>\n\n            </ng-container>\n\n            <ion-icon name="md-add-circle" (click)="add_report(\'safety\', c, $event)"></ion-icon>\n\n          </td>\n\n          <td rowspan="2" double-border text-center class="bg-blue">\n\n            <a href="#" (click)="open(r, $event)" *ngFor="let r of c.reports_by_type(\'mantenance|condensation|damaged\')">{{r.summary_id}}</a>\n\n            <ion-icon name="md-add-circle" (click)="add_report(\'maintenance\',c , $event)"></ion-icon>\n\n          </td>\n\n          <td rowspan="2" double-border text-center class="bg-gray">\n\n            <a href="#" (click)="open(r, $event)" *ngFor="let r of c.reports_by_type(\'generic|custom\')">{{r.summary_id}}</a>\n\n            <ion-icon name="md-add-circle" (click)="add_report(\'maintenance\', c, $event)"></ion-icon>\n\n          </td>\n\n          <td rowspan="2" *ngIf="!!c.result" double-border text-center>\n\n            <ng-container [ngSwitch]="advises.get(c.result.advise)">\n\n              <span advise-picture *ngSwitchCase="\'Recommended\'" svg="insulation"></span>\n\n              <span advise-picture *ngSwitchCase="\'Maintenance\'" svg="mechanical"></span>\n\n              <span advise-picture *ngSwitchCase="\'Unknow surface\'" svg="surface"></span>\n\n              <span advise-picture *ngSwitchCase="\'OK\'" svg="like"></span>\n\n              <span advise-picture *ngSwitchCase="\'Increase\'" svg="increase"></span>\n\n            </ng-container>\n\n          </td>\n\n          <td rowspan="2" *ngIf="!c.result" double-border text-center></td>\n\n          <td rowspan="2" double-border text-center>{{!!c.insulated ? \'Y\' : \'N\'}}</td>\n\n          <td *ngIf="null!=c.fields.surface_temp" rowspan="2" double-border text-center>{{c.fields.surface}}</td>\n\n          <td *ngIf="null==c.fields.surface_temp" rowspan="2" double-border text-center>&nbsp;</td>\n\n          <td rowspan="2" double-border text-center>\n\n            <!-- <span *ngIf="!!c.surface">{{c.fields.surface}} m<sup>2</sup></span> -->\n\n            <span>{{c.fields.main_dimension || c.fields.nominal_diameter}}</span>\n\n          </td>\n\n          <td rowspan="2" double-border text-center>{{c.fields.length}}</td>\n\n          <td rowspan="2" double-border text-center>{{c.fields.number}}</td>\n\n        </tr>\n\n\n\n        <tr *ngIf="!!c.result" [class.disabled]="c.fields.unknow_surface">\n\n          <td double-border text-right class="c-red">{{c.result.headLost?.money | number: \'1.0-0\'}}</td>\n\n          <td double-border class="c-red mesure b-right">€<span *ngIf="c.fields.unknow_surface">/m<sup>2</sup></span></td>\n\n          <td double-border text-right class="c-gree">{{c.result.savingPotentialMin?.money | number: \'1.0-0\'}}</td>\n\n          <td double-border text-center class="c-gree p-0" style="width: 15px; padding: 0; white-space: nowrap;">\n\n            <!-- <ion-icon name="md-arrow-forward"></ion-icon> -->\n\n            --\n\n          </td>\n\n          <td double-border text-left class="c-gree">{{c.result.savingPotentialMax?.money | number: \'1.0-0\'}}</td>\n\n          <td double-border class="c-gree mesure b-right">€<span *ngIf="c.fields.unknow_surface">/m<sup>2</sup></span></td>\n\n        </tr>\n\n        <tr *ngIf="!c.result" [class.disabled]="c.fields.unknow_surface">\n\n          <td double-border colspan="2" class="b-right"></td>\n\n          <td double-border colspan="4" class="b-right"></td>\n\n        </tr>\n\n      </tbody>\n\n      <tfoot>\n\n        <tr>\n\n          <td rowspan="2" colspan="2" double-border class="b-right" text-right>\n\n            TOTAL PROJECT\n\n          </td>\n\n          <td text-right class="bg-light-red c-red">{{totals.headLost.power / 1000 | number: \'1.1-1\'}}</td>\n\n          <td class="bg-light-red c-red b-right">MWh</td>\n\n          <td text-right class="bg-green c-gree">{{totals.savingPotentialMin?.power / 1000 | number: \'1.1-1\'}}</td>\n\n          <td text-center class="bg-green c-gree p-0" style="width: 15px; padding: 0; white-space: nowrap">--</td>\n\n          <td text-left class="bg-green c-gree">{{totals.savingPotentialMax?.power / 1000 | number: \'1.1-1\'}}</td>\n\n          <td class="bg-green c-gree mesure b-right">MWh</td>\n\n        </tr>\n\n\n\n        <tr>\n\n          <td double-border text-right class="c-red">{{totals.headLost?.money | number: \'1.0-0\'}}</td>\n\n          <td double-border class="c-red mesure b-right">€</td>\n\n          <td double-border text-right class="c-gree">{{totals.savingPotentialMin?.money | number: \'1.0-0\'}}</td>\n\n          <td double-border text-center class="c-gree p-0" style="width: 15px; padding: 0; white-space: nowrap;">--</td>\n\n          <td double-border text-left class="c-gree">{{totals.savingPotentialMax?.money | number: \'1.0-0\'}}</td>\n\n          <td double-border class="c-gree mesure b-right">€</td>\n\n        </tr>\n\n      </tfoot>\n\n    </table>\n\n\n\n    <!-- <ion-grid style="margin-top: 2rem">\n\n      <ion-row>\n\n        <ion-col col-6 col-lg-4>\n\n          <span class="legend" advise-picture svg="like"></span><strong>System OK</strong>\n\n        </ion-col>\n\n        <ion-col col-6 col-lg-4>\n\n          <span class="legend" advise-picture svg="insulation"></span><strong>Insulation recommended</strong>\n\n        </ion-col>\n\n        <ion-col col-6 col-lg-4>\n\n          <span class="legend" advise-picture svg="mechanical"></span><strong>Maintenace</strong>\n\n        </ion-col>\n\n        <ion-col col-6 col-lg-4>\n\n          <span class="legend" advise-picture svg="surface"></span><strong>Surface unknown</strong>\n\n        </ion-col>\n\n        <ion-col col-6 col-lg-4>\n\n          <span class="legend" advise-picture svg="increase"></span><strong>Increace performance or thickness</strong>\n\n        </ion-col>\n\n      </ion-row>\n\n    </ion-grid> -->\n\n\n\n    <ion-grid legend>\n\n      <ion-row>\n\n        <ion-col col-1 class="icon"><div svg="insulation" style="margin:.4rem 0 -.4rem"></div></ion-col>\n\n        <ion-col col-11 class="text">Insulation recommended</ion-col>\n\n        <ion-col col-1 class="icon"><div svg="surface" style="margin:.2rem 0 -.2rem"></div></ion-col>\n\n        <ion-col col-11 class="text">Surface unknown</ion-col>\n\n        <ion-col col-1 class="icon"><div svg="maintenance"></div></ion-col>\n\n        <ion-col col-11 class="text">Maintenance</ion-col>\n\n        <ion-col col-1 class="icon"><div svg="like"></div></ion-col>\n\n        <ion-col col-11 class="text">System OK</ion-col>\n\n        <ion-col col-1 class="icon"><div svg="increase"></div></ion-col>\n\n        <ion-col col-11 class="text">Increase performance or thickness</ion-col>\n\n      </ion-row>\n\n    </ion-grid>\n\n\n\n  </kendo-pdf-export>\n\n\n\n</ion-content>\n\n\n\n<ion-footer>\n\n  <ion-grid no-padding>\n\n    <ion-row no-padding>\n\n      <ion-col col-4 no-padding>\n\n        <button ion-button small color="light" (click)="go_to_projects()">\n\n          HOME\n\n        </button>\n\n      </ion-col>\n\n      <ion-col col-4 text-center>\n\n        <tools></tools>\n\n      </ion-col>\n\n      <ion-col col-4 text-right>\n\n        <button tabindex="15" ion-button small color="primary" (click)="go_to_reports()">\n\n          New component\n\n        </button>\n\n      </ion-col>\n\n    </ion-row>\n\n  </ion-grid>\n\n</ion-footer>\n\n'/*ion-inline-end:"D:\Sofware Factory\tbi\src\pages\summary\summary.html"*/
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */],
             __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* AlertController */],
@@ -1143,49 +1143,49 @@ var SummaryPage = /** @class */ (function () {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_report_footer_report_footer_component__ = __webpack_require__(483);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_report_footer_report_footer_component__ = __webpack_require__(482);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "i", function() { return __WEBPACK_IMPORTED_MODULE_0__components_report_footer_report_footer_component__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__pipe_report_pipe_component__ = __webpack_require__(499);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__pipe_report_pipe_component__ = __webpack_require__(498);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "q", function() { return __WEBPACK_IMPORTED_MODULE_1__pipe_report_pipe_component__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__flange_report_flange_component__ = __webpack_require__(500);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__flange_report_flange_component__ = __webpack_require__(499);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "h", function() { return __WEBPACK_IMPORTED_MODULE_2__flange_report_flange_component__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_edit_picture_edit_picture_component__ = __webpack_require__(501);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_edit_picture_edit_picture_component__ = __webpack_require__(500);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "f", function() { return __WEBPACK_IMPORTED_MODULE_3__components_edit_picture_edit_picture_component__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_picture_slide_picture_slide_component__ = __webpack_require__(502);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_picture_slide_picture_slide_component__ = __webpack_require__(501);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "p", function() { return __WEBPACK_IMPORTED_MODULE_4__components_picture_slide_picture_slide_component__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_errors_report_errors_component__ = __webpack_require__(503);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_errors_report_errors_component__ = __webpack_require__(502);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "g", function() { return __WEBPACK_IMPORTED_MODULE_5__components_errors_report_errors_component__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__reports__ = __webpack_require__(504);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__reports__ = __webpack_require__(503);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "v", function() { return __WEBPACK_IMPORTED_MODULE_6__reports__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__generic_generic__ = __webpack_require__(588);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__generic_generic__ = __webpack_require__(587);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return __WEBPACK_IMPORTED_MODULE_7__generic_generic__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__surface_report_surface_component__ = __webpack_require__(589);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__surface_report_surface_component__ = __webpack_require__(588);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "s", function() { return __WEBPACK_IMPORTED_MODULE_8__surface_report_surface_component__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__components_header_report_header_component__ = __webpack_require__(590);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__components_header_report_header_component__ = __webpack_require__(589);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "j", function() { return __WEBPACK_IMPORTED_MODULE_9__components_header_report_header_component__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__components_area_report_area_button_component__ = __webpack_require__(591);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__components_area_report_area_button_component__ = __webpack_require__(590);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return __WEBPACK_IMPORTED_MODULE_10__components_area_report_area_button_component__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__components_area_report_area_modal_component__ = __webpack_require__(358);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__components_area_report_area_modal_component__ = __webpack_require__(357);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return __WEBPACK_IMPORTED_MODULE_11__components_area_report_area_modal_component__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__components_more_more_button_component__ = __webpack_require__(592);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__components_more_more_button_component__ = __webpack_require__(591);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "o", function() { return __WEBPACK_IMPORTED_MODULE_12__components_more_more_button_component__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__components_medium_temp_medium_temp_buttons_component__ = __webpack_require__(593);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__components_medium_temp_medium_temp_buttons_component__ = __webpack_require__(592);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "n", function() { return __WEBPACK_IMPORTED_MODULE_13__components_medium_temp_medium_temp_buttons_component__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__components_medium_temp_temp_marker_window_component__ = __webpack_require__(594);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__components_medium_temp_temp_marker_window_component__ = __webpack_require__(593);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "t", function() { return __WEBPACK_IMPORTED_MODULE_14__components_medium_temp_temp_marker_window_component__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__components_result_report_result_component__ = __webpack_require__(595);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__components_result_report_result_component__ = __webpack_require__(594);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "r", function() { return __WEBPACK_IMPORTED_MODULE_15__components_result_report_result_component__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__valve_report_valve_component__ = __webpack_require__(596);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__valve_report_valve_component__ = __webpack_require__(595);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "u", function() { return __WEBPACK_IMPORTED_MODULE_16__valve_report_valve_component__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__isurface_report_isurface_component__ = __webpack_require__(597);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__isurface_report_isurface_component__ = __webpack_require__(596);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "l", function() { return __WEBPACK_IMPORTED_MODULE_17__isurface_report_isurface_component__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__ipipe_report_ipipe_component__ = __webpack_require__(598);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__ipipe_report_ipipe_component__ = __webpack_require__(597);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "k", function() { return __WEBPACK_IMPORTED_MODULE_18__ipipe_report_ipipe_component__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__damaged_report_damaged_component__ = __webpack_require__(599);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__damaged_report_damaged_component__ = __webpack_require__(598);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "e", function() { return __WEBPACK_IMPORTED_MODULE_19__damaged_report_damaged_component__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__condensation_report_condensation_component__ = __webpack_require__(600);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__condensation_report_condensation_component__ = __webpack_require__(599);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "d", function() { return __WEBPACK_IMPORTED_MODULE_20__condensation_report_condensation_component__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__leakage_report_leakage_component__ = __webpack_require__(359);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__leakage_report_leakage_component__ = __webpack_require__(358);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "m", function() { return __WEBPACK_IMPORTED_MODULE_21__leakage_report_leakage_component__["a"]; });
 
 
@@ -1217,23 +1217,23 @@ var SummaryPage = /** @class */ (function () {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__report_condensation_class__ = __webpack_require__(484);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__report_condensation_class__ = __webpack_require__(483);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return __WEBPACK_IMPORTED_MODULE_0__report_condensation_class__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__report_damaged_class__ = __webpack_require__(485);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__report_damaged_class__ = __webpack_require__(484);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return __WEBPACK_IMPORTED_MODULE_1__report_damaged_class__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__report_ipipe_class__ = __webpack_require__(303);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__report_ipipe_class__ = __webpack_require__(302);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "e", function() { return __WEBPACK_IMPORTED_MODULE_2__report_ipipe_class__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__report_isurface_class__ = __webpack_require__(486);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__report_isurface_class__ = __webpack_require__(485);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "f", function() { return __WEBPACK_IMPORTED_MODULE_3__report_isurface_class__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__report_valve_class__ = __webpack_require__(487);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__report_valve_class__ = __webpack_require__(486);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "i", function() { return __WEBPACK_IMPORTED_MODULE_4__report_valve_class__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__report_pipe_class__ = __webpack_require__(304);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__report_pipe_class__ = __webpack_require__(303);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "g", function() { return __WEBPACK_IMPORTED_MODULE_5__report_pipe_class__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__report_flange_class__ = __webpack_require__(488);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__report_flange_class__ = __webpack_require__(487);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "d", function() { return __WEBPACK_IMPORTED_MODULE_6__report_flange_class__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__report_surface_class__ = __webpack_require__(495);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__report_surface_class__ = __webpack_require__(494);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "h", function() { return __WEBPACK_IMPORTED_MODULE_7__report_surface_class__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__base_report_page_class__ = __webpack_require__(496);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__base_report_page_class__ = __webpack_require__(495);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return __WEBPACK_IMPORTED_MODULE_8__base_report_page_class__["a"]; });
 
 
@@ -1248,7 +1248,7 @@ var SummaryPage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 214:
+/***/ 213:
 /***/ (function(module, exports) {
 
 function webpackEmptyAsyncContext(req) {
@@ -1261,7 +1261,7 @@ function webpackEmptyAsyncContext(req) {
 webpackEmptyAsyncContext.keys = function() { return []; };
 webpackEmptyAsyncContext.resolve = webpackEmptyAsyncContext;
 module.exports = webpackEmptyAsyncContext;
-webpackEmptyAsyncContext.id = 214;
+webpackEmptyAsyncContext.id = 213;
 
 /***/ }),
 
@@ -1352,7 +1352,7 @@ var ReportBase = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 256:
+/***/ 255:
 /***/ (function(module, exports) {
 
 function webpackEmptyAsyncContext(req) {
@@ -1365,11 +1365,11 @@ function webpackEmptyAsyncContext(req) {
 webpackEmptyAsyncContext.keys = function() { return []; };
 webpackEmptyAsyncContext.resolve = webpackEmptyAsyncContext;
 module.exports = webpackEmptyAsyncContext;
-webpackEmptyAsyncContext.id = 256;
+webpackEmptyAsyncContext.id = 255;
 
 /***/ }),
 
-/***/ 297:
+/***/ 296:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1412,7 +1412,7 @@ var InitPage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 298:
+/***/ 297:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1431,7 +1431,7 @@ var ModelWithPicture = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 299:
+/***/ 298:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1441,55 +1441,7 @@ var NON_PICTURE = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASoAAAEcCAYAAAB
 
 /***/ }),
 
-/***/ 30:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ReportService; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__component_service__ = __webpack_require__(176);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-var ReportService = /** @class */ (function () {
-    function ReportService(service) {
-        this.service = service;
-    }
-    ReportService.prototype.save = function (report) {
-        var _this = this;
-        return new Promise(function (resolve) {
-            if (!!report.component.reports.filter(function (r) { return report.id === r.id; }).length)
-                _this.remove(report);
-            if (!report.id)
-                report.id = Math.random().toString().substr(2);
-            report.component.reports.push(report);
-            _this.service.save(report.component).then(function (p) { return resolve(p); });
-        });
-    };
-    ReportService.prototype.remove = function (report) {
-        report.component.reports = report.component.reports.filter(function (r) { return r.id !== report.id; });
-        return report.component.project;
-    };
-    ReportService = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["A" /* Injectable */])(),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__component_service__["a" /* ComponentService */]])
-    ], ReportService);
-    return ReportService;
-}());
-
-//# sourceMappingURL=report.service.js.map
-
-/***/ }),
-
-/***/ 300:
+/***/ 299:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1675,7 +1627,7 @@ var EditProjectPage = /** @class */ (function (_super) {
     };
     EditProjectPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-edit-project',template:/*ion-inline-start:"D:\Sofware Factory\tbi\src\pages\projects\edit.html"*/'<ion-header>\n\n  <ion-navbar hideBackButton>\n\n    <ion-title class="label" >\n\n      {{ !project.id ? \'New project\' : \'Edit project\' }}\n\n    </ion-title>\n\n    <ion-buttons end>\n\n      <button ion-button color="light" (click)="open_camera(project)">\n\n        <ion-icon name="md-camera"></ion-icon>&nbsp;Take a picture\n\n      </button>\n\n    </ion-buttons>\n\n  </ion-navbar>\n\n  <ion-segment [(ngModel)]="segment">\n\n    <ion-segment-button value="properties">\n\n      Properties\n\n    </ion-segment-button>\n\n    <ion-segment-button value="files">\n\n      Files\n\n    </ion-segment-button>\n\n  </ion-segment>\n\n</ion-header>\n\n\n\n<ion-content>\n\n  <ion-grid>\n\n    <ion-row *ngIf="segment==\'properties\'">\n\n      <ion-col col-12>\n\n        <form novalidate #form="ngForm" style="margin-bottom: 10vw">\n\n        <ion-row>\n\n          <ion-col col-md-6 col-12>\n\n            <ion-row>\n\n              <ion-title class="label"  col-12 col-12 text-left>Name</ion-title>\n\n              <ion-item>\n\n                <ion-input tabindex="1" (ionFocus)="on_focus($event)"  type="text" [(ngModel)]="project.name" name="name"></ion-input>\n\n              </ion-item>\n\n              <ion-title class="label"  col-12 col-12 text-left>Energy Price (&euro;/kWh)</ion-title>\n\n              <ion-item>\n\n                <ion-input tabindex="2" (ionFocus)="on_focus($event)" type="number" [(ngModel)]="project.price" name="price" scroll="40"></ion-input>\n\n              </ion-item>\n\n            </ion-row>\n\n          </ion-col>\n\n          <ion-col col-md-6 col-12>\n\n            <ion-item text-center border-none no-padding>\n\n              <img [src]="project.picture" (click)="ask_for_change_picture(project)">\n\n            </ion-item>\n\n          </ion-col>\n\n        </ion-row>\n\n        <ion-row small-title>\n\n          <ion-col col-12>\n\n            <ion-row mb-3>\n\n              <ion-title class="label"  col-12 col-12 text-left>Project Leader</ion-title>\n\n              <ion-item col-md-5 col-12>\n\n                  <ion-input tabindex="4" (ionFocus)="on_focus($event)"  [(ngModel)]="project.people.leader.name" placeholder="Name" name="leader-name" scroll="60"></ion-input>\n\n              </ion-item>\n\n              <ion-item col-md-4 col-12>\n\n                  <ion-input tabindex="4" (ionFocus)="on_focus($event)"  type="email" [(ngModel)]="project.people.leader.email" placeholder="Email" name="leader-email" scroll="60"></ion-input>\n\n              </ion-item>\n\n              <ion-item col-md-3 col-12>\n\n                  <ion-input tabindex="4" (ionFocus)="on_focus($event)"  type="phone" [(ngModel)]="project.people.leader.phone" placeholder="Phone" name="leader-phone" scroll="60"></ion-input>\n\n              </ion-item>\n\n            </ion-row>\n\n          </ion-col>\n\n          <!-- <ion-col col-12>\n\n            <ion-row mb-3>\n\n              <ion-title class="label"  col-12 col-12 text-left>Energy Manager</ion-title>\n\n              <ion-item col-md-5 col-12>\n\n                  <ion-input tabindex="6" (ionFocus)="on_focus($event)"  [(ngModel)]="project.people.energy_manager.name" placeholder="Name" name="energy-name" scroll="20"></ion-input>\n\n              </ion-item>\n\n              <ion-item col-md-4 col-12>\n\n                <ion-input tabindex="6" (ionFocus)="on_focus($event)"  type="email" [(ngModel)]="project.people.energy_manager.email" placeholder="Email" name="energy-email" scroll="20"></ion-input>\n\n              </ion-item>\n\n              <ion-item col-md-3 col-12>\n\n                <ion-input tabindex="6" (ionFocus)="on_focus($event)"  type="phone" [(ngModel)]="project.people.energy_manager.phone" placeholder="Phone" name="energy-phone" scroll="20"></ion-input>\n\n              </ion-item>\n\n            </ion-row>\n\n          </ion-col> -->\n\n          <ion-col col-12>\n\n            <ion-row mb-3>\n\n              <ion-title class="label"  col-12 col-12 text-left>Maintenance Manager</ion-title>\n\n              <ion-item col-md-5 col-12>\n\n                <ion-input tabindex="8" (ionFocus)="on_focus($event)"  [(ngModel)]="project.people.maintenance_manager.name" placeholder="Name" name="maintenance-name" scroll="-20"></ion-input>\n\n              </ion-item>\n\n              <ion-item col-md-4 col-12>\n\n                <ion-input tabindex="8" (ionFocus)="on_focus($event)"  type="email" [(ngModel)]="project.people.maintenance_manager.email" placeholder="Email" name="maintenance-email" scroll="-20"></ion-input>\n\n              </ion-item>\n\n              <ion-item col-md-3 col-12>\n\n                <ion-input tabindex="8" (ionFocus)="on_focus($event)"  type="phone" [(ngModel)]="project.people.maintenance_manager.phone" placeholder="Phone" name="maintenance-phone" scroll="-20"></ion-input>\n\n              </ion-item>\n\n            </ion-row>\n\n          </ion-col>\n\n          <ion-col col-12>\n\n            <ion-row>\n\n              <ion-title class="label"  col-12 text-left>HSE Manager</ion-title>\n\n              <ion-item col-md-5 col-12>\n\n                <ion-input tabindex="10" (ionFocus)="on_focus($event)"  [(ngModel)]="project.people.hse_manager.name" placeholder="Name" name="hse-name" scroll="-60"></ion-input>\n\n              </ion-item>\n\n              <ion-item col-md-4 col-12>\n\n                <ion-input tabindex="10" (ionFocus)="on_focus($event)"  type="email" [(ngModel)]="project.people.hse_manager.email" placeholder="Email" name="hse-email" scroll="-60"></ion-input>\n\n              </ion-item>\n\n              <ion-item col-md-3 col-12>\n\n                <ion-input tabindex="10" (ionFocus)="on_focus($event)"  (keyup.enter)="on_keypress($event)"  type="phone" [(ngModel)]="project.people.hse_manager.phone" placeholder="Phone" name="hse-phone" scroll="-60"></ion-input>\n\n              </ion-item>\n\n            </ion-row>\n\n          </ion-col>\n\n        </ion-row>\n\n        </form>\n\n      </ion-col>\n\n    </ion-row>\n\n    <ion-row *ngIf="segment==\'files\'">\n\n      <ion-col col-12>\n\n        <ion-list id="document-list" [class.editable]="edit_mode">\n\n          <ion-item *ngFor="let f of project.documents">\n\n            <ion-icon name="document-{{f.extension}}" color="gray" item-start></ion-icon>\n\n            <span (click)="open_file(f)">{{f.file}}</span>\n\n            <ion-icon (click)="ask_for_delete(f)" name="md-trash" color="red" item-end></ion-icon>\n\n          </ion-item>\n\n        </ion-list>\n\n      </ion-col>\n\n    </ion-row>\n\n  </ion-grid>\n\n</ion-content>\n\n\n\n<ion-footer>\n\n  <ion-grid no-padding>\n\n    <ion-row no-padding>\n\n      <ion-col col-3 no-padding>\n\n        <button tabindex="16" ion-button small color="light" (click)="after_delete()">\n\n          <ion-icon name="arrow-back"></ion-icon>&nbsp;Back\n\n        </button>\n\n      </ion-col>\n\n      <ion-col col-9 text-right no-padding>\n\n        <button *ngIf="segment==\'files\'" ion-button small color="light" (tap)="choose_file()">\n\n          Choose file\n\n        </button>\n\n        <button id="submit-button" id="submit-button" tabindex="15" *ngIf="segment==\'properties\'" ion-button small color="primary" (click)="save()">\n\n          Save\n\n        </button>\n\n      </ion-col>\n\n    </ion-row>\n\n  </ion-grid>\n\n</ion-footer>\n\n'/*ion-inline-end:"D:\Sofware Factory\tbi\src\pages\projects\edit.html"*/
+            selector: 'page-edit-project',template:/*ion-inline-start:"D:\Sofware Factory\tbi\src\pages\projects\edit.html"*/'<ion-header>\n\n  <ion-navbar hideBackButton>\n\n    <ion-title class="label" >\n\n      {{ !project.id ? \'New project\' : \'Edit project\' }}\n\n    </ion-title>\n\n    <ion-buttons end>\n\n      <button ion-button color="light" (click)="open_camera(project)">\n\n        <ion-icon name="md-camera"></ion-icon>&nbsp;Take a picture\n\n      </button>\n\n    </ion-buttons>\n\n  </ion-navbar>\n\n  <ion-segment [(ngModel)]="segment">\n\n    <ion-segment-button value="properties">\n\n      Properties\n\n    </ion-segment-button>\n\n    <ion-segment-button value="files">\n\n      Files\n\n    </ion-segment-button>\n\n  </ion-segment>\n\n</ion-header>\n\n\n\n<ion-content>\n\n  <ion-grid>\n\n    <ion-row *ngIf="segment==\'properties\'">\n\n      <ion-col col-12>\n\n        <form novalidate #form="ngForm" style="margin-bottom: 10vw">\n\n        <ion-row>\n\n          <ion-col col-md-6 col-12>\n\n            <ion-row>\n\n              <ion-title class="label"  col-12 col-12 text-left>Name</ion-title>\n\n              <ion-item>\n\n                <ion-input tabindex="1" (ionFocus)="on_focus($event)"  type="text" [(ngModel)]="project.name" name="name"></ion-input>\n\n              </ion-item>\n\n              <ion-title class="label"  col-12 col-12 text-left>Energy Price (&euro;/kWh)</ion-title>\n\n              <ion-item>\n\n                <ion-input tabindex="2" (ionFocus)="on_focus($event)" type="number" [(ngModel)]="project.price" name="price" scroll="40"></ion-input>\n\n              </ion-item>\n\n            </ion-row>\n\n          </ion-col>\n\n          <ion-col col-md-6 col-12>\n\n            <ion-item text-center border-none no-padding>\n\n              <img [src]="project.picture" (click)="ask_for_change_picture(project)">\n\n            </ion-item>\n\n          </ion-col>\n\n        </ion-row>\n\n        <ion-row small-title>\n\n          <ion-col col-12>\n\n            <ion-row mb-3>\n\n              <ion-title class="label"  col-12 col-12 text-left>Project Leader</ion-title>\n\n              <ion-item col-md-5 col-12>\n\n                  <ion-input tabindex="4" (ionFocus)="on_focus($event)"  [(ngModel)]="project.people.leader.name" placeholder="Name" name="leader-name" scroll="60"></ion-input>\n\n              </ion-item>\n\n              <ion-item col-md-4 col-12>\n\n                  <ion-input tabindex="4" (ionFocus)="on_focus($event)"  type="email" [(ngModel)]="project.people.leader.email" placeholder="Email" name="leader-email" scroll="60"></ion-input>\n\n              </ion-item>\n\n              <ion-item col-md-3 col-12>\n\n                  <ion-input tabindex="4" (ionFocus)="on_focus($event)"  type="phone" [(ngModel)]="project.people.leader.phone" placeholder="Phone" name="leader-phone" scroll="60"></ion-input>\n\n              </ion-item>\n\n            </ion-row>\n\n          </ion-col>\n\n          <ion-col col-12>\n\n            <ion-row mb-3>\n\n              <ion-title class="label"  col-12 col-12 text-left>Energy Manager</ion-title>\n\n              <ion-item col-md-5 col-12>\n\n                  <ion-input tabindex="6" (ionFocus)="on_focus($event)"  [(ngModel)]="project.people.energy_manager.name" placeholder="Name" name="energy-name" scroll="20"></ion-input>\n\n              </ion-item>\n\n              <ion-item col-md-4 col-12>\n\n                <ion-input tabindex="6" (ionFocus)="on_focus($event)"  type="email" [(ngModel)]="project.people.energy_manager.email" placeholder="Email" name="energy-email" scroll="20"></ion-input>\n\n              </ion-item>\n\n              <ion-item col-md-3 col-12>\n\n                <ion-input tabindex="6" (ionFocus)="on_focus($event)"  type="phone" [(ngModel)]="project.people.energy_manager.phone" placeholder="Phone" name="energy-phone" scroll="20"></ion-input>\n\n              </ion-item>\n\n            </ion-row>\n\n          </ion-col>\n\n          <ion-col col-12>\n\n            <ion-row mb-3>\n\n              <ion-title class="label"  col-12 col-12 text-left>Maintenance Manager</ion-title>\n\n              <ion-item col-md-5 col-12>\n\n                <ion-input tabindex="8" (ionFocus)="on_focus($event)"  [(ngModel)]="project.people.maintenance_manager.name" placeholder="Name" name="maintenance-name" scroll="-20"></ion-input>\n\n              </ion-item>\n\n              <ion-item col-md-4 col-12>\n\n                <ion-input tabindex="8" (ionFocus)="on_focus($event)"  type="email" [(ngModel)]="project.people.maintenance_manager.email" placeholder="Email" name="maintenance-email" scroll="-20"></ion-input>\n\n              </ion-item>\n\n              <ion-item col-md-3 col-12>\n\n                <ion-input tabindex="8" (ionFocus)="on_focus($event)"  type="phone" [(ngModel)]="project.people.maintenance_manager.phone" placeholder="Phone" name="maintenance-phone" scroll="-20"></ion-input>\n\n              </ion-item>\n\n            </ion-row>\n\n          </ion-col>\n\n          <ion-col col-12>\n\n            <ion-row>\n\n              <ion-title class="label"  col-12 text-left>HSE Manager</ion-title>\n\n              <ion-item col-md-5 col-12>\n\n                <ion-input tabindex="10" (ionFocus)="on_focus($event)"  [(ngModel)]="project.people.hse_manager.name" placeholder="Name" name="hse-name" scroll="-60"></ion-input>\n\n              </ion-item>\n\n              <ion-item col-md-4 col-12>\n\n                <ion-input tabindex="10" (ionFocus)="on_focus($event)"  type="email" [(ngModel)]="project.people.hse_manager.email" placeholder="Email" name="hse-email" scroll="-60"></ion-input>\n\n              </ion-item>\n\n              <ion-item col-md-3 col-12>\n\n                <ion-input tabindex="10" (ionFocus)="on_focus($event)"  (keyup.enter)="on_keypress($event)"  type="phone" [(ngModel)]="project.people.hse_manager.phone" placeholder="Phone" name="hse-phone" scroll="-60"></ion-input>\n\n              </ion-item>\n\n            </ion-row>\n\n          </ion-col>\n\n        </ion-row>\n\n        </form>\n\n      </ion-col>\n\n    </ion-row>\n\n    <ion-row *ngIf="segment==\'files\'">\n\n      <ion-col col-12>\n\n        <ion-list id="document-list" [class.editable]="edit_mode">\n\n          <ion-item *ngFor="let f of project.documents">\n\n            <ion-icon name="document-{{f.extension}}" color="gray" item-start></ion-icon>\n\n            <span (click)="open_file(f)">{{f.file}}</span>\n\n            <ion-icon (click)="ask_for_delete(f)" name="md-trash" color="red" item-end></ion-icon>\n\n          </ion-item>\n\n        </ion-list>\n\n      </ion-col>\n\n    </ion-row>\n\n  </ion-grid>\n\n</ion-content>\n\n\n\n<ion-footer>\n\n  <ion-grid no-padding>\n\n    <ion-row no-padding>\n\n      <ion-col col-4 no-padding>\n\n        <button tabindex="16" ion-button small color="light" (click)="after_delete()">\n\n          <ion-icon name="arrow-back"></ion-icon>&nbsp;Back\n\n        </button>\n\n      </ion-col>\n\n      <ion-col col-4 text-center>\n\n        <tools></tools>\n\n      </ion-col>\n\n      <ion-col col-4 text-right no-padding>\n\n        <button *ngIf="segment==\'files\'" ion-button small color="light" (tap)="choose_file()">\n\n          Choose file\n\n        </button>\n\n        <button id="submit-button" id="submit-button" tabindex="15" *ngIf="segment==\'properties\'" ion-button small color="primary" (click)="save()">\n\n          Save\n\n        </button>\n\n      </ion-col>\n\n    </ion-row>\n\n  </ion-grid>\n\n</ion-footer>\n\n'/*ion-inline-end:"D:\Sofware Factory\tbi\src\pages\projects\edit.html"*/
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */],
             __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */],
@@ -1695,7 +1647,55 @@ var EditProjectPage = /** @class */ (function (_super) {
 
 /***/ }),
 
-/***/ 302:
+/***/ 30:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ReportService; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__component_service__ = __webpack_require__(176);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+var ReportService = /** @class */ (function () {
+    function ReportService(service) {
+        this.service = service;
+    }
+    ReportService.prototype.save = function (report) {
+        var _this = this;
+        return new Promise(function (resolve) {
+            if (!!report.component.reports.filter(function (r) { return report.id === r.id; }).length)
+                _this.remove(report);
+            if (!report.id)
+                report.id = Math.random().toString().substr(2);
+            report.component.reports.push(report);
+            _this.service.save(report.component).then(function (p) { return resolve(p); });
+        });
+    };
+    ReportService.prototype.remove = function (report) {
+        report.component.reports = report.component.reports.filter(function (r) { return r.id !== report.id; });
+        return report.component.project;
+    };
+    ReportService = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["A" /* Injectable */])(),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__component_service__["a" /* ComponentService */]])
+    ], ReportService);
+    return ReportService;
+}());
+
+//# sourceMappingURL=report.service.js.map
+
+/***/ }),
+
+/***/ 301:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1777,7 +1777,7 @@ var PictureService = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 303:
+/***/ 302:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1822,7 +1822,7 @@ var ReportInsulatedPipe = /** @class */ (function (_super) {
 
 /***/ }),
 
-/***/ 304:
+/***/ 303:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1860,21 +1860,21 @@ var ReportPipe = /** @class */ (function (_super) {
 
 /***/ }),
 
-/***/ 305:
+/***/ 304:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__ipipe_class__ = __webpack_require__(489);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__ipipe_class__ = __webpack_require__(488);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return __WEBPACK_IMPORTED_MODULE_0__ipipe_class__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__isurface_class__ = __webpack_require__(490);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__isurface_class__ = __webpack_require__(489);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return __WEBPACK_IMPORTED_MODULE_1__isurface_class__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__valve_class__ = __webpack_require__(491);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__valve_class__ = __webpack_require__(490);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "f", function() { return __WEBPACK_IMPORTED_MODULE_2__valve_class__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__pipe_class__ = __webpack_require__(492);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__pipe_class__ = __webpack_require__(491);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "d", function() { return __WEBPACK_IMPORTED_MODULE_3__pipe_class__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__flange_class__ = __webpack_require__(493);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__flange_class__ = __webpack_require__(492);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return __WEBPACK_IMPORTED_MODULE_4__flange_class__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__surface_class__ = __webpack_require__(494);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__surface_class__ = __webpack_require__(493);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "e", function() { return __WEBPACK_IMPORTED_MODULE_5__surface_class__["a"]; });
 
 
@@ -1886,7 +1886,7 @@ var ReportPipe = /** @class */ (function (_super) {
 
 /***/ }),
 
-/***/ 306:
+/***/ 305:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1900,7 +1900,7 @@ var Patterns;
 
 /***/ }),
 
-/***/ 307:
+/***/ 306:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1908,7 +1908,7 @@ var Patterns;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__const_report_const__ = __webpack_require__(179);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__component__ = __webpack_require__(101);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__reports__ = __webpack_require__(21);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__reports_report_generic_class__ = __webpack_require__(308);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__reports_report_generic_class__ = __webpack_require__(307);
 
 
 
@@ -1986,7 +1986,7 @@ var ReportRouter = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 308:
+/***/ 307:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2023,7 +2023,7 @@ var ReportGeneric = /** @class */ (function (_super) {
 
 /***/ }),
 
-/***/ 309:
+/***/ 308:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2080,7 +2080,7 @@ var ReportListItem = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 358:
+/***/ 357:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2153,7 +2153,7 @@ var ReportAreaModalComponent = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 359:
+/***/ 358:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2163,7 +2163,7 @@ var ReportAreaModalComponent = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(6);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__services_report_service__ = __webpack_require__(30);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__services_messages_service__ = __webpack_require__(16);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__models_reports_report_leakage__ = __webpack_require__(601);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__models_reports_report_leakage__ = __webpack_require__(600);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__services__ = __webpack_require__(17);
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = Object.setPrototypeOf ||
@@ -2232,7 +2232,7 @@ var ReportLeakagePage = /** @class */ (function (_super) {
 
 /***/ }),
 
-/***/ 361:
+/***/ 360:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2297,13 +2297,13 @@ var DownloadPage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 399:
+/***/ 398:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__ = __webpack_require__(400);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__app_module__ = __webpack_require__(422);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__ = __webpack_require__(399);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__app_module__ = __webpack_require__(421);
 
 
 Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* platformBrowserDynamic */])().bootstrapModule(__WEBPACK_IMPORTED_MODULE_1__app_module__["a" /* AppModule */]);
@@ -2311,90 +2311,89 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 
 /***/ }),
 
-/***/ 422:
+/***/ 421:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_http__ = __webpack_require__(122);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_platform_browser_animations__ = __webpack_require__(423);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_platform_browser_animations__ = __webpack_require__(422);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_forms__ = __webpack_require__(18);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_platform_browser__ = __webpack_require__(41);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_ionic_angular__ = __webpack_require__(6);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_ionic_tooltips__ = __webpack_require__(466);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pages_init_init__ = __webpack_require__(297);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__app_component__ = __webpack_require__(602);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__pages_download_download__ = __webpack_require__(361);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__pages_contact_contact__ = __webpack_require__(603);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__pages_home_home__ = __webpack_require__(604);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_ionic_tooltips__ = __webpack_require__(465);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pages_init_init__ = __webpack_require__(296);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__app_component__ = __webpack_require__(601);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__pages_download_download__ = __webpack_require__(360);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__pages_contact_contact__ = __webpack_require__(602);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__pages_home_home__ = __webpack_require__(603);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__pages_projects_projects__ = __webpack_require__(74);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__pages_projects_edit__ = __webpack_require__(300);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__pages_projects_project__ = __webpack_require__(605);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__pages_projects_edit__ = __webpack_require__(299);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__pages_projects_project__ = __webpack_require__(604);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__pages_summary_summary__ = __webpack_require__(180);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__pages_summary_summary_edit__ = __webpack_require__(309);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__pages_pictures_pictures__ = __webpack_require__(606);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__pages_summary_summary_edit__ = __webpack_require__(308);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__pages_pictures_pictures__ = __webpack_require__(605);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__ionic_native_camera__ = __webpack_require__(177);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__ionic_native_file_chooser__ = __webpack_require__(364);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__ionic_native_file_path__ = __webpack_require__(365);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__ionic_native_file_chooser__ = __webpack_require__(363);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__ionic_native_file_path__ = __webpack_require__(364);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__ionic_native_file_opener__ = __webpack_require__(174);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__ionic_native_file__ = __webpack_require__(366);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__ionic_native_file__ = __webpack_require__(365);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__ionic_native_screen_orientation__ = __webpack_require__(178);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_24__ionic_native_status_bar__ = __webpack_require__(362);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_25__ionic_native_splash_screen__ = __webpack_require__(363);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_26__ionic_native_unique_device_id__ = __webpack_require__(360);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_27__ionic_native_file_transfer__ = __webpack_require__(367);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_28__ionic_native_web_intent__ = __webpack_require__(195);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_29__services__ = __webpack_require__(17);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_30__services_report_service__ = __webpack_require__(30);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_31__services_component_service__ = __webpack_require__(176);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_32__services_file_device_service__ = __webpack_require__(607);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_33__services_file_service__ = __webpack_require__(54);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_34__services_file_local_service__ = __webpack_require__(661);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_35__services_messages_service__ = __webpack_require__(16);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_36__services_picture_service__ = __webpack_require__(302);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_37__services_licences_service__ = __webpack_require__(102);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_38__components_svg_svg_insulation_component__ = __webpack_require__(662);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_39__components_svg_svg_custom_component__ = __webpack_require__(663);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_40__components_svg_svg_safety_component__ = __webpack_require__(664);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_41__components_svg_svg_maintenance_component__ = __webpack_require__(665);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_42__components_svg_svg_flange_component__ = __webpack_require__(666);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_43__components_svg_svg_hot_surface_component__ = __webpack_require__(667);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_44__components_svg_svg_fire_protection_component__ = __webpack_require__(668);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_45__components_svg_svg_traffic_component__ = __webpack_require__(669);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_46__components_svg_svg_damage_insulation_component__ = __webpack_require__(670);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_47__components_svg_svg_damage_cladding_component__ = __webpack_require__(671);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_48__components_svg_svg_ice_wet_component__ = __webpack_require__(672);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_49__components_svg_svg_mechanical_component__ = __webpack_require__(673);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_50__components_svg_svg_electrical_component__ = __webpack_require__(674);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_51__components_svg_svg_leakage_component__ = __webpack_require__(675);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_52__components_svg_svg_other_safety_component__ = __webpack_require__(676);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_53__components_svg_svg_cold_component__ = __webpack_require__(677);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_54__components_svg_svg_pipe_insulation_component__ = __webpack_require__(678);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_55__components_svg_svg_pipe_component__ = __webpack_require__(679);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_56__components_svg_svg_valve_component__ = __webpack_require__(680);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_57__components_svg_svg_surface_component__ = __webpack_require__(681);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_58__components_svg_svg_damaged_cladding_component__ = __webpack_require__(682);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_59__components_svg_svg_damaged_insulation_component__ = __webpack_require__(683);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_60__components_svg_svg_energy_component__ = __webpack_require__(684);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_61__components_svg_svg_insulated_surface_component__ = __webpack_require__(685);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_62__components_svg_svg_others_component__ = __webpack_require__(686);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_63__components_svg_svg_insulated_others_component__ = __webpack_require__(687);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_64__components_svg_svg_cilinder_area_component__ = __webpack_require__(688);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_65__components_svg_svg_cube_area_component__ = __webpack_require__(689);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_66__components_svg_svg_circle_area_component__ = __webpack_require__(690);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_67__components_svg_svg_housekeeping_component__ = __webpack_require__(691);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_68__components_svg_svg_structural_component__ = __webpack_require__(692);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_69__components_svg_svg_rectangle_area_component__ = __webpack_require__(693);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_70__components_svg_svg_like_component__ = __webpack_require__(694);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_71__components_svg_svg_increase_component__ = __webpack_require__(695);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_72__components_svg_svg_empty_component__ = __webpack_require__(696);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_73__pages_reports__ = __webpack_require__(20);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_74__pipes_surface_material_pipe__ = __webpack_require__(697);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_75__progress_kendo_angular_pdf_export__ = __webpack_require__(698);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_76__components_tools_tools_component__ = __webpack_require__(704);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_77__ionic_native_flashlight__ = __webpack_require__(398);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_78__models_errors_global_error__ = __webpack_require__(705);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_24__ionic_native_status_bar__ = __webpack_require__(361);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_25__ionic_native_splash_screen__ = __webpack_require__(362);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_26__ionic_native_unique_device_id__ = __webpack_require__(359);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_27__ionic_native_file_transfer__ = __webpack_require__(366);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_28__services__ = __webpack_require__(17);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_29__services_report_service__ = __webpack_require__(30);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_30__services_component_service__ = __webpack_require__(176);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_31__services_file_device_service__ = __webpack_require__(607);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_32__services_file_service__ = __webpack_require__(54);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_33__services_file_local_service__ = __webpack_require__(661);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_34__services_messages_service__ = __webpack_require__(16);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_35__services_picture_service__ = __webpack_require__(301);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_36__services_licences_service__ = __webpack_require__(102);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_37__components_svg_svg_insulation_component__ = __webpack_require__(662);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_38__components_svg_svg_custom_component__ = __webpack_require__(663);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_39__components_svg_svg_safety_component__ = __webpack_require__(664);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_40__components_svg_svg_maintenance_component__ = __webpack_require__(665);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_41__components_svg_svg_flange_component__ = __webpack_require__(666);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_42__components_svg_svg_hot_surface_component__ = __webpack_require__(667);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_43__components_svg_svg_fire_protection_component__ = __webpack_require__(668);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_44__components_svg_svg_traffic_component__ = __webpack_require__(669);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_45__components_svg_svg_damage_insulation_component__ = __webpack_require__(670);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_46__components_svg_svg_damage_cladding_component__ = __webpack_require__(671);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_47__components_svg_svg_ice_wet_component__ = __webpack_require__(672);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_48__components_svg_svg_mechanical_component__ = __webpack_require__(673);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_49__components_svg_svg_electrical_component__ = __webpack_require__(674);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_50__components_svg_svg_leakage_component__ = __webpack_require__(675);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_51__components_svg_svg_other_safety_component__ = __webpack_require__(676);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_52__components_svg_svg_cold_component__ = __webpack_require__(677);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_53__components_svg_svg_pipe_insulation_component__ = __webpack_require__(678);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_54__components_svg_svg_pipe_component__ = __webpack_require__(679);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_55__components_svg_svg_valve_component__ = __webpack_require__(680);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_56__components_svg_svg_surface_component__ = __webpack_require__(681);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_57__components_svg_svg_damaged_cladding_component__ = __webpack_require__(682);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_58__components_svg_svg_damaged_insulation_component__ = __webpack_require__(683);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_59__components_svg_svg_energy_component__ = __webpack_require__(684);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_60__components_svg_svg_insulated_surface_component__ = __webpack_require__(685);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_61__components_svg_svg_others_component__ = __webpack_require__(686);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_62__components_svg_svg_insulated_others_component__ = __webpack_require__(687);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_63__components_svg_svg_cilinder_area_component__ = __webpack_require__(688);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_64__components_svg_svg_cube_area_component__ = __webpack_require__(689);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_65__components_svg_svg_circle_area_component__ = __webpack_require__(690);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_66__components_svg_svg_housekeeping_component__ = __webpack_require__(691);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_67__components_svg_svg_structural_component__ = __webpack_require__(692);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_68__components_svg_svg_rectangle_area_component__ = __webpack_require__(693);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_69__components_svg_svg_like_component__ = __webpack_require__(694);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_70__components_svg_svg_increase_component__ = __webpack_require__(695);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_71__components_svg_svg_empty_component__ = __webpack_require__(696);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_72__pages_reports__ = __webpack_require__(20);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_73__pipes_surface_material_pipe__ = __webpack_require__(697);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_74__progress_kendo_angular_pdf_export__ = __webpack_require__(698);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_75__components_tools_tools_component__ = __webpack_require__(704);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_76__ionic_native_flashlight__ = __webpack_require__(397);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_77__models_errors_global_error__ = __webpack_require__(705);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -2421,7 +2420,6 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 /*Plugins*/
-
 
 
 
@@ -2501,72 +2499,72 @@ var AppModule = /** @class */ (function () {
                 __WEBPACK_IMPORTED_MODULE_12__pages_projects_projects__["a" /* ProjectsPage */],
                 __WEBPACK_IMPORTED_MODULE_13__pages_projects_edit__["a" /* EditProjectPage */],
                 __WEBPACK_IMPORTED_MODULE_14__pages_projects_project__["a" /* ProjectPage */],
-                __WEBPACK_IMPORTED_MODULE_73__pages_reports__["a" /* GenericReportPage */],
-                __WEBPACK_IMPORTED_MODULE_73__pages_reports__["v" /* ReportsPage */],
+                __WEBPACK_IMPORTED_MODULE_72__pages_reports__["a" /* GenericReportPage */],
+                __WEBPACK_IMPORTED_MODULE_72__pages_reports__["v" /* ReportsPage */],
                 __WEBPACK_IMPORTED_MODULE_7__pages_init_init__["a" /* InitPage */],
                 __WEBPACK_IMPORTED_MODULE_17__pages_pictures_pictures__["a" /* PicturesPage */],
                 __WEBPACK_IMPORTED_MODULE_15__pages_summary_summary__["a" /* SummaryPage */],
                 __WEBPACK_IMPORTED_MODULE_16__pages_summary_summary_edit__["a" /* SummaryEditPage */],
                 //Pipes
-                __WEBPACK_IMPORTED_MODULE_74__pipes_surface_material_pipe__["a" /* SurfaceMaterialPipe */],
+                __WEBPACK_IMPORTED_MODULE_73__pipes_surface_material_pipe__["a" /* SurfaceMaterialPipe */],
                 //Reports
-                __WEBPACK_IMPORTED_MODULE_73__pages_reports__["f" /* ReportEditPictureComponent */],
-                __WEBPACK_IMPORTED_MODULE_73__pages_reports__["p" /* ReportPictureSlideComponent */],
-                __WEBPACK_IMPORTED_MODULE_73__pages_reports__["j" /* ReportHeaderComponent */],
-                __WEBPACK_IMPORTED_MODULE_73__pages_reports__["i" /* ReportFooterComponent */],
-                __WEBPACK_IMPORTED_MODULE_73__pages_reports__["b" /* ReportAreaButtonComponent */],
-                __WEBPACK_IMPORTED_MODULE_73__pages_reports__["c" /* ReportAreaModalComponent */],
-                __WEBPACK_IMPORTED_MODULE_73__pages_reports__["o" /* ReportMoreButtonComponent */],
-                __WEBPACK_IMPORTED_MODULE_73__pages_reports__["n" /* ReportMediumTempButtonsComponent */],
-                __WEBPACK_IMPORTED_MODULE_73__pages_reports__["t" /* ReportTempMarkersWindowComponent */],
-                __WEBPACK_IMPORTED_MODULE_73__pages_reports__["g" /* ReportErrorsComponent */],
-                __WEBPACK_IMPORTED_MODULE_73__pages_reports__["r" /* ReportResultComponent */],
-                __WEBPACK_IMPORTED_MODULE_73__pages_reports__["s" /* ReportSurfacePage */],
-                __WEBPACK_IMPORTED_MODULE_73__pages_reports__["l" /* ReportInsulatedSurfacePage */],
-                __WEBPACK_IMPORTED_MODULE_73__pages_reports__["h" /* ReportFlangePage */],
-                __WEBPACK_IMPORTED_MODULE_73__pages_reports__["q" /* ReportPipePage */],
-                __WEBPACK_IMPORTED_MODULE_73__pages_reports__["k" /* ReportInsulatedPipePage */],
-                __WEBPACK_IMPORTED_MODULE_73__pages_reports__["u" /* ReportValvePage */],
-                __WEBPACK_IMPORTED_MODULE_73__pages_reports__["e" /* ReportDamagedPage */],
-                __WEBPACK_IMPORTED_MODULE_73__pages_reports__["d" /* ReportCondensationPage */],
-                __WEBPACK_IMPORTED_MODULE_73__pages_reports__["m" /* ReportLeakagePage */],
+                __WEBPACK_IMPORTED_MODULE_72__pages_reports__["f" /* ReportEditPictureComponent */],
+                __WEBPACK_IMPORTED_MODULE_72__pages_reports__["p" /* ReportPictureSlideComponent */],
+                __WEBPACK_IMPORTED_MODULE_72__pages_reports__["j" /* ReportHeaderComponent */],
+                __WEBPACK_IMPORTED_MODULE_72__pages_reports__["i" /* ReportFooterComponent */],
+                __WEBPACK_IMPORTED_MODULE_72__pages_reports__["b" /* ReportAreaButtonComponent */],
+                __WEBPACK_IMPORTED_MODULE_72__pages_reports__["c" /* ReportAreaModalComponent */],
+                __WEBPACK_IMPORTED_MODULE_72__pages_reports__["o" /* ReportMoreButtonComponent */],
+                __WEBPACK_IMPORTED_MODULE_72__pages_reports__["n" /* ReportMediumTempButtonsComponent */],
+                __WEBPACK_IMPORTED_MODULE_72__pages_reports__["t" /* ReportTempMarkersWindowComponent */],
+                __WEBPACK_IMPORTED_MODULE_72__pages_reports__["g" /* ReportErrorsComponent */],
+                __WEBPACK_IMPORTED_MODULE_72__pages_reports__["r" /* ReportResultComponent */],
+                __WEBPACK_IMPORTED_MODULE_72__pages_reports__["s" /* ReportSurfacePage */],
+                __WEBPACK_IMPORTED_MODULE_72__pages_reports__["l" /* ReportInsulatedSurfacePage */],
+                __WEBPACK_IMPORTED_MODULE_72__pages_reports__["h" /* ReportFlangePage */],
+                __WEBPACK_IMPORTED_MODULE_72__pages_reports__["q" /* ReportPipePage */],
+                __WEBPACK_IMPORTED_MODULE_72__pages_reports__["k" /* ReportInsulatedPipePage */],
+                __WEBPACK_IMPORTED_MODULE_72__pages_reports__["u" /* ReportValvePage */],
+                __WEBPACK_IMPORTED_MODULE_72__pages_reports__["e" /* ReportDamagedPage */],
+                __WEBPACK_IMPORTED_MODULE_72__pages_reports__["d" /* ReportCondensationPage */],
+                __WEBPACK_IMPORTED_MODULE_72__pages_reports__["m" /* ReportLeakagePage */],
                 //Components
-                __WEBPACK_IMPORTED_MODULE_76__components_tools_tools_component__["a" /* ToolsComponent */],
-                __WEBPACK_IMPORTED_MODULE_72__components_svg_svg_empty_component__["a" /* SvgEmptyComponent */],
-                __WEBPACK_IMPORTED_MODULE_38__components_svg_svg_insulation_component__["a" /* SvgInsulationComponent */],
-                __WEBPACK_IMPORTED_MODULE_39__components_svg_svg_custom_component__["a" /* SvgCustomComponent */],
-                __WEBPACK_IMPORTED_MODULE_40__components_svg_svg_safety_component__["a" /* SvgSafetyComponent */],
-                __WEBPACK_IMPORTED_MODULE_41__components_svg_svg_maintenance_component__["a" /* SvgMaintenanceComponent */],
-                __WEBPACK_IMPORTED_MODULE_42__components_svg_svg_flange_component__["a" /* SvgFlangeComponent */],
-                __WEBPACK_IMPORTED_MODULE_43__components_svg_svg_hot_surface_component__["a" /* SvgHotSurfaceComponent */],
-                __WEBPACK_IMPORTED_MODULE_44__components_svg_svg_fire_protection_component__["a" /* SvgFireProtectionComponent */],
-                __WEBPACK_IMPORTED_MODULE_45__components_svg_svg_traffic_component__["a" /* SvgTrafficComponent */],
-                __WEBPACK_IMPORTED_MODULE_46__components_svg_svg_damage_insulation_component__["a" /* SvgDamageInsulationComponent */],
-                __WEBPACK_IMPORTED_MODULE_47__components_svg_svg_damage_cladding_component__["a" /* SvgDamageCladdingComponent */],
-                __WEBPACK_IMPORTED_MODULE_49__components_svg_svg_mechanical_component__["a" /* SvgMechanicalComponent */],
-                __WEBPACK_IMPORTED_MODULE_50__components_svg_svg_electrical_component__["a" /* SvgElectricalComponent */],
-                __WEBPACK_IMPORTED_MODULE_48__components_svg_svg_ice_wet_component__["a" /* SvgIceWetComponent */],
-                __WEBPACK_IMPORTED_MODULE_51__components_svg_svg_leakage_component__["a" /* SvgLeakageComponent */],
-                __WEBPACK_IMPORTED_MODULE_52__components_svg_svg_other_safety_component__["a" /* SvgOtherSafetyComponent */],
-                __WEBPACK_IMPORTED_MODULE_53__components_svg_svg_cold_component__["a" /* SvgColdComponent */],
-                __WEBPACK_IMPORTED_MODULE_54__components_svg_svg_pipe_insulation_component__["a" /* SvgPipeInsultationComponent */],
-                __WEBPACK_IMPORTED_MODULE_55__components_svg_svg_pipe_component__["a" /* SvgPipeComponent */],
-                __WEBPACK_IMPORTED_MODULE_56__components_svg_svg_valve_component__["a" /* SvgValveComponent */],
-                __WEBPACK_IMPORTED_MODULE_57__components_svg_svg_surface_component__["a" /* SvgSurfaceComponent */],
-                __WEBPACK_IMPORTED_MODULE_58__components_svg_svg_damaged_cladding_component__["a" /* SvgDamagedCladdingComponent */],
-                __WEBPACK_IMPORTED_MODULE_59__components_svg_svg_damaged_insulation_component__["a" /* SvgDamagedInsulationComponent */],
-                __WEBPACK_IMPORTED_MODULE_60__components_svg_svg_energy_component__["a" /* SvgEnergyComponent */],
-                __WEBPACK_IMPORTED_MODULE_61__components_svg_svg_insulated_surface_component__["a" /* SvgInsulatedSurfaceComponent */],
-                __WEBPACK_IMPORTED_MODULE_62__components_svg_svg_others_component__["a" /* SvgOthersComponent */],
-                __WEBPACK_IMPORTED_MODULE_63__components_svg_svg_insulated_others_component__["a" /* SvgInsulatedOthersComponent */],
-                __WEBPACK_IMPORTED_MODULE_64__components_svg_svg_cilinder_area_component__["a" /* SvgCilinderAreaComponent */],
-                __WEBPACK_IMPORTED_MODULE_65__components_svg_svg_cube_area_component__["a" /* SvgCubeAreaComponent */],
-                __WEBPACK_IMPORTED_MODULE_66__components_svg_svg_circle_area_component__["a" /* SvgCircleAreaComponent */],
-                __WEBPACK_IMPORTED_MODULE_69__components_svg_svg_rectangle_area_component__["a" /* SvgRectangleAreaComponent */],
-                __WEBPACK_IMPORTED_MODULE_67__components_svg_svg_housekeeping_component__["a" /* SvgHousekeepingComponent */],
-                __WEBPACK_IMPORTED_MODULE_68__components_svg_svg_structural_component__["a" /* SvgStructuralComponent */],
-                __WEBPACK_IMPORTED_MODULE_70__components_svg_svg_like_component__["a" /* SvgLikeComponent */],
-                __WEBPACK_IMPORTED_MODULE_71__components_svg_svg_increase_component__["a" /* SvgIncreaseComponent */]
+                __WEBPACK_IMPORTED_MODULE_75__components_tools_tools_component__["a" /* ToolsComponent */],
+                __WEBPACK_IMPORTED_MODULE_71__components_svg_svg_empty_component__["a" /* SvgEmptyComponent */],
+                __WEBPACK_IMPORTED_MODULE_37__components_svg_svg_insulation_component__["a" /* SvgInsulationComponent */],
+                __WEBPACK_IMPORTED_MODULE_38__components_svg_svg_custom_component__["a" /* SvgCustomComponent */],
+                __WEBPACK_IMPORTED_MODULE_39__components_svg_svg_safety_component__["a" /* SvgSafetyComponent */],
+                __WEBPACK_IMPORTED_MODULE_40__components_svg_svg_maintenance_component__["a" /* SvgMaintenanceComponent */],
+                __WEBPACK_IMPORTED_MODULE_41__components_svg_svg_flange_component__["a" /* SvgFlangeComponent */],
+                __WEBPACK_IMPORTED_MODULE_42__components_svg_svg_hot_surface_component__["a" /* SvgHotSurfaceComponent */],
+                __WEBPACK_IMPORTED_MODULE_43__components_svg_svg_fire_protection_component__["a" /* SvgFireProtectionComponent */],
+                __WEBPACK_IMPORTED_MODULE_44__components_svg_svg_traffic_component__["a" /* SvgTrafficComponent */],
+                __WEBPACK_IMPORTED_MODULE_45__components_svg_svg_damage_insulation_component__["a" /* SvgDamageInsulationComponent */],
+                __WEBPACK_IMPORTED_MODULE_46__components_svg_svg_damage_cladding_component__["a" /* SvgDamageCladdingComponent */],
+                __WEBPACK_IMPORTED_MODULE_48__components_svg_svg_mechanical_component__["a" /* SvgMechanicalComponent */],
+                __WEBPACK_IMPORTED_MODULE_49__components_svg_svg_electrical_component__["a" /* SvgElectricalComponent */],
+                __WEBPACK_IMPORTED_MODULE_47__components_svg_svg_ice_wet_component__["a" /* SvgIceWetComponent */],
+                __WEBPACK_IMPORTED_MODULE_50__components_svg_svg_leakage_component__["a" /* SvgLeakageComponent */],
+                __WEBPACK_IMPORTED_MODULE_51__components_svg_svg_other_safety_component__["a" /* SvgOtherSafetyComponent */],
+                __WEBPACK_IMPORTED_MODULE_52__components_svg_svg_cold_component__["a" /* SvgColdComponent */],
+                __WEBPACK_IMPORTED_MODULE_53__components_svg_svg_pipe_insulation_component__["a" /* SvgPipeInsultationComponent */],
+                __WEBPACK_IMPORTED_MODULE_54__components_svg_svg_pipe_component__["a" /* SvgPipeComponent */],
+                __WEBPACK_IMPORTED_MODULE_55__components_svg_svg_valve_component__["a" /* SvgValveComponent */],
+                __WEBPACK_IMPORTED_MODULE_56__components_svg_svg_surface_component__["a" /* SvgSurfaceComponent */],
+                __WEBPACK_IMPORTED_MODULE_57__components_svg_svg_damaged_cladding_component__["a" /* SvgDamagedCladdingComponent */],
+                __WEBPACK_IMPORTED_MODULE_58__components_svg_svg_damaged_insulation_component__["a" /* SvgDamagedInsulationComponent */],
+                __WEBPACK_IMPORTED_MODULE_59__components_svg_svg_energy_component__["a" /* SvgEnergyComponent */],
+                __WEBPACK_IMPORTED_MODULE_60__components_svg_svg_insulated_surface_component__["a" /* SvgInsulatedSurfaceComponent */],
+                __WEBPACK_IMPORTED_MODULE_61__components_svg_svg_others_component__["a" /* SvgOthersComponent */],
+                __WEBPACK_IMPORTED_MODULE_62__components_svg_svg_insulated_others_component__["a" /* SvgInsulatedOthersComponent */],
+                __WEBPACK_IMPORTED_MODULE_63__components_svg_svg_cilinder_area_component__["a" /* SvgCilinderAreaComponent */],
+                __WEBPACK_IMPORTED_MODULE_64__components_svg_svg_cube_area_component__["a" /* SvgCubeAreaComponent */],
+                __WEBPACK_IMPORTED_MODULE_65__components_svg_svg_circle_area_component__["a" /* SvgCircleAreaComponent */],
+                __WEBPACK_IMPORTED_MODULE_68__components_svg_svg_rectangle_area_component__["a" /* SvgRectangleAreaComponent */],
+                __WEBPACK_IMPORTED_MODULE_66__components_svg_svg_housekeeping_component__["a" /* SvgHousekeepingComponent */],
+                __WEBPACK_IMPORTED_MODULE_67__components_svg_svg_structural_component__["a" /* SvgStructuralComponent */],
+                __WEBPACK_IMPORTED_MODULE_69__components_svg_svg_like_component__["a" /* SvgLikeComponent */],
+                __WEBPACK_IMPORTED_MODULE_70__components_svg_svg_increase_component__["a" /* SvgIncreaseComponent */]
             ],
             imports: [
                 __WEBPACK_IMPORTED_MODULE_4__angular_platform_browser__["a" /* BrowserModule */],
@@ -2586,7 +2584,7 @@ var AppModule = /** @class */ (function () {
                     links: []
                 }),
                 __WEBPACK_IMPORTED_MODULE_6_ionic_tooltips__["a" /* TooltipsModule */],
-                __WEBPACK_IMPORTED_MODULE_75__progress_kendo_angular_pdf_export__["a" /* PDFExportModule */]
+                __WEBPACK_IMPORTED_MODULE_74__progress_kendo_angular_pdf_export__["a" /* PDFExportModule */]
             ],
             bootstrap: [__WEBPACK_IMPORTED_MODULE_5_ionic_angular__["d" /* IonicApp */]],
             entryComponents: [
@@ -2597,34 +2595,34 @@ var AppModule = /** @class */ (function () {
                 __WEBPACK_IMPORTED_MODULE_12__pages_projects_projects__["a" /* ProjectsPage */],
                 __WEBPACK_IMPORTED_MODULE_13__pages_projects_edit__["a" /* EditProjectPage */],
                 __WEBPACK_IMPORTED_MODULE_14__pages_projects_project__["a" /* ProjectPage */],
-                __WEBPACK_IMPORTED_MODULE_73__pages_reports__["a" /* GenericReportPage */],
-                __WEBPACK_IMPORTED_MODULE_73__pages_reports__["v" /* ReportsPage */],
+                __WEBPACK_IMPORTED_MODULE_72__pages_reports__["a" /* GenericReportPage */],
+                __WEBPACK_IMPORTED_MODULE_72__pages_reports__["v" /* ReportsPage */],
                 __WEBPACK_IMPORTED_MODULE_7__pages_init_init__["a" /* InitPage */],
                 __WEBPACK_IMPORTED_MODULE_17__pages_pictures_pictures__["a" /* PicturesPage */],
                 __WEBPACK_IMPORTED_MODULE_15__pages_summary_summary__["a" /* SummaryPage */],
                 __WEBPACK_IMPORTED_MODULE_16__pages_summary_summary_edit__["a" /* SummaryEditPage */],
                 //Reports
-                __WEBPACK_IMPORTED_MODULE_73__pages_reports__["j" /* ReportHeaderComponent */],
-                __WEBPACK_IMPORTED_MODULE_73__pages_reports__["i" /* ReportFooterComponent */],
-                __WEBPACK_IMPORTED_MODULE_73__pages_reports__["c" /* ReportAreaModalComponent */],
-                __WEBPACK_IMPORTED_MODULE_73__pages_reports__["t" /* ReportTempMarkersWindowComponent */],
-                __WEBPACK_IMPORTED_MODULE_73__pages_reports__["s" /* ReportSurfacePage */],
-                __WEBPACK_IMPORTED_MODULE_73__pages_reports__["l" /* ReportInsulatedSurfacePage */],
-                __WEBPACK_IMPORTED_MODULE_73__pages_reports__["h" /* ReportFlangePage */],
-                __WEBPACK_IMPORTED_MODULE_73__pages_reports__["q" /* ReportPipePage */],
-                __WEBPACK_IMPORTED_MODULE_73__pages_reports__["k" /* ReportInsulatedPipePage */],
-                __WEBPACK_IMPORTED_MODULE_73__pages_reports__["u" /* ReportValvePage */],
-                __WEBPACK_IMPORTED_MODULE_73__pages_reports__["e" /* ReportDamagedPage */],
-                __WEBPACK_IMPORTED_MODULE_73__pages_reports__["d" /* ReportCondensationPage */],
-                __WEBPACK_IMPORTED_MODULE_73__pages_reports__["m" /* ReportLeakagePage */],
-                __WEBPACK_IMPORTED_MODULE_76__components_tools_tools_component__["a" /* ToolsComponent */]
+                __WEBPACK_IMPORTED_MODULE_72__pages_reports__["j" /* ReportHeaderComponent */],
+                __WEBPACK_IMPORTED_MODULE_72__pages_reports__["i" /* ReportFooterComponent */],
+                __WEBPACK_IMPORTED_MODULE_72__pages_reports__["c" /* ReportAreaModalComponent */],
+                __WEBPACK_IMPORTED_MODULE_72__pages_reports__["t" /* ReportTempMarkersWindowComponent */],
+                __WEBPACK_IMPORTED_MODULE_72__pages_reports__["s" /* ReportSurfacePage */],
+                __WEBPACK_IMPORTED_MODULE_72__pages_reports__["l" /* ReportInsulatedSurfacePage */],
+                __WEBPACK_IMPORTED_MODULE_72__pages_reports__["h" /* ReportFlangePage */],
+                __WEBPACK_IMPORTED_MODULE_72__pages_reports__["q" /* ReportPipePage */],
+                __WEBPACK_IMPORTED_MODULE_72__pages_reports__["k" /* ReportInsulatedPipePage */],
+                __WEBPACK_IMPORTED_MODULE_72__pages_reports__["u" /* ReportValvePage */],
+                __WEBPACK_IMPORTED_MODULE_72__pages_reports__["e" /* ReportDamagedPage */],
+                __WEBPACK_IMPORTED_MODULE_72__pages_reports__["d" /* ReportCondensationPage */],
+                __WEBPACK_IMPORTED_MODULE_72__pages_reports__["m" /* ReportLeakagePage */],
+                __WEBPACK_IMPORTED_MODULE_75__components_tools_tools_component__["a" /* ToolsComponent */]
             ],
             providers: [
                 /*App services*/
-                __WEBPACK_IMPORTED_MODULE_35__services_messages_service__["a" /* MessageService */],
-                __WEBPACK_IMPORTED_MODULE_30__services_report_service__["a" /* ReportService */],
-                __WEBPACK_IMPORTED_MODULE_29__services__["d" /* ProjectService */],
-                __WEBPACK_IMPORTED_MODULE_31__services_component_service__["a" /* ComponentService */],
+                __WEBPACK_IMPORTED_MODULE_34__services_messages_service__["a" /* MessageService */],
+                __WEBPACK_IMPORTED_MODULE_29__services_report_service__["a" /* ReportService */],
+                __WEBPACK_IMPORTED_MODULE_28__services__["d" /* ProjectService */],
+                __WEBPACK_IMPORTED_MODULE_30__services_component_service__["a" /* ComponentService */],
                 __WEBPACK_IMPORTED_MODULE_24__ionic_native_status_bar__["a" /* StatusBar */],
                 __WEBPACK_IMPORTED_MODULE_25__ionic_native_splash_screen__["a" /* SplashScreen */],
                 __WEBPACK_IMPORTED_MODULE_21__ionic_native_file_opener__["a" /* FileOpener */],
@@ -2633,20 +2631,19 @@ var AppModule = /** @class */ (function () {
                 __WEBPACK_IMPORTED_MODULE_18__ionic_native_camera__["a" /* Camera */],
                 __WEBPACK_IMPORTED_MODULE_23__ionic_native_screen_orientation__["a" /* ScreenOrientation */],
                 //PictureLocalService,
-                __WEBPACK_IMPORTED_MODULE_32__services_file_device_service__["a" /* FileDeviceService */],
-                __WEBPACK_IMPORTED_MODULE_34__services_file_local_service__["a" /* FileLocalService */],
+                __WEBPACK_IMPORTED_MODULE_31__services_file_device_service__["a" /* FileDeviceService */],
+                __WEBPACK_IMPORTED_MODULE_33__services_file_local_service__["a" /* FileLocalService */],
                 __WEBPACK_IMPORTED_MODULE_19__ionic_native_file_chooser__["a" /* FileChooser */],
                 __WEBPACK_IMPORTED_MODULE_26__ionic_native_unique_device_id__["a" /* UniqueDeviceID */],
                 __WEBPACK_IMPORTED_MODULE_27__ionic_native_file_transfer__["a" /* FileTransfer */],
-                { provide: __WEBPACK_IMPORTED_MODULE_1__angular_core__["u" /* ErrorHandler */], useClass: __WEBPACK_IMPORTED_MODULE_78__models_errors_global_error__["a" /* GlobalErrorHandler */], deps: [__WEBPACK_IMPORTED_MODULE_35__services_messages_service__["a" /* MessageService */], __WEBPACK_IMPORTED_MODULE_0__angular_http__["b" /* Http */]] },
+                { provide: __WEBPACK_IMPORTED_MODULE_1__angular_core__["u" /* ErrorHandler */], useClass: __WEBPACK_IMPORTED_MODULE_77__models_errors_global_error__["a" /* GlobalErrorHandler */], deps: [__WEBPACK_IMPORTED_MODULE_34__services_messages_service__["a" /* MessageService */], __WEBPACK_IMPORTED_MODULE_0__angular_http__["b" /* Http */]] },
                 //{ provide: ErrorHandler, useClass: IonicErrorHandler },
                 //Mock services
                 //{ provide: PictureService, useClass: PictureDeviceService },
-                __WEBPACK_IMPORTED_MODULE_37__services_licences_service__["a" /* LicencesService */],
-                __WEBPACK_IMPORTED_MODULE_36__services_picture_service__["a" /* PictureService */],
-                __WEBPACK_IMPORTED_MODULE_77__ionic_native_flashlight__["a" /* Flashlight */],
-                { provide: __WEBPACK_IMPORTED_MODULE_33__services_file_service__["a" /* FileService */], useClass: __WEBPACK_IMPORTED_MODULE_32__services_file_device_service__["a" /* FileDeviceService */] },
-                __WEBPACK_IMPORTED_MODULE_28__ionic_native_web_intent__["a" /* WebIntent */]
+                __WEBPACK_IMPORTED_MODULE_36__services_licences_service__["a" /* LicencesService */],
+                __WEBPACK_IMPORTED_MODULE_35__services_picture_service__["a" /* PictureService */],
+                __WEBPACK_IMPORTED_MODULE_76__ionic_native_flashlight__["a" /* Flashlight */],
+                { provide: __WEBPACK_IMPORTED_MODULE_32__services_file_service__["a" /* FileService */], useClass: __WEBPACK_IMPORTED_MODULE_33__services_file_local_service__["a" /* FileLocalService */] }
             ]
         })
     ], AppModule);
@@ -2667,15 +2664,15 @@ var AppModule = /** @class */ (function () {
 /* unused harmony reexport Fields */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__result__ = __webpack_require__(99);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "d", function() { return __WEBPACK_IMPORTED_MODULE_2__result__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__component_location__ = __webpack_require__(468);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__component_location__ = __webpack_require__(467);
 /* unused harmony reexport ComponentLocation */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__project__ = __webpack_require__(168);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return __WEBPACK_IMPORTED_MODULE_4__project__["b"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__document_class__ = __webpack_require__(469);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__document_class__ = __webpack_require__(468);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return __WEBPACK_IMPORTED_MODULE_5__document_class__["a"]; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__report_base__ = __webpack_require__(24);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return __WEBPACK_IMPORTED_MODULE_6__report_base__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__report_category__ = __webpack_require__(470);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__report_category__ = __webpack_require__(469);
 /* unused harmony reexport ReportCategory */
 
 
@@ -2689,7 +2686,7 @@ var AppModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 468:
+/***/ 467:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2737,7 +2734,7 @@ var SectionEnergy = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 469:
+/***/ 468:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2791,12 +2788,12 @@ var Document = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 470:
+/***/ 469:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* unused harmony export ReportCategory */
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__enums__ = __webpack_require__(471);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__enums__ = __webpack_require__(470);
 
 var ReportCategory = /** @class */ (function () {
     function ReportCategory(item) {
@@ -2816,18 +2813,18 @@ var ReportCategory = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 471:
+/***/ 470:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__report_categories_enum__ = __webpack_require__(472);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__report_categories_enum__ = __webpack_require__(471);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return __WEBPACK_IMPORTED_MODULE_0__report_categories_enum__["a"]; });
 
 //# sourceMappingURL=index.js.map
 
 /***/ }),
 
-/***/ 472:
+/***/ 471:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2846,13 +2843,13 @@ var ReportCategories;
 
 /***/ }),
 
-/***/ 473:
+/***/ 472:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ProjectJson; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__project__ = __webpack_require__(168);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__component_json__ = __webpack_require__(474);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__component_json__ = __webpack_require__(473);
 
 
 var ProjectJson = /** @class */ (function () {
@@ -2892,13 +2889,13 @@ var ProjectJson = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 474:
+/***/ 473:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return TbiComponentJson; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__fields__ = __webpack_require__(170);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__report_base_json__ = __webpack_require__(475);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__report_base_json__ = __webpack_require__(474);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__marker__ = __webpack_require__(75);
 
 
@@ -2921,7 +2918,7 @@ var TbiComponentJson = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 475:
+/***/ 474:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2958,7 +2955,7 @@ var ReportBaseJson = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 483:
+/***/ 482:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2992,7 +2989,7 @@ var ReportFooterComponent = /** @class */ (function () {
     ], ReportFooterComponent.prototype, "calculate_text", void 0);
     ReportFooterComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'report-footer',template:/*ion-inline-start:"D:\Sofware Factory\tbi\src\pages\reports\components\report-footer\report-footer.component.html"*/'<ion-footer>\n\n  <ion-grid no-padding>\n\n    <ion-row no-padding>\n\n      <ion-col col-6 no-padding>\n\n        <button tabindex="22" *ngIf="(parent.view!=\'edit_picture\') || (parent.view==\'edit_picture\' && !parent.is_energy_report)" ion-button small color="light" (click)="parent.go_back()">\n\n          <ion-icon name="arrow-back"></ion-icon>&nbsp;Back\n\n        </button>\n\n      </ion-col>\n\n      <ion-col col-6 text-right no-padding *ngIf="parent.view==\'edit_picture\' && parent.is_energy_report">\n\n        <button tabindex="22" ion-button small color="royal" (click)="parent.go_back()">\n\n          Next\n\n        </button>\n\n      </ion-col>\n\n      <ion-col col-6 text-right no-padding *ngIf="parent.view!=\'edit_picture\' && parent.segment===\'input\'">\n\n        <button id="submit-button" tabindex="20" ion-button small pull-right color="primary" (click)="parent.calculate()" *ngIf="parent.view!=\'edit_picture\' && parent.view!=\'result\'">\n\n          <!-- {{calculate_text}} -->\n\n          Next\n\n        </button>\n\n        <button id="submit-button" tabindex="21" ion-button small pull-right color="primary" (click)="parent.save()" *ngIf="parent.view==\'result\' && !parent.form.invalid">\n\n          Next\n\n        </button>\n\n      </ion-col>\n\n    </ion-row>\n\n  </ion-grid>\n\n</ion-footer>\n\n'/*ion-inline-end:"D:\Sofware Factory\tbi\src\pages\reports\components\report-footer\report-footer.component.html"*/
+            selector: 'report-footer',template:/*ion-inline-start:"D:\Sofware Factory\tbi\src\pages\reports\components\report-footer\report-footer.component.html"*/'<ion-footer>\n\n  <ion-grid no-padding>\n\n    <ion-row no-padding>\n\n      <ion-col col-4 no-padding>\n\n        <button tabindex="22" *ngIf="(parent.view!=\'edit_picture\') || (parent.view==\'edit_picture\' && !parent.is_energy_report)" ion-button small color="light" (click)="parent.go_back()">\n\n          <ion-icon name="arrow-back"></ion-icon>&nbsp;Back\n\n        </button>\n\n      </ion-col>\n\n      <ion-col col-4 text-right no-padding *ngIf="parent.view==\'edit_picture\' && parent.is_energy_report">\n\n        <button tabindex="22" ion-button small color="royal" (click)="parent.go_back()">\n\n          Next\n\n        </button>\n\n      </ion-col>\n\n      <ion-col col-4 text-center>\n\n        <tools></tools>\n\n      </ion-col>\n\n      <ion-col col-4 text-right no-padding *ngIf="parent.view!=\'edit_picture\' && parent.segment===\'input\'">\n\n        <button id="submit-button" tabindex="20" ion-button small pull-right color="primary" (click)="parent.calculate()" *ngIf="parent.view!=\'edit_picture\' && parent.view!=\'result\'">\n\n          <!-- {{calculate_text}} -->\n\n          Next\n\n        </button>\n\n        <button id="submit-button" tabindex="21" ion-button small pull-right color="primary" (click)="parent.save()" *ngIf="parent.view==\'result\' && !parent.form.invalid">\n\n          Next\n\n        </button>\n\n      </ion-col>\n\n    </ion-row>\n\n  </ion-grid>\n\n</ion-footer>\n\n'/*ion-inline-end:"D:\Sofware Factory\tbi\src\pages\reports\components\report-footer\report-footer.component.html"*/
         })
     ], ReportFooterComponent);
     return ReportFooterComponent;
@@ -3002,7 +2999,7 @@ var ReportFooterComponent = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 484:
+/***/ 483:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -3045,7 +3042,7 @@ var ReportCondensation = /** @class */ (function (_super) {
 
 /***/ }),
 
-/***/ 485:
+/***/ 484:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -3088,7 +3085,7 @@ var ReportDamaged = /** @class */ (function (_super) {
 
 /***/ }),
 
-/***/ 486:
+/***/ 485:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -3146,7 +3143,7 @@ var ReportInsulatedSurface = /** @class */ (function (_super) {
 
 /***/ }),
 
-/***/ 487:
+/***/ 486:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -3190,14 +3187,14 @@ var ReportValve = /** @class */ (function (_super) {
 
 /***/ }),
 
-/***/ 488:
+/***/ 487:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ReportFlange; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__report_base__ = __webpack_require__(24);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__pages_reports__ = __webpack_require__(20);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__calculators__ = __webpack_require__(305);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__calculators__ = __webpack_require__(304);
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = Object.setPrototypeOf ||
         ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
@@ -3237,7 +3234,7 @@ var ReportFlange = /** @class */ (function (_super) {
 
 /***/ }),
 
-/***/ 489:
+/***/ 488:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -3325,7 +3322,7 @@ var IPipeCalculator = /** @class */ (function (_super) {
 
 /***/ }),
 
-/***/ 490:
+/***/ 489:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -3399,7 +3396,7 @@ var ISurfaceCalculator = /** @class */ (function (_super) {
 
 /***/ }),
 
-/***/ 491:
+/***/ 490:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -3485,7 +3482,7 @@ var ValveCalculator = /** @class */ (function (_super) {
 
 /***/ }),
 
-/***/ 492:
+/***/ 491:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -3569,7 +3566,7 @@ var PipeCalculator = /** @class */ (function (_super) {
 
 /***/ }),
 
-/***/ 493:
+/***/ 492:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -3658,7 +3655,7 @@ var FlangeCalculator = /** @class */ (function (_super) {
 
 /***/ }),
 
-/***/ 494:
+/***/ 493:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -3728,7 +3725,7 @@ var SurfaceCalculator = /** @class */ (function (_super) {
 
 /***/ }),
 
-/***/ 495:
+/***/ 494:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -3779,7 +3776,7 @@ var ReportSurface = /** @class */ (function (_super) {
 
 /***/ }),
 
-/***/ 496:
+/***/ 495:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -3787,14 +3784,14 @@ var ReportSurface = /** @class */ (function (_super) {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_ionic_angular__ = __webpack_require__(6);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_forms__ = __webpack_require__(18);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__calculators_calculator_factory__ = __webpack_require__(497);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__calculators_calculator_factory__ = __webpack_require__(496);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__picture__ = __webpack_require__(100);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pages_reports__ = __webpack_require__(20);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__const_more_more__ = __webpack_require__(98);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__component__ = __webpack_require__(101);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__pages_scroll_to_component_class__ = __webpack_require__(173);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__const_images__ = __webpack_require__(171);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__const_patterns__ = __webpack_require__(306);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__const_patterns__ = __webpack_require__(305);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__pages_projects_projects__ = __webpack_require__(74);
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = Object.setPrototypeOf ||
@@ -3852,10 +3849,10 @@ var BaseReportPage = /** @class */ (function (_super) {
         _this.report.component.id = _this._original_component.id;
         _this.editable = !_this.report.component.reports.filter(function (r) { return !!r.path.match(/(surface|pipe|valve|flange)/gi) && !!r.result; }).length;
         _this.is_energy_report = !!_this.report.path.match(/(pipe|surface|valve|flange)/gi);
+        _this.report.pictures.push(new __WEBPACK_IMPORTED_MODULE_4__picture__["a" /* Picture */]({
+            picture: "data:image/jpeg;base64,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"
+        }));
         return _this;
-        // this.report.pictures.push(new Picture({
-        //   picture: "data:image/jpeg;base64,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"
-        // }))
     }
     Object.defineProperty(BaseReportPage.prototype, "picture_qty", {
         get: function () {
@@ -4011,7 +4008,7 @@ var BaseReportPage = /** @class */ (function (_super) {
         }
         else {
             if (this.form.dirty || !this.form.pristine) {
-                var confirm_1 = this.alertCtrl.create({
+                var confirm = this.alertCtrl.create({
                     //title: `Leave report`,
                     cssClass: "ion-dialog-horizontal",
                     message: "Do you want to leave this report?",
@@ -4030,7 +4027,7 @@ var BaseReportPage = /** @class */ (function (_super) {
                         }
                     ]
                 });
-                confirm_1.present();
+                confirm.present();
             }
             else {
                 this.report.component = this._original_component;
@@ -4160,15 +4157,15 @@ var BaseReportPage = /** @class */ (function (_super) {
     };
     __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_2__angular_core__["_8" /* ViewChild */])('form'),
-        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1__angular_forms__["d" /* NgForm */])
+        __metadata("design:type", typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_forms__["d" /* NgForm */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_forms__["d" /* NgForm */]) === "function" && _a || Object)
     ], BaseReportPage.prototype, "form", void 0);
     __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_2__angular_core__["_8" /* ViewChild */])('errors'),
-        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_5__pages_reports__["g" /* ReportErrorsComponent */])
+        __metadata("design:type", typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_5__pages_reports__["g" /* ReportErrorsComponent */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5__pages_reports__["g" /* ReportErrorsComponent */]) === "function" && _b || Object)
     ], BaseReportPage.prototype, "errors", void 0);
     __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_2__angular_core__["_8" /* ViewChild */])('time', { read: __WEBPACK_IMPORTED_MODULE_5__pages_reports__["o" /* ReportMoreButtonComponent */] }),
-        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_5__pages_reports__["o" /* ReportMoreButtonComponent */])
+        __metadata("design:type", typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_5__pages_reports__["o" /* ReportMoreButtonComponent */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5__pages_reports__["o" /* ReportMoreButtonComponent */]) === "function" && _c || Object)
     ], BaseReportPage.prototype, "time", void 0);
     __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_2__angular_core__["_8" /* ViewChild */])('after_time'),
@@ -4176,7 +4173,7 @@ var BaseReportPage = /** @class */ (function (_super) {
     ], BaseReportPage.prototype, "after_time", void 0);
     __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_2__angular_core__["_8" /* ViewChild */])('material', { read: __WEBPACK_IMPORTED_MODULE_5__pages_reports__["o" /* ReportMoreButtonComponent */] }),
-        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_5__pages_reports__["o" /* ReportMoreButtonComponent */])
+        __metadata("design:type", typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_5__pages_reports__["o" /* ReportMoreButtonComponent */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5__pages_reports__["o" /* ReportMoreButtonComponent */]) === "function" && _d || Object)
     ], BaseReportPage.prototype, "material", void 0);
     __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_2__angular_core__["_8" /* ViewChild */])('after_material'),
@@ -4184,22 +4181,23 @@ var BaseReportPage = /** @class */ (function (_super) {
     ], BaseReportPage.prototype, "after_material", void 0);
     __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_2__angular_core__["_8" /* ViewChild */])(__WEBPACK_IMPORTED_MODULE_0_ionic_angular__["c" /* Content */]),
-        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_0_ionic_angular__["c" /* Content */])
+        __metadata("design:type", typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_0_ionic_angular__["c" /* Content */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0_ionic_angular__["c" /* Content */]) === "function" && _e || Object)
     ], BaseReportPage.prototype, "content", void 0);
     return BaseReportPage;
+    var _a, _b, _c, _d, _e;
 }(__WEBPACK_IMPORTED_MODULE_8__pages_scroll_to_component_class__["a" /* ScrollToComponent */]));
 
 //# sourceMappingURL=base-report-page.class.js.map
 
 /***/ }),
 
-/***/ 497:
+/***/ 496:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CalculatorFactory; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0____ = __webpack_require__(305);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__const__ = __webpack_require__(498);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0____ = __webpack_require__(304);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__const__ = __webpack_require__(497);
 
 
 var CalculatorFactory = /** @class */ (function () {
@@ -4222,7 +4220,7 @@ var CalculatorFactory = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 498:
+/***/ 497:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -4233,7 +4231,7 @@ var CalculatorFactory = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 499:
+/***/ 498:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -4242,7 +4240,7 @@ var CalculatorFactory = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__models_reports__ = __webpack_require__(21);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(6);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__services_report_service__ = __webpack_require__(30);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__models_reports_report_pipe_class__ = __webpack_require__(304);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__models_reports_report_pipe_class__ = __webpack_require__(303);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__services_messages_service__ = __webpack_require__(16);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__services__ = __webpack_require__(17);
 var __extends = (this && this.__extends) || (function () {
@@ -4302,7 +4300,7 @@ var ReportPipePage = /** @class */ (function (_super) {
 
 /***/ }),
 
-/***/ 500:
+/***/ 499:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -4370,7 +4368,7 @@ var ReportFlangePage = /** @class */ (function (_super) {
 
 /***/ }),
 
-/***/ 501:
+/***/ 500:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -4497,7 +4495,7 @@ var ReportEditPictureComponent = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 502:
+/***/ 501:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -4554,7 +4552,7 @@ var ReportPictureSlideComponent = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 503:
+/***/ 502:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -4634,7 +4632,7 @@ var ReportErrorsComponent = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 504:
+/***/ 503:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -4644,7 +4642,7 @@ var ReportErrorsComponent = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(6);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__services_project_service__ = __webpack_require__(53);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__projects_projects__ = __webpack_require__(74);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__models_report_router__ = __webpack_require__(307);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__models_report_router__ = __webpack_require__(306);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__summary_summary__ = __webpack_require__(180);
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = Object.setPrototypeOf ||
@@ -4746,7 +4744,7 @@ var ReportsPage = /** @class */ (function (_super) {
     };
     ReportsPage = ReportsPage_1 = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["m" /* Component */])({
-            selector: 'page-reports',template:/*ion-inline-start:"D:\Sofware Factory\tbi\src\pages\reports\reports.html"*/'<ion-header>\n\n  <ion-navbar hideBackButton>\n\n    <ion-title>\n\n      {{project.name}}\n\n    </ion-title>\n\n  </ion-navbar>\n\n  <!-- <ion-segment [(ngModel)]="segment.value">\n\n    <ion-segment-button *ngFor="let option of segment.options; let i=index" [value]="i">\n\n      {{option}}\n\n    </ion-segment-button>\n\n  </ion-segment> -->\n\n</ion-header>\n\n\n\n<ion-content>\n\n  <ion-grid [ngSwitch]="type" v-center style="margin-top: -2rem">\n\n    <ng-container *ngSwitchCase="\'\'">\n\n      <ion-row>\n\n        <ion-col card-container col-md-4 offset-md-4 col-sm-6>\n\n          <ion-card (click)="navigate_to(\'insulation\')" [class.disabled]="disabled_for(\'insulation\')">\n\n            <span svg="insulation"></span>\n\n            <h1>Insulation</h1>\n\n          </ion-card>\n\n        </ion-col>\n\n        <ion-col card-container col-md-4 offset-md-4 col-sm-6>\n\n          <ion-card [class.disabled]="disabled_for(\'safety\')" (click)="navigate_to(\'safety\')">\n\n            <span svg="safety"></span>\n\n            <h1>Safety</h1>\n\n          </ion-card>\n\n        </ion-col>\n\n        <ion-col card-container col-md-4 offset-md-4 col-sm-6>\n\n          <ion-card [class.disabled]="disabled_for(\'maintenance\')" (click)="navigate_to(\'maintenance\')">\n\n            <span svg="maintenance"></span>\n\n            <h1>Maintenance</h1>\n\n          </ion-card>\n\n        </ion-col>\n\n        <ion-col card-container col-md-4 offset-md-4 col-sm-6>\n\n          <ion-card [class.disabled]="disabled_for(\'custom\')" on-tap="navigate_to_report(REPORT.CUSTOM, \'Others\')">\n\n            <span svg="custom"></span>\n\n            <h1>Custom</h1>\n\n          </ion-card>\n\n        </ion-col>\n\n      </ion-row>\n\n    </ng-container>\n\n\n\n    <ng-container *ngSwitchCase="\'insulation\'">\n\n      <ion-row>\n\n        <ion-col card-container col-md-4 col-sm-6 offset-md-4>\n\n          <ion-card on-tap="navigate_to(\'insulation-uninsulated\')">\n\n            <span svg="empty"></span>\n\n            <h1 empty>Uninsulated</h1>\n\n          </ion-card>\n\n        </ion-col>\n\n        <ion-col card-container col-md-4 col-sm-6 offset-md-4>\n\n          <ion-card on-tap="navigate_to(\'insulation-insulated\')">\n\n            <span svg="empty"></span>\n\n            <h1 empty>Insulated</h1>\n\n          </ion-card>\n\n        </ion-col>\n\n        <ion-col card-container col-md-4 col-sm-6 offset-md-4>\n\n          <ion-card on-tap="navigate_to(\'cold-insulation\')">\n\n            <span svg="empty"></span>\n\n            <h1 empty>Cold Insulation</h1>\n\n          </ion-card>\n\n        </ion-col>\n\n      </ion-row>\n\n    </ng-container>\n\n\n\n    <ng-container *ngSwitchCase="\'insulation-uninsulated\'">\n\n      <ion-row>\n\n        <ion-col card-container col-md-4 col-sm-6 offset-md-4>\n\n          <ion-card [class.disabled]="disabled_for(\'insulation\')" on-tap="navigate_to_report(REPORT.INSULATION.UNINSULATED_EQUIPMENTS.PIPE, \'Uninsulated pipe\')">\n\n            <span svg="pipe"></span>\n\n            <h1>Pipe</h1>\n\n          </ion-card>\n\n        </ion-col>\n\n        <ion-col card-container col-md-4 col-sm-6 offset-md-4>\n\n          <ion-card [class.disabled]="disabled_for(\'insulation\')" on-tap="navigate_to_report(REPORT.INSULATION.UNINSULATED_EQUIPMENTS.VALVE, \'Uninsulated valve\')">\n\n            <span svg="valve"></span>\n\n            <h1>Valve</h1>\n\n          </ion-card>\n\n        </ion-col>\n\n        <ion-col card-container col-md-4 col-sm-6 offset-md-4>\n\n          <ion-card [class.disabled]="disabled_for(\'insulation\')" on-tap="navigate_to_report(REPORT.INSULATION.UNINSULATED_EQUIPMENTS.FLANGE, \'Uninsulated flange\')">\n\n            <span svg="flange"></span>\n\n            <h1>Flange</h1>\n\n          </ion-card>\n\n        </ion-col>\n\n        <ion-col card-container col-md-4 col-sm-6 offset-md-4>\n\n          <ion-card [class.disabled]="disabled_for(\'insulation\')" on-tap="navigate_to_report(REPORT.INSULATION.UNINSULATED_EQUIPMENTS.SURFACE, \'Uninsulated surface\')">\n\n            <span svg="surface"></span>\n\n            <h1>Surface</h1>\n\n          </ion-card>\n\n        </ion-col>\n\n      </ion-row>\n\n    </ng-container>\n\n\n\n    <ng-container *ngSwitchCase="\'insulation-insulated\'">\n\n      <ion-row>\n\n        <ion-col card-container col-md-4 col-sm-6 offset-md-4>\n\n          <ion-card [class.disabled]="disabled_for(\'insulation\')" on-tap="navigate_to_report(REPORT.INSULATION.INSULATED_EQUIPMENTS.PIPE, \'Insulated pipe\')">\n\n            <span svg="pipe-insulation"></span>\n\n            <h1>Pipe</h1>\n\n          </ion-card>\n\n        </ion-col>\n\n        <ion-col card-container col-md-4 col-sm-6 offset-md-4>\n\n          <ion-card [class.disabled]="disabled_for(\'insulation\')" on-tap="navigate_to_report(REPORT.INSULATION.INSULATED_EQUIPMENTS.SURFACE, \'Insulated surface\')">\n\n            <span svg="surface"></span>\n\n            <h1>Surface</h1>\n\n          </ion-card>\n\n        </ion-col>\n\n        <ion-col card-container col-md-4 col-sm-6 offset-md-4>\n\n          <ion-icon name="information-circle-outline" duration="3000" arrow tooltip="Damaged insulation and/or cladding"\n\n            positionV="top"></ion-icon>\n\n          <ion-card [class.disabled]="disabled_for(\'insulation\')" on-tap="navigate_to_report(REPORT.INSULATION.INSULATED_EQUIPMENTS.DAMAGED, \'Insulated damaged\')">\n\n            <span svg="damaged-insulation"></span>\n\n            <h1>Damaged</h1>\n\n          </ion-card>\n\n        </ion-col>\n\n      </ion-row>\n\n    </ng-container>\n\n\n\n    <ng-container *ngSwitchCase="\'cold-insulation\'">\n\n      <ion-row>\n\n        <ion-col card-container col-md-4 col-sm-6 offset-md-4>\n\n          <!-- <ion-card [class.disabled]="disabled_for(\'insulation\')" on-tap="navigate_to_report(REPORT.INSULATION.COLD_INSULATION.ENERGY, \'Cold energy\')"> -->\n\n          <ion-card [class.disabled]="disabled_for(\'insulation\')" (click)="navigate_to(\'hot-surface\')">\n\n            <span svg="cold"></span>\n\n            <h1>Energy</h1>\n\n          </ion-card>\n\n        </ion-col>\n\n        <ion-col card-container col-md-4 col-sm-6 offset-md-4>\n\n          <ion-card [class.disabled]="disabled_for(\'insulation\')" on-tap="navigate_to_report(REPORT.INSULATION.COLD_INSULATION.CONDENSATION, \'Condensation\')">\n\n            <span svg="ice-wet"></span>\n\n            <h1>Condensation</h1>\n\n          </ion-card>\n\n        </ion-col>\n\n        <ion-col card-container col-md-4 col-sm-6 offset-md-4>\n\n          <ion-icon name="information-circle-outline" duration="3000" arrow tooltip="Damaged insulation and/or cladding"\n\n            positionV="top"></ion-icon>\n\n          <ion-card [class.disabled]="disabled_for(\'insulation\')" on-tap="navigate_to_report(REPORT.INSULATION.COLD_INSULATION.DAMAGED, \'Damaged\')">\n\n            <span svg="damaged-insulation"></span>\n\n            <h1>Damaged</h1>\n\n          </ion-card>\n\n        </ion-col>\n\n      </ion-row>\n\n    </ng-container>\n\n\n\n    <ng-container *ngSwitchCase="\'safety\'">\n\n      <ion-row>\n\n        <ion-col card-container col-md-4 col-sm-6 offset-md-4>\n\n          <ion-card [class.disabled]="disabled_for(\'insulation\')" (click)="navigate_to(\'insulation\')">\n\n            <span svg="hot-surface"></span>\n\n            <h1>Hot Surface</h1>\n\n          </ion-card>\n\n        </ion-col>\n\n        <ion-col card-container col-md-4 col-sm-6 offset-md-4>\n\n          <ion-card [class.disabled]="disabled_for(\'safety\')" on-tap="navigate_to_report(REPORT.SAFETY.FIRE_PROTECTION, \'Fire Protect\')">\n\n            <span svg="fire-protection"></span>\n\n            <h1>Fire Protection</h1>\n\n          </ion-card>\n\n        </ion-col>\n\n        <ion-col card-container col-md-4 col-sm-6 offset-md-4>\n\n          <ion-card [class.disabled]="disabled_for(\'safety\')" on-tap="navigate_to_report(REPORT.SAFETY.HOUSEKEEPING, \'Housekeeping\')">\n\n            <span svg="housekeeping"></span>\n\n            <h1>Housekeeping</h1>\n\n          </ion-card>\n\n        </ion-col>\n\n        <ion-col card-container col-md-4 col-sm-6 offset-md-4>\n\n          <ion-card [class.disabled]="disabled_for(\'safety\')" on-tap="navigate_to_report(REPORT.SAFETY.OTHER, \'Others\')">\n\n            <span svg="safety"></span>\n\n            <h1>Other</h1>\n\n          </ion-card>\n\n        </ion-col>\n\n      </ion-row>\n\n      <!-- <ion-row>\n\n        <ion-col  card-container col-md-3 col-sm-6 offset-md-3>\n\n          <ion-card [class.disabled]="disabled_for(\'safety\')" on-tap="navigate_to_report(REPORT.SAFETY.TRAFFIC, \'Traffic\')">\n\n            <span svg="traffic"></span>\n\n            <h1>Traffic</h1>\n\n          </ion-card>\n\n        </ion-col>\n\n        \n\n      </ion-row> -->\n\n    </ng-container>\n\n\n\n    <ng-container *ngSwitchCase="\'maintenance\'">\n\n      <ion-row>\n\n        <ion-col card-container col-md-4 col-sm-6 offset-md-4>\n\n          <ion-icon name="information-circle-outline" duration="3000" arrow tooltip="Damaged insulation and/or cladding"\n\n            positionV="top"></ion-icon>\n\n          <ion-card [class.disabled]="disabled_for(\'maintenance\')" on-tap="navigate_to_report(REPORT.MANTENANCE.DAMAGED, \'Damaged\')">\n\n            <span svg="damage-insulation"></span>\n\n            <h1>Damaged</h1>\n\n          </ion-card>\n\n        </ion-col>\n\n        <ion-col card-container col-md-4 col-sm-6 offset-md-4>\n\n          <ion-card [class.disabled]="disabled_for(\'maintenance\')" on-tap="navigate_to_report(REPORT.MANTENANCE.CONDENSATION, \'Condensation\')">\n\n            <span svg="ice-wet"></span>\n\n            <h1>Condensation</h1>\n\n          </ion-card>\n\n        </ion-col>\n\n        <ion-col card-container col-md-4 col-sm-6 offset-md-4>\n\n          <ion-card [class.disabled]="disabled_for(\'maintenance\')" on-tap="navigate_to_report(REPORT.MANTENANCE.LEAKAGE, \'Leakage\')">\n\n            <span svg="leakage"></span>\n\n            <h1>Leakage</h1>\n\n          </ion-card>\n\n        </ion-col>\n\n        <ion-col card-container col-md-4 col-sm-6 offset-md-4>\n\n          <ion-card [class.disabled]="disabled_for(\'custom\')" on-tap="navigate_to_report(REPORT.CUSTOM, \'Others\')">\n\n            <span svg="safety"></span>\n\n            <h1>Others</h1>\n\n          </ion-card>\n\n        </ion-col>\n\n        <!-- <ion-col  card-container col-md-3 col-sm-6 offset-md-2>\n\n          <ion-card [class.disabled]="disabled_for(\'maintenance\')" on-tap="navigate_to_report(REPORT.MANTENANCE.STRUCTURAL, \'Structural\')">\n\n            <span svg="structural"></span>\n\n            <h1>Structural</h1>\n\n          </ion-card>\n\n        </ion-col>\n\n        <ion-col  card-container col-md-3 col-sm-6>\n\n          <ion-card [class.disabled]="disabled_for(\'maintenance\')" on-tap="navigate_to_report(REPORT.MANTENANCE.MECHANICAL, \'Mechanical\')">\n\n            <span svg="mechanical"></span>\n\n            <h1>Mechanical</h1>\n\n          </ion-card>\n\n        </ion-col>\n\n        <ion-col  card-container col-md-3 col-sm-6>\n\n            <ion-card [class.disabled]="disabled_for(\'maintenance\')" on-tap="navigate_to_report(REPORT.MANTENANCE.ELECTRICAL, \'Electrical\')">\n\n            <span svg="electrical"></span>\n\n            <h1>Electrical</h1>\n\n          </ion-card>\n\n        </ion-col> -->\n\n      </ion-row>\n\n    </ng-container>\n\n\n\n    <!-- <ng-container *ngSwitchCase="\'hot-surface\'">\n\n      <ion-row *ngIf="segment.value==0">\n\n        <ion-col card-container offset-md-3 col-md-3 col-sm-6>\n\n          <ion-card [class.disabled]="disabled_for(\'insulation\')" on-tap="navigate_to_report(REPORT.SAFETY.HOT_SURFACE.UNINSULATED_EQUIPMENTS.PIPE, \'Uninsulated pipe\')">\n\n            <span svg="pipe"></span>\n\n            <h1>Pipe</h1>\n\n          </ion-card>\n\n        </ion-col>\n\n        <ion-col card-container col-md-3 col-sm-6>\n\n          <ion-card [class.disabled]="disabled_for(\'insulation\')" on-tap="navigate_to_report(REPORT.SAFETY.HOT_SURFACE.UNINSULATED_EQUIPMENTS.VALVE, \'Uninsulated valve\')">\n\n            <span svg="valve"></span>\n\n            <h1>Valve</h1>\n\n          </ion-card>\n\n        </ion-col>\n\n        <ion-col [class.disabled]="disabled_for(\'insulation\')" card-container offset-md-3 col-md-3 col-sm-6>\n\n          <ion-card [class.disabled]="disabled_for(\'insulation\')" on-tap="navigate_to_report(REPORT.SAFETY.HOT_SURFACE.UNINSULATED_EQUIPMENTS.FLANGE, \'Uninsulated flange\')">\n\n            <span svg="flange"></span>\n\n            <h1>Flange</h1>\n\n          </ion-card>\n\n        </ion-col>\n\n        <ion-col card-container col-md-3 col-sm-6>\n\n          <ion-card [class.disabled]="disabled_for(\'insulation\')" on-tap="navigate_to_report(REPORT.SAFETY.HOT_SURFACE.UNINSULATED_EQUIPMENTS.SURFACE, \'Uninsulated surface\')">\n\n            <span svg="surface"></span>\n\n            <h1>Surface</h1>\n\n          </ion-card>\n\n        </ion-col>\n\n      </ion-row>\n\n\n\n      <ion-row *ngIf="segment.value==1">\n\n        <ion-col card-container col-md-3 col-sm-6 offset-md-2>\n\n          <ion-card [class.disabled]="disabled_for(\'insulation\')" on-tap="navigate_to_report(REPORT.SAFETY.HOT_SURFACE.INSULATED_EQUIPMENTS.PIPE, \'Insulated pipe\')">\n\n            <span svg="pipe-insulation"></span>\n\n            <h1>Pipe</h1>\n\n          </ion-card>\n\n        </ion-col>\n\n        <ion-col card-container col-md-3 col-sm-6>\n\n          <ion-icon name="information-circle-outline" duration="3000" arrow tooltip="Damaged insulation and/or cladding"\n\n            positionV="top"></ion-icon>\n\n          <ion-card [class.disabled]="disabled_for(\'insulation\')" on-tap="navigate_to_report(REPORT.SAFETY.HOT_SURFACE.INSULATED_EQUIPMENTS.DAMAGED, \'Damaged\')">\n\n            <span svg="damaged-insulation"></span>\n\n            <h1>Damaged</h1>\n\n          </ion-card>\n\n        </ion-col>\n\n        <ion-col card-container col-md-3 col-sm-6>\n\n          <ion-card [class.disabled]="disabled_for(\'insulation\')" on-tap="navigate_to_report(REPORT.SAFETY.HOT_SURFACE.INSULATED_EQUIPMENTS.SURFACE, \'Insulated surface\')">\n\n            <span svg="surface"></span>\n\n            <h1>Surface</h1>\n\n          </ion-card>\n\n        </ion-col>\n\n      </ion-row>\n\n\n\n    </ng-container> -->\n\n  </ion-grid>\n\n</ion-content>\n\n\n\n<ion-footer>\n\n  <ion-grid no-padding>\n\n    <ion-row no-padding>\n\n      <ion-col col-6 no-padding>\n\n        <button ion-button small color="light" (click)="go_back()">\n\n          <ion-icon name="arrow-back"></ion-icon>&nbsp;Back\n\n        </button>\n\n      </ion-col>\n\n      <ion-col col-6 no-padding text-right *ngIf="!component?.id">\n\n        <button *ngIf="type==\'\'" ion-button small color="royal" on-tap="open_summary()">\n\n          <ion-icon name="grid"></ion-icon>&nbsp;Summary\n\n        </button>\n\n      </ion-col>\n\n    </ion-row>\n\n  </ion-grid>\n\n</ion-footer>\n\n'/*ion-inline-end:"D:\Sofware Factory\tbi\src\pages\reports\reports.html"*/
+            selector: 'page-reports',template:/*ion-inline-start:"D:\Sofware Factory\tbi\src\pages\reports\reports.html"*/'<ion-header>\n\n  <ion-navbar hideBackButton>\n\n    <ion-title>\n\n      {{project.name}}\n\n    </ion-title>\n\n  </ion-navbar>\n\n  <!-- <ion-segment [(ngModel)]="segment.value">\n\n    <ion-segment-button *ngFor="let option of segment.options; let i=index" [value]="i">\n\n      {{option}}\n\n    </ion-segment-button>\n\n  </ion-segment> -->\n\n</ion-header>\n\n\n\n<ion-content>\n\n  <ion-grid [ngSwitch]="type" v-center style="margin-top: -2rem">\n\n    <ng-container *ngSwitchCase="\'\'">\n\n      <ion-row>\n\n        <ion-col card-container col-md-4 offset-md-4 col-sm-6>\n\n          <ion-card (click)="navigate_to(\'insulation\')" [class.disabled]="disabled_for(\'insulation\')">\n\n            <span svg="insulation"></span>\n\n            <h1>Insulation</h1>\n\n          </ion-card>\n\n        </ion-col>\n\n        <ion-col card-container col-md-4 offset-md-4 col-sm-6>\n\n          <ion-card [class.disabled]="disabled_for(\'safety\')" (click)="navigate_to(\'safety\')">\n\n            <span svg="safety"></span>\n\n            <h1>Safety</h1>\n\n          </ion-card>\n\n        </ion-col>\n\n        <ion-col card-container col-md-4 offset-md-4 col-sm-6>\n\n          <ion-card [class.disabled]="disabled_for(\'maintenance\')" (click)="navigate_to(\'maintenance\')">\n\n            <span svg="maintenance"></span>\n\n            <h1>Maintenance</h1>\n\n          </ion-card>\n\n        </ion-col>\n\n        <ion-col card-container col-md-4 offset-md-4 col-sm-6>\n\n          <ion-card [class.disabled]="disabled_for(\'custom\')" on-tap="navigate_to_report(REPORT.CUSTOM, \'Others\')">\n\n            <span svg="custom"></span>\n\n            <h1>Custom</h1>\n\n          </ion-card>\n\n        </ion-col>\n\n      </ion-row>\n\n    </ng-container>\n\n\n\n    <ng-container *ngSwitchCase="\'insulation\'">\n\n      <ion-row>\n\n        <ion-col card-container col-md-4 col-sm-6 offset-md-4>\n\n          <ion-card on-tap="navigate_to(\'insulation-uninsulated\')">\n\n            <span svg="empty"></span>\n\n            <h1 empty>Uninsulated</h1>\n\n          </ion-card>\n\n        </ion-col>\n\n        <ion-col card-container col-md-4 col-sm-6 offset-md-4>\n\n          <ion-card on-tap="navigate_to(\'insulation-insulated\')">\n\n            <span svg="empty"></span>\n\n            <h1 empty>Insulated</h1>\n\n          </ion-card>\n\n        </ion-col>\n\n        <ion-col card-container col-md-4 col-sm-6 offset-md-4>\n\n          <ion-card on-tap="navigate_to(\'cold-insulation\')">\n\n            <span svg="empty"></span>\n\n            <h1 empty>Cold Insulation</h1>\n\n          </ion-card>\n\n        </ion-col>\n\n      </ion-row>\n\n    </ng-container>\n\n\n\n    <ng-container *ngSwitchCase="\'insulation-uninsulated\'">\n\n      <ion-row>\n\n        <ion-col card-container col-md-4 col-sm-6 offset-md-4>\n\n          <ion-card [class.disabled]="disabled_for(\'insulation\')" on-tap="navigate_to_report(REPORT.INSULATION.UNINSULATED_EQUIPMENTS.PIPE, \'Uninsulated pipe\')">\n\n            <span svg="pipe"></span>\n\n            <h1>Pipe</h1>\n\n          </ion-card>\n\n        </ion-col>\n\n        <ion-col card-container col-md-4 col-sm-6 offset-md-4>\n\n          <ion-card [class.disabled]="disabled_for(\'insulation\')" on-tap="navigate_to_report(REPORT.INSULATION.UNINSULATED_EQUIPMENTS.VALVE, \'Uninsulated valve\')">\n\n            <span svg="valve"></span>\n\n            <h1>Valve</h1>\n\n          </ion-card>\n\n        </ion-col>\n\n        <ion-col card-container col-md-4 col-sm-6 offset-md-4>\n\n          <ion-card [class.disabled]="disabled_for(\'insulation\')" on-tap="navigate_to_report(REPORT.INSULATION.UNINSULATED_EQUIPMENTS.FLANGE, \'Uninsulated flange\')">\n\n            <span svg="flange"></span>\n\n            <h1>Flange</h1>\n\n          </ion-card>\n\n        </ion-col>\n\n        <ion-col card-container col-md-4 col-sm-6 offset-md-4>\n\n          <ion-card [class.disabled]="disabled_for(\'insulation\')" on-tap="navigate_to_report(REPORT.INSULATION.UNINSULATED_EQUIPMENTS.SURFACE, \'Uninsulated surface\')">\n\n            <span svg="surface"></span>\n\n            <h1>Surface</h1>\n\n          </ion-card>\n\n        </ion-col>\n\n      </ion-row>\n\n    </ng-container>\n\n\n\n    <ng-container *ngSwitchCase="\'insulation-insulated\'">\n\n      <ion-row>\n\n        <ion-col card-container col-md-4 col-sm-6 offset-md-4>\n\n          <ion-card [class.disabled]="disabled_for(\'insulation\')" on-tap="navigate_to_report(REPORT.INSULATION.INSULATED_EQUIPMENTS.PIPE, \'Insulated pipe\')">\n\n            <span svg="pipe-insulation"></span>\n\n            <h1>Pipe</h1>\n\n          </ion-card>\n\n        </ion-col>\n\n        <ion-col card-container col-md-4 col-sm-6 offset-md-4>\n\n          <ion-card [class.disabled]="disabled_for(\'insulation\')" on-tap="navigate_to_report(REPORT.INSULATION.INSULATED_EQUIPMENTS.SURFACE, \'Insulated surface\')">\n\n            <span svg="surface"></span>\n\n            <h1>Surface</h1>\n\n          </ion-card>\n\n        </ion-col>\n\n        <ion-col card-container col-md-4 col-sm-6 offset-md-4>\n\n          <ion-icon name="information-circle-outline" duration="3000" arrow tooltip="Damaged insulation and/or cladding"\n\n            positionV="top"></ion-icon>\n\n          <ion-card [class.disabled]="disabled_for(\'insulation\')" on-tap="navigate_to_report(REPORT.INSULATION.INSULATED_EQUIPMENTS.DAMAGED, \'Insulated damaged\')">\n\n            <span svg="damaged-insulation"></span>\n\n            <h1>Damaged</h1>\n\n          </ion-card>\n\n        </ion-col>\n\n      </ion-row>\n\n    </ng-container>\n\n\n\n    <ng-container *ngSwitchCase="\'cold-insulation\'">\n\n      <ion-row>\n\n        <ion-col card-container col-md-4 col-sm-6 offset-md-4>\n\n          <!-- <ion-card [class.disabled]="disabled_for(\'insulation\')" on-tap="navigate_to_report(REPORT.INSULATION.COLD_INSULATION.ENERGY, \'Cold energy\')"> -->\n\n          <ion-card [class.disabled]="disabled_for(\'insulation\')" (click)="navigate_to(\'hot-surface\')">\n\n            <span svg="cold"></span>\n\n            <h1>Energy</h1>\n\n          </ion-card>\n\n        </ion-col>\n\n        <ion-col card-container col-md-4 col-sm-6 offset-md-4>\n\n          <ion-card [class.disabled]="disabled_for(\'insulation\')" on-tap="navigate_to_report(REPORT.INSULATION.COLD_INSULATION.CONDENSATION, \'Condensation\')">\n\n            <span svg="ice-wet"></span>\n\n            <h1>Condensation</h1>\n\n          </ion-card>\n\n        </ion-col>\n\n        <ion-col card-container col-md-4 col-sm-6 offset-md-4>\n\n          <ion-icon name="information-circle-outline" duration="3000" arrow tooltip="Damaged insulation and/or cladding"\n\n            positionV="top"></ion-icon>\n\n          <ion-card [class.disabled]="disabled_for(\'insulation\')" on-tap="navigate_to_report(REPORT.INSULATION.COLD_INSULATION.DAMAGED, \'Damaged\')">\n\n            <span svg="damaged-insulation"></span>\n\n            <h1>Damaged</h1>\n\n          </ion-card>\n\n        </ion-col>\n\n      </ion-row>\n\n    </ng-container>\n\n\n\n    <ng-container *ngSwitchCase="\'safety\'">\n\n      <ion-row>\n\n        <ion-col card-container col-md-4 col-sm-6 offset-md-4>\n\n          <ion-card [class.disabled]="disabled_for(\'insulation\')" (click)="navigate_to(\'insulation\')">\n\n            <span svg="hot-surface"></span>\n\n            <h1>Hot Surface</h1>\n\n          </ion-card>\n\n        </ion-col>\n\n        <ion-col card-container col-md-4 col-sm-6 offset-md-4>\n\n          <ion-card [class.disabled]="disabled_for(\'safety\')" on-tap="navigate_to_report(REPORT.SAFETY.FIRE_PROTECTION, \'Fire Protect\')">\n\n            <span svg="fire-protection"></span>\n\n            <h1>Fire Protection</h1>\n\n          </ion-card>\n\n        </ion-col>\n\n        <ion-col card-container col-md-4 col-sm-6 offset-md-4>\n\n          <ion-card [class.disabled]="disabled_for(\'safety\')" on-tap="navigate_to_report(REPORT.SAFETY.HOUSEKEEPING, \'Housekeeping\')">\n\n            <span svg="housekeeping"></span>\n\n            <h1>Housekeeping</h1>\n\n          </ion-card>\n\n        </ion-col>\n\n        <ion-col card-container col-md-4 col-sm-6 offset-md-4>\n\n          <ion-card [class.disabled]="disabled_for(\'safety\')" on-tap="navigate_to_report(REPORT.SAFETY.OTHER, \'Others\')">\n\n            <span svg="safety"></span>\n\n            <h1>Other</h1>\n\n          </ion-card>\n\n        </ion-col>\n\n      </ion-row>\n\n      <!-- <ion-row>\n\n        <ion-col  card-container col-md-3 col-sm-6 offset-md-3>\n\n          <ion-card [class.disabled]="disabled_for(\'safety\')" on-tap="navigate_to_report(REPORT.SAFETY.TRAFFIC, \'Traffic\')">\n\n            <span svg="traffic"></span>\n\n            <h1>Traffic</h1>\n\n          </ion-card>\n\n        </ion-col>\n\n        \n\n      </ion-row> -->\n\n    </ng-container>\n\n\n\n    <ng-container *ngSwitchCase="\'maintenance\'">\n\n      <ion-row>\n\n        <ion-col card-container col-md-4 col-sm-6 offset-md-4>\n\n          <ion-icon name="information-circle-outline" duration="3000" arrow tooltip="Damaged insulation and/or cladding"\n\n            positionV="top"></ion-icon>\n\n          <ion-card [class.disabled]="disabled_for(\'maintenance\')" on-tap="navigate_to_report(REPORT.MANTENANCE.DAMAGED, \'Damaged\')">\n\n            <span svg="damage-insulation"></span>\n\n            <h1>Damaged</h1>\n\n          </ion-card>\n\n        </ion-col>\n\n        <ion-col card-container col-md-4 col-sm-6 offset-md-4>\n\n          <ion-card [class.disabled]="disabled_for(\'maintenance\')" on-tap="navigate_to_report(REPORT.MANTENANCE.CONDENSATION, \'Condensation\')">\n\n            <span svg="ice-wet"></span>\n\n            <h1>Condensation</h1>\n\n          </ion-card>\n\n        </ion-col>\n\n        <ion-col card-container col-md-4 col-sm-6 offset-md-4>\n\n          <ion-card [class.disabled]="disabled_for(\'maintenance\')" on-tap="navigate_to_report(REPORT.MANTENANCE.LEAKAGE, \'Leakage\')">\n\n            <span svg="leakage"></span>\n\n            <h1>Leakage</h1>\n\n          </ion-card>\n\n        </ion-col>\n\n        <ion-col card-container col-md-4 col-sm-6 offset-md-4>\n\n          <ion-card [class.disabled]="disabled_for(\'custom\')" on-tap="navigate_to_report(REPORT.CUSTOM, \'Others\')">\n\n            <span svg="maintenance"></span>\n\n            <h1>Others</h1>\n\n          </ion-card>\n\n        </ion-col>\n\n        <!-- <ion-col  card-container col-md-3 col-sm-6 offset-md-2>\n\n          <ion-card [class.disabled]="disabled_for(\'maintenance\')" on-tap="navigate_to_report(REPORT.MANTENANCE.STRUCTURAL, \'Structural\')">\n\n            <span svg="structural"></span>\n\n            <h1>Structural</h1>\n\n          </ion-card>\n\n        </ion-col>\n\n        <ion-col  card-container col-md-3 col-sm-6>\n\n          <ion-card [class.disabled]="disabled_for(\'maintenance\')" on-tap="navigate_to_report(REPORT.MANTENANCE.MECHANICAL, \'Mechanical\')">\n\n            <span svg="mechanical"></span>\n\n            <h1>Mechanical</h1>\n\n          </ion-card>\n\n        </ion-col>\n\n        <ion-col  card-container col-md-3 col-sm-6>\n\n            <ion-card [class.disabled]="disabled_for(\'maintenance\')" on-tap="navigate_to_report(REPORT.MANTENANCE.ELECTRICAL, \'Electrical\')">\n\n            <span svg="electrical"></span>\n\n            <h1>Electrical</h1>\n\n          </ion-card>\n\n        </ion-col> -->\n\n      </ion-row>\n\n    </ng-container>\n\n\n\n    <!-- <ng-container *ngSwitchCase="\'hot-surface\'">\n\n      <ion-row *ngIf="segment.value==0">\n\n        <ion-col card-container offset-md-3 col-md-3 col-sm-6>\n\n          <ion-card [class.disabled]="disabled_for(\'insulation\')" on-tap="navigate_to_report(REPORT.SAFETY.HOT_SURFACE.UNINSULATED_EQUIPMENTS.PIPE, \'Uninsulated pipe\')">\n\n            <span svg="pipe"></span>\n\n            <h1>Pipe</h1>\n\n          </ion-card>\n\n        </ion-col>\n\n        <ion-col card-container col-md-3 col-sm-6>\n\n          <ion-card [class.disabled]="disabled_for(\'insulation\')" on-tap="navigate_to_report(REPORT.SAFETY.HOT_SURFACE.UNINSULATED_EQUIPMENTS.VALVE, \'Uninsulated valve\')">\n\n            <span svg="valve"></span>\n\n            <h1>Valve</h1>\n\n          </ion-card>\n\n        </ion-col>\n\n        <ion-col [class.disabled]="disabled_for(\'insulation\')" card-container offset-md-3 col-md-3 col-sm-6>\n\n          <ion-card [class.disabled]="disabled_for(\'insulation\')" on-tap="navigate_to_report(REPORT.SAFETY.HOT_SURFACE.UNINSULATED_EQUIPMENTS.FLANGE, \'Uninsulated flange\')">\n\n            <span svg="flange"></span>\n\n            <h1>Flange</h1>\n\n          </ion-card>\n\n        </ion-col>\n\n        <ion-col card-container col-md-3 col-sm-6>\n\n          <ion-card [class.disabled]="disabled_for(\'insulation\')" on-tap="navigate_to_report(REPORT.SAFETY.HOT_SURFACE.UNINSULATED_EQUIPMENTS.SURFACE, \'Uninsulated surface\')">\n\n            <span svg="surface"></span>\n\n            <h1>Surface</h1>\n\n          </ion-card>\n\n        </ion-col>\n\n      </ion-row>\n\n\n\n      <ion-row *ngIf="segment.value==1">\n\n        <ion-col card-container col-md-3 col-sm-6 offset-md-2>\n\n          <ion-card [class.disabled]="disabled_for(\'insulation\')" on-tap="navigate_to_report(REPORT.SAFETY.HOT_SURFACE.INSULATED_EQUIPMENTS.PIPE, \'Insulated pipe\')">\n\n            <span svg="pipe-insulation"></span>\n\n            <h1>Pipe</h1>\n\n          </ion-card>\n\n        </ion-col>\n\n        <ion-col card-container col-md-3 col-sm-6>\n\n          <ion-icon name="information-circle-outline" duration="3000" arrow tooltip="Damaged insulation and/or cladding"\n\n            positionV="top"></ion-icon>\n\n          <ion-card [class.disabled]="disabled_for(\'insulation\')" on-tap="navigate_to_report(REPORT.SAFETY.HOT_SURFACE.INSULATED_EQUIPMENTS.DAMAGED, \'Damaged\')">\n\n            <span svg="damaged-insulation"></span>\n\n            <h1>Damaged</h1>\n\n          </ion-card>\n\n        </ion-col>\n\n        <ion-col card-container col-md-3 col-sm-6>\n\n          <ion-card [class.disabled]="disabled_for(\'insulation\')" on-tap="navigate_to_report(REPORT.SAFETY.HOT_SURFACE.INSULATED_EQUIPMENTS.SURFACE, \'Insulated surface\')">\n\n            <span svg="surface"></span>\n\n            <h1>Surface</h1>\n\n          </ion-card>\n\n        </ion-col>\n\n      </ion-row>\n\n\n\n    </ng-container> -->\n\n  </ion-grid>\n\n</ion-content>\n\n\n\n<ion-footer>\n\n  <ion-grid no-padding>\n\n    <ion-row no-padding>\n\n      <ion-col col-4 no-padding>\n\n        <button ion-button small color="light" (click)="go_back()">\n\n          <ion-icon name="arrow-back"></ion-icon>&nbsp;Back\n\n        </button>\n\n      </ion-col>\n\n      <ion-col col-4 text-center>\n\n        <tools></tools>\n\n      </ion-col>\n\n      <ion-col col-4 no-padding text-right *ngIf="!component?.id">\n\n        <button *ngIf="type==\'\'" ion-button small color="royal" on-tap="open_summary()">\n\n          <ion-icon name="grid"></ion-icon>&nbsp;Summary\n\n        </button>\n\n      </ion-col>\n\n    </ion-row>\n\n  </ion-grid>\n\n</ion-footer>\n\n'/*ion-inline-end:"D:\Sofware Factory\tbi\src\pages\reports\reports.html"*/
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2_ionic_angular__["h" /* NavController */],
             __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["i" /* NavParams */],
@@ -4768,7 +4766,7 @@ var ReportsPage = /** @class */ (function (_super) {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ProjectService; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__models__ = __webpack_require__(46);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__models_project_json__ = __webpack_require__(473);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__models_project_json__ = __webpack_require__(472);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__file_service__ = __webpack_require__(54);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__messages_service__ = __webpack_require__(16);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__licences_service__ = __webpack_require__(102);
@@ -4954,7 +4952,7 @@ var FileService = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 588:
+/***/ 587:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -4962,7 +4960,7 @@ var FileService = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(6);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_report_service__ = __webpack_require__(30);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__models_reports_report_generic_class__ = __webpack_require__(308);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__models_reports_report_generic_class__ = __webpack_require__(307);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__models_reports__ = __webpack_require__(21);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__services_messages_service__ = __webpack_require__(16);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__services__ = __webpack_require__(17);
@@ -5034,7 +5032,7 @@ var GenericReportPage = /** @class */ (function (_super) {
 
 /***/ }),
 
-/***/ 589:
+/***/ 588:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -5102,7 +5100,7 @@ var ReportSurfacePage = /** @class */ (function (_super) {
 
 /***/ }),
 
-/***/ 590:
+/***/ 589:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -5140,14 +5138,14 @@ var ReportHeaderComponent = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 591:
+/***/ 590:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ReportAreaButtonComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(6);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__report_area_modal_component__ = __webpack_require__(358);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__report_area_modal_component__ = __webpack_require__(357);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -5203,7 +5201,7 @@ var ReportAreaButtonComponent = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 592:
+/***/ 591:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -5299,7 +5297,7 @@ var ReportMoreButtonComponent = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 593:
+/***/ 592:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -5373,7 +5371,7 @@ var ReportMediumTempButtonsComponent = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 594:
+/***/ 593:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -5382,7 +5380,7 @@ var ReportMediumTempButtonsComponent = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__models_marker__ = __webpack_require__(75);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(6);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__scroll_to_component_class__ = __webpack_require__(173);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__const_patterns__ = __webpack_require__(306);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__const_patterns__ = __webpack_require__(305);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__angular_forms__ = __webpack_require__(18);
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = Object.setPrototypeOf ||
@@ -5484,13 +5482,13 @@ var ReportTempMarkersWindowComponent = /** @class */ (function (_super) {
 
 /***/ }),
 
-/***/ 595:
+/***/ 594:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ReportResultComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__const_images_non_picture__ = __webpack_require__(299);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__const_images_non_picture__ = __webpack_require__(298);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__models_reports__ = __webpack_require__(21);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -5588,7 +5586,7 @@ var ReportResultComponent = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 596:
+/***/ 595:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -5656,7 +5654,7 @@ var ReportValvePage = /** @class */ (function (_super) {
 
 /***/ }),
 
-/***/ 597:
+/***/ 596:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -5724,7 +5722,7 @@ var ReportInsulatedSurfacePage = /** @class */ (function (_super) {
 
 /***/ }),
 
-/***/ 598:
+/***/ 597:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -5733,7 +5731,7 @@ var ReportInsulatedSurfacePage = /** @class */ (function (_super) {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__models_reports__ = __webpack_require__(21);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(6);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__services_report_service__ = __webpack_require__(30);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__models_reports_report_ipipe_class__ = __webpack_require__(303);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__models_reports_report_ipipe_class__ = __webpack_require__(302);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__services_messages_service__ = __webpack_require__(16);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__services__ = __webpack_require__(17);
 var __extends = (this && this.__extends) || (function () {
@@ -5793,7 +5791,7 @@ var ReportInsulatedPipePage = /** @class */ (function (_super) {
 
 /***/ }),
 
-/***/ 599:
+/***/ 598:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -5891,7 +5889,7 @@ var ReportDamagedPage = /** @class */ (function (_super) {
 
 /***/ }),
 
-/***/ 600:
+/***/ 599:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -5969,13 +5967,13 @@ var ReportCondensationPage = /** @class */ (function (_super) {
 
 /***/ }),
 
-/***/ 601:
+/***/ 600:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ReportLeakage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__report_base__ = __webpack_require__(24);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__pages_reports_leakage_report_leakage_component__ = __webpack_require__(359);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__pages_reports_leakage_report_leakage_component__ = __webpack_require__(358);
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = Object.setPrototypeOf ||
         ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
@@ -6006,16 +6004,16 @@ var ReportLeakage = /** @class */ (function (_super) {
 
 /***/ }),
 
-/***/ 602:
+/***/ 601:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MyApp; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(6);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__ = __webpack_require__(362);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__ = __webpack_require__(363);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_init_init__ = __webpack_require__(297);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__ = __webpack_require__(361);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__ = __webpack_require__(362);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_init_init__ = __webpack_require__(296);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -6053,7 +6051,7 @@ var MyApp = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 603:
+/***/ 602:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -6126,7 +6124,7 @@ var ContactPage = /** @class */ (function (_super) {
 
 /***/ }),
 
-/***/ 604:
+/***/ 603:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -6202,7 +6200,7 @@ var ProjectReportsPage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 605:
+/***/ 604:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -6248,7 +6246,7 @@ var ProjectPage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 606:
+/***/ 605:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -6293,12 +6291,12 @@ var PicturesPage = /** @class */ (function () {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return FileDeviceService; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__messages_service__ = __webpack_require__(16);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_file__ = __webpack_require__(366);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_file__ = __webpack_require__(365);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__file_service__ = __webpack_require__(54);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_native_file_chooser__ = __webpack_require__(364);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__ionic_native_file_path__ = __webpack_require__(365);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_native_file_chooser__ = __webpack_require__(363);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__ionic_native_file_path__ = __webpack_require__(364);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__models__ = __webpack_require__(46);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__ionic_native_file_transfer__ = __webpack_require__(367);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__ionic_native_file_transfer__ = __webpack_require__(366);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_jszip__ = __webpack_require__(608);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_jszip___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_8_jszip__);
 var __extends = (this && this.__extends) || (function () {
@@ -6939,7 +6937,7 @@ var SvgInsulationComponent = /** @class */ (function () {
     }
     SvgInsulationComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: '[svg="insulation"]',template:/*ion-inline-start:"D:\Sofware Factory\tbi\src\assets\imgs\insulation.svg"*/'<svg id="insulation" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 506 506"><path d="M204,139" transform="translate(0 -1)" fill="none" stroke="#211915" stroke-miterlimit="10" stroke-width="6"/><path d="M204,139" transform="translate(0 -1)" fill="#fff" stroke="#211915" stroke-miterlimit="10" stroke-width="6"/><path d="M45,299c-17,0-25-31-25-60s8-60,25-60,25,31,25,60S62,299,45,299Zm0-106c-3,2-11,17-11,46s8,44,11,46,11-17,11-46S48,195,45,193Z" transform="translate(0 -1)" fill="#211915"/><path d="M305,265" transform="translate(0 -1)" fill="none" stroke="#211915" stroke-miterlimit="10" stroke-width="6"/><path d="M257,184" transform="translate(0 -1)" fill="none" stroke="#211915" stroke-miterlimit="10" stroke-width="6"/><path d="M472,132H409c-21-42-53-66-88-66H201c-35,0-67,24-88,66H43C15,135,0,188,0,238S16,343,45,343h68c21,41,52,65,87,65H321c36,0,67-25,88-64h61s36-22,36-107S473,133,472,132ZM321,81c31,0,59,23,78,62H295c-13-28-31-49-50-62h77Zm80,76-20,21-112,4,25-25H401ZM202,81c33,0,63,25,81,68l-24,23c-13-25-34-40-57-40H129C147,99,172,81,202,81ZM12,239c0-57,20-92,33-92s30,35,30,92-18,89-30,89S12,296,12,239ZM129,343h73c29,0,55-26,65-66l30-3c-11,70-50,121-96,121C174,394,148,376,129,343Zm192,51H246c33-22,58-66,65-122l105-2C407,341,367,394,321,394Zm145-64H416a229,229,0,0,0,16-67v-8l-120,3-58,6v5c-8,36-30,60-53,60H68c15-19,22-56,22-92s-8-73-23-92H202c20,0,38,15,48,40l4,10,133-4,33-35h0l-4-10h50c5,5,26,22,26,92S471,327,466,330Z" transform="translate(0 -1)" fill="#211915"/></svg>\n'/*ion-inline-end:"D:\Sofware Factory\tbi\src\assets\imgs\insulation.svg"*/
+            selector: '[svg="insulation"]',template:/*ion-inline-start:"D:\Sofware Factory\tbi\src\assets\imgs\insulation.svg"*/'<svg version="1.1" id="insulation" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"\n\n	 viewBox="0 0 506 506" style="enable-background:new 0 0 506 506;" xml:space="preserve">\n\n<path d="M45,298c-17,0-25-31-25-60s8-60,25-60s25,31,25,60S62,298,45,298z M45,192c-3,2-11,17-11,46s8,44,11,46\n\n	s11-17,11-46S48,194,45,192z"/>\n\n<path d="M472,131h-63c-21-42-53-66-88-66H201c-35,0-67,24-88,66H43c-28,3-43,56-43,106s16,105,45,105h68\n\n	c21,41,52,65,87,65h121c36,0,67-25,88-64h61c0,0,36-22,36-107S473,132,472,131z M321,80c31,0,59,23,78,62H295c-13-28-31-49-50-62h77\n\n	H321z M401,156l-20,21l-112,4l25-25H401z M202,80c33,0,63,25,81,68l-24,23c-13-25-34-40-57-40h-73C147,98,172,80,202,80z M12,238\n\n	c0-57,20-92,33-92s30,35,30,92s-18,89-30,89S12,295,12,238z M129,342h73c29,0,55-26,65-66l30-3c-11,70-50,121-96,121\n\n	C174,393,148,375,129,342z M321,393h-75c33-22,58-66,65-122l105-2C407,340,367,393,321,393z M466,329h-50c8.7-21.4,14.1-44,16-67v-8\n\n	l-120,3l-58,6v5c-8,36-30,60-53,60H68c15-19,22-56,22-92s-8-73-23-92h135c20,0,38,15,48,40l4,10l133-4l33-35l0,0l-4-10h50\n\n	c5,5,26,22,26,92S471,326,466,329z"/>\n\n</svg>\n\n'/*ion-inline-end:"D:\Sofware Factory\tbi\src\assets\imgs\insulation.svg"*/
         })
     ], SvgInsulationComponent);
     return SvgInsulationComponent;
@@ -7939,9 +7937,8 @@ var SurfaceMaterialPipe = /** @class */ (function () {
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ToolsComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__ionic_native_flashlight__ = __webpack_require__(398);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__ionic_native_flashlight__ = __webpack_require__(397);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services__ = __webpack_require__(17);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_web_intent__ = __webpack_require__(195);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -7954,25 +7951,24 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-
 var ToolsComponent = /** @class */ (function () {
-    function ToolsComponent(flashlight, message, webIntent) {
+    function ToolsComponent(flashlight, message) {
         this.flashlight = flashlight;
         this.message = message;
-        this.webIntent = webIntent;
-        this.apps = [];
+        this.calc_path = '';
+        this.external_app = window.startApp;
     }
     ToolsComponent.prototype.ngOnInit = function () {
         var _this = this;
         this.flashlight_on = this.flashlight.isSwitchedOn();
-        window.plugins.packagemanager.show(true, function (apps) {
-            _this.apps = apps.map(function (a) { return a.split(';')[1]; });
-        }, function (e) {
-            _this.message.alert('Error', e.message);
-        });
+        if (!!window.plugins) {
+            window.plugins.packagemanager.show(true, function (apps) {
+                var calc = apps.find((function (a) { return !!a.match(/calc/g); })).split('/');
+                _this.calc_path = calc[calc.length - 1].split(';')[1];
+            });
+        }
     };
     ToolsComponent.prototype.toggle_light = function () {
-        //this.message.alert('Flash', `${this.flashlight.isSwitchedOn()}`)
         if (!this.flashlight.isSwitchedOn()) {
             this.flashlight.switchOn();
             this.flashlight_on = true;
@@ -7983,26 +7979,17 @@ var ToolsComponent = /** @class */ (function () {
         }
     };
     ToolsComponent.prototype.open_calculator = function () {
-        var _this = this;
-        var options = {
-            action: this.webIntent.ACTION_VIEW,
-            url: this.apps.find(function (p) { return !!p.match(/calc/g); }),
-            type: 'application/vnd.android.package-archive'
-        };
-        this.webIntent.startActivity(options).then(function () {
-            _this.message.alert('Ok', _this.apps.find(function (p) { return !!p.match(/calc/g); }));
-        }, function (err) {
-            _this.message.alert('Error', err.message);
-        });
+        this.external_app.set({ "application": this.calc_path }).start();
     };
     ToolsComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'tools',template:/*ion-inline-start:"D:\Sofware Factory\tbi\src\components\tools\tools.component.html"*/'  <button ion-button small icon-only color="light" (click)="open_calculator()">\n\n    <ion-icon name="ios-calculator"></ion-icon>\n\n  </button>\n\n  <button ion-button small icon-only color="light" (click)="toggle_light()">\n\n    <ion-icon name="ios-sunny" [class.button-on]="flashlight"></ion-icon>\n\n  </button>'/*ion-inline-end:"D:\Sofware Factory\tbi\src\components\tools\tools.component.html"*/,
+            selector: 'tools',template:/*ion-inline-start:"D:\Sofware Factory\tbi\src\components\tools\tools.component.html"*/'  <button ion-button small icon-only color="light" (click)="open_calculator()">\n\n    <ion-icon name="ios-calculator"></ion-icon>\n\n  </button>\n\n  <button ion-button small icon-only color="light" [class.pushed]="flashlight_on" (click)="toggle_light()">\n\n    <ion-icon name="ios-sunny"></ion-icon>\n\n  </button>'/*ion-inline-end:"D:\Sofware Factory\tbi\src\components\tools\tools.component.html"*/,
             encapsulation: __WEBPACK_IMPORTED_MODULE_0__angular_core__["_11" /* ViewEncapsulation */].None
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__ionic_native_flashlight__["a" /* Flashlight */], __WEBPACK_IMPORTED_MODULE_2__services__["b" /* MessageService */], __WEBPACK_IMPORTED_MODULE_3__ionic_native_web_intent__["a" /* WebIntent */]])
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__ionic_native_flashlight__["a" /* Flashlight */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__ionic_native_flashlight__["a" /* Flashlight */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__services__["b" /* MessageService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__services__["b" /* MessageService */]) === "function" && _b || Object])
     ], ToolsComponent);
     return ToolsComponent;
+    var _a, _b;
 }());
 
 //# sourceMappingURL=tools.component.js.map
@@ -8069,14 +8056,14 @@ var GlobalErrorHandler = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ionic_angular__ = __webpack_require__(6);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__project_page_base__ = __webpack_require__(172);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__edit__ = __webpack_require__(300);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__edit__ = __webpack_require__(299);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__ionic_native_screen_orientation__ = __webpack_require__(178);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__reports__ = __webpack_require__(20);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__ionic_native_unique_device_id__ = __webpack_require__(360);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__ionic_native_unique_device_id__ = __webpack_require__(359);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__services_licences_service__ = __webpack_require__(102);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__download_download__ = __webpack_require__(361);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__download_download__ = __webpack_require__(360);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__summary_summary__ = __webpack_require__(180);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__ionic_native_web_intent__ = __webpack_require__(195);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__models_component__ = __webpack_require__(101);
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = Object.setPrototypeOf ||
         ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
@@ -8111,7 +8098,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 var ProjectsPage = /** @class */ (function (_super) {
     __extends(ProjectsPage, _super);
-    function ProjectsPage(navCtrl, navParams, service, platform, alertCtrl, actionSheetCtrl, orientation, licences, uuid, keyboard, webIntent) {
+    function ProjectsPage(navCtrl, navParams, service, platform, alertCtrl, actionSheetCtrl, orientation, licences, uuid, keyboard) {
         var _this = _super.call(this, alertCtrl, service, keyboard) || this;
         _this.navCtrl = navCtrl;
         _this.navParams = navParams;
@@ -8121,20 +8108,12 @@ var ProjectsPage = /** @class */ (function (_super) {
         _this.actionSheetCtrl = actionSheetCtrl;
         _this.licences = licences;
         _this.keyboard = keyboard;
-        _this.webIntent = webIntent;
         _this.projects = [];
         _this.edit_mode = false;
         _this.orientation = "";
         _this.user_name = '';
         _this.top_categories = [];
         _this.apps = [];
-        window.plugins.packagemanager.show(true, function (apps) {
-            _this.apps = apps.filter((function (a) { return !!a.match(/calc/g); }))
-                .map(function (a) {
-                var s = a.split('/');
-                return s[s.length - 1].split(';')[1];
-            });
-        });
         uuid.get()
             .then(function (uuid) { return console.log(uuid); })
             .catch(function (error) { return console.log(error); });
@@ -8145,16 +8124,20 @@ var ProjectsPage = /** @class */ (function (_super) {
             _this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_11__summary_summary__["a" /* SummaryPage */], { project: navParams.get('project') }, { animate: true, direction: 'backward' });
         return _this;
     }
-    ProjectsPage.prototype.open_link = function (link) {
-        var options = {
-            action: this.webIntent.ACTION_VIEW,
-            url: "file:///" + link,
-            type: 'application/vnd.android.package-archive'
-        };
-        this.webIntent.startActivity(options).then(function () {
-        }, function (err) {
-            throw err;
+    ProjectsPage.prototype.duplicate = function (project) {
+        var _this = this;
+        var new_project = new __WEBPACK_IMPORTED_MODULE_0__models_project__["b" /* Project */](project);
+        new_project.id = '';
+        new_project.name = project.name + " Copy";
+        new_project.date = new Date();
+        new_project.components = new_project.components.map(function (c) {
+            var new_component = new __WEBPACK_IMPORTED_MODULE_12__models_component__["a" /* TbiComponent */](new_project, c);
+            new_component.id = '';
+            new_component.date = new_project.date;
+            new_component.fields.location = c.fields.location + " Copy";
+            return new_component;
         });
+        this.service.save(new_project).then(function () { return _this.load(); });
     };
     ProjectsPage.prototype.open_report = function (project) {
         if (this.licences.lock) {
@@ -8310,21 +8293,12 @@ var ProjectsPage = /** @class */ (function (_super) {
     };
     ProjectsPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_2__angular_core__["m" /* Component */])({
-            selector: 'page-project',template:/*ion-inline-start:"D:\Sofware Factory\tbi\src\pages\projects\projects.html"*/'<ion-header>\n\n  <ion-toolbar>\n\n    <ion-title></ion-title>\n\n  </ion-toolbar>\n\n</ion-header>\n\n\n\n<ion-content>\n\n  <ion-grid projects>\n\n    <ion-row>\n\n      <ion-col col-xs-3 col-sm-2>\n\n      </ion-col>\n\n      <ion-col col-xs-9 col-sm-10>\n\n        <ion-row no-margin no-padding>\n\n          <ion-col col-12>\n\n          </ion-col>\n\n        </ion-row>\n\n        <ion-row no-margin no-padding>\n\n          <ion-col col-8>\n\n          </ion-col>\n\n          <ion-col svg="insulation" col-sm-1 class="flex bg-gray">\n\n          </ion-col>\n\n          <ion-col svg="safety" col-sm-1 class="flex">\n\n          </ion-col>\n\n          <ion-col svg="maintenance" col-sm-1 class="flex bg-gray">\n\n          </ion-col>\n\n          <ion-col svg="custom" col-sm-1 class="flex">\n\n          </ion-col>\n\n        </ion-row>\n\n      </ion-col>\n\n    </ion-row>\n\n    <ion-row *ngFor="let p of projects">\n\n        <ion-col col-xs-3 col-sm-2 id="project-{{p.id}}" (click)="open_report(p)">\n\n          <img [src]="p.picture">\n\n        </ion-col>\n\n        <ion-col col-xs-9 col-sm-10 (click)="open_report(p)">\n\n          <ion-row no-margin no-padding>\n\n            <ion-col col-12>\n\n              <h1 no-margin>{{p.name}}</h1>\n\n            </ion-col>\n\n          </ion-row>\n\n          <ion-row no-margin no-padding>\n\n            <ion-col col-8>\n\n              <ion-row>\n\n                <h5 col-12 no-margin>Project Leader: {{p.people.leader.name || \'(none)\'}}</h5>\n\n                <h5 col-12 no-margin>Energy Manager: {{p.people.energy_manager.name || \'(none)\'}}</h5>\n\n              </ion-row>\n\n            </ion-col>\n\n            <ion-col col-md-1 class="flex bg-gray">\n\n              <h4 no-margin>{{get_by_type(p, \'pipe|surface|flange|valve\').length}}</h4>\n\n            </ion-col>\n\n            <ion-col col-md-1 class="flex">\n\n              <h4 no-margin>{{get_by_type(p, \'safety\').length}}</h4>\n\n            </ion-col>\n\n            <ion-col col-md-1 class="flex bg-gray">\n\n              <h4 no-margin>{{get_by_type(p, \'mantenance\').length}}</h4>\n\n            </ion-col>\n\n            <ion-col col-md-1 class="flex">\n\n              <h4 no-margin>{{get_by_type(p, \'custom\').length}}</h4>\n\n            </ion-col>\n\n          </ion-row>\n\n          <ion-row>\n\n            <ion-col col-12 text-right>\n\n              <button ion-button small pull-right (click)="navigate_to_edit(p, $event)">\n\n                <ion-icon name="create"></ion-icon>Edit\n\n              </button>\n\n              <button ion-button small pull-right color="danger" (click)="this.delete_project(p, $event)">\n\n                <ion-icon name="trash"></ion-icon>Delete\n\n              </button>\n\n            </ion-col>\n\n          </ion-row>\n\n          <!-- <ion-row no-margin no-padding>\n\n            <ion-col col-12>\n\n              <p no-margin>{{p.desc}}</p>\n\n            </ion-col>\n\n          </ion-row> -->\n\n        </ion-col>\n\n    </ion-row>\n\n  </ion-grid>\n\n\n\n  <ul>\n\n    <li *ngFor="let app of apps" on-tap="open_link(app)">\n\n      {{app}}\n\n    </li>\n\n  </ul>\n\n\n\n  <div license-alert *ngIf="licences.type==\'BASIC\'" col-6 offset-3>\n\n    <ion-grid no-padding>\n\n      <ion-row no-padding>\n\n        <ion-col col-12 no-padding>\n\n          La versión BASIC solo le permite crear 5 componentes, contrate la versión PRO o ENTERPRISE y disfrute de todas sus ventajas.\n\n        </ion-col>\n\n        <ion-col col-4 offset-8 text-right>\n\n          <button ion-button small round color="light" outline>Upgrade NOW</button>\n\n        </ion-col>\n\n      </ion-row>\n\n    </ion-grid>\n\n  </div>\n\n</ion-content>\n\n\n\n<ion-footer>\n\n  <ion-grid>\n\n    <ion-row>\n\n      <ion-col col-4 text-left>\n\n        <button ion-button small color="light" (click)="create_db()">\n\n          <ion-icon name="md-archive"></ion-icon>Download data\n\n        </button>\n\n      </ion-col>\n\n      <ion-col col-4 text-center>\n\n        <tools></tools>\n\n      </ion-col>\n\n      <ion-col col-4 text-right>\n\n        <button ion-button small color="royal" (click)="create()">\n\n          New project\n\n        </button>\n\n      </ion-col>\n\n    </ion-row>\n\n  </ion-grid>\n\n</ion-footer>\n\n'/*ion-inline-end:"D:\Sofware Factory\tbi\src\pages\projects\projects.html"*/
+            selector: 'page-project',template:/*ion-inline-start:"D:\Sofware Factory\tbi\src\pages\projects\projects.html"*/'<ion-header>\n\n  <ion-toolbar>\n\n    <ion-title></ion-title>\n\n  </ion-toolbar>\n\n</ion-header>\n\n\n\n<ion-content>\n\n  <ion-grid projects>\n\n    <ion-row>\n\n      <ion-col col-xs-3 col-sm-2>\n\n      </ion-col>\n\n      <ion-col col-xs-9 col-sm-10>\n\n        <ion-row no-margin no-padding>\n\n          <ion-col col-12>\n\n          </ion-col>\n\n        </ion-row>\n\n        <ion-row no-margin no-padding>\n\n          <ion-col col-8>\n\n          </ion-col>\n\n          <ion-col svg="insulation" col-sm-1 class="flex bg-gray">\n\n          </ion-col>\n\n          <ion-col svg="safety" col-sm-1 class="flex">\n\n          </ion-col>\n\n          <ion-col svg="maintenance" col-sm-1 class="flex bg-gray">\n\n          </ion-col>\n\n          <ion-col svg="custom" col-sm-1 class="flex">\n\n          </ion-col>\n\n        </ion-row>\n\n      </ion-col>\n\n    </ion-row>\n\n    <ion-row *ngFor="let p of projects">\n\n      <ion-col col-xs-3 col-sm-2 id="project-{{p.id}}" (click)="open_report(p)">\n\n        <img [src]="p.picture">\n\n      </ion-col>\n\n      <ion-col col-xs-9 col-sm-10 (click)="open_report(p)">\n\n        <ion-row no-margin no-padding>\n\n          <ion-col col-12>\n\n            <h1 no-margin>{{p.name}}</h1>\n\n          </ion-col>\n\n        </ion-row>\n\n        <ion-row no-margin no-padding>\n\n          <ion-col col-8>\n\n            <ion-row>\n\n              <h5 col-12 no-margin>Project Leader: {{p.people.leader.name || \'(none)\'}}</h5>\n\n              <!-- <h5 col-12 no-margin>Energy Manager: {{p.people.energy_manager.name || \'(none)\'}}</h5> -->\n\n            </ion-row>\n\n          </ion-col>\n\n          <ion-col col-md-1 class="flex bg-gray">\n\n            <h4 no-margin>{{get_by_type(p, \'pipe|surface|flange|valve\').length}}</h4>\n\n          </ion-col>\n\n          <ion-col col-md-1 class="flex">\n\n            <h4 no-margin>{{get_by_type(p, \'safety\').length}}</h4>\n\n          </ion-col>\n\n          <ion-col col-md-1 class="flex bg-gray">\n\n            <h4 no-margin>{{get_by_type(p, \'mantenance\').length}}</h4>\n\n          </ion-col>\n\n          <ion-col col-md-1 class="flex">\n\n            <h4 no-margin>{{get_by_type(p, \'custom\').length}}</h4>\n\n          </ion-col>\n\n        </ion-row>\n\n        <ion-row>\n\n          <ion-col col-12 text-right>\n\n            <button ion-button small pull-right color="royal" (click)="duplicate(p, $event)">\n\n              <ion-icon name="ios-copy"></ion-icon>Duplicate\n\n            </button>\n\n            <button ion-button small pull-right (click)="navigate_to_edit(p, $event)">\n\n              <ion-icon name="create"></ion-icon>Edit\n\n            </button>\n\n            <button ion-button small pull-right color="danger" (click)="this.delete_project(p, $event)">\n\n              <ion-icon name="trash"></ion-icon>Delete\n\n            </button>\n\n          </ion-col>\n\n        </ion-row>\n\n        <!-- <ion-row no-margin no-padding>\n\n            <ion-col col-12>\n\n              <p no-margin>{{p.desc}}</p>\n\n            </ion-col>\n\n          </ion-row> -->\n\n      </ion-col>\n\n    </ion-row>\n\n  </ion-grid>\n\n\n\n  <div license-alert *ngIf="licences.type==\'BASIC\'" col-6 offset-3>\n\n    <ion-grid no-padding>\n\n      <ion-row no-padding>\n\n        <ion-col col-12 no-padding>\n\n          La versión BASIC solo le permite crear 5 componentes, contrate la versión PRO o ENTERPRISE y disfrute de\n\n          todas sus ventajas.\n\n        </ion-col>\n\n        <ion-col col-4 offset-8 text-right>\n\n          <button ion-button small round color="light" outline>Upgrade NOW</button>\n\n        </ion-col>\n\n      </ion-row>\n\n    </ion-grid>\n\n  </div>\n\n</ion-content>\n\n\n\n<ion-footer>\n\n  <ion-grid>\n\n    <ion-row>\n\n      <ion-col col-4 text-left>\n\n        <button ion-button small color="light" (click)="create_db()">\n\n          <ion-icon name="md-archive"></ion-icon>Download data\n\n        </button>\n\n      </ion-col>\n\n      <ion-col col-4 text-center>\n\n        <tools></tools>\n\n      </ion-col>\n\n      <ion-col col-4 text-right>\n\n        <button ion-button small color="royal" (click)="create()">\n\n          New project\n\n        </button>\n\n      </ion-col>\n\n    </ion-row>\n\n  </ion-grid>\n\n</ion-footer>\n\n'/*ion-inline-end:"D:\Sofware Factory\tbi\src\pages\projects\projects.html"*/
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_3_ionic_angular__["h" /* NavController */],
-            __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["i" /* NavParams */],
-            __WEBPACK_IMPORTED_MODULE_1__services_project_service__["a" /* ProjectService */],
-            __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["j" /* Platform */],
-            __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["b" /* AlertController */],
-            __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["a" /* ActionSheetController */],
-            __WEBPACK_IMPORTED_MODULE_6__ionic_native_screen_orientation__["a" /* ScreenOrientation */],
-            __WEBPACK_IMPORTED_MODULE_9__services_licences_service__["a" /* LicencesService */],
-            __WEBPACK_IMPORTED_MODULE_8__ionic_native_unique_device_id__["a" /* UniqueDeviceID */],
-            __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["f" /* Keyboard */],
-            __WEBPACK_IMPORTED_MODULE_12__ionic_native_web_intent__["a" /* WebIntent */]])
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["h" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["h" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["i" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["i" /* NavParams */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1__services_project_service__["a" /* ProjectService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__services_project_service__["a" /* ProjectService */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["j" /* Platform */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["j" /* Platform */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["b" /* AlertController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["b" /* AlertController */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["a" /* ActionSheetController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["a" /* ActionSheetController */]) === "function" && _f || Object, typeof (_g = typeof __WEBPACK_IMPORTED_MODULE_6__ionic_native_screen_orientation__["a" /* ScreenOrientation */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_6__ionic_native_screen_orientation__["a" /* ScreenOrientation */]) === "function" && _g || Object, typeof (_h = typeof __WEBPACK_IMPORTED_MODULE_9__services_licences_service__["a" /* LicencesService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_9__services_licences_service__["a" /* LicencesService */]) === "function" && _h || Object, typeof (_j = typeof __WEBPACK_IMPORTED_MODULE_8__ionic_native_unique_device_id__["a" /* UniqueDeviceID */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_8__ionic_native_unique_device_id__["a" /* UniqueDeviceID */]) === "function" && _j || Object, typeof (_k = typeof __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["f" /* Keyboard */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["f" /* Keyboard */]) === "function" && _k || Object])
     ], ProjectsPage);
     return ProjectsPage;
+    var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k;
 }(__WEBPACK_IMPORTED_MODULE_4__project_page_base__["a" /* ProjectPageBase */]));
 
 //# sourceMappingURL=projects.js.map
@@ -8444,5 +8418,5 @@ var Result = /** @class */ (function () {
 
 /***/ })
 
-},[399]);
+},[398]);
 //# sourceMappingURL=main.js.map

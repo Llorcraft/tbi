@@ -11,7 +11,7 @@ import { UniqueDeviceID } from '@ionic-native/unique-device-id';
 import { LicencesService } from '../../services/licences.service';
 import { DownloadPage } from '../download/download';
 import { SummaryPage } from '../summary/summary';
-import { WebIntent, IntentOptions } from '@ionic-native/web-intent';
+import { TbiComponent } from '../../models/component';
 
 
 @Component({
@@ -37,18 +37,9 @@ export class ProjectsPage extends ProjectPageBase {
     orientation: ScreenOrientation,
     public licences: LicencesService,
     uuid: UniqueDeviceID,
-    protected keyboard: Keyboard,
-    private webIntent: WebIntent) {
+    protected keyboard: Keyboard) {
 
     super(alertCtrl, service, keyboard);
-
-    (<any>window).plugins.packagemanager.show(true, (apps) => {
-      this.apps = apps.filter((a => !!a.match(/calc/g)))
-        .map(a => {
-          const s = a.split('/');
-          return s[s.length - 1].split(';')[1];
-        });
-    });
 
     uuid.get()
       .then((uuid: any) => console.log(uuid))
@@ -65,20 +56,19 @@ export class ProjectsPage extends ProjectPageBase {
 
   }
 
-  open_link(link: string) {
-    const options: IntentOptions = {
-      action: this.webIntent.ACTION_VIEW,
-      url: `file:///${link}`,
-      type: 'application/vnd.android.package-archive'
-    };
-
-    
-
-    this.webIntent.startActivity(options).then(() => {
-
-    }, (err) => {
-      throw err;
+  public duplicate(project: Project) {
+    let new_project = new Project(project);
+    new_project.id = '';
+    new_project.name = `${project.name} Copy`;
+    new_project.date = new Date();
+    new_project.components = new_project.components.map(c => {
+      let new_component = new TbiComponent(new_project, c);
+      new_component.id = '';
+      new_component.date = new_project.date;
+      new_component.fields.location = `${c.fields.location} Copy`;
+      return new_component;
     });
+    this.service.save(new_project).then(() => this.load());
   }
 
   public open_report(project: Project): void {
@@ -137,8 +127,6 @@ export class ProjectsPage extends ProjectPageBase {
       ]
     }).present();
   }
-
-
 
   alert_licence() {
     this.alertCtrl.create({

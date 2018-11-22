@@ -29,65 +29,63 @@
       </ion-col>
     </ion-row>
     <ion-row *ngFor="let p of projects">
-        <ion-col col-xs-3 col-sm-2 id="project-{{p.id}}" (click)="open_report(p)">
-          <img [src]="p.picture">
-        </ion-col>
-        <ion-col col-xs-9 col-sm-10 (click)="open_report(p)">
-          <ion-row no-margin no-padding>
-            <ion-col col-12>
-              <h1 no-margin>{{p.name}}</h1>
-            </ion-col>
-          </ion-row>
-          <ion-row no-margin no-padding>
-            <ion-col col-8>
-              <ion-row>
-                <h5 col-12 no-margin>Project Leader: {{p.people.leader.name || '(none)'}}</h5>
-                <h5 col-12 no-margin>Energy Manager: {{p.people.energy_manager.name || '(none)'}}</h5>
-              </ion-row>
-            </ion-col>
-            <ion-col col-md-1 class="flex bg-gray">
-              <h4 no-margin>{{get_by_type(p, 'pipe|surface|flange|valve').length}}</h4>
-            </ion-col>
-            <ion-col col-md-1 class="flex">
-              <h4 no-margin>{{get_by_type(p, 'safety').length}}</h4>
-            </ion-col>
-            <ion-col col-md-1 class="flex bg-gray">
-              <h4 no-margin>{{get_by_type(p, 'mantenance').length}}</h4>
-            </ion-col>
-            <ion-col col-md-1 class="flex">
-              <h4 no-margin>{{get_by_type(p, 'custom').length}}</h4>
-            </ion-col>
-          </ion-row>
-          <ion-row>
-            <ion-col col-12 text-right>
-              <button ion-button small pull-right (click)="navigate_to_edit(p, $event)">
-                <ion-icon name="create"></ion-icon>Edit
-              </button>
-              <button ion-button small pull-right color="danger" (click)="this.delete_project(p, $event)">
-                <ion-icon name="trash"></ion-icon>Delete
-              </button>
-            </ion-col>
-          </ion-row>
-          <!-- <ion-row no-margin no-padding>
+      <ion-col col-xs-3 col-sm-2 id="project-{{p.id}}" (click)="open_report(p)">
+        <img [src]="p.picture">
+      </ion-col>
+      <ion-col col-xs-9 col-sm-10 (click)="open_report(p)">
+        <ion-row no-margin no-padding>
+          <ion-col col-12>
+            <h1 no-margin>{{p.name}}</h1>
+          </ion-col>
+        </ion-row>
+        <ion-row no-margin no-padding>
+          <ion-col col-8>
+            <ion-row>
+              <h5 col-12 no-margin>Project Leader: {{p.people.leader.name || '(none)'}}</h5>
+              <!-- <h5 col-12 no-margin>Energy Manager: {{p.people.energy_manager.name || '(none)'}}</h5> -->
+            </ion-row>
+          </ion-col>
+          <ion-col col-md-1 class="flex bg-gray">
+            <h4 no-margin>{{get_by_type(p, 'pipe|surface|flange|valve').length}}</h4>
+          </ion-col>
+          <ion-col col-md-1 class="flex">
+            <h4 no-margin>{{get_by_type(p, 'safety').length}}</h4>
+          </ion-col>
+          <ion-col col-md-1 class="flex bg-gray">
+            <h4 no-margin>{{get_by_type(p, 'mantenance').length}}</h4>
+          </ion-col>
+          <ion-col col-md-1 class="flex">
+            <h4 no-margin>{{get_by_type(p, 'custom').length}}</h4>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col col-12 text-right>
+            <button ion-button small pull-right color="royal" (click)="duplicate(p, $event)">
+              <ion-icon name="ios-copy"></ion-icon>Duplicate
+            </button>
+            <button ion-button small pull-right (click)="navigate_to_edit(p, $event)">
+              <ion-icon name="create"></ion-icon>Edit
+            </button>
+            <button ion-button small pull-right color="danger" (click)="this.delete_project(p, $event)">
+              <ion-icon name="trash"></ion-icon>Delete
+            </button>
+          </ion-col>
+        </ion-row>
+        <!-- <ion-row no-margin no-padding>
             <ion-col col-12>
               <p no-margin>{{p.desc}}</p>
             </ion-col>
           </ion-row> -->
-        </ion-col>
+      </ion-col>
     </ion-row>
   </ion-grid>
-
-  <ul>
-    <li *ngFor="let app of apps" on-tap="open_link(app)">
-      {{app}}
-    </li>
-  </ul>
 
   <div license-alert *ngIf="licences.type=='BASIC'" col-6 offset-3>
     <ion-grid no-padding>
       <ion-row no-padding>
         <ion-col col-12 no-padding>
-          La versión BASIC solo le permite crear 5 componentes, contrate la versión PRO o ENTERPRISE y disfrute de todas sus ventajas.
+          La versión BASIC solo le permite crear 5 componentes, contrate la versión PRO o ENTERPRISE y disfrute de
+          todas sus ventajas.
         </ion-col>
         <ion-col col-4 offset-8 text-right>
           <button ion-button small round color="light" outline>Upgrade NOW</button>

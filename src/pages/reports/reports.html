@@ -207,7 +207,7 @@
         </ion-col>
         <ion-col card-container col-md-4 col-sm-6 offset-md-4>
           <ion-card [class.disabled]="disabled_for('custom')" on-tap="navigate_to_report(REPORT.CUSTOM, 'Others')">
-            <span svg="safety"></span>
+            <span svg="maintenance"></span>
             <h1>Others</h1>
           </ion-card>
         </ion-col>
@@ -290,12 +290,15 @@
 <ion-footer>
   <ion-grid no-padding>
     <ion-row no-padding>
-      <ion-col col-6 no-padding>
+      <ion-col col-4 no-padding>
         <button ion-button small color="light" (click)="go_back()">
           <ion-icon name="arrow-back"></ion-icon>&nbsp;Back
         </button>
       </ion-col>
-      <ion-col col-6 no-padding text-right *ngIf="!component?.id">
+      <ion-col col-4 text-center>
+        <tools></tools>
+      </ion-col>
+      <ion-col col-4 no-padding text-right *ngIf="!component?.id">
         <button *ngIf="type==''" ion-button small color="royal" on-tap="open_summary()">
           <ion-icon name="grid"></ion-icon>&nbsp;Summary
         </button>
