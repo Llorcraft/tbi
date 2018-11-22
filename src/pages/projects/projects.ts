@@ -11,6 +11,7 @@ import { UniqueDeviceID } from '@ionic-native/unique-device-id';
 import { LicencesService } from '../../services/licences.service';
 import { DownloadPage } from '../download/download';
 import { SummaryPage } from '../summary/summary';
+import { WebIntent, IntentOptions } from '@ionic-native/web-intent';
 
 
 @Component({
@@ -24,6 +25,7 @@ export class ProjectsPage extends ProjectPageBase {
   public orientation: string = "";
   public user_name = '';
   public top_categories: ReportCategory[] = [];
+  public apps: any[] = [];
 
   constructor(
     public navCtrl: NavController,
@@ -35,13 +37,18 @@ export class ProjectsPage extends ProjectPageBase {
     orientation: ScreenOrientation,
     public licences: LicencesService,
     uuid: UniqueDeviceID,
-    protected keyboard: Keyboard) {
+    protected keyboard: Keyboard,
+    private webIntent: WebIntent) {
 
     super(alertCtrl, service, keyboard);
-    
-    // if (!!navParams.get('project')) {
-    //   this.open_report(navParams.get('project'));
-    // }
+
+    (<any>window).plugins.packagemanager.show(true, (apps) => {
+      this.apps = apps.filter((a => !!a.match(/calc/g)))
+        .map(a => {
+          const s = a.split('/');
+          return s[s.length - 1].split(';')[1];
+        });
+    });
 
     uuid.get()
       .then((uuid: any) => console.log(uuid))
@@ -54,8 +61,24 @@ export class ProjectsPage extends ProjectPageBase {
     );
 
     if (!!navParams.get('summary'))
-    this.navCtrl.setRoot(SummaryPage, { project: navParams.get('project') }, { animate: true, direction: 'backward' });
+      this.navCtrl.setRoot(SummaryPage, { project: navParams.get('project') }, { animate: true, direction: 'backward' });
 
+  }
+
+  open_link(link: string) {
+    const options: IntentOptions = {
+      action: this.webIntent.ACTION_VIEW,
+      url: `file:///${link}`,
+      type: 'application/vnd.android.package-archive'
+    };
+
+    
+
+    this.webIntent.startActivity(options).then(() => {
+
+    }, (err) => {
+      throw err;
+    });
   }
 
   public open_report(project: Project): void {

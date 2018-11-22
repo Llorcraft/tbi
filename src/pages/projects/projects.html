@@ -77,6 +77,12 @@
     </ion-row>
   </ion-grid>
 
+  <ul>
+    <li *ngFor="let app of apps" on-tap="open_link(app)">
+      {{app}}
+    </li>
+  </ul>
+
   <div license-alert *ngIf="licences.type=='BASIC'" col-6 offset-3>
     <ion-grid no-padding>
       <ion-row no-padding>

@@ -105,5 +105,7 @@
     <plugin name="cordova-plugin-file-transfer" spec="^1.7.1" />
     <plugin name="cordova-plugin-ionic-keyboard" spec="^2.1.2" />
     <plugin name="cordova-plugin-flashlight" spec="^3.2.0" />
+    <plugin name="com-darryncampbell-cordova-plugin-intent" spec="^1.1.1" />
+    <plugin name="cordova-plugin-packagemanager" spec="^0.1.7" />
     <engine name="android" spec="7.0.0" />
 </widget>

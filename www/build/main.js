@@ -6,7 +6,7 @@ webpackJsonp([0],{
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Picture; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__marker__ = __webpack_require__(75);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__model_with_picture__ = __webpack_require__(297);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__model_with_picture__ = __webpack_require__(298);
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = Object.setPrototypeOf ||
         ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
@@ -310,7 +310,7 @@ var MessageService = /** @class */ (function () {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return Project; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0____ = __webpack_require__(46);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__component__ = __webpack_require__(101);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__model_with_picture__ = __webpack_require__(297);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__model_with_picture__ = __webpack_require__(298);
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = Object.setPrototypeOf ||
         ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
@@ -430,7 +430,7 @@ var Value = /** @class */ (function () {
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return __WEBPACK_IMPORTED_MODULE_3__messages_service__["a"]; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__licences_service__ = __webpack_require__(102);
 /* unused harmony reexport LicencesService */
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__picture_service__ = __webpack_require__(301);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__picture_service__ = __webpack_require__(302);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return __WEBPACK_IMPORTED_MODULE_5__picture_service__["a"]; });
 
 
@@ -599,7 +599,7 @@ var Fields = /** @class */ (function () {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__non_picture__ = __webpack_require__(298);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__non_picture__ = __webpack_require__(299);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return __WEBPACK_IMPORTED_MODULE_0__non_picture__["a"]; });
 
 //# sourceMappingURL=index.js.map
@@ -826,11 +826,11 @@ var REPORT = {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_screen_orientation__ = __webpack_require__(178);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__models__ = __webpack_require__(46);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__services_project_service__ = __webpack_require__(53);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__summary_edit__ = __webpack_require__(308);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__models_report_router__ = __webpack_require__(306);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__summary_edit__ = __webpack_require__(309);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__models_report_router__ = __webpack_require__(307);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__reports__ = __webpack_require__(20);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__models_component__ = __webpack_require__(101);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__progress_kendo_drawing__ = __webpack_require__(309);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__progress_kendo_drawing__ = __webpack_require__(310);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__projects_projects__ = __webpack_require__(74);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__services__ = __webpack_require__(17);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__ionic_native_file_opener__ = __webpack_require__(174);
@@ -1143,49 +1143,49 @@ var SummaryPage = /** @class */ (function () {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_report_footer_report_footer_component__ = __webpack_require__(482);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_report_footer_report_footer_component__ = __webpack_require__(483);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "i", function() { return __WEBPACK_IMPORTED_MODULE_0__components_report_footer_report_footer_component__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__pipe_report_pipe_component__ = __webpack_require__(498);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__pipe_report_pipe_component__ = __webpack_require__(499);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "q", function() { return __WEBPACK_IMPORTED_MODULE_1__pipe_report_pipe_component__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__flange_report_flange_component__ = __webpack_require__(499);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__flange_report_flange_component__ = __webpack_require__(500);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "h", function() { return __WEBPACK_IMPORTED_MODULE_2__flange_report_flange_component__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_edit_picture_edit_picture_component__ = __webpack_require__(500);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_edit_picture_edit_picture_component__ = __webpack_require__(501);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "f", function() { return __WEBPACK_IMPORTED_MODULE_3__components_edit_picture_edit_picture_component__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_picture_slide_picture_slide_component__ = __webpack_require__(501);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_picture_slide_picture_slide_component__ = __webpack_require__(502);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "p", function() { return __WEBPACK_IMPORTED_MODULE_4__components_picture_slide_picture_slide_component__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_errors_report_errors_component__ = __webpack_require__(502);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_errors_report_errors_component__ = __webpack_require__(503);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "g", function() { return __WEBPACK_IMPORTED_MODULE_5__components_errors_report_errors_component__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__reports__ = __webpack_require__(503);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__reports__ = __webpack_require__(504);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "v", function() { return __WEBPACK_IMPORTED_MODULE_6__reports__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__generic_generic__ = __webpack_require__(587);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__generic_generic__ = __webpack_require__(588);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return __WEBPACK_IMPORTED_MODULE_7__generic_generic__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__surface_report_surface_component__ = __webpack_require__(588);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__surface_report_surface_component__ = __webpack_require__(589);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "s", function() { return __WEBPACK_IMPORTED_MODULE_8__surface_report_surface_component__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__components_header_report_header_component__ = __webpack_require__(589);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__components_header_report_header_component__ = __webpack_require__(590);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "j", function() { return __WEBPACK_IMPORTED_MODULE_9__components_header_report_header_component__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__components_area_report_area_button_component__ = __webpack_require__(590);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__components_area_report_area_button_component__ = __webpack_require__(591);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return __WEBPACK_IMPORTED_MODULE_10__components_area_report_area_button_component__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__components_area_report_area_modal_component__ = __webpack_require__(357);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__components_area_report_area_modal_component__ = __webpack_require__(358);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return __WEBPACK_IMPORTED_MODULE_11__components_area_report_area_modal_component__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__components_more_more_button_component__ = __webpack_require__(591);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__components_more_more_button_component__ = __webpack_require__(592);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "o", function() { return __WEBPACK_IMPORTED_MODULE_12__components_more_more_button_component__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__components_medium_temp_medium_temp_buttons_component__ = __webpack_require__(592);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__components_medium_temp_medium_temp_buttons_component__ = __webpack_require__(593);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "n", function() { return __WEBPACK_IMPORTED_MODULE_13__components_medium_temp_medium_temp_buttons_component__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__components_medium_temp_temp_marker_window_component__ = __webpack_require__(593);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__components_medium_temp_temp_marker_window_component__ = __webpack_require__(594);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "t", function() { return __WEBPACK_IMPORTED_MODULE_14__components_medium_temp_temp_marker_window_component__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__components_result_report_result_component__ = __webpack_require__(594);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__components_result_report_result_component__ = __webpack_require__(595);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "r", function() { return __WEBPACK_IMPORTED_MODULE_15__components_result_report_result_component__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__valve_report_valve_component__ = __webpack_require__(595);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__valve_report_valve_component__ = __webpack_require__(596);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "u", function() { return __WEBPACK_IMPORTED_MODULE_16__valve_report_valve_component__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__isurface_report_isurface_component__ = __webpack_require__(596);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__isurface_report_isurface_component__ = __webpack_require__(597);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "l", function() { return __WEBPACK_IMPORTED_MODULE_17__isurface_report_isurface_component__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__ipipe_report_ipipe_component__ = __webpack_require__(597);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__ipipe_report_ipipe_component__ = __webpack_require__(598);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "k", function() { return __WEBPACK_IMPORTED_MODULE_18__ipipe_report_ipipe_component__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__damaged_report_damaged_component__ = __webpack_require__(598);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__damaged_report_damaged_component__ = __webpack_require__(599);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "e", function() { return __WEBPACK_IMPORTED_MODULE_19__damaged_report_damaged_component__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__condensation_report_condensation_component__ = __webpack_require__(599);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__condensation_report_condensation_component__ = __webpack_require__(600);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "d", function() { return __WEBPACK_IMPORTED_MODULE_20__condensation_report_condensation_component__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__leakage_report_leakage_component__ = __webpack_require__(358);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__leakage_report_leakage_component__ = __webpack_require__(359);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "m", function() { return __WEBPACK_IMPORTED_MODULE_21__leakage_report_leakage_component__["a"]; });
 
 
@@ -1217,23 +1217,23 @@ var SummaryPage = /** @class */ (function () {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__report_condensation_class__ = __webpack_require__(483);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__report_condensation_class__ = __webpack_require__(484);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return __WEBPACK_IMPORTED_MODULE_0__report_condensation_class__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__report_damaged_class__ = __webpack_require__(484);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__report_damaged_class__ = __webpack_require__(485);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return __WEBPACK_IMPORTED_MODULE_1__report_damaged_class__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__report_ipipe_class__ = __webpack_require__(302);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__report_ipipe_class__ = __webpack_require__(303);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "e", function() { return __WEBPACK_IMPORTED_MODULE_2__report_ipipe_class__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__report_isurface_class__ = __webpack_require__(485);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__report_isurface_class__ = __webpack_require__(486);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "f", function() { return __WEBPACK_IMPORTED_MODULE_3__report_isurface_class__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__report_valve_class__ = __webpack_require__(486);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__report_valve_class__ = __webpack_require__(487);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "i", function() { return __WEBPACK_IMPORTED_MODULE_4__report_valve_class__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__report_pipe_class__ = __webpack_require__(303);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__report_pipe_class__ = __webpack_require__(304);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "g", function() { return __WEBPACK_IMPORTED_MODULE_5__report_pipe_class__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__report_flange_class__ = __webpack_require__(487);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__report_flange_class__ = __webpack_require__(488);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "d", function() { return __WEBPACK_IMPORTED_MODULE_6__report_flange_class__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__report_surface_class__ = __webpack_require__(494);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__report_surface_class__ = __webpack_require__(495);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "h", function() { return __WEBPACK_IMPORTED_MODULE_7__report_surface_class__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__base_report_page_class__ = __webpack_require__(495);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__base_report_page_class__ = __webpack_require__(496);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return __WEBPACK_IMPORTED_MODULE_8__base_report_page_class__["a"]; });
 
 
@@ -1248,7 +1248,7 @@ var SummaryPage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 213:
+/***/ 214:
 /***/ (function(module, exports) {
 
 function webpackEmptyAsyncContext(req) {
@@ -1261,7 +1261,7 @@ function webpackEmptyAsyncContext(req) {
 webpackEmptyAsyncContext.keys = function() { return []; };
 webpackEmptyAsyncContext.resolve = webpackEmptyAsyncContext;
 module.exports = webpackEmptyAsyncContext;
-webpackEmptyAsyncContext.id = 213;
+webpackEmptyAsyncContext.id = 214;
 
 /***/ }),
 
@@ -1352,7 +1352,7 @@ var ReportBase = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 255:
+/***/ 256:
 /***/ (function(module, exports) {
 
 function webpackEmptyAsyncContext(req) {
@@ -1365,11 +1365,11 @@ function webpackEmptyAsyncContext(req) {
 webpackEmptyAsyncContext.keys = function() { return []; };
 webpackEmptyAsyncContext.resolve = webpackEmptyAsyncContext;
 module.exports = webpackEmptyAsyncContext;
-webpackEmptyAsyncContext.id = 255;
+webpackEmptyAsyncContext.id = 256;
 
 /***/ }),
 
-/***/ 296:
+/***/ 297:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1412,7 +1412,7 @@ var InitPage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 297:
+/***/ 298:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1431,7 +1431,7 @@ var ModelWithPicture = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 298:
+/***/ 299:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1441,7 +1441,55 @@ var NON_PICTURE = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASoAAAEcCAYAAAB
 
 /***/ }),
 
-/***/ 299:
+/***/ 30:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ReportService; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__component_service__ = __webpack_require__(176);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+var ReportService = /** @class */ (function () {
+    function ReportService(service) {
+        this.service = service;
+    }
+    ReportService.prototype.save = function (report) {
+        var _this = this;
+        return new Promise(function (resolve) {
+            if (!!report.component.reports.filter(function (r) { return report.id === r.id; }).length)
+                _this.remove(report);
+            if (!report.id)
+                report.id = Math.random().toString().substr(2);
+            report.component.reports.push(report);
+            _this.service.save(report.component).then(function (p) { return resolve(p); });
+        });
+    };
+    ReportService.prototype.remove = function (report) {
+        report.component.reports = report.component.reports.filter(function (r) { return r.id !== report.id; });
+        return report.component.project;
+    };
+    ReportService = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["A" /* Injectable */])(),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__component_service__["a" /* ComponentService */]])
+    ], ReportService);
+    return ReportService;
+}());
+
+//# sourceMappingURL=report.service.js.map
+
+/***/ }),
+
+/***/ 300:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1647,55 +1695,7 @@ var EditProjectPage = /** @class */ (function (_super) {
 
 /***/ }),
 
-/***/ 30:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ReportService; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__component_service__ = __webpack_require__(176);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-var ReportService = /** @class */ (function () {
-    function ReportService(service) {
-        this.service = service;
-    }
-    ReportService.prototype.save = function (report) {
-        var _this = this;
-        return new Promise(function (resolve) {
-            if (!!report.component.reports.filter(function (r) { return report.id === r.id; }).length)
-                _this.remove(report);
-            if (!report.id)
-                report.id = Math.random().toString().substr(2);
-            report.component.reports.push(report);
-            _this.service.save(report.component).then(function (p) { return resolve(p); });
-        });
-    };
-    ReportService.prototype.remove = function (report) {
-        report.component.reports = report.component.reports.filter(function (r) { return r.id !== report.id; });
-        return report.component.project;
-    };
-    ReportService = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["A" /* Injectable */])(),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__component_service__["a" /* ComponentService */]])
-    ], ReportService);
-    return ReportService;
-}());
-
-//# sourceMappingURL=report.service.js.map
-
-/***/ }),
-
-/***/ 301:
+/***/ 302:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1777,7 +1777,7 @@ var PictureService = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 302:
+/***/ 303:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1822,7 +1822,7 @@ var ReportInsulatedPipe = /** @class */ (function (_super) {
 
 /***/ }),
 
-/***/ 303:
+/***/ 304:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1860,21 +1860,21 @@ var ReportPipe = /** @class */ (function (_super) {
 
 /***/ }),
 
-/***/ 304:
+/***/ 305:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__ipipe_class__ = __webpack_require__(488);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__ipipe_class__ = __webpack_require__(489);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return __WEBPACK_IMPORTED_MODULE_0__ipipe_class__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__isurface_class__ = __webpack_require__(489);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__isurface_class__ = __webpack_require__(490);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return __WEBPACK_IMPORTED_MODULE_1__isurface_class__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__valve_class__ = __webpack_require__(490);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__valve_class__ = __webpack_require__(491);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "f", function() { return __WEBPACK_IMPORTED_MODULE_2__valve_class__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__pipe_class__ = __webpack_require__(491);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__pipe_class__ = __webpack_require__(492);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "d", function() { return __WEBPACK_IMPORTED_MODULE_3__pipe_class__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__flange_class__ = __webpack_require__(492);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__flange_class__ = __webpack_require__(493);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return __WEBPACK_IMPORTED_MODULE_4__flange_class__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__surface_class__ = __webpack_require__(493);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__surface_class__ = __webpack_require__(494);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "e", function() { return __WEBPACK_IMPORTED_MODULE_5__surface_class__["a"]; });
 
 
@@ -1886,7 +1886,7 @@ var ReportPipe = /** @class */ (function (_super) {
 
 /***/ }),
 
-/***/ 305:
+/***/ 306:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1900,7 +1900,7 @@ var Patterns;
 
 /***/ }),
 
-/***/ 306:
+/***/ 307:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1908,7 +1908,7 @@ var Patterns;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__const_report_const__ = __webpack_require__(179);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__component__ = __webpack_require__(101);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__reports__ = __webpack_require__(21);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__reports_report_generic_class__ = __webpack_require__(307);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__reports_report_generic_class__ = __webpack_require__(308);
 
 
 
@@ -1986,7 +1986,7 @@ var ReportRouter = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 307:
+/***/ 308:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2023,7 +2023,7 @@ var ReportGeneric = /** @class */ (function (_super) {
 
 /***/ }),
 
-/***/ 308:
+/***/ 309:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2080,7 +2080,7 @@ var ReportListItem = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 357:
+/***/ 358:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2153,7 +2153,7 @@ var ReportAreaModalComponent = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 358:
+/***/ 359:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2163,7 +2163,7 @@ var ReportAreaModalComponent = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(6);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__services_report_service__ = __webpack_require__(30);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__services_messages_service__ = __webpack_require__(16);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__models_reports_report_leakage__ = __webpack_require__(600);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__models_reports_report_leakage__ = __webpack_require__(601);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__services__ = __webpack_require__(17);
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = Object.setPrototypeOf ||
@@ -2232,7 +2232,7 @@ var ReportLeakagePage = /** @class */ (function (_super) {
 
 /***/ }),
 
-/***/ 360:
+/***/ 361:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2297,13 +2297,13 @@ var DownloadPage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 398:
+/***/ 399:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__ = __webpack_require__(399);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__app_module__ = __webpack_require__(421);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__ = __webpack_require__(400);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__app_module__ = __webpack_require__(422);
 
 
 Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* platformBrowserDynamic */])().bootstrapModule(__WEBPACK_IMPORTED_MODULE_1__app_module__["a" /* AppModule */]);
@@ -2311,89 +2311,90 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 
 /***/ }),
 
-/***/ 421:
+/***/ 422:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_http__ = __webpack_require__(122);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_platform_browser_animations__ = __webpack_require__(422);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_platform_browser_animations__ = __webpack_require__(423);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_forms__ = __webpack_require__(18);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_platform_browser__ = __webpack_require__(41);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_ionic_angular__ = __webpack_require__(6);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_ionic_tooltips__ = __webpack_require__(465);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pages_init_init__ = __webpack_require__(296);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__app_component__ = __webpack_require__(601);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__pages_download_download__ = __webpack_require__(360);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__pages_contact_contact__ = __webpack_require__(602);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__pages_home_home__ = __webpack_require__(603);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_ionic_tooltips__ = __webpack_require__(466);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pages_init_init__ = __webpack_require__(297);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__app_component__ = __webpack_require__(602);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__pages_download_download__ = __webpack_require__(361);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__pages_contact_contact__ = __webpack_require__(603);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__pages_home_home__ = __webpack_require__(604);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__pages_projects_projects__ = __webpack_require__(74);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__pages_projects_edit__ = __webpack_require__(299);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__pages_projects_project__ = __webpack_require__(604);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__pages_projects_edit__ = __webpack_require__(300);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__pages_projects_project__ = __webpack_require__(605);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__pages_summary_summary__ = __webpack_require__(180);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__pages_summary_summary_edit__ = __webpack_require__(308);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__pages_pictures_pictures__ = __webpack_require__(605);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__pages_summary_summary_edit__ = __webpack_require__(309);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__pages_pictures_pictures__ = __webpack_require__(606);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__ionic_native_camera__ = __webpack_require__(177);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__ionic_native_file_chooser__ = __webpack_require__(363);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__ionic_native_file_path__ = __webpack_require__(364);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__ionic_native_file_chooser__ = __webpack_require__(364);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__ionic_native_file_path__ = __webpack_require__(365);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__ionic_native_file_opener__ = __webpack_require__(174);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__ionic_native_file__ = __webpack_require__(365);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__ionic_native_file__ = __webpack_require__(366);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__ionic_native_screen_orientation__ = __webpack_require__(178);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_24__ionic_native_status_bar__ = __webpack_require__(361);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_25__ionic_native_splash_screen__ = __webpack_require__(362);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_26__ionic_native_unique_device_id__ = __webpack_require__(359);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_27__ionic_native_file_transfer__ = __webpack_require__(366);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_28__services__ = __webpack_require__(17);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_29__services_report_service__ = __webpack_require__(30);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_30__services_component_service__ = __webpack_require__(176);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_31__services_file_device_service__ = __webpack_require__(606);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_32__services_file_service__ = __webpack_require__(54);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_33__services_file_local_service__ = __webpack_require__(660);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_34__services_messages_service__ = __webpack_require__(16);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_35__services_picture_service__ = __webpack_require__(301);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_36__services_licences_service__ = __webpack_require__(102);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_37__components_svg_svg_insulation_component__ = __webpack_require__(661);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_38__components_svg_svg_custom_component__ = __webpack_require__(662);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_39__components_svg_svg_safety_component__ = __webpack_require__(663);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_40__components_svg_svg_maintenance_component__ = __webpack_require__(664);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_41__components_svg_svg_flange_component__ = __webpack_require__(665);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_42__components_svg_svg_hot_surface_component__ = __webpack_require__(666);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_43__components_svg_svg_fire_protection_component__ = __webpack_require__(667);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_44__components_svg_svg_traffic_component__ = __webpack_require__(668);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_45__components_svg_svg_damage_insulation_component__ = __webpack_require__(669);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_46__components_svg_svg_damage_cladding_component__ = __webpack_require__(670);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_47__components_svg_svg_ice_wet_component__ = __webpack_require__(671);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_48__components_svg_svg_mechanical_component__ = __webpack_require__(672);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_49__components_svg_svg_electrical_component__ = __webpack_require__(673);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_50__components_svg_svg_leakage_component__ = __webpack_require__(674);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_51__components_svg_svg_other_safety_component__ = __webpack_require__(675);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_52__components_svg_svg_cold_component__ = __webpack_require__(676);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_53__components_svg_svg_pipe_insulation_component__ = __webpack_require__(677);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_54__components_svg_svg_pipe_component__ = __webpack_require__(678);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_55__components_svg_svg_valve_component__ = __webpack_require__(679);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_56__components_svg_svg_surface_component__ = __webpack_require__(680);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_57__components_svg_svg_damaged_cladding_component__ = __webpack_require__(681);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_58__components_svg_svg_damaged_insulation_component__ = __webpack_require__(682);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_59__components_svg_svg_energy_component__ = __webpack_require__(683);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_60__components_svg_svg_insulated_surface_component__ = __webpack_require__(684);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_61__components_svg_svg_others_component__ = __webpack_require__(685);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_62__components_svg_svg_insulated_others_component__ = __webpack_require__(686);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_63__components_svg_svg_cilinder_area_component__ = __webpack_require__(687);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_64__components_svg_svg_cube_area_component__ = __webpack_require__(688);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_65__components_svg_svg_circle_area_component__ = __webpack_require__(689);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_66__components_svg_svg_housekeeping_component__ = __webpack_require__(690);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_67__components_svg_svg_structural_component__ = __webpack_require__(691);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_68__components_svg_svg_rectangle_area_component__ = __webpack_require__(692);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_69__components_svg_svg_like_component__ = __webpack_require__(693);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_70__components_svg_svg_increase_component__ = __webpack_require__(694);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_71__components_svg_svg_empty_component__ = __webpack_require__(695);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_72__pages_reports__ = __webpack_require__(20);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_73__pipes_surface_material_pipe__ = __webpack_require__(696);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_74__progress_kendo_angular_pdf_export__ = __webpack_require__(697);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_75__components_tools_tools_component__ = __webpack_require__(703);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_76__ionic_native_flashlight__ = __webpack_require__(397);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_77__models_errors_global_error__ = __webpack_require__(704);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_24__ionic_native_status_bar__ = __webpack_require__(362);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_25__ionic_native_splash_screen__ = __webpack_require__(363);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_26__ionic_native_unique_device_id__ = __webpack_require__(360);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_27__ionic_native_file_transfer__ = __webpack_require__(367);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_28__ionic_native_web_intent__ = __webpack_require__(195);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_29__services__ = __webpack_require__(17);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_30__services_report_service__ = __webpack_require__(30);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_31__services_component_service__ = __webpack_require__(176);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_32__services_file_device_service__ = __webpack_require__(607);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_33__services_file_service__ = __webpack_require__(54);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_34__services_file_local_service__ = __webpack_require__(661);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_35__services_messages_service__ = __webpack_require__(16);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_36__services_picture_service__ = __webpack_require__(302);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_37__services_licences_service__ = __webpack_require__(102);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_38__components_svg_svg_insulation_component__ = __webpack_require__(662);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_39__components_svg_svg_custom_component__ = __webpack_require__(663);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_40__components_svg_svg_safety_component__ = __webpack_require__(664);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_41__components_svg_svg_maintenance_component__ = __webpack_require__(665);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_42__components_svg_svg_flange_component__ = __webpack_require__(666);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_43__components_svg_svg_hot_surface_component__ = __webpack_require__(667);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_44__components_svg_svg_fire_protection_component__ = __webpack_require__(668);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_45__components_svg_svg_traffic_component__ = __webpack_require__(669);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_46__components_svg_svg_damage_insulation_component__ = __webpack_require__(670);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_47__components_svg_svg_damage_cladding_component__ = __webpack_require__(671);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_48__components_svg_svg_ice_wet_component__ = __webpack_require__(672);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_49__components_svg_svg_mechanical_component__ = __webpack_require__(673);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_50__components_svg_svg_electrical_component__ = __webpack_require__(674);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_51__components_svg_svg_leakage_component__ = __webpack_require__(675);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_52__components_svg_svg_other_safety_component__ = __webpack_require__(676);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_53__components_svg_svg_cold_component__ = __webpack_require__(677);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_54__components_svg_svg_pipe_insulation_component__ = __webpack_require__(678);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_55__components_svg_svg_pipe_component__ = __webpack_require__(679);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_56__components_svg_svg_valve_component__ = __webpack_require__(680);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_57__components_svg_svg_surface_component__ = __webpack_require__(681);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_58__components_svg_svg_damaged_cladding_component__ = __webpack_require__(682);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_59__components_svg_svg_damaged_insulation_component__ = __webpack_require__(683);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_60__components_svg_svg_energy_component__ = __webpack_require__(684);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_61__components_svg_svg_insulated_surface_component__ = __webpack_require__(685);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_62__components_svg_svg_others_component__ = __webpack_require__(686);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_63__components_svg_svg_insulated_others_component__ = __webpack_require__(687);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_64__components_svg_svg_cilinder_area_component__ = __webpack_require__(688);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_65__components_svg_svg_cube_area_component__ = __webpack_require__(689);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_66__components_svg_svg_circle_area_component__ = __webpack_require__(690);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_67__components_svg_svg_housekeeping_component__ = __webpack_require__(691);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_68__components_svg_svg_structural_component__ = __webpack_require__(692);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_69__components_svg_svg_rectangle_area_component__ = __webpack_require__(693);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_70__components_svg_svg_like_component__ = __webpack_require__(694);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_71__components_svg_svg_increase_component__ = __webpack_require__(695);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_72__components_svg_svg_empty_component__ = __webpack_require__(696);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_73__pages_reports__ = __webpack_require__(20);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_74__pipes_surface_material_pipe__ = __webpack_require__(697);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_75__progress_kendo_angular_pdf_export__ = __webpack_require__(698);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_76__components_tools_tools_component__ = __webpack_require__(704);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_77__ionic_native_flashlight__ = __webpack_require__(398);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_78__models_errors_global_error__ = __webpack_require__(705);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -2420,6 +2421,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 /*Plugins*/
+
 
 
 
@@ -2499,72 +2501,72 @@ var AppModule = /** @class */ (function () {
                 __WEBPACK_IMPORTED_MODULE_12__pages_projects_projects__["a" /* ProjectsPage */],
                 __WEBPACK_IMPORTED_MODULE_13__pages_projects_edit__["a" /* EditProjectPage */],
                 __WEBPACK_IMPORTED_MODULE_14__pages_projects_project__["a" /* ProjectPage */],
-                __WEBPACK_IMPORTED_MODULE_72__pages_reports__["a" /* GenericReportPage */],
-                __WEBPACK_IMPORTED_MODULE_72__pages_reports__["v" /* ReportsPage */],
+                __WEBPACK_IMPORTED_MODULE_73__pages_reports__["a" /* GenericReportPage */],
+                __WEBPACK_IMPORTED_MODULE_73__pages_reports__["v" /* ReportsPage */],
                 __WEBPACK_IMPORTED_MODULE_7__pages_init_init__["a" /* InitPage */],
                 __WEBPACK_IMPORTED_MODULE_17__pages_pictures_pictures__["a" /* PicturesPage */],
                 __WEBPACK_IMPORTED_MODULE_15__pages_summary_summary__["a" /* SummaryPage */],
                 __WEBPACK_IMPORTED_MODULE_16__pages_summary_summary_edit__["a" /* SummaryEditPage */],
                 //Pipes
-                __WEBPACK_IMPORTED_MODULE_73__pipes_surface_material_pipe__["a" /* SurfaceMaterialPipe */],
+                __WEBPACK_IMPORTED_MODULE_74__pipes_surface_material_pipe__["a" /* SurfaceMaterialPipe */],
                 //Reports
-                __WEBPACK_IMPORTED_MODULE_72__pages_reports__["f" /* ReportEditPictureComponent */],
-                __WEBPACK_IMPORTED_MODULE_72__pages_reports__["p" /* ReportPictureSlideComponent */],
-                __WEBPACK_IMPORTED_MODULE_72__pages_reports__["j" /* ReportHeaderComponent */],
-                __WEBPACK_IMPORTED_MODULE_72__pages_reports__["i" /* ReportFooterComponent */],
-                __WEBPACK_IMPORTED_MODULE_72__pages_reports__["b" /* ReportAreaButtonComponent */],
-                __WEBPACK_IMPORTED_MODULE_72__pages_reports__["c" /* ReportAreaModalComponent */],
-                __WEBPACK_IMPORTED_MODULE_72__pages_reports__["o" /* ReportMoreButtonComponent */],
-                __WEBPACK_IMPORTED_MODULE_72__pages_reports__["n" /* ReportMediumTempButtonsComponent */],
-                __WEBPACK_IMPORTED_MODULE_72__pages_reports__["t" /* ReportTempMarkersWindowComponent */],
-                __WEBPACK_IMPORTED_MODULE_72__pages_reports__["g" /* ReportErrorsComponent */],
-                __WEBPACK_IMPORTED_MODULE_72__pages_reports__["r" /* ReportResultComponent */],
-                __WEBPACK_IMPORTED_MODULE_72__pages_reports__["s" /* ReportSurfacePage */],
-                __WEBPACK_IMPORTED_MODULE_72__pages_reports__["l" /* ReportInsulatedSurfacePage */],
-                __WEBPACK_IMPORTED_MODULE_72__pages_reports__["h" /* ReportFlangePage */],
-                __WEBPACK_IMPORTED_MODULE_72__pages_reports__["q" /* ReportPipePage */],
-                __WEBPACK_IMPORTED_MODULE_72__pages_reports__["k" /* ReportInsulatedPipePage */],
-                __WEBPACK_IMPORTED_MODULE_72__pages_reports__["u" /* ReportValvePage */],
-                __WEBPACK_IMPORTED_MODULE_72__pages_reports__["e" /* ReportDamagedPage */],
-                __WEBPACK_IMPORTED_MODULE_72__pages_reports__["d" /* ReportCondensationPage */],
-                __WEBPACK_IMPORTED_MODULE_72__pages_reports__["m" /* ReportLeakagePage */],
+                __WEBPACK_IMPORTED_MODULE_73__pages_reports__["f" /* ReportEditPictureComponent */],
+                __WEBPACK_IMPORTED_MODULE_73__pages_reports__["p" /* ReportPictureSlideComponent */],
+                __WEBPACK_IMPORTED_MODULE_73__pages_reports__["j" /* ReportHeaderComponent */],
+                __WEBPACK_IMPORTED_MODULE_73__pages_reports__["i" /* ReportFooterComponent */],
+                __WEBPACK_IMPORTED_MODULE_73__pages_reports__["b" /* ReportAreaButtonComponent */],
+                __WEBPACK_IMPORTED_MODULE_73__pages_reports__["c" /* ReportAreaModalComponent */],
+                __WEBPACK_IMPORTED_MODULE_73__pages_reports__["o" /* ReportMoreButtonComponent */],
+                __WEBPACK_IMPORTED_MODULE_73__pages_reports__["n" /* ReportMediumTempButtonsComponent */],
+                __WEBPACK_IMPORTED_MODULE_73__pages_reports__["t" /* ReportTempMarkersWindowComponent */],
+                __WEBPACK_IMPORTED_MODULE_73__pages_reports__["g" /* ReportErrorsComponent */],
+                __WEBPACK_IMPORTED_MODULE_73__pages_reports__["r" /* ReportResultComponent */],
+                __WEBPACK_IMPORTED_MODULE_73__pages_reports__["s" /* ReportSurfacePage */],
+                __WEBPACK_IMPORTED_MODULE_73__pages_reports__["l" /* ReportInsulatedSurfacePage */],
+                __WEBPACK_IMPORTED_MODULE_73__pages_reports__["h" /* ReportFlangePage */],
+                __WEBPACK_IMPORTED_MODULE_73__pages_reports__["q" /* ReportPipePage */],
+                __WEBPACK_IMPORTED_MODULE_73__pages_reports__["k" /* ReportInsulatedPipePage */],
+                __WEBPACK_IMPORTED_MODULE_73__pages_reports__["u" /* ReportValvePage */],
+                __WEBPACK_IMPORTED_MODULE_73__pages_reports__["e" /* ReportDamagedPage */],
+                __WEBPACK_IMPORTED_MODULE_73__pages_reports__["d" /* ReportCondensationPage */],
+                __WEBPACK_IMPORTED_MODULE_73__pages_reports__["m" /* ReportLeakagePage */],
                 //Components
-                __WEBPACK_IMPORTED_MODULE_75__components_tools_tools_component__["a" /* ToolsComponent */],
-                __WEBPACK_IMPORTED_MODULE_71__components_svg_svg_empty_component__["a" /* SvgEmptyComponent */],
-                __WEBPACK_IMPORTED_MODULE_37__components_svg_svg_insulation_component__["a" /* SvgInsulationComponent */],
-                __WEBPACK_IMPORTED_MODULE_38__components_svg_svg_custom_component__["a" /* SvgCustomComponent */],
-                __WEBPACK_IMPORTED_MODULE_39__components_svg_svg_safety_component__["a" /* SvgSafetyComponent */],
-                __WEBPACK_IMPORTED_MODULE_40__components_svg_svg_maintenance_component__["a" /* SvgMaintenanceComponent */],
-                __WEBPACK_IMPORTED_MODULE_41__components_svg_svg_flange_component__["a" /* SvgFlangeComponent */],
-                __WEBPACK_IMPORTED_MODULE_42__components_svg_svg_hot_surface_component__["a" /* SvgHotSurfaceComponent */],
-                __WEBPACK_IMPORTED_MODULE_43__components_svg_svg_fire_protection_component__["a" /* SvgFireProtectionComponent */],
-                __WEBPACK_IMPORTED_MODULE_44__components_svg_svg_traffic_component__["a" /* SvgTrafficComponent */],
-                __WEBPACK_IMPORTED_MODULE_45__components_svg_svg_damage_insulation_component__["a" /* SvgDamageInsulationComponent */],
-                __WEBPACK_IMPORTED_MODULE_46__components_svg_svg_damage_cladding_component__["a" /* SvgDamageCladdingComponent */],
-                __WEBPACK_IMPORTED_MODULE_48__components_svg_svg_mechanical_component__["a" /* SvgMechanicalComponent */],
-                __WEBPACK_IMPORTED_MODULE_49__components_svg_svg_electrical_component__["a" /* SvgElectricalComponent */],
-                __WEBPACK_IMPORTED_MODULE_47__components_svg_svg_ice_wet_component__["a" /* SvgIceWetComponent */],
-                __WEBPACK_IMPORTED_MODULE_50__components_svg_svg_leakage_component__["a" /* SvgLeakageComponent */],
-                __WEBPACK_IMPORTED_MODULE_51__components_svg_svg_other_safety_component__["a" /* SvgOtherSafetyComponent */],
-                __WEBPACK_IMPORTED_MODULE_52__components_svg_svg_cold_component__["a" /* SvgColdComponent */],
-                __WEBPACK_IMPORTED_MODULE_53__components_svg_svg_pipe_insulation_component__["a" /* SvgPipeInsultationComponent */],
-                __WEBPACK_IMPORTED_MODULE_54__components_svg_svg_pipe_component__["a" /* SvgPipeComponent */],
-                __WEBPACK_IMPORTED_MODULE_55__components_svg_svg_valve_component__["a" /* SvgValveComponent */],
-                __WEBPACK_IMPORTED_MODULE_56__components_svg_svg_surface_component__["a" /* SvgSurfaceComponent */],
-                __WEBPACK_IMPORTED_MODULE_57__components_svg_svg_damaged_cladding_component__["a" /* SvgDamagedCladdingComponent */],
-                __WEBPACK_IMPORTED_MODULE_58__components_svg_svg_damaged_insulation_component__["a" /* SvgDamagedInsulationComponent */],
-                __WEBPACK_IMPORTED_MODULE_59__components_svg_svg_energy_component__["a" /* SvgEnergyComponent */],
-                __WEBPACK_IMPORTED_MODULE_60__components_svg_svg_insulated_surface_component__["a" /* SvgInsulatedSurfaceComponent */],
-                __WEBPACK_IMPORTED_MODULE_61__components_svg_svg_others_component__["a" /* SvgOthersComponent */],
-                __WEBPACK_IMPORTED_MODULE_62__components_svg_svg_insulated_others_component__["a" /* SvgInsulatedOthersComponent */],
-                __WEBPACK_IMPORTED_MODULE_63__components_svg_svg_cilinder_area_component__["a" /* SvgCilinderAreaComponent */],
-                __WEBPACK_IMPORTED_MODULE_64__components_svg_svg_cube_area_component__["a" /* SvgCubeAreaComponent */],
-                __WEBPACK_IMPORTED_MODULE_65__components_svg_svg_circle_area_component__["a" /* SvgCircleAreaComponent */],
-                __WEBPACK_IMPORTED_MODULE_68__components_svg_svg_rectangle_area_component__["a" /* SvgRectangleAreaComponent */],
-                __WEBPACK_IMPORTED_MODULE_66__components_svg_svg_housekeeping_component__["a" /* SvgHousekeepingComponent */],
-                __WEBPACK_IMPORTED_MODULE_67__components_svg_svg_structural_component__["a" /* SvgStructuralComponent */],
-                __WEBPACK_IMPORTED_MODULE_69__components_svg_svg_like_component__["a" /* SvgLikeComponent */],
-                __WEBPACK_IMPORTED_MODULE_70__components_svg_svg_increase_component__["a" /* SvgIncreaseComponent */]
+                __WEBPACK_IMPORTED_MODULE_76__components_tools_tools_component__["a" /* ToolsComponent */],
+                __WEBPACK_IMPORTED_MODULE_72__components_svg_svg_empty_component__["a" /* SvgEmptyComponent */],
+                __WEBPACK_IMPORTED_MODULE_38__components_svg_svg_insulation_component__["a" /* SvgInsulationComponent */],
+                __WEBPACK_IMPORTED_MODULE_39__components_svg_svg_custom_component__["a" /* SvgCustomComponent */],
+                __WEBPACK_IMPORTED_MODULE_40__components_svg_svg_safety_component__["a" /* SvgSafetyComponent */],
+                __WEBPACK_IMPORTED_MODULE_41__components_svg_svg_maintenance_component__["a" /* SvgMaintenanceComponent */],
+                __WEBPACK_IMPORTED_MODULE_42__components_svg_svg_flange_component__["a" /* SvgFlangeComponent */],
+                __WEBPACK_IMPORTED_MODULE_43__components_svg_svg_hot_surface_component__["a" /* SvgHotSurfaceComponent */],
+                __WEBPACK_IMPORTED_MODULE_44__components_svg_svg_fire_protection_component__["a" /* SvgFireProtectionComponent */],
+                __WEBPACK_IMPORTED_MODULE_45__components_svg_svg_traffic_component__["a" /* SvgTrafficComponent */],
+                __WEBPACK_IMPORTED_MODULE_46__components_svg_svg_damage_insulation_component__["a" /* SvgDamageInsulationComponent */],
+                __WEBPACK_IMPORTED_MODULE_47__components_svg_svg_damage_cladding_component__["a" /* SvgDamageCladdingComponent */],
+                __WEBPACK_IMPORTED_MODULE_49__components_svg_svg_mechanical_component__["a" /* SvgMechanicalComponent */],
+                __WEBPACK_IMPORTED_MODULE_50__components_svg_svg_electrical_component__["a" /* SvgElectricalComponent */],
+                __WEBPACK_IMPORTED_MODULE_48__components_svg_svg_ice_wet_component__["a" /* SvgIceWetComponent */],
+                __WEBPACK_IMPORTED_MODULE_51__components_svg_svg_leakage_component__["a" /* SvgLeakageComponent */],
+                __WEBPACK_IMPORTED_MODULE_52__components_svg_svg_other_safety_component__["a" /* SvgOtherSafetyComponent */],
+                __WEBPACK_IMPORTED_MODULE_53__components_svg_svg_cold_component__["a" /* SvgColdComponent */],
+                __WEBPACK_IMPORTED_MODULE_54__components_svg_svg_pipe_insulation_component__["a" /* SvgPipeInsultationComponent */],
+                __WEBPACK_IMPORTED_MODULE_55__components_svg_svg_pipe_component__["a" /* SvgPipeComponent */],
+                __WEBPACK_IMPORTED_MODULE_56__components_svg_svg_valve_component__["a" /* SvgValveComponent */],
+                __WEBPACK_IMPORTED_MODULE_57__components_svg_svg_surface_component__["a" /* SvgSurfaceComponent */],
+                __WEBPACK_IMPORTED_MODULE_58__components_svg_svg_damaged_cladding_component__["a" /* SvgDamagedCladdingComponent */],
+                __WEBPACK_IMPORTED_MODULE_59__components_svg_svg_damaged_insulation_component__["a" /* SvgDamagedInsulationComponent */],
+                __WEBPACK_IMPORTED_MODULE_60__components_svg_svg_energy_component__["a" /* SvgEnergyComponent */],
+                __WEBPACK_IMPORTED_MODULE_61__components_svg_svg_insulated_surface_component__["a" /* SvgInsulatedSurfaceComponent */],
+                __WEBPACK_IMPORTED_MODULE_62__components_svg_svg_others_component__["a" /* SvgOthersComponent */],
+                __WEBPACK_IMPORTED_MODULE_63__components_svg_svg_insulated_others_component__["a" /* SvgInsulatedOthersComponent */],
+                __WEBPACK_IMPORTED_MODULE_64__components_svg_svg_cilinder_area_component__["a" /* SvgCilinderAreaComponent */],
+                __WEBPACK_IMPORTED_MODULE_65__components_svg_svg_cube_area_component__["a" /* SvgCubeAreaComponent */],
+                __WEBPACK_IMPORTED_MODULE_66__components_svg_svg_circle_area_component__["a" /* SvgCircleAreaComponent */],
+                __WEBPACK_IMPORTED_MODULE_69__components_svg_svg_rectangle_area_component__["a" /* SvgRectangleAreaComponent */],
+                __WEBPACK_IMPORTED_MODULE_67__components_svg_svg_housekeeping_component__["a" /* SvgHousekeepingComponent */],
+                __WEBPACK_IMPORTED_MODULE_68__components_svg_svg_structural_component__["a" /* SvgStructuralComponent */],
+                __WEBPACK_IMPORTED_MODULE_70__components_svg_svg_like_component__["a" /* SvgLikeComponent */],
+                __WEBPACK_IMPORTED_MODULE_71__components_svg_svg_increase_component__["a" /* SvgIncreaseComponent */]
             ],
             imports: [
                 __WEBPACK_IMPORTED_MODULE_4__angular_platform_browser__["a" /* BrowserModule */],
@@ -2584,7 +2586,7 @@ var AppModule = /** @class */ (function () {
                     links: []
                 }),
                 __WEBPACK_IMPORTED_MODULE_6_ionic_tooltips__["a" /* TooltipsModule */],
-                __WEBPACK_IMPORTED_MODULE_74__progress_kendo_angular_pdf_export__["a" /* PDFExportModule */]
+                __WEBPACK_IMPORTED_MODULE_75__progress_kendo_angular_pdf_export__["a" /* PDFExportModule */]
             ],
             bootstrap: [__WEBPACK_IMPORTED_MODULE_5_ionic_angular__["d" /* IonicApp */]],
             entryComponents: [
@@ -2595,34 +2597,34 @@ var AppModule = /** @class */ (function () {
                 __WEBPACK_IMPORTED_MODULE_12__pages_projects_projects__["a" /* ProjectsPage */],
                 __WEBPACK_IMPORTED_MODULE_13__pages_projects_edit__["a" /* EditProjectPage */],
                 __WEBPACK_IMPORTED_MODULE_14__pages_projects_project__["a" /* ProjectPage */],
-                __WEBPACK_IMPORTED_MODULE_72__pages_reports__["a" /* GenericReportPage */],
-                __WEBPACK_IMPORTED_MODULE_72__pages_reports__["v" /* ReportsPage */],
+                __WEBPACK_IMPORTED_MODULE_73__pages_reports__["a" /* GenericReportPage */],
+                __WEBPACK_IMPORTED_MODULE_73__pages_reports__["v" /* ReportsPage */],
                 __WEBPACK_IMPORTED_MODULE_7__pages_init_init__["a" /* InitPage */],
                 __WEBPACK_IMPORTED_MODULE_17__pages_pictures_pictures__["a" /* PicturesPage */],
                 __WEBPACK_IMPORTED_MODULE_15__pages_summary_summary__["a" /* SummaryPage */],
                 __WEBPACK_IMPORTED_MODULE_16__pages_summary_summary_edit__["a" /* SummaryEditPage */],
                 //Reports
-                __WEBPACK_IMPORTED_MODULE_72__pages_reports__["j" /* ReportHeaderComponent */],
-                __WEBPACK_IMPORTED_MODULE_72__pages_reports__["i" /* ReportFooterComponent */],
-                __WEBPACK_IMPORTED_MODULE_72__pages_reports__["c" /* ReportAreaModalComponent */],
-                __WEBPACK_IMPORTED_MODULE_72__pages_reports__["t" /* ReportTempMarkersWindowComponent */],
-                __WEBPACK_IMPORTED_MODULE_72__pages_reports__["s" /* ReportSurfacePage */],
-                __WEBPACK_IMPORTED_MODULE_72__pages_reports__["l" /* ReportInsulatedSurfacePage */],
-                __WEBPACK_IMPORTED_MODULE_72__pages_reports__["h" /* ReportFlangePage */],
-                __WEBPACK_IMPORTED_MODULE_72__pages_reports__["q" /* ReportPipePage */],
-                __WEBPACK_IMPORTED_MODULE_72__pages_reports__["k" /* ReportInsulatedPipePage */],
-                __WEBPACK_IMPORTED_MODULE_72__pages_reports__["u" /* ReportValvePage */],
-                __WEBPACK_IMPORTED_MODULE_72__pages_reports__["e" /* ReportDamagedPage */],
-                __WEBPACK_IMPORTED_MODULE_72__pages_reports__["d" /* ReportCondensationPage */],
-                __WEBPACK_IMPORTED_MODULE_72__pages_reports__["m" /* ReportLeakagePage */],
-                __WEBPACK_IMPORTED_MODULE_75__components_tools_tools_component__["a" /* ToolsComponent */]
+                __WEBPACK_IMPORTED_MODULE_73__pages_reports__["j" /* ReportHeaderComponent */],
+                __WEBPACK_IMPORTED_MODULE_73__pages_reports__["i" /* ReportFooterComponent */],
+                __WEBPACK_IMPORTED_MODULE_73__pages_reports__["c" /* ReportAreaModalComponent */],
+                __WEBPACK_IMPORTED_MODULE_73__pages_reports__["t" /* ReportTempMarkersWindowComponent */],
+                __WEBPACK_IMPORTED_MODULE_73__pages_reports__["s" /* ReportSurfacePage */],
+                __WEBPACK_IMPORTED_MODULE_73__pages_reports__["l" /* ReportInsulatedSurfacePage */],
+                __WEBPACK_IMPORTED_MODULE_73__pages_reports__["h" /* ReportFlangePage */],
+                __WEBPACK_IMPORTED_MODULE_73__pages_reports__["q" /* ReportPipePage */],
+                __WEBPACK_IMPORTED_MODULE_73__pages_reports__["k" /* ReportInsulatedPipePage */],
+                __WEBPACK_IMPORTED_MODULE_73__pages_reports__["u" /* ReportValvePage */],
+                __WEBPACK_IMPORTED_MODULE_73__pages_reports__["e" /* ReportDamagedPage */],
+                __WEBPACK_IMPORTED_MODULE_73__pages_reports__["d" /* ReportCondensationPage */],
+                __WEBPACK_IMPORTED_MODULE_73__pages_reports__["m" /* ReportLeakagePage */],
+                __WEBPACK_IMPORTED_MODULE_76__components_tools_tools_component__["a" /* ToolsComponent */]
             ],
             providers: [
                 /*App services*/
-                __WEBPACK_IMPORTED_MODULE_34__services_messages_service__["a" /* MessageService */],
-                __WEBPACK_IMPORTED_MODULE_29__services_report_service__["a" /* ReportService */],
-                __WEBPACK_IMPORTED_MODULE_28__services__["d" /* ProjectService */],
-                __WEBPACK_IMPORTED_MODULE_30__services_component_service__["a" /* ComponentService */],
+                __WEBPACK_IMPORTED_MODULE_35__services_messages_service__["a" /* MessageService */],
+                __WEBPACK_IMPORTED_MODULE_30__services_report_service__["a" /* ReportService */],
+                __WEBPACK_IMPORTED_MODULE_29__services__["d" /* ProjectService */],
+                __WEBPACK_IMPORTED_MODULE_31__services_component_service__["a" /* ComponentService */],
                 __WEBPACK_IMPORTED_MODULE_24__ionic_native_status_bar__["a" /* StatusBar */],
                 __WEBPACK_IMPORTED_MODULE_25__ionic_native_splash_screen__["a" /* SplashScreen */],
                 __WEBPACK_IMPORTED_MODULE_21__ionic_native_file_opener__["a" /* FileOpener */],
@@ -2631,19 +2633,20 @@ var AppModule = /** @class */ (function () {
                 __WEBPACK_IMPORTED_MODULE_18__ionic_native_camera__["a" /* Camera */],
                 __WEBPACK_IMPORTED_MODULE_23__ionic_native_screen_orientation__["a" /* ScreenOrientation */],
                 //PictureLocalService,
-                __WEBPACK_IMPORTED_MODULE_31__services_file_device_service__["a" /* FileDeviceService */],
-                __WEBPACK_IMPORTED_MODULE_33__services_file_local_service__["a" /* FileLocalService */],
+                __WEBPACK_IMPORTED_MODULE_32__services_file_device_service__["a" /* FileDeviceService */],
+                __WEBPACK_IMPORTED_MODULE_34__services_file_local_service__["a" /* FileLocalService */],
                 __WEBPACK_IMPORTED_MODULE_19__ionic_native_file_chooser__["a" /* FileChooser */],
                 __WEBPACK_IMPORTED_MODULE_26__ionic_native_unique_device_id__["a" /* UniqueDeviceID */],
                 __WEBPACK_IMPORTED_MODULE_27__ionic_native_file_transfer__["a" /* FileTransfer */],
-                { provide: __WEBPACK_IMPORTED_MODULE_1__angular_core__["u" /* ErrorHandler */], useClass: __WEBPACK_IMPORTED_MODULE_77__models_errors_global_error__["a" /* GlobalErrorHandler */], deps: [__WEBPACK_IMPORTED_MODULE_34__services_messages_service__["a" /* MessageService */], __WEBPACK_IMPORTED_MODULE_0__angular_http__["b" /* Http */]] },
+                { provide: __WEBPACK_IMPORTED_MODULE_1__angular_core__["u" /* ErrorHandler */], useClass: __WEBPACK_IMPORTED_MODULE_78__models_errors_global_error__["a" /* GlobalErrorHandler */], deps: [__WEBPACK_IMPORTED_MODULE_35__services_messages_service__["a" /* MessageService */], __WEBPACK_IMPORTED_MODULE_0__angular_http__["b" /* Http */]] },
                 //{ provide: ErrorHandler, useClass: IonicErrorHandler },
                 //Mock services
                 //{ provide: PictureService, useClass: PictureDeviceService },
-                __WEBPACK_IMPORTED_MODULE_36__services_licences_service__["a" /* LicencesService */],
-                __WEBPACK_IMPORTED_MODULE_35__services_picture_service__["a" /* PictureService */],
-                __WEBPACK_IMPORTED_MODULE_76__ionic_native_flashlight__["a" /* Flashlight */],
-                { provide: __WEBPACK_IMPORTED_MODULE_32__services_file_service__["a" /* FileService */], useClass: __WEBPACK_IMPORTED_MODULE_31__services_file_device_service__["a" /* FileDeviceService */] }
+                __WEBPACK_IMPORTED_MODULE_37__services_licences_service__["a" /* LicencesService */],
+                __WEBPACK_IMPORTED_MODULE_36__services_picture_service__["a" /* PictureService */],
+                __WEBPACK_IMPORTED_MODULE_77__ionic_native_flashlight__["a" /* Flashlight */],
+                { provide: __WEBPACK_IMPORTED_MODULE_33__services_file_service__["a" /* FileService */], useClass: __WEBPACK_IMPORTED_MODULE_32__services_file_device_service__["a" /* FileDeviceService */] },
+                __WEBPACK_IMPORTED_MODULE_28__ionic_native_web_intent__["a" /* WebIntent */]
             ]
         })
     ], AppModule);
@@ -2664,15 +2667,15 @@ var AppModule = /** @class */ (function () {
 /* unused harmony reexport Fields */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__result__ = __webpack_require__(99);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "d", function() { return __WEBPACK_IMPORTED_MODULE_2__result__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__component_location__ = __webpack_require__(467);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__component_location__ = __webpack_require__(468);
 /* unused harmony reexport ComponentLocation */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__project__ = __webpack_require__(168);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return __WEBPACK_IMPORTED_MODULE_4__project__["b"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__document_class__ = __webpack_require__(468);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__document_class__ = __webpack_require__(469);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return __WEBPACK_IMPORTED_MODULE_5__document_class__["a"]; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__report_base__ = __webpack_require__(24);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return __WEBPACK_IMPORTED_MODULE_6__report_base__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__report_category__ = __webpack_require__(469);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__report_category__ = __webpack_require__(470);
 /* unused harmony reexport ReportCategory */
 
 
@@ -2686,7 +2689,7 @@ var AppModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 467:
+/***/ 468:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2734,7 +2737,7 @@ var SectionEnergy = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 468:
+/***/ 469:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2788,12 +2791,12 @@ var Document = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 469:
+/***/ 470:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* unused harmony export ReportCategory */
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__enums__ = __webpack_require__(470);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__enums__ = __webpack_require__(471);
 
 var ReportCategory = /** @class */ (function () {
     function ReportCategory(item) {
@@ -2813,18 +2816,18 @@ var ReportCategory = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 470:
+/***/ 471:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__report_categories_enum__ = __webpack_require__(471);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__report_categories_enum__ = __webpack_require__(472);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return __WEBPACK_IMPORTED_MODULE_0__report_categories_enum__["a"]; });
 
 //# sourceMappingURL=index.js.map
 
 /***/ }),
 
-/***/ 471:
+/***/ 472:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2843,13 +2846,13 @@ var ReportCategories;
 
 /***/ }),
 
-/***/ 472:
+/***/ 473:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ProjectJson; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__project__ = __webpack_require__(168);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__component_json__ = __webpack_require__(473);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__component_json__ = __webpack_require__(474);
 
 
 var ProjectJson = /** @class */ (function () {
@@ -2889,13 +2892,13 @@ var ProjectJson = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 473:
+/***/ 474:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return TbiComponentJson; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__fields__ = __webpack_require__(170);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__report_base_json__ = __webpack_require__(474);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__report_base_json__ = __webpack_require__(475);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__marker__ = __webpack_require__(75);
 
 
@@ -2918,7 +2921,7 @@ var TbiComponentJson = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 474:
+/***/ 475:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2955,7 +2958,7 @@ var ReportBaseJson = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 482:
+/***/ 483:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2999,7 +3002,7 @@ var ReportFooterComponent = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 483:
+/***/ 484:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -3042,7 +3045,7 @@ var ReportCondensation = /** @class */ (function (_super) {
 
 /***/ }),
 
-/***/ 484:
+/***/ 485:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -3085,7 +3088,7 @@ var ReportDamaged = /** @class */ (function (_super) {
 
 /***/ }),
 
-/***/ 485:
+/***/ 486:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -3143,7 +3146,7 @@ var ReportInsulatedSurface = /** @class */ (function (_super) {
 
 /***/ }),
 
-/***/ 486:
+/***/ 487:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -3187,14 +3190,14 @@ var ReportValve = /** @class */ (function (_super) {
 
 /***/ }),
 
-/***/ 487:
+/***/ 488:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ReportFlange; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__report_base__ = __webpack_require__(24);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__pages_reports__ = __webpack_require__(20);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__calculators__ = __webpack_require__(304);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__calculators__ = __webpack_require__(305);
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = Object.setPrototypeOf ||
         ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
@@ -3234,7 +3237,7 @@ var ReportFlange = /** @class */ (function (_super) {
 
 /***/ }),
 
-/***/ 488:
+/***/ 489:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -3322,7 +3325,7 @@ var IPipeCalculator = /** @class */ (function (_super) {
 
 /***/ }),
 
-/***/ 489:
+/***/ 490:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -3396,7 +3399,7 @@ var ISurfaceCalculator = /** @class */ (function (_super) {
 
 /***/ }),
 
-/***/ 490:
+/***/ 491:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -3482,7 +3485,7 @@ var ValveCalculator = /** @class */ (function (_super) {
 
 /***/ }),
 
-/***/ 491:
+/***/ 492:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -3566,7 +3569,7 @@ var PipeCalculator = /** @class */ (function (_super) {
 
 /***/ }),
 
-/***/ 492:
+/***/ 493:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -3655,7 +3658,7 @@ var FlangeCalculator = /** @class */ (function (_super) {
 
 /***/ }),
 
-/***/ 493:
+/***/ 494:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -3725,7 +3728,7 @@ var SurfaceCalculator = /** @class */ (function (_super) {
 
 /***/ }),
 
-/***/ 494:
+/***/ 495:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -3776,7 +3779,7 @@ var ReportSurface = /** @class */ (function (_super) {
 
 /***/ }),
 
-/***/ 495:
+/***/ 496:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -3784,14 +3787,14 @@ var ReportSurface = /** @class */ (function (_super) {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_ionic_angular__ = __webpack_require__(6);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_forms__ = __webpack_require__(18);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__calculators_calculator_factory__ = __webpack_require__(496);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__calculators_calculator_factory__ = __webpack_require__(497);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__picture__ = __webpack_require__(100);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pages_reports__ = __webpack_require__(20);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__const_more_more__ = __webpack_require__(98);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__component__ = __webpack_require__(101);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__pages_scroll_to_component_class__ = __webpack_require__(173);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__const_images__ = __webpack_require__(171);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__const_patterns__ = __webpack_require__(305);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__const_patterns__ = __webpack_require__(306);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__pages_projects_projects__ = __webpack_require__(74);
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = Object.setPrototypeOf ||
@@ -4190,13 +4193,13 @@ var BaseReportPage = /** @class */ (function (_super) {
 
 /***/ }),
 
-/***/ 496:
+/***/ 497:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CalculatorFactory; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0____ = __webpack_require__(304);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__const__ = __webpack_require__(497);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0____ = __webpack_require__(305);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__const__ = __webpack_require__(498);
 
 
 var CalculatorFactory = /** @class */ (function () {
@@ -4219,7 +4222,7 @@ var CalculatorFactory = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 497:
+/***/ 498:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -4230,7 +4233,7 @@ var CalculatorFactory = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 498:
+/***/ 499:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -4239,7 +4242,7 @@ var CalculatorFactory = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__models_reports__ = __webpack_require__(21);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(6);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__services_report_service__ = __webpack_require__(30);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__models_reports_report_pipe_class__ = __webpack_require__(303);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__models_reports_report_pipe_class__ = __webpack_require__(304);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__services_messages_service__ = __webpack_require__(16);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__services__ = __webpack_require__(17);
 var __extends = (this && this.__extends) || (function () {
@@ -4299,7 +4302,7 @@ var ReportPipePage = /** @class */ (function (_super) {
 
 /***/ }),
 
-/***/ 499:
+/***/ 500:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -4367,7 +4370,7 @@ var ReportFlangePage = /** @class */ (function (_super) {
 
 /***/ }),
 
-/***/ 500:
+/***/ 501:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -4494,7 +4497,7 @@ var ReportEditPictureComponent = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 501:
+/***/ 502:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -4551,7 +4554,7 @@ var ReportPictureSlideComponent = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 502:
+/***/ 503:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -4631,7 +4634,7 @@ var ReportErrorsComponent = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 503:
+/***/ 504:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -4641,7 +4644,7 @@ var ReportErrorsComponent = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(6);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__services_project_service__ = __webpack_require__(53);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__projects_projects__ = __webpack_require__(74);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__models_report_router__ = __webpack_require__(306);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__models_report_router__ = __webpack_require__(307);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__summary_summary__ = __webpack_require__(180);
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = Object.setPrototypeOf ||
@@ -4765,7 +4768,7 @@ var ReportsPage = /** @class */ (function (_super) {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ProjectService; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__models__ = __webpack_require__(46);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__models_project_json__ = __webpack_require__(472);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__models_project_json__ = __webpack_require__(473);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__file_service__ = __webpack_require__(54);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__messages_service__ = __webpack_require__(16);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__licences_service__ = __webpack_require__(102);
@@ -4951,7 +4954,7 @@ var FileService = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 587:
+/***/ 588:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -4959,7 +4962,7 @@ var FileService = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(6);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_report_service__ = __webpack_require__(30);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__models_reports_report_generic_class__ = __webpack_require__(307);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__models_reports_report_generic_class__ = __webpack_require__(308);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__models_reports__ = __webpack_require__(21);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__services_messages_service__ = __webpack_require__(16);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__services__ = __webpack_require__(17);
@@ -5031,7 +5034,7 @@ var GenericReportPage = /** @class */ (function (_super) {
 
 /***/ }),
 
-/***/ 588:
+/***/ 589:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -5099,7 +5102,7 @@ var ReportSurfacePage = /** @class */ (function (_super) {
 
 /***/ }),
 
-/***/ 589:
+/***/ 590:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -5137,14 +5140,14 @@ var ReportHeaderComponent = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 590:
+/***/ 591:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ReportAreaButtonComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(6);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__report_area_modal_component__ = __webpack_require__(357);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__report_area_modal_component__ = __webpack_require__(358);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -5200,7 +5203,7 @@ var ReportAreaButtonComponent = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 591:
+/***/ 592:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -5296,7 +5299,7 @@ var ReportMoreButtonComponent = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 592:
+/***/ 593:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -5370,7 +5373,7 @@ var ReportMediumTempButtonsComponent = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 593:
+/***/ 594:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -5379,7 +5382,7 @@ var ReportMediumTempButtonsComponent = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__models_marker__ = __webpack_require__(75);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(6);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__scroll_to_component_class__ = __webpack_require__(173);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__const_patterns__ = __webpack_require__(305);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__const_patterns__ = __webpack_require__(306);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__angular_forms__ = __webpack_require__(18);
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = Object.setPrototypeOf ||
@@ -5481,13 +5484,13 @@ var ReportTempMarkersWindowComponent = /** @class */ (function (_super) {
 
 /***/ }),
 
-/***/ 594:
+/***/ 595:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ReportResultComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__const_images_non_picture__ = __webpack_require__(298);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__const_images_non_picture__ = __webpack_require__(299);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__models_reports__ = __webpack_require__(21);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -5585,7 +5588,7 @@ var ReportResultComponent = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 595:
+/***/ 596:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -5653,7 +5656,7 @@ var ReportValvePage = /** @class */ (function (_super) {
 
 /***/ }),
 
-/***/ 596:
+/***/ 597:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -5721,7 +5724,7 @@ var ReportInsulatedSurfacePage = /** @class */ (function (_super) {
 
 /***/ }),
 
-/***/ 597:
+/***/ 598:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -5730,7 +5733,7 @@ var ReportInsulatedSurfacePage = /** @class */ (function (_super) {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__models_reports__ = __webpack_require__(21);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(6);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__services_report_service__ = __webpack_require__(30);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__models_reports_report_ipipe_class__ = __webpack_require__(302);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__models_reports_report_ipipe_class__ = __webpack_require__(303);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__services_messages_service__ = __webpack_require__(16);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__services__ = __webpack_require__(17);
 var __extends = (this && this.__extends) || (function () {
@@ -5790,7 +5793,7 @@ var ReportInsulatedPipePage = /** @class */ (function (_super) {
 
 /***/ }),
 
-/***/ 598:
+/***/ 599:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -5888,7 +5891,7 @@ var ReportDamagedPage = /** @class */ (function (_super) {
 
 /***/ }),
 
-/***/ 599:
+/***/ 600:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -5966,13 +5969,13 @@ var ReportCondensationPage = /** @class */ (function (_super) {
 
 /***/ }),
 
-/***/ 600:
+/***/ 601:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ReportLeakage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__report_base__ = __webpack_require__(24);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__pages_reports_leakage_report_leakage_component__ = __webpack_require__(358);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__pages_reports_leakage_report_leakage_component__ = __webpack_require__(359);
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = Object.setPrototypeOf ||
         ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
@@ -6003,16 +6006,16 @@ var ReportLeakage = /** @class */ (function (_super) {
 
 /***/ }),
 
-/***/ 601:
+/***/ 602:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MyApp; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(6);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__ = __webpack_require__(361);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__ = __webpack_require__(362);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_init_init__ = __webpack_require__(296);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__ = __webpack_require__(362);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__ = __webpack_require__(363);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_init_init__ = __webpack_require__(297);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -6050,7 +6053,7 @@ var MyApp = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 602:
+/***/ 603:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -6123,7 +6126,7 @@ var ContactPage = /** @class */ (function (_super) {
 
 /***/ }),
 
-/***/ 603:
+/***/ 604:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -6199,7 +6202,7 @@ var ProjectReportsPage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 604:
+/***/ 605:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -6245,7 +6248,7 @@ var ProjectPage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 605:
+/***/ 606:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -6283,20 +6286,20 @@ var PicturesPage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 606:
+/***/ 607:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return FileDeviceService; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__messages_service__ = __webpack_require__(16);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_file__ = __webpack_require__(365);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_file__ = __webpack_require__(366);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__file_service__ = __webpack_require__(54);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_native_file_chooser__ = __webpack_require__(363);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__ionic_native_file_path__ = __webpack_require__(364);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_native_file_chooser__ = __webpack_require__(364);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__ionic_native_file_path__ = __webpack_require__(365);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__models__ = __webpack_require__(46);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__ionic_native_file_transfer__ = __webpack_require__(366);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_jszip__ = __webpack_require__(607);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__ionic_native_file_transfer__ = __webpack_require__(367);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_jszip__ = __webpack_require__(608);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_jszip___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_8_jszip__);
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = Object.setPrototypeOf ||
@@ -6619,14 +6622,14 @@ var FileDeviceService = /** @class */ (function (_super) {
 
 /***/ }),
 
-/***/ 612:
+/***/ 613:
 /***/ (function(module, exports) {
 
 /* (ignored) */
 
 /***/ }),
 
-/***/ 614:
+/***/ 615:
 /***/ (function(module, exports) {
 
 /* (ignored) */
@@ -6827,7 +6830,7 @@ var BaseCalculator = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 660:
+/***/ 661:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -6918,7 +6921,7 @@ var FileLocalService = /** @class */ (function (_super) {
 
 /***/ }),
 
-/***/ 661:
+/***/ 662:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -6946,7 +6949,7 @@ var SvgInsulationComponent = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 662:
+/***/ 663:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -6974,7 +6977,7 @@ var SvgCustomComponent = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 663:
+/***/ 664:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -7002,7 +7005,7 @@ var SvgSafetyComponent = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 664:
+/***/ 665:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -7030,7 +7033,7 @@ var SvgMaintenanceComponent = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 665:
+/***/ 666:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -7058,7 +7061,7 @@ var SvgFlangeComponent = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 666:
+/***/ 667:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -7086,7 +7089,7 @@ var SvgHotSurfaceComponent = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 667:
+/***/ 668:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -7114,7 +7117,7 @@ var SvgFireProtectionComponent = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 668:
+/***/ 669:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -7142,7 +7145,7 @@ var SvgTrafficComponent = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 669:
+/***/ 670:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -7170,7 +7173,7 @@ var SvgDamageInsulationComponent = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 670:
+/***/ 671:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -7198,7 +7201,7 @@ var SvgDamageCladdingComponent = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 671:
+/***/ 672:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -7226,7 +7229,7 @@ var SvgIceWetComponent = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 672:
+/***/ 673:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -7254,7 +7257,7 @@ var SvgMechanicalComponent = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 673:
+/***/ 674:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -7282,7 +7285,7 @@ var SvgElectricalComponent = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 674:
+/***/ 675:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -7310,7 +7313,7 @@ var SvgLeakageComponent = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 675:
+/***/ 676:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -7338,7 +7341,7 @@ var SvgOtherSafetyComponent = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 676:
+/***/ 677:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -7366,7 +7369,7 @@ var SvgColdComponent = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 677:
+/***/ 678:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -7394,7 +7397,7 @@ var SvgPipeInsultationComponent = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 678:
+/***/ 679:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -7422,7 +7425,7 @@ var SvgPipeComponent = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 679:
+/***/ 680:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -7450,7 +7453,7 @@ var SvgValveComponent = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 680:
+/***/ 681:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -7478,7 +7481,7 @@ var SvgSurfaceComponent = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 681:
+/***/ 682:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -7506,7 +7509,7 @@ var SvgDamagedCladdingComponent = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 682:
+/***/ 683:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -7534,7 +7537,7 @@ var SvgDamagedInsulationComponent = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 683:
+/***/ 684:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -7562,7 +7565,7 @@ var SvgEnergyComponent = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 684:
+/***/ 685:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -7590,7 +7593,7 @@ var SvgInsulatedSurfaceComponent = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 685:
+/***/ 686:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -7618,7 +7621,7 @@ var SvgOthersComponent = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 686:
+/***/ 687:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -7646,7 +7649,7 @@ var SvgInsulatedOthersComponent = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 687:
+/***/ 688:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -7674,7 +7677,7 @@ var SvgCilinderAreaComponent = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 688:
+/***/ 689:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -7702,7 +7705,7 @@ var SvgCubeAreaComponent = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 689:
+/***/ 690:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -7730,7 +7733,7 @@ var SvgCircleAreaComponent = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 690:
+/***/ 691:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -7758,7 +7761,7 @@ var SvgHousekeepingComponent = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 691:
+/***/ 692:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -7786,7 +7789,7 @@ var SvgStructuralComponent = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 692:
+/***/ 693:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -7814,7 +7817,7 @@ var SvgRectangleAreaComponent = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 693:
+/***/ 694:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -7842,7 +7845,7 @@ var SvgLikeComponent = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 694:
+/***/ 695:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -7870,7 +7873,7 @@ var SvgIncreaseComponent = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 695:
+/***/ 696:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -7898,7 +7901,7 @@ var SvgEmptyComponent = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 696:
+/***/ 697:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -7930,14 +7933,15 @@ var SurfaceMaterialPipe = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 703:
+/***/ 704:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ToolsComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__ionic_native_flashlight__ = __webpack_require__(397);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__ionic_native_flashlight__ = __webpack_require__(398);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services__ = __webpack_require__(17);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_web_intent__ = __webpack_require__(195);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -7950,13 +7954,22 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 var ToolsComponent = /** @class */ (function () {
-    function ToolsComponent(flashlight, message) {
+    function ToolsComponent(flashlight, message, webIntent) {
         this.flashlight = flashlight;
         this.message = message;
+        this.webIntent = webIntent;
+        this.apps = [];
     }
     ToolsComponent.prototype.ngOnInit = function () {
+        var _this = this;
         this.flashlight_on = this.flashlight.isSwitchedOn();
+        window.plugins.packagemanager.show(true, function (apps) {
+            _this.apps = apps.map(function (a) { return a.split(';')[1]; });
+        }, function (e) {
+            _this.message.alert('Error', e.message);
+        });
     };
     ToolsComponent.prototype.toggle_light = function () {
         //this.message.alert('Flash', `${this.flashlight.isSwitchedOn()}`)
@@ -7969,13 +7982,25 @@ var ToolsComponent = /** @class */ (function () {
             this.flashlight_on = false;
         }
     };
-    ToolsComponent.prototype.open_calculator = function () { };
+    ToolsComponent.prototype.open_calculator = function () {
+        var _this = this;
+        var options = {
+            action: this.webIntent.ACTION_VIEW,
+            url: this.apps.find(function (p) { return !!p.match(/calc/g); }),
+            type: 'application/vnd.android.package-archive'
+        };
+        this.webIntent.startActivity(options).then(function () {
+            _this.message.alert('Ok', _this.apps.find(function (p) { return !!p.match(/calc/g); }));
+        }, function (err) {
+            _this.message.alert('Error', err.message);
+        });
+    };
     ToolsComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
             selector: 'tools',template:/*ion-inline-start:"D:\Sofware Factory\tbi\src\components\tools\tools.component.html"*/'  <button ion-button small icon-only color="light" (click)="open_calculator()">\n\n    <ion-icon name="ios-calculator"></ion-icon>\n\n  </button>\n\n  <button ion-button small icon-only color="light" (click)="toggle_light()">\n\n    <ion-icon name="ios-sunny" [class.button-on]="flashlight"></ion-icon>\n\n  </button>'/*ion-inline-end:"D:\Sofware Factory\tbi\src\components\tools\tools.component.html"*/,
             encapsulation: __WEBPACK_IMPORTED_MODULE_0__angular_core__["_11" /* ViewEncapsulation */].None
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__ionic_native_flashlight__["a" /* Flashlight */], __WEBPACK_IMPORTED_MODULE_2__services__["b" /* MessageService */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__ionic_native_flashlight__["a" /* Flashlight */], __WEBPACK_IMPORTED_MODULE_2__services__["b" /* MessageService */], __WEBPACK_IMPORTED_MODULE_3__ionic_native_web_intent__["a" /* WebIntent */]])
     ], ToolsComponent);
     return ToolsComponent;
 }());
@@ -7984,13 +8009,13 @@ var ToolsComponent = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 704:
+/***/ 705:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return GlobalErrorHandler; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_http__ = __webpack_require__(122);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_add_operator_map__ = __webpack_require__(705);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_add_operator_map__ = __webpack_require__(706);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_rxjs_add_operator_map__);
 
 
@@ -8044,13 +8069,14 @@ var GlobalErrorHandler = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ionic_angular__ = __webpack_require__(6);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__project_page_base__ = __webpack_require__(172);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__edit__ = __webpack_require__(299);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__edit__ = __webpack_require__(300);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__ionic_native_screen_orientation__ = __webpack_require__(178);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__reports__ = __webpack_require__(20);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__ionic_native_unique_device_id__ = __webpack_require__(359);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__ionic_native_unique_device_id__ = __webpack_require__(360);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__services_licences_service__ = __webpack_require__(102);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__download_download__ = __webpack_require__(360);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__download_download__ = __webpack_require__(361);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__summary_summary__ = __webpack_require__(180);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__ionic_native_web_intent__ = __webpack_require__(195);
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = Object.setPrototypeOf ||
         ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
@@ -8082,9 +8108,10 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 var ProjectsPage = /** @class */ (function (_super) {
     __extends(ProjectsPage, _super);
-    function ProjectsPage(navCtrl, navParams, service, platform, alertCtrl, actionSheetCtrl, orientation, licences, uuid, keyboard) {
+    function ProjectsPage(navCtrl, navParams, service, platform, alertCtrl, actionSheetCtrl, orientation, licences, uuid, keyboard, webIntent) {
         var _this = _super.call(this, alertCtrl, service, keyboard) || this;
         _this.navCtrl = navCtrl;
         _this.navParams = navParams;
@@ -8094,14 +8121,20 @@ var ProjectsPage = /** @class */ (function (_super) {
         _this.actionSheetCtrl = actionSheetCtrl;
         _this.licences = licences;
         _this.keyboard = keyboard;
+        _this.webIntent = webIntent;
         _this.projects = [];
         _this.edit_mode = false;
         _this.orientation = "";
         _this.user_name = '';
         _this.top_categories = [];
-        // if (!!navParams.get('project')) {
-        //   this.open_report(navParams.get('project'));
-        // }
+        _this.apps = [];
+        window.plugins.packagemanager.show(true, function (apps) {
+            _this.apps = apps.filter((function (a) { return !!a.match(/calc/g); }))
+                .map(function (a) {
+                var s = a.split('/');
+                return s[s.length - 1].split(';')[1];
+            });
+        });
         uuid.get()
             .then(function (uuid) { return console.log(uuid); })
             .catch(function (error) { return console.log(error); });
@@ -8112,6 +8145,17 @@ var ProjectsPage = /** @class */ (function (_super) {
             _this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_11__summary_summary__["a" /* SummaryPage */], { project: navParams.get('project') }, { animate: true, direction: 'backward' });
         return _this;
     }
+    ProjectsPage.prototype.open_link = function (link) {
+        var options = {
+            action: this.webIntent.ACTION_VIEW,
+            url: "file:///" + link,
+            type: 'application/vnd.android.package-archive'
+        };
+        this.webIntent.startActivity(options).then(function () {
+        }, function (err) {
+            throw err;
+        });
+    };
     ProjectsPage.prototype.open_report = function (project) {
         if (this.licences.lock) {
             this.alert_licence();
@@ -8266,7 +8310,7 @@ var ProjectsPage = /** @class */ (function (_super) {
     };
     ProjectsPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_2__angular_core__["m" /* Component */])({
-            selector: 'page-project',template:/*ion-inline-start:"D:\Sofware Factory\tbi\src\pages\projects\projects.html"*/'<ion-header>\n\n  <ion-toolbar>\n\n    <ion-title></ion-title>\n\n  </ion-toolbar>\n\n</ion-header>\n\n\n\n<ion-content>\n\n  <ion-grid projects>\n\n    <ion-row>\n\n      <ion-col col-xs-3 col-sm-2>\n\n      </ion-col>\n\n      <ion-col col-xs-9 col-sm-10>\n\n        <ion-row no-margin no-padding>\n\n          <ion-col col-12>\n\n          </ion-col>\n\n        </ion-row>\n\n        <ion-row no-margin no-padding>\n\n          <ion-col col-8>\n\n          </ion-col>\n\n          <ion-col svg="insulation" col-sm-1 class="flex bg-gray">\n\n          </ion-col>\n\n          <ion-col svg="safety" col-sm-1 class="flex">\n\n          </ion-col>\n\n          <ion-col svg="maintenance" col-sm-1 class="flex bg-gray">\n\n          </ion-col>\n\n          <ion-col svg="custom" col-sm-1 class="flex">\n\n          </ion-col>\n\n        </ion-row>\n\n      </ion-col>\n\n    </ion-row>\n\n    <ion-row *ngFor="let p of projects">\n\n        <ion-col col-xs-3 col-sm-2 id="project-{{p.id}}" (click)="open_report(p)">\n\n          <img [src]="p.picture">\n\n        </ion-col>\n\n        <ion-col col-xs-9 col-sm-10 (click)="open_report(p)">\n\n          <ion-row no-margin no-padding>\n\n            <ion-col col-12>\n\n              <h1 no-margin>{{p.name}}</h1>\n\n            </ion-col>\n\n          </ion-row>\n\n          <ion-row no-margin no-padding>\n\n            <ion-col col-8>\n\n              <ion-row>\n\n                <h5 col-12 no-margin>Project Leader: {{p.people.leader.name || \'(none)\'}}</h5>\n\n                <h5 col-12 no-margin>Energy Manager: {{p.people.energy_manager.name || \'(none)\'}}</h5>\n\n              </ion-row>\n\n            </ion-col>\n\n            <ion-col col-md-1 class="flex bg-gray">\n\n              <h4 no-margin>{{get_by_type(p, \'pipe|surface|flange|valve\').length}}</h4>\n\n            </ion-col>\n\n            <ion-col col-md-1 class="flex">\n\n              <h4 no-margin>{{get_by_type(p, \'safety\').length}}</h4>\n\n            </ion-col>\n\n            <ion-col col-md-1 class="flex bg-gray">\n\n              <h4 no-margin>{{get_by_type(p, \'mantenance\').length}}</h4>\n\n            </ion-col>\n\n            <ion-col col-md-1 class="flex">\n\n              <h4 no-margin>{{get_by_type(p, \'custom\').length}}</h4>\n\n            </ion-col>\n\n          </ion-row>\n\n          <ion-row>\n\n            <ion-col col-12 text-right>\n\n              <button ion-button small pull-right (click)="navigate_to_edit(p, $event)">\n\n                <ion-icon name="create"></ion-icon>Edit\n\n              </button>\n\n              <button ion-button small pull-right color="danger" (click)="this.delete_project(p, $event)">\n\n                <ion-icon name="trash"></ion-icon>Delete\n\n              </button>\n\n            </ion-col>\n\n          </ion-row>\n\n          <!-- <ion-row no-margin no-padding>\n\n            <ion-col col-12>\n\n              <p no-margin>{{p.desc}}</p>\n\n            </ion-col>\n\n          </ion-row> -->\n\n        </ion-col>\n\n    </ion-row>\n\n  </ion-grid>\n\n\n\n  <div license-alert *ngIf="licences.type==\'BASIC\'" col-6 offset-3>\n\n    <ion-grid no-padding>\n\n      <ion-row no-padding>\n\n        <ion-col col-12 no-padding>\n\n          La versión BASIC solo le permite crear 5 componentes, contrate la versión PRO o ENTERPRISE y disfrute de todas sus ventajas.\n\n        </ion-col>\n\n        <ion-col col-4 offset-8 text-right>\n\n          <button ion-button small round color="light" outline>Upgrade NOW</button>\n\n        </ion-col>\n\n      </ion-row>\n\n    </ion-grid>\n\n  </div>\n\n</ion-content>\n\n\n\n<ion-footer>\n\n  <ion-grid>\n\n    <ion-row>\n\n      <ion-col col-4 text-left>\n\n        <button ion-button small color="light" (click)="create_db()">\n\n          <ion-icon name="md-archive"></ion-icon>Download data\n\n        </button>\n\n      </ion-col>\n\n      <ion-col col-4 text-center>\n\n        <tools></tools>\n\n      </ion-col>\n\n      <ion-col col-4 text-right>\n\n        <button ion-button small color="royal" (click)="create()">\n\n          New project\n\n        </button>\n\n      </ion-col>\n\n    </ion-row>\n\n  </ion-grid>\n\n</ion-footer>\n\n'/*ion-inline-end:"D:\Sofware Factory\tbi\src\pages\projects\projects.html"*/
+            selector: 'page-project',template:/*ion-inline-start:"D:\Sofware Factory\tbi\src\pages\projects\projects.html"*/'<ion-header>\n\n  <ion-toolbar>\n\n    <ion-title></ion-title>\n\n  </ion-toolbar>\n\n</ion-header>\n\n\n\n<ion-content>\n\n  <ion-grid projects>\n\n    <ion-row>\n\n      <ion-col col-xs-3 col-sm-2>\n\n      </ion-col>\n\n      <ion-col col-xs-9 col-sm-10>\n\n        <ion-row no-margin no-padding>\n\n          <ion-col col-12>\n\n          </ion-col>\n\n        </ion-row>\n\n        <ion-row no-margin no-padding>\n\n          <ion-col col-8>\n\n          </ion-col>\n\n          <ion-col svg="insulation" col-sm-1 class="flex bg-gray">\n\n          </ion-col>\n\n          <ion-col svg="safety" col-sm-1 class="flex">\n\n          </ion-col>\n\n          <ion-col svg="maintenance" col-sm-1 class="flex bg-gray">\n\n          </ion-col>\n\n          <ion-col svg="custom" col-sm-1 class="flex">\n\n          </ion-col>\n\n        </ion-row>\n\n      </ion-col>\n\n    </ion-row>\n\n    <ion-row *ngFor="let p of projects">\n\n        <ion-col col-xs-3 col-sm-2 id="project-{{p.id}}" (click)="open_report(p)">\n\n          <img [src]="p.picture">\n\n        </ion-col>\n\n        <ion-col col-xs-9 col-sm-10 (click)="open_report(p)">\n\n          <ion-row no-margin no-padding>\n\n            <ion-col col-12>\n\n              <h1 no-margin>{{p.name}}</h1>\n\n            </ion-col>\n\n          </ion-row>\n\n          <ion-row no-margin no-padding>\n\n            <ion-col col-8>\n\n              <ion-row>\n\n                <h5 col-12 no-margin>Project Leader: {{p.people.leader.name || \'(none)\'}}</h5>\n\n                <h5 col-12 no-margin>Energy Manager: {{p.people.energy_manager.name || \'(none)\'}}</h5>\n\n              </ion-row>\n\n            </ion-col>\n\n            <ion-col col-md-1 class="flex bg-gray">\n\n              <h4 no-margin>{{get_by_type(p, \'pipe|surface|flange|valve\').length}}</h4>\n\n            </ion-col>\n\n            <ion-col col-md-1 class="flex">\n\n              <h4 no-margin>{{get_by_type(p, \'safety\').length}}</h4>\n\n            </ion-col>\n\n            <ion-col col-md-1 class="flex bg-gray">\n\n              <h4 no-margin>{{get_by_type(p, \'mantenance\').length}}</h4>\n\n            </ion-col>\n\n            <ion-col col-md-1 class="flex">\n\n              <h4 no-margin>{{get_by_type(p, \'custom\').length}}</h4>\n\n            </ion-col>\n\n          </ion-row>\n\n          <ion-row>\n\n            <ion-col col-12 text-right>\n\n              <button ion-button small pull-right (click)="navigate_to_edit(p, $event)">\n\n                <ion-icon name="create"></ion-icon>Edit\n\n              </button>\n\n              <button ion-button small pull-right color="danger" (click)="this.delete_project(p, $event)">\n\n                <ion-icon name="trash"></ion-icon>Delete\n\n              </button>\n\n            </ion-col>\n\n          </ion-row>\n\n          <!-- <ion-row no-margin no-padding>\n\n            <ion-col col-12>\n\n              <p no-margin>{{p.desc}}</p>\n\n            </ion-col>\n\n          </ion-row> -->\n\n        </ion-col>\n\n    </ion-row>\n\n  </ion-grid>\n\n\n\n  <ul>\n\n    <li *ngFor="let app of apps" on-tap="open_link(app)">\n\n      {{app}}\n\n    </li>\n\n  </ul>\n\n\n\n  <div license-alert *ngIf="licences.type==\'BASIC\'" col-6 offset-3>\n\n    <ion-grid no-padding>\n\n      <ion-row no-padding>\n\n        <ion-col col-12 no-padding>\n\n          La versión BASIC solo le permite crear 5 componentes, contrate la versión PRO o ENTERPRISE y disfrute de todas sus ventajas.\n\n        </ion-col>\n\n        <ion-col col-4 offset-8 text-right>\n\n          <button ion-button small round color="light" outline>Upgrade NOW</button>\n\n        </ion-col>\n\n      </ion-row>\n\n    </ion-grid>\n\n  </div>\n\n</ion-content>\n\n\n\n<ion-footer>\n\n  <ion-grid>\n\n    <ion-row>\n\n      <ion-col col-4 text-left>\n\n        <button ion-button small color="light" (click)="create_db()">\n\n          <ion-icon name="md-archive"></ion-icon>Download data\n\n        </button>\n\n      </ion-col>\n\n      <ion-col col-4 text-center>\n\n        <tools></tools>\n\n      </ion-col>\n\n      <ion-col col-4 text-right>\n\n        <button ion-button small color="royal" (click)="create()">\n\n          New project\n\n        </button>\n\n      </ion-col>\n\n    </ion-row>\n\n  </ion-grid>\n\n</ion-footer>\n\n'/*ion-inline-end:"D:\Sofware Factory\tbi\src\pages\projects\projects.html"*/
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_3_ionic_angular__["h" /* NavController */],
             __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["i" /* NavParams */],
@@ -8277,7 +8321,8 @@ var ProjectsPage = /** @class */ (function (_super) {
             __WEBPACK_IMPORTED_MODULE_6__ionic_native_screen_orientation__["a" /* ScreenOrientation */],
             __WEBPACK_IMPORTED_MODULE_9__services_licences_service__["a" /* LicencesService */],
             __WEBPACK_IMPORTED_MODULE_8__ionic_native_unique_device_id__["a" /* UniqueDeviceID */],
-            __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["f" /* Keyboard */]])
+            __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["f" /* Keyboard */],
+            __WEBPACK_IMPORTED_MODULE_12__ionic_native_web_intent__["a" /* WebIntent */]])
     ], ProjectsPage);
     return ProjectsPage;
 }(__WEBPACK_IMPORTED_MODULE_4__project_page_base__["a" /* ProjectPageBase */]));
@@ -8399,5 +8444,5 @@ var Result = /** @class */ (function () {
 
 /***/ })
 
-},[398]);
+},[399]);
 //# sourceMappingURL=main.js.map
