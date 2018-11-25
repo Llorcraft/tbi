@@ -56,7 +56,9 @@ export class ProjectsPage extends ProjectPageBase {
 
   }
 
-  public duplicate(project: Project) {
+  public duplicate(project: Project, event: Event) {
+    event.cancelBubble = true;
+    event.preventDefault();
     let new_project = new Project(project);
     new_project.id = '';
     new_project.name = `${project.name} Copy`;

@@ -23,7 +23,7 @@
   <ion-grid>
     <ion-row *ngIf="segment=='properties'">
       <ion-col col-12>
-        <form novalidate #form="ngForm" style="margin-bottom: 10vw">
+        <form novalidate #form="ngForm" style="margin-bottom: 100vw">
         <ion-row>
           <ion-col col-md-6 col-12>
             <ion-row>
@@ -90,13 +90,13 @@
             <ion-row>
               <ion-title class="label"  col-12 text-left>HSE Manager</ion-title>
               <ion-item col-md-5 col-12>
-                <ion-input tabindex="10" (ionFocus)="on_focus($event)"  [(ngModel)]="project.people.hse_manager.name" placeholder="Name" name="hse-name" scroll="-60"></ion-input>
+                <ion-input tabindex="10" (ionFocus)="on_focus($event)" [(ngModel)]="project.people.hse_manager.name" placeholder="Name" name="hse-name" scroll="-60"></ion-input>
               </ion-item>
               <ion-item col-md-4 col-12>
-                <ion-input tabindex="10" (ionFocus)="on_focus($event)"  type="email" [(ngModel)]="project.people.hse_manager.email" placeholder="Email" name="hse-email" scroll="-60"></ion-input>
+                <ion-input tabindex="10" (ionFocus)="on_focus($event)" type="email" [(ngModel)]="project.people.hse_manager.email" placeholder="Email" name="hse-email" scroll="-60"></ion-input>
               </ion-item>
               <ion-item col-md-3 col-12>
-                <ion-input tabindex="10" (ionFocus)="on_focus($event)"  (keyup.enter)="on_keypress($event)"  type="phone" [(ngModel)]="project.people.hse_manager.phone" placeholder="Phone" name="hse-phone" scroll="-60"></ion-input>
+                <ion-input tabindex="10" (ionFocus)="on_focus($event)" (keyup.enter)="on_keypress($event)"  type="phone" [(ngModel)]="project.people.hse_manager.phone" placeholder="Phone" name="hse-phone" scroll="-60"></ion-input>
               </ion-item>
             </ion-row>
           </ion-col>
