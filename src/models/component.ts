@@ -23,7 +23,7 @@ export class TbiComponent {
     public result: Result
 
     public get insulated(): boolean {
-        const report = this.reports.find(r => !!r.path.match(/\\insulated/gi));
+        const report = this.reports.find(r => !!r.insulated);
         return !!report;
     }
 

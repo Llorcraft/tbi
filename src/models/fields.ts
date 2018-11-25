@@ -24,6 +24,7 @@ export class Fields {
   public damaged_cladding_selection: number = 4;
   public damaged_insulation_selection: number = 4;
   public damaged_comment: string = '';
+  public space_warning: boolean = false;
 
   private _condensation_ice_block: boolean = false
   public get condensation_ice_block(): boolean {
@@ -113,6 +114,7 @@ export class Fields {
     this.condensation_wet_surface = !!f.condensation_wet_surface;
     this.condensation_comment = f.condensation_comment || '';
     this.unknow_surface = !!f.unknow_surface;
+    this.space_warning =  f.space_warning
   }
 
   private number_or_null(value?: number | string): number {

@@ -26,7 +26,6 @@ export class GenericReportPage extends BaseReportPage {
   }
 
   protected calculate(): ReportBase {
-    debugger;
     this.start_changes_observer();
     if (!this.form.invalid) {
       this.save();

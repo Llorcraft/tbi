@@ -51,6 +51,8 @@ public get surface_temp(): number {
       this.summary_id = item.summary_id;
       this.readonly_summary_id = item.readonly_summary_id;
       this.comment = item.comment;
+
+      this.insulated = !!this.path.match(/insulated/gi);
     }
   }
 }

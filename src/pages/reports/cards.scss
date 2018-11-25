@@ -1,4 +1,4 @@
-$color-primary: #96be10;
+$color-primary: #014a97;
 
 ion-card {
   border: 1px solid $color-primary;
@@ -11,10 +11,7 @@ ion-card {
     margin: 0 .25rem!important;
     font-size: 1.8rem!important;
     font-weight: normal!important;
-    &[empty]{
-      margin-top: -25%!important;
-      margin-bottom: 25%!important;
-    }
+    text-transform: uppercase;
   }
   h3 {
     color: #fff!important;

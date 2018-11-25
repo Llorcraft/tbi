@@ -2,35 +2,54 @@
 
 [card-container] {
   text-align: center;
+
   ion-card {
-    margin: 1rem 0 0!important;
-    display: block;
+    margin: 1rem 0 0 !important;
+    display: flex;
+    flex-direction: row;
     width: 100%;
     text-align: center;
+    align-items: center;
 
-    svg#insulation {
-      width: 60%;
-      margin-top: .75rem;
-      margin-bottom: -2rem;
+    span[svg] {
+      height: 8rem !important;
+      padding: 0 1rem 1.5rem 1.5rem;
     }
   }
 }
 
 ion-card {
-  svg {
+  span[svg] {
+    svg {
+      height: 90% !important;
+      width: auto !important;
 
-    g,
-    path {
-      fill: #fff;
+      &#insulation {
+        height: 100% !important;
+      }
+
+      g,
+      path {
+        fill: #fff;
+      }
+
+      &+h1,
+      &+h3 {
+        color: #fff;
+      }
+
+      line {
+        stroke: #fff;
+      }
     }
+  }
+  span[svg=empty]{
+    width: 0;
+    padding: 0 0 1.5rem 0;
 
-    &+h1,
-    &+h3 {
-      color: #fff;
-    }
-
-    line {
-      stroke: #fff;
+    &+h1 {
+      text-align: center;
+      width: calc(100% - 3rem);
     }
   }
 }

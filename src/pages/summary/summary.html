@@ -133,6 +133,7 @@
           </td>
           <td rowspan="2" double-border text-center class="bg-gray">
             <a href="#" (click)="open(r, $event)" *ngFor="let r of c.reports_by_type('generic|custom')">{{r.summary_id}}</a>
+            <a href="#" (click)="edit(c, $event)" *ngIf="!!c.fields.space_warning"><strong style="white-space: nowrap">No Space</strong></a>
             <ion-icon name="md-add-circle" (click)="add_report('maintenance', c, $event)"></ion-icon>
           </td>
           <td rowspan="2" *ngIf="!!c.result" double-border text-center>

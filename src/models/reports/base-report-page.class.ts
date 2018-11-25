@@ -145,8 +145,12 @@ export class BaseReportPage extends ScrollToComponent implements OnInit, AfterVi
     const project = this.report.component.project;
     if (!this.report.component.reports.find(c => c.id === this.report.id)) this.report.component.reports.push(this.report);
     if (!project.components.find(c => c.id === this.report.component.id)) project.components.push(this.report.component);
-    this.service.save(this.report).then(p => {
-      this.navCtrl.setRoot(ProjectsPage, { project: p, summary: true }, { animate: true, direction: 'backward' });
+
+    this.confirm_space().then(space => {
+      this.report.component.fields.space_warning = space;
+      this.service.save(this.report).then(p => {
+        this.navCtrl.setRoot(ProjectsPage, { project: p, summary: true }, { animate: true, direction: 'backward' });
+      });
     });
     //this.ask_for_more_reports(project);
     //this.navCtrl.push(ProjectPage, { project: project });
@@ -289,6 +293,7 @@ export class BaseReportPage extends ScrollToComponent implements OnInit, AfterVi
     })
     confirm.present();
   }
+
   protected take_picture() {
     //this.alert('Hacer foto');
     this.picture.take_picture().then(d => this.report.pictures.push(new Picture({ picture: d })))
@@ -339,5 +344,27 @@ export class BaseReportPage extends ScrollToComponent implements OnInit, AfterVi
       ]
     });
     confirm.present();
+  }
+
+  public confirm_space(): Promise<boolean> {
+    return (!this.report.insulated) 
+    ? new Promise(resolve => {
+      resolve(false)
+    })
+    : new Promise(resolve => {
+      let confirm = this.alertCtrl.create({
+        message: `Is there enough space to place the insulation?`,
+        enableBackdropDismiss: false,
+        buttons: [
+          {
+            text: 'Yes',
+            handler: () => resolve(false)
+          }, {
+            text: 'No',
+            handler: () => resolve(true)
+          }]
+      })
+      confirm.present();
+    });
   }
 }
