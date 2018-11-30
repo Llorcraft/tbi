@@ -162,7 +162,12 @@ export class BaseCalculator {
             savingPotentialMax: new Value({
                 power: this.Savingkwh_max,
                 money: this.Savingε_max
-            })
+            }),
+            co2: [
+                this.Qkwh * this.report.component.project.co2 / 1000000,
+                this.Qkwh_min * this.report.component.project.co2 / 1000000,
+                this.Qkwh_max * this.report.component.project.co2 / 1000000,
+            ]
         });
         return this.report;
     }

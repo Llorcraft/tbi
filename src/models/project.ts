@@ -35,6 +35,7 @@ export class Project extends ModelWithPicture {
   public components: TbiComponent[] = [];
   public price?: number = null;
   public people: People = new People();
+  public co2: number = 0;
 
   constructor(project?: Partial<Project>) {
     super(project);
@@ -47,6 +48,7 @@ export class Project extends ModelWithPicture {
     this.documents = (project.documents || []).map(d => new Document(d));
     this.components = project.components.map(c => new TbiComponent(this, c));
     this.people = new People(project.people);
+    this.co2 = project.co2 || 0;
   }
 
   private flatten(arr: any[]): any[] {

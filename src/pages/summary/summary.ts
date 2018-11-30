@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { AlertController, NavParams, ModalController, NavController, ActionSheetController, Img } from 'ionic-angular';
+import { AlertController, NavParams, ModalController, NavController, ActionSheetController } from 'ionic-angular';
 import { ScreenOrientation } from '@ionic-native/screen-orientation';
 import { Project, Value, ReportBase, Result } from '../../models';
 import { ProjectService } from '../../services/project.service';
@@ -21,6 +21,7 @@ import { FileOpener } from '@ionic-native/file-opener';
 export class SummaryPage {
   private orientation: string;
   public project: Project;
+  public report: ReportBase = null;
   public components: TbiComponent[] = [];
   public heat_lost: Value = new Value();
   public saving_potential_min: Value = new Value();
@@ -30,7 +31,7 @@ export class SummaryPage {
     ['System OK', 'OK'],
     ['Insulation recommended', 'Recommended'],
     ['SAFETY-Insulation recommended', 'SAFETY-Recommended'],
-    ['Savings can be achieved by increasing the insulant performance or thickness', 'SAVINGS-achieved']
+    ['Savings can be achieved by increasing insulation performance or thickness', 'SAVINGS-achieved']
   ]);
   public totals: Result = new Result()
   constructor(
@@ -40,7 +41,6 @@ export class SummaryPage {
     protected modalCtrl: ModalController,
     protected service: ProjectService,
     protected navCtrl: NavController,
-    private message: MessageService,
     private opener: FileOpener,
     private file: FileService,
     orientation: ScreenOrientation) {
@@ -231,6 +231,7 @@ export class SummaryPage {
     this.service.get(this.navParams.get('project').id).then(project => {
       this.project = project;
       //this.project = this.navParams.get('project');
+      this.report = this.project.components[0].reports[0];
       this.components = [].concat((this.project.components || [])).sort((a, b) => a.date > b.date ? 1 : -1);
 
       this.components.filter(c => !!c.result && !c.fields.unknow_surface)

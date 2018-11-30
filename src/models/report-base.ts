@@ -24,21 +24,21 @@ export class ReportBase {
   public get has_markers(): boolean {
     const has_markers = !!this.pictures.filter(p => !!p.has_markers).length;
     return has_markers;
-}
+  }
   public get money_measure(): string {
     return '€/a';
   }
   public get min_temp(): number {
     return !this.has_markers ? 0 : this.pictures.filter(p => p.has_markers).map(m => m.min_temp).sort()[0];
-}
-public get max_temp(): number {
+  }
+  public get max_temp(): number {
     return !this.has_markers ? 0 : this.pictures.filter(p => p.has_markers).map(m => m.max_temp).sort().reverse()[0];
-}
-public get surface_temp(): number {
+  }
+  public get surface_temp(): number {
     return !this.has_markers ? 0 : eval(this.pictures.filter(p => p.has_markers).map(m => m.surface_temp).join('+')) / this.pictures.filter(p => p.has_markers).length;
-}
+  }
   public calculator: ICalculator = null;
-  
+
   constructor(project: Project, component?: TbiComponent, item?: Partial<ReportBase>) {
     if (!!item) {
       Object.assign(this, item);
@@ -46,13 +46,18 @@ public get surface_temp(): number {
       this.project = project;
       this.component = component;
       this.path = item.path;
-      this.id = item.id;      
+      this.id = item.id;
       this.result = new Result(item.result);
       this.summary_id = item.summary_id;
       this.readonly_summary_id = item.readonly_summary_id;
       this.comment = item.comment;
-
       this.insulated = !!this.path.match(/insulated/gi);
     }
+  }
+
+  get annual_saving():string {
+    return !this.result || this.result.headLost.power == 0
+      ? `Click on Next to get the result` 
+      : `From ${this.result.annual_saving_from} € to ${this.result.annual_saving_to} €`;
   }
 }

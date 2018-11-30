@@ -46,6 +46,7 @@ import { LicencesService } from '../services/licences.service';
 
 /*Components*/
 import { SvgInsulationComponent } from '../components/svg/svg-insulation.component';
+import { SvgCO2Component } from '../components/svg/svg-co2.component';
 import { SvgCustomComponent } from '../components/svg/svg-custom.component';
 import { SvgSafetyComponent } from '../components/svg/svg-safety.component';
 import { SvgMaintenanceComponent } from '../components/svg/svg-maintenance.component';
@@ -158,6 +159,7 @@ import { GlobalErrorHandler } from '../models/errors/global-error';
     ToolsComponent,
     SvgEmptyComponent,
     SvgInsulationComponent,
+    SvgCO2Component,
     SvgCustomComponent,
     SvgSafetyComponent,
     SvgMaintenanceComponent,

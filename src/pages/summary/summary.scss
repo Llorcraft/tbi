@@ -4,6 +4,7 @@ page-summary {
     img {
       margin: auto;
     }
+
     span,
     div {
       svg {
@@ -29,6 +30,10 @@ page-summary {
         }
       }
     }
+  }
+
+  ion-grid[chart] {
+    margin: 3rem auto 0;
   }
 
   ion-grid[legend] {

@@ -217,7 +217,7 @@
       </ion-row>
     </ion-grid> -->
 
-    <ion-grid legend>
+    <!-- <ion-grid legend>
       <ion-row>
         <ion-col col-1 class="icon"><div svg="insulation" style="margin:.4rem 0 -.4rem"></div></ion-col>
         <ion-col col-11 class="text">Insulation recommended</ion-col>
@@ -229,6 +229,14 @@
         <ion-col col-11 class="text">System OK</ion-col>
         <ion-col col-1 class="icon"><div svg="increase"></div></ion-col>
         <ion-col col-11 class="text">Increase performance or thickness</ion-col>
+      </ion-row>
+    </ion-grid> -->
+
+    <ion-grid chart>
+      <ion-row>
+        <ion-col col-12>
+          <report-result *ngIf="report" [parent]="this" [show_advise]="false"></report-result>
+        </ion-col>
       </ion-row>
     </ion-grid>
 

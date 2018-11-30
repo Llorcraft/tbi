@@ -27,13 +27,17 @@
         <ion-row>
           <ion-col col-md-6 col-12>
             <ion-row>
-              <ion-title class="label"  col-12 col-12 text-left>Name</ion-title>
+              <ion-title class="label" col-12 col-12 text-left>Name</ion-title>
               <ion-item>
                 <ion-input tabindex="1" (ionFocus)="on_focus($event)"  type="text" [(ngModel)]="project.name" name="name"></ion-input>
               </ion-item>
-              <ion-title class="label"  col-12 col-12 text-left>Energy Price (&euro;/kWh)</ion-title>
+              <ion-title class="label" col-12 col-12 text-left>Energy Price (&euro;/kWh)</ion-title>
               <ion-item>
                 <ion-input tabindex="2" (ionFocus)="on_focus($event)" type="number" [(ngModel)]="project.price" name="price" scroll="40"></ion-input>
+              </ion-item>
+              <ion-title class="label" col-12 col-12 text-left>C02 emissions (grCO2 per kWh)</ion-title>
+              <ion-item>
+                <ion-input tabindex="2" (ionFocus)="on_focus($event)" type="number" [(ngModel)]="project.co2" name="co2" scroll="40"></ion-input>
               </ion-item>
             </ion-row>
           </ion-col>

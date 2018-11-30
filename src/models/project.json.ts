@@ -15,6 +15,7 @@ export class ProjectJson {
   public components: TbiComponentJson[] = [];
   public price?: number = null;
   public people: People = new People();
+  public co2: number = 0;
 
   constructor(project: Partial<Project>) {
     this.id = project.id;
@@ -27,6 +28,7 @@ export class ProjectJson {
     this.components = project.components.map(c => new TbiComponentJson(c));
     this.documents = project.documents || [];
     this.people = new People(project.people);
+    this.co2 = project.co2 || 0;
   }
 
   private flatten(arr: any[]): any[] {

@@ -28930,19 +28930,14 @@ report-result [saving-potential] ion-row ion-col:nth-child(3) {
 }
 
 report-result [message] {
-  border: 1px solid #305496;
-  border-radius: .5rem;
   padding: 1rem;
-  background: rgba(48, 84, 150, 0.2);
   width: 100%;
-  margin-bottom: .5rem;
 }
 
 report-result [message] h4 {
   margin: 0;
   text-align: center;
-  color: #305496;
-  font-size: 1.5rem;
+  font-size: 27.2px;
 }
 
 report-result table.result-chart {
@@ -29046,21 +29041,25 @@ report-result table.result-chart tbody td.section {
   width: 60px;
 }
 
-report-result table.result-chart tbody td.dashed-left, report-result table.result-chart thead th.dashed-left {
-  border-left: 2px dashed #4b71c1;
+report-result table.result-chart tbody td.dashed-left,
+report-result table.result-chart thead th.dashed-left {
+  border-left: 2px dashed #7f7f7f;
 }
 
-report-result table.result-chart tbody td.dashed-right, report-result table.result-chart thead th.dashed-right {
-  border-right: 2px dashed #4b71c1;
+report-result table.result-chart tbody td.dashed-right,
+report-result table.result-chart thead th.dashed-right {
+  border-right: 2px dashed #7f7f7f;
 }
 
-report-result table.result-chart tbody td.dashed-top, report-result table.result-chart thead th.dashed-top {
-  border-top: 2px dashed #4b71c1;
+report-result table.result-chart tbody td.dashed-top,
+report-result table.result-chart thead th.dashed-top {
+  border-top: 2px dashed #7f7f7f;
   padding-top: 1rem;
 }
 
-report-result table.result-chart tbody td.dashed-bottom, report-result table.result-chart thead th.dashed-bottom {
-  border-bottom: 2px dashed #4b71c1;
+report-result table.result-chart tbody td.dashed-bottom,
+report-result table.result-chart thead th.dashed-bottom {
+  border-bottom: 2px dashed #7f7f7f;
 }
 
 report-result table.result-chart tbody td.b-line {
@@ -29092,6 +29091,28 @@ report-result table.result-chart tbody td.bar div {
 report-result table.result-chart tbody td.bar div span {
   -webkit-transition: al linear .25s;
   transition: al linear .25s;
+}
+
+report-result table.result-chart tfoot {
+  font-size: 1rem;
+}
+
+report-result table.result-chart tfoot svg {
+  height: 4rem;
+  margin-right: 1rem;
+  fill: #7f7f7f;
+}
+
+report-result table.result-chart tfoot th:nth-child(2) {
+  color: #7f7f7f;
+}
+
+report-result table.result-chart tfoot th:nth-child(3) {
+  color: #4b71c1;
+}
+
+report-result table.result-chart tfoot th:nth-child(4) {
+  color: #6daf3d;
 }
 
 page-report-condensation h3.damaged-result {
@@ -29261,6 +29282,10 @@ page-summary kendo-pdf-export.print div svg {
 page-summary kendo-pdf-export.print span svg + img,
 page-summary kendo-pdf-export.print div svg + img {
   display: block;
+}
+
+page-summary ion-grid[chart] {
+  margin: 3rem auto 0;
 }
 
 page-summary ion-grid[legend] ion-title[text-left] {

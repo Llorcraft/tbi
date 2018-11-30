@@ -9,6 +9,7 @@ import { BaseReportPage } from '../../../../models/reports';
 
 export class ReportResultComponent implements AfterContentInit {
     @Input() parent: BaseReportPage;
+    @Input() show_advise?: boolean = true;
 
     protected get first_picture(): string {
         return this.parent.report.pictures.length ? this.parent.report.pictures[0].picture : NON_PICTURE;
@@ -41,18 +42,23 @@ export class ReportResultComponent implements AfterContentInit {
             (this.bars.current.losses[0] - this.bars.basic.losses[0]),
             (this.bars.current.losses[1] - this.bars.basic.losses[1])
         ];
-        
+
 
         this.bars.economical.losses = [
             (this.parent.report.result.headLost.power - this.parent.report.result.savingPotentialMax.power) / 100 * height / (this.scale.max),
             //this.up(this.bars.current.losses[1] - this.parent.report.result.savingPotentialMax.money)
-            this.up(this.parent.report.result.headLost.money-this.parent.report.result.savingPotentialMax.money)
+            this.up(this.parent.report.result.headLost.money - this.parent.report.result.savingPotentialMax.money)
         ];
 
         this.bars.economical.savings = [
             (this.bars.current.losses[0] - this.bars.economical.losses[0]),
             (this.bars.current.losses[1] - this.bars.economical.losses[1])
         ];
+
+        //if (!this.parent.report.result.annual_saving_from || !this.parent.report.result.annual_saving_from) {
+        this.parent.report.result.annual_saving_from = this.bars.basic.savings[1];
+        this.parent.report.result.annual_saving_to = this.bars.economical.savings[1];
+        //}
     }
 
     bars: any = {
