@@ -77,7 +77,7 @@ export class BaseReportPage extends ScrollToComponent implements OnInit, AfterVi
   }
 
   ngOnInit(): void {
-    if (!!this.report.id && !!this.report.path.match(/(pipe|surface|valve|flange)/gi)) setTimeout(() => this.calculate(), 250);
+    if (!!this.report.result.headLost.power && !!this.report.id && !!this.report.path.match(/(pipe|surface|valve|flange)/gi)) setTimeout(() => this.calculate(), 250);
   }
 
   set_operational_time() {

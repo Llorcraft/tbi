@@ -274,7 +274,7 @@ import { Flashlight } from '@ionic-native/flashlight';
     Flashlight,
     LoadindService,
     LoadingController,
-    {provide: FileService, useClass: FileLocalService}
+    {provide: FileService, useClass: FileDeviceService}
   ]
 })
 export class AppModule { }

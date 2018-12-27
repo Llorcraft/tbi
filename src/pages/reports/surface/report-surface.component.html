@@ -10,7 +10,7 @@
             <ion-col col-10>
               <ion-item>
                 <ion-label stacked>Component/Location</ion-label>
-                <ion-input tabindex="1" name="location" required data-val-required="Please input Component/Location"
+                <ion-input [disabled]="!!report.component.validation" tabindex="1" name="location" required data-val-required="Please input Component/Location"
                   [(ngModel)]="report.component.fields.location" (ionFocus)="on_focus($event)" type="text"></ion-input>
               </ion-item>
             </ion-col>

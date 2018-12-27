@@ -29319,6 +29319,10 @@ button[ion-button][round][outline] {
   background: #fff;
 }
 
+page-summary .gray-text {
+  color: #999 !important;
+}
+
 page-summary ion-header .bar-buttons button {
   color: #fff;
   border: 1px solid #fff;

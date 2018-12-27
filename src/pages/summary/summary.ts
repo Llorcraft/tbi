@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { AlertController, NavParams, ModalController, NavController, ActionSheetController } from 'ionic-angular';
-import { Project, Value, ReportBase, Result } from '../../models';
+import { Project, Value, ReportBase, Result, Fields } from '../../models';
 import { ProjectService } from '../../services/project.service';
 import { SummaryEditPage } from './summary-edit';
 import { ReportRouter } from '../../models/report-router';
@@ -137,14 +137,22 @@ export class SummaryPage implements OnInit {
   validate(c: TbiComponent) {
     var component = new TbiComponent(c.project, c);
     component.id = '';
-    component.fields.location += ' Validation';
     component.date = new Date();
     component.validation = c.id;
+    component.result = null;
+    let report = new ReportBase(component.project, component, c.reports.find(r => !!r.path.match(/(surface|pipe|valve|flange)/gi)))
+    report.result = null;
+    component.reports.push(report);
+    component.fields = new Fields({
+      location: component.fields.location,
+      operational_time: component.fields.operational_time,
+      length: c.fields.length
+    })
     // this.project.components.push(component);
     // this.service.save(this.project).then(p => {
     //   this.navCtrl.setRoot(SummaryPage, {project: this.project});
     // })
-    this.edit(component);
+    this.open(report, null);
   }
 
   protected remove(cl: TbiComponent, event: Event) {
@@ -204,7 +212,7 @@ export class SummaryPage implements OnInit {
   }
 
   public open(report: ReportBase, event: Event) {
-    event.cancelBubble = true;
+    if (event) event.cancelBubble = true;
     (new ReportRouter(report.component.project, report.component, this.navCtrl)).navigate_to_report(report.path, report.summary_id, report);
   }
 

@@ -71,15 +71,15 @@
               {{i+1}}-
             </td>
             <td rowspan="3" double-border>{{ellipsis(c.fields.location)}}</td>
-            <td *ngIf="!!c.result" text-right>{{c.result.headLost.power / 1000 | number: '1.1-1'}}</td>
-            <td *ngIf="!!c.result">MWh<span *ngIf="c.fields.unknow_surface">/m<sup>2</sup></span></td>
-            <td *ngIf="!!c.result" text-right>{{c.result.savingPotentialMin?.power / 1000 | number: '1.1-1'}}</td>
-            <td *ngIf="!!c.result" text-center class="p-0" style="padding: 0; white-space: nowrap">
+            <td [class.gray-text]="!!c.result && c.fields.unknow_surface" *ngIf="!!c.result" text-right>{{c.result.headLost.power / 1000 | number: '1.1-1'}}</td>
+            <td [class.gray-text]="!!c.result && c.fields.unknow_surface" *ngIf="!!c.result">MWh<span *ngIf="c.fields.unknow_surface">/m<sup>2</sup></span></td>
+            <td [class.gray-text]="!!c.result && c.fields.unknow_surface" *ngIf="!!c.result" text-right>{{c.result.savingPotentialMin?.power / 1000 | number: '1.1-1'}}</td>
+            <td [class.gray-text]="!!c.result && c.fields.unknow_surface" *ngIf="!!c.result" text-center class="p-0" style="padding: 0; white-space: nowrap">
               <!-- <ion-icon name="md-arrow-forward"></ion-icon> -->
               --
             </td>
-            <td *ngIf="!!c.result" text-left>{{c.result.savingPotentialMax?.power / 1000 | number: '1.1-1'}}</td>
-            <td *ngIf="!!c.result" class="mesure">MWh<span *ngIf="c.fields.unknow_surface">/m<sup>2</sup></span></td>
+            <td [class.gray-text]="!!c.result && c.fields.unknow_surface" *ngIf="!!c.result" text-left>{{c.result.savingPotentialMax?.power / 1000 | number: '1.1-1'}}</td>
+            <td [class.gray-text]="!!c.result && c.fields.unknow_surface" *ngIf="!!c.result" class="mesure">MWh<span *ngIf="c.fields.unknow_surface">/m<sup>2</sup></span></td>
             <td *ngIf="!c.result" colspan="2" double-border rowspan="3"></td>
             <td *ngIf="!c.result" colspan="4" double-border rowspan="3"></td>
 
@@ -121,7 +121,7 @@
             <td rowspan="3" double-border text-center>{{c.fields.number}}</td>
           </tr>
 
-          <tr *ngIf="!!c.result" [class.disabled]="c.fields.unknow_surface">
+          <tr [class.gray-text]="!!c.result && c.fields.unknow_surface" *ngIf="!!c.result" [class.disabled]="c.fields.unknow_surface">
             <td text-right>{{c.result.headLost?.money | number: '1.0-0'}}</td>
             <td class="mesure">€<span *ngIf="c.fields.unknow_surface">/m<sup>2</sup></span></td>
             <td text-right>{{c.result.savingPotentialMin?.money | number: '1.0-0'}}</td>
@@ -130,7 +130,7 @@
             <td class="mesure">€<span *ngIf="c.fields.unknow_surface">/m<sup>2</sup></span></td>
           </tr>
 
-          <tr *ngIf="!!c.result" [class.disabled]="c.fields.unknow_surface">
+          <tr [class.gray-text]="!!c.result && c.fields.unknow_surface" *ngIf="!!c.result" [class.disabled]="c.fields.unknow_surface">
               <td double-border text-right>{{c.result.co2[0] | number: '1.1-1'}}</td>
               <td double-border class="mesure">tn CO<sub>2</sub><span *ngIf="c.fields.unknow_surface">/m<sup>2</sup></span></td>
               <td double-border text-right>{{c.result.co2[1] | number: '1.1-1'}}</td>

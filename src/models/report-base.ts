@@ -18,6 +18,7 @@ export class ReportBase {
   public summary_id: string = '';
   public readonly_summary_id: string = '';
   public comment: string = '';
+  public is_validation: boolean = false
   public get potential_measure(): string {
     return 'kWh/a';
   }
@@ -52,7 +53,6 @@ export class ReportBase {
       this.readonly_summary_id = item.readonly_summary_id;
       this.comment = item.comment;
       this.insulated = !!this.path.match(/insulated/gi) && !this.path.match(/un-insulated/gi);
-      console.log(this.path)
     }
   }
 
