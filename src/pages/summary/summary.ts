@@ -1,6 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { AlertController, NavParams, ModalController, NavController, ActionSheetController } from 'ionic-angular';
-import { ScreenOrientation } from '@ionic-native/screen-orientation';
 import { Project, Value, ReportBase, Result } from '../../models';
 import { ProjectService } from '../../services/project.service';
 import { SummaryEditPage } from './summary-edit';
@@ -10,7 +9,7 @@ import { TbiComponent } from '../../models/component';
 import { PDFExportComponent } from '@progress/kendo-angular-pdf-export';
 import { Group, exportPDF } from '@progress/kendo-drawing';
 import { ProjectsPage } from '../projects/projects';
-import { FileService, MessageService } from '../../services';
+import { FileService } from '../../services';
 import { FileOpener } from '@ionic-native/file-opener';
 
 @Component({
@@ -18,10 +17,9 @@ import { FileOpener } from '@ionic-native/file-opener';
   templateUrl: 'summary.html'
 })
 
-export class SummaryPage {
-  private orientation: string;
+export class SummaryPage implements OnInit {
   public project: Project;
-  public report: ReportBase = null;
+  public report: ReportBase;
   public components: TbiComponent[] = [];
   public heat_lost: Value = new Value();
   public saving_potential_min: Value = new Value();
@@ -34,6 +32,7 @@ export class SummaryPage {
     ['Savings can be achieved by increasing insulation performance or thickness', 'SAVINGS-achieved']
   ]);
   public totals: Result = new Result()
+  @ViewChild('pdf') public pdf: PDFExportComponent;
   constructor(
     protected navParams: NavParams,
     protected alertCtrl: AlertController,
@@ -42,13 +41,8 @@ export class SummaryPage {
     protected service: ProjectService,
     protected navCtrl: NavController,
     private opener: FileOpener,
-    private file: FileService,
-    orientation: ScreenOrientation) {
+    private file: FileService) {
 
-    this.orientation = orientation.type;
-    orientation.onChange().subscribe(
-      () => this.orientation = orientation.type
-    );
   }
 
   public go_to_projects() {
@@ -102,6 +96,12 @@ export class SummaryPage {
             this.duplicate(cl);
           }
         }, {
+          text: 'Validate',
+          icon: 'checkmark-circle',
+          handler: () => {
+            this.validate(cl);
+          }
+        }, {
           text: 'Delete',
           role: 'ios-destructive',
           icon: 'trash',
@@ -117,6 +117,9 @@ export class SummaryPage {
           }
         }]
     });
+    if (this.components.find(c => c.validation == cl.id) || !cl.reports.filter(r => r.path.match(/(surface|pipe|valve|flange)/gi).length)) {
+      actionSheet.data.buttons.splice(3, 1);
+    }
     await actionSheet.present();
   }
 
@@ -127,8 +130,21 @@ export class SummaryPage {
     component.date = new Date();
     this.project.components.push(component);
     this.service.save(this.project).then(p => {
-      this.get_project();
+      this.navCtrl.setRoot(SummaryPage, { project: this.project });
     })
+  }
+
+  validate(c: TbiComponent) {
+    var component = new TbiComponent(c.project, c);
+    component.id = '';
+    component.fields.location += ' Validation';
+    component.date = new Date();
+    component.validation = c.id;
+    // this.project.components.push(component);
+    // this.service.save(this.project).then(p => {
+    //   this.navCtrl.setRoot(SummaryPage, {project: this.project});
+    // })
+    this.edit(component);
   }
 
   protected remove(cl: TbiComponent, event: Event) {
@@ -144,7 +160,7 @@ export class SummaryPage {
           handler: () => {
             this.components = this.components.filter(c => c !== cl);
             this.project.components = this.project.components.filter(c => c !== cl);
-            this.service.save(this.project).then(() => this.get_project());
+            this.service.save(this.project).then(() => this.navCtrl.setRoot(SummaryPage, { project: this.project }));
           }
         },
         {
@@ -175,13 +191,13 @@ export class SummaryPage {
     pdf.element.nativeElement.className = '';
   }
 
-  public export_pdf(pdf: PDFExportComponent) {
-    this.hide_svg(pdf);
-    pdf.export().then((g: Group) => {
+  public export_pdf() {
+    this.hide_svg(this.pdf);
+    this.pdf.export().then((g: Group) => {
       exportPDF(g).then(data => {
         this.file.create_pdf(data, `${(new Date()).getTime()}`).then(r => {
           this.opener.open(r, 'application/pdf');
-          this.show_svg(pdf);
+          this.show_svg(this.pdf);
         })
       })
     })
@@ -216,8 +232,17 @@ export class SummaryPage {
     return this;
   }
 
-  ionViewWillEnter() {
-    setTimeout(() => this.get_project(), 0);
+  ngOnInit(): void {
+    this.service.get(this.navParams.get('project').id).then(p => {
+      this.project = p;
+      this.get_project();
+      this.get_report();
+    })
+  }
+
+  get_report(): void {
+    this.report = new ReportBase(this.project, this.components[0], null)
+    this.report.result = this.totals;
   }
 
   get_project(): void {
@@ -227,23 +252,23 @@ export class SummaryPage {
     this.totals.savingPotentialMin.money = 0;
     this.totals.savingPotentialMax.power = 0;
     this.totals.savingPotentialMax.money = 0;
+    this.totals.co2 = [0, 0, 0];
 
-    this.service.get(this.navParams.get('project').id).then(project => {
-      this.project = project;
-      //this.project = this.navParams.get('project');
-      this.report = this.project.components[0].reports[0];
-      this.components = [].concat((this.project.components || [])).sort((a, b) => a.date > b.date ? 1 : -1);
+    this.components = (this.project.components || []).sort((a, b) => a.date > b.date ? 1 : -1);
 
-      this.components.filter(c => !!c.result && !c.fields.unknow_surface)
-        .map(c => c.result)
-        .forEach(r => {
-          this.totals.headLost.power += r.headLost.power;
-          this.totals.headLost.money += r.headLost.money;
-          this.totals.savingPotentialMin.power += r.savingPotentialMin.power;
-          this.totals.savingPotentialMin.money += r.savingPotentialMin.money;
-          this.totals.savingPotentialMax.power += r.savingPotentialMax.power;
-          this.totals.savingPotentialMax.money += r.savingPotentialMax.money;
-        });
-    });
+    this.components.filter(c => !!c.result && !c.fields.unknow_surface)
+      .map(c => c.result)
+      .forEach(r => {
+        this.totals.headLost.power += r.headLost.power;
+        this.totals.headLost.money += r.headLost.money;
+        this.totals.savingPotentialMin.power += r.savingPotentialMin.power;
+        this.totals.savingPotentialMin.money += r.savingPotentialMin.money;
+        this.totals.savingPotentialMax.power += r.savingPotentialMax.power;
+        this.totals.savingPotentialMax.money += r.savingPotentialMax.money;
+        this.totals.co2[0] += r.co2[0];
+        this.totals.co2[1] += r.co2[1];
+        this.totals.co2[2] += r.co2[2];
+      });
+    //});
   }
 }

@@ -51,7 +51,8 @@ export class ReportBase {
       this.summary_id = item.summary_id;
       this.readonly_summary_id = item.readonly_summary_id;
       this.comment = item.comment;
-      this.insulated = !!this.path.match(/insulated/gi);
+      this.insulated = !!this.path.match(/insulated/gi) && !this.path.match(/un-insulated/gi);
+      console.log(this.path)
     }
   }
 

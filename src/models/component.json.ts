@@ -9,6 +9,7 @@ export class TbiComponentJson {
     public fields: Fields = new Fields();
     public markers: Marker[];
     public date: Date;
+    public validation: string = '';
 
     constructor(item: Partial<TbiComponent>) {
         this.id = item.id;
@@ -16,6 +17,7 @@ export class TbiComponentJson {
         this.fields = new Fields(item.fields);
         this.markers = (item.markers || []).map(m => new Marker(m));
         this.date = item.date || new Date();
+        this.validation = item.validation;
     }
 
 }

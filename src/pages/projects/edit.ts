@@ -8,6 +8,7 @@ import { MessageService } from '../../services/messages.service';
 import { FileService } from '../../services/file.service';
 import { FileOpener } from '@ionic-native/file-opener';
 import { PictureService } from '../../services';
+import { More } from '../../const/more/more';
 
 
 
@@ -21,6 +22,7 @@ export class EditProjectPage extends ProjectPageBase {
   public edit_mode = false;
   public error: string = '';
   public form: NgForm;
+  private co2: string;
 
   constructor(
     public navCtrl: NavController,
@@ -37,16 +39,17 @@ export class EditProjectPage extends ProjectPageBase {
     super(alertCtrl, service, keyboard);
     this.project = navParams.get("project");
     this.edit_mode = false;
+    this.set_co2()
     //this.project.documents.push(new Document({ file: 'lolo.pdf' }))
     //this.keyboard.onClose(() => document.querySelectorAll('.scroll-content').forEach((x) => x.scrollTo(0, 0)));
   }
-  
-  public on_focus(event: any, scroll: number = 0) {
-    const elm = event._elementRef.nativeElement
-    const offset = 170  - scroll;
-    elm.closest('.scroll-content').scrollTo(0, elm.closest('.scroll-content').scrollTop - 50);
-    this.scroll(elm.closest('.scroll-content'), elm.closest('.scroll-content').scrollTop + elm.closest('ion-item').getBoundingClientRect().top - offset);
-  }
+
+  // public on_focus(event: any, scroll: number = 0) {
+  //   const elm = event._elementRef.nativeElement
+  //   const offset = 170 - scroll;
+  //   elm.closest('.scroll-content').scrollTo(0, elm.closest('.scroll-content').scrollTop - 50);
+  //   this.scroll(elm.closest('.scroll-content'), elm.closest('.scroll-content').scrollTop + elm.closest('ion-item').getBoundingClientRect().top - offset);
+  // }
 
   scroll(elm: any, top: number) {
     if (elm.scrollTop < top) {
@@ -160,6 +163,10 @@ export class EditProjectPage extends ProjectPageBase {
     });
   }
 
+  set_co2(value?: number) {
+    if (!!value) this.project.co2 = Number(More.CO2.find(m => Number(m[1]) == value)[1]);
+    this.co2 = !this.project.co2 ? '' : More.CO2.find(m => Number(m[1]) == this.project.co2)[0].toString()
+  }
   edit() {
     this.edit_mode = true;
   }

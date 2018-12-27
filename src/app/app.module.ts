@@ -3,7 +3,7 @@ import { NgModule, ErrorHandler } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
-import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
+import { IonicApp, IonicModule, IonicErrorHandler, LoadingController } from 'ionic-angular';
 import { TooltipsModule } from 'ionic-tooltips';
 
 /*Pages*/
@@ -32,7 +32,7 @@ import { UniqueDeviceID } from '@ionic-native/unique-device-id';
 import { FileTransfer } from '@ionic-native/file-transfer';
 
 /*Services*/
-import { ProjectService } from '../services';
+import { ProjectService, LoadindService } from '../services';
 import { ReportService } from '../services/report.service';
 import { ComponentService } from '../services/component.service';
 import { FileDeviceService } from '../services/file-device.service';
@@ -105,7 +105,8 @@ import {
   ReportInsulatedPipePage,
   ReportDamagedPage,
   ReportCondensationPage,
-  ReportLeakagePage
+  ReportLeakagePage,
+  KnownTempPage
 } from '../pages/reports'
 
 //Pipes
@@ -115,7 +116,7 @@ import { SurfaceMaterialPipe } from '../pipes/surface-material.pipe';
 import { PDFExportModule } from '@progress/kendo-angular-pdf-export';
 import { ToolsComponent } from '../components/tools/tools.component';
 import { Flashlight } from '@ionic-native/flashlight';
-import { GlobalErrorHandler } from '../models/errors/global-error';
+//import { GlobalErrorHandler } from '../models/errors/global-error';
 
 @NgModule({
   declarations: [
@@ -132,6 +133,7 @@ import { GlobalErrorHandler } from '../models/errors/global-error';
     PicturesPage,
     SummaryPage,
     SummaryEditPage,
+    KnownTempPage,
     //Pipes
     SurfaceMaterialPipe,
     //Reports
@@ -227,6 +229,7 @@ import { GlobalErrorHandler } from '../models/errors/global-error';
     PicturesPage,
     SummaryPage,
     SummaryEditPage,
+    KnownTempPage,
     //Reports
     ReportHeaderComponent,
     ReportFooterComponent,
@@ -262,14 +265,16 @@ import { GlobalErrorHandler } from '../models/errors/global-error';
     FileChooser,
     UniqueDeviceID,
     FileTransfer,
-    { provide: ErrorHandler, useClass: GlobalErrorHandler, deps: [MessageService, Http] },
-    //{ provide: ErrorHandler, useClass: IonicErrorHandler },
+    //{ provide: ErrorHandler, useClass: GlobalErrorHandler, deps: [MessageService, Http] },
+    { provide: ErrorHandler, useClass: IonicErrorHandler },
     //Mock services
     //{ provide: PictureService, useClass: PictureDeviceService },
     LicencesService,
     PictureService,
     Flashlight,
-    {provide: FileService, useClass: FileDeviceService}
+    LoadindService,
+    LoadingController,
+    {provide: FileService, useClass: FileLocalService}
   ]
 })
 export class AppModule { }

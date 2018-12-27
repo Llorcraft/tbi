@@ -20,3 +20,4 @@ export { ReportInsulatedPipePage } from './ipipe/report-ipipe.component';
 export { ReportDamagedPage } from './damaged/report-damaged.component';
 export { ReportCondensationPage } from './condensation/report-condensation.component';
 export { ReportLeakagePage } from './leakage/report-leakage.component';
+export { KnownTempPage } from './unknown-temp/unknown-temp.component';

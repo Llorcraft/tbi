@@ -4,7 +4,6 @@ import { Component } from '@angular/core';
 import { NavController, Platform, ActionSheetController, AlertController, NavParams, Keyboard } from 'ionic-angular';
 import { ProjectPageBase } from './project-page-base';
 import { EditProjectPage } from './edit';
-import { ScreenOrientation } from '@ionic-native/screen-orientation';
 import { ReportsPage } from '../reports';
 import { ReportCategory, ReportBase } from '../../models';
 import { UniqueDeviceID } from '@ionic-native/unique-device-id';
@@ -22,7 +21,6 @@ import { TbiComponent } from '../../models/component';
 export class ProjectsPage extends ProjectPageBase {
   public projects: Project[] = [];
   public edit_mode: boolean = false;
-  public orientation: string = "";
   public user_name = '';
   public top_categories: ReportCategory[] = [];
   public apps: any[] = [];
@@ -34,25 +32,19 @@ export class ProjectsPage extends ProjectPageBase {
     public platform: Platform,
     public alertCtrl: AlertController,
     public actionSheetCtrl: ActionSheetController,
-    orientation: ScreenOrientation,
     public licences: LicencesService,
     uuid: UniqueDeviceID,
     protected keyboard: Keyboard) {
 
     super(alertCtrl, service, keyboard);
 
-    uuid.get()
-      .then((uuid: any) => console.log(uuid))
-      .catch((error: any) => console.log(error));
+    // uuid.get()
+    //   .then((uuid: any) => console.log(uuid))
+    //   .catch((error: any) => console.log(error));
 
-    this.orientation = orientation.type;
     this.user_name = this.navParams.get("user_name") || this.user_name
-    orientation.onChange().subscribe(
-      () => this.orientation = orientation.type
-    );
 
-    if (!!navParams.get('summary'))
-      this.navCtrl.setRoot(SummaryPage, { project: navParams.get('project') }, { animate: true, direction: 'backward' });
+
 
   }
 
@@ -150,13 +142,19 @@ export class ProjectsPage extends ProjectPageBase {
   }
 
   ionViewWillEnter() {
-    this.load();
+    this.load().then(() => {
+      if (!!this.navParams.get('summary'))
+        this.navCtrl.setRoot(SummaryPage, { project: this.projects.find(p => p.id == this.navParams.get('project')) }, { animate: true, direction: 'backward' });
+    });
   }
 
-  public load(): void {
-    this.service.get_all().then(p => {
-      this.projects = p;
-      if (!this.projects.length) this.edit_mode = false;
+  public load(): Promise<boolean> {
+    return new Promise<boolean>(resolve => {
+      this.service.get_all().then(p => {
+        this.projects = p;
+        if (!this.projects.length) this.edit_mode = false;
+        resolve(true);
+      });
     });
   }
 

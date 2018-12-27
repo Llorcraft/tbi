@@ -3,14 +3,14 @@ import { NON_PICTURE } from '../../../../const/images/non-picture';
 import { BaseReportPage } from '../../../../models/reports';
 
 @Component({
-    selector: 'report-result',
+    selector: '[report-result]',
     templateUrl: './report-result.component.html'
 })
 
 export class ReportResultComponent implements AfterContentInit {
     @Input() parent: BaseReportPage;
     @Input() show_advise?: boolean = true;
-
+    unknow_surface: boolean = false; 
     protected get first_picture(): string {
         return this.parent.report.pictures.length ? this.parent.report.pictures[0].picture : NON_PICTURE;
     }
@@ -20,7 +20,8 @@ export class ReportResultComponent implements AfterContentInit {
     }
 
     initialize_values(): void {
-        const height = 130;
+        const height = 200;
+        this.unknow_surface = this.parent.report.component && this.parent.report.component.fields.unknow_surface;
 
         this.scale.max = this.up(this.parent.report.result.headLost.power / 100);
         this.scale.medium = Math.ceil(this.scale.max / 1.5);

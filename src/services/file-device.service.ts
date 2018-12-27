@@ -8,14 +8,21 @@ import { Document } from '../models';
 import { FileTransfer } from '@ionic-native/file-transfer';
 import * as JSZip from 'jszip';
 import { Picture } from '../models/picture';
+import { LoadindService } from './loading.service';
 
 @Injectable()
 export class FileDeviceService extends FileService {
     private download_emiter: EventEmitter<boolean> = new EventEmitter<boolean>();
     private total_files: string[] = [];
 
-    constructor(private file: File, private message: MessageService, private chooser: FileChooser, private path: FilePath, private transfer: FileTransfer) {
-        super();
+    constructor(private file: File,
+        private message: MessageService,
+        private chooser: FileChooser,
+        private path: FilePath,
+        private transfer: FileTransfer,
+        public loading: LoadindService) {
+
+        super(loading);
         this.working_folder = this.file.dataDirectory;
         //this.file.externalRootDirectory
         this.create_folder('files');
@@ -120,11 +127,16 @@ export class FileDeviceService extends FileService {
     }
 
     public async read_text(filename: string): Promise<string> {
+        this.loading.show();
         await this.create_file(filename);
         return new Promise<string>((resolve, reject) => {
             this.file.readAsText(this.working_folder, `${filename}.json`)
-                .then(r => resolve(r))
+                .then(r => {
+                    this.loading.hide();
+                    resolve(r);
+                })
                 .catch(ex => {
+                    this.loading.hide();
                     reject(ex.message);
                     throw ex;
                 });
@@ -132,11 +144,16 @@ export class FileDeviceService extends FileService {
     }
 
     public async write_text(filename: string, content: string): Promise<boolean> {
+        this.loading.show();
         await this.create_file(filename);
         return new Promise<boolean>((resolve, reject) => {
             this.file.writeFile(this.working_folder, `${filename}.json`, content, { replace: true })
-                .then(() => resolve(true))
+                .then(() => {
+                    this.loading.hide();
+                    resolve(true);
+                })
                 .catch(ex => {
+                    this.loading.hide();
                     reject(ex);
                     throw ex;
                 });

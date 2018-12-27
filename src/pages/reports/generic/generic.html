@@ -46,7 +46,7 @@
 
       <ion-col col-5 col-lg-6 no-padding>
           <ion-row>
-              <ion-col col-12 picture-slide  [report]="report" [editable]="editable"  (onStartEdit)="on_picture_start_edit($event)">
+              <ion-col col-12 picture-slide [parent]="this"    [report]="report" [editable]="editable"  (onStartEdit)="on_picture_start_edit($event)">
           </ion-col>
         </ion-row>
         <report-errors padding #errors col-12 [hidden]="view=='!result' && report.result"></report-errors>
@@ -55,7 +55,7 @@
     
     <ion-row>
       <ion-col col-12>
-        <report-result col-12 [parent]="this" *ngIf="view=='result' && (!!form && !form.invalid)"></report-result>
+        <div report-result col-12 [parent]="this" *ngIf="view=='result' && (!!form && !form.invalid)"></div>
       </ion-col>
     </ion-row>
   </ion-grid>

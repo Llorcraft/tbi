@@ -20,25 +20,25 @@
             <ion-col col-10>
               <ion-item>
                 <ion-label stacked>Operational time (hours)</ion-label>
-                <ion-input tabindex="2" (ionFocus)="on_focus($event)" required data-val-required="Please input operational time"
+                <ion-input [disabled]="!!report.component.validation" tabindex="2" (ionFocus)="on_focus($event)" required data-val-required="Please input operational time"
                   name="operational_time" [(ngModel)]="report.component.fields.operational_time" type="number"></ion-input>
               </ion-item>
             </ion-col>
             <ion-col col-2>
-              <more pull-left #time (change)="report.component.fields.operational_time=time.value" [type]="'time'"
+              <more pull-left [hidden]="!!report.component.validation" #time (change)="report.component.fields.operational_time=time.value" [type]="'time'"
                 modal-button></more>
             </ion-col>
           </ion-row>
           <ion-row>
-            <ion-col col-5>
-              <ion-item>
+            <ion-col col-5 class="pr-0">
+              <ion-item class="pr-0">
                 <ion-label stacked>Surface (m<sup>2</sup>)</ion-label>
                 <ion-input tabindex="4" #after_time (ionFocus)="on_focus($event)" [disabled]="report.component.fields.unknow_surface"
                   name="surface" required data-val-required="Please input surface in m²" [(ngModel)]="report.component.fields.surface"
                   type="number" [(ngModel)]="surface"></ion-input>
               </ion-item>
             </ion-col>
-            <ion-col col-5 toggle-container style="padding-top: 1.05rem">
+            <ion-col col-5 toggle-container>
               <ion-item>
                 <ion-label stacked>Unknown</ion-label>
                 <ion-toggle style="padding-left:0" [(ngModel)]="report.component.fields.unknow_surface" (ionChange)="toggle_know()"
@@ -67,13 +67,20 @@
             </ion-col>
           </ion-row>
           <ion-row>
-            <ion-col col-10>
-              <ion-item>
-                <ion-label stacked>Medium or Surface temperature (<sup>º</sup>C)</ion-label>
-                <ion-input tabindex="7" #after_material (ionFocus)="on_focus($event)" scroll="-80" name="surface_temp"
+            <ion-col col-5 class="pr-0">
+              <ion-item class="pr-0">
+                <ion-label stacked>Surface temperature (<sup>º</sup>C)</ion-label>
+                <ion-input tabindex="7" [style.visibility]="report.component.fields.unknow_surface_temp ? 'hidden' : 'visible'" #after_material (ionFocus)="on_focus($event)" scroll="-80" name="surface_temp"
                   required data-val-required="Please input Medium or Surface temperature" [pattern]="patterns.REQUIRED_NUMBER"
                   data-val-pattern="Please input a valid Medium or Surface temperature" [(ngModel)]="report.component.fields.surface_temp"
                   type="tel"></ion-input>
+              </ion-item>
+            </ion-col>
+            <ion-col col-5 toggle-container>
+              <ion-item>
+                <ion-label stacked>Unknown</ion-label>
+                <ion-toggle [(ngModel)]="report.component.fields.unknow_surface_temp" (ionChange)="toggle_know_temp()"
+                  name="unknow_surface_temp"></ion-toggle>
               </ion-item>
             </ion-col>
             <ion-col col-2>
@@ -96,8 +103,8 @@
           <ion-row>
             <ion-col col-12>
               <ion-item>
-                <ion-label stacked>Annual Saving Potenyial</ion-label>
-                <ion-input tabindex="-1" name="annual_saving" value="{{report.annual_saving}}" type="text"></ion-input>
+                <ion-label stacked>Annual Saving Potential</ion-label>
+                <ion-input readonly tabindex="-1" name="annual_saving" value="{{report.annual_saving}}" type="text"></ion-input>
               </ion-item>
             </ion-col>
           </ion-row>
@@ -106,14 +113,14 @@
 
       <ion-col col-5 col-lg-4 no-padding>
         <ion-row>
-          <ion-col col-12 picture-slide [report]="report" [editable]="editable" (onStartEdit)="on_picture_start_edit($event)">
+          <ion-col col-12 picture-slide [parent]="this"   [report]="report" [editable]="editable" (onStartEdit)="on_picture_start_edit($event)">
           </ion-col>
         </ion-row>
       </ion-col>
     </ion-row>
     <ion-row>
       <ion-col col-12 padding>
-        <report-result col-12 [parent]="this" *ngIf="view=='result' && (!!form && !form.invalid)"></report-result>
+        <div report-result col-12 [parent]="this" *ngIf="view=='result' && (!!form && !form.invalid)"></div>
       </ion-col>
       <ion-col col-12 padding>
         <report-errors padding #errors col-12 [hidden]="view=='!result' && report.result"></report-errors>

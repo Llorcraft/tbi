@@ -1,6 +1,7 @@
 import { Value } from "../value";
 import { Result } from "../result";
 import { ReportBase } from "../report-base";
+import { More } from "../../const/more/more";
 
 export class BaseCalculator {
     constructor(protected report: ReportBase, protected fnc: Function[]) { }
@@ -149,6 +150,8 @@ export class BaseCalculator {
         //     'this.ql_ref_pb': this.ql_ref_pb,
         //     'this.ql_min': this.ql_min,
         // })
+        let _co2 = Number(More.CO2.find(m => Number(m[1]) == this.report.project.co2)[2]);
+
         this.report.result = new Result({
             advise: this.Insulation_advice,
             headLost: new Value({
@@ -164,9 +167,9 @@ export class BaseCalculator {
                 money: this.Savingε_max
             }),
             co2: [
-                this.Qkwh * this.report.component.project.co2 / 1000000,
-                this.Qkwh_min * this.report.component.project.co2 / 1000000,
-                this.Qkwh_max * this.report.component.project.co2 / 1000000,
+                this.Qkwh * _co2 / 1000000,
+                this.Qkwh_min * _co2 / 1000000,
+                this.Qkwh_max * _co2 / 1000000,
             ]
         });
         return this.report;

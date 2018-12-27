@@ -63,6 +63,7 @@ export class Fields {
 
   public condensation_comment: string = '';
   public unknow_surface: boolean = false
+  public unknow_surface_temp: boolean = false
 
   private _damaged_cladding: boolean = false
   public get damaged_cladding(): boolean {
@@ -114,6 +115,7 @@ export class Fields {
     this.condensation_wet_surface = !!f.condensation_wet_surface;
     this.condensation_comment = f.condensation_comment || '';
     this.unknow_surface = !!f.unknow_surface;
+    this.unknow_surface_temp = !!f.unknow_surface_temp;
     this.space_warning =  f.space_warning
   }
 

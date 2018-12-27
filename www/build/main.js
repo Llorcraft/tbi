@@ -38,7 +38,7 @@ var Result = /** @class */ (function () {
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Picture; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__marker__ = __webpack_require__(75);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__model_with_picture__ = __webpack_require__(297);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__model_with_picture__ = __webpack_require__(296);
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = Object.setPrototypeOf ||
         ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
@@ -129,7 +129,7 @@ var Picture = /** @class */ (function (_super) {
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LicencesService; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__(122);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__(213);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -171,12 +171,365 @@ var LicencesService = /** @class */ (function () {
     });
     LicencesService = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["A" /* Injectable */])(),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Http */]])
     ], LicencesService);
     return LicencesService;
 }());
 
 //# sourceMappingURL=licences.service.js.map
+
+/***/ }),
+
+/***/ 103:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SummaryPage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(5);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__models__ = __webpack_require__(46);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__services_project_service__ = __webpack_require__(53);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__summary_edit__ = __webpack_require__(306);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__models_report_router__ = __webpack_require__(307);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__reports__ = __webpack_require__(20);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__models_component__ = __webpack_require__(76);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__progress_kendo_angular_pdf_export__ = __webpack_require__(309);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__progress_kendo_drawing__ = __webpack_require__(311);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__projects_projects__ = __webpack_require__(99);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__services__ = __webpack_require__(17);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__ionic_native_file_opener__ = __webpack_require__(174);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : new P(function (resolve) { resolve(result.value); }).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
+var __generator = (this && this.__generator) || function (thisArg, body) {
+    var _ = { label: 0, sent: function() { if (t[0] & 1) throw t[1]; return t[1]; }, trys: [], ops: [] }, f, y, t, g;
+    return g = { next: verb(0), "throw": verb(1), "return": verb(2) }, typeof Symbol === "function" && (g[Symbol.iterator] = function() { return this; }), g;
+    function verb(n) { return function (v) { return step([n, v]); }; }
+    function step(op) {
+        if (f) throw new TypeError("Generator is already executing.");
+        while (_) try {
+            if (f = 1, y && (t = y[op[0] & 2 ? "return" : op[0] ? "throw" : "next"]) && !(t = t.call(y, op[1])).done) return t;
+            if (y = 0, t) op = [0, t.value];
+            switch (op[0]) {
+                case 0: case 1: t = op; break;
+                case 4: _.label++; return { value: op[1], done: false };
+                case 5: _.label++; y = op[1]; op = [0]; continue;
+                case 7: op = _.ops.pop(); _.trys.pop(); continue;
+                default:
+                    if (!(t = _.trys, t = t.length > 0 && t[t.length - 1]) && (op[0] === 6 || op[0] === 2)) { _ = 0; continue; }
+                    if (op[0] === 3 && (!t || (op[1] > t[0] && op[1] < t[3]))) { _.label = op[1]; break; }
+                    if (op[0] === 6 && _.label < t[1]) { _.label = t[1]; t = op; break; }
+                    if (t && _.label < t[2]) { _.label = t[2]; _.ops.push(op); break; }
+                    if (t[2]) _.ops.pop();
+                    _.trys.pop(); continue;
+            }
+            op = body.call(thisArg, _);
+        } catch (e) { op = [6, e]; y = 0; } finally { f = t = 0; }
+        if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
+    }
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
+var SummaryPage = /** @class */ (function () {
+    function SummaryPage(navParams, alertCtrl, actionSheetCtrl, modalCtrl, service, navCtrl, opener, file) {
+        this.navParams = navParams;
+        this.alertCtrl = alertCtrl;
+        this.actionSheetCtrl = actionSheetCtrl;
+        this.modalCtrl = modalCtrl;
+        this.service = service;
+        this.navCtrl = navCtrl;
+        this.opener = opener;
+        this.file = file;
+        this.components = [];
+        this.heat_lost = new __WEBPACK_IMPORTED_MODULE_2__models__["e" /* Value */]();
+        this.saving_potential_min = new __WEBPACK_IMPORTED_MODULE_2__models__["e" /* Value */]();
+        this.saving_potential_max = new __WEBPACK_IMPORTED_MODULE_2__models__["e" /* Value */]();
+        this.advises = new Map([
+            ['', ''],
+            ['System OK', 'OK'],
+            ['Insulation recommended', 'Recommended'],
+            ['SAFETY-Insulation recommended', 'SAFETY-Recommended'],
+            ['Savings can be achieved by increasing insulation performance or thickness', 'SAVINGS-achieved']
+        ]);
+        this.totals = new __WEBPACK_IMPORTED_MODULE_2__models__["d" /* Result */]();
+    }
+    SummaryPage_1 = SummaryPage;
+    SummaryPage.prototype.go_to_projects = function () {
+        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_10__projects_projects__["a" /* ProjectsPage */]);
+    };
+    SummaryPage.prototype.go_to_reports = function (component) {
+        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_6__reports__["w" /* ReportsPage */], {
+            project: this.project,
+            component: component,
+            parent: this
+        });
+    };
+    SummaryPage.prototype.ellipsis = function (text, size) {
+        if (size === void 0) { size = 40; }
+        return text.length + 3 <= size ? text : text.substr(0, size) + '...';
+    };
+    SummaryPage.prototype.add_report = function (type, component, event) {
+        event.cancelBubble = true;
+        event.preventDefault();
+        this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_6__reports__["w" /* ReportsPage */], {
+            project: this.project,
+            parent: this,
+            to: type,
+            component: component
+        });
+    };
+    SummaryPage.prototype.actions = function (cl, event) {
+        return __awaiter(this, void 0, void 0, function () {
+            var _this = this;
+            var actionSheet;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        event.preventDefault();
+                        event.cancelBubble = true;
+                        return [4 /*yield*/, this.actionSheetCtrl.create({
+                                buttons: [
+                                    {
+                                        text: 'Add report',
+                                        icon: 'ios-add-circle',
+                                        handler: function () {
+                                            _this.go_to_reports(cl);
+                                        }
+                                    }, {
+                                        text: 'Edit',
+                                        icon: 'ios-create',
+                                        handler: function () {
+                                            _this.edit(cl);
+                                        }
+                                    }, {
+                                        text: 'Duplicate',
+                                        icon: 'ios-copy',
+                                        handler: function () {
+                                            _this.duplicate(cl);
+                                        }
+                                    }, {
+                                        text: 'Validate',
+                                        icon: 'checkmark-circle',
+                                        handler: function () {
+                                            _this.validate(cl);
+                                        }
+                                    }, {
+                                        text: 'Delete',
+                                        role: 'ios-destructive',
+                                        icon: 'trash',
+                                        handler: function () {
+                                            _this.remove(cl, event);
+                                        }
+                                    }, {
+                                        text: 'Cancel',
+                                        icon: 'close',
+                                        role: 'cancel',
+                                        handler: function () {
+                                            console.log('Cancel clicked');
+                                        }
+                                    }
+                                ]
+                            })];
+                    case 1:
+                        actionSheet = _a.sent();
+                        if (this.components.find(function (c) { return c.validation == cl.id; }) || !cl.reports.filter(function (r) { return r.path.match(/(surface|pipe|valve|flange)/gi).length; })) {
+                            actionSheet.data.buttons.splice(3, 1);
+                        }
+                        return [4 /*yield*/, actionSheet.present()];
+                    case 2:
+                        _a.sent();
+                        return [2 /*return*/];
+                }
+            });
+        });
+    };
+    SummaryPage.prototype.duplicate = function (c) {
+        var _this = this;
+        var component = new __WEBPACK_IMPORTED_MODULE_7__models_component__["a" /* TbiComponent */](c.project, c);
+        component.id = '';
+        component.fields.location += ' Copy';
+        component.date = new Date();
+        this.project.components.push(component);
+        this.service.save(this.project).then(function (p) {
+            _this.navCtrl.setRoot(SummaryPage_1, { project: _this.project });
+        });
+    };
+    SummaryPage.prototype.validate = function (c) {
+        var component = new __WEBPACK_IMPORTED_MODULE_7__models_component__["a" /* TbiComponent */](c.project, c);
+        component.id = '';
+        component.fields.location += ' Validation';
+        component.date = new Date();
+        component.validation = c.id;
+        // this.project.components.push(component);
+        // this.service.save(this.project).then(p => {
+        //   this.navCtrl.setRoot(SummaryPage, {project: this.project});
+        // })
+        this.edit(component);
+    };
+    SummaryPage.prototype.remove = function (cl, event) {
+        var _this = this;
+        event.preventDefault();
+        event.cancelBubble = true;
+        var confirm = this.alertCtrl.create({
+            //title: `Remove`,
+            message: "Do you agree to remove permanently '" + cl.fields.location + "' component?",
+            buttons: [
+                {
+                    text: 'Yes',
+                    handler: function () {
+                        _this.components = _this.components.filter(function (c) { return c !== cl; });
+                        _this.project.components = _this.project.components.filter(function (c) { return c !== cl; });
+                        _this.service.save(_this.project).then(function () { return _this.navCtrl.setRoot(SummaryPage_1, { project: _this.project }); });
+                    }
+                },
+                {
+                    text: 'No',
+                    role: 'cancel'
+                }
+            ]
+        });
+        confirm.present();
+    };
+    SummaryPage.prototype.hide_svg = function (pdf) {
+        Array.from(pdf.element.nativeElement.getElementsByTagName('svg'))
+            .forEach(function (svg, i) {
+            if (i < 3)
+                svg.style.fill = '#fff';
+            var img = document.createElement('img');
+            img.src = "data:image/svg+xml;base64," + window.btoa(new XMLSerializer().serializeToString(svg));
+            img.width = svg.getBoundingClientRect().width;
+            //img.height = svg.getBoundingClientRect().height;
+            svg.parentElement.appendChild(img);
+        });
+        pdf.element.nativeElement.className = 'print';
+    };
+    SummaryPage.prototype.show_svg = function (pdf) {
+        Array.from(pdf.element.nativeElement.getElementsByTagName('img'))
+            .forEach(function (img) { return img.remove(); });
+        pdf.element.nativeElement.className = '';
+    };
+    SummaryPage.prototype.export_pdf = function () {
+        var _this = this;
+        this.hide_svg(this.pdf);
+        this.pdf.export().then(function (g) {
+            Object(__WEBPACK_IMPORTED_MODULE_9__progress_kendo_drawing__["b" /* exportPDF */])(g).then(function (data) {
+                _this.file.create_pdf(data, "" + (new Date()).getTime()).then(function (r) {
+                    _this.opener.open(r, 'application/pdf');
+                    _this.show_svg(_this.pdf);
+                });
+            });
+        });
+    };
+    SummaryPage.prototype.open = function (report, event) {
+        event.cancelBubble = true;
+        (new __WEBPACK_IMPORTED_MODULE_5__models_report_router__["a" /* ReportRouter */](report.component.project, report.component, this.navCtrl)).navigate_to_report(report.path, report.summary_id, report);
+    };
+    SummaryPage.prototype.edit = function (cl) {
+        var _this = this;
+        if (cl.reports.length == 1) {
+            (new __WEBPACK_IMPORTED_MODULE_5__models_report_router__["a" /* ReportRouter */](cl.project, cl, this.navCtrl)).navigate_to_report(cl.reports[0].path, cl.reports[0].summary_id, cl.reports[0]);
+            return this;
+        }
+        var modal = this.modalCtrl.create(__WEBPACK_IMPORTED_MODULE_4__summary_edit__["a" /* SummaryEditPage */], {
+            tbi_component: cl
+        }, {
+            cssClass: "modal-window-summary",
+            showBackdrop: true,
+            enableBackdropDismiss: false
+        });
+        modal.onDidDismiss(function (v) {
+            if (!v)
+                return _this;
+            var report = cl.reports.find(function (r) { return r.id == v; });
+            (new __WEBPACK_IMPORTED_MODULE_5__models_report_router__["a" /* ReportRouter */](cl.project, cl, _this.navCtrl)).navigate_to_report(report.path, report.summary_id, report);
+        });
+        modal.present();
+        return this;
+    };
+    SummaryPage.prototype.ngOnInit = function () {
+        var _this = this;
+        this.service.get(this.navParams.get('project').id).then(function (p) {
+            _this.project = p;
+            _this.get_project();
+            _this.get_report();
+        });
+    };
+    SummaryPage.prototype.get_report = function () {
+        this.report = new __WEBPACK_IMPORTED_MODULE_2__models__["c" /* ReportBase */](this.project, this.components[0], null);
+        this.report.result = this.totals;
+    };
+    SummaryPage.prototype.get_project = function () {
+        var _this = this;
+        this.totals.headLost.power = 0;
+        this.totals.headLost.money = 0;
+        this.totals.savingPotentialMin.power = 0;
+        this.totals.savingPotentialMin.money = 0;
+        this.totals.savingPotentialMax.power = 0;
+        this.totals.savingPotentialMax.money = 0;
+        this.totals.co2 = [0, 0, 0];
+        this.components = (this.project.components || []).sort(function (a, b) { return a.date > b.date ? 1 : -1; });
+        this.components.filter(function (c) { return !!c.result && !c.fields.unknow_surface; })
+            .map(function (c) { return c.result; })
+            .forEach(function (r) {
+            _this.totals.headLost.power += r.headLost.power;
+            _this.totals.headLost.money += r.headLost.money;
+            _this.totals.savingPotentialMin.power += r.savingPotentialMin.power;
+            _this.totals.savingPotentialMin.money += r.savingPotentialMin.money;
+            _this.totals.savingPotentialMax.power += r.savingPotentialMax.power;
+            _this.totals.savingPotentialMax.money += r.savingPotentialMax.money;
+            _this.totals.co2[0] += r.co2[0];
+            _this.totals.co2[1] += r.co2[1];
+            _this.totals.co2[2] += r.co2[2];
+        });
+        //});
+    };
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_8" /* ViewChild */])('pdf'),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_8__progress_kendo_angular_pdf_export__["a" /* PDFExportComponent */])
+    ], SummaryPage.prototype, "pdf", void 0);
+    SummaryPage = SummaryPage_1 = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
+            selector: 'page-summary',template:/*ion-inline-start:"D:\Sofware Factory\tbi\src\pages\summary\summary.html"*/'<ion-header>\n\n  <ion-toolbar>\n\n    <ion-title>Summary - {{project?.name}}</ion-title>\n\n    <ion-buttons end>\n\n      <button ion-button on-tap="export_pdf()">\n\n        <ion-icon name="document-pdf"></ion-icon>&nbsp;PDF\n\n      </button>\n\n    </ion-buttons>\n\n  </ion-toolbar>\n\n</ion-header>\n\n\n\n<ion-content>\n\n  <kendo-pdf-export #pdf paperSize="A4" margin=".5cm" [scale]="0.5" landscape="true" forcePageBreak=".page-break">\n\n\n\n    <div class="table-container">\n\n      <table class="data">\n\n        <colgroup>\n\n          <col style="width: 50px">\n\n          <col style="width: 100px">\n\n          <col style="width: 50px">\n\n          <col style="width: 50px">\n\n          <col style="width: 50px">\n\n          <col style="width: 10px">\n\n          <col style="width: 50px">\n\n          <col style="width: 50px">\n\n          <col style="width: 100px">\n\n          <col style="width: 100px">\n\n          <col style="width: 100px">\n\n          <col style="width: 80px">\n\n          <col style="width: 30px">\n\n          <col style="width: 30px">\n\n          <col style="width: 30px">\n\n          <col style="width: 30px">\n\n          <col style="width: 30px">\n\n        </colgroup>\n\n        <thead>\n\n          <tr>\n\n            <th colspan="2"></th>\n\n            <th colspan="6" style="border: 2px solid #fff; color:#fff; border-width: 0 2px 4px 0; background-color: rgb(112,173,71)">Energy & CO2 analysis per year</th>\n\n            <th rowspan="2" style="background-color: rgb(48,84,150); border: 2px solid #fff; color:#fff; border-width: 0 2px 4px 2px"><span svg="safety"></span>Safety</th>\n\n            <th rowspan="2" style="background-color: rgb(48,84,150); border: 2px solid #fff; color:#fff; border-width: 0 2px 4px 2px"><span svg="maintenance"></span>Maintenance</th>\n\n            <th rowspan="2" style="background-color: rgb(48,84,150); border: 2px solid #fff; color:#fff; border-width: 0 2px 4px 2px"><span svg="custom"></span>Others</th>\n\n            <th rowspan="2" style="background-color: rgb(48,84,150); border: 2px solid #fff; color:#fff; border-width: 0 2px 4px 2px">TBI Advise</th>\n\n            <th colspan="5" style="background-color: rgb(48,84,150); border: 2px solid #fff; color:#fff; border-width: 0 0 4px 2px">Input</th>\n\n          </tr>\n\n          <tr>\n\n            <th colspan="2">Component / Location</th>\n\n            <th colspan="2" style="background-color:rgb(217,217,217); border: 2px solid #fff; border-width: 0 2px 4px 0">Current Losses<br>& Emissions</th>\n\n            <th colspan="4" style="background-color:rgb(217,217,217); border: 2px solid #fff; border-width: 0 2px 4px 2px">Potential<br>savings year</th>\n\n            <th class="vertical">\n\n              <div><span one-line>Insulated</span></div>\n\n            </th>\n\n            <th class="vertical">\n\n              <div><span one-line>Surface (m<sup>2</sup>)</span></div>\n\n            </th>\n\n            <th class="vertical">\n\n              <div><span one-line>Diameter</span></div>\n\n            </th>\n\n            <th class="vertical">\n\n              <div><span one-line>Length</span></div>\n\n            </th>\n\n            <th class="vertical">\n\n              <div><span one-line>Items number</span></div>\n\n            </th>\n\n          </tr>\n\n        </thead>\n\n        <tbody *ngFor="let c of components; let i=index">\n\n          <tr [class.disabled]="c.fields.unknow_surface">\n\n            <td rowspan="3" (click)="actions(c, $event)" double-border text-center style="white-space: nowrap; padding-right: 1rem">\n\n              <ion-icon name="md-menu" style="margin: 0 .25rem 0; float: left"></ion-icon>\n\n              {{i+1}}-\n\n            </td>\n\n            <td rowspan="3" double-border>{{ellipsis(c.fields.location)}}</td>\n\n            <td *ngIf="!!c.result" text-right>{{c.result.headLost.power / 1000 | number: \'1.1-1\'}}</td>\n\n            <td *ngIf="!!c.result">MWh<span *ngIf="c.fields.unknow_surface">/m<sup>2</sup></span></td>\n\n            <td *ngIf="!!c.result" text-right>{{c.result.savingPotentialMin?.power / 1000 | number: \'1.1-1\'}}</td>\n\n            <td *ngIf="!!c.result" text-center class="p-0" style="padding: 0; white-space: nowrap">\n\n              <!-- <ion-icon name="md-arrow-forward"></ion-icon> -->\n\n              --\n\n            </td>\n\n            <td *ngIf="!!c.result" text-left>{{c.result.savingPotentialMax?.power / 1000 | number: \'1.1-1\'}}</td>\n\n            <td *ngIf="!!c.result" class="mesure">MWh<span *ngIf="c.fields.unknow_surface">/m<sup>2</sup></span></td>\n\n            <td *ngIf="!c.result" colspan="2" double-border rowspan="3"></td>\n\n            <td *ngIf="!c.result" colspan="4" double-border rowspan="3"></td>\n\n\n\n            <td rowspan="3" style="background: rgb(180,198,231)" double-border text-center>\n\n              <ng-container *ngFor="let r of c.reports_by_type(\'safety|hot\')">\n\n                <a href="#" (click)="open(r, $event)" *ngIf="!r.component.is_hot">{{r.summary_id}}</a>\n\n                <a href="#" (click)="open(r, $event)" *ngIf="!!r.component.is_hot">Hot surface</a>\n\n              </ng-container>\n\n              <ion-icon name="md-add-circle" (click)="add_report(\'safety\', c, $event)"></ion-icon>\n\n            </td>\n\n            <td rowspan="3" style="background: rgb(217,225,242)" double-border text-center>\n\n              <a href="#" (click)="open(r, $event)" *ngFor="let r of c.reports_by_type(\'maintenance|condensation|damaged\')">{{r.summary_id}}</a>\n\n              <ion-icon name="md-add-circle" (click)="add_report(\'maintenance\',c , $event)"></ion-icon>\n\n            </td>\n\n            <td rowspan="3" style="background: rgb(231,235,247)" double-border text-center>\n\n              <a href="#" (click)="open(r, $event)" *ngFor="let r of c.reports_by_type(\'generic|custom\')">{{r.summary_id}}</a>\n\n              <a href="#" (click)="edit(c, $event)" *ngIf="!!c.fields.space_warning"><strong style="white-space: nowrap">No\n\n                  Space</strong></a>\n\n              <ion-icon name="md-add-circle" (click)="add_report(\'maintenance\', c, $event)"></ion-icon>\n\n            </td>\n\n            <td rowspan="3" *ngIf="!!c.result" double-border text-center>\n\n              <ng-container [ngSwitch]="advises.get(c.result.advise)">\n\n                <span advise-picture *ngSwitchCase="\'Recommended\'" svg="insulation"></span>\n\n                <span advise-picture *ngSwitchCase="\'Maintenance\'" svg="mechanical"></span>\n\n                <span advise-picture *ngSwitchCase="\'Unknow surface\'" svg="surface"></span>\n\n                <span advise-picture *ngSwitchCase="\'OK\'" svg="like"></span>\n\n                <span advise-picture *ngSwitchCase="\'SAVINGS-achieved\'" svg="increase"></span>\n\n              </ng-container>\n\n            </td>\n\n            <td rowspan="3" *ngIf="!c.result" double-border text-center></td>\n\n            <td rowspan="3" double-border text-center>{{!!c.insulated ? \'Y\' : \'N\'}}</td>\n\n            <td *ngIf="null!=c.fields.surface_temp" rowspan="3" double-border text-center>{{c.fields.surface}}</td>\n\n            <td *ngIf="null==c.fields.surface_temp" rowspan="3" double-border text-center>&nbsp;</td>\n\n            <td rowspan="3" double-border text-center>\n\n              <!-- <span *ngIf="!!c.surface">{{c.fields.surface}} m<sup>2</sup></span> -->\n\n              <span>{{c.fields.main_dimension || c.fields.nominal_diameter}}</span>\n\n            </td>\n\n            <td rowspan="3" double-border text-center>{{c.fields.length}}</td>\n\n            <td rowspan="3" double-border text-center>{{c.fields.number}}</td>\n\n          </tr>\n\n\n\n          <tr *ngIf="!!c.result" [class.disabled]="c.fields.unknow_surface">\n\n            <td text-right>{{c.result.headLost?.money | number: \'1.0-0\'}}</td>\n\n            <td class="mesure">€<span *ngIf="c.fields.unknow_surface">/m<sup>2</sup></span></td>\n\n            <td text-right>{{c.result.savingPotentialMin?.money | number: \'1.0-0\'}}</td>\n\n            <td text-center class="p-0" style="padding: 0; white-space: nowrap;">--</td>\n\n            <td text-left>{{c.result.savingPotentialMax?.money | number: \'1.0-0\'}}</td>\n\n            <td class="mesure">€<span *ngIf="c.fields.unknow_surface">/m<sup>2</sup></span></td>\n\n          </tr>\n\n\n\n          <tr *ngIf="!!c.result" [class.disabled]="c.fields.unknow_surface">\n\n              <td double-border text-right>{{c.result.co2[0] | number: \'1.1-1\'}}</td>\n\n              <td double-border class="mesure">tn CO<sub>2</sub><span *ngIf="c.fields.unknow_surface">/m<sup>2</sup></span></td>\n\n              <td double-border text-right>{{c.result.co2[1] | number: \'1.1-1\'}}</td>\n\n              <td double-border text-center class="p-0" style="padding: 0; white-space: nowrap;">--</td>\n\n              <td double-border text-left>{{c.result.co2[2] | number: \'1.1-1\'}}</td>\n\n              <td double-border class="mesure">tn CO<sub>2</sub><span *ngIf="c.fields.unknow_surface">/m<sup>2</sup></span></td>\n\n            </tr>\n\n\n\n          \n\n        </tbody>\n\n        <tfoot>\n\n          <tr>\n\n            <td rowspan="3" colspan="2" double-border text-right>\n\n              TOTAL PROJECT\n\n            </td>\n\n            <td text-right >{{totals.headLost.power / 1000 | number: \'1.1-1\'}}</td>\n\n            <td>MWh</td>\n\n            <td text-right>{{totals.savingPotentialMin?.power / 1000 | number: \'1.1-1\'}}</td>\n\n            <td text-center class="p-0" style="padding: 0; white-space: nowrap">--</td>\n\n            <td text-left>{{totals.savingPotentialMax?.power / 1000 | number: \'1.1-1\'}}</td>\n\n            <td class="mesure">MWh</td>\n\n          </tr>\n\n\n\n          <tr>\n\n            <td text-right>{{totals.headLost?.money | number: \'1.0-0\'}}</td>\n\n            <td class="mesure">€</td>\n\n            <td text-right>{{totals.savingPotentialMin?.money | number: \'1.0-0\'}}</td>\n\n            <td text-center class="p-0" style="padding: 0; white-space: nowrap;">--</td>\n\n            <td text-left>{{totals.savingPotentialMax?.money | number: \'1.0-0\'}}</td>\n\n            <td class="mesure">€</td>\n\n          </tr>\n\n\n\n          <tr>\n\n              <td double-border text-right>{{totals.co2[0] | number: \'1.1-1\'}}</td>\n\n              <td double-border class="mesure">tn CO<sub>2</sub></td>\n\n              <td double-border text-right>{{totals.co2[1] | number: \'1.1-1\'}}</td>\n\n              <td double-border text-center class="p-0" style="padding: 0; white-space: nowrap;">--</td>\n\n              <td double-border text-left>{{totals.co2[2] | number: \'1.1-1\'}}</td>\n\n              <td double-border class="mesure">tn CO<sub>2</sub></td>\n\n            </tr>\n\n        </tfoot>\n\n      </table>\n\n    </div>\n\n\n\n    <div class="page-break chart text-center" style="padding: 1rem 10%">\n\n      <div report-result *ngIf="!!report && !!totals.headLost.power" [parent]="this" [show_advise]="false"></div>\n\n    </div>\n\n\n\n  </kendo-pdf-export>\n\n\n\n</ion-content>\n\n\n\n<ion-footer>\n\n  <ion-grid no-padding>\n\n    <ion-row no-padding>\n\n      <ion-col col-4 no-padding>\n\n        <button ion-button small color="light" (click)="go_to_projects()">\n\n          HOME\n\n        </button>\n\n      </ion-col>\n\n      <ion-col col-4 text-center>\n\n        <tools></tools>\n\n      </ion-col>\n\n      <ion-col col-4 text-right>\n\n        <button tabindex="15" ion-button small color="primary" (click)="go_to_reports()">\n\n          New component\n\n        </button>\n\n      </ion-col>\n\n    </ion-row>\n\n  </ion-grid>\n\n</ion-footer>\n\n'/*ion-inline-end:"D:\Sofware Factory\tbi\src\pages\summary\summary.html"*/
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* AlertController */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* ActionSheetController */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* ModalController */],
+            __WEBPACK_IMPORTED_MODULE_3__services_project_service__["a" /* ProjectService */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */],
+            __WEBPACK_IMPORTED_MODULE_12__ionic_native_file_opener__["a" /* FileOpener */],
+            __WEBPACK_IMPORTED_MODULE_11__services__["a" /* FileService */]])
+    ], SummaryPage);
+    return SummaryPage;
+    var SummaryPage_1;
+}());
+
+//# sourceMappingURL=summary.js.map
 
 /***/ }),
 
@@ -186,7 +539,7 @@ var LicencesService = /** @class */ (function () {
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MessageService; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(6);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(5);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -234,7 +587,7 @@ var MessageService = /** @class */ (function () {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return Project; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0____ = __webpack_require__(46);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__component__ = __webpack_require__(76);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__model_with_picture__ = __webpack_require__(297);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__model_with_picture__ = __webpack_require__(296);
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = Object.setPrototypeOf ||
         ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
@@ -346,18 +699,21 @@ var Value = /** @class */ (function () {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__project_service__ = __webpack_require__(53);
-/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "d", function() { return __WEBPACK_IMPORTED_MODULE_0__project_service__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__component_service__ = __webpack_require__(176);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__loading_service__ = __webpack_require__(176);
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return __WEBPACK_IMPORTED_MODULE_0__loading_service__["a"]; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__project_service__ = __webpack_require__(53);
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "e", function() { return __WEBPACK_IMPORTED_MODULE_1__project_service__["a"]; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__component_service__ = __webpack_require__(177);
 /* unused harmony reexport ComponentService */
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__file_service__ = __webpack_require__(54);
-/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return __WEBPACK_IMPORTED_MODULE_2__file_service__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__messages_service__ = __webpack_require__(16);
-/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return __WEBPACK_IMPORTED_MODULE_3__messages_service__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__licences_service__ = __webpack_require__(102);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__file_service__ = __webpack_require__(54);
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return __WEBPACK_IMPORTED_MODULE_3__file_service__["a"]; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__messages_service__ = __webpack_require__(16);
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return __WEBPACK_IMPORTED_MODULE_4__messages_service__["a"]; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__licences_service__ = __webpack_require__(102);
 /* unused harmony reexport LicencesService */
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__picture_service__ = __webpack_require__(301);
-/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return __WEBPACK_IMPORTED_MODULE_5__picture_service__["a"]; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__picture_service__ = __webpack_require__(300);
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "d", function() { return __WEBPACK_IMPORTED_MODULE_6__picture_service__["a"]; });
+
 
 
 
@@ -373,7 +729,7 @@ var Value = /** @class */ (function () {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Fields; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__const_more_more__ = __webpack_require__(99);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__const_more_more__ = __webpack_require__(63);
 
 var Fields = /** @class */ (function () {
     function Fields(f) {
@@ -413,6 +769,7 @@ var Fields = /** @class */ (function () {
         // };
         this.condensation_comment = '';
         this.unknow_surface = false;
+        this.unknow_surface_temp = false;
         this._damaged_cladding = false;
         this._damaged_insulation = false;
         if (!f)
@@ -441,6 +798,7 @@ var Fields = /** @class */ (function () {
         this.condensation_wet_surface = !!f.condensation_wet_surface;
         this.condensation_comment = f.condensation_comment || '';
         this.unknow_surface = !!f.unknow_surface;
+        this.unknow_surface_temp = !!f.unknow_surface_temp;
         this.space_warning = f.space_warning;
     }
     Object.defineProperty(Fields.prototype, "surface_material_friendly", {
@@ -527,7 +885,7 @@ var Fields = /** @class */ (function () {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__non_picture__ = __webpack_require__(298);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__non_picture__ = __webpack_require__(297);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return __WEBPACK_IMPORTED_MODULE_0__non_picture__["a"]; });
 
 //# sourceMappingURL=index.js.map
@@ -639,6 +997,61 @@ var ScrollToComponent = /** @class */ (function () {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LoadindService; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(5);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+var LoadindService = /** @class */ (function () {
+    function LoadindService(loadingCtrl) {
+        this.loadingCtrl = loadingCtrl;
+    }
+    LoadindService.prototype.show = function (message) {
+        if (!!this.loading)
+            return;
+        this.loading = this.loadingCtrl.create({
+            spinner: 'crescent',
+            enableBackdropDismiss: false,
+            showBackdrop: true,
+            content: message || 'Loading, please wait...',
+            dismissOnPageChange: true
+        });
+        this.loading.present();
+    };
+    LoadindService.prototype.hide = function (wait) {
+        var _this = this;
+        if (wait === void 0) { wait = 0; }
+        setTimeout(function () {
+            if (!_this.loading)
+                return;
+            _this.loading.dismissAll();
+            _this.loading = null;
+        }, wait);
+    };
+    LoadindService = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["A" /* Injectable */])(),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* LoadingController */]])
+    ], LoadindService);
+    return LoadindService;
+}());
+
+//# sourceMappingURL=loading.service.js.map
+
+/***/ }),
+
+/***/ 177:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ComponentService; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__project_service__ = __webpack_require__(53);
@@ -744,377 +1157,57 @@ var REPORT = {
 
 /***/ }),
 
-/***/ 180:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SummaryPage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(6);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_screen_orientation__ = __webpack_require__(178);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__models__ = __webpack_require__(46);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__services_project_service__ = __webpack_require__(53);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__summary_edit__ = __webpack_require__(308);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__models_report_router__ = __webpack_require__(306);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__reports__ = __webpack_require__(20);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__models_component__ = __webpack_require__(76);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__progress_kendo_drawing__ = __webpack_require__(309);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__projects_projects__ = __webpack_require__(74);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__services__ = __webpack_require__(17);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__ionic_native_file_opener__ = __webpack_require__(174);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
-    return new (P || (P = Promise))(function (resolve, reject) {
-        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
-        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
-        function step(result) { result.done ? resolve(result.value) : new P(function (resolve) { resolve(result.value); }).then(fulfilled, rejected); }
-        step((generator = generator.apply(thisArg, _arguments || [])).next());
-    });
-};
-var __generator = (this && this.__generator) || function (thisArg, body) {
-    var _ = { label: 0, sent: function() { if (t[0] & 1) throw t[1]; return t[1]; }, trys: [], ops: [] }, f, y, t, g;
-    return g = { next: verb(0), "throw": verb(1), "return": verb(2) }, typeof Symbol === "function" && (g[Symbol.iterator] = function() { return this; }), g;
-    function verb(n) { return function (v) { return step([n, v]); }; }
-    function step(op) {
-        if (f) throw new TypeError("Generator is already executing.");
-        while (_) try {
-            if (f = 1, y && (t = y[op[0] & 2 ? "return" : op[0] ? "throw" : "next"]) && !(t = t.call(y, op[1])).done) return t;
-            if (y = 0, t) op = [0, t.value];
-            switch (op[0]) {
-                case 0: case 1: t = op; break;
-                case 4: _.label++; return { value: op[1], done: false };
-                case 5: _.label++; y = op[1]; op = [0]; continue;
-                case 7: op = _.ops.pop(); _.trys.pop(); continue;
-                default:
-                    if (!(t = _.trys, t = t.length > 0 && t[t.length - 1]) && (op[0] === 6 || op[0] === 2)) { _ = 0; continue; }
-                    if (op[0] === 3 && (!t || (op[1] > t[0] && op[1] < t[3]))) { _.label = op[1]; break; }
-                    if (op[0] === 6 && _.label < t[1]) { _.label = t[1]; t = op; break; }
-                    if (t && _.label < t[2]) { _.label = t[2]; _.ops.push(op); break; }
-                    if (t[2]) _.ops.pop();
-                    _.trys.pop(); continue;
-            }
-            op = body.call(thisArg, _);
-        } catch (e) { op = [6, e]; y = 0; } finally { f = t = 0; }
-        if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
-    }
-};
-
-
-
-
-
-
-
-
-
-
-
-
-
-var SummaryPage = /** @class */ (function () {
-    function SummaryPage(navParams, alertCtrl, actionSheetCtrl, modalCtrl, service, navCtrl, opener, file, orientation) {
-        var _this = this;
-        this.navParams = navParams;
-        this.alertCtrl = alertCtrl;
-        this.actionSheetCtrl = actionSheetCtrl;
-        this.modalCtrl = modalCtrl;
-        this.service = service;
-        this.navCtrl = navCtrl;
-        this.opener = opener;
-        this.file = file;
-        this.report = null;
-        this.components = [];
-        this.heat_lost = new __WEBPACK_IMPORTED_MODULE_3__models__["e" /* Value */]();
-        this.saving_potential_min = new __WEBPACK_IMPORTED_MODULE_3__models__["e" /* Value */]();
-        this.saving_potential_max = new __WEBPACK_IMPORTED_MODULE_3__models__["e" /* Value */]();
-        this.advises = new Map([
-            ['', ''],
-            ['System OK', 'OK'],
-            ['Insulation recommended', 'Recommended'],
-            ['SAFETY-Insulation recommended', 'SAFETY-Recommended'],
-            ['Savings can be achieved by increasing insulation performance or thickness', 'SAVINGS-achieved']
-        ]);
-        this.totals = new __WEBPACK_IMPORTED_MODULE_3__models__["d" /* Result */]();
-        this.orientation = orientation.type;
-        orientation.onChange().subscribe(function () { return _this.orientation = orientation.type; });
-    }
-    SummaryPage.prototype.go_to_projects = function () {
-        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_10__projects_projects__["a" /* ProjectsPage */]);
-    };
-    SummaryPage.prototype.go_to_reports = function (component) {
-        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_7__reports__["v" /* ReportsPage */], {
-            project: this.project,
-            component: component,
-            parent: this
-        });
-    };
-    SummaryPage.prototype.ellipsis = function (text, size) {
-        if (size === void 0) { size = 40; }
-        return text.length + 3 <= size ? text : text.substr(0, size) + '...';
-    };
-    SummaryPage.prototype.add_report = function (type, component, event) {
-        event.cancelBubble = true;
-        event.preventDefault();
-        this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_7__reports__["v" /* ReportsPage */], {
-            project: this.project,
-            parent: this,
-            to: type,
-            component: component
-        });
-    };
-    SummaryPage.prototype.actions = function (cl, event) {
-        return __awaiter(this, void 0, void 0, function () {
-            var _this = this;
-            var actionSheet;
-            return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0:
-                        event.preventDefault();
-                        event.cancelBubble = true;
-                        return [4 /*yield*/, this.actionSheetCtrl.create({
-                                buttons: [
-                                    {
-                                        text: 'Add report',
-                                        icon: 'ios-add-circle',
-                                        handler: function () {
-                                            _this.go_to_reports(cl);
-                                        }
-                                    }, {
-                                        text: 'Edit',
-                                        icon: 'ios-create',
-                                        handler: function () {
-                                            _this.edit(cl);
-                                        }
-                                    }, {
-                                        text: 'Duplicate',
-                                        icon: 'ios-copy',
-                                        handler: function () {
-                                            _this.duplicate(cl);
-                                        }
-                                    }, {
-                                        text: 'Delete',
-                                        role: 'ios-destructive',
-                                        icon: 'trash',
-                                        handler: function () {
-                                            _this.remove(cl, event);
-                                        }
-                                    }, {
-                                        text: 'Cancel',
-                                        icon: 'close',
-                                        role: 'cancel',
-                                        handler: function () {
-                                            console.log('Cancel clicked');
-                                        }
-                                    }
-                                ]
-                            })];
-                    case 1:
-                        actionSheet = _a.sent();
-                        return [4 /*yield*/, actionSheet.present()];
-                    case 2:
-                        _a.sent();
-                        return [2 /*return*/];
-                }
-            });
-        });
-    };
-    SummaryPage.prototype.duplicate = function (c) {
-        var _this = this;
-        var component = new __WEBPACK_IMPORTED_MODULE_8__models_component__["a" /* TbiComponent */](c.project, c);
-        component.id = '';
-        component.fields.location += ' Copy';
-        component.date = new Date();
-        this.project.components.push(component);
-        this.service.save(this.project).then(function (p) {
-            _this.get_project();
-        });
-    };
-    SummaryPage.prototype.remove = function (cl, event) {
-        var _this = this;
-        event.preventDefault();
-        event.cancelBubble = true;
-        var confirm = this.alertCtrl.create({
-            //title: `Remove`,
-            message: "Do you agree to remove permanently '" + cl.fields.location + "' component?",
-            buttons: [
-                {
-                    text: 'Yes',
-                    handler: function () {
-                        _this.components = _this.components.filter(function (c) { return c !== cl; });
-                        _this.project.components = _this.project.components.filter(function (c) { return c !== cl; });
-                        _this.service.save(_this.project).then(function () { return _this.get_project(); });
-                    }
-                },
-                {
-                    text: 'No',
-                    role: 'cancel'
-                }
-            ]
-        });
-        confirm.present();
-    };
-    SummaryPage.prototype.hide_svg = function (pdf) {
-        Array.from(pdf.element.nativeElement.getElementsByTagName('svg'))
-            .forEach(function (svg, i) {
-            if (i < 3)
-                svg.style.fill = '#fff';
-            var img = document.createElement('img');
-            img.src = "data:image/svg+xml;base64," + window.btoa(new XMLSerializer().serializeToString(svg));
-            img.width = svg.getBoundingClientRect().width;
-            //img.height = svg.getBoundingClientRect().height;
-            svg.parentElement.appendChild(img);
-        });
-        pdf.element.nativeElement.className = 'print';
-    };
-    SummaryPage.prototype.show_svg = function (pdf) {
-        Array.from(pdf.element.nativeElement.getElementsByTagName('img'))
-            .forEach(function (img) { return img.remove(); });
-        pdf.element.nativeElement.className = '';
-    };
-    SummaryPage.prototype.export_pdf = function (pdf) {
-        var _this = this;
-        this.hide_svg(pdf);
-        pdf.export().then(function (g) {
-            Object(__WEBPACK_IMPORTED_MODULE_9__progress_kendo_drawing__["b" /* exportPDF */])(g).then(function (data) {
-                _this.file.create_pdf(data, "" + (new Date()).getTime()).then(function (r) {
-                    _this.opener.open(r, 'application/pdf');
-                    _this.show_svg(pdf);
-                });
-            });
-        });
-    };
-    SummaryPage.prototype.open = function (report, event) {
-        event.cancelBubble = true;
-        (new __WEBPACK_IMPORTED_MODULE_6__models_report_router__["a" /* ReportRouter */](report.component.project, report.component, this.navCtrl)).navigate_to_report(report.path, report.summary_id, report);
-    };
-    SummaryPage.prototype.edit = function (cl) {
-        var _this = this;
-        if (cl.reports.length == 1) {
-            (new __WEBPACK_IMPORTED_MODULE_6__models_report_router__["a" /* ReportRouter */](cl.project, cl, this.navCtrl)).navigate_to_report(cl.reports[0].path, cl.reports[0].summary_id, cl.reports[0]);
-            return this;
-        }
-        var modal = this.modalCtrl.create(__WEBPACK_IMPORTED_MODULE_5__summary_edit__["a" /* SummaryEditPage */], {
-            tbi_component: cl
-        }, {
-            cssClass: "modal-window-summary",
-            showBackdrop: true,
-            enableBackdropDismiss: false
-        });
-        modal.onDidDismiss(function (v) {
-            if (!v)
-                return _this;
-            var report = cl.reports.find(function (r) { return r.id == v; });
-            (new __WEBPACK_IMPORTED_MODULE_6__models_report_router__["a" /* ReportRouter */](cl.project, cl, _this.navCtrl)).navigate_to_report(report.path, report.summary_id, report);
-        });
-        modal.present();
-        return this;
-    };
-    SummaryPage.prototype.ionViewWillEnter = function () {
-        var _this = this;
-        setTimeout(function () { return _this.get_project(); }, 0);
-    };
-    SummaryPage.prototype.get_project = function () {
-        var _this = this;
-        this.totals.headLost.power = 0;
-        this.totals.headLost.money = 0;
-        this.totals.savingPotentialMin.power = 0;
-        this.totals.savingPotentialMin.money = 0;
-        this.totals.savingPotentialMax.power = 0;
-        this.totals.savingPotentialMax.money = 0;
-        this.service.get(this.navParams.get('project').id).then(function (project) {
-            _this.project = project;
-            //this.project = this.navParams.get('project');
-            _this.report = _this.project.components[0].reports[0];
-            _this.components = [].concat((_this.project.components || [])).sort(function (a, b) { return a.date > b.date ? 1 : -1; });
-            _this.components.filter(function (c) { return !!c.result && !c.fields.unknow_surface; })
-                .map(function (c) { return c.result; })
-                .forEach(function (r) {
-                _this.totals.headLost.power += r.headLost.power;
-                _this.totals.headLost.money += r.headLost.money;
-                _this.totals.savingPotentialMin.power += r.savingPotentialMin.power;
-                _this.totals.savingPotentialMin.money += r.savingPotentialMin.money;
-                _this.totals.savingPotentialMax.power += r.savingPotentialMax.power;
-                _this.totals.savingPotentialMax.money += r.savingPotentialMax.money;
-            });
-        });
-    };
-    SummaryPage = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-summary',template:/*ion-inline-start:"D:\Sofware Factory\tbi\src\pages\summary\summary.html"*/'<ion-header>\n\n  <ion-toolbar>\n\n    <ion-title>Summary - {{project?.name}}</ion-title>\n\n    <ion-buttons end>\n\n      <button ion-button on-tap="export_pdf(pdf)">\n\n        <ion-icon name="document-pdf"></ion-icon>&nbsp;PDF\n\n      </button>\n\n    </ion-buttons>\n\n  </ion-toolbar>\n\n</ion-header>\n\n\n\n<ion-content>\n\n  <kendo-pdf-export #pdf paperSize="A4" margin=".5cm" [scale]="0.5" landscape="true">\n\n\n\n    <!-- <ion-grid class="summary-total" *ngIf="!!totals">\n\n      <ion-row>\n\n        <ion-col col-12 text-center>\n\n          <table class="total red">\n\n            <tr>\n\n              <td class="c-red">Energy loss per year</td>\n\n              <td text-right>{{totals.headLost.power | number: \'1.0-0\'}}</td>\n\n              <td>kWh</td>\n\n            </tr>\n\n            <tr>\n\n              <td>Money loss per year</td>\n\n              <td text-right>{{totals.headLost.money | number: \'1.0-0\'}}</td>\n\n              <td>€</td>\n\n            </tr>\n\n          </table>\n\n\n\n          <table class="total green">\n\n            <tr>\n\n              <td>Potential energy saving per year</td>\n\n              <td text-right>{{totals.savingPotentialMin.power | number: \'1.0-0\'}}</td>\n\n              <td text-center>\n\n                <ion-icon name="md-arrow-forward"></ion-icon>\n\n              </td>\n\n              <td text-right>{{totals.savingPotentialMax.power | number: \'1.0-0\'}}</td>\n\n              <td>kWh</td>\n\n            </tr>\n\n            <tr>\n\n              <td>Potential money saving per year</td>\n\n              <td text-right>{{totals.savingPotentialMin.money | number: \'1.0-0\'}}</td>\n\n              <td text-center>\n\n                <ion-icon name="md-arrow-forward"></ion-icon>\n\n              </td>\n\n              <td text-right>{{totals.savingPotentialMax.money | number: \'1.0-0\'}}</td>\n\n              <td>€</td>\n\n            </tr>\n\n          </table>\n\n        </ion-col>\n\n      </ion-row>\n\n    </ion-grid> -->\n\n    <table class="data">\n\n      <thead>\n\n        <tr>\n\n          <th colspan="2"></th>\n\n          <th colspan="6" class="bg-green" style="border-bottom: 5px solid #fff;">Energy analysis</th>\n\n          <th rowspan="2" class="bg-red">\n\n            <span svg="safety"></span>\n\n            Safety\n\n          </th>\n\n          <th rowspan="2" class="bg-blue">\n\n            <span svg="maintenance"></span>\n\n            Maintenance\n\n          </th>\n\n          <th rowspan="2" class="bg-gray">\n\n            <span svg="custom"></span>\n\n            Others\n\n          </th>\n\n          <th class="bg-blue-light">TBI</th>\n\n          <th class="bg-green-light" colspan="5">Input</th>\n\n        </tr>\n\n        <tr>\n\n          <th colspan="2" style="border-right: 1px solid #444">Component / Location</th>\n\n          <th colspan="2" style="border-top: 1px solid #444; border-right: 1px solid #444; color: red">Energy Loss<br>per\n\n            year</th>\n\n          <th colspan="4" style="border-top: 1px solid #444; border-right: 1px solid #444; color: #375623">Potential\n\n            Savings<br>per\n\n            year</th>\n\n          <th>Insulation<br>Advise</th>\n\n          <th class="vertical">\n\n            <div><span one-line>Insulated</span></div>\n\n          </th>\n\n          <th class="vertical">\n\n            <div><span one-line>Surface (m<sup>2</sup>)</span></div>\n\n          </th>\n\n          <th class="vertical">\n\n            <div><span one-line>Diameter</span></div>\n\n          </th>\n\n          <th class="vertical">\n\n            <div><span one-line>Length</span></div>\n\n          </th>\n\n          <th class="vertical">\n\n            <div><span one-line>Items number</span></div>\n\n          </th>\n\n        </tr>\n\n      </thead>\n\n      <tbody *ngFor="let c of components; let i=index">\n\n        <tr [class.disabled]="c.fields.unknow_surface">\n\n          <td rowspan="2" (click)="actions(c, $event)" double-border text-center style="white-space: nowrap; padding-right: 1rem">\n\n            <ion-icon name="md-menu" style="margin: 0 .25rem 0; float: left"></ion-icon>\n\n            {{i+1}}-\n\n          </td>\n\n          <td rowspan="2" double-border class="b-right" style="min-width: 10vw">\n\n            {{ellipsis(c.fields.location)}}\n\n          </td>\n\n          <td *ngIf="!!c.result" text-right class="bg-light-red c-red">{{c.result.headLost.power / 1000 | number:\n\n            \'1.1-1\'}}</td>\n\n          <td *ngIf="!!c.result" class="bg-light-red c-red b-right">MWh<span *ngIf="c.fields.unknow_surface">/m<sup>2</sup></span></td>\n\n          <td *ngIf="!!c.result" text-right class="bg-green c-gree">{{c.result.savingPotentialMin?.power / 1000 |\n\n            number: \'1.1-1\'}}</td>\n\n          <td *ngIf="!!c.result" text-center class="bg-green c-gree p-0" style="width: 15px; padding: 0; white-space: nowrap">\n\n            <!-- <ion-icon name="md-arrow-forward"></ion-icon> -->\n\n            --\n\n          </td>\n\n          <td *ngIf="!!c.result" text-left class="bg-green c-gree">{{c.result.savingPotentialMax?.power / 1000 |\n\n            number: \'1.1-1\'}}</td>\n\n          <td *ngIf="!!c.result" class="bg-green c-gree mesure b-right">MWh<span *ngIf="c.fields.unknow_surface">/m<sup>2</sup></span></td>\n\n          <td *ngIf="!c.result" colspan="2" class="b-right"></td>\n\n          <td *ngIf="!c.result" colspan="4" class="b-right"></td>\n\n\n\n          <td rowspan="2" double-border text-center class="bg-red">\n\n            <ng-container *ngFor="let r of c.reports_by_type(\'safety|hot\')">\n\n              <a href="#" (click)="open(r, $event)" *ngIf="!r.component.is_hot">{{r.summary_id}}</a>\n\n              <a href="#" (click)="open(r, $event)" *ngIf="!!r.component.is_hot">Hot surface</a>\n\n            </ng-container>\n\n            <ion-icon name="md-add-circle" (click)="add_report(\'safety\', c, $event)"></ion-icon>\n\n          </td>\n\n          <td rowspan="2" double-border text-center class="bg-blue">\n\n            <a href="#" (click)="open(r, $event)" *ngFor="let r of c.reports_by_type(\'maintenance|condensation|damaged\')">{{r.summary_id}}</a>\n\n            <ion-icon name="md-add-circle" (click)="add_report(\'maintenance\',c , $event)"></ion-icon>\n\n          </td>\n\n          <td rowspan="2" double-border text-center class="bg-gray">\n\n            <a href="#" (click)="open(r, $event)" *ngFor="let r of c.reports_by_type(\'generic|custom\')">{{r.summary_id}}</a>\n\n            <a href="#" (click)="edit(c, $event)" *ngIf="!!c.fields.space_warning"><strong style="white-space: nowrap">No Space</strong></a>\n\n            <ion-icon name="md-add-circle" (click)="add_report(\'maintenance\', c, $event)"></ion-icon>\n\n          </td>\n\n          <td rowspan="2" *ngIf="!!c.result" double-border text-center>\n\n            <ng-container [ngSwitch]="advises.get(c.result.advise)">\n\n              <span advise-picture *ngSwitchCase="\'Recommended\'" svg="insulation"></span>\n\n              <span advise-picture *ngSwitchCase="\'Maintenance\'" svg="mechanical"></span>\n\n              <span advise-picture *ngSwitchCase="\'Unknow surface\'" svg="surface"></span>\n\n              <span advise-picture *ngSwitchCase="\'OK\'" svg="like"></span>\n\n              <span advise-picture *ngSwitchCase="\'SAVINGS-achieved\'" svg="increase"></span>\n\n            </ng-container>\n\n          </td>\n\n          <td rowspan="2" *ngIf="!c.result" double-border text-center></td>\n\n          <td rowspan="2" double-border text-center>{{!!c.insulated ? \'Y\' : \'N\'}}</td>\n\n          <td *ngIf="null!=c.fields.surface_temp" rowspan="2" double-border text-center>{{c.fields.surface}}</td>\n\n          <td *ngIf="null==c.fields.surface_temp" rowspan="2" double-border text-center>&nbsp;</td>\n\n          <td rowspan="2" double-border text-center>\n\n            <!-- <span *ngIf="!!c.surface">{{c.fields.surface}} m<sup>2</sup></span> -->\n\n            <span>{{c.fields.main_dimension || c.fields.nominal_diameter}}</span>\n\n          </td>\n\n          <td rowspan="2" double-border text-center>{{c.fields.length}}</td>\n\n          <td rowspan="2" double-border text-center>{{c.fields.number}}</td>\n\n        </tr>\n\n\n\n        <tr *ngIf="!!c.result" [class.disabled]="c.fields.unknow_surface">\n\n          <td double-border text-right class="c-red">{{c.result.headLost?.money | number: \'1.0-0\'}}</td>\n\n          <td double-border class="c-red mesure b-right">€<span *ngIf="c.fields.unknow_surface">/m<sup>2</sup></span></td>\n\n          <td double-border text-right class="c-gree">{{c.result.savingPotentialMin?.money | number: \'1.0-0\'}}</td>\n\n          <td double-border text-center class="c-gree p-0" style="width: 15px; padding: 0; white-space: nowrap;">\n\n            <!-- <ion-icon name="md-arrow-forward"></ion-icon> -->\n\n            --\n\n          </td>\n\n          <td double-border text-left class="c-gree">{{c.result.savingPotentialMax?.money | number: \'1.0-0\'}}</td>\n\n          <td double-border class="c-gree mesure b-right">€<span *ngIf="c.fields.unknow_surface">/m<sup>2</sup></span></td>\n\n        </tr>\n\n        <tr *ngIf="!c.result" [class.disabled]="c.fields.unknow_surface">\n\n          <td double-border colspan="2" class="b-right"></td>\n\n          <td double-border colspan="4" class="b-right"></td>\n\n        </tr>\n\n      </tbody>\n\n      <tfoot>\n\n        <tr>\n\n          <td rowspan="2" colspan="2" double-border class="b-right" text-right>\n\n            TOTAL PROJECT\n\n          </td>\n\n          <td text-right class="bg-light-red c-red">{{totals.headLost.power / 1000 | number: \'1.1-1\'}}</td>\n\n          <td class="bg-light-red c-red b-right">MWh</td>\n\n          <td text-right class="bg-green c-gree">{{totals.savingPotentialMin?.power / 1000 | number: \'1.1-1\'}}</td>\n\n          <td text-center class="bg-green c-gree p-0" style="width: 15px; padding: 0; white-space: nowrap">--</td>\n\n          <td text-left class="bg-green c-gree">{{totals.savingPotentialMax?.power / 1000 | number: \'1.1-1\'}}</td>\n\n          <td class="bg-green c-gree mesure b-right">MWh</td>\n\n        </tr>\n\n\n\n        <tr>\n\n          <td double-border text-right class="c-red">{{totals.headLost?.money | number: \'1.0-0\'}}</td>\n\n          <td double-border class="c-red mesure b-right">€</td>\n\n          <td double-border text-right class="c-gree">{{totals.savingPotentialMin?.money | number: \'1.0-0\'}}</td>\n\n          <td double-border text-center class="c-gree p-0" style="width: 15px; padding: 0; white-space: nowrap;">--</td>\n\n          <td double-border text-left class="c-gree">{{totals.savingPotentialMax?.money | number: \'1.0-0\'}}</td>\n\n          <td double-border class="c-gree mesure b-right">€</td>\n\n        </tr>\n\n      </tfoot>\n\n    </table>\n\n\n\n    <!-- <ion-grid style="margin-top: 2rem">\n\n      <ion-row>\n\n        <ion-col col-6 col-lg-4>\n\n          <span class="legend" advise-picture svg="like"></span><strong>System OK</strong>\n\n        </ion-col>\n\n        <ion-col col-6 col-lg-4>\n\n          <span class="legend" advise-picture svg="insulation"></span><strong>Insulation recommended</strong>\n\n        </ion-col>\n\n        <ion-col col-6 col-lg-4>\n\n          <span class="legend" advise-picture svg="mechanical"></span><strong>Maintenace</strong>\n\n        </ion-col>\n\n        <ion-col col-6 col-lg-4>\n\n          <span class="legend" advise-picture svg="surface"></span><strong>Surface unknown</strong>\n\n        </ion-col>\n\n        <ion-col col-6 col-lg-4>\n\n          <span class="legend" advise-picture svg="increase"></span><strong>Increace performance or thickness</strong>\n\n        </ion-col>\n\n      </ion-row>\n\n    </ion-grid> -->\n\n\n\n    <!-- <ion-grid legend>\n\n      <ion-row>\n\n        <ion-col col-1 class="icon"><div svg="insulation" style="margin:.4rem 0 -.4rem"></div></ion-col>\n\n        <ion-col col-11 class="text">Insulation recommended</ion-col>\n\n        <ion-col col-1 class="icon"><div svg="surface" style="margin:.2rem 0 -.2rem"></div></ion-col>\n\n        <ion-col col-11 class="text">Surface unknown</ion-col>\n\n        <ion-col col-1 class="icon"><div svg="maintenance"></div></ion-col>\n\n        <ion-col col-11 class="text">Maintenance</ion-col>\n\n        <ion-col col-1 class="icon"><div svg="like"></div></ion-col>\n\n        <ion-col col-11 class="text">System OK</ion-col>\n\n        <ion-col col-1 class="icon"><div svg="increase"></div></ion-col>\n\n        <ion-col col-11 class="text">Increase performance or thickness</ion-col>\n\n      </ion-row>\n\n    </ion-grid> -->\n\n\n\n    <ion-grid chart>\n\n      <ion-row>\n\n        <ion-col col-12>\n\n          <report-result *ngIf="report" [parent]="this" [show_advise]="false"></report-result>\n\n        </ion-col>\n\n      </ion-row>\n\n    </ion-grid>\n\n\n\n  </kendo-pdf-export>\n\n\n\n</ion-content>\n\n\n\n<ion-footer>\n\n  <ion-grid no-padding>\n\n    <ion-row no-padding>\n\n      <ion-col col-4 no-padding>\n\n        <button ion-button small color="light" (click)="go_to_projects()">\n\n          HOME\n\n        </button>\n\n      </ion-col>\n\n      <ion-col col-4 text-center>\n\n        <tools></tools>\n\n      </ion-col>\n\n      <ion-col col-4 text-right>\n\n        <button tabindex="15" ion-button small color="primary" (click)="go_to_reports()">\n\n          New component\n\n        </button>\n\n      </ion-col>\n\n    </ion-row>\n\n  </ion-grid>\n\n</ion-footer>\n\n'/*ion-inline-end:"D:\Sofware Factory\tbi\src\pages\summary\summary.html"*/
-        }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* AlertController */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* ActionSheetController */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* ModalController */],
-            __WEBPACK_IMPORTED_MODULE_4__services_project_service__["a" /* ProjectService */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */],
-            __WEBPACK_IMPORTED_MODULE_12__ionic_native_file_opener__["a" /* FileOpener */],
-            __WEBPACK_IMPORTED_MODULE_11__services__["a" /* FileService */],
-            __WEBPACK_IMPORTED_MODULE_2__ionic_native_screen_orientation__["a" /* ScreenOrientation */]])
-    ], SummaryPage);
-    return SummaryPage;
-}());
-
-//# sourceMappingURL=summary.js.map
-
-/***/ }),
-
 /***/ 20:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_report_footer_report_footer_component__ = __webpack_require__(482);
-/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "i", function() { return __WEBPACK_IMPORTED_MODULE_0__components_report_footer_report_footer_component__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__pipe_report_pipe_component__ = __webpack_require__(498);
-/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "q", function() { return __WEBPACK_IMPORTED_MODULE_1__pipe_report_pipe_component__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__flange_report_flange_component__ = __webpack_require__(499);
-/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "h", function() { return __WEBPACK_IMPORTED_MODULE_2__flange_report_flange_component__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_edit_picture_edit_picture_component__ = __webpack_require__(500);
-/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "f", function() { return __WEBPACK_IMPORTED_MODULE_3__components_edit_picture_edit_picture_component__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_picture_slide_picture_slide_component__ = __webpack_require__(501);
-/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "p", function() { return __WEBPACK_IMPORTED_MODULE_4__components_picture_slide_picture_slide_component__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_errors_report_errors_component__ = __webpack_require__(502);
-/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "g", function() { return __WEBPACK_IMPORTED_MODULE_5__components_errors_report_errors_component__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__reports__ = __webpack_require__(503);
-/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "v", function() { return __WEBPACK_IMPORTED_MODULE_6__reports__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__generic_generic__ = __webpack_require__(587);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_report_footer_report_footer_component__ = __webpack_require__(485);
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "j", function() { return __WEBPACK_IMPORTED_MODULE_0__components_report_footer_report_footer_component__["a"]; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__pipe_report_pipe_component__ = __webpack_require__(588);
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "r", function() { return __WEBPACK_IMPORTED_MODULE_1__pipe_report_pipe_component__["a"]; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__flange_report_flange_component__ = __webpack_require__(589);
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "i", function() { return __WEBPACK_IMPORTED_MODULE_2__flange_report_flange_component__["a"]; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_edit_picture_edit_picture_component__ = __webpack_require__(590);
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "g", function() { return __WEBPACK_IMPORTED_MODULE_3__components_edit_picture_edit_picture_component__["a"]; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_picture_slide_picture_slide_component__ = __webpack_require__(591);
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "q", function() { return __WEBPACK_IMPORTED_MODULE_4__components_picture_slide_picture_slide_component__["a"]; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_errors_report_errors_component__ = __webpack_require__(592);
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "h", function() { return __WEBPACK_IMPORTED_MODULE_5__components_errors_report_errors_component__["a"]; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__reports__ = __webpack_require__(593);
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "w", function() { return __WEBPACK_IMPORTED_MODULE_6__reports__["a"]; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__generic_generic__ = __webpack_require__(594);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return __WEBPACK_IMPORTED_MODULE_7__generic_generic__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__surface_report_surface_component__ = __webpack_require__(588);
-/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "s", function() { return __WEBPACK_IMPORTED_MODULE_8__surface_report_surface_component__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__components_header_report_header_component__ = __webpack_require__(589);
-/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "j", function() { return __WEBPACK_IMPORTED_MODULE_9__components_header_report_header_component__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__components_area_report_area_button_component__ = __webpack_require__(590);
-/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return __WEBPACK_IMPORTED_MODULE_10__components_area_report_area_button_component__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__components_area_report_area_modal_component__ = __webpack_require__(357);
-/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return __WEBPACK_IMPORTED_MODULE_11__components_area_report_area_modal_component__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__components_more_more_button_component__ = __webpack_require__(591);
-/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "o", function() { return __WEBPACK_IMPORTED_MODULE_12__components_more_more_button_component__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__components_medium_temp_medium_temp_buttons_component__ = __webpack_require__(592);
-/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "n", function() { return __WEBPACK_IMPORTED_MODULE_13__components_medium_temp_medium_temp_buttons_component__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__components_medium_temp_temp_marker_window_component__ = __webpack_require__(593);
-/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "t", function() { return __WEBPACK_IMPORTED_MODULE_14__components_medium_temp_temp_marker_window_component__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__components_result_report_result_component__ = __webpack_require__(594);
-/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "r", function() { return __WEBPACK_IMPORTED_MODULE_15__components_result_report_result_component__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__valve_report_valve_component__ = __webpack_require__(595);
-/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "u", function() { return __WEBPACK_IMPORTED_MODULE_16__valve_report_valve_component__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__isurface_report_isurface_component__ = __webpack_require__(596);
-/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "l", function() { return __WEBPACK_IMPORTED_MODULE_17__isurface_report_isurface_component__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__ipipe_report_ipipe_component__ = __webpack_require__(597);
-/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "k", function() { return __WEBPACK_IMPORTED_MODULE_18__ipipe_report_ipipe_component__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__damaged_report_damaged_component__ = __webpack_require__(598);
-/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "e", function() { return __WEBPACK_IMPORTED_MODULE_19__damaged_report_damaged_component__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__condensation_report_condensation_component__ = __webpack_require__(599);
-/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "d", function() { return __WEBPACK_IMPORTED_MODULE_20__condensation_report_condensation_component__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__leakage_report_leakage_component__ = __webpack_require__(358);
-/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "m", function() { return __WEBPACK_IMPORTED_MODULE_21__leakage_report_leakage_component__["a"]; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__surface_report_surface_component__ = __webpack_require__(595);
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "t", function() { return __WEBPACK_IMPORTED_MODULE_8__surface_report_surface_component__["a"]; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__components_header_report_header_component__ = __webpack_require__(596);
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "k", function() { return __WEBPACK_IMPORTED_MODULE_9__components_header_report_header_component__["a"]; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__components_area_report_area_button_component__ = __webpack_require__(597);
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return __WEBPACK_IMPORTED_MODULE_10__components_area_report_area_button_component__["a"]; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__components_area_report_area_modal_component__ = __webpack_require__(360);
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "d", function() { return __WEBPACK_IMPORTED_MODULE_11__components_area_report_area_modal_component__["a"]; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__components_more_more_button_component__ = __webpack_require__(598);
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "p", function() { return __WEBPACK_IMPORTED_MODULE_12__components_more_more_button_component__["a"]; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__components_medium_temp_medium_temp_buttons_component__ = __webpack_require__(599);
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "o", function() { return __WEBPACK_IMPORTED_MODULE_13__components_medium_temp_medium_temp_buttons_component__["a"]; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__components_medium_temp_temp_marker_window_component__ = __webpack_require__(600);
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "u", function() { return __WEBPACK_IMPORTED_MODULE_14__components_medium_temp_temp_marker_window_component__["a"]; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__components_result_report_result_component__ = __webpack_require__(601);
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "s", function() { return __WEBPACK_IMPORTED_MODULE_15__components_result_report_result_component__["a"]; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__valve_report_valve_component__ = __webpack_require__(602);
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "v", function() { return __WEBPACK_IMPORTED_MODULE_16__valve_report_valve_component__["a"]; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__isurface_report_isurface_component__ = __webpack_require__(603);
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "m", function() { return __WEBPACK_IMPORTED_MODULE_17__isurface_report_isurface_component__["a"]; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__ipipe_report_ipipe_component__ = __webpack_require__(604);
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "l", function() { return __WEBPACK_IMPORTED_MODULE_18__ipipe_report_ipipe_component__["a"]; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__damaged_report_damaged_component__ = __webpack_require__(605);
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "f", function() { return __WEBPACK_IMPORTED_MODULE_19__damaged_report_damaged_component__["a"]; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__condensation_report_condensation_component__ = __webpack_require__(606);
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "e", function() { return __WEBPACK_IMPORTED_MODULE_20__condensation_report_condensation_component__["a"]; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__leakage_report_leakage_component__ = __webpack_require__(361);
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "n", function() { return __WEBPACK_IMPORTED_MODULE_21__leakage_report_leakage_component__["a"]; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__unknown_temp_unknown_temp_component__ = __webpack_require__(608);
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return __WEBPACK_IMPORTED_MODULE_22__unknown_temp_unknown_temp_component__["a"]; });
+
 
 
 
@@ -1145,23 +1238,23 @@ var SummaryPage = /** @class */ (function () {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__report_condensation_class__ = __webpack_require__(483);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__report_condensation_class__ = __webpack_require__(486);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return __WEBPACK_IMPORTED_MODULE_0__report_condensation_class__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__report_damaged_class__ = __webpack_require__(484);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__report_damaged_class__ = __webpack_require__(487);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return __WEBPACK_IMPORTED_MODULE_1__report_damaged_class__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__report_ipipe_class__ = __webpack_require__(302);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__report_ipipe_class__ = __webpack_require__(301);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "e", function() { return __WEBPACK_IMPORTED_MODULE_2__report_ipipe_class__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__report_isurface_class__ = __webpack_require__(485);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__report_isurface_class__ = __webpack_require__(488);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "f", function() { return __WEBPACK_IMPORTED_MODULE_3__report_isurface_class__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__report_valve_class__ = __webpack_require__(486);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__report_valve_class__ = __webpack_require__(489);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "i", function() { return __WEBPACK_IMPORTED_MODULE_4__report_valve_class__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__report_pipe_class__ = __webpack_require__(303);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__report_pipe_class__ = __webpack_require__(302);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "g", function() { return __WEBPACK_IMPORTED_MODULE_5__report_pipe_class__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__report_flange_class__ = __webpack_require__(487);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__report_flange_class__ = __webpack_require__(490);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "d", function() { return __WEBPACK_IMPORTED_MODULE_6__report_flange_class__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__report_surface_class__ = __webpack_require__(494);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__report_surface_class__ = __webpack_require__(497);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "h", function() { return __WEBPACK_IMPORTED_MODULE_7__report_surface_class__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__base_report_page_class__ = __webpack_require__(495);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__base_report_page_class__ = __webpack_require__(304);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return __WEBPACK_IMPORTED_MODULE_8__base_report_page_class__["a"]; });
 
 
@@ -1176,7 +1269,7 @@ var SummaryPage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 213:
+/***/ 212:
 /***/ (function(module, exports) {
 
 function webpackEmptyAsyncContext(req) {
@@ -1189,7 +1282,7 @@ function webpackEmptyAsyncContext(req) {
 webpackEmptyAsyncContext.keys = function() { return []; };
 webpackEmptyAsyncContext.resolve = webpackEmptyAsyncContext;
 module.exports = webpackEmptyAsyncContext;
-webpackEmptyAsyncContext.id = 213;
+webpackEmptyAsyncContext.id = 212;
 
 /***/ }),
 
@@ -1228,7 +1321,8 @@ var ReportBase = /** @class */ (function () {
             this.summary_id = item.summary_id;
             this.readonly_summary_id = item.readonly_summary_id;
             this.comment = item.comment;
-            this.insulated = !!this.path.match(/insulated/gi);
+            this.insulated = !!this.path.match(/insulated/gi) && !this.path.match(/un-insulated/gi);
+            console.log(this.path);
         }
     }
     Object.defineProperty(ReportBase.prototype, "potential_measure", {
@@ -1290,7 +1384,7 @@ var ReportBase = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 255:
+/***/ 254:
 /***/ (function(module, exports) {
 
 function webpackEmptyAsyncContext(req) {
@@ -1303,18 +1397,18 @@ function webpackEmptyAsyncContext(req) {
 webpackEmptyAsyncContext.keys = function() { return []; };
 webpackEmptyAsyncContext.resolve = webpackEmptyAsyncContext;
 module.exports = webpackEmptyAsyncContext;
-webpackEmptyAsyncContext.id = 255;
+webpackEmptyAsyncContext.id = 254;
 
 /***/ }),
 
-/***/ 296:
+/***/ 295:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return InitPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(6);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__projects_projects__ = __webpack_require__(74);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(5);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__projects_projects__ = __webpack_require__(99);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1339,9 +1433,9 @@ var InitPage = /** @class */ (function () {
     };
     InitPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-init',template:/*ion-inline-start:"D:\Sofware Factory\tbi\src\pages\init\init.html"*/'<ion-content>\n  <ion-grid>\n    <ion-row>\n      <ion-col col-8 offset-2 class="bg-logo">\n      </ion-col>\n      <ion-col col-8 offset-2>\n        <ion-list>\n          <ion-item padding>\n            <ion-label stacked>Name</ion-label>\n            <ion-input type="text" [(ngModel)]="user_name" placeholder="Type your name"></ion-input>\n          </ion-item>\n          </ion-list>\n      </ion-col>\n      <ion-col col-8 offset-2>\n          <p>\n              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.\n          </p>\n      </ion-col>\n    </ion-row>\n  </ion-grid>\n  <small style="position:fixed;right:2rem;bottom:1rem;color:#666">\n    Build v5.1.3 16/11/2018 01:10\n  </small>\n  <p offset-md-3 col-md-6>\n    <button ion-button block small color="primary" [disabled]="!user_name" (click)="save()">\n      Start\n    </button>\n  </p>\n</ion-content>\n'/*ion-inline-end:"D:\Sofware Factory\tbi\src\pages\init\init.html"*/
+            selector: 'page-init',template:/*ion-inline-start:"D:\Sofware Factory\tbi\src\pages\init\init.html"*/'<ion-content>\n  <ion-grid>\n    <ion-row>\n      <ion-col col-8 offset-2 class="bg-logo">\n      </ion-col>\n      <ion-col col-8 offset-2>\n        <ion-list>\n          <ion-item padding>\n            <ion-label stacked>Name</ion-label>\n            <ion-input type="text" [(ngModel)]="user_name" placeholder="Type your name"></ion-input>\n          </ion-item>\n          </ion-list>\n      </ion-col>\n      <ion-col col-8 offset-2>\n          <p>\n              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.\n          </p>\n      </ion-col>\n    </ion-row>\n  </ion-grid>\n  <small style="position:fixed;right:2rem;bottom:1rem;color:#666">\n    Build v6.1.0 19/12/2018 23:54\n  </small>\n  <p offset-md-3 col-md-6>\n    <button ion-button block small color="primary" [disabled]="!user_name" (click)="save()">\n      Start\n    </button>\n  </p>\n</ion-content>\n'/*ion-inline-end:"D:\Sofware Factory\tbi\src\pages\init\init.html"*/
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */]])
     ], InitPage);
     return InitPage;
 }());
@@ -1350,7 +1444,7 @@ var InitPage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 297:
+/***/ 296:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1369,29 +1463,30 @@ var ModelWithPicture = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 298:
+/***/ 297:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return NON_PICTURE; });
-var NON_PICTURE = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASoAAAEcCAYAAABwGfmfAAAABGdBTUEAALGOfPtRkwAAACBjSFJNAACHDwAAjA8AAP1SAACBQAAAfXkAAOmLAAA85QAAGcxzPIV3AAAKOWlDQ1BQaG90b3Nob3AgSUNDIHByb2ZpbGUAAEjHnZZ3VFTXFofPvXd6oc0wAlKG3rvAANJ7k15FYZgZYCgDDjM0sSGiAhFFRJoiSFDEgNFQJFZEsRAUVLAHJAgoMRhFVCxvRtaLrqy89/Ly++Osb+2z97n77L3PWhcAkqcvl5cGSwGQyhPwgzyc6RGRUXTsAIABHmCAKQBMVka6X7B7CBDJy82FniFyAl8EAfB6WLwCcNPQM4BOB/+fpFnpfIHomAARm7M5GSwRF4g4JUuQLrbPipgalyxmGCVmvihBEcuJOWGRDT77LLKjmNmpPLaIxTmns1PZYu4V8bZMIUfEiK+ICzO5nCwR3xKxRoowlSviN+LYVA4zAwAUSWwXcFiJIjYRMYkfEuQi4uUA4EgJX3HcVyzgZAvEl3JJS8/hcxMSBXQdli7d1NqaQffkZKVwBALDACYrmcln013SUtOZvBwAFu/8WTLi2tJFRbY0tba0NDQzMv2qUP91829K3NtFehn4uWcQrf+L7a/80hoAYMyJarPziy2uCoDOLQDI3fti0zgAgKSobx3Xv7oPTTwviQJBuo2xcVZWlhGXwzISF/QP/U+Hv6GvvmckPu6P8tBdOfFMYYqALq4bKy0lTcinZ6QzWRy64Z+H+B8H/nUeBkGceA6fwxNFhImmjMtLELWbx+YKuGk8Opf3n5r4D8P+pMW5FonS+BFQY4yA1HUqQH7tBygKESDR+8Vd/6NvvvgwIH554SqTi3P/7zf9Z8Gl4iWDm/A5ziUohM4S8jMX98TPEqABAUgCKpAHykAd6ABDYAasgC1wBG7AG/iDEBAJVgMWSASpgA+yQB7YBApBMdgJ9oBqUAcaQTNoBcdBJzgFzoNL4Bq4AW6D+2AUTIBnYBa8BgsQBGEhMkSB5CEVSBPSh8wgBmQPuUG+UBAUCcVCCRAPEkJ50GaoGCqDqqF6qBn6HjoJnYeuQIPQXWgMmoZ+h97BCEyCqbASrAUbwwzYCfaBQ+BVcAK8Bs6FC+AdcCXcAB+FO+Dz8DX4NjwKP4PnEIAQERqiihgiDMQF8UeikHiEj6xHipAKpAFpRbqRPuQmMorMIG9RGBQFRUcZomxRnqhQFAu1BrUeVYKqRh1GdaB6UTdRY6hZ1Ec0Ga2I1kfboL3QEegEdBa6EF2BbkK3oy+ib6Mn0K8xGAwNo42xwnhiIjFJmLWYEsw+TBvmHGYQM46Zw2Kx8lh9rB3WH8vECrCF2CrsUexZ7BB2AvsGR8Sp4Mxw7rgoHA+Xj6vAHcGdwQ3hJnELeCm8Jt4G749n43PwpfhGfDf+On4Cv0CQJmgT7AghhCTCJkIloZVwkfCA8JJIJKoRrYmBRC5xI7GSeIx4mThGfEuSIemRXEjRJCFpB+kQ6RzpLuklmUzWIjuSo8gC8g5yM/kC+RH5jQRFwkjCS4ItsUGiRqJDYkjiuSReUlPSSXK1ZK5kheQJyeuSM1J4KS0pFymm1HqpGqmTUiNSc9IUaVNpf+lU6RLpI9JXpKdksDJaMm4ybJkCmYMyF2TGKQhFneJCYVE2UxopFykTVAxVm+pFTaIWU7+jDlBnZWVkl8mGyWbL1sielh2lITQtmhcthVZKO04bpr1borTEaQlnyfYlrUuGlszLLZVzlOPIFcm1yd2WeydPl3eTT5bfJd8p/1ABpaCnEKiQpbBf4aLCzFLqUtulrKVFS48vvacIK+opBimuVTyo2K84p6Ss5KGUrlSldEFpRpmm7KicpFyufEZ5WoWiYq/CVSlXOavylC5Ld6Kn0CvpvfRZVUVVT1Whar3qgOqCmrZaqFq+WpvaQ3WCOkM9Xr1cvUd9VkNFw08jT6NF454mXpOhmai5V7NPc15LWytca6tWp9aUtpy2l3audov2Ax2yjoPOGp0GnVu6GF2GbrLuPt0berCehV6iXo3edX1Y31Kfq79Pf9AAbWBtwDNoMBgxJBk6GWYathiOGdGMfI3yjTqNnhtrGEcZ7zLuM/5oYmGSYtJoct9UxtTbNN+02/R3Mz0zllmN2S1zsrm7+QbzLvMXy/SXcZbtX3bHgmLhZ7HVosfig6WVJd+y1XLaSsMq1qrWaoRBZQQwShiXrdHWztYbrE9Zv7WxtBHYHLf5zdbQNtn2iO3Ucu3lnOWNy8ft1OyYdvV2o/Z0+1j7A/ajDqoOTIcGh8eO6o5sxybHSSddpySno07PnU2c+c7tzvMuNi7rXM65Iq4erkWuA24ybqFu1W6P3NXcE9xb3Gc9LDzWepzzRHv6eO7yHPFS8mJ5NXvNelt5r/Pu9SH5BPtU+zz21fPl+3b7wX7efrv9HqzQXMFb0ekP/L38d/s/DNAOWBPwYyAmMCCwJvBJkGlQXlBfMCU4JvhI8OsQ55DSkPuhOqHC0J4wybDosOaw+XDX8LLw0QjjiHUR1yIVIrmRXVHYqLCopqi5lW4r96yciLaILoweXqW9KnvVldUKq1NWn46RjGHGnIhFx4bHHol9z/RnNjDn4rziauNmWS6svaxnbEd2OXuaY8cp40zG28WXxU8l2CXsTphOdEisSJzhunCruS+SPJPqkuaT/ZMPJX9KCU9pS8Wlxqae5Mnwknm9acpp2WmD6frphemja2zW7Fkzy/fhN2VAGasyugRU0c9Uv1BHuEU4lmmfWZP5Jiss60S2dDYvuz9HL2d7zmSue+63a1FrWWt78lTzNuWNrXNaV78eWh+3vmeD+oaCDRMbPTYe3kTYlLzpp3yT/LL8V5vDN3cXKBVsLBjf4rGlpVCikF84stV2a9021DbutoHt5turtn8sYhddLTYprih+X8IqufqN6TeV33zaEb9joNSydP9OzE7ezuFdDrsOl0mX5ZaN7/bb3VFOLy8qf7UnZs+VimUVdXsJe4V7Ryt9K7uqNKp2Vr2vTqy+XeNc01arWLu9dn4fe9/Qfsf9rXVKdcV17w5wD9yp96jvaNBqqDiIOZh58EljWGPft4xvm5sUmoqbPhziHRo9HHS4t9mqufmI4pHSFrhF2DJ9NProje9cv+tqNWytb6O1FR8Dx4THnn4f+/3wcZ/jPScYJ1p/0Pyhtp3SXtQBdeR0zHYmdo52RXYNnvQ+2dNt293+o9GPh06pnqo5LXu69AzhTMGZT2dzz86dSz83cz7h/HhPTM/9CxEXbvUG9g5c9Ll4+ZL7pQt9Tn1nL9tdPnXF5srJq4yrndcsr3X0W/S3/2TxU/uA5UDHdavrXTesb3QPLh88M+QwdP6m681Lt7xuXbu94vbgcOjwnZHokdE77DtTd1PuvriXeW/h/sYH6AdFD6UeVjxSfNTws+7PbaOWo6fHXMf6Hwc/vj/OGn/2S8Yv7ycKnpCfVEyqTDZPmU2dmnafvvF05dOJZ+nPFmYKf5X+tfa5zvMffnP8rX82YnbiBf/Fp99LXsq/PPRq2aueuYC5R69TXy/MF72Rf3P4LeNt37vwd5MLWe+x7ys/6H7o/ujz8cGn1E+f/gUDmPP8usTo0wAAAAlwSFlzAAAOxAAADsQBlSsOGwAANJVJREFUeF7t3XmvZFUV9/HCeUIUURx6gkYQkG5ajUYjDsHE+IeJEjWaiDjgFOIfvoPnDRgTY0KcNcYhatQYEucENDHODI0gyNBNI4gyCDhPz8PncDdPdfcdzt51qs4+56xvUrm3q29Vndp7rd9ea+3hHPN/H2AWBEFQMQ9b+xkEQVAtIVRBEFRPCFUQBNUTQhUEQfWEUAVBUD0hVEEQVE8IVRAE1RNCFQRB9YRQBUFQPSFUQRBUTwhVEATVE0IVBEH1hFAFQVA9IVRBEFRPCFUQBNUTQhUEQfWEUAVBUD0hVEEQVE8IVRAE1RNCFQRB9cTNHYJ1YRb//e9/Z//+979n//nPf5qH3z3n8b///e+hv9mMhz/84bNjjjlm9rCHPaz53eORj3zk7BGPeETz8Hv6myDYiBCqCaPr//Wvf83+/ve/z/7xj380v//zn/9sBCkJ1Lwo+dkFRGtevJJgeTz60Y+ePepRj5o95jGPmT32sY9tfg8RC0KoJgKRIUh//etfZ3/7298aYUrilMQoQUDmxSTRlWDMm9y8CB55DUQsiZbH4x73uNnjH//4RsDmrysYPyFUI0U0dP/99zcP4kSUREtESZcnIUiCVFvU4hqTgCUhdY2uWdRFuIjWscce2zxEZcF4CaEaCbqRKP35z3+e/eUvf2miJsLkeWLEkZMoDZkkXoQ4iRfhEm094QlPmD3pSU9qhGvo3zM4nBCqAcNZ77777tm9997biJOoSfRBkNR7/JwCBEtNzU8Rl2iLaB133HGz448/PqKtERBCNTCI05/+9KdGnERQoiakmbTgwTYiXBBtibCI1lOf+tRoo4ESQjUARAp33XXXQ9GTArjURqF5KlFTKdpOezFz7ZWirKc85SnRdgMihKpipHN//OMfZ/fcc08zYxfitBjzomXm8MlPfvLsaU97WpMmBnUTQlUZnIk43XnnnbP77ruv+TdxUnsJukMtj2gR/Sc+8YmzE044oRGtGATqJISqEtRUfv/73zcpnhk7tRR1p5i9Wi7MPy1uNXMoJXzWs57VtH1QDyFUPSOlu/XWW5v6kxFe9BQF334gVqkP1LG2bdvWpIhB/4RQ9YRFmIcOHWoESnpndkp6F93RLyJYaaHZVGkgwdq+fXuzuDTojxCqFSOCOnDgQCNQIFAcovZucH3pGtPv8/9ej5S2+pke8/+uGddnAEnLPwjWrl27IsLqiRCqFcHgCZQiOQhUbc7KMecfiSQs81tu5n/f6HskMfNeaRuMf/s9/V/Ce80/asJ1JsFSdCdY+i9YHSFUS4ZTEqg77rijcVSrpjlin83us12Lmky6DteUCvhqNBzR7+nf6Xd/42+TQG0kUgnvnx7pMz04viJ2evi3+lAqbCdRS9eVPrMvfLZrsvrftZx44omNYMVs7GoIoVoiZvEUyjkggeqrBuUzOX+KZFwH8UknEqQNvsTJ830JgmvTVkTLzKc0OT087/pdm+snXn1cp890HQRLWym4myUMlksI1RKw/unGG29strikyGTVzZwiF5/LqdP+t3TiAIESGQwBkQzhsgDWw0QE8fL9CIfv57FKfG6KBLXn7t27m/VYwXIIoeoQjkOgLNjkOERqlc2b0iZORJg4kIcTBfy7jwhkGWhTEY3tRAYF4kW4CFpKT1f1XX1O2gwuHTz55JNXLppTIISqI9Sg1KKkKOlgt1U0LWHymdIhUZK9bLaGGN2HEjEtinYmWo648VPERThSXW3ZECsiSSylg2pXRCvojhCqBRHFXH/99c2K8lWleZyQOHEQqZyIyWyU38cSNS2CCMvsKuEiWvqDgCy78K3tUzpohfupp566EqGcAiFUCyCKkuoZTVexvoY4iaCkcaIm4iSCCnFaH6atTuhYHOvWpGjSMqK1bERXIlq1q4iuFieEqgDCdN111zUOsMwoigCJnozQkM45U8nm2WVHB2NDn6kd6jN1Lf2l77TjsvouRVf67LTTTptMKr4MQqgyYeS//e1vGwNUE1oGjFzk5DNEAFZFP/OZz2wK48HiiLJuv/32Jl3XzgRLOy/LFcxY+oznPOc5MTNYSAhVBrfccsvs4MGDjVEzvK6bbl6gpCciJwLls4LuEfFY6ybSkhZq52VEx/pVn+rbnTt3znbs2LH2P0FbQqhaIG245pprmhFYFNV1ujAvUJxFTcMiwpjmXg3Sa4Kl5qi2pAbYdYSlj32O6Eqh/YwzzohUMIMQqi0wa/Sb3/xmKaleMt60yvnpT396s9I56k/9YECyk0BaaOKCYC2jhpVSwTPPPDNOZWhJCNUmGGF/97vfNcbaZapHoLxXmhkSQUkHYiq7Dgwe0vw//OEPze9mdFOfdYH3MvB572c/+9kxK9iCEKoNsHhTPYqRdpkGJCOV6lleYCVz1KDqRD/dfPPNzZosA0qX/cQO2IDBSt3KItFgY0KojkBzmNVTYBWWM9AumigZpjTP7N1JJ53ULNQM6scsofVyZny7rF+xCemm8oKJE7OCnguOJoRqDqH4/v37G4PsunZAoIieGpRHGOTwuO2225ooO6WDXUKsLF0466yzoka5DiFUa5iqvvLKKxtBUTTvasSMLRXjQn/ecMMNnS/2ZSuK7CK2vXv3hp0cQQjVA6gTEKk0UnbVJN5XmiDNi4LpuFAauOmmm5p0vqvoilixGREVseo6ahsykxcq9QfpHiPpYmbP+6RaVERR40Y/25Cu2N5V7Yr9iMC9jzQwdiM8yKSFyu56a6TSjE4XRkagvI9ZnDj5cRpYdyW60v8Eqws7IlYK7dZaxaTLhIXKbdKJlFHQYssumkGNQX3LquMI26eFlO3aa69tjpjpYiKGWKXTMoiV0zKmzCSFKkVSagGLihSDUttiqOpQUj3PBdODHSm0mx00UC2aCiaxYl9Tj6wmJ1RqUldddVVnIsWQzAQ5d8gG4iCwop1gdbGjYV6s9uzZM9ma1aSEyloVs3tqUl2IVJqhMdpF0TOYRwooajeILbrcJYmVmpXZwCnuD5yMUClOXn755Y3BdDHKpXqUmZmY1QvWQ33p6quv7mQBMZtjw37u27evseEpMQmhYjBEyqjUxTop7+PUxlNOOWXtmSBYH7ZmS5YFogY2QlOK14riZQPESg1sKoz+QByGYp2U0agLkYL3mJKRBOUQl9NPP73ZNiUKl76VihW7Y8NsmU13YctDYfRC5cA79YKutsVA2H3o0KFmsV8QtMEpGR4iIhH+ImLFltk0254KoxYqMy/pVM6uRx/vaaFfiFXQFlGV86csCu5CrNg2G58CoxUqR8taz6JDl4VbpBMrh+sFQRue8YxnNKmg9M2MYKlYgW2zcbY+dkYpVBZ0OvDMdgZLEZYJsWIsEVkFbTER4+yptAavVKzYNhtn62x+zIxOqHS8e+4pdi+6MrgtxMoivxCroC1diBXbTnbO5r3PWBmdUNlvpcO62r/XFutkQqyCHNKNSYlVac2KjbN1Ns/2x8qohMpxsULgZRTP20CsosAe5OAIYuvxFNhtkykVKzbP9vnAGBmNUFlQl4rnfYhUItLAIBcF9rR0wTqrEpJY8QG+MDZGIVTCXucB2cpSWjw3kgnBPUqLm4lIA4Nc0ln6FoWWwvb5AF8YW71qFEKVComldSnCxECcyHn88cc3v4dYBatGVCUVtHm+NAVM9So+MSYGL1RWiN99993F22MYhJBbyuYsKcVNdwMpNZZ5QqyCXNjfcccdVzxY8gG+wCf4xlgYtFARE51hLUkJDMHCO9O7jmpJOBHBIWW2KYRYBauEvbFF27TSaQkl8Am+wUfGwKCFygyHEYTQ5MIATAkrXhrF5o9q8X/Pfe5zm+NfI7IKVg17tnqdbUvjSuzPe3j9WGYBBytURgvTsaWH6XuNKeGN7licxMr/hVgFq0YpQs3K5E7JTCD75ht8ZAwp4CCFSk3p1ltvXSjlUwN4+tOfvunxwUms1AxCrIJVwz4tXVhkcoeP8BU+M2QGKVSmXy2OK035RFJGLDvZt8LfR80q6Atn8RsoCU2J7fERvsJnhszghIqTl87y6Wh1Kdhn1bbj/V2qWYVYBauErbFVZ/OX1Kv4SJoFZHNDZVBCJVd3pIXCd4lYpLrUzp07m87LYV6sIg0MVokZQDarXpU7OIOt8hm+U7ryvW8GJVQHDx5s8vWShZ06y2tPOOGE4jsYJ7GKAnuwatSqbGIuSQH5Cp9h/3xoiAxGqHTQHXfcUTTLp2ONRkamNnWpzQixCvrC5mU2XLLNi8/wHT40xML6YITKSKC+JFfPRSfJ74XP8+ulSlmWWI1t20PQLQrjbJgtl6RwfIcPDTGqGoRQ3XPPPc350KXRlBFEyueW612xDLEy2oVYBZthL6BHaQrIh/gSnxoSgxCqdCZ0yckIRh9RlMVzXRNiFfQBW5YCsu1ckg8N7Zz16oXqzjvvXGgFuv1Sjs/QscsgxCpYNQbe7du3N7WqXFJUxaf41lCoXqicmFkSSREMIkVASmf52rIssYoCe7ARZgEtlbHcpsTe+BTfGgpVC9Uf//jH2b333lsUDSk2Gj127Nix9sxyWYZYRYE92AyFdXZm5XkufIpv8bEhULVQiSoof67T+3sjjXUnhGNVLEOsIg0MNuLYY49tbLwkqvL3fIt9DYFqhcrMxH333dcof25tyhSsPN6Is2pCrIJVsmvXrmYxZ9oa1hY+xbf4GF+rnWMeuOD8CvUK+M1vftMU/HL39BEGAqHYqBP7wjVfffXVzXcgNos2s+9keYWzs9rAAH/wgx80m6/HivTe49xzz13aZMkQsC7qlltuybYzvmKZg0F1/uDIGqlSqDgZJzdS5EYkRhYh7b59+4pOV+iSPsWKAX7oQx9qtk04B36oe7y2gq0Qqle+8pVrz0wPNarLL7/8oUwiBzZp9lAW4AjuWqlSqMx2KfLl3voqRVMOw7MkoQZcv+jQArs+xOrTn/50I1ZmiMYoVmmj7oUXXpi90XxMOHPKrd1Loir2YRGpewbUSnU1KksKOHVJbcoCOOK22WF4q4YhCKuF110dEdO2ZsVx3/Wudz10zEfJMo/aYSf333//7Kc//enaM9OEzUvzc9dW8TFtyOf4Xq1UZ7mm5DV27p4+AuB1oo3aHNK1Ca27PM+KWP32t79de2ZjLO4jVgScMY5NrDialEWKLYKcKvpVVGSwzrUvvsZ3+F6tVGW1jM4MhDy7NJpyfGuNJLFSL+pKrKTHuZHVGMUqRVU/+clP1p6ZJmyfD+RureFrfE7Unet3q6Iqi7WkX76cWxDk9EYEa0r6LqBvhuuUBvYRWY1ZrFJUdc0110w6qhIZiar4Qq5t8Tn1z1q31VQnVCXOa7bDqGpbQe34fl2ngSKrHLEy6o6tZhVR1YOIqqT7ueuqwBZDqLZAIc9UsyUJOWhcI4jbsedGYn2RxEoaaBRblNzI6p3vfGfzmjGJVURVD8IH+EJJVMX3+GCNRfVqrFRUoHFzi+im3L2m1trURjCilAYSq1yjOhIzPlMXq4iqHsSEEp/IXY6Siuo17v+rxkLVTdSXcot51N/thDjd0JiPrKSBi5IrVtLAMYkV22ELU4+q9Kl2yI2MtB8f5Iu1UYV1GgU5aknqpnGFukNGZNVVGpgjVmoZKbIaS4Fd+hJR1aw50TZ30Acf5IvasCaqsExLEmwDyHUUBUOFYbN9QyalgX2I1dgK7JxTrcpugClHVYTKAJS7VEH/88XaNir3bpUMy7k4lDx3BNAJnHsMkcB8GthHZJXSwLaRlfqH9nfEiCUlRuH5h+f8n79Z9dYd38c1TDmq0odsKXf2jw/yRT5ZEpEti973+jGo/fv3N42TU1B22ZzA7dY5Zd9wxlQUX+97GKVELW3WeVllLbohHIuifRVX3W13KwjLpz71qXX3BjJ4NQ/FVkixCIICtp9Hfq/0997Tw+v0mdd5TUman0OKJN7whjc025fSdS8T38+DPeZOCi0D9si39M2QfQu9C5XjKRxTwSlzLoXhaUSNWQMikY997GON064XkUhDCMZb3/rW6sXKRmZGrn3VKgiWQ9qkE/aUOdqZ8xNegrORUxJngkX4jNC33XZbc1MBa3VMg8P3y12S0gZ9wEY8VhVxayft9+53v7uauik70tYGh7YQNf3vPLdVnZC7Fb0LVUlDguM7b6qWUxI44ic/+ckNhcpzxIyzv/3tb88SK4KxaDcxPKuW24iVtv3MZz7TOJ1TGtTPLKbN7aONIB7SUnUkg5R6iPf2PbVTlyZJPFZl4kmoTFCISGvAqQoHDhxoapE5iIbV+pQjaqBXodIYV155ZaPgOaOeSzZa79mzJ7sDlgWh4twbCRU8L5roS6xyIivChi4ius3Qj8TqZz/7WfNTG5la71qwVkESqgsuuKAaoTLoXHXVVU17bmSX65EEfu/evZ0NUIuwmph4AxwoVxKay585UC0i1RadT6SIFVFrU+jsa52V9l22SEHa6D51b3nLW5ozpZwlRphF2RvV+4L28BH9nltU55N8k4/WQK9CVbpWwyhs1B0iSaykOzlipeaRopxFYLRt9wauGu3yxje+sREs3zftVsgdyILD4SvsrET0a1lP1ZsFCCtFCbmzP15nFBZlDJUkViKHtmKlTtSVWImU2kZWfWBdnNT4ta99bZO6qO2tMrIyEBLIPpZWLANpKD/L/S5ew0drSMF7EyoOxwhzp3E5NUcz4zRkGA3hyYmsuhSrnDSwL9QgL7rooka4RFccZhmCld5T9GDwIFRmItmmtvYc0RpqZJf8pY2NzeP789Eu7G1Remt5RlESjnqNqfJVjrDLojSySotCF22DmtPAhBqL6OoFL3jB7E9/+lPnqaD3MqljwLDs4s1vfnMza/eOd7yjefjsl770pU3frDqy6xI+kytUvqvX1JD+9RpRlRicxuNgY6EkspovsC/qOIumgaIc4qE/XU96cP4u06ZXv/rVs/POO6+ZXbUuqwux0nYiBjN13ptIWfKS1oeZ7dI3hOp973tfc0KHQWWIkVXp4O671hBR9bI8wUeaMmUkOTWqZPhnn312dm1r2bRZnrAZXkOsCJBRvM33sw7Ja7qYnSMubZcu4Je//GWzdMISC8JBYFNq5qfnObq1OL6ThYPWYi06U3vo0KHZF7/4xaadfe9FxFCK53u/6U1vanWzWt/LZ1u4euTKffh3bcsTElLXK664ovkOOeUWr9Nn0vBFB8VF6GVoMAIbcUvqU2m0GxuM3OhtxP7sZz/bGMhWdF2zykkDLSO4/fbbZzfeeONDUWAyZD9dP/F2Cyd3iPnqV7/aLIj9yle+0hzD0ub7rYcby55//vmNICwSWblG1yelbHtHba953ete1zgu+x0SfIbvEOcc+Kjvymf7pBehkvMy1Fwj08hjSvuOZF6sRGerFqucNNBnfvCDH2xWu4tKFJ9FUenh3xxayiGiEmEwelumvvnNbzbbjX74wx82UXUutvFYd+U7c6KSkZ7j2Qb04he/eO2ZdmgjqbfvXPK5fcJ3coWKj7LDvutUvQiVkVAImgvD6CLNqZkkVgq3fUVWbcVK+qXgTIza1G4ImFQwHctjNfrFF188+/GPf5ztQFJJyxcsSMx9LQik4rnvkAuhIsQln9snfKdEXPkqn+2TXoRK2J7bYBxY+Mopxk7fkVVKA6+99tq1ZzYmV6zA8Dk6wVLHuuyyy2Yf//jHs+8rRzCkbup0ufZEZAhVCb4rp28z8VETrpsPsa8ctC2f7ZOVCxUjNZrl1qcYFqdg4FNgPrLqKw20HCBHrERLbcUKbIHjmE1jE2pYP/rRj9b+tx1mA0VX2im3lFBqSz6H/ZZkBX1iUNBXuZGg76p/+vy+Kxcqo5D6QKlQlYSuQ2VoYmW2MieySvieXue6RVcK7jmj/utf//pG8DhTjn2ko2Zy0Q8ijFwbrgF1wxKh4rN9RpArFyrG5AvnCg41X3Rqe4gMMbIqESv9yyFEVzfccMPsc5/7XGvHkKq+/OUvzxIe0ZTCfglSVG2r5jY09FFuZMRX9QXf7YtehIqi5woVox/6tplSppAGJjiRmURLHz7/+c+3jqye97znNSmgJQdtbIstOcQvty6GX//619nfqxZ879xr1558dlJCVVKUY6xGr6kKFYYmVtLAUrHyXYmVhZXWX7XlVa96VeNQbcQtXdP3v//9rAjjuuuua9aO+W5DhA/xpbYDwDx9FtRXLlRy3dxoSqOqQdRwgFefDFGsStJAJLG6/vrrZz/4wQ/Wnt0cK993797dKqoiTsSGGH7jG99Ye3Zz/O0ll1zStEOuDdcCHyqd+eO7fdGLUJUYrcbNfd0YmRcrZ5vXLlY2+JZGVrBp++c//3lznG4bzjnnnMap2jgisbIQlRiqiWnT9RCluaPNF77whcYOS+o8taAP1OdyhcrrJiNUGodjlQjV1KOpeZJYWexYu1jpt9I0kBhIU0yifPvb325VXLdfUa3KSuq2UY92sRbL8ogvf/nLzUJU+ygdk+1zrfGybELR3rXkOnltlAoVO+vru69UqIxMvmxu2MxgQ6gOJ4mVNIeDtRUrEUqXYmXf3lYsUmDX99JHQnLppZeuPbs5z3/+8xtRaxv1pM9IqaDPkeIRKRuv2a22NivZ9j1rhi/lfg8+y8a0RR+sVKiEjhwsN6LSSELu4HC0pVFekbPtVP4ZZ5zRqVg5/71tZFUqVr6n/YJO3CDMW+GoFsKSs3GY47Iz7Skd9PCZjvEVgYxBoBK+T26woL/0Q1/p30qFqlSRNarGDQ5Hu0hxHM2Ss8aMWPWVBpaKlYGKILe5+7F0Ufrn++U65BTQliXtkjKiPli5UKWRqy3+nkFH6nc0aZQvuQnrMtLAZYqV7yq6sTSgzXoe3897jykS6gp9kNs2fNbfT0Ko2qYn82gcjRqp39EwGg5vGr+ErtPAZYuVqNrq8zYnO2iTVd3KfWjwpVIRL/HhLli5UOU2jr9XxGxrzFNCKuQEgkXS4iGlgWxBYb6NUGkTItznIsVa4U8lEwP+fhJCVVKfSkLlERwOo3GI3KIMKQ1Ui/P+bQ5yswC0L8eqGe1cIlSYxKyfWYPcIp7G1LARUR2NtnQ0bxcsIw1ss3RhXqwsQdiqnzmYQ9za7NHbtm1b2M06JH/KFSr2xof7YKW9uEhEFRwOg+Hkbe4Y7UYMhGMrlrF0IUes1JTaRFYc5uDBg2v/2hjiJ1XsKwqomYioNqEkokKMikcjpeGEbZYlWGFti0ibwnKfYmUFO+HdSqwUgzfa7jKPtgmhWp8Sn5pMRFXyJVPqFxyOtuSEW52JxEn9DeGxkXkIYrVVGuj7qFFtJUD+LoRqfbRtSUQ1CaEqpSQKGzucT8SwVdtYwqCmY7re3sAhiJU0UGS1kVhJW9rcwslrCVVfzlUzQ/OplQpVCE53cL6toikQKqJm9LQMIYlVm+0lyxCrnNnAjWpW7Mh3ajOjp41CqIbPSoWKs4RYrRZOmtrd70ms3IqrD7HKmQ3cKA30XXynktQlGCYrFapg9Rw5MMyLVZ+RVe5s4HppYAjVdFipUKWRMFgd2vzIdk9iZTtKTmRlFXxfBfZ5sfJdfKcjhSsYLyvt6RCp7uCkbWs0662ZIVaOMcmJrE4//fQqIisi5Tu12f+pjULQhs8gejAE7mg4n31sW7WNPW8cfb0p+hRZOeOp9jTQ90hi5S7OblKwlVD5fk5aiAXDRzM0n1qpUJWMbEZPBhccDudrc2Cev3N65UZ/V5oG9ilWXuP7bCVA/kYbRUR1NPqdb+XSV1uuXKhKlDyE6miSULU5HcBplZudI6R9pYEiqyGI1QUXXDDbu3fv2jMbY/2Y9mmzjGNqlPgU352EUJWE4FQ/VhYfTRKqNncH3rlz55YDRBKrIcwGKuq/4AUvWPvXxhBe3yMiqqPhUyURVYkPd0H1EVVK/SKqOhpt0ua25G6TrqazleB7v5QG5ohVH7OBbXAn5KHVYlZB8qdcoYqIahNSRBVCdTSKyW59vhVqVMSkzRG+2llklSNWZgO7Fiu3q1oUd5SJtO9o+FNEVJvAaHIbJwnVVtHAFDGbx6nbnGPtBhBSxTbtX4NYWYawSGTlmq2Ct9cvOBz9WyJU/r4v4V+5UOWicTRsG2ecGgrLakptzpoiVLajtD1DvJbIqlSs7rjjjuba26y1mhp8Sf/mChUmIVSMRuPk1A2SULVxlKmR2mb//v1rz2yMkxZ2797dFJjbGmgtYlWSBqbXlDjj2NGPuULFZ/19X8K/cqEqyXE1UkRUR6NdOLOCepvU+CUveUmTCuW0ZQ1ilZsG+lw3gFCbyxkUp4KouqRd+O4khEqqYtaA8eegUdumLFNDnYojtzma1xlPe/bsaX0jhUSpWPWxdAGciSD/5S9/iaUJ62CgyhUqNqAt+XAfrLQXkyLnNpKQM1K/9dE26ga/+MUv1p7ZnFe84hXNEgQnZOaE/keKVZuFpstYutAmDeRM73rXuzY9fG/K8KWcvgefLc2IumClPchgfNnciMrrIqJaHwYkxZH+tSmqE7XXvOY1zVKF3JnUebFqu4J9GWlgW7Ha7IiYKaPfcttD3/Pdvtpx5Z/KgEqFKvd1U0H7EKzLLrts7ZnN2bVr1+yFL3xhI2y5I+u8WH36059uFVn1LVa2EIVYPYj+k/qVCFVfaR96Earc1E+jatxI/9ZHe0pzbrzxxmZavg2vetWrZqeeempzEkGJ0RIr6aPIqnaxcp5ViNWD8KESoWJjkxKqkgV4GtVOeJtMg/XRRuoH3/ve99ae2Zo3vvGNzZ2WFxGrlAaGWA0DPsSXStqgz8WzK+8x63k4VG5UxTFCqDYmRVVqVZdffvnas5vDWM8///zm1ufEapE0sG2BPcSqX/iQfsuBbfHZNveQXBa9CJWCbq5QcaI2jjB1rD6/9NJLWwuBvnBsyimnnNLcJj13a8V8GhhiVT8mUUpm/NjJpITKF2YwuTNOFL3Nptopw6AYkxrE17/+9bVnt4bDvulNb5q9/OUvbxyY6OQ48bxYRRpYL+xD3+QuMeCr2o3v9sXKe4mac6YSodLIUVDfHKLBCaWA3/3ud9eebcfLXvay2YUXXtj0j+iK4LUdfSMNrB8z56VCxSZyI7Eu6aWHFOVyUz/GxHGM2sHmaFuLOn/5y1+2ctx5nF31nve8p4muDAqWMDDwNkZamga6i7NV5ItSIlaudypipV9KZ/z6LKSjl95xiFuJOmuwLkbfKWDUtNjxW9/61uzWW29de7YdXnvOOefM3v/+989e9KIXNc8RLNHSRmevJ0rEyskOJ554Yi9ipT43lciK7+QGCOCrfLZPeukZK6lLVqhzoC6MeQowSPsAOe4XvvCFJpXLRbh/7rnnzt773vfOXve618127NjRpAH33HNPs1+QGKkbirgIWHr49xOe8IRmJvHDH/5wIwJbkcSqrzRwCpEV38lN+/goX+WzffLw//MAa7+vDI3FKBh0bsNxBKlC7uuWjTTpiiuuaAqOfeby8xArjujnr371q9lJJ53UzArmoq3Vks4888xmUzPBYrjSAd/V+zPo9Luf2oHwEA3XYL3WVtjETPgIodcsgtc70oZzspfN8P3OOuus2fXXX98IsGv2PXLxGvZ59tlnNyJfE1K+Q4cONUKcY5++j37Wf33a9TEPNG5+j3TADTfc0Kyizs19pRKnnXZaY9Q1ke6N5/vUNiq7HutnOO15553XRC9dQaA4gUeCQRuFPUqM2xEtbENUtgg+23cWLT33uc9de3ZjfAezlgZR9pUb8ft79pnSyZqQuhPiEn8z4Fi+0ie9eZRRK9cQQFejoJ6HdlZjsCD0a1/7WvZs4GYQQSkmUUmPFEWVjsBdpYFsxfWIkq6++uq1ZzeGsEoDTUSMLQ0k2CUxCdvRn33TW09IHaQHuY3nNSFU+TA44iGFMxvYdr1TXxCrLmYD2RdHI1ZtalZJrERhjpUZg1ilwT13HZTXeU3f9Sn0GlGVrKfScNKYmP3Lh+GJcgiAVOCjH/1oq2OM+6Kv2cCxRVbJX3KFKq2fmnRExWGE5fO1jTYwGq9RcA3KIFhqKIzQ8oVUl6mRvmYDxxRZiSaJTm4qzs/4aGkK3yW9tn5JSJnCUcXroJyUCoquOO/HP/7x2Ve/+tXGqGujqzQQSaxya1ZDFiu+UjpLXkPah15b3oJEzpJbVCdUjDb2/i0G0fewZEHkcPPNNzeC9aUvfWl24MCB7H4pQVrSph+7TANLCuxmAYcoVtpWNOp75JAGMj5aA722utkis1Gl6V+t6crQSLUr6aCHOwx/8YtfnH3iE5+Yfec732lujZ7bR5th/RwhvOSSS2YXX3xxc1Jomz2cXaWBvm+uWFlyMESx4iP6riTt45t8tAZ6W0eVsHnWHVSE5DmXwrBFAm3Wx6yCmtdRlUJQkihoa476rGc9a7Zt27ZmqYMal+h2o+9rVGbwRnU3SrXgkAhydrNQXie1ECXpfzdkaOMYXa2zgu+Xs87qc5/7XHP9662z8u/a1lGZLNG+oqO2EDXtsnPnzmZxbw30LlQaUWMatXJU32VbNWtFcQ2zEmMUqnk4qcGBeOknhu+7ehCXNKPk/1LfcFqv8dPr4HXzfw/tZXLECO70hqGKVW1CtYhv+Z58q4v27YLePYrIMFCGnYOG9xoGEywfxs5oOXSaMeSYIiN7+mx89hA1+ek5juJv/G1KK/X3vEjB3/g/9apPfvKTWWmgz1gU1zTGNND1lcz28Ss+WUMAkOi9lTWiNIKC5zYog2dg86NasBo4KKcVUTFqIjb/8Jz/8zdtnDmJleimb7HaKskYglhpT9/HtebAB/kin8z1x2VSRQub/jV9mis4OoFhR1Q1DvS/iK3vyMo6q6GLlQW92vHI6HUr9AFf5JM1UUXrKqgahSl5LlQ/hGo81BJZtV0USqxsS6pNrMz2lUREfJAv1rJ+KlFNyzJOuXFu4yq8KmQz7GAcpMhKn1oisWqx4qg5aeDb3va2qiIr7cYn2kxKzMP3+CBfrI3eZ/0SjNF5Tjo6p7M1rhDXeTknn3zy2rOrxwj2kY98pCkc15YGDBXtSDC06UUXXdSI11Z0ORvIrjitc7i2GkA5uK1Iltp84AMf2PIMrGXiRrS33357UyfMcW8DhIfztHJFbtlUI1S49tprG8NUhM0hzWxo4NziYVcImX/3u981nx9C1R3qJZzOvQfdir4NxMqs46KzVmxKhEasLF3YSqwsTWDD+/btW3tm9bDDdF/H3G0zrt9g4Bz72qhKqBQAr7vuumYEzYEBCXcZ8vbt29eeDaZMX2LVN6ULqGFhrkMp1dxqo6qhX56vgXOL6jrEQkKGmXtsTDBOUs1q0dol25JGWpDaZjawT6SfBnu+kHudfI7v8cEaqUqojFZCT42WO3JJudQUSm5iEIwT0YFaUVdi1bbA3hdsnw/klj/4Gp/je7VGjNUVU9xXzoiQGxkxHh0kqlIQDAIsI7KqUazYvEmEkmiKr3kd36uV6oTKbIN6gFnAXHXX2OoJNr4GQUJk1aVY2WBdWxrI5kujKb7G52qb6Zunyukpym7mLDcyYjg6Sggctapgni7FSi2npshKbcrMaEk0xcf4mlnVmqlSqBwpYq9RaVRl9iL37sDB+OlarERWNYgVW7e0oDSa4mu1rUQ/kiqFCilfzjUCfy+EFVXlzh4G42dsYkVo1KbYfImvoObaVKJaobIpUmRVElXZiJlOkQyCIxmTWFkzZUDO3Xycoik+VtsG5PWoVqjAmOTQJSOF1e3WlMQ9AIP1GINY+Uw2ztZLfIRvaYMhULVQWQOTalW52D6gM4w4QbAexEraM1SxsgpdZFSyZSvVpvrck5hD1UIFsxG5s39gLEYaszNmRIJgPU499dRBRlZuuOGzSmpT4FO1z/TNU71QWdLvlj1mNXJrVTAL6HjcKKwHGzG0NFA0ZKavZN0TH+JLfKrW7TLrUb1QwZ1PUBJZmbLVsTfddNPaM0FwNEMSK/dfNPDmLkdA8qHkU0NhEEJl1ayZiZKoiqE4jcHWGo8g2IghiJWlCArobDr3fVM0xZf41JAYhFDBPcZMwZasOFdsNPoorFvFGwQbUXOBXRTFhtlySRmE7/AhvjQ0BiNURhCjXWlUpVYlBbzhhhvWng2C9VFgr1GsHMzIhku2yqRoig/lnvdWA4MRKhgJHK+aboKZg47VQcLmmAUMtqI2sTLL50z23OOFwVf4jNcOMZrCoIRKCqcIKAQu6XAdZjQSPhuZgmAzuhar0o3M9q6yWbN8uQM0fB6f4Tsla65qYHBXzXAc8KXzSqIq+b1c3VG1JWIXTIsuxarkPCt/x1bBdnNtlo/wFT7jewyVQcqru81YeV5SGNfRUkC3E3K3jiDYiq7FShq4f//+VqKjLuWMtZJtMuAjfKXPOzR1wSCFitBs27atKQ6WoMPl62pVcXRx0Iau00AD5VaRlcPw2GdJXSrBR/jKEAvo8wwzYX0Ad5tZZMW6XF29ykLQLm5aGYyfVRbY/Z+FnSKpEvv2Gr7BR8ZwZ6bBChV2797ddEhpCpjWo7gXW6yvCtqwigK7wrfbxhlMrXtaT8i2gj2zbT4yBgYtVDraaLFICmgmxQxg7bdCCuphWTWrBFskNKUbjsEn+AYfGQNV3YC0FCOSzi7N5Y080j9HXrhrSRC04frrr29qSIuKAftzYwY3/vS7rV6L2LL3kvK5YepYGIVQCZV//etfNx1bsmo3YYRUeBz6DEmwOroUq7S2rzSS8h5pMfTznve8prQxFgad+iV0CHEhWCUnLCSMYo7PiBtDBG3pMg00yC4y0LJ9PsAXxiRSGIVQQdj8zGc+swl7jSglKF6axjUTGNtsgrYksepz9jilfHyAL4yN0QgVzHDIzUvFykhmcZwpYZuX41iYoC3EyomZi0ZWJSSRYvtjmeU7klEJFU4//fQm7C3ZuAxiZUpYCG6K2CbmIGhDV2lgDmycrbN5tj9WRidUOsyZQqZ301qSXIiV9yFW9lmFWAVtWWUayLaTnbP5sdWl5hmdUEEIfNJJJzVrSUqL6yFWQSnESq1o2WLFttk4W2fzY2aUQgVHWqTieilJrEwXW70eBfagLc9+9rObmtUyxSoVz4d2/nkJoxUqnHLKKc350KXFdaSalQK7neyxdCFoSyqwLzJYrgdb9p5sm41PgVEs+NwMX++KK65oCpyL7EJnHM6xcrZPLAoNcjhw4EBzEoLIfFGSSFlgevbZZxcPwENj1BEVdORZZ53VGEnJYXsJAmedVVoUKhUcucYHHVE6qXMk3oMNs2U2PRWRwugjqoTtCZdffnkjLqVbFOYRoT3xiU9s9lNJDYPgSKwSt9lYBLRINA+ixIb93LdvXyfR2ZCYjFCBuFx55ZUPnUW1qOEwQMX2M888s9kFHwSJ+++/vzkFQbnAbodFbc1aKbN8e/fuHc2JCDlMSqjAgK666qpmBXoXYmWUY4yKmtbPBIF6lGOu0/KWLkSKje3Zs2d27LHHrv3PtJicUMGRMEa7rsRKDULtwFQxwfJcMD3YkdMU3M1YFMW+uhIpUfvY10ptxiSFCk5WJFZpu0wXzSC1lALayjD0M6qDPAxU11xzzUP1qEVJImUQJFJDuwV710xWqJAiKzWrLgrsjMtKYe9j+YI1NMH4cXNQSxD0f+ndYubxPkoKalJTj6QSkxYqqFmZmWEcXYmVUZBgnXDCCc2iv5gVHCdm9aR6d911VyNQ+rkrkfI+liBMtSZ1JJMXKgjbzQZ2MUMzj/dlvKIrxxwH40Edyl1iDEpdpflEis2obZndi/LB/yeEag2jI7ESCS265iXB8LyvEdJhZgrtY97hPgXmoygRuP7sylbUt0RmRCrs5HBCqOYQUUkD77vvvs7XqqSRcufOnc3sYDAsuEk6plrtiKB0SVpALN1jJ8HhhFAdgeZwrIvTPYmVQnsXTTRfu2KQTmKM+sMwSDcDVc/sqhYFNkH0iFS6A5LngqMJodoAszgHDx5s6gRdGWYizegotjtLaGrbIYaCfnJ+/p133tnYQBeTLYk0cIm0Rdm7du1a+59gPUKoNkHB1NEuQvGujdR7pXTQivYdO3ZEyF8J6lC33HJL0/8GFINV6rMu8F5EUKnBuVUnnnji2v8EGxFCtQXCcmutGFYXC/nmYbCMVTpo0al1V46QkW4Gq0dfqEG5T5/FltI8g0fXLqJobuCzRmqK+/ZKCKFqgVHVqmMzPcSqa+NNaQAx5BxGWKc2RoS1GrS9RZsiKH1ARLpO99OgRKQceHfGGWfEgJRBCFUG0gF1q67rFQnGnJYzECwFVoIVU9XLQTvbQGziRAS1DIFCSvUIonqUND/II4QqE0sXzAoyvK5TwcR8hMVxjMDSwpgl7AazdwTq7rvvbtp5WQKVSKmeWT0zvkE+IVQFSAXTPf8YYFeL/o4kpQsEy++M3MJRkVakDXloR5GTPjPYQN8towaF+ehYn7mdVfRZOSFUC6Cm4dyhNDO0bNJuemnh8ccf3ziAKItTBEfDtO+9995meYHTMkxaiJxMXCwbM7qEyXq5mNVbnBCqBVnWlorNEB0QLQJl1sjuemuy4pTRB8XJTC1xslDT754jTsuenJiPoqTrNqRHfbEbQqg6QnRlkSgBEV0ZTVfRtBzDgxMSreOOO64RLj+nEmmJaKVzoiYRlJoQMSdOIqhlo51dgyjKZ1q8GVFUt4RQdYi0zEpmokU4pGiral6f4/OJFpEkliIsdS2i5VrGIly+qzROxKQw7uHfnidMq4xitKnPJozEyUkZqxDHqRFCtQSM7mpXHGhV6eCREC2P5LyES8RFvDzMWA6luCtaESVpT6mcuw8TB9+PUPh+qxYHn5vSPHVCtaiY0VseIVRLxCJCK52Xucq5DT6TUxv1/e46pCjEKz0IF1H1fF+Rl2vTVpyfIBEjAuWn512/a3P9hKmP6/SZrsM1aSs7CaZwS/W+CaFaMoxa7SrtGyNYq6pfbYTPdi3Ey0/O55o4v+iPA6ZIMD38O0Uu/tZr0mMzfFZ6pM9MdTXik34nTunf6brg/ec/sy98tmsiUK5FmqcWRTSD5RNCtSI4IsEyGwWO36fjrQdHnH8kXKcHp/STo/p9XrDWY16gUjQ3//u86Xmv+UdNuE79B7OrBEr/BasjhGrFmBkiWFZFg8FzzNq7wfWla0y/z/97PZKAJTE78t814/qIahIo69YIlDQ5WD0hVD2hBnPo0KFGsDgEwRKlRHf0C4ES8REoAwiB2r59e5xy0DMhVD0jwlJwJ1hqNOpDajLB6lEb0wdqchZsKpRHBFUHIVSVoIhsltAKdzNdqbBde4o0dJh/KuCb+SRQcWJFfYRQVYY00OZZRXfrsfxblBWzS90ivRM9Se+sf1Ikj83e9RJCVTEWNhItW0OkiKIrohXOVAbRJ05MXkrnNunEKfZI1k8I1QDgYFJCdSx72ThbiFY75sVJe9lOpEAuxYu2Gw4hVANDLcWZSgTLlpI0fa6mEkX4B0mLSmE21RYXAuVYnGijYRJCNWA4ZIqy0v43tReRAuGaSsQgaiJMfqrlWf0vnUvRU4jT8AmhGgm6UYTlRAGiZeZQtOV5gsVZ/Rz6LKLvQ5CItJ++j6jJjB1xcsRNHCY4PkKoRgpHJlzpxAHRFuFK21eIVpttMH3hGpMoueYkSq6ZMKWN1ETJI6KmcRNCNRE4uplDopVOJPBQaE5CkCBeScD8THQlZvMm53OTIB15DURJAVwq50GYrBAnUvPXFYyfEKoJo+sJFQFLoiXqUu9JiyCTiCUx6YJ5ESRGoiE1NQ/RUhInguT32qK9YPWEUAXrwiyIVBIsD797bl68/L4ZhGhelDzSDGUSqPQ3QbARIVRBEFRPJPpBEFRPCFUQBNUTQhUEQfWEUAVBUD0hVEEQVE8IVRAE1RNCFQRB9YRQBUFQPSFUQRBUTwhVEATVE0IVBEH1hFAFQVA9IVRBEFRPCFUQBNUTQhUEQfWEUAVBUD0hVEEQVE8IVRAE1RNCFQRB9YRQBUFQObPZ/wMhJQYtZFAryAAAAABJRU5ErkJggg==";
+var NON_PICTURE = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAWgAAAFoCAYAAAB65WHVAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA0VpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNi1jMTQyIDc5LjE2MDkyNCwgMjAxNy8wNy8xMy0wMTowNjozOSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6NUM5ODJBOTNGRDEyMTFFODg1M0VCNjk3MkYzMkI1RTIiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6NUM5ODJBOTJGRDEyMTFFODg1M0VCNjk3MkYzMkI1RTIiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIChXaW5kb3dzKSI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJhZG9iZTpkb2NpZDpwaG90b3Nob3A6MGQwNjllZmMtMmZiNy00ODQyLWI4YWYtNDJhNzYzNTE0N2Y0IiBzdFJlZjpkb2N1bWVudElEPSJhZG9iZTpkb2NpZDpwaG90b3Nob3A6MGQwNjllZmMtMmZiNy00ODQyLWI4YWYtNDJhNzYzNTE0N2Y0Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hw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";
 //# sourceMappingURL=non-picture.js.map
 
 /***/ }),
 
-/***/ 299:
+/***/ 298:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return EditProjectPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(6);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(5);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__project_page_base__ = __webpack_require__(172);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__services_project_service__ = __webpack_require__(53);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__services_messages_service__ = __webpack_require__(16);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__services_file_service__ = __webpack_require__(54);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__ionic_native_file_opener__ = __webpack_require__(174);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__services__ = __webpack_require__(17);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__const_more_more__ = __webpack_require__(63);
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = Object.setPrototypeOf ||
         ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
@@ -1419,6 +1514,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 var EditProjectPage = /** @class */ (function (_super) {
     __extends(EditProjectPage, _super);
     function EditProjectPage(navCtrl, navParams, alertCtrl, service, file, actionSheetCtrl, picture, message, keyboard, opener) {
@@ -1438,17 +1534,17 @@ var EditProjectPage = /** @class */ (function (_super) {
         _this.error = '';
         _this.project = navParams.get("project");
         _this.edit_mode = false;
+        _this.set_co2();
         return _this;
         //this.project.documents.push(new Document({ file: 'lolo.pdf' }))
         //this.keyboard.onClose(() => document.querySelectorAll('.scroll-content').forEach((x) => x.scrollTo(0, 0)));
     }
-    EditProjectPage.prototype.on_focus = function (event, scroll) {
-        if (scroll === void 0) { scroll = 0; }
-        var elm = event._elementRef.nativeElement;
-        var offset = 170 - scroll;
-        elm.closest('.scroll-content').scrollTo(0, elm.closest('.scroll-content').scrollTop - 50);
-        this.scroll(elm.closest('.scroll-content'), elm.closest('.scroll-content').scrollTop + elm.closest('ion-item').getBoundingClientRect().top - offset);
-    };
+    // public on_focus(event: any, scroll: number = 0) {
+    //   const elm = event._elementRef.nativeElement
+    //   const offset = 170 - scroll;
+    //   elm.closest('.scroll-content').scrollTo(0, elm.closest('.scroll-content').scrollTop - 50);
+    //   this.scroll(elm.closest('.scroll-content'), elm.closest('.scroll-content').scrollTop + elm.closest('ion-item').getBoundingClientRect().top - offset);
+    // }
     EditProjectPage.prototype.scroll = function (elm, top) {
         var _this = this;
         if (elm.scrollTop < top) {
@@ -1560,22 +1656,28 @@ var EditProjectPage = /** @class */ (function (_super) {
             _this.navCtrl.pop();
         });
     };
+    EditProjectPage.prototype.set_co2 = function (value) {
+        var _this = this;
+        if (!!value)
+            this.project.co2 = Number(__WEBPACK_IMPORTED_MODULE_8__const_more_more__["a" /* More */].CO2.find(function (m) { return Number(m[1]) == value; })[1]);
+        this.co2 = !this.project.co2 ? '' : __WEBPACK_IMPORTED_MODULE_8__const_more_more__["a" /* More */].CO2.find(function (m) { return Number(m[1]) == _this.project.co2; })[0].toString();
+    };
     EditProjectPage.prototype.edit = function () {
         this.edit_mode = true;
     };
     EditProjectPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-edit-project',template:/*ion-inline-start:"D:\Sofware Factory\tbi\src\pages\projects\edit.html"*/'<ion-header>\n\n  <ion-navbar hideBackButton>\n\n    <ion-title class="label" >\n\n      {{ !project.id ? \'New project\' : \'Edit project\' }}\n\n    </ion-title>\n\n    <ion-buttons end>\n\n      <button ion-button color="light" (click)="open_camera(project)">\n\n        <ion-icon name="md-camera"></ion-icon>&nbsp;Take a picture\n\n      </button>\n\n    </ion-buttons>\n\n  </ion-navbar>\n\n  <ion-segment [(ngModel)]="segment">\n\n    <ion-segment-button value="properties">\n\n      Properties\n\n    </ion-segment-button>\n\n    <ion-segment-button value="files">\n\n      Files\n\n    </ion-segment-button>\n\n  </ion-segment>\n\n</ion-header>\n\n\n\n<ion-content>\n\n  <ion-grid>\n\n    <ion-row *ngIf="segment==\'properties\'">\n\n      <ion-col col-12>\n\n        <form novalidate #form="ngForm" style="margin-bottom: 100vw">\n\n        <ion-row>\n\n          <ion-col col-md-6 col-12>\n\n            <ion-row>\n\n              <ion-title class="label" col-12 col-12 text-left>Name</ion-title>\n\n              <ion-item>\n\n                <ion-input tabindex="1" (ionFocus)="on_focus($event)"  type="text" [(ngModel)]="project.name" name="name"></ion-input>\n\n              </ion-item>\n\n              <ion-title class="label" col-12 col-12 text-left>Energy Price (&euro;/kWh)</ion-title>\n\n              <ion-item>\n\n                <ion-input tabindex="2" (ionFocus)="on_focus($event)" type="number" [(ngModel)]="project.price" name="price" scroll="40"></ion-input>\n\n              </ion-item>\n\n              <ion-title class="label" col-12 col-12 text-left>C02 emissions (grCO2 per kWh)</ion-title>\n\n              <ion-item>\n\n                <ion-input tabindex="2" (ionFocus)="on_focus($event)" type="number" [(ngModel)]="project.co2" name="co2" scroll="40"></ion-input>\n\n              </ion-item>\n\n            </ion-row>\n\n          </ion-col>\n\n          <ion-col col-md-6 col-12>\n\n            <ion-item text-center border-none no-padding>\n\n              <img [src]="project.picture" (click)="ask_for_change_picture(project)">\n\n            </ion-item>\n\n          </ion-col>\n\n        </ion-row>\n\n        <ion-row small-title>\n\n          <ion-col col-12>\n\n            <ion-row mb-3>\n\n              <ion-title class="label"  col-12 col-12 text-left>Project Leader</ion-title>\n\n              <ion-item col-md-5 col-12>\n\n                  <ion-input tabindex="4" (ionFocus)="on_focus($event)"  [(ngModel)]="project.people.leader.name" placeholder="Name" name="leader-name" scroll="60"></ion-input>\n\n              </ion-item>\n\n              <ion-item col-md-4 col-12>\n\n                  <ion-input tabindex="4" (ionFocus)="on_focus($event)"  type="email" [(ngModel)]="project.people.leader.email" placeholder="Email" name="leader-email" scroll="60"></ion-input>\n\n              </ion-item>\n\n              <ion-item col-md-3 col-12>\n\n                  <ion-input tabindex="4" (ionFocus)="on_focus($event)"  type="phone" [(ngModel)]="project.people.leader.phone" placeholder="Phone" name="leader-phone" scroll="60"></ion-input>\n\n              </ion-item>\n\n            </ion-row>\n\n          </ion-col>\n\n          <ion-col col-12>\n\n            <ion-row mb-3>\n\n              <ion-title class="label"  col-12 col-12 text-left>Energy Manager</ion-title>\n\n              <ion-item col-md-5 col-12>\n\n                  <ion-input tabindex="6" (ionFocus)="on_focus($event)"  [(ngModel)]="project.people.energy_manager.name" placeholder="Name" name="energy-name" scroll="20"></ion-input>\n\n              </ion-item>\n\n              <ion-item col-md-4 col-12>\n\n                <ion-input tabindex="6" (ionFocus)="on_focus($event)"  type="email" [(ngModel)]="project.people.energy_manager.email" placeholder="Email" name="energy-email" scroll="20"></ion-input>\n\n              </ion-item>\n\n              <ion-item col-md-3 col-12>\n\n                <ion-input tabindex="6" (ionFocus)="on_focus($event)"  type="phone" [(ngModel)]="project.people.energy_manager.phone" placeholder="Phone" name="energy-phone" scroll="20"></ion-input>\n\n              </ion-item>\n\n            </ion-row>\n\n          </ion-col>\n\n          <ion-col col-12>\n\n            <ion-row mb-3>\n\n              <ion-title class="label"  col-12 col-12 text-left>Maintenance Manager</ion-title>\n\n              <ion-item col-md-5 col-12>\n\n                <ion-input tabindex="8" (ionFocus)="on_focus($event)"  [(ngModel)]="project.people.maintenance_manager.name" placeholder="Name" name="maintenance-name" scroll="-20"></ion-input>\n\n              </ion-item>\n\n              <ion-item col-md-4 col-12>\n\n                <ion-input tabindex="8" (ionFocus)="on_focus($event)"  type="email" [(ngModel)]="project.people.maintenance_manager.email" placeholder="Email" name="maintenance-email" scroll="-20"></ion-input>\n\n              </ion-item>\n\n              <ion-item col-md-3 col-12>\n\n                <ion-input tabindex="8" (ionFocus)="on_focus($event)"  type="phone" [(ngModel)]="project.people.maintenance_manager.phone" placeholder="Phone" name="maintenance-phone" scroll="-20"></ion-input>\n\n              </ion-item>\n\n            </ion-row>\n\n          </ion-col>\n\n          <ion-col col-12>\n\n            <ion-row>\n\n              <ion-title class="label"  col-12 text-left>HSE Manager</ion-title>\n\n              <ion-item col-md-5 col-12>\n\n                <ion-input tabindex="10" (ionFocus)="on_focus($event)" [(ngModel)]="project.people.hse_manager.name" placeholder="Name" name="hse-name" scroll="-60"></ion-input>\n\n              </ion-item>\n\n              <ion-item col-md-4 col-12>\n\n                <ion-input tabindex="10" (ionFocus)="on_focus($event)" type="email" [(ngModel)]="project.people.hse_manager.email" placeholder="Email" name="hse-email" scroll="-60"></ion-input>\n\n              </ion-item>\n\n              <ion-item col-md-3 col-12>\n\n                <ion-input tabindex="10" (ionFocus)="on_focus($event)" (keyup.enter)="on_keypress($event)"  type="phone" [(ngModel)]="project.people.hse_manager.phone" placeholder="Phone" name="hse-phone" scroll="-60"></ion-input>\n\n              </ion-item>\n\n            </ion-row>\n\n          </ion-col>\n\n        </ion-row>\n\n        </form>\n\n      </ion-col>\n\n    </ion-row>\n\n    <ion-row *ngIf="segment==\'files\'">\n\n      <ion-col col-12>\n\n        <ion-list id="document-list" [class.editable]="edit_mode">\n\n          <ion-item *ngFor="let f of project.documents">\n\n            <ion-icon name="document-{{f.extension}}" color="gray" item-start></ion-icon>\n\n            <span (click)="open_file(f)">{{f.file}}</span>\n\n            <ion-icon (click)="ask_for_delete(f)" name="md-trash" color="red" item-end></ion-icon>\n\n          </ion-item>\n\n        </ion-list>\n\n      </ion-col>\n\n    </ion-row>\n\n  </ion-grid>\n\n</ion-content>\n\n\n\n<ion-footer>\n\n  <ion-grid no-padding>\n\n    <ion-row no-padding>\n\n      <ion-col col-4 no-padding>\n\n        <button tabindex="16" ion-button small color="light" (click)="after_delete()">\n\n          <ion-icon name="arrow-back"></ion-icon>&nbsp;Back\n\n        </button>\n\n      </ion-col>\n\n      <ion-col col-4 text-center>\n\n        <tools></tools>\n\n      </ion-col>\n\n      <ion-col col-4 text-right no-padding>\n\n        <button *ngIf="segment==\'files\'" ion-button small color="light" (tap)="choose_file()">\n\n          Choose file\n\n        </button>\n\n        <button id="submit-button" id="submit-button" tabindex="15" *ngIf="segment==\'properties\'" ion-button small color="primary" (click)="save()">\n\n          Save\n\n        </button>\n\n      </ion-col>\n\n    </ion-row>\n\n  </ion-grid>\n\n</ion-footer>\n\n'/*ion-inline-end:"D:\Sofware Factory\tbi\src\pages\projects\edit.html"*/
+            selector: 'page-edit-project',template:/*ion-inline-start:"D:\Sofware Factory\tbi\src\pages\projects\edit.html"*/'<ion-header>\n\n  <ion-navbar hideBackButton>\n\n    <ion-title class="label">\n\n      {{ !project.id ? \'New project\' : \'Edit project\' }}\n\n    </ion-title>\n\n    <ion-buttons end>\n\n      <button ion-button color="light" (click)="open_camera(project)">\n\n        <ion-icon name="md-camera"></ion-icon>&nbsp;Take a picture\n\n      </button>\n\n    </ion-buttons>\n\n  </ion-navbar>\n\n  <ion-segment [(ngModel)]="segment">\n\n    <ion-segment-button value="properties">\n\n      Properties\n\n    </ion-segment-button>\n\n    <ion-segment-button value="files">\n\n      Files\n\n    </ion-segment-button>\n\n  </ion-segment>\n\n</ion-header>\n\n\n\n<ion-content>\n\n  <ion-grid>\n\n    <ion-row *ngIf="segment==\'properties\'">\n\n      <ion-col col-12>\n\n        <form novalidate #form="ngForm" style="margin-bottom: 100vw">\n\n          <ion-row>\n\n            <ion-col col-md-6 col-12>\n\n              <ion-row>\n\n                <ion-title class="label" col-12 text-left>Name</ion-title>\n\n                <ion-item>\n\n                  <ion-input tabindex="1" (ionFocus)="on_focus($event)" type="text" [(ngModel)]="project.name" name="name"></ion-input>\n\n                </ion-item>\n\n                <ion-title class="label" col-12 text-left>Energy Price (&euro;/kWh)</ion-title>\n\n                <ion-item>\n\n                  <ion-input tabindex="2" (ionFocus)="on_focus($event)" type="number" [(ngModel)]="project.price" name="price"\n\n                    scroll="40"></ion-input>\n\n                </ion-item>\n\n                <ion-col col-10 no-padding>\n\n                  <ion-title class="label" col-12 text-left>CO<sub>2</sub> emissions (grCO<sub>2</sub> per kWh)</ion-title>\n\n                  <ion-item>\n\n                    <ion-input tabindex="2" readonly="readonly" (ionFocus)="on_focus($event)" [(ngModel)]="co2"\n\n                      name="co2" scroll="40"></ion-input>\n\n                  </ion-item>\n\n                </ion-col>\n\n                <ion-col col-2>\n\n                  <more pull-left #emissitivity (change)="set_co2($event)" [type]="\'co2\'" modal-button></more>\n\n                </ion-col>\n\n              </ion-row>\n\n            </ion-col>\n\n            <ion-col col-md-6 col-12>\n\n              <ion-item text-center border-none no-padding>\n\n                <img [src]="project.picture" (click)="ask_for_change_picture(project)">\n\n              </ion-item>\n\n            </ion-col>\n\n          </ion-row>\n\n          <ion-row small-title>\n\n            <ion-col col-12>\n\n              <ion-row mb-3>\n\n                <ion-title class="label" col-12 text-left>Project Leader</ion-title>\n\n                <ion-item col-md-5 col-12>\n\n                  <ion-input tabindex="4" (ionFocus)="on_focus($event)" [(ngModel)]="project.people.leader.name"\n\n                    placeholder="Name" name="leader-name" scroll="60"></ion-input>\n\n                </ion-item>\n\n                <ion-item col-md-4 col-12>\n\n                  <ion-input tabindex="4" (ionFocus)="on_focus($event)" type="email" [(ngModel)]="project.people.leader.email"\n\n                    placeholder="Email" name="leader-email" scroll="60"></ion-input>\n\n                </ion-item>\n\n                <ion-item col-md-3 col-12>\n\n                  <ion-input tabindex="4" (ionFocus)="on_focus($event)" type="phone" [(ngModel)]="project.people.leader.phone"\n\n                    placeholder="Phone" name="leader-phone" scroll="60"></ion-input>\n\n                </ion-item>\n\n              </ion-row>\n\n            </ion-col>\n\n            <ion-col col-12>\n\n              <ion-row mb-3>\n\n                <ion-title class="label" col-12 text-left>Energy Manager</ion-title>\n\n                <ion-item col-md-5 col-12>\n\n                  <ion-input tabindex="6" (ionFocus)="on_focus($event)" [(ngModel)]="project.people.energy_manager.name"\n\n                    placeholder="Name" name="energy-name" scroll="20"></ion-input>\n\n                </ion-item>\n\n                <ion-item col-md-4 col-12>\n\n                  <ion-input tabindex="6" (ionFocus)="on_focus($event)" type="email" [(ngModel)]="project.people.energy_manager.email"\n\n                    placeholder="Email" name="energy-email" scroll="20"></ion-input>\n\n                </ion-item>\n\n                <ion-item col-md-3 col-12>\n\n                  <ion-input tabindex="6" (ionFocus)="on_focus($event)" type="phone" [(ngModel)]="project.people.energy_manager.phone"\n\n                    placeholder="Phone" name="energy-phone" scroll="20"></ion-input>\n\n                </ion-item>\n\n              </ion-row>\n\n            </ion-col>\n\n            <ion-col col-12>\n\n              <ion-row mb-3>\n\n                <ion-title class="label" col-12 text-left>Maintenance Manager</ion-title>\n\n                <ion-item col-md-5 col-12>\n\n                  <ion-input tabindex="8" (ionFocus)="on_focus($event)" [(ngModel)]="project.people.maintenance_manager.name"\n\n                    placeholder="Name" name="maintenance-name" scroll="-20"></ion-input>\n\n                </ion-item>\n\n                <ion-item col-md-4 col-12>\n\n                  <ion-input tabindex="8" (ionFocus)="on_focus($event)" type="email" [(ngModel)]="project.people.maintenance_manager.email"\n\n                    placeholder="Email" name="maintenance-email" scroll="-20"></ion-input>\n\n                </ion-item>\n\n                <ion-item col-md-3 col-12>\n\n                  <ion-input tabindex="8" (ionFocus)="on_focus($event)" type="phone" [(ngModel)]="project.people.maintenance_manager.phone"\n\n                    placeholder="Phone" name="maintenance-phone" scroll="-20"></ion-input>\n\n                </ion-item>\n\n              </ion-row>\n\n            </ion-col>\n\n            <ion-col col-12>\n\n              <ion-row>\n\n                <ion-title class="label" col-12 text-left>HSE Manager</ion-title>\n\n                <ion-item col-md-5 col-12>\n\n                  <ion-input tabindex="10" (ionFocus)="on_focus($event)" [(ngModel)]="project.people.hse_manager.name"\n\n                    placeholder="Name" name="hse-name" scroll="-60"></ion-input>\n\n                </ion-item>\n\n                <ion-item col-md-4 col-12>\n\n                  <ion-input tabindex="10" (ionFocus)="on_focus($event)" type="email" [(ngModel)]="project.people.hse_manager.email"\n\n                    placeholder="Email" name="hse-email" scroll="-60"></ion-input>\n\n                </ion-item>\n\n                <ion-item col-md-3 col-12>\n\n                  <ion-input tabindex="10" (ionFocus)="on_focus($event)" (keyup.enter)="on_keypress($event)" type="phone"\n\n                    [(ngModel)]="project.people.hse_manager.phone" placeholder="Phone" name="hse-phone" scroll="-60"></ion-input>\n\n                </ion-item>\n\n              </ion-row>\n\n            </ion-col>\n\n          </ion-row>\n\n        </form>\n\n      </ion-col>\n\n    </ion-row>\n\n    <ion-row *ngIf="segment==\'files\'">\n\n      <ion-col col-12>\n\n        <ion-list id="document-list" [class.editable]="edit_mode">\n\n          <ion-item *ngFor="let f of project.documents">\n\n            <ion-icon name="document-{{f.extension}}" color="gray" item-start></ion-icon>\n\n            <span (click)="open_file(f)">{{f.file}}</span>\n\n            <ion-icon (click)="ask_for_delete(f)" name="md-trash" color="red" item-end></ion-icon>\n\n          </ion-item>\n\n        </ion-list>\n\n      </ion-col>\n\n    </ion-row>\n\n  </ion-grid>\n\n</ion-content>\n\n\n\n<ion-footer>\n\n  <ion-grid no-padding>\n\n    <ion-row no-padding>\n\n      <ion-col col-4 no-padding>\n\n        <button tabindex="16" ion-button small color="light" (click)="after_delete()">\n\n          <ion-icon name="arrow-back"></ion-icon>&nbsp;Back\n\n        </button>\n\n      </ion-col>\n\n      <ion-col col-4 text-center>\n\n        <tools></tools>\n\n      </ion-col>\n\n      <ion-col col-4 text-right no-padding>\n\n        <button *ngIf="segment==\'files\'" ion-button small color="light" (tap)="choose_file()">\n\n          Choose file\n\n        </button>\n\n        <button id="submit-button" id="submit-button" tabindex="15" *ngIf="segment==\'properties\'" ion-button small\n\n          color="primary" (click)="save()">\n\n          Save\n\n        </button>\n\n      </ion-col>\n\n    </ion-row>\n\n  </ion-grid>\n\n</ion-footer>\n\n'/*ion-inline-end:"D:\Sofware Factory\tbi\src\pages\projects\edit.html"*/
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */],
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */],
             __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* AlertController */],
             __WEBPACK_IMPORTED_MODULE_3__services_project_service__["a" /* ProjectService */],
             __WEBPACK_IMPORTED_MODULE_5__services_file_service__["a" /* FileService */],
             __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* ActionSheetController */],
-            __WEBPACK_IMPORTED_MODULE_7__services__["c" /* PictureService */],
+            __WEBPACK_IMPORTED_MODULE_7__services__["d" /* PictureService */],
             __WEBPACK_IMPORTED_MODULE_4__services_messages_service__["a" /* MessageService */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* Keyboard */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* Keyboard */],
             __WEBPACK_IMPORTED_MODULE_6__ionic_native_file_opener__["a" /* FileOpener */]])
     ], EditProjectPage);
     return EditProjectPage;
@@ -1591,7 +1693,7 @@ var EditProjectPage = /** @class */ (function (_super) {
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ReportService; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__component_service__ = __webpack_require__(176);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__component_service__ = __webpack_require__(177);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1633,13 +1735,13 @@ var ReportService = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 301:
+/***/ 300:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return PictureService; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__ionic_native_camera__ = __webpack_require__(177);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__ionic_native_camera__ = __webpack_require__(178);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__file_service__ = __webpack_require__(54);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__messages_service__ = __webpack_require__(16);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -1715,7 +1817,7 @@ var PictureService = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 302:
+/***/ 301:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1740,7 +1842,7 @@ var ReportInsulatedPipe = /** @class */ (function (_super) {
         var _this = _super.call(this, project, component, item) || this;
         _this.project = project;
         _this.component = component;
-        _this.page = __WEBPACK_IMPORTED_MODULE_1__pages_reports__["k" /* ReportInsulatedPipePage */];
+        _this.page = __WEBPACK_IMPORTED_MODULE_1__pages_reports__["l" /* ReportInsulatedPipePage */];
         _this.name = "Insulated Pipe";
         //public path = REPORT.INSULATION.INSULATED_EQUIPMENTS.PIPE;
         _this.insulated = true;
@@ -1760,7 +1862,7 @@ var ReportInsulatedPipe = /** @class */ (function (_super) {
 
 /***/ }),
 
-/***/ 303:
+/***/ 302:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1785,7 +1887,7 @@ var ReportPipe = /** @class */ (function (_super) {
         var _this = _super.call(this, project, component, item) || this;
         _this.project = project;
         _this.component = component;
-        _this.page = __WEBPACK_IMPORTED_MODULE_1__pages_reports__["q" /* ReportPipePage */];
+        _this.page = __WEBPACK_IMPORTED_MODULE_1__pages_reports__["r" /* ReportPipePage */];
         _this.name = "Uninsulated Pipe";
         //public path = REPORT.INSULATION.UNINSULATED_EQUIPMENTS.PIPE;
         _this.insulated = true;
@@ -1798,21 +1900,21 @@ var ReportPipe = /** @class */ (function (_super) {
 
 /***/ }),
 
-/***/ 304:
+/***/ 303:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__ipipe_class__ = __webpack_require__(488);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__ipipe_class__ = __webpack_require__(491);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return __WEBPACK_IMPORTED_MODULE_0__ipipe_class__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__isurface_class__ = __webpack_require__(489);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__isurface_class__ = __webpack_require__(492);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return __WEBPACK_IMPORTED_MODULE_1__isurface_class__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__valve_class__ = __webpack_require__(490);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__valve_class__ = __webpack_require__(493);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "f", function() { return __WEBPACK_IMPORTED_MODULE_2__valve_class__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__pipe_class__ = __webpack_require__(491);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__pipe_class__ = __webpack_require__(494);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "d", function() { return __WEBPACK_IMPORTED_MODULE_3__pipe_class__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__flange_class__ = __webpack_require__(492);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__flange_class__ = __webpack_require__(495);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return __WEBPACK_IMPORTED_MODULE_4__flange_class__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__surface_class__ = __webpack_require__(493);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__surface_class__ = __webpack_require__(496);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "e", function() { return __WEBPACK_IMPORTED_MODULE_5__surface_class__["a"]; });
 
 
@@ -1824,1918 +1926,23 @@ var ReportPipe = /** @class */ (function (_super) {
 
 /***/ }),
 
-/***/ 305:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Patterns; });
-var Patterns;
-(function (Patterns) {
-    Patterns["REQUIRED_NUMBER"] = "^(-?\\d+(\\.\\d+)?)$";
-    Patterns["UNREQUIRED_NUMBER"] = "^(\\s*|-?\\d+(\\.\\d+)?)$";
-})(Patterns || (Patterns = {}));
-//# sourceMappingURL=patterns.js.map
-
-/***/ }),
-
-/***/ 306:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ReportRouter; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__const_report_const__ = __webpack_require__(179);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__component__ = __webpack_require__(76);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__reports__ = __webpack_require__(21);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__reports_report_generic_class__ = __webpack_require__(307);
-
-
-
-
-var ReportRouter = /** @class */ (function () {
-    function ReportRouter(project, component, navCtrl) {
-        this.project = project;
-        this.component = component;
-        this.navCtrl = navCtrl;
-        this.component = this.component || new __WEBPACK_IMPORTED_MODULE_1__component__["a" /* TbiComponent */](this.project);
-    }
-    ReportRouter.prototype.navigate_to_report = function (path, summary_id, report, event) {
-        var r = this.create_report(path, summary_id, report);
-        this.navCtrl.push(r.page, {
-            project: this.project,
-            component: this.component,
-            report: r
-        });
-        return this;
-    };
-    ReportRouter.prototype.create_report = function (path, summary_id, report) {
-        var _report = report;
-        //if (!!_report) return _report;
-        switch (path) {
-            case __WEBPACK_IMPORTED_MODULE_0__const_report_const__["a" /* REPORT */].INSULATION.UNINSULATED_EQUIPMENTS.SURFACE:
-            case __WEBPACK_IMPORTED_MODULE_0__const_report_const__["a" /* REPORT */].SAFETY.HOT_SURFACE.UNINSULATED_EQUIPMENTS.SURFACE:
-                _report = new __WEBPACK_IMPORTED_MODULE_2__reports__["h" /* ReportSurface */](this.project, this.component, report);
-                break;
-            case __WEBPACK_IMPORTED_MODULE_0__const_report_const__["a" /* REPORT */].INSULATION.INSULATED_EQUIPMENTS.SURFACE:
-            case __WEBPACK_IMPORTED_MODULE_0__const_report_const__["a" /* REPORT */].SAFETY.HOT_SURFACE.INSULATED_EQUIPMENTS.SURFACE:
-                _report = new __WEBPACK_IMPORTED_MODULE_2__reports__["f" /* ReportInsulatedSurface */](this.project, this.component, report);
-                break;
-            case __WEBPACK_IMPORTED_MODULE_0__const_report_const__["a" /* REPORT */].INSULATION.UNINSULATED_EQUIPMENTS.FLANGE:
-            case __WEBPACK_IMPORTED_MODULE_0__const_report_const__["a" /* REPORT */].SAFETY.HOT_SURFACE.UNINSULATED_EQUIPMENTS.FLANGE:
-                _report = new __WEBPACK_IMPORTED_MODULE_2__reports__["d" /* ReportFlange */](this.project, this.component, report);
-                break;
-            case __WEBPACK_IMPORTED_MODULE_0__const_report_const__["a" /* REPORT */].INSULATION.UNINSULATED_EQUIPMENTS.PIPE:
-            case __WEBPACK_IMPORTED_MODULE_0__const_report_const__["a" /* REPORT */].SAFETY.HOT_SURFACE.UNINSULATED_EQUIPMENTS.PIPE:
-                _report = new __WEBPACK_IMPORTED_MODULE_2__reports__["g" /* ReportPipe */](this.project, this.component, report);
-                break;
-            case __WEBPACK_IMPORTED_MODULE_0__const_report_const__["a" /* REPORT */].INSULATION.INSULATED_EQUIPMENTS.PIPE:
-            case __WEBPACK_IMPORTED_MODULE_0__const_report_const__["a" /* REPORT */].SAFETY.HOT_SURFACE.INSULATED_EQUIPMENTS.PIPE:
-                _report = new __WEBPACK_IMPORTED_MODULE_2__reports__["e" /* ReportInsulatedPipe */](this.project, this.component, report);
-                break;
-            case __WEBPACK_IMPORTED_MODULE_0__const_report_const__["a" /* REPORT */].INSULATION.UNINSULATED_EQUIPMENTS.VALVE:
-            case __WEBPACK_IMPORTED_MODULE_0__const_report_const__["a" /* REPORT */].SAFETY.HOT_SURFACE.UNINSULATED_EQUIPMENTS.VALVE:
-                _report = new __WEBPACK_IMPORTED_MODULE_2__reports__["i" /* ReportValve */](this.project, this.component, report);
-                break;
-            case __WEBPACK_IMPORTED_MODULE_0__const_report_const__["a" /* REPORT */].INSULATION.INSULATED_EQUIPMENTS.DAMAGED:
-            case __WEBPACK_IMPORTED_MODULE_0__const_report_const__["a" /* REPORT */].INSULATION.COLD_INSULATION.DAMAGED:
-            case __WEBPACK_IMPORTED_MODULE_0__const_report_const__["a" /* REPORT */].SAFETY.HOT_SURFACE.INSULATED_EQUIPMENTS.DAMAGED:
-            case __WEBPACK_IMPORTED_MODULE_0__const_report_const__["a" /* REPORT */].MANTENANCE.DAMAGED:
-                _report = new __WEBPACK_IMPORTED_MODULE_2__reports__["c" /* ReportDamaged */](this.project, this.component, report);
-                break;
-            case __WEBPACK_IMPORTED_MODULE_0__const_report_const__["a" /* REPORT */].INSULATION.COLD_INSULATION.CONDENSATION:
-            case __WEBPACK_IMPORTED_MODULE_0__const_report_const__["a" /* REPORT */].MANTENANCE.CONDENSATION:
-                _report = new __WEBPACK_IMPORTED_MODULE_2__reports__["b" /* ReportCondensation */](this.project, this.component, report);
-                break;
-            // case REPORT.MANTENANCE.LEAKAGE:
-            //   _report = new ReportLeakage(this.project, this.component, report);
-            //   break;
-            default:
-                _report = new __WEBPACK_IMPORTED_MODULE_3__reports_report_generic_class__["a" /* ReportGeneric */](this.project, this.component, report);
-                break;
-        }
-        _report.path = path;
-        _report.summary_id = summary_id;
-        _report.readonly_summary_id = summary_id;
-        return _report;
-    };
-    return ReportRouter;
-}());
-
-//# sourceMappingURL=report-router.js.map
-
-/***/ }),
-
-/***/ 307:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ReportGeneric; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__report_base__ = __webpack_require__(24);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__pages_reports__ = __webpack_require__(20);
-var __extends = (this && this.__extends) || (function () {
-    var extendStatics = Object.setPrototypeOf ||
-        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
-    return function (d, b) {
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
-
-
-var ReportGeneric = /** @class */ (function (_super) {
-    __extends(ReportGeneric, _super);
-    //public path = REPORT.INSULATION.UNINSULATED_EQUIPMENTS.GENERIC;
-    function ReportGeneric(project, component, item) {
-        var _this = _super.call(this, project, component, item) || this;
-        _this.project = project;
-        _this.component = component;
-        _this.page = __WEBPACK_IMPORTED_MODULE_1__pages_reports__["a" /* GenericReportPage */];
-        _this.name = "Generic";
-        return _this;
-    }
-    return ReportGeneric;
-}(__WEBPACK_IMPORTED_MODULE_0__report_base__["a" /* ReportBase */]));
-
-//# sourceMappingURL=report-generic.class.js.map
-
-/***/ }),
-
-/***/ 308:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SummaryEditPage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(6);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-var SummaryEditPage = /** @class */ (function () {
-    function SummaryEditPage(viewCtrl, params) {
-        this.viewCtrl = viewCtrl;
-        this.params = params;
-        this.reports = [];
-        this.component = this.params.data.tbi_component;
-        this.reports = this.component.reports;
-        this.report_selected = this.reports[0].id;
-    }
-    SummaryEditPage.prototype.edit = function () {
-        this.viewCtrl.dismiss(this.report_selected);
-    };
-    SummaryEditPage.prototype.close = function () {
-        this.viewCtrl.dismiss(null);
-    };
-    SummaryEditPage.prototype.friendly_path = function (report) {
-        return report.path.split(/(\\|\/)/gi)[0];
-    };
-    SummaryEditPage = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-summary',template:/*ion-inline-start:"D:\Sofware Factory\tbi\src\pages\summary\summary-edit.html"*/'<ion-list radio-group [(ngModel)]="report_selected">\n\n  <ion-list-header>\n\n    Reports\n\n  </ion-list-header>\n\n\n\n  <ion-item *ngFor="let r of reports; let i=index" [attr.title]="r.summary_id">\n\n    <ion-label>{{friendly_path(r)}}</ion-label>\n\n    <ion-radio checked="true" value="{{r.id}}"></ion-radio>\n\n  </ion-item>\n\n\n\n</ion-list>\n\n<ion-footer>\n\n  <ion-grid no-padding>\n\n    <ion-row no-padding>\n\n      <ion-col col-5 no-padding>\n\n        <button (click)="close()" ion-button small block color="light">Cancel</button>\n\n      </ion-col>\n\n      <ion-col offset-2 col-5 no-padding text-right>\n\n        <button (click)="edit()" [disabled]="!this.report_selected" block ion-button small>Edit</button>\n\n      </ion-col>\n\n    </ion-row>\n\n  </ion-grid>\n\n</ion-footer>'/*ion-inline-end:"D:\Sofware Factory\tbi\src\pages\summary\summary-edit.html"*/
-        }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* ViewController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */]])
-    ], SummaryEditPage);
-    return SummaryEditPage;
-}());
-
-var ReportListItem = /** @class */ (function () {
-    function ReportListItem(report) {
-        var segments = report.path.split('\\');
-        this.id = report.id;
-        this.name = segments[segments.length - 1];
-    }
-    return ReportListItem;
-}());
-//# sourceMappingURL=summary-edit.js.map
-
-/***/ }),
-
-/***/ 357:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ReportAreaModalComponent; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(6);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-var ReportAreaModalComponent = /** @class */ (function () {
-    function ReportAreaModalComponent(viewCtrl) {
-        this.viewCtrl = viewCtrl;
-        this.radius = null;
-        this.height = null;
-        this.width = null;
-        this.deep = null;
-        this.segment = {
-            value: 'cube',
-            cube: 0,
-            cilinder: 1,
-            circle: 2
-        };
-    }
-    ReportAreaModalComponent.prototype.ionViewDidLoad = function () {
-        this.on_segment_change();
-    };
-    ReportAreaModalComponent.prototype.close = function () {
-        this.viewCtrl.dismiss(null);
-        return this;
-    };
-    ReportAreaModalComponent.prototype.key_enter = function () {
-        document.getElementById('area_calculate_btn').focus();
-    };
-    ReportAreaModalComponent.prototype.get_surface = function () {
-        switch (this.segment.value) {
-            case 'cilinder':
-                return 2 * Math.PI * (this.radius || 0) * (this.height || 0);
-            case 'circle':
-                return Math.PI * Math.sqrt(this.radius || 0);
-            case 'rectangle':
-                return (this.width || 0) * (this.height || 0);
-            default:
-                return 2 * ((this.width || 0) * (this.height || 0) + (this.deep || 0) * (this.height || 0));
-        }
-    };
-    ReportAreaModalComponent.prototype.calculate = function () {
-        this.viewCtrl.dismiss(Number(this.get_surface().toFixed(2)));
-        return this;
-    };
-    ReportAreaModalComponent.prototype.on_segment_change = function () {
-    };
-    ReportAreaModalComponent = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'area-modal',template:/*ion-inline-start:"D:\Sofware Factory\tbi\src\pages\reports\components\area\report-area-modal.component.html"*/'<ion-toolbar>\n  <ion-segment [(ngModel)]="segment.value" color="primary" (ionChange)="on_segment_change($event)">\n    <ion-segment-button value="cube">\n      Prism\n    </ion-segment-button>\n    <ion-segment-button value="rectangle">\n      Rectangle\n    </ion-segment-button>\n    <ion-segment-button value="cilinder">\n      Cilinder\n    </ion-segment-button>\n    <ion-segment-button value="circle">\n      Circle\n    </ion-segment-button>\n  </ion-segment>\n</ion-toolbar>\n\n<ion-content>\n   <form [hidden]="segment.value!=\'cube\'">\n    <ion-grid>\n      <ion-row>\n          <ion-col col-12 style="padding-top: 1rem">\n            <strong>* Only lateral walls</strong>\n        </ion-col>\n      </ion-row>\n      <ion-row>\n        <ion-col col-12 col-md-8>\n          <div svg="area-cube" padding></div>\n        </ion-col>\n        <ion-col col-12 col-md-4>\n          <ion-row>\n            <ion-col col-12>\n              <ion-item>\n                <ion-label stacked>a (m)</ion-label>\n                <ion-input type="number" tabindex="101" name="cube_a" id="cube_a" [(ngModel)]="width"></ion-input>\n              </ion-item>\n            </ion-col>\n            <ion-col col-12>\n              <ion-item>\n                <ion-label stacked>b (m)</ion-label>\n                <ion-input type="number" tabindex="102" name="cube_deep" [(ngModel)]="deep"></ion-input>\n              </ion-item>\n            </ion-col>\n            <ion-col col-12>\n              <ion-item>\n                <ion-label stacked>h (m)</ion-label>\n                <ion-input type="number" tabindex="103" (keyup.enter)="key_enter()" name="cube_height" [(ngModel)]="height"></ion-input>\n              </ion-item>\n            </ion-col>\n          </ion-row>\n        </ion-col>\n      </ion-row>\n    </ion-grid>\n  </form>\n  <form  [hidden]="segment.value!=\'rectangle\'">\n    <ion-grid>\n      <ion-col col-12 style="padding-top: 1rem">\n          <strong>&nbsp;</strong>\n      </ion-col>\n    <ion-row>\n      <ion-col col-12 col-md-8>\n        <div svg="area-rectangle" padding></div>\n      </ion-col>\n      <ion-col col-12 col-md-4>\n        <ion-row>\n          <ion-col col-12>\n            <ion-item>\n              <ion-label stacked>a (m)</ion-label>\n              <ion-input type="number" tabindex="106" name="rectangle-a" id="rectangle-a" [(ngModel)]="width"></ion-input>\n            </ion-item>\n          </ion-col>\n          <ion-col col-12>\n            <ion-item>\n              <ion-label stacked>b (m)</ion-label>\n              <ion-input type="number" tabindex="107" name="rectangle-b" id="rectangle-b" (keyup.enter)="key_enter()" [(ngModel)]="height"></ion-input>\n            </ion-item>\n          </ion-col>\n        </ion-row>\n      </ion-col>\n    </ion-row>\n    </ion-grid>\n  </form>\n  <form [hidden]="segment.value!=\'cilinder\'">\n    <ion-grid>\n        <ion-col col-12 style="padding-top: 1rem">\n            <strong>* Only lateral walls</strong>\n        </ion-col>\n      <ion-row>\n        <ion-col col-12 col-md-8>\n          <div svg="area-cilinder" padding></div>\n        </ion-col>\n        <ion-col col-12 col-md-4>\n          <ion-row>\n            <ion-col col-12>\n              <ion-item>\n                <ion-label stacked>h (m)</ion-label>\n                <ion-input type="number" tabindex="108" name="cilinder-h" id="cilinder-h" [(ngModel)]="height"></ion-input>\n              </ion-item>\n            </ion-col>\n            <ion-col col-12>\n              <ion-item>\n                <ion-label stacked>r (m)</ion-label>\n                <ion-input type="number" tabindex="109" name="cilinder-radius" (keyup.enter)="key_enter()" [(ngModel)]="radius"></ion-input>\n              </ion-item>\n            </ion-col>\n          </ion-row>\n        </ion-col>\n      </ion-row>\n    </ion-grid>\n  </form>\n  <form [hidden]="segment.value!=\'circle\'">\n    <ion-grid>\n        <ion-col col-12 style="padding-top: 1rem">\n            <strong>&nbsp;</strong>\n        </ion-col>\n      <ion-row>\n        <ion-col col-12 col-md-8>\n          <div svg="area-circle" padding></div>\n        </ion-col>\n        <ion-col col-12 col-md-4>\n          <ion-row>\n            <ion-col col-12>\n              <ion-item>\n                <ion-label stacked>r (m)</ion-label>\n                <ion-input type="number" tabindex="110" name="circel-r" id="circel-r" (keyup.enter)="key_enter()" [(ngModel)]="radius"></ion-input>\n              </ion-item>\n            </ion-col>\n          </ion-row>\n        </ion-col>\n      </ion-row>\n    </ion-grid>\n  </form>\n</ion-content>\n\n<ion-footer>\n  <ion-grid no-padding>\n    <ion-row no-padding>\n      <ion-col col-6 no-padding>\n        <button (click)="close()" tabindex="200" ion-button small color="light"><ion-icon name="arrow-back"></ion-icon>&nbsp;Back</button>\n      </ion-col>\n      <ion-col col-6 no-padding>\n        <button (click)="calculate()" tabindex="201" id="area_calculate_btn" ion-button small pull-right>Report</button>\n      </ion-col>\n    </ion-row>\n  </ion-grid>\n</ion-footer>\n'/*ion-inline-end:"D:\Sofware Factory\tbi\src\pages\reports\components\area\report-area-modal.component.html"*/
-        }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* ViewController */]])
-    ], ReportAreaModalComponent);
-    return ReportAreaModalComponent;
-}());
-
-//# sourceMappingURL=report-area-modal.component.js.map
-
-/***/ }),
-
-/***/ 358:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ReportLeakagePage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__models_reports__ = __webpack_require__(21);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(6);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__services_report_service__ = __webpack_require__(30);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__services_messages_service__ = __webpack_require__(16);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__models_reports_report_leakage__ = __webpack_require__(600);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__services__ = __webpack_require__(17);
-var __extends = (this && this.__extends) || (function () {
-    var extendStatics = Object.setPrototypeOf ||
-        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
-    return function (d, b) {
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-
-
-
-
-
-var ReportLeakagePage = /** @class */ (function (_super) {
-    __extends(ReportLeakagePage, _super);
-    function ReportLeakagePage(navCtrl, navParams, service, alertCtrl, picture, message, keyboard) {
-        var _this = _super.call(this, new __WEBPACK_IMPORTED_MODULE_5__models_reports_report_leakage__["a" /* ReportLeakage */](navParams.data.project, navParams.data.component, navParams.data.report), navCtrl, service, alertCtrl, picture, message, keyboard) || this;
-        _this.navCtrl = navCtrl;
-        _this.service = service;
-        _this.alertCtrl = alertCtrl;
-        _this.picture = picture;
-        _this.message = message;
-        _this.keyboard = keyboard;
-        return _this;
-    }
-    ReportLeakagePage.prototype.calculate = function () {
-        this.start_changes_observer();
-        if (!this.form.invalid) {
-            this.save();
-        }
-        else {
-            this.view = 'form';
-        }
-        return null;
-    };
-    ReportLeakagePage = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-report-leakage',template:/*ion-inline-start:"D:\Sofware Factory\tbi\src\pages\reports\leakage\report-leakage.component.html"*/'<report-header [parent]="this"></report-header>\n\n\n\n<ion-content #content>\n\n\n\n  <ion-grid [hidden]="view==\'edit_picture\'" class="fixed-col">\n\n    <ion-row>\n\n      <ion-col col-12 col-lg-6 no-padding>\n\n        <form novalidate #form="ngForm" [hidden]="segment!=\'input\'" (submit)="calculate()">\n\n          <ion-row>\n\n            <ion-col col-10>\n\n              <ion-item>\n\n                <ion-label stacked>Component/Location</ion-label>\n\n                <ion-input [disabled]="!editable" tabindex="1" (ionFocus)="on_focus($event)" name="location" required\n\n                  data-val-required="Please input Component/Location" [(ngModel)]="report.component.fields.location"\n\n                  type="text"></ion-input>\n\n              </ion-item>\n\n            </ion-col>\n\n            <ion-col col-2></ion-col>\n\n          </ion-row>\n\n          <ion-row [hidden]="true">\n\n            <ion-col>\n\n              <ion-item>\n\n                <ion-input type="hidden" name="pictures" required data-val-required="Please take a picture" [(ngModel)]="picture_qty"></ion-input>\n\n              </ion-item>\n\n            </ion-col>\n\n          </ion-row>\n\n          <ion-row>\n\n            <ion-col col-10>\n\n              <ion-item>\n\n                <ion-label stacked>Summary Id</ion-label>\n\n                <ion-input tabindex="2" (ionFocus)="on_focus($event)" name="summary_id" [(ngModel)]="report.summary_id"\n\n                  required data-val-required="Please input summary id" type="text"></ion-input>\n\n              </ion-item>\n\n            </ion-col>\n\n          </ion-row>\n\n          <ion-row>\n\n            <ion-col col-10>\n\n              <ion-item>\n\n                <ion-label stacked>Operational time (hours)</ion-label>\n\n                <ion-input [disabled]="!editable" tabindex="3" (ionFocus)="on_focus($event)" name="operational_time"\n\n                  [(ngModel)]="report.component.fields.operational_time" type="number"></ion-input>\n\n              </ion-item>\n\n            </ion-col>\n\n            <ion-col col-2>\n\n              <more pull-left *ngIf="editable" #time (change)="report.component.fields.operational_time=time.value"\n\n                [type]="\'time\'" modal-button></more>\n\n            </ion-col>\n\n          </ion-row>\n\n          <ion-row>\n\n            <ion-col col-10>\n\n              <ion-item>\n\n                <ion-label stacked>Medium</ion-label>\n\n                <ion-input #after_time [disabled]="!editable" tabindex="4" (ionFocus)="on_focus($event)" (keyup.enter)="on_keypress($event)"\n\n                  name="medium" [(ngModel)]="report.component.fields.medium" type="text"></ion-input>\n\n              </ion-item>\n\n            </ion-col>\n\n            <ion-col col-2></ion-col>\n\n          </ion-row>\n\n          <ion-row>\n\n            <ion-col col-10>\n\n              <ion-item>\n\n                <ion-label stacked>Medium temperature (<sup>º</sup>C)</ion-label>\n\n                <ion-input [disabled]="!editable" tabindex="5" (ionFocus)="on_focus($event)" name="surface_temp"\n\n                  [pattern]="patterns.REQUIRED_NUMBER" data-val-pattern="Please input a valid Medium temperature"\n\n                  [(ngModel)]="report.component.fields.surface_temp" type="tel"></ion-input>\n\n              </ion-item>\n\n            </ion-col>\n\n          </ion-row>\n\n          <ion-row>\n\n            <ion-col col-10>\n\n              <ion-item>\n\n                <ion-label stacked>Comment</ion-label>\n\n                <ion-textarea rows="6" tabindex="6" (ionFocus)="on_focus($event)" (keyup.enter)="on_keypress($event)"\n\n                  [(ngModel)]="report.comment" name="comment"></ion-textarea>\n\n              </ion-item>\n\n            </ion-col>\n\n          </ion-row>\n\n        </form>\n\n      </ion-col>\n\n\n\n      <ion-col col-12 col-lg-6 no-padding>\n\n        <ion-row>\n\n          <ion-col col-12 picture-slide [report]="report"\n\n            [editable]="editable" (onStartEdit)="on_picture_start_edit($event)">\n\n          </ion-col>\n\n        </ion-row>\n\n        <report-errors padding #errors col-12 [hidden]="view==\'!result\' && report.result"></report-errors>\n\n        <report-result col-12 [parent]="this" *ngIf="view==\'result\' && (!!form && !form.invalid)"></report-result>\n\n      </ion-col>\n\n    </ion-row>\n\n  </ion-grid>\n\n\n\n  <edit-picture *ngIf="view==\'edit_picture\'" [report]="report" [picture]="editing_picture"></edit-picture>\n\n\n\n</ion-content>\n\n\n\n<report-footer [parent]="this" [calculate_text]="\'Report\'"></report-footer>\n\n'/*ion-inline-end:"D:\Sofware Factory\tbi\src\pages\reports\leakage\report-leakage.component.html"*/
-        }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2_ionic_angular__["h" /* NavController */],
-            __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["i" /* NavParams */],
-            __WEBPACK_IMPORTED_MODULE_3__services_report_service__["a" /* ReportService */],
-            __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["b" /* AlertController */],
-            __WEBPACK_IMPORTED_MODULE_6__services__["c" /* PictureService */],
-            __WEBPACK_IMPORTED_MODULE_4__services_messages_service__["a" /* MessageService */],
-            __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["f" /* Keyboard */]])
-    ], ReportLeakagePage);
-    return ReportLeakagePage;
-}(__WEBPACK_IMPORTED_MODULE_1__models_reports__["a" /* BaseReportPage */]));
-
-//# sourceMappingURL=report-leakage.component.js.map
-
-/***/ }),
-
-/***/ 360:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return DownloadPage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services__ = __webpack_require__(17);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-var DownloadPage = /** @class */ (function () {
-    function DownloadPage(file, service) {
-        var _this = this;
-        this.file = file;
-        this.service = service;
-        this.files = [];
-        this.pictures = [];
-        // for (let i = 1; i < 11; i++) {
-        //   this.files.push(new Document({ 
-        //     file: `Files ${i}`, 
-        //     folder: `${this.file.working_folder}${i}`,
-        //   }));
-        // }
-        //this.file.get_documents().then(d => this.files = d);
-        service.get_all().then(function (projects) {
-            projects.forEach(function (p) {
-                _this.files = _this.files.concat(p.documents);
-                p.components.forEach(function (c) { return c.reports.forEach(function (r) { return _this.pictures = _this.pictures.concat(r.pictures); }); });
-            });
-        });
-    }
-    DownloadPage.prototype.create_file = function () {
-        this.service.create_database().then(function (blob) {
-            console.log(blob);
-            //   var a = document.createElement("a"),
-            //     url = URL.createObjectURL(blob);
-            //   a.href = url;
-            //   a.download = 'db.zip';
-            //   a.click();
-            //   setTimeout(function () {
-            //     window.URL.revokeObjectURL(url);
-            //   }, 0);
-        });
-    };
-    DownloadPage = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-download',template:/*ion-inline-start:"D:\Sofware Factory\tbi\src\pages\download\download.html"*/'<ion-header>\n  <ion-toolbar>\n    <ion-title>Database</ion-title>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content>\n  <ion-grid>\n    <ion-row>\n        <ion-col text-center col-6><h3>Files</h3></ion-col>\n        <ion-col text-center col-6><h3>Pictures</h3></ion-col>\n    </ion-row>\n    <ion-row>\n      <ion-col col-6>\n          <ion-list padding>\n              <ion-item-sliding *ngFor="let f of files">\n                <ion-item>\n                  <ion-icon name="document-{{f.extension}}" color="gray" item-start></ion-icon>\n                  {{f.file}}<br>\n                  <small>{{f.folder}}</small>\n                </ion-item>\n                <ion-item-options side="right">\n                  <button ion-button color="danger" on-tap="remove_file(f)">\n                    Remove\n                    <ion-icon name="ios-trash-outline"></ion-icon>\n                  </button>\n                </ion-item-options>\n              </ion-item-sliding>\n          </ion-list>\n      </ion-col>\n      <ion-col col-6>\n        <ion-list padding>\n          <ion-item-sliding *ngFor="let f of pictures">\n            <ion-item>\n              <!-- <ion-icon name="document-picture" color="gray" item-start></ion-icon> -->\n              <img src="{{f.picture}}" style="float: left; width: 72px; height: auto; margin-right: 1rem">\n              {{f.file}}<br>\n              <small>{{f.folder}}</small>\n            </ion-item>\n            <ion-item-options side="right">\n              <button ion-button color="danger" on-tap="remove_file(f)">\n                Remove\n                <ion-icon name="ios-trash-outline"></ion-icon>\n              </button>\n            </ion-item-options>\n          </ion-item-sliding>\n      </ion-list>\n      </ion-col>\n    </ion-row>\n  </ion-grid>\n</ion-content>\n\n\n<ion-footer>\n  <ion-grid no-padding>\n    <ion-row no-padding>\n      <ion-col col-6 no-padding>\n        <button tabindex="22" ion-button small color="light" (click)="navCtrl.pop()">\n          <ion-icon name="arrow-back"></ion-icon>&nbsp;Back\n        </button>\n      </ion-col>\n      <ion-col col-6 text-right no-padding>\n        <button tabindex="22" ion-button small color="royal" (click)="download()">\n            Download now\n        </button>\n      </ion-col>\n    </ion-row>\n  </ion-grid>\n</ion-footer>\n'/*ion-inline-end:"D:\Sofware Factory\tbi\src\pages\download\download.html"*/
-        }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__services__["a" /* FileService */], __WEBPACK_IMPORTED_MODULE_1__services__["d" /* ProjectService */]])
-    ], DownloadPage);
-    return DownloadPage;
-}());
-
-//# sourceMappingURL=download.js.map
-
-/***/ }),
-
-/***/ 398:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__ = __webpack_require__(399);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__app_module__ = __webpack_require__(421);
-
-
-Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* platformBrowserDynamic */])().bootstrapModule(__WEBPACK_IMPORTED_MODULE_1__app_module__["a" /* AppModule */]);
-//# sourceMappingURL=main.js.map
-
-/***/ }),
-
-/***/ 421:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppModule; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_http__ = __webpack_require__(122);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_platform_browser_animations__ = __webpack_require__(422);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_forms__ = __webpack_require__(18);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_platform_browser__ = __webpack_require__(41);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_ionic_angular__ = __webpack_require__(6);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_ionic_tooltips__ = __webpack_require__(465);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pages_init_init__ = __webpack_require__(296);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__app_component__ = __webpack_require__(601);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__pages_download_download__ = __webpack_require__(360);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__pages_contact_contact__ = __webpack_require__(602);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__pages_home_home__ = __webpack_require__(603);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__pages_projects_projects__ = __webpack_require__(74);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__pages_projects_edit__ = __webpack_require__(299);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__pages_projects_project__ = __webpack_require__(604);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__pages_summary_summary__ = __webpack_require__(180);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__pages_summary_summary_edit__ = __webpack_require__(308);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__pages_pictures_pictures__ = __webpack_require__(605);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__ionic_native_camera__ = __webpack_require__(177);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__ionic_native_file_chooser__ = __webpack_require__(363);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__ionic_native_file_path__ = __webpack_require__(364);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__ionic_native_file_opener__ = __webpack_require__(174);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__ionic_native_file__ = __webpack_require__(365);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__ionic_native_screen_orientation__ = __webpack_require__(178);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_24__ionic_native_status_bar__ = __webpack_require__(361);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_25__ionic_native_splash_screen__ = __webpack_require__(362);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_26__ionic_native_unique_device_id__ = __webpack_require__(359);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_27__ionic_native_file_transfer__ = __webpack_require__(366);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_28__services__ = __webpack_require__(17);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_29__services_report_service__ = __webpack_require__(30);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_30__services_component_service__ = __webpack_require__(176);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_31__services_file_device_service__ = __webpack_require__(606);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_32__services_file_service__ = __webpack_require__(54);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_33__services_file_local_service__ = __webpack_require__(660);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_34__services_messages_service__ = __webpack_require__(16);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_35__services_picture_service__ = __webpack_require__(301);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_36__services_licences_service__ = __webpack_require__(102);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_37__components_svg_svg_insulation_component__ = __webpack_require__(661);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_38__components_svg_svg_co2_component__ = __webpack_require__(662);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_39__components_svg_svg_custom_component__ = __webpack_require__(663);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_40__components_svg_svg_safety_component__ = __webpack_require__(664);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_41__components_svg_svg_maintenance_component__ = __webpack_require__(665);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_42__components_svg_svg_flange_component__ = __webpack_require__(666);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_43__components_svg_svg_hot_surface_component__ = __webpack_require__(667);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_44__components_svg_svg_fire_protection_component__ = __webpack_require__(668);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_45__components_svg_svg_traffic_component__ = __webpack_require__(669);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_46__components_svg_svg_damage_insulation_component__ = __webpack_require__(670);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_47__components_svg_svg_damage_cladding_component__ = __webpack_require__(671);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_48__components_svg_svg_ice_wet_component__ = __webpack_require__(672);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_49__components_svg_svg_mechanical_component__ = __webpack_require__(673);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_50__components_svg_svg_electrical_component__ = __webpack_require__(674);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_51__components_svg_svg_leakage_component__ = __webpack_require__(675);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_52__components_svg_svg_other_safety_component__ = __webpack_require__(676);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_53__components_svg_svg_cold_component__ = __webpack_require__(677);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_54__components_svg_svg_pipe_insulation_component__ = __webpack_require__(678);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_55__components_svg_svg_pipe_component__ = __webpack_require__(679);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_56__components_svg_svg_valve_component__ = __webpack_require__(680);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_57__components_svg_svg_surface_component__ = __webpack_require__(681);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_58__components_svg_svg_damaged_cladding_component__ = __webpack_require__(682);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_59__components_svg_svg_damaged_insulation_component__ = __webpack_require__(683);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_60__components_svg_svg_energy_component__ = __webpack_require__(684);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_61__components_svg_svg_insulated_surface_component__ = __webpack_require__(685);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_62__components_svg_svg_others_component__ = __webpack_require__(686);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_63__components_svg_svg_insulated_others_component__ = __webpack_require__(687);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_64__components_svg_svg_cilinder_area_component__ = __webpack_require__(688);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_65__components_svg_svg_cube_area_component__ = __webpack_require__(689);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_66__components_svg_svg_circle_area_component__ = __webpack_require__(690);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_67__components_svg_svg_housekeeping_component__ = __webpack_require__(691);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_68__components_svg_svg_structural_component__ = __webpack_require__(692);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_69__components_svg_svg_rectangle_area_component__ = __webpack_require__(693);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_70__components_svg_svg_like_component__ = __webpack_require__(694);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_71__components_svg_svg_increase_component__ = __webpack_require__(695);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_72__components_svg_svg_empty_component__ = __webpack_require__(696);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_73__pages_reports__ = __webpack_require__(20);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_74__pipes_surface_material_pipe__ = __webpack_require__(697);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_75__progress_kendo_angular_pdf_export__ = __webpack_require__(698);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_76__components_tools_tools_component__ = __webpack_require__(704);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_77__ionic_native_flashlight__ = __webpack_require__(397);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_78__models_errors_global_error__ = __webpack_require__(705);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-
-
-
-
-
-
-
-/*Pages*/
-
-
-
-
-
-
-
-
-
-
-
-/*Plugins*/
-
-
-
-
-
-
-
-
-
-
-/*Services*/
-
-
-
-
-
-
-
-
-
-// import { ReportSafetSurfacePage } from '../pages/reports/safety/surface';
-/*Components*/
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//Reports
-
-//Pipes
-
-//import { GlobalErrorHandler } from '../models/errors/global-error';
-
-
-
-
-var AppModule = /** @class */ (function () {
-    function AppModule() {
-    }
-    AppModule = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["I" /* NgModule */])({
-            declarations: [
-                __WEBPACK_IMPORTED_MODULE_8__app_component__["a" /* MyApp */],
-                __WEBPACK_IMPORTED_MODULE_9__pages_download_download__["a" /* DownloadPage */],
-                __WEBPACK_IMPORTED_MODULE_10__pages_contact_contact__["a" /* ContactPage */],
-                __WEBPACK_IMPORTED_MODULE_11__pages_home_home__["a" /* ProjectReportsPage */],
-                __WEBPACK_IMPORTED_MODULE_12__pages_projects_projects__["a" /* ProjectsPage */],
-                __WEBPACK_IMPORTED_MODULE_13__pages_projects_edit__["a" /* EditProjectPage */],
-                __WEBPACK_IMPORTED_MODULE_14__pages_projects_project__["a" /* ProjectPage */],
-                __WEBPACK_IMPORTED_MODULE_73__pages_reports__["a" /* GenericReportPage */],
-                __WEBPACK_IMPORTED_MODULE_73__pages_reports__["v" /* ReportsPage */],
-                __WEBPACK_IMPORTED_MODULE_7__pages_init_init__["a" /* InitPage */],
-                __WEBPACK_IMPORTED_MODULE_17__pages_pictures_pictures__["a" /* PicturesPage */],
-                __WEBPACK_IMPORTED_MODULE_15__pages_summary_summary__["a" /* SummaryPage */],
-                __WEBPACK_IMPORTED_MODULE_16__pages_summary_summary_edit__["a" /* SummaryEditPage */],
-                //Pipes
-                __WEBPACK_IMPORTED_MODULE_74__pipes_surface_material_pipe__["a" /* SurfaceMaterialPipe */],
-                //Reports
-                __WEBPACK_IMPORTED_MODULE_73__pages_reports__["f" /* ReportEditPictureComponent */],
-                __WEBPACK_IMPORTED_MODULE_73__pages_reports__["p" /* ReportPictureSlideComponent */],
-                __WEBPACK_IMPORTED_MODULE_73__pages_reports__["j" /* ReportHeaderComponent */],
-                __WEBPACK_IMPORTED_MODULE_73__pages_reports__["i" /* ReportFooterComponent */],
-                __WEBPACK_IMPORTED_MODULE_73__pages_reports__["b" /* ReportAreaButtonComponent */],
-                __WEBPACK_IMPORTED_MODULE_73__pages_reports__["c" /* ReportAreaModalComponent */],
-                __WEBPACK_IMPORTED_MODULE_73__pages_reports__["o" /* ReportMoreButtonComponent */],
-                __WEBPACK_IMPORTED_MODULE_73__pages_reports__["n" /* ReportMediumTempButtonsComponent */],
-                __WEBPACK_IMPORTED_MODULE_73__pages_reports__["t" /* ReportTempMarkersWindowComponent */],
-                __WEBPACK_IMPORTED_MODULE_73__pages_reports__["g" /* ReportErrorsComponent */],
-                __WEBPACK_IMPORTED_MODULE_73__pages_reports__["r" /* ReportResultComponent */],
-                __WEBPACK_IMPORTED_MODULE_73__pages_reports__["s" /* ReportSurfacePage */],
-                __WEBPACK_IMPORTED_MODULE_73__pages_reports__["l" /* ReportInsulatedSurfacePage */],
-                __WEBPACK_IMPORTED_MODULE_73__pages_reports__["h" /* ReportFlangePage */],
-                __WEBPACK_IMPORTED_MODULE_73__pages_reports__["q" /* ReportPipePage */],
-                __WEBPACK_IMPORTED_MODULE_73__pages_reports__["k" /* ReportInsulatedPipePage */],
-                __WEBPACK_IMPORTED_MODULE_73__pages_reports__["u" /* ReportValvePage */],
-                __WEBPACK_IMPORTED_MODULE_73__pages_reports__["e" /* ReportDamagedPage */],
-                __WEBPACK_IMPORTED_MODULE_73__pages_reports__["d" /* ReportCondensationPage */],
-                __WEBPACK_IMPORTED_MODULE_73__pages_reports__["m" /* ReportLeakagePage */],
-                //Components
-                __WEBPACK_IMPORTED_MODULE_76__components_tools_tools_component__["a" /* ToolsComponent */],
-                __WEBPACK_IMPORTED_MODULE_72__components_svg_svg_empty_component__["a" /* SvgEmptyComponent */],
-                __WEBPACK_IMPORTED_MODULE_37__components_svg_svg_insulation_component__["a" /* SvgInsulationComponent */],
-                __WEBPACK_IMPORTED_MODULE_38__components_svg_svg_co2_component__["a" /* SvgCO2Component */],
-                __WEBPACK_IMPORTED_MODULE_39__components_svg_svg_custom_component__["a" /* SvgCustomComponent */],
-                __WEBPACK_IMPORTED_MODULE_40__components_svg_svg_safety_component__["a" /* SvgSafetyComponent */],
-                __WEBPACK_IMPORTED_MODULE_41__components_svg_svg_maintenance_component__["a" /* SvgMaintenanceComponent */],
-                __WEBPACK_IMPORTED_MODULE_42__components_svg_svg_flange_component__["a" /* SvgFlangeComponent */],
-                __WEBPACK_IMPORTED_MODULE_43__components_svg_svg_hot_surface_component__["a" /* SvgHotSurfaceComponent */],
-                __WEBPACK_IMPORTED_MODULE_44__components_svg_svg_fire_protection_component__["a" /* SvgFireProtectionComponent */],
-                __WEBPACK_IMPORTED_MODULE_45__components_svg_svg_traffic_component__["a" /* SvgTrafficComponent */],
-                __WEBPACK_IMPORTED_MODULE_46__components_svg_svg_damage_insulation_component__["a" /* SvgDamageInsulationComponent */],
-                __WEBPACK_IMPORTED_MODULE_47__components_svg_svg_damage_cladding_component__["a" /* SvgDamageCladdingComponent */],
-                __WEBPACK_IMPORTED_MODULE_49__components_svg_svg_mechanical_component__["a" /* SvgMechanicalComponent */],
-                __WEBPACK_IMPORTED_MODULE_50__components_svg_svg_electrical_component__["a" /* SvgElectricalComponent */],
-                __WEBPACK_IMPORTED_MODULE_48__components_svg_svg_ice_wet_component__["a" /* SvgIceWetComponent */],
-                __WEBPACK_IMPORTED_MODULE_51__components_svg_svg_leakage_component__["a" /* SvgLeakageComponent */],
-                __WEBPACK_IMPORTED_MODULE_52__components_svg_svg_other_safety_component__["a" /* SvgOtherSafetyComponent */],
-                __WEBPACK_IMPORTED_MODULE_53__components_svg_svg_cold_component__["a" /* SvgColdComponent */],
-                __WEBPACK_IMPORTED_MODULE_54__components_svg_svg_pipe_insulation_component__["a" /* SvgPipeInsultationComponent */],
-                __WEBPACK_IMPORTED_MODULE_55__components_svg_svg_pipe_component__["a" /* SvgPipeComponent */],
-                __WEBPACK_IMPORTED_MODULE_56__components_svg_svg_valve_component__["a" /* SvgValveComponent */],
-                __WEBPACK_IMPORTED_MODULE_57__components_svg_svg_surface_component__["a" /* SvgSurfaceComponent */],
-                __WEBPACK_IMPORTED_MODULE_58__components_svg_svg_damaged_cladding_component__["a" /* SvgDamagedCladdingComponent */],
-                __WEBPACK_IMPORTED_MODULE_59__components_svg_svg_damaged_insulation_component__["a" /* SvgDamagedInsulationComponent */],
-                __WEBPACK_IMPORTED_MODULE_60__components_svg_svg_energy_component__["a" /* SvgEnergyComponent */],
-                __WEBPACK_IMPORTED_MODULE_61__components_svg_svg_insulated_surface_component__["a" /* SvgInsulatedSurfaceComponent */],
-                __WEBPACK_IMPORTED_MODULE_62__components_svg_svg_others_component__["a" /* SvgOthersComponent */],
-                __WEBPACK_IMPORTED_MODULE_63__components_svg_svg_insulated_others_component__["a" /* SvgInsulatedOthersComponent */],
-                __WEBPACK_IMPORTED_MODULE_64__components_svg_svg_cilinder_area_component__["a" /* SvgCilinderAreaComponent */],
-                __WEBPACK_IMPORTED_MODULE_65__components_svg_svg_cube_area_component__["a" /* SvgCubeAreaComponent */],
-                __WEBPACK_IMPORTED_MODULE_66__components_svg_svg_circle_area_component__["a" /* SvgCircleAreaComponent */],
-                __WEBPACK_IMPORTED_MODULE_69__components_svg_svg_rectangle_area_component__["a" /* SvgRectangleAreaComponent */],
-                __WEBPACK_IMPORTED_MODULE_67__components_svg_svg_housekeeping_component__["a" /* SvgHousekeepingComponent */],
-                __WEBPACK_IMPORTED_MODULE_68__components_svg_svg_structural_component__["a" /* SvgStructuralComponent */],
-                __WEBPACK_IMPORTED_MODULE_70__components_svg_svg_like_component__["a" /* SvgLikeComponent */],
-                __WEBPACK_IMPORTED_MODULE_71__components_svg_svg_increase_component__["a" /* SvgIncreaseComponent */]
-            ],
-            imports: [
-                __WEBPACK_IMPORTED_MODULE_4__angular_platform_browser__["a" /* BrowserModule */],
-                __WEBPACK_IMPORTED_MODULE_0__angular_http__["c" /* HttpModule */],
-                __WEBPACK_IMPORTED_MODULE_2__angular_platform_browser_animations__["a" /* BrowserAnimationsModule */],
-                __WEBPACK_IMPORTED_MODULE_3__angular_forms__["a" /* FormsModule */],
-                __WEBPACK_IMPORTED_MODULE_5_ionic_angular__["e" /* IonicModule */].forRoot(__WEBPACK_IMPORTED_MODULE_8__app_component__["a" /* MyApp */], {
-                    iconMode: 'ios',
-                    modalEnter: 'modal-slide-in',
-                    modalLeave: 'modal-slide-out',
-                    tabsPlacement: 'bottom',
-                    pageTransition: 'ios-transition',
-                    scrollPadding: false,
-                    scrollAssist: true,
-                    autoFocusAssist: true
-                }, {
-                    links: []
-                }),
-                __WEBPACK_IMPORTED_MODULE_6_ionic_tooltips__["a" /* TooltipsModule */],
-                __WEBPACK_IMPORTED_MODULE_75__progress_kendo_angular_pdf_export__["a" /* PDFExportModule */]
-            ],
-            bootstrap: [__WEBPACK_IMPORTED_MODULE_5_ionic_angular__["d" /* IonicApp */]],
-            entryComponents: [
-                __WEBPACK_IMPORTED_MODULE_8__app_component__["a" /* MyApp */],
-                __WEBPACK_IMPORTED_MODULE_9__pages_download_download__["a" /* DownloadPage */],
-                __WEBPACK_IMPORTED_MODULE_10__pages_contact_contact__["a" /* ContactPage */],
-                __WEBPACK_IMPORTED_MODULE_11__pages_home_home__["a" /* ProjectReportsPage */],
-                __WEBPACK_IMPORTED_MODULE_12__pages_projects_projects__["a" /* ProjectsPage */],
-                __WEBPACK_IMPORTED_MODULE_13__pages_projects_edit__["a" /* EditProjectPage */],
-                __WEBPACK_IMPORTED_MODULE_14__pages_projects_project__["a" /* ProjectPage */],
-                __WEBPACK_IMPORTED_MODULE_73__pages_reports__["a" /* GenericReportPage */],
-                __WEBPACK_IMPORTED_MODULE_73__pages_reports__["v" /* ReportsPage */],
-                __WEBPACK_IMPORTED_MODULE_7__pages_init_init__["a" /* InitPage */],
-                __WEBPACK_IMPORTED_MODULE_17__pages_pictures_pictures__["a" /* PicturesPage */],
-                __WEBPACK_IMPORTED_MODULE_15__pages_summary_summary__["a" /* SummaryPage */],
-                __WEBPACK_IMPORTED_MODULE_16__pages_summary_summary_edit__["a" /* SummaryEditPage */],
-                //Reports
-                __WEBPACK_IMPORTED_MODULE_73__pages_reports__["j" /* ReportHeaderComponent */],
-                __WEBPACK_IMPORTED_MODULE_73__pages_reports__["i" /* ReportFooterComponent */],
-                __WEBPACK_IMPORTED_MODULE_73__pages_reports__["c" /* ReportAreaModalComponent */],
-                __WEBPACK_IMPORTED_MODULE_73__pages_reports__["t" /* ReportTempMarkersWindowComponent */],
-                __WEBPACK_IMPORTED_MODULE_73__pages_reports__["s" /* ReportSurfacePage */],
-                __WEBPACK_IMPORTED_MODULE_73__pages_reports__["l" /* ReportInsulatedSurfacePage */],
-                __WEBPACK_IMPORTED_MODULE_73__pages_reports__["h" /* ReportFlangePage */],
-                __WEBPACK_IMPORTED_MODULE_73__pages_reports__["q" /* ReportPipePage */],
-                __WEBPACK_IMPORTED_MODULE_73__pages_reports__["k" /* ReportInsulatedPipePage */],
-                __WEBPACK_IMPORTED_MODULE_73__pages_reports__["u" /* ReportValvePage */],
-                __WEBPACK_IMPORTED_MODULE_73__pages_reports__["e" /* ReportDamagedPage */],
-                __WEBPACK_IMPORTED_MODULE_73__pages_reports__["d" /* ReportCondensationPage */],
-                __WEBPACK_IMPORTED_MODULE_73__pages_reports__["m" /* ReportLeakagePage */],
-                __WEBPACK_IMPORTED_MODULE_76__components_tools_tools_component__["a" /* ToolsComponent */]
-            ],
-            providers: [
-                /*App services*/
-                __WEBPACK_IMPORTED_MODULE_34__services_messages_service__["a" /* MessageService */],
-                __WEBPACK_IMPORTED_MODULE_29__services_report_service__["a" /* ReportService */],
-                __WEBPACK_IMPORTED_MODULE_28__services__["d" /* ProjectService */],
-                __WEBPACK_IMPORTED_MODULE_30__services_component_service__["a" /* ComponentService */],
-                __WEBPACK_IMPORTED_MODULE_24__ionic_native_status_bar__["a" /* StatusBar */],
-                __WEBPACK_IMPORTED_MODULE_25__ionic_native_splash_screen__["a" /* SplashScreen */],
-                __WEBPACK_IMPORTED_MODULE_21__ionic_native_file_opener__["a" /* FileOpener */],
-                __WEBPACK_IMPORTED_MODULE_20__ionic_native_file_path__["a" /* FilePath */],
-                __WEBPACK_IMPORTED_MODULE_22__ionic_native_file__["a" /* File */],
-                __WEBPACK_IMPORTED_MODULE_18__ionic_native_camera__["a" /* Camera */],
-                __WEBPACK_IMPORTED_MODULE_23__ionic_native_screen_orientation__["a" /* ScreenOrientation */],
-                //PictureLocalService,
-                __WEBPACK_IMPORTED_MODULE_31__services_file_device_service__["a" /* FileDeviceService */],
-                __WEBPACK_IMPORTED_MODULE_33__services_file_local_service__["a" /* FileLocalService */],
-                __WEBPACK_IMPORTED_MODULE_19__ionic_native_file_chooser__["a" /* FileChooser */],
-                __WEBPACK_IMPORTED_MODULE_26__ionic_native_unique_device_id__["a" /* UniqueDeviceID */],
-                __WEBPACK_IMPORTED_MODULE_27__ionic_native_file_transfer__["a" /* FileTransfer */],
-                { provide: __WEBPACK_IMPORTED_MODULE_1__angular_core__["u" /* ErrorHandler */], useClass: __WEBPACK_IMPORTED_MODULE_78__models_errors_global_error__["a" /* GlobalErrorHandler */], deps: [__WEBPACK_IMPORTED_MODULE_34__services_messages_service__["a" /* MessageService */], __WEBPACK_IMPORTED_MODULE_0__angular_http__["b" /* Http */]] },
-                //{ provide: ErrorHandler, useClass: IonicErrorHandler },
-                //Mock services
-                //{ provide: PictureService, useClass: PictureDeviceService },
-                __WEBPACK_IMPORTED_MODULE_36__services_licences_service__["a" /* LicencesService */],
-                __WEBPACK_IMPORTED_MODULE_35__services_picture_service__["a" /* PictureService */],
-                __WEBPACK_IMPORTED_MODULE_77__ionic_native_flashlight__["a" /* Flashlight */],
-                { provide: __WEBPACK_IMPORTED_MODULE_32__services_file_service__["a" /* FileService */], useClass: __WEBPACK_IMPORTED_MODULE_31__services_file_device_service__["a" /* FileDeviceService */] }
-            ]
-        })
-    ], AppModule);
-    return AppModule;
-}());
-
-//# sourceMappingURL=app.module.js.map
-
-/***/ }),
-
-/***/ 46:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__value__ = __webpack_require__(169);
-/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "e", function() { return __WEBPACK_IMPORTED_MODULE_0__value__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__fields__ = __webpack_require__(170);
-/* unused harmony reexport Fields */
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__result__ = __webpack_require__(100);
-/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "d", function() { return __WEBPACK_IMPORTED_MODULE_2__result__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__component_location__ = __webpack_require__(467);
-/* unused harmony reexport ComponentLocation */
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__project__ = __webpack_require__(168);
-/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return __WEBPACK_IMPORTED_MODULE_4__project__["b"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__document_class__ = __webpack_require__(468);
-/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return __WEBPACK_IMPORTED_MODULE_5__document_class__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__report_base__ = __webpack_require__(24);
-/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return __WEBPACK_IMPORTED_MODULE_6__report_base__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__report_category__ = __webpack_require__(469);
-/* unused harmony reexport ReportCategory */
-
-
-
-
-
-
-
-
-//# sourceMappingURL=index.js.map
-
-/***/ }),
-
-/***/ 467:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* unused harmony export ComponentLocation */
-var ComponentLocation = /** @class */ (function () {
-    function ComponentLocation(component) {
-        var _this = this;
-        this.component = component;
-        this.reports = new Map();
-        this.insulated = false;
-        ['Insulation', 'Safety', 'Maintenance', 'Custom'].forEach(function (key) {
-            _this.reports[key] = _this.component.reports.filter(function (r) { return r.path.startsWith(key); });
-        });
-        this.name = this.component.fields.location;
-        this.section_input = new SectionInput(component);
-        this.section_energy = new SectionEnergy(component.reports.find(function (r) { return r.path.startsWith('Insulation'); }));
-        this.insulated = !!this.reports['Insulation'].length && this.reports['Insulation'].find(function (r) { return -1 !== r.path.lastIndexOf('\\Insulated'); });
-    }
-    return ComponentLocation;
-}());
-
-var SectionInput = /** @class */ (function () {
-    function SectionInput(component) {
-        this.fields = component.fields;
-        this.dimension = !!this.fields.surface ? this.fields.surface : !!this.fields.length ? this.fields.length : null;
-    }
-    return SectionInput;
-}());
-var SectionEnergy = /** @class */ (function () {
-    function SectionEnergy(report) {
-        this.advises = new Map([
-            ['System OK', 'OK'],
-            ['Insulation recommended', 'Recommended'],
-            ['SAFETY-Insulation recommended', 'SAFETY-Recommended']
-        ]);
-        this.heat_lost = report.result.headLost;
-        this.saving_potential_max = report.result.savingPotentialMax;
-        this.saving_potential_min = report.result.savingPotentialMin;
-        this.insulated = report.path.startsWith('Insulation\Insulated') ? 'Yes' : 'No';
-        this.tbi = this.advises.get(report.result.advise);
-    }
-    return SectionEnergy;
-}());
-//# sourceMappingURL=component-location.js.map
-
-/***/ }),
-
-/***/ 468:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Document; });
-var Document = /** @class */ (function () {
-    function Document(document) {
-        this.folder = '';
-        this.file = '';
-        this.size = 0;
-        if (!!document)
-            Object.assign(this, document);
-    }
-    Object.defineProperty(Document.prototype, "extension", {
-        get: function () {
-            try {
-                return this.file.substr(this.file.lastIndexOf('.') + 1, this.file.length - 1).toLowerCase();
-            }
-            catch (_a) {
-                return 'unknown';
-            }
-        },
-        enumerable: true,
-        configurable: true
-    });
-    Object.defineProperty(Document.prototype, "mime", {
-        get: function () {
-            switch (this.extension) {
-                case 'pdf': return 'application/pdf';
-                case 'doc': return 'application/msword';
-                case 'docx': return 'application/vnd.openxmlformats-officedocument.wordprocessingml.document';
-                case 'xls': return 'application/vnd.ms-excel';
-                case 'xlsx': return 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet';
-                case 'ppt': return 'application/vnd.ms-powerpoint';
-                case 'pps': return 'application/vnd.ms-powerpoint';
-                case 'pptx': return 'application/vnd.openxmlformats-officedocument.presentationml.presentation';
-                case 'ppsx': return 'application/vnd.openxmlformats-officedocument.presentationml.slideshow';
-                case 'jpg': 'image/jpeg';
-                case 'bmp': 'image/bmp';
-                case 'png': 'image/png';
-                case 'txt': return 'text/*';
-                default: return 'application/octet-stream';
-            }
-        },
-        enumerable: true,
-        configurable: true
-    });
-    return Document;
-}());
-
-//# sourceMappingURL=document.class.js.map
-
-/***/ }),
-
-/***/ 469:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* unused harmony export ReportCategory */
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__enums__ = __webpack_require__(470);
-
-var ReportCategory = /** @class */ (function () {
-    function ReportCategory(item) {
-        this.id = 0;
-        this.name = '';
-        this.categories = null;
-        this.reports = null;
-        this.type = __WEBPACK_IMPORTED_MODULE_0__enums__["a" /* ReportCategories */].OTHERS;
-        if (!!item) {
-            Object.assign(this, item);
-        }
-    }
-    return ReportCategory;
-}());
-
-//# sourceMappingURL=report-category.js.map
-
-/***/ }),
-
-/***/ 470:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__report_categories_enum__ = __webpack_require__(471);
-/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return __WEBPACK_IMPORTED_MODULE_0__report_categories_enum__["a"]; });
-
-//# sourceMappingURL=index.js.map
-
-/***/ }),
-
-/***/ 471:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ReportCategories; });
-var ReportCategories;
-(function (ReportCategories) {
-    ReportCategories[ReportCategories["OTHERS"] = 0] = "OTHERS";
-    ReportCategories[ReportCategories["INSULATION"] = 1] = "INSULATION";
-    ReportCategories[ReportCategories["SAFETY"] = 2] = "SAFETY";
-    ReportCategories[ReportCategories["MANTENANCE"] = 3] = "MANTENANCE";
-    ReportCategories[ReportCategories["ENERGY_AND_SAVINGS"] = 4] = "ENERGY_AND_SAVINGS";
-    ReportCategories[ReportCategories["ENERGY"] = 5] = "ENERGY";
-    ReportCategories[ReportCategories["HOT_SURFACE"] = 6] = "HOT_SURFACE";
-})(ReportCategories || (ReportCategories = {}));
-//# sourceMappingURL=report-categories.enum.js.map
-
-/***/ }),
-
-/***/ 472:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ProjectJson; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__project__ = __webpack_require__(168);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__component_json__ = __webpack_require__(473);
-
-
-var ProjectJson = /** @class */ (function () {
-    function ProjectJson(project) {
-        this.id = '';
-        this.name = '';
-        this.desc = '';
-        this.date = new Date();
-        this.user = '';
-        this.picture = '';
-        this.documents = [];
-        this.components = [];
-        this.price = null;
-        this.people = new __WEBPACK_IMPORTED_MODULE_0__project__["a" /* People */]();
-        this.co2 = 0;
-        this.id = project.id;
-        this.name = project.name;
-        this.desc = project.desc;
-        this.date = project.date;
-        this.user = project.user;
-        this.price = project.price;
-        this.picture = project.picture;
-        this.components = project.components.map(function (c) { return new __WEBPACK_IMPORTED_MODULE_1__component_json__["a" /* TbiComponentJson */](c); });
-        this.documents = project.documents || [];
-        this.people = new __WEBPACK_IMPORTED_MODULE_0__project__["a" /* People */](project.people);
-        this.co2 = project.co2 || 0;
-    }
-    ProjectJson.prototype.flatten = function (arr) {
-        return [].concat.apply([], arr);
-    };
-    ProjectJson.prototype.get_reports_by_type = function (type) {
-        var reports = this.components.map(function (c) { return c.reports.filter(function (r) { return !!r.path.match(new RegExp(type, 'gi')); }); });
-        return this.flatten(reports);
-    };
-    return ProjectJson;
-}());
-
-//# sourceMappingURL=project.json.js.map
-
-/***/ }),
-
-/***/ 473:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return TbiComponentJson; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__fields__ = __webpack_require__(170);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__report_base_json__ = __webpack_require__(474);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__marker__ = __webpack_require__(75);
-
-
-
-var TbiComponentJson = /** @class */ (function () {
-    function TbiComponentJson(item) {
-        this.id = '';
-        this.reports = [];
-        this.fields = new __WEBPACK_IMPORTED_MODULE_0__fields__["a" /* Fields */]();
-        this.id = item.id;
-        this.reports = (item.reports || []).map(function (r) { return new __WEBPACK_IMPORTED_MODULE_1__report_base_json__["a" /* ReportBaseJson */](r); });
-        this.fields = new __WEBPACK_IMPORTED_MODULE_0__fields__["a" /* Fields */](item.fields);
-        this.markers = (item.markers || []).map(function (m) { return new __WEBPACK_IMPORTED_MODULE_2__marker__["a" /* Marker */](m); });
-        this.date = item.date || new Date();
-    }
-    return TbiComponentJson;
-}());
-
-//# sourceMappingURL=component.json.js.map
-
-/***/ }),
-
-/***/ 474:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ReportBaseJson; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__result__ = __webpack_require__(100);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__picture__ = __webpack_require__(101);
-
-
-var ReportBaseJson = /** @class */ (function () {
-    function ReportBaseJson(item) {
-        this.id = '';
-        this.name = '';
-        this.path = '';
-        this.result = null;
-        this.pictures = [];
-        this.insulated = false;
-        this.summary_id = '';
-        this.readonly_summary_id = '';
-        this.comment = '';
-        this.id = item.id;
-        this.name = item.name;
-        this.path = item.path;
-        this.summary_id = item.summary_id;
-        this.comment = item.comment;
-        this.readonly_summary_id = item.readonly_summary_id || item.summary_id;
-        this.insulated = !!item.insulated;
-        this.result = new __WEBPACK_IMPORTED_MODULE_0__result__["a" /* Result */](item.result);
-        this.pictures = (item.pictures || []).map(function (p) { return new __WEBPACK_IMPORTED_MODULE_1__picture__["a" /* Picture */](p); });
-    }
-    return ReportBaseJson;
-}());
-
-//# sourceMappingURL=report-base.json.js.map
-
-/***/ }),
-
-/***/ 482:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ReportFooterComponent; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__models_reports__ = __webpack_require__(21);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-var ReportFooterComponent = /** @class */ (function () {
-    function ReportFooterComponent() {
-    }
-    ReportFooterComponent.prototype.ngOnInit = function () {
-        this.calculate_text = this.calculate_text || 'Calculate';
-    };
-    __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["D" /* Input */])(),
-        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1__models_reports__["a" /* BaseReportPage */])
-    ], ReportFooterComponent.prototype, "parent", void 0);
-    __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["D" /* Input */])(),
-        __metadata("design:type", String)
-    ], ReportFooterComponent.prototype, "calculate_text", void 0);
-    ReportFooterComponent = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'report-footer',template:/*ion-inline-start:"D:\Sofware Factory\tbi\src\pages\reports\components\report-footer\report-footer.component.html"*/'<ion-footer>\n\n  <ion-grid no-padding>\n\n    <ion-row no-padding>\n\n      <ion-col col-4 no-padding>\n\n        <button tabindex="22" *ngIf="(parent.view!=\'edit_picture\') || (parent.view==\'edit_picture\' && !parent.is_energy_report)" ion-button small color="light" (click)="parent.go_back()">\n\n          <ion-icon name="arrow-back"></ion-icon>&nbsp;Back\n\n        </button>\n\n      </ion-col>\n\n      <ion-col col-4 text-right no-padding *ngIf="parent.view==\'edit_picture\' && parent.is_energy_report">\n\n        <button tabindex="22" ion-button small color="royal" (click)="parent.go_back()">\n\n          Next\n\n        </button>\n\n      </ion-col>\n\n      <ion-col col-4 text-center>\n\n        <tools></tools>\n\n      </ion-col>\n\n      <ion-col col-4 text-right no-padding *ngIf="parent.view!=\'edit_picture\' && parent.segment===\'input\'">\n\n        <button id="submit-button" tabindex="20" ion-button small pull-right color="primary" (click)="parent.calculate()" *ngIf="parent.view!=\'edit_picture\' && parent.view!=\'result\'">\n\n          <!-- {{calculate_text}} -->\n\n          Next\n\n        </button>\n\n        <button id="submit-button" tabindex="21" ion-button small pull-right color="primary" (click)="parent.save()" *ngIf="parent.view==\'result\' && !parent.form.invalid">\n\n          Next\n\n        </button>\n\n      </ion-col>\n\n    </ion-row>\n\n  </ion-grid>\n\n</ion-footer>\n\n'/*ion-inline-end:"D:\Sofware Factory\tbi\src\pages\reports\components\report-footer\report-footer.component.html"*/
-        })
-    ], ReportFooterComponent);
-    return ReportFooterComponent;
-}());
-
-//# sourceMappingURL=report-footer.component.js.map
-
-/***/ }),
-
-/***/ 483:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ReportCondensation; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__report_base__ = __webpack_require__(24);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__pages_reports__ = __webpack_require__(20);
-var __extends = (this && this.__extends) || (function () {
-    var extendStatics = Object.setPrototypeOf ||
-        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
-    return function (d, b) {
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
-
-
-var ReportCondensation = /** @class */ (function (_super) {
-    __extends(ReportCondensation, _super);
-    function ReportCondensation(project, component, item) {
-        var _this = _super.call(this, project, component, item) || this;
-        _this.project = project;
-        _this.component = component;
-        _this.page = __WEBPACK_IMPORTED_MODULE_1__pages_reports__["d" /* ReportCondensationPage */];
-        _this.name = "Condensation";
-        return _this;
-        // this.component.fields.location = 'Test flange borrar';
-        // this.component.fields.operational_time = 8760;
-        // this.component.fields.nominal_diameter = 200;
-        // this.component.fields.number = 1;
-        // this.component.fields.surface_material = 0.8;
-        // this.component.fields.ambient_temp = 12;
-        // this.component.fields.surface_temp = 250;
-    }
-    return ReportCondensation;
-}(__WEBPACK_IMPORTED_MODULE_0__report_base__["a" /* ReportBase */]));
-
-//# sourceMappingURL=report-condensation.class.js.map
-
-/***/ }),
-
-/***/ 484:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ReportDamaged; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__report_base__ = __webpack_require__(24);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__pages_reports__ = __webpack_require__(20);
-var __extends = (this && this.__extends) || (function () {
-    var extendStatics = Object.setPrototypeOf ||
-        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
-    return function (d, b) {
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
-
-
-var ReportDamaged = /** @class */ (function (_super) {
-    __extends(ReportDamaged, _super);
-    function ReportDamaged(project, component, item) {
-        var _this = _super.call(this, project, component, item) || this;
-        _this.project = project;
-        _this.component = component;
-        _this.page = __WEBPACK_IMPORTED_MODULE_1__pages_reports__["e" /* ReportDamagedPage */];
-        _this.name = "Damaged";
-        return _this;
-        // this.component.fields.location = 'Test flange borrar';
-        // this.component.fields.operational_time = 8760;
-        // this.component.fields.nominal_diameter = 200;
-        // this.component.fields.number = 1;
-        // this.component.fields.surface_material = 0.8;
-        // this.component.fields.ambient_temp = 12;
-        // this.component.fields.surface_temp = 250;
-    }
-    return ReportDamaged;
-}(__WEBPACK_IMPORTED_MODULE_0__report_base__["a" /* ReportBase */]));
-
-//# sourceMappingURL=report-damaged.class.js.map
-
-/***/ }),
-
-/***/ 485:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ReportInsulatedSurface; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__report_base__ = __webpack_require__(24);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__pages_reports__ = __webpack_require__(20);
-var __extends = (this && this.__extends) || (function () {
-    var extendStatics = Object.setPrototypeOf ||
-        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
-    return function (d, b) {
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
-
-
-var ReportInsulatedSurface = /** @class */ (function (_super) {
-    __extends(ReportInsulatedSurface, _super);
-    function ReportInsulatedSurface(project, component, item) {
-        var _this = _super.call(this, project, component, item) || this;
-        _this.project = project;
-        _this.component = component;
-        _this.page = __WEBPACK_IMPORTED_MODULE_1__pages_reports__["l" /* ReportInsulatedSurfacePage */];
-        _this.name = "Insulated Surface";
-        //public path = REPORT.INSULATION.INSULATED_EQUIPMENTS.SURFACE;
-        _this.insulated = true;
-        return _this;
-        // this.component.fields.location = 'Test isurface borrar';
-        // this.component.fields.operational_time = 8760;
-        // this.component.fields.surface = 20;
-        // this.component.fields.surface_material = 0.6;
-        // this.component.fields.ambient_temp = 12;
-        // this.component.fields.surface_temp = 89;
-    }
-    Object.defineProperty(ReportInsulatedSurface.prototype, "potential_measure", {
-        get: function () {
-            return (!this.component || !this.component.fields || null == this.component.fields.surface) ? 'kWh/m2' : 'kWh';
-        },
-        enumerable: true,
-        configurable: true
-    });
-    Object.defineProperty(ReportInsulatedSurface.prototype, "money_measure", {
-        get: function () {
-            return (!this.component || !this.component.fields || null == this.component.fields.surface) ? '€/m2' : '€';
-        },
-        enumerable: true,
-        configurable: true
-    });
-    return ReportInsulatedSurface;
-}(__WEBPACK_IMPORTED_MODULE_0__report_base__["a" /* ReportBase */]));
-
-//# sourceMappingURL=report-isurface.class.js.map
-
-/***/ }),
-
-/***/ 486:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ReportValve; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__report_base__ = __webpack_require__(24);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__pages_reports__ = __webpack_require__(20);
-var __extends = (this && this.__extends) || (function () {
-    var extendStatics = Object.setPrototypeOf ||
-        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
-    return function (d, b) {
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
-
-
-var ReportValve = /** @class */ (function (_super) {
-    __extends(ReportValve, _super);
-    function ReportValve(project, component, item) {
-        var _this = _super.call(this, project, component, item) || this;
-        _this.project = project;
-        _this.component = component;
-        _this.page = __WEBPACK_IMPORTED_MODULE_1__pages_reports__["u" /* ReportValvePage */];
-        _this.name = "Uninsulated Valve";
-        return _this;
-        // this.component.fields.location = 'Test valve borrar';
-        // this.component.fields.operational_time = 8760;
-        // this.component.fields.nominal_diameter = 200;
-        // this.component.fields.length = 1;
-        // this.component.fields.number = 1;
-        // this.component.fields.surface_material = 0.8;
-        // this.component.fields.ambient_temp = 25;
-        // this.component.fields.surface_temp = 250;
-    }
-    return ReportValve;
-}(__WEBPACK_IMPORTED_MODULE_0__report_base__["a" /* ReportBase */]));
-
-//# sourceMappingURL=report-valve.class.js.map
-
-/***/ }),
-
-/***/ 487:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ReportFlange; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__report_base__ = __webpack_require__(24);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__pages_reports__ = __webpack_require__(20);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__calculators__ = __webpack_require__(304);
-var __extends = (this && this.__extends) || (function () {
-    var extendStatics = Object.setPrototypeOf ||
-        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
-    return function (d, b) {
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
-
-
-
-var ReportFlange = /** @class */ (function (_super) {
-    __extends(ReportFlange, _super);
-    function ReportFlange(project, component, item) {
-        var _this = _super.call(this, project, component, item) || this;
-        _this.project = project;
-        _this.component = component;
-        _this.page = __WEBPACK_IMPORTED_MODULE_1__pages_reports__["h" /* ReportFlangePage */];
-        _this.name = "Uninsulated Flange";
-        //public path = REPORT.INSULATION.UNINSULATED_EQUIPMENTS.FLANGE;
-        _this.calculator = new __WEBPACK_IMPORTED_MODULE_2__calculators__["a" /* FlangeDecorator */];
-        return _this;
-        // this.component.fields.location = 'Test flange borrar';
-        // this.component.fields.operational_time = 8760;
-        // this.component.fields.nominal_diameter = 200;
-        // this.component.fields.number = 1;
-        // this.component.fields.surface_material = 0.8;
-        // this.component.fields.ambient_temp = 12;
-        // this.component.fields.surface_temp = 250;
-    }
-    return ReportFlange;
-}(__WEBPACK_IMPORTED_MODULE_0__report_base__["a" /* ReportBase */]));
-
-//# sourceMappingURL=report-flange.class.js.map
-
-/***/ }),
-
-/***/ 488:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return IPipeDecorator; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__base_calculator_class__ = __webpack_require__(63);
-var __extends = (this && this.__extends) || (function () {
-    var extendStatics = Object.setPrototypeOf ||
-        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
-    return function (d, b) {
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
-
-var IPipeDecorator = /** @class */ (function () {
-    function IPipeDecorator() {
-    }
-    IPipeDecorator.prototype.calculate = function (report) {
-        return new IPipeCalculator(report).execute();
-    };
-    return IPipeDecorator;
-}());
-
-var IPipeCalculator = /** @class */ (function (_super) {
-    __extends(IPipeCalculator, _super);
-    function IPipeCalculator(report) {
-        var _this = _super.call(this, report, [
-            // /*02*/() => this.hcv = 1.74 * Math.pow(this.Δθ, 1 / 3),
-            // /*04*/() => this.q = this.hse * this.Δθ,
-            function () { _this.θse_min = 55; _this.θse_max = 35; _this.θa_min = 35; _this.θa_max = 1; },
-            /**00*/ function () { return _this.Δθ = Math.abs(_this.θse - _this.θa); },
-            /*01*/ function () { return _this.hr = _this.ε * _this.δ * (Math.pow(_this.θse + 273, 4) - Math.pow(_this.θa + 273, 4)) / ((_this.θse + 273) - (_this.θa + 273)); },
-            /*01min*/ function () { return _this.hr_min = _this.ε_default * _this.δ * (Math.pow(_this.θse_min + 273, 4) - Math.pow(_this.θa_min + 273, 4)) / ((_this.θse_min + 273) - (_this.θa_min + 273)); },
-            /**07*/ function () { return _this.θm_min = (_this.θse + _this.θa + 35) / 2; },
-            /**08*/ function () { return _this.θm_max = (_this.θse + _this.θa + 20) / 2; },
-            /**09*/ function () { return _this.λm_min = _this.a + _this.b * _this.θm_min + _this.c * Math.pow(_this.θm_min, 2) + _this.d * Math.pow(_this.θm_min, 3); },
-            /**10*/ function () { return _this.λm_max = _this.a + _this.b * _this.θm_max + _this.c * Math.pow(_this.θm_max, 2) + _this.d * Math.pow(_this.θm_max, 3); },
-            /**11*/ function () { return _this.λdes_min = _this.λm_min * _this.Ft; },
-            /**12*/ function () { return _this.λdes_max = _this.λm_max * _this.Ft; },
-            /**13*/ function () { return _this.e_min = _this.get_l(0); },
-            /**14*/ function () { return _this.e_max = _this.get_l(1); },
-            /*36*/ function () { return _this.De_min = _this.De; },
-            /*37*/ function () { return _this.De_max = _this.De; },
-            /*32*/ function () { return _this.lort = Math.pow(_this.De, 3) * _this.Δθ; },
-            /*32min*/ function () { return _this.lort_min = Math.pow(_this.De, 3) * Math.abs(_this.θse_min - _this.θa_min); },
-            /*33*/ function () { return _this.hcv_laminar = 1.25 * Math.pow(_this.Δθ / _this.De, 0.25); },
-            /*33min*/ function () { return _this.hcv_laminar_min = 1.25 * Math.pow(Math.abs(_this.θse_min - _this.θa_min) / _this.De_min, 0.25); },
-            ///**33min*/() => this.hcv_laminar_max = 1.25 * Math.pow(Math.abs(this.θse_max - this.θa_max) / this.De_max, 0.25),
-            /**34*/ function () { return _this.hcv_turbulent = 1.21 * Math.pow(_this.Δθ, 0.33); },
-            /**34min*/ function () { return _this.hcv_turbulent_min = 1.21 * Math.pow(Math.abs(_this.θse_min - _this.θa_min), 0.33); },
-            /**35*/ function () { return _this.hse = _this.hr + (_this.lort < 10 ? _this.hcv_laminar : _this.hcv_turbulent); },
-            /**35min*/ function () { return _this.hse_min = _this.hr_min + (_this.lort < 10 ? _this.hcv_laminar_min : _this.hcv_turbulent); },
-            /**35max*/ function () { return _this.hse_max = _this.hr + (_this.lort < 10 ? _this.hcv_laminar_max : _this.hcv_turbulent); },
-            /**42*/ function () { return _this.Rle = 1 / (_this.hse * Math.PI * _this.De); },
-            /**42min*/ function () { return _this.Rle_min = 1 / (_this.hse_min * Math.PI * _this.De_min); },
-            /**42max*/ function () { return _this.Rle_max = 1 / (_this.hse_max * Math.PI * _this.De_max); },
-            ///*41*/() => this.qref_pb = this.q - ((10000 * this.Cpb_surface_pipe) / this.Ot / this.Σ),
-            /**43*/ function () { return _this.ql = _this.Δθ / _this.Rle; },
-            /**38*/ function () { return _this.Rins_min = (Math.log(_this.De_min / _this.De)) / (2 * Math.PI * _this.λdes_min); },
-            /**39*/ function () { return _this.Rins_max = (Math.log(_this.De_max / _this.De)) / (2 * Math.PI * _this.λdes_max); },
-            /**45*/ function () { return _this.ql_min = (Math.abs(_this.θse_min - _this.θa_min)) / (_this.Rle_min + _this.Rins_min); },
-            /**46*/ function () { return _this.ql_max = 114; },
-            //*47*/() => this.Qkwh = this.ql * this.l * this.Ot * this.l * 1 / 1000,
-            /**40*/ function () { return _this.Sp = Math.PI * _this.De_min; },
-            /**44*/ function () { return _this.Qkwh = _this.ql * _this.l * _this.Ot * 1 / 1000; },
-            /**44min*/ function () { return _this.Qkwh_min = _this.ql_min * _this.l * _this.Ot * 1 / 1000; },
-            /**44max*/ function () { return _this.Qkwh_max = _this.ql_max * _this.l * _this.Ot * 1 / 1000; },
-            /*48*/ function () { return _this.ql_ref_pb = _this.ql - ((10000 * _this.Cpb_surface_pipe * _this.Sp) / (_this.Ot * _this.Σ)); },
-            /*06*/ function () { return _this.Qε = _this.Qkwh * _this.Σ; },
-            /*24*/ function () { return _this.Qε_min = _this.Qkwh_min * _this.Σ; },
-            /*25*/ function () { return _this.Qε_max = _this.Qkwh_max * _this.Σ; },
-            /*26*/ function () { return _this.Savingkwh_min = _this.Qkwh - _this.Qkwh_min; },
-            /*27*/ function () { return _this.Savingkwh_max = _this.Qkwh - _this.Qkwh_max; },
-            /*28*/ function () { return _this.Savingε_min = _this.Qε - _this.Qε_min; },
-            /*29*/ function () { return _this.Savingε_max = _this.Qε - _this.Qε_max; },
-            /*30*/ function () { return _this.Insulation_advice = _this.ql_ref_pb > _this.ql_min ? 'Savings can be achieved by increasing the insulant performance or thickness' : 'System OK'; },
-        ]) || this;
-        return _this;
-    }
-    return IPipeCalculator;
-}(__WEBPACK_IMPORTED_MODULE_0__base_calculator_class__["a" /* BaseCalculator */]));
-//# sourceMappingURL=ipipe.class.js.map
-
-/***/ }),
-
-/***/ 489:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ISurfaceDecorator; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__base_calculator_class__ = __webpack_require__(63);
-var __extends = (this && this.__extends) || (function () {
-    var extendStatics = Object.setPrototypeOf ||
-        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
-    return function (d, b) {
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
-
-var ISurfaceDecorator = /** @class */ (function () {
-    function ISurfaceDecorator() {
-    }
-    ISurfaceDecorator.prototype.calculate = function (report) {
-        return new ISurfaceCalculator(report).execute();
-    };
-    return ISurfaceDecorator;
-}());
-
-var ISurfaceCalculator = /** @class */ (function (_super) {
-    __extends(ISurfaceCalculator, _super);
-    function ISurfaceCalculator(report) {
-        var _this = _super.call(this, report, [
-            function () { _this.θse_min = 55; _this.θse_max = 35; _this.θa_min = 35; _this.θa_max = 1; },
-            /*00*/ function () { return _this.Δθ = Math.abs(_this.θse - _this.θa); },
-            /*01*/ function () { return _this.hr = _this.ε * _this.δ * (Math.pow(_this.θse + 273, 4) - Math.pow(_this.θa + 273, 4)) / ((_this.θse + 273) - (_this.θa + 273)); },
-            /*01min*/ function () { return _this.hr_min = _this.ε * _this.δ * (Math.pow(_this.θse_min + 273, 4) - Math.pow(_this.θa_min + 273, 4)) / ((_this.θse_min + 273) - (_this.θa_min + 273)); },
-            /*02*/ function () { return _this.hcv = 1.74 * Math.pow(_this.Δθ, 1 / 3); },
-            /*02min*/ function () { return _this.hcv_min = 1.74 * Math.pow(Math.abs(_this.θse_min - _this.θa_min), 1 / 3); },
-            /*03*/ function () { return _this.hse = _this.hr + _this.hcv; },
-            /*03min*/ function () { return _this.hse_min = _this.hr_min + _this.hcv_min; },
-            /*04*/ function () { return _this.q = _this.hse * _this.Δθ; },
-            /*05*/ function () { return _this.Qkwh = _this.q * _this.S * _this.Ot * 1 / 1000; },
-            /*06*/ function () { return _this.Qε = _this.Qkwh * _this.Σ; },
-            /*07*/ function () { return _this.θm_min = (_this.θse_min + (_this.θa + 35)) / 2; },
-            /*08*/ function () { return _this.θm_max = (_this.θse_max + (_this.θa + 20)) / 2; },
-            /*09*/ function () { return _this.λm_min = _this.a + _this.b * _this.θm_min + _this.c * Math.pow(_this.θm_min, 2) + _this.d * Math.pow(_this.θm_min, 3); },
-            /*10*/ function () { return _this.λm_max = _this.a + _this.b * _this.θm_max + _this.c * Math.pow(_this.θm_max, 2) + _this.d * Math.pow(_this.θm_max, 3); },
-            /*11*/ function () { return _this.λdes_min = _this.λm_min * _this.Ft; },
-            /*12*/ function () { return _this.λdes_max = _this.λm_max * _this.Ft; },
-            /*13*/ function () { return _this.e_min = _this.get_l(0); },
-            /*14*/ function () { return _this.e_max = _this.get_l(1); },
-            /*15*/ function () { return _this.Rse_min = 1 / _this.hse; },
-            /*16*/ function () { return _this.Rse_max = 1 / _this.hse; },
-            /*17*/ function () { return _this.Rins_min = _this.e_min / _this.λdes_min; },
-            /*18*/ function () { return _this.Rins_max = _this.e_max / _this.λdes_max; },
-            /*19*/ function () { return _this.qref_pb = _this.q - ((10000 * _this.Cpb_surface_pipe) / _this.Ot / _this.Σ); },
-            /*20*/ function () { return _this.q_min = _this.hse_min * Math.abs(_this.θse_min - _this.θa_min); },
-            /*21*/ function () { return _this.q_max = 90; },
-            /*22*/ function () { return _this.Qkwh_min = _this.q_min * _this.S * _this.Ot * 1 / 1000; },
-            /*23*/ function () { return _this.Qkwh_max = _this.q_max * _this.S * _this.Ot * 1 / 1000; },
-            /*24*/ function () { return _this.Qε_min = _this.Qkwh_min * _this.Σ; },
-            /*25*/ function () { return _this.Qε_max = _this.Qkwh_max * _this.Σ; },
-            /*26*/ function () { return _this.Savingkwh_min = _this.Qkwh - _this.Qkwh_min; },
-            /*27*/ function () { return _this.Savingkwh_max = _this.Qkwh - _this.Qkwh_max; },
-            /*28*/ function () { return _this.Savingε_min = _this.Qε - _this.Qε_min; },
-            /*29*/ function () { return _this.Savingε_max = _this.Qε - _this.Qε_max; },
-            /*30*/ function () { return _this.Insulation_advice = _this.qref_pb > _this.q_min ? 'Savings can be achieved by increasing insulation performance or thickness' : 'System OK'; }
-        ]) || this;
-        return _this;
-    }
-    return ISurfaceCalculator;
-}(__WEBPACK_IMPORTED_MODULE_0__base_calculator_class__["a" /* BaseCalculator */]));
-//# sourceMappingURL=isurface.class.js.map
-
-/***/ }),
-
-/***/ 490:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ValveDecorator; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__base_calculator_class__ = __webpack_require__(63);
-var __extends = (this && this.__extends) || (function () {
-    var extendStatics = Object.setPrototypeOf ||
-        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
-    return function (d, b) {
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
-
-var ValveDecorator = /** @class */ (function () {
-    function ValveDecorator() {
-    }
-    ValveDecorator.prototype.calculate = function (report) {
-        return new ValveCalculator(report).execute();
-    };
-    return ValveDecorator;
-}());
-
-var ValveCalculator = /** @class */ (function (_super) {
-    __extends(ValveCalculator, _super);
-    function ValveCalculator(report) {
-        var _this = _super.call(this, report, [
-            // /*02*/() => this.hcv = 1.74 * Math.pow(this.Δθ, 1 / 3),
-            // /*04*/() => this.q = this.hse * this.Δθ,
-            /*00*/ function () { return _this.Δθ = Math.abs(_this.θse - _this.θa); },
-            /*01*/ function () { return _this.hr = _this.ε * _this.δ * (Math.pow(_this.θse + 273, 4) - Math.pow(_this.θa + 273, 4)) / ((_this.θse + 273) - (_this.θa + 273)); },
-            /*07*/ function () { return _this.θm_min = (_this.θse + _this.θa + 35) / 2; },
-            /*08*/ function () { return _this.θm_max = (_this.θse + _this.θa + 20) / 2; },
-            /*09*/ function () { return _this.λm_min = _this.a + _this.b * _this.θm_min + _this.c * Math.pow(_this.θm_min, 2) + _this.d * Math.pow(_this.θm_min, 3); },
-            /*10*/ function () { return _this.λm_max = _this.a + _this.b * _this.θm_max + _this.c * Math.pow(_this.θm_max, 2) + _this.d * Math.pow(_this.θm_max, 3); },
-            /*11*/ function () { return _this.λdes_min = _this.λm_min * _this.Ft; },
-            /*12*/ function () { return _this.λdes_max = _this.λm_max * _this.Ft; },
-            /*13*/ function () { return _this.e_min = _this.get_l(0); },
-            /*14*/ function () { return _this.e_max = _this.get_l(1); },
-            /*36*/ function () { return _this.De_min = _this.De + 2 * _this.e_min; },
-            /*37*/ function () { return _this.De_max = _this.De + 2 * _this.e_max; },
-            /**32*/ function () { return _this.lort = Math.pow(_this.De, 3) * _this.Δθ; },
-            /**32min*/ function () { return _this.lort_min = Math.pow(_this.De_min, 3) * _this.Δθ; },
-            /**32max*/ function () { return _this.lort_max = Math.pow(_this.De_max, 3) * _this.Δθ; },
-            /**33*/ function () { return _this.hcv_laminar = 1.25 * Math.pow(_this.Δθ / _this.De, 0.25); },
-            /**33min*/ function () { return _this.hcv_laminar_min = 1.25 * Math.pow(_this.Δθ / _this.De_min, 0.25); },
-            /**33max*/ function () { return _this.hcv_laminar_max = 1.25 * Math.pow(_this.Δθ / _this.De_max, 0.25); },
-            /**34*/ function () { return _this.hcv_turbulent = 1.21 * Math.pow(_this.Δθ, 0.33); },
-            /**35*/ function () { return _this.hse = _this.hr + (_this.lort < 10 ? _this.hcv_laminar : _this.hcv_turbulent); },
-            /**35min*/ function () { return _this.hse_min = _this.hr + (_this.lort_min < 10 ? _this.hcv_laminar_min : _this.hcv_turbulent); },
-            /**35max*/ function () { return _this.hse_max = _this.hr + (_this.lort_max < 10 ? _this.hcv_laminar_max : _this.hcv_turbulent); },
-            /**42*/ function () { return _this.Rle = 1 / (_this.hse * Math.PI * _this.De); },
-            /**43*/ function () { return _this.ql = _this.Δθ / _this.Rle; },
-            /**42min*/ function () { return _this.Rle_min = 1 / (_this.hse_min * Math.PI * _this.De_min); },
-            /**42max*/ function () { return _this.Rle_max = 1 / (_this.hse_max * Math.PI * _this.De_max); },
-            /**38*/ function () { return _this.Rins_min = (Math.log(_this.De_min / _this.De)) / (2 * Math.PI * _this.λdes_min); },
-            /**39*/ function () { return _this.Rins_max = (Math.log(_this.De_max / _this.De)) / (2 * Math.PI * _this.λdes_max); },
-            /**45*/ function () { return _this.ql_min = _this.Δθ / (_this.Rle_min + _this.Rins_min); },
-            /**46*/ function () { return _this.ql_max = _this.Δθ / (_this.Rle_max + _this.Rins_max); },
-            //*47*/() => this.Qkwh = this.ql * this.l * this.Ot * this.l * 1 / 1000,
-            ///*41*/() => this.qref_pb = this.q - ((10000 * this.Cpb_surface_pipe) / this.Ot / this.Σ),
-            /*40*/ function () { return _this.Sp = Math.PI * _this.De_min; },
-            /*44*/ function () { return _this.Qkwh = _this.ql * _this.l * _this.n * _this.Ot * 1 / 1000; },
-            /*44min*/ function () { return _this.Qkwh_min = _this.ql_min * _this.l * _this.n * _this.Ot / 1000; },
-            /*44max*/ function () { return _this.Qkwh_max = _this.ql_max * _this.l * _this.n * _this.Ot / 1000; },
-            /*48*/ function () { return _this.ql_ref_pb = _this.ql - ((10000 * _this.Cpb_surface_pipe * _this.Sp) / (_this.Ot * _this.Σ)); },
-            /*06*/ function () { return _this.Qε = _this.Qkwh * _this.Σ; },
-            /*24*/ function () { return _this.Qε_min = _this.Qkwh_min * _this.Σ; },
-            /*25*/ function () { return _this.Qε_max = _this.Qkwh_max * _this.Σ; },
-            /*26*/ function () { return _this.Savingkwh_min = _this.Qkwh - _this.Qkwh_min; },
-            /*27*/ function () { return _this.Savingkwh_max = _this.Qkwh - _this.Qkwh_max; },
-            /*28*/ function () { return _this.Savingε_min = _this.Qε - _this.Qε_min; },
-            /*29*/ function () { return _this.Savingε_max = _this.Qε - _this.Qε_max; },
-            /*30*/ function () { return _this.Insulation_advice = _this.ql_ref_pb > _this.ql_min ? 'SAFETY-Insulation recommended' : 'System OK'; },
-        ]) || this;
-        return _this;
-    }
-    return ValveCalculator;
-}(__WEBPACK_IMPORTED_MODULE_0__base_calculator_class__["a" /* BaseCalculator */]));
-//# sourceMappingURL=valve.class.js.map
-
-/***/ }),
-
-/***/ 491:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return PipeDecorator; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__base_calculator_class__ = __webpack_require__(63);
-var __extends = (this && this.__extends) || (function () {
-    var extendStatics = Object.setPrototypeOf ||
-        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
-    return function (d, b) {
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
-
-var PipeDecorator = /** @class */ (function () {
-    function PipeDecorator() {
-    }
-    PipeDecorator.prototype.calculate = function (report) {
-        return new PipeCalculator(report).execute();
-    };
-    return PipeDecorator;
-}());
-
-var PipeCalculator = /** @class */ (function (_super) {
-    __extends(PipeCalculator, _super);
-    function PipeCalculator(report) {
-        var _this = _super.call(this, report, [
-            // /*02*/() => this.hcv = 1.74 * Math.pow(this.Δθ, 1 / 3),
-            // /*04*/() => this.q = this.hse * this.Δθ,
-            /**00*/ function () { return _this.Δθ = Math.abs(_this.θse - _this.θa); },
-            /**01*/ function () { return _this.hr = _this.ε * _this.δ * (Math.pow(_this.θse + 273, 4) - Math.pow(_this.θa + 273, 4)) / ((_this.θse + 273) - (_this.θa + 273)); },
-            /**07*/ function () { return _this.θm_min = (_this.θse + _this.θa + 35) / 2; },
-            /**08*/ function () { return _this.θm_max = (_this.θse + _this.θa + 20) / 2; },
-            /**09*/ function () { return _this.λm_min = _this.a + _this.b * _this.θm_min + _this.c * Math.pow(_this.θm_min, 2) + _this.d * Math.pow(_this.θm_min, 3); },
-            /**10*/ function () { return _this.λm_max = _this.a + _this.b * _this.θm_max + _this.c * Math.pow(_this.θm_max, 2) + _this.d * Math.pow(_this.θm_max, 3); },
-            /**11*/ function () { return _this.λdes_min = _this.λm_min * _this.Ft; },
-            /**12*/ function () { return _this.λdes_max = _this.λm_max * _this.Ft; },
-            /**13*/ function () { return _this.e_min = _this.get_l(0); },
-            /**14*/ function () { return _this.e_max = _this.get_l(1); },
-            /**32*/ function () { return _this.lort = Math.pow(_this.De, 3) * _this.Δθ; },
-            /**36*/ function () { return _this.De_min = _this.De + 2 * _this.e_min; },
-            /**37*/ function () { return _this.De_max = _this.De + 2 * _this.e_max; },
-            /**33*/ function () { return _this.hcv_laminar = 1.25 * Math.pow(_this.Δθ / _this.De, 0.25); },
-            /**33min*/ function () { return _this.hcv_laminar_min = 1.25 * Math.pow(_this.Δθ / _this.De_min, 0.25); },
-            /**34min*/ function () { return _this.hcv_laminar_max = 1.25 * Math.pow(_this.Δθ / _this.De_max, 0.25); },
-            /**34*/ function () { return _this.hcv_turbulent = 1.21 * Math.pow(_this.Δθ, 0.33); },
-            /**35*/ function () { return _this.hse = _this.hr + (_this.lort < 10 ? _this.hcv_laminar : _this.hcv_turbulent); },
-            /**35min*/ function () { return _this.hse_min = _this.hr + (_this.lort < 10 ? _this.hcv_laminar_min : _this.hcv_turbulent); },
-            /**35max*/ function () { return _this.hse_max = _this.hr + (_this.lort < 10 ? _this.hcv_laminar_max : _this.hcv_turbulent); },
-            /**42*/ function () { return _this.Rle = 1 / (_this.hse * Math.PI * _this.De); },
-            /**43*/ function () { return _this.ql = _this.Δθ / _this.Rle; },
-            ///*41*/() => this.qref_pb = this.q - ((10000 * this.Cpb_surface_pipe) / this.Ot / this.Σ),
-            /**42min*/ function () { return _this.Rle_min = 1 / (_this.hse_min * Math.PI * _this.De_min); },
-            /**42max*/ function () { return _this.Rle_max = 1 / (_this.hse_max * Math.PI * _this.De_max); },
-            /**38*/ function () { return _this.Rins_min = (Math.log(_this.De_min / _this.De)) / (2 * Math.PI * _this.λdes_min); },
-            /**39*/ function () { return _this.Rins_max = (Math.log(_this.De_max / _this.De)) / (2 * Math.PI * _this.λdes_max); },
-            /**45*/ function () { return _this.ql_min = _this.Δθ / (_this.Rle_min + _this.Rins_min); },
-            /**46*/ function () { return _this.ql_max = _this.Δθ / (_this.Rle_max + _this.Rins_max); },
-            //*47*/() => this.Qkwh = this.ql * this.l * this.Ot * this.l * 1 / 1000,
-            /**40*/ function () { return _this.Sp = Math.PI * _this.De_min; },
-            /**44*/ function () { return _this.Qkwh = _this.ql * _this.l * _this.Ot * 1 / 1000; },
-            /**44min*/ function () { return _this.Qkwh_min = _this.ql_min * _this.l * _this.Ot * 1 / 1000; },
-            /**44max*/ function () { return _this.Qkwh_max = _this.ql_max * _this.l * _this.Ot * 1 / 1000; },
-            /*48*/ function () { return _this.ql_ref_pb = _this.ql - ((10000 * _this.Cpb_surface_pipe * _this.Sp) / (_this.Ot * _this.Σ)); },
-            /*06*/ function () { return _this.Qε = _this.Qkwh * _this.Σ; },
-            /*24*/ function () { return _this.Qε_min = _this.Qkwh_min * _this.Σ; },
-            /*25*/ function () { return _this.Qε_max = _this.Qkwh_max * _this.Σ; },
-            /*26*/ function () { return _this.Savingkwh_min = _this.Qkwh - _this.Qkwh_min; },
-            /*27*/ function () { return _this.Savingkwh_max = _this.Qkwh - _this.Qkwh_max; },
-            /*28*/ function () { return _this.Savingε_min = _this.Qε - _this.Qε_min; },
-            /*29*/ function () { return _this.Savingε_max = _this.Qε - _this.Qε_max; },
-            /*30*/ function () { return _this.Insulation_advice = _this.ql_ref_pb > _this.ql_min ? 'Insulation recommended' : 'System OK'; },
-        ]) || this;
-        return _this;
-    }
-    return PipeCalculator;
-}(__WEBPACK_IMPORTED_MODULE_0__base_calculator_class__["a" /* BaseCalculator */]));
-//# sourceMappingURL=pipe.class.js.map
-
-/***/ }),
-
-/***/ 492:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return FlangeDecorator; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__base_calculator_class__ = __webpack_require__(63);
-var __extends = (this && this.__extends) || (function () {
-    var extendStatics = Object.setPrototypeOf ||
-        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
-    return function (d, b) {
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
-
-var FlangeDecorator = /** @class */ (function () {
-    function FlangeDecorator() {
-    }
-    FlangeDecorator.prototype.calculate = function (report) {
-        return new FlangeCalculator(report).execute();
-    };
-    return FlangeDecorator;
-}());
-
-var FlangeCalculator = /** @class */ (function (_super) {
-    __extends(FlangeCalculator, _super);
-    function FlangeCalculator(report) {
-        var _this = _super.call(this, report, [
-            /*00*/ function () { return _this.Δθ = Math.abs(_this.θse - _this.θa); },
-            /*01*/ function () { return _this.hr = _this.ε * _this.δ * (Math.pow(_this.θse + 273, 4) - Math.pow(_this.θa + 273, 4)) / ((_this.θse + 273) - (_this.θa + 273)); },
-            /*02*/ function () { return _this.hcv = 1.74 * Math.pow(_this.Δθ, 1 / 3); },
-            /*04*/ function () { return _this.q = _this.hse * _this.Δθ; },
-            /*07*/ function () { return _this.θm_min = (_this.θse + _this.θa + 35) / 2; },
-            /*08*/ function () { return _this.θm_max = (_this.θse + _this.θa + 20) / 2; },
-            /*09*/ function () { return _this.λm_min = _this.a + _this.b * _this.θm_min + _this.c * Math.pow(_this.θm_min, 2) + _this.d * Math.pow(_this.θm_min, 3); },
-            /*10*/ function () { return _this.λm_max = _this.a + _this.b * _this.θm_max + _this.c * Math.pow(_this.θm_max, 2) + _this.d * Math.pow(_this.θm_max, 3); },
-            /*11*/ function () { return _this.λdes_min = _this.λm_min * _this.Ft; },
-            /*12*/ function () { return _this.λdes_max = _this.λm_max * _this.Ft; },
-            /**13*/ function () { return _this.e_min = _this.get_l(0); },
-            /**14*/ function () { return _this.e_max = _this.get_l(1); },
-            /*32*/ function () { return _this.lort = Math.pow(_this.De, 3) * _this.Δθ; },
-            /**36*/ function () { return _this.De_min = _this.De + 2 * _this.e_min; },
-            /**37*/ function () { return _this.De_max = _this.De + 2 * _this.e_max; },
-            /*33*/ function () { return _this.hcv_laminar = 1.25 * Math.pow(_this.Δθ / _this.De, 0.25); },
-            /*33min*/ function () { return _this.hcv_laminar_min = 1.25 * Math.pow(_this.Δθ / _this.De_min, 0.25); },
-            /*34min*/ function () { return _this.hcv_laminar_max = 1.25 * Math.pow(_this.Δθ / _this.De_max, 0.25); },
-            /*34*/ function () { return _this.hcv_turbulent = 1.21 * Math.pow(_this.Δθ, 0.33); },
-            /*35*/ function () { return _this.hse = _this.hr + (_this.lort < 10 ? _this.hcv_laminar : _this.hcv_turbulent); },
-            /*35min*/ function () { return _this.hse_min = _this.hr + (_this.lort < 10 ? _this.hcv_laminar_min : _this.hcv_turbulent); },
-            /*35max*/ function () { return _this.hse_max = _this.hr + (_this.lort < 10 ? _this.hcv_laminar_max : _this.hcv_turbulent); },
-            /**42*/ function () { return _this.Rle = 1 / (_this.hse * Math.PI * _this.De); },
-            /*43*/ function () { return _this.ql = _this.Δθ / _this.Rle; },
-            /**42min*/ function () { return _this.Rle_min = 1 / (_this.hse_min * Math.PI * _this.De_min); },
-            /**42max*/ function () { return _this.Rle_max = 1 / (_this.hse_max * Math.PI * _this.De_max); },
-            /**38*/ function () { return _this.Rins_min = (Math.log(_this.De_min / _this.De)) / (2 * Math.PI * _this.λdes_min); },
-            /**39*/ function () { return _this.Rins_max = (Math.log(_this.De_max / _this.De)) / (2 * Math.PI * _this.λdes_max); },
-            /*45*/ function () { return _this.ql_min = _this.Δθ / (_this.Rle_min + _this.Rins_min); },
-            /*46*/ function () { return _this.ql_max = _this.Δθ / (_this.Rle_max + _this.Rins_max); },
-            /*47*/ function () { return _this.Qkwh = _this.ql * _this.l * _this.Ot * _this.n * 1 / 1000; },
-            /*40*/ function () { return _this.Sp = Math.PI * _this.De_min; },
-            /*48*/ function () { return _this.ql_ref_pb = _this.ql - (10000 * _this.Cpb_valve_flange * _this.Sp / _this.Ot / _this.Σ); },
-            /*06*/ function () { return _this.Qε = _this.Qkwh * _this.Σ; },
-            /*22*/ function () { return _this.Qkwh_min = _this.ql_min * _this.l * _this.Ot * _this.n / 1000; },
-            /*23*/ function () { return _this.Qkwh_max = _this.ql_max * _this.l * _this.Ot * _this.n / 1000; },
-            /*24*/ function () { return _this.Qε_min = _this.Qkwh_min * _this.Σ; },
-            /*25*/ function () { return _this.Qε_max = _this.Qkwh_max * _this.Σ; },
-            /*26*/ function () { return _this.Savingkwh_min = _this.Qkwh - _this.Qkwh_min; },
-            /*27*/ function () { return _this.Savingkwh_max = _this.Qkwh - _this.Qkwh_max; },
-            /*28*/ function () { return _this.Savingε_min = _this.Qε - _this.Qε_min; },
-            /*29*/ function () { return _this.Savingε_max = _this.Qε - _this.Qε_max; },
-            /*30*/ function () { return _this.Insulation_advice = _this.ql_ref_pb > _this.ql_min ? 'Insulation recommended' : 'System OK'; },
-        ]) || this;
-        return _this;
-    }
-    Object.defineProperty(FlangeCalculator.prototype, "default_length", {
-        get: function () {
-            return .5;
-        },
-        enumerable: true,
-        configurable: true
-    });
-    return FlangeCalculator;
-}(__WEBPACK_IMPORTED_MODULE_0__base_calculator_class__["a" /* BaseCalculator */]));
-//# sourceMappingURL=flange.class.js.map
-
-/***/ }),
-
-/***/ 493:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SurfaceDecorator; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__base_calculator_class__ = __webpack_require__(63);
-var __extends = (this && this.__extends) || (function () {
-    var extendStatics = Object.setPrototypeOf ||
-        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
-    return function (d, b) {
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
-
-var SurfaceDecorator = /** @class */ (function () {
-    function SurfaceDecorator() {
-    }
-    SurfaceDecorator.prototype.calculate = function (report) {
-        return new SurfaceCalculator(report).execute();
-    };
-    return SurfaceDecorator;
-}());
-
-var SurfaceCalculator = /** @class */ (function (_super) {
-    __extends(SurfaceCalculator, _super);
-    function SurfaceCalculator(report) {
-        var _this = _super.call(this, report, [
-            /*00*/ function () { return _this.Δθ = Math.abs(_this.θse - _this.θa); },
-            /*01*/ function () { return _this.hr = _this.ε * _this.δ * (Math.pow(_this.θse + 273, 4) - Math.pow(_this.θa + 273, 4)) / ((_this.θse + 273) - (_this.θa + 273)); },
-            /*02*/ function () { return _this.hcv = 1.74 * Math.pow(_this.Δθ, 1 / 3); },
-            /*03*/ function () { return _this.hse = _this.hr + _this.hcv; },
-            /*04*/ function () { return _this.q = _this.hse * _this.Δθ; },
-            /*05*/ function () { return _this.Qkwh = _this.q * _this.S * _this.Ot * 1 / 1000; },
-            /*06*/ function () { return _this.Qε = _this.Qkwh * _this.Σ; },
-            /*07*/ function () { return _this.θm_min = (_this.θse_min + (_this.θa + 35)) / 2; },
-            /*08*/ function () { return _this.θm_max = (_this.θse_max + (_this.θa + 20)) / 2; },
-            /*09*/ function () { return _this.λm_min = _this.a + _this.b * _this.θm_min + _this.c * Math.pow(_this.θm_min, 2) + _this.d * Math.pow(_this.θm_min, 3); },
-            /*10*/ function () { return _this.λm_max = _this.a + _this.b * _this.θm_max + _this.c * Math.pow(_this.θm_max, 2) + _this.d * Math.pow(_this.θm_max, 3); },
-            /*11*/ function () { return _this.λdes_min = _this.λm_min * _this.Ft; },
-            /*12*/ function () { return _this.λdes_max = _this.λm_max * _this.Ft; },
-            /*13*/ function () { return _this.e_min = _this.get_l(0); },
-            /*14*/ function () { return _this.e_max = _this.get_l(1); },
-            /*15*/ function () { return _this.Rse_min = 1 / _this.hse; },
-            /*16*/ function () { return _this.Rse_max = 1 / _this.hse; },
-            /*17*/ function () { return _this.Rins_min = _this.e_min / _this.λdes_min; },
-            /*18*/ function () { return _this.Rins_max = _this.e_max / _this.λdes_max; },
-            /*19*/ function () { return _this.qref_pb = _this.q - ((10000 * _this.Cpb_surface_pipe) / _this.Ot / _this.Σ); },
-            /*20*/ function () { return _this.q_min = _this.Δθ / (_this.Rse_min + _this.Rins_min); },
-            /*21*/ function () { return _this.q_max = _this.Δθ / (_this.Rse_max + _this.Rins_max); },
-            /*22*/ function () { return _this.Qkwh_min = _this.q_min * _this.S * _this.Ot * 1 / 1000; },
-            /*23*/ function () { return _this.Qkwh_max = _this.q_max * _this.S * _this.Ot * 1 / 1000; },
-            /*24*/ function () { return _this.Qε_min = _this.Qkwh_min * _this.Σ; },
-            /*25*/ function () { return _this.Qε_max = _this.Qkwh_max * _this.Σ; },
-            /*26*/ function () { return _this.Savingkwh_min = _this.Qkwh - _this.Qkwh_min; },
-            /*27*/ function () { return _this.Savingkwh_max = _this.Qkwh - _this.Qkwh_max; },
-            /*28*/ function () { return _this.Savingε_min = _this.Qε - _this.Qε_min; },
-            /*29*/ function () { return _this.Savingε_max = _this.Qε - _this.Qε_max; },
-            /*30*/ function () { return _this.Insulation_advice = _this.qref_pb > _this.q_min ? 'Insulation recommended' : 'System OK'; }
-        ]) || this;
-        return _this;
-    }
-    return SurfaceCalculator;
-}(__WEBPACK_IMPORTED_MODULE_0__base_calculator_class__["a" /* BaseCalculator */]));
-//# sourceMappingURL=surface.class.js.map
-
-/***/ }),
-
-/***/ 494:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ReportSurface; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__report_base__ = __webpack_require__(24);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__pages_reports__ = __webpack_require__(20);
-var __extends = (this && this.__extends) || (function () {
-    var extendStatics = Object.setPrototypeOf ||
-        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
-    return function (d, b) {
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
-
-
-var ReportSurface = /** @class */ (function (_super) {
-    __extends(ReportSurface, _super);
-    function ReportSurface(project, component, item) {
-        var _this = _super.call(this, project, component, item) || this;
-        _this.project = project;
-        _this.component = component;
-        _this.page = __WEBPACK_IMPORTED_MODULE_1__pages_reports__["s" /* ReportSurfacePage */];
-        _this.name = "Uninsulated Surface";
-        return _this;
-    }
-    Object.defineProperty(ReportSurface.prototype, "potential_measure", {
-        //public path = REPORT.INSULATION.UNINSULATED_EQUIPMENTS.SURFACE;
-        get: function () {
-            return (!this.component || !this.component.fields || null == this.component.fields.surface) ? 'kWh/m2' : 'kWh';
-        },
-        enumerable: true,
-        configurable: true
-    });
-    Object.defineProperty(ReportSurface.prototype, "money_measure", {
-        get: function () {
-            return (!this.component || !this.component.fields || null == this.component.fields.surface) ? '€/m2' : '€';
-        },
-        enumerable: true,
-        configurable: true
-    });
-    return ReportSurface;
-}(__WEBPACK_IMPORTED_MODULE_0__report_base__["a" /* ReportBase */]));
-
-//# sourceMappingURL=report-surface.class.js.map
-
-/***/ }),
-
-/***/ 495:
+/***/ 304:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return BaseReportPage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_ionic_angular__ = __webpack_require__(6);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_ionic_angular__ = __webpack_require__(5);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_forms__ = __webpack_require__(18);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__calculators_calculator_factory__ = __webpack_require__(496);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__calculators_calculator_factory__ = __webpack_require__(498);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__picture__ = __webpack_require__(101);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pages_reports__ = __webpack_require__(20);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__const_more_more__ = __webpack_require__(99);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__const_more_more__ = __webpack_require__(63);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__component__ = __webpack_require__(76);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__pages_scroll_to_component_class__ = __webpack_require__(173);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__const_images__ = __webpack_require__(171);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__const_patterns__ = __webpack_require__(305);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__pages_projects_projects__ = __webpack_require__(74);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__pages_summary_summary__ = __webpack_require__(103);
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = Object.setPrototypeOf ||
         ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
@@ -3769,7 +1976,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 var BaseReportPage = /** @class */ (function (_super) {
     __extends(BaseReportPage, _super);
-    function BaseReportPage(report, navCtrl, service, alertCtrl, picture, message, keyboard) {
+    function BaseReportPage(report, navCtrl, service, alertCtrl, picture, message, keyboard, modalCtrl) {
         var _this = _super.call(this, keyboard) || this;
         _this.report = report;
         _this.navCtrl = navCtrl;
@@ -3778,13 +1985,14 @@ var BaseReportPage = /** @class */ (function (_super) {
         _this.picture = picture;
         _this.message = message;
         _this.keyboard = keyboard;
+        _this.modalCtrl = modalCtrl;
+        _this.unknow_surface = false;
         _this.calculator = new __WEBPACK_IMPORTED_MODULE_3__calculators_calculator_factory__["a" /* CalculatorFactory */]();
         _this.edit_surface_material = false;
         _this.view = 'form';
         _this.editing_picture = new __WEBPACK_IMPORTED_MODULE_4__picture__["a" /* Picture */]();
         _this.segment = 'input';
         _this.patterns = __WEBPACK_IMPORTED_MODULE_10__const_patterns__["a" /* Patterns */];
-        _this.unknow_surface = false;
         _this.editable = false;
         _this._average_temp = null;
         _this._original_component = _this.report.component;
@@ -3898,7 +2106,7 @@ var BaseReportPage = /** @class */ (function (_super) {
         this.confirm_space().then(function (space) {
             _this.report.component.fields.space_warning = space;
             _this.service.save(_this.report).then(function (p) {
-                _this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_11__pages_projects_projects__["a" /* ProjectsPage */], { project: p, summary: true }, { animate: true, direction: 'backward' });
+                _this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_11__pages_summary_summary__["a" /* SummaryPage */], { project: p, summary: true }, { animate: true, direction: 'backward' });
             });
         });
         //this.ask_for_more_reports(project);
@@ -3915,7 +2123,7 @@ var BaseReportPage = /** @class */ (function (_super) {
                 {
                     text: 'No',
                     handler: function () {
-                        _this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_5__pages_reports__["v" /* ReportsPage */], {
+                        _this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_5__pages_reports__["w" /* ReportsPage */], {
                             project: project,
                             message: "\u201C" + _this.report.component.fields.location + "\u201D has been saved. You are going to start reports on a new component."
                         });
@@ -3928,7 +2136,7 @@ var BaseReportPage = /** @class */ (function (_super) {
                 {
                     text: 'Yes',
                     handler: function () {
-                        _this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_5__pages_reports__["v" /* ReportsPage */], {
+                        _this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_5__pages_reports__["w" /* ReportsPage */], {
                             component: _this.report.component,
                             report: _this.report,
                             project: project
@@ -4057,6 +2265,25 @@ var BaseReportPage = /** @class */ (function (_super) {
         if (!!this.report.component.fields.unknow_surface)
             this.report.component.fields.surface = null;
     };
+    BaseReportPage.prototype.toggle_know_temp = function () {
+        var _this = this;
+        if (!!this.report.component.fields.unknow_surface_temp) {
+            var known_temp = this.modalCtrl.create(__WEBPACK_IMPORTED_MODULE_5__pages_reports__["b" /* KnownTempPage */], { medium_temp: this.report.component.fields.surface_temp }, {
+                showBackdrop: true,
+                enableBackdropDismiss: false,
+                cssClass: 'known-temp'
+            });
+            known_temp.onDidDismiss(function (r) {
+                if (r != null && r.toString() != '' && !isNaN(r)) {
+                    _this.report.component.fields.surface_temp = Number(r);
+                }
+                else {
+                    _this.report.component.fields.unknow_surface_temp = false;
+                }
+            });
+            known_temp.present();
+        }
+    };
     BaseReportPage.prototype.before_calculate = function (temp) {
         this.report.component.fields.surface_temp = temp;
     };
@@ -4130,19 +2357,19 @@ var BaseReportPage = /** @class */ (function (_super) {
     ], BaseReportPage.prototype, "form", void 0);
     __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_2__angular_core__["_8" /* ViewChild */])('errors'),
-        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_5__pages_reports__["g" /* ReportErrorsComponent */])
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_5__pages_reports__["h" /* ReportErrorsComponent */])
     ], BaseReportPage.prototype, "errors", void 0);
     __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_2__angular_core__["_8" /* ViewChild */])('time', { read: __WEBPACK_IMPORTED_MODULE_5__pages_reports__["o" /* ReportMoreButtonComponent */] }),
-        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_5__pages_reports__["o" /* ReportMoreButtonComponent */])
+        Object(__WEBPACK_IMPORTED_MODULE_2__angular_core__["_8" /* ViewChild */])('time', { read: __WEBPACK_IMPORTED_MODULE_5__pages_reports__["p" /* ReportMoreButtonComponent */] }),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_5__pages_reports__["p" /* ReportMoreButtonComponent */])
     ], BaseReportPage.prototype, "time", void 0);
     __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_2__angular_core__["_8" /* ViewChild */])('after_time'),
         __metadata("design:type", Object)
     ], BaseReportPage.prototype, "after_time", void 0);
     __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_2__angular_core__["_8" /* ViewChild */])('material', { read: __WEBPACK_IMPORTED_MODULE_5__pages_reports__["o" /* ReportMoreButtonComponent */] }),
-        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_5__pages_reports__["o" /* ReportMoreButtonComponent */])
+        Object(__WEBPACK_IMPORTED_MODULE_2__angular_core__["_8" /* ViewChild */])('material', { read: __WEBPACK_IMPORTED_MODULE_5__pages_reports__["p" /* ReportMoreButtonComponent */] }),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_5__pages_reports__["p" /* ReportMoreButtonComponent */])
     ], BaseReportPage.prototype, "material", void 0);
     __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_2__angular_core__["_8" /* ViewChild */])('after_material'),
@@ -4159,57 +2386,284 @@ var BaseReportPage = /** @class */ (function (_super) {
 
 /***/ }),
 
-/***/ 496:
+/***/ 305:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CalculatorFactory; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0____ = __webpack_require__(304);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__const__ = __webpack_require__(497);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Patterns; });
+var Patterns;
+(function (Patterns) {
+    Patterns["REQUIRED_NUMBER"] = "^(-?\\d+(\\.\\d+)?)$";
+    Patterns["UNREQUIRED_NUMBER"] = "^(\\s*|-?\\d+(\\.\\d+)?)$";
+})(Patterns || (Patterns = {}));
+//# sourceMappingURL=patterns.js.map
+
+/***/ }),
+
+/***/ 306:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SummaryEditPage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(5);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
 
 
-var CalculatorFactory = /** @class */ (function () {
-    function CalculatorFactory() {
-        this.decorators = new Map();
-        this.decorators.set(__WEBPACK_IMPORTED_MODULE_1__const__["a" /* REPORT */].INSULATION.UNINSULATED_EQUIPMENTS.SURFACE, function () { return new __WEBPACK_IMPORTED_MODULE_0____["e" /* SurfaceDecorator */](); });
-        this.decorators.set(__WEBPACK_IMPORTED_MODULE_1__const__["a" /* REPORT */].INSULATION.UNINSULATED_EQUIPMENTS.FLANGE, function () { return new __WEBPACK_IMPORTED_MODULE_0____["a" /* FlangeDecorator */](); });
-        this.decorators.set(__WEBPACK_IMPORTED_MODULE_1__const__["a" /* REPORT */].INSULATION.UNINSULATED_EQUIPMENTS.PIPE, function () { return new __WEBPACK_IMPORTED_MODULE_0____["d" /* PipeDecorator */](); });
-        this.decorators.set(__WEBPACK_IMPORTED_MODULE_1__const__["a" /* REPORT */].INSULATION.UNINSULATED_EQUIPMENTS.VALVE, function () { return new __WEBPACK_IMPORTED_MODULE_0____["f" /* ValveDecorator */](); });
-        this.decorators.set(__WEBPACK_IMPORTED_MODULE_1__const__["a" /* REPORT */].INSULATION.INSULATED_EQUIPMENTS.SURFACE, function () { return new __WEBPACK_IMPORTED_MODULE_0____["c" /* ISurfaceDecorator */](); });
-        this.decorators.set(__WEBPACK_IMPORTED_MODULE_1__const__["a" /* REPORT */].INSULATION.INSULATED_EQUIPMENTS.PIPE, function () { return new __WEBPACK_IMPORTED_MODULE_0____["b" /* IPipeDecorator */](); });
+var SummaryEditPage = /** @class */ (function () {
+    function SummaryEditPage(viewCtrl, params) {
+        this.viewCtrl = viewCtrl;
+        this.params = params;
+        this.reports = [];
+        this.component = this.params.data.tbi_component;
+        this.reports = this.component.reports;
+        this.report_selected = this.reports[0].id;
     }
-    CalculatorFactory.prototype.calculate = function (report) {
-        return this.decorators.get(report.path)().calculate(report);
+    SummaryEditPage.prototype.edit = function () {
+        this.viewCtrl.dismiss(this.report_selected);
     };
-    return CalculatorFactory;
+    SummaryEditPage.prototype.close = function () {
+        this.viewCtrl.dismiss(null);
+    };
+    SummaryEditPage.prototype.friendly_path = function (report) {
+        return report.path.split(/(\\|\/)/gi)[0];
+    };
+    SummaryEditPage = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
+            selector: 'page-summary',template:/*ion-inline-start:"D:\Sofware Factory\tbi\src\pages\summary\summary-edit.html"*/'<ion-list radio-group [(ngModel)]="report_selected">\n\n  <ion-list-header>\n\n    Reports\n\n  </ion-list-header>\n\n\n\n  <ion-item *ngFor="let r of reports; let i=index" [attr.title]="r.summary_id">\n\n    <ion-label>{{friendly_path(r)}}</ion-label>\n\n    <ion-radio checked="true" value="{{r.id}}"></ion-radio>\n\n  </ion-item>\n\n\n\n</ion-list>\n\n<ion-footer>\n\n  <ion-grid no-padding>\n\n    <ion-row no-padding>\n\n      <ion-col col-5 no-padding>\n\n        <button (click)="close()" ion-button small block color="light">Cancel</button>\n\n      </ion-col>\n\n      <ion-col offset-2 col-5 no-padding text-right>\n\n        <button (click)="edit()" [disabled]="!this.report_selected" block ion-button small>Edit</button>\n\n      </ion-col>\n\n    </ion-row>\n\n  </ion-grid>\n\n</ion-footer>'/*ion-inline-end:"D:\Sofware Factory\tbi\src\pages\summary\summary-edit.html"*/
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* ViewController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */]])
+    ], SummaryEditPage);
+    return SummaryEditPage;
 }());
 
-//# sourceMappingURL=calculator.factory.js.map
+var ReportListItem = /** @class */ (function () {
+    function ReportListItem(report) {
+        var segments = report.path.split('\\');
+        this.id = report.id;
+        this.name = segments[segments.length - 1];
+    }
+    return ReportListItem;
+}());
+//# sourceMappingURL=summary-edit.js.map
 
 /***/ }),
 
-/***/ 497:
+/***/ 307:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__report_const__ = __webpack_require__(179);
-/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return __WEBPACK_IMPORTED_MODULE_0__report_const__["a"]; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ReportRouter; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__const_report_const__ = __webpack_require__(179);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__component__ = __webpack_require__(76);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__reports__ = __webpack_require__(21);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__reports_report_generic_class__ = __webpack_require__(308);
 
-//# sourceMappingURL=index.js.map
+
+
+
+var ReportRouter = /** @class */ (function () {
+    function ReportRouter(project, component, navCtrl) {
+        this.project = project;
+        this.component = component;
+        this.navCtrl = navCtrl;
+        this.component = this.component || new __WEBPACK_IMPORTED_MODULE_1__component__["a" /* TbiComponent */](this.project);
+    }
+    ReportRouter.prototype.navigate_to_report = function (path, summary_id, report, event) {
+        var r = this.create_report(path, summary_id, report);
+        this.navCtrl.push(r.page, {
+            project: this.project,
+            component: this.component,
+            report: r
+        });
+        return this;
+    };
+    ReportRouter.prototype.create_report = function (path, summary_id, report) {
+        var _report = report;
+        //if (!!_report) return _report;
+        switch (path) {
+            case __WEBPACK_IMPORTED_MODULE_0__const_report_const__["a" /* REPORT */].INSULATION.UNINSULATED_EQUIPMENTS.SURFACE:
+            case __WEBPACK_IMPORTED_MODULE_0__const_report_const__["a" /* REPORT */].SAFETY.HOT_SURFACE.UNINSULATED_EQUIPMENTS.SURFACE:
+                _report = new __WEBPACK_IMPORTED_MODULE_2__reports__["h" /* ReportSurface */](this.project, this.component, report);
+                break;
+            case __WEBPACK_IMPORTED_MODULE_0__const_report_const__["a" /* REPORT */].INSULATION.INSULATED_EQUIPMENTS.SURFACE:
+            case __WEBPACK_IMPORTED_MODULE_0__const_report_const__["a" /* REPORT */].SAFETY.HOT_SURFACE.INSULATED_EQUIPMENTS.SURFACE:
+                _report = new __WEBPACK_IMPORTED_MODULE_2__reports__["f" /* ReportInsulatedSurface */](this.project, this.component, report);
+                break;
+            case __WEBPACK_IMPORTED_MODULE_0__const_report_const__["a" /* REPORT */].INSULATION.UNINSULATED_EQUIPMENTS.FLANGE:
+            case __WEBPACK_IMPORTED_MODULE_0__const_report_const__["a" /* REPORT */].SAFETY.HOT_SURFACE.UNINSULATED_EQUIPMENTS.FLANGE:
+                _report = new __WEBPACK_IMPORTED_MODULE_2__reports__["d" /* ReportFlange */](this.project, this.component, report);
+                break;
+            case __WEBPACK_IMPORTED_MODULE_0__const_report_const__["a" /* REPORT */].INSULATION.UNINSULATED_EQUIPMENTS.PIPE:
+            case __WEBPACK_IMPORTED_MODULE_0__const_report_const__["a" /* REPORT */].SAFETY.HOT_SURFACE.UNINSULATED_EQUIPMENTS.PIPE:
+                _report = new __WEBPACK_IMPORTED_MODULE_2__reports__["g" /* ReportPipe */](this.project, this.component, report);
+                break;
+            case __WEBPACK_IMPORTED_MODULE_0__const_report_const__["a" /* REPORT */].INSULATION.INSULATED_EQUIPMENTS.PIPE:
+            case __WEBPACK_IMPORTED_MODULE_0__const_report_const__["a" /* REPORT */].SAFETY.HOT_SURFACE.INSULATED_EQUIPMENTS.PIPE:
+                _report = new __WEBPACK_IMPORTED_MODULE_2__reports__["e" /* ReportInsulatedPipe */](this.project, this.component, report);
+                break;
+            case __WEBPACK_IMPORTED_MODULE_0__const_report_const__["a" /* REPORT */].INSULATION.UNINSULATED_EQUIPMENTS.VALVE:
+            case __WEBPACK_IMPORTED_MODULE_0__const_report_const__["a" /* REPORT */].SAFETY.HOT_SURFACE.UNINSULATED_EQUIPMENTS.VALVE:
+                _report = new __WEBPACK_IMPORTED_MODULE_2__reports__["i" /* ReportValve */](this.project, this.component, report);
+                break;
+            case __WEBPACK_IMPORTED_MODULE_0__const_report_const__["a" /* REPORT */].INSULATION.INSULATED_EQUIPMENTS.DAMAGED:
+            case __WEBPACK_IMPORTED_MODULE_0__const_report_const__["a" /* REPORT */].INSULATION.COLD_INSULATION.DAMAGED:
+            case __WEBPACK_IMPORTED_MODULE_0__const_report_const__["a" /* REPORT */].SAFETY.HOT_SURFACE.INSULATED_EQUIPMENTS.DAMAGED:
+            case __WEBPACK_IMPORTED_MODULE_0__const_report_const__["a" /* REPORT */].MANTENANCE.DAMAGED:
+                _report = new __WEBPACK_IMPORTED_MODULE_2__reports__["c" /* ReportDamaged */](this.project, this.component, report);
+                break;
+            case __WEBPACK_IMPORTED_MODULE_0__const_report_const__["a" /* REPORT */].INSULATION.COLD_INSULATION.CONDENSATION:
+            case __WEBPACK_IMPORTED_MODULE_0__const_report_const__["a" /* REPORT */].MANTENANCE.CONDENSATION:
+                _report = new __WEBPACK_IMPORTED_MODULE_2__reports__["b" /* ReportCondensation */](this.project, this.component, report);
+                break;
+            // case REPORT.MANTENANCE.LEAKAGE:
+            //   _report = new ReportLeakage(this.project, this.component, report);
+            //   break;
+            default:
+                _report = new __WEBPACK_IMPORTED_MODULE_3__reports_report_generic_class__["a" /* ReportGeneric */](this.project, this.component, report);
+                break;
+        }
+        _report.path = path;
+        _report.summary_id = summary_id;
+        _report.readonly_summary_id = summary_id;
+        return _report;
+    };
+    return ReportRouter;
+}());
+
+//# sourceMappingURL=report-router.js.map
 
 /***/ }),
 
-/***/ 498:
+/***/ 308:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ReportPipePage; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ReportGeneric; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__report_base__ = __webpack_require__(24);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__pages_reports__ = __webpack_require__(20);
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+
+
+var ReportGeneric = /** @class */ (function (_super) {
+    __extends(ReportGeneric, _super);
+    //public path = REPORT.INSULATION.UNINSULATED_EQUIPMENTS.GENERIC;
+    function ReportGeneric(project, component, item) {
+        var _this = _super.call(this, project, component, item) || this;
+        _this.project = project;
+        _this.component = component;
+        _this.page = __WEBPACK_IMPORTED_MODULE_1__pages_reports__["a" /* GenericReportPage */];
+        _this.name = "Generic";
+        return _this;
+    }
+    return ReportGeneric;
+}(__WEBPACK_IMPORTED_MODULE_0__report_base__["a" /* ReportBase */]));
+
+//# sourceMappingURL=report-generic.class.js.map
+
+/***/ }),
+
+/***/ 360:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ReportAreaModalComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(5);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+var ReportAreaModalComponent = /** @class */ (function () {
+    function ReportAreaModalComponent(viewCtrl) {
+        this.viewCtrl = viewCtrl;
+        this.radius = null;
+        this.height = null;
+        this.width = null;
+        this.deep = null;
+        this.segment = {
+            value: 'cube',
+            cube: 0,
+            cilinder: 1,
+            circle: 2
+        };
+    }
+    ReportAreaModalComponent.prototype.ionViewDidLoad = function () {
+        this.on_segment_change();
+    };
+    ReportAreaModalComponent.prototype.close = function () {
+        this.viewCtrl.dismiss(null);
+        return this;
+    };
+    ReportAreaModalComponent.prototype.key_enter = function () {
+        document.getElementById('area_calculate_btn').focus();
+    };
+    ReportAreaModalComponent.prototype.get_surface = function () {
+        switch (this.segment.value) {
+            case 'cilinder':
+                return 2 * Math.PI * (this.radius || 0) * (this.height || 0);
+            case 'circle':
+                return Math.PI * Math.sqrt(this.radius || 0);
+            case 'rectangle':
+                return (this.width || 0) * (this.height || 0);
+            default:
+                return 2 * ((this.width || 0) * (this.height || 0) + (this.deep || 0) * (this.height || 0));
+        }
+    };
+    ReportAreaModalComponent.prototype.calculate = function () {
+        this.viewCtrl.dismiss(Number(this.get_surface().toFixed(2)));
+        return this;
+    };
+    ReportAreaModalComponent.prototype.on_segment_change = function () {
+    };
+    ReportAreaModalComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
+            selector: 'area-modal',template:/*ion-inline-start:"D:\Sofware Factory\tbi\src\pages\reports\components\area\report-area-modal.component.html"*/'<ion-toolbar>\n  <ion-segment [(ngModel)]="segment.value" color="primary" (ionChange)="on_segment_change($event)">\n    <ion-segment-button value="cube">\n      Prism\n    </ion-segment-button>\n    <ion-segment-button value="rectangle">\n      Rectangle\n    </ion-segment-button>\n    <ion-segment-button value="cilinder">\n      Cilinder\n    </ion-segment-button>\n    <ion-segment-button value="circle">\n      Circle\n    </ion-segment-button>\n  </ion-segment>\n</ion-toolbar>\n\n<ion-content>\n   <form [hidden]="segment.value!=\'cube\'">\n    <ion-grid>\n      <ion-row>\n          <ion-col col-12 style="padding-top: 1rem">\n            <strong>* Only lateral walls</strong>\n        </ion-col>\n      </ion-row>\n      <ion-row>\n        <ion-col col-12 col-md-8>\n          <div svg="area-cube" padding></div>\n        </ion-col>\n        <ion-col col-12 col-md-4>\n          <ion-row>\n            <ion-col col-12>\n              <ion-item>\n                <ion-label stacked>a (m)</ion-label>\n                <ion-input type="number" tabindex="101" name="cube_a" id="cube_a" [(ngModel)]="width"></ion-input>\n              </ion-item>\n            </ion-col>\n            <ion-col col-12>\n              <ion-item>\n                <ion-label stacked>b (m)</ion-label>\n                <ion-input type="number" tabindex="102" name="cube_deep" [(ngModel)]="deep"></ion-input>\n              </ion-item>\n            </ion-col>\n            <ion-col col-12>\n              <ion-item>\n                <ion-label stacked>h (m)</ion-label>\n                <ion-input type="number" tabindex="103" (keyup.enter)="key_enter()" name="cube_height" [(ngModel)]="height"></ion-input>\n              </ion-item>\n            </ion-col>\n          </ion-row>\n        </ion-col>\n      </ion-row>\n    </ion-grid>\n  </form>\n  <form  [hidden]="segment.value!=\'rectangle\'">\n    <ion-grid>\n      <ion-col col-12 style="padding-top: 1rem">\n          <strong>&nbsp;</strong>\n      </ion-col>\n    <ion-row>\n      <ion-col col-12 col-md-8>\n        <div svg="area-rectangle" padding></div>\n      </ion-col>\n      <ion-col col-12 col-md-4>\n        <ion-row>\n          <ion-col col-12>\n            <ion-item>\n              <ion-label stacked>a (m)</ion-label>\n              <ion-input type="number" tabindex="106" name="rectangle-a" id="rectangle-a" [(ngModel)]="width"></ion-input>\n            </ion-item>\n          </ion-col>\n          <ion-col col-12>\n            <ion-item>\n              <ion-label stacked>b (m)</ion-label>\n              <ion-input type="number" tabindex="107" name="rectangle-b" id="rectangle-b" (keyup.enter)="key_enter()" [(ngModel)]="height"></ion-input>\n            </ion-item>\n          </ion-col>\n        </ion-row>\n      </ion-col>\n    </ion-row>\n    </ion-grid>\n  </form>\n  <form [hidden]="segment.value!=\'cilinder\'">\n    <ion-grid>\n        <ion-col col-12 style="padding-top: 1rem">\n            <strong>* Only lateral walls</strong>\n        </ion-col>\n      <ion-row>\n        <ion-col col-12 col-md-8>\n          <div svg="area-cilinder" padding></div>\n        </ion-col>\n        <ion-col col-12 col-md-4>\n          <ion-row>\n            <ion-col col-12>\n              <ion-item>\n                <ion-label stacked>h (m)</ion-label>\n                <ion-input type="number" tabindex="108" name="cilinder-h" id="cilinder-h" [(ngModel)]="height"></ion-input>\n              </ion-item>\n            </ion-col>\n            <ion-col col-12>\n              <ion-item>\n                <ion-label stacked>r (m)</ion-label>\n                <ion-input type="number" tabindex="109" name="cilinder-radius" (keyup.enter)="key_enter()" [(ngModel)]="radius"></ion-input>\n              </ion-item>\n            </ion-col>\n          </ion-row>\n        </ion-col>\n      </ion-row>\n    </ion-grid>\n  </form>\n  <form [hidden]="segment.value!=\'circle\'">\n    <ion-grid>\n        <ion-col col-12 style="padding-top: 1rem">\n            <strong>&nbsp;</strong>\n        </ion-col>\n      <ion-row>\n        <ion-col col-12 col-md-8>\n          <div svg="area-circle" padding></div>\n        </ion-col>\n        <ion-col col-12 col-md-4>\n          <ion-row>\n            <ion-col col-12>\n              <ion-item>\n                <ion-label stacked>r (m)</ion-label>\n                <ion-input type="number" tabindex="110" name="circel-r" id="circel-r" (keyup.enter)="key_enter()" [(ngModel)]="radius"></ion-input>\n              </ion-item>\n            </ion-col>\n          </ion-row>\n        </ion-col>\n      </ion-row>\n    </ion-grid>\n  </form>\n</ion-content>\n\n<ion-footer>\n  <ion-grid no-padding>\n    <ion-row no-padding>\n      <ion-col col-6 no-padding>\n        <button (click)="close()" tabindex="200" ion-button small color="light"><ion-icon name="arrow-back"></ion-icon>&nbsp;Back</button>\n      </ion-col>\n      <ion-col col-6 no-padding>\n        <button (click)="calculate()" tabindex="201" id="area_calculate_btn" ion-button small pull-right>Report</button>\n      </ion-col>\n    </ion-row>\n  </ion-grid>\n</ion-footer>\n'/*ion-inline-end:"D:\Sofware Factory\tbi\src\pages\reports\components\area\report-area-modal.component.html"*/
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* ViewController */]])
+    ], ReportAreaModalComponent);
+    return ReportAreaModalComponent;
+}());
+
+//# sourceMappingURL=report-area-modal.component.js.map
+
+/***/ }),
+
+/***/ 361:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ReportLeakagePage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__models_reports__ = __webpack_require__(21);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(6);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(5);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__services_report_service__ = __webpack_require__(30);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__models_reports_report_pipe_class__ = __webpack_require__(303);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__services_messages_service__ = __webpack_require__(16);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__services_messages_service__ = __webpack_require__(16);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__models_reports_report_leakage__ = __webpack_require__(607);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__services__ = __webpack_require__(17);
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = Object.setPrototypeOf ||
@@ -4237,10 +2691,10 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-var ReportPipePage = /** @class */ (function (_super) {
-    __extends(ReportPipePage, _super);
-    function ReportPipePage(navCtrl, navParams, service, alertCtrl, picture, message, keyboard) {
-        var _this = _super.call(this, new __WEBPACK_IMPORTED_MODULE_4__models_reports_report_pipe_class__["a" /* ReportPipe */](navParams.data.project, navParams.data.component, navParams.data.report), navCtrl, service, alertCtrl, picture, message, keyboard) || this;
+var ReportLeakagePage = /** @class */ (function (_super) {
+    __extends(ReportLeakagePage, _super);
+    function ReportLeakagePage(navCtrl, navParams, service, alertCtrl, picture, message, keyboard) {
+        var _this = _super.call(this, new __WEBPACK_IMPORTED_MODULE_5__models_reports_report_leakage__["a" /* ReportLeakage */](navParams.data.project, navParams.data.component, navParams.data.report), navCtrl, service, alertCtrl, picture, message, keyboard) || this;
         _this.navCtrl = navCtrl;
         _this.service = service;
         _this.alertCtrl = alertCtrl;
@@ -4249,22 +2703,1615 @@ var ReportPipePage = /** @class */ (function (_super) {
         _this.keyboard = keyboard;
         return _this;
     }
-    ReportPipePage = __decorate([
+    ReportLeakagePage.prototype.calculate = function () {
+        this.start_changes_observer();
+        if (!this.form.invalid) {
+            this.save();
+        }
+        else {
+            this.view = 'form';
+        }
+        return null;
+    };
+    ReportLeakagePage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-report-pipe',template:/*ion-inline-start:"D:\Sofware Factory\tbi\src\pages\reports\pipe\report-pipe.component.html"*/'<report-header [parent]="this"></report-header>\n\n\n\n<ion-content #content>\n\n\n\n  <ion-grid [hidden]="view==\'edit_picture\'" class="fixed-col">\n\n    <ion-row>\n\n      <ion-col col-7 col-lg-6 no-padding>\n\n        <form novalidate #form="ngForm" [hidden]="segment!=\'input\'" (submit)="calculate()">\n\n          <ion-row>\n\n            <ion-col col-10>\n\n              <ion-item>\n\n                <ion-label stacked>Component/Location</ion-label>\n\n                <ion-input tabindex="1" (ionFocus)="on_focus($event)" name="location" required data-val-required="Please input Component/Location"\n\n                  [(ngModel)]="report.component.fields.location" type="text"></ion-input>\n\n              </ion-item>\n\n            </ion-col>\n\n            <ion-col col-2></ion-col>\n\n          </ion-row>\n\n          <ion-row>\n\n            <ion-col col-10>\n\n              <ion-item>\n\n                <ion-label stacked>Operational time (hours)</ion-label>\n\n                <ion-input tabindex="2" (ionFocus)="on_focus($event)" required data-val-required="Please input operational time"\n\n                  name="operational_time" [(ngModel)]="report.component.fields.operational_time" type="number"></ion-input>\n\n              </ion-item>\n\n            </ion-col>\n\n            <ion-col col-2>\n\n              <more pull-left #time (change)="report.component.fields.operational_time=time.value" [type]="\'time\'"\n\n                modal-button></more>\n\n            </ion-col>\n\n          </ion-row>\n\n          <ion-row>\n\n            <ion-col col-7>\n\n              <ion-item>\n\n                <ion-label stacked>Diameter (mm)</ion-label>\n\n                <ion-input #after_time tabindex="4" (ionFocus)="on_focus($event)" name="nominal_diameter" required\n\n                  data-val-required="Please input Diameter" [(ngModel)]="report.component.fields.nominal_diameter"\n\n                  type="number"></ion-input>\n\n              </ion-item>\n\n            </ion-col>\n\n            <ion-col col-4>\n\n              <ion-item>\n\n                <ion-label stacked>Length (m)</ion-label>\n\n                <ion-input tabindex="5" min="0" (ionFocus)="on_focus($event)" name="number" required data-val-required="Please input length"\n\n                  [(ngModel)]="report.component.fields.length" type="number"></ion-input>\n\n              </ion-item>\n\n            </ion-col>\n\n          </ion-row>\n\n          <ion-row>\n\n            <ion-col col-10>\n\n              <ion-item class="edit_surface_material" [class.editable]="edit_surface_material">\n\n                <ion-label stacked>Surface material [ε]</ion-label>\n\n                <ion-input tabindex="6" class="literal" (ionFocus)="on_focus($event);toggle_surface_material(true)"\n\n                  [value]="report.component.fields.surface_material_friendly" type="text"></ion-input>\n\n                <ion-input tabindex="7" class="numeric" (ionFocus)="on_focus($event)" (focusout)="toggle_surface_material(false)"\n\n                  (ionFocus)="on_focus($event)" name="surface_material" required data-val-required="Please input surface emissivity"\n\n                  [(ngModel)]="report.component.fields.surface_material" type="number" (change)="set_surface_material(report.component.fields.surface_material, $event)"></ion-input>\n\n              </ion-item>\n\n            </ion-col>\n\n            <ion-col col-2>\n\n              <more pull-left #material (change)="set_surface_material(material.value, $event)" [type]="\'materials\'"\n\n                modal-button></more>\n\n            </ion-col>\n\n          </ion-row>\n\n          <ion-row>\n\n            <ion-col col-10>\n\n              <ion-item>\n\n                <ion-label stacked>Medium or Surface temperature (<sup>º</sup>C)</ion-label>\n\n                <ion-input #after_material tabindex="8" (ionFocus)="on_focus($event)" name="surface_temp" [pattern]="patterns.REQUIRED_NUMBER"\n\n                  data-val-pattern="Please input a valid Medium or Surface temperature" required data-val-required="Please input Medium or Surface temperature"\n\n                  [(ngModel)]="report.component.fields.surface_temp" type="tel"></ion-input>\n\n              </ion-item>\n\n            </ion-col>\n\n            <ion-col col-2>\n\n              <!-- <medium-temp #medium (change)="report.component.fields.surface_temp=medium.value" modal-button pull-left></medium-temp> -->\n\n              <medium-temp #medium [report]="report" modal-button pull-left></medium-temp>\n\n            </ion-col>\n\n          </ion-row>\n\n          <ion-row>\n\n            <ion-col col-10>\n\n              <ion-item>\n\n                <ion-label stacked>Ambient temperature (<sup>º</sup>C)</ion-label>\n\n                <ion-input tabindex="9" (ionFocus)="on_focus($event)" (keyup.enter)="on_keypress($event)" name="ambient_temp"\n\n                  [pattern]="patterns.REQUIRED_NUMBER" data-val-pattern="Please input a valid Ambient temperature"\n\n                  required data-val-required="Please input Ambient temperature" [(ngModel)]="report.component.fields.ambient_temp"\n\n                  type="tel"></ion-input>\n\n              </ion-item>\n\n            </ion-col>\n\n            <ion-col col-2></ion-col>\n\n          </ion-row>\n\n          <ion-row>\n\n            <ion-col col-12>\n\n              <ion-item>\n\n                <ion-label stacked>Annual Saving Potenyial</ion-label>\n\n                <ion-input tabindex="-1" name="annual_saving" value="{{report.annual_saving}}" type="text"></ion-input>\n\n              </ion-item>\n\n            </ion-col>\n\n          </ion-row>\n\n        </form>\n\n      </ion-col>\n\n\n\n      <ion-col col-5 col-lg-6 no-padding text-center>\n\n        <ion-row>\n\n          <ion-col col-12 picture-slide [report]="report" [editable]="editable"\n\n            (onStartEdit)="on_picture_start_edit($event)">\n\n          </ion-col>\n\n        </ion-row>\n\n      </ion-col>\n\n\n\n      <ion-col col-12 padding>\n\n        <report-result col-12 [parent]="this" *ngIf="view==\'result\' && (!!form && !form.invalid)"></report-result>\n\n      </ion-col>\n\n      <ion-col col-12 padding>\n\n        <report-errors padding #errors col-12 [hidden]="view==\'!result\' && report.result"></report-errors>\n\n      </ion-col>\n\n    </ion-row>\n\n  </ion-grid>\n\n\n\n  <edit-picture *ngIf="view==\'edit_picture\'" [report]="report" [picture]="editing_picture"></edit-picture>\n\n\n\n</ion-content>\n\n\n\n<report-footer [parent]="this"></report-footer>\n\n'/*ion-inline-end:"D:\Sofware Factory\tbi\src\pages\reports\pipe\report-pipe.component.html"*/
+            selector: 'page-report-leakage',template:/*ion-inline-start:"D:\Sofware Factory\tbi\src\pages\reports\leakage\report-leakage.component.html"*/'<report-header [parent]="this"></report-header>\n\n\n\n<ion-content #content>\n\n\n\n  <ion-grid [hidden]="view==\'edit_picture\'" class="fixed-col">\n\n    <ion-row>\n\n      <ion-col col-12 col-lg-6 no-padding>\n\n        <form novalidate #form="ngForm" [hidden]="segment!=\'input\'" (submit)="calculate()">\n\n          <ion-row>\n\n            <ion-col col-10>\n\n              <ion-item>\n\n                <ion-label stacked>Component/Location</ion-label>\n\n                <ion-input [disabled]="!editable" tabindex="1" (ionFocus)="on_focus($event)" name="location" required\n\n                  data-val-required="Please input Component/Location" [(ngModel)]="report.component.fields.location"\n\n                  type="text"></ion-input>\n\n              </ion-item>\n\n            </ion-col>\n\n            <ion-col col-2></ion-col>\n\n          </ion-row>\n\n          <ion-row [hidden]="true">\n\n            <ion-col>\n\n              <ion-item>\n\n                <ion-input type="hidden" name="pictures" required data-val-required="Please take a picture" [(ngModel)]="picture_qty"></ion-input>\n\n              </ion-item>\n\n            </ion-col>\n\n          </ion-row>\n\n          <ion-row>\n\n            <ion-col col-10>\n\n              <ion-item>\n\n                <ion-label stacked>Summary Id</ion-label>\n\n                <ion-input tabindex="2" (ionFocus)="on_focus($event)" name="summary_id" [(ngModel)]="report.summary_id"\n\n                  required data-val-required="Please input summary id" type="text"></ion-input>\n\n              </ion-item>\n\n            </ion-col>\n\n          </ion-row>\n\n          <ion-row>\n\n            <ion-col col-10>\n\n              <ion-item>\n\n                <ion-label stacked>Operational time (hours)</ion-label>\n\n                <ion-input [disabled]="!editable" tabindex="3" (ionFocus)="on_focus($event)" name="operational_time"\n\n                  [(ngModel)]="report.component.fields.operational_time" type="number"></ion-input>\n\n              </ion-item>\n\n            </ion-col>\n\n            <ion-col col-2>\n\n              <more pull-left *ngIf="editable" #time (change)="report.component.fields.operational_time=time.value"\n\n                [type]="\'time\'" modal-button></more>\n\n            </ion-col>\n\n          </ion-row>\n\n          <ion-row>\n\n            <ion-col col-10>\n\n              <ion-item>\n\n                <ion-label stacked>Medium</ion-label>\n\n                <ion-input #after_time [disabled]="!editable" tabindex="4" (ionFocus)="on_focus($event)" (keyup.enter)="on_keypress($event)"\n\n                  name="medium" [(ngModel)]="report.component.fields.medium" type="text"></ion-input>\n\n              </ion-item>\n\n            </ion-col>\n\n            <ion-col col-2></ion-col>\n\n          </ion-row>\n\n          <ion-row>\n\n            <ion-col col-10>\n\n              <ion-item>\n\n                <ion-label stacked>Medium temperature (<sup>º</sup>C)</ion-label>\n\n                <ion-input [disabled]="!editable" tabindex="5" (ionFocus)="on_focus($event)" name="surface_temp"\n\n                  [pattern]="patterns.REQUIRED_NUMBER" data-val-pattern="Please input a valid Medium temperature"\n\n                  [(ngModel)]="report.component.fields.surface_temp" type="tel"></ion-input>\n\n              </ion-item>\n\n            </ion-col>\n\n          </ion-row>\n\n          <ion-row>\n\n            <ion-col col-10>\n\n              <ion-item>\n\n                <ion-label stacked>Comment</ion-label>\n\n                <ion-textarea rows="6" tabindex="6" (ionFocus)="on_focus($event)" (keyup.enter)="on_keypress($event)"\n\n                  [(ngModel)]="report.comment" name="comment"></ion-textarea>\n\n              </ion-item>\n\n            </ion-col>\n\n          </ion-row>\n\n        </form>\n\n      </ion-col>\n\n\n\n      <ion-col col-12 col-lg-6 no-padding>\n\n        <ion-row>\n\n          <ion-col col-12 picture-slide [parent]="this"   [report]="report"\n\n            [editable]="editable" (onStartEdit)="on_picture_start_edit($event)">\n\n          </ion-col>\n\n        </ion-row>\n\n        <report-errors padding #errors col-12 [hidden]="view==\'!result\' && report.result"></report-errors>\n\n        <div report-result col-12 [parent]="this" *ngIf="view==\'result\' && (!!form && !form.invalid)"></div>\n\n      </ion-col>\n\n    </ion-row>\n\n  </ion-grid>\n\n\n\n  <edit-picture *ngIf="view==\'edit_picture\'" [report]="report" [picture]="editing_picture"></edit-picture>\n\n\n\n</ion-content>\n\n\n\n<report-footer [parent]="this" [calculate_text]="\'Report\'"></report-footer>\n\n'/*ion-inline-end:"D:\Sofware Factory\tbi\src\pages\reports\leakage\report-leakage.component.html"*/
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2_ionic_angular__["h" /* NavController */],
-            __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["i" /* NavParams */],
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2_ionic_angular__["j" /* NavController */],
+            __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["k" /* NavParams */],
             __WEBPACK_IMPORTED_MODULE_3__services_report_service__["a" /* ReportService */],
             __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["b" /* AlertController */],
-            __WEBPACK_IMPORTED_MODULE_6__services__["c" /* PictureService */],
-            __WEBPACK_IMPORTED_MODULE_5__services_messages_service__["a" /* MessageService */],
-            __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["f" /* Keyboard */]])
-    ], ReportPipePage);
-    return ReportPipePage;
+            __WEBPACK_IMPORTED_MODULE_6__services__["d" /* PictureService */],
+            __WEBPACK_IMPORTED_MODULE_4__services_messages_service__["a" /* MessageService */],
+            __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["g" /* Keyboard */]])
+    ], ReportLeakagePage);
+    return ReportLeakagePage;
 }(__WEBPACK_IMPORTED_MODULE_1__models_reports__["a" /* BaseReportPage */]));
 
-//# sourceMappingURL=report-pipe.component.js.map
+//# sourceMappingURL=report-leakage.component.js.map
+
+/***/ }),
+
+/***/ 363:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return DownloadPage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services__ = __webpack_require__(17);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+var DownloadPage = /** @class */ (function () {
+    function DownloadPage(file, service) {
+        var _this = this;
+        this.file = file;
+        this.service = service;
+        this.files = [];
+        this.pictures = [];
+        // for (let i = 1; i < 11; i++) {
+        //   this.files.push(new Document({ 
+        //     file: `Files ${i}`, 
+        //     folder: `${this.file.working_folder}${i}`,
+        //   }));
+        // }
+        //this.file.get_documents().then(d => this.files = d);
+        service.get_all().then(function (projects) {
+            projects.forEach(function (p) {
+                _this.files = _this.files.concat(p.documents);
+                p.components.forEach(function (c) { return c.reports.forEach(function (r) { return _this.pictures = _this.pictures.concat(r.pictures); }); });
+            });
+        });
+    }
+    DownloadPage.prototype.create_file = function () {
+        this.service.create_database().then(function (blob) {
+            console.log(blob);
+            //   var a = document.createElement("a"),
+            //     url = URL.createObjectURL(blob);
+            //   a.href = url;
+            //   a.download = 'db.zip';
+            //   a.click();
+            //   setTimeout(function () {
+            //     window.URL.revokeObjectURL(url);
+            //   }, 0);
+        });
+    };
+    DownloadPage = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
+            selector: 'page-download',template:/*ion-inline-start:"D:\Sofware Factory\tbi\src\pages\download\download.html"*/'<ion-header>\n  <ion-toolbar>\n    <ion-title>Database</ion-title>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content>\n  <ion-grid>\n    <ion-row>\n        <ion-col text-center col-6><h3>Files</h3></ion-col>\n        <ion-col text-center col-6><h3>Pictures</h3></ion-col>\n    </ion-row>\n    <ion-row>\n      <ion-col col-6>\n          <ion-list padding>\n              <ion-item-sliding *ngFor="let f of files">\n                <ion-item>\n                  <ion-icon name="document-{{f.extension}}" color="gray" item-start></ion-icon>\n                  {{f.file}}<br>\n                  <small>{{f.folder}}</small>\n                </ion-item>\n                <ion-item-options side="right">\n                  <button ion-button color="danger" on-tap="remove_file(f)">\n                    Remove\n                    <ion-icon name="ios-trash-outline"></ion-icon>\n                  </button>\n                </ion-item-options>\n              </ion-item-sliding>\n          </ion-list>\n      </ion-col>\n      <ion-col col-6>\n        <ion-list padding>\n          <ion-item-sliding *ngFor="let f of pictures">\n            <ion-item>\n              <!-- <ion-icon name="document-picture" color="gray" item-start></ion-icon> -->\n              <img src="{{f.picture}}" style="float: left; width: 72px; height: auto; margin-right: 1rem">\n              {{f.file}}<br>\n              <small>{{f.folder}}</small>\n            </ion-item>\n            <ion-item-options side="right">\n              <button ion-button color="danger" on-tap="remove_file(f)">\n                Remove\n                <ion-icon name="ios-trash-outline"></ion-icon>\n              </button>\n            </ion-item-options>\n          </ion-item-sliding>\n      </ion-list>\n      </ion-col>\n    </ion-row>\n  </ion-grid>\n</ion-content>\n\n\n<ion-footer>\n  <ion-grid no-padding>\n    <ion-row no-padding>\n      <ion-col col-6 no-padding>\n        <button tabindex="22" ion-button small color="light" (click)="navCtrl.pop()">\n          <ion-icon name="arrow-back"></ion-icon>&nbsp;Back\n        </button>\n      </ion-col>\n      <ion-col col-6 text-right no-padding>\n        <button tabindex="22" ion-button small color="royal" (click)="download()">\n            Download now\n        </button>\n      </ion-col>\n    </ion-row>\n  </ion-grid>\n</ion-footer>\n'/*ion-inline-end:"D:\Sofware Factory\tbi\src\pages\download\download.html"*/
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__services__["a" /* FileService */], __WEBPACK_IMPORTED_MODULE_1__services__["e" /* ProjectService */]])
+    ], DownloadPage);
+    return DownloadPage;
+}());
+
+//# sourceMappingURL=download.js.map
+
+/***/ }),
+
+/***/ 400:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__ = __webpack_require__(401);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__app_module__ = __webpack_require__(423);
+
+
+Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* platformBrowserDynamic */])().bootstrapModule(__WEBPACK_IMPORTED_MODULE_1__app_module__["a" /* AppModule */]);
+//# sourceMappingURL=main.js.map
+
+/***/ }),
+
+/***/ 423:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppModule; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_http__ = __webpack_require__(213);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_platform_browser_animations__ = __webpack_require__(424);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_forms__ = __webpack_require__(18);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_platform_browser__ = __webpack_require__(41);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_ionic_angular__ = __webpack_require__(5);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_ionic_tooltips__ = __webpack_require__(468);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pages_init_init__ = __webpack_require__(295);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__app_component__ = __webpack_require__(609);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__pages_download_download__ = __webpack_require__(363);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__pages_contact_contact__ = __webpack_require__(610);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__pages_home_home__ = __webpack_require__(611);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__pages_projects_projects__ = __webpack_require__(99);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__pages_projects_edit__ = __webpack_require__(298);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__pages_projects_project__ = __webpack_require__(612);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__pages_summary_summary__ = __webpack_require__(103);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__pages_summary_summary_edit__ = __webpack_require__(306);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__pages_pictures_pictures__ = __webpack_require__(613);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__ionic_native_camera__ = __webpack_require__(178);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__ionic_native_file_chooser__ = __webpack_require__(367);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__ionic_native_file_path__ = __webpack_require__(368);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__ionic_native_file_opener__ = __webpack_require__(174);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__ionic_native_file__ = __webpack_require__(369);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__ionic_native_screen_orientation__ = __webpack_require__(366);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_24__ionic_native_status_bar__ = __webpack_require__(364);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_25__ionic_native_splash_screen__ = __webpack_require__(365);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_26__ionic_native_unique_device_id__ = __webpack_require__(362);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_27__ionic_native_file_transfer__ = __webpack_require__(370);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_28__services__ = __webpack_require__(17);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_29__services_report_service__ = __webpack_require__(30);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_30__services_component_service__ = __webpack_require__(177);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_31__services_file_device_service__ = __webpack_require__(614);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_32__services_file_service__ = __webpack_require__(54);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_33__services_file_local_service__ = __webpack_require__(668);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_34__services_messages_service__ = __webpack_require__(16);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_35__services_picture_service__ = __webpack_require__(300);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_36__services_licences_service__ = __webpack_require__(102);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_37__components_svg_svg_insulation_component__ = __webpack_require__(669);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_38__components_svg_svg_co2_component__ = __webpack_require__(670);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_39__components_svg_svg_custom_component__ = __webpack_require__(671);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_40__components_svg_svg_safety_component__ = __webpack_require__(672);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_41__components_svg_svg_maintenance_component__ = __webpack_require__(673);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_42__components_svg_svg_flange_component__ = __webpack_require__(674);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_43__components_svg_svg_hot_surface_component__ = __webpack_require__(675);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_44__components_svg_svg_fire_protection_component__ = __webpack_require__(676);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_45__components_svg_svg_traffic_component__ = __webpack_require__(677);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_46__components_svg_svg_damage_insulation_component__ = __webpack_require__(678);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_47__components_svg_svg_damage_cladding_component__ = __webpack_require__(679);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_48__components_svg_svg_ice_wet_component__ = __webpack_require__(680);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_49__components_svg_svg_mechanical_component__ = __webpack_require__(681);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_50__components_svg_svg_electrical_component__ = __webpack_require__(682);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_51__components_svg_svg_leakage_component__ = __webpack_require__(683);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_52__components_svg_svg_other_safety_component__ = __webpack_require__(684);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_53__components_svg_svg_cold_component__ = __webpack_require__(685);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_54__components_svg_svg_pipe_insulation_component__ = __webpack_require__(686);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_55__components_svg_svg_pipe_component__ = __webpack_require__(687);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_56__components_svg_svg_valve_component__ = __webpack_require__(688);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_57__components_svg_svg_surface_component__ = __webpack_require__(689);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_58__components_svg_svg_damaged_cladding_component__ = __webpack_require__(690);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_59__components_svg_svg_damaged_insulation_component__ = __webpack_require__(691);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_60__components_svg_svg_energy_component__ = __webpack_require__(692);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_61__components_svg_svg_insulated_surface_component__ = __webpack_require__(693);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_62__components_svg_svg_others_component__ = __webpack_require__(694);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_63__components_svg_svg_insulated_others_component__ = __webpack_require__(695);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_64__components_svg_svg_cilinder_area_component__ = __webpack_require__(696);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_65__components_svg_svg_cube_area_component__ = __webpack_require__(697);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_66__components_svg_svg_circle_area_component__ = __webpack_require__(698);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_67__components_svg_svg_housekeeping_component__ = __webpack_require__(699);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_68__components_svg_svg_structural_component__ = __webpack_require__(700);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_69__components_svg_svg_rectangle_area_component__ = __webpack_require__(701);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_70__components_svg_svg_like_component__ = __webpack_require__(702);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_71__components_svg_svg_increase_component__ = __webpack_require__(703);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_72__components_svg_svg_empty_component__ = __webpack_require__(704);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_73__pages_reports__ = __webpack_require__(20);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_74__pipes_surface_material_pipe__ = __webpack_require__(705);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_75__progress_kendo_angular_pdf_export__ = __webpack_require__(309);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_76__components_tools_tools_component__ = __webpack_require__(706);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_77__ionic_native_flashlight__ = __webpack_require__(399);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+
+
+
+
+
+
+/*Pages*/
+
+
+
+
+
+
+
+
+
+
+
+/*Plugins*/
+
+
+
+
+
+
+
+
+
+
+/*Services*/
+
+
+
+
+
+
+
+
+
+// import { ReportSafetSurfacePage } from '../pages/reports/safety/surface';
+/*Components*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//Reports
+
+//Pipes
+
+//import { GlobalErrorHandler } from '../models/errors/global-error';
+
+
+
+//import { GlobalErrorHandler } from '../models/errors/global-error';
+var AppModule = /** @class */ (function () {
+    function AppModule() {
+    }
+    AppModule = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["I" /* NgModule */])({
+            declarations: [
+                __WEBPACK_IMPORTED_MODULE_8__app_component__["a" /* MyApp */],
+                __WEBPACK_IMPORTED_MODULE_9__pages_download_download__["a" /* DownloadPage */],
+                __WEBPACK_IMPORTED_MODULE_10__pages_contact_contact__["a" /* ContactPage */],
+                __WEBPACK_IMPORTED_MODULE_11__pages_home_home__["a" /* ProjectReportsPage */],
+                __WEBPACK_IMPORTED_MODULE_12__pages_projects_projects__["a" /* ProjectsPage */],
+                __WEBPACK_IMPORTED_MODULE_13__pages_projects_edit__["a" /* EditProjectPage */],
+                __WEBPACK_IMPORTED_MODULE_14__pages_projects_project__["a" /* ProjectPage */],
+                __WEBPACK_IMPORTED_MODULE_73__pages_reports__["a" /* GenericReportPage */],
+                __WEBPACK_IMPORTED_MODULE_73__pages_reports__["w" /* ReportsPage */],
+                __WEBPACK_IMPORTED_MODULE_7__pages_init_init__["a" /* InitPage */],
+                __WEBPACK_IMPORTED_MODULE_17__pages_pictures_pictures__["a" /* PicturesPage */],
+                __WEBPACK_IMPORTED_MODULE_15__pages_summary_summary__["a" /* SummaryPage */],
+                __WEBPACK_IMPORTED_MODULE_16__pages_summary_summary_edit__["a" /* SummaryEditPage */],
+                __WEBPACK_IMPORTED_MODULE_73__pages_reports__["b" /* KnownTempPage */],
+                //Pipes
+                __WEBPACK_IMPORTED_MODULE_74__pipes_surface_material_pipe__["a" /* SurfaceMaterialPipe */],
+                //Reports
+                __WEBPACK_IMPORTED_MODULE_73__pages_reports__["g" /* ReportEditPictureComponent */],
+                __WEBPACK_IMPORTED_MODULE_73__pages_reports__["q" /* ReportPictureSlideComponent */],
+                __WEBPACK_IMPORTED_MODULE_73__pages_reports__["k" /* ReportHeaderComponent */],
+                __WEBPACK_IMPORTED_MODULE_73__pages_reports__["j" /* ReportFooterComponent */],
+                __WEBPACK_IMPORTED_MODULE_73__pages_reports__["c" /* ReportAreaButtonComponent */],
+                __WEBPACK_IMPORTED_MODULE_73__pages_reports__["d" /* ReportAreaModalComponent */],
+                __WEBPACK_IMPORTED_MODULE_73__pages_reports__["p" /* ReportMoreButtonComponent */],
+                __WEBPACK_IMPORTED_MODULE_73__pages_reports__["o" /* ReportMediumTempButtonsComponent */],
+                __WEBPACK_IMPORTED_MODULE_73__pages_reports__["u" /* ReportTempMarkersWindowComponent */],
+                __WEBPACK_IMPORTED_MODULE_73__pages_reports__["h" /* ReportErrorsComponent */],
+                __WEBPACK_IMPORTED_MODULE_73__pages_reports__["s" /* ReportResultComponent */],
+                __WEBPACK_IMPORTED_MODULE_73__pages_reports__["t" /* ReportSurfacePage */],
+                __WEBPACK_IMPORTED_MODULE_73__pages_reports__["m" /* ReportInsulatedSurfacePage */],
+                __WEBPACK_IMPORTED_MODULE_73__pages_reports__["i" /* ReportFlangePage */],
+                __WEBPACK_IMPORTED_MODULE_73__pages_reports__["r" /* ReportPipePage */],
+                __WEBPACK_IMPORTED_MODULE_73__pages_reports__["l" /* ReportInsulatedPipePage */],
+                __WEBPACK_IMPORTED_MODULE_73__pages_reports__["v" /* ReportValvePage */],
+                __WEBPACK_IMPORTED_MODULE_73__pages_reports__["f" /* ReportDamagedPage */],
+                __WEBPACK_IMPORTED_MODULE_73__pages_reports__["e" /* ReportCondensationPage */],
+                __WEBPACK_IMPORTED_MODULE_73__pages_reports__["n" /* ReportLeakagePage */],
+                //Components
+                __WEBPACK_IMPORTED_MODULE_76__components_tools_tools_component__["a" /* ToolsComponent */],
+                __WEBPACK_IMPORTED_MODULE_72__components_svg_svg_empty_component__["a" /* SvgEmptyComponent */],
+                __WEBPACK_IMPORTED_MODULE_37__components_svg_svg_insulation_component__["a" /* SvgInsulationComponent */],
+                __WEBPACK_IMPORTED_MODULE_38__components_svg_svg_co2_component__["a" /* SvgCO2Component */],
+                __WEBPACK_IMPORTED_MODULE_39__components_svg_svg_custom_component__["a" /* SvgCustomComponent */],
+                __WEBPACK_IMPORTED_MODULE_40__components_svg_svg_safety_component__["a" /* SvgSafetyComponent */],
+                __WEBPACK_IMPORTED_MODULE_41__components_svg_svg_maintenance_component__["a" /* SvgMaintenanceComponent */],
+                __WEBPACK_IMPORTED_MODULE_42__components_svg_svg_flange_component__["a" /* SvgFlangeComponent */],
+                __WEBPACK_IMPORTED_MODULE_43__components_svg_svg_hot_surface_component__["a" /* SvgHotSurfaceComponent */],
+                __WEBPACK_IMPORTED_MODULE_44__components_svg_svg_fire_protection_component__["a" /* SvgFireProtectionComponent */],
+                __WEBPACK_IMPORTED_MODULE_45__components_svg_svg_traffic_component__["a" /* SvgTrafficComponent */],
+                __WEBPACK_IMPORTED_MODULE_46__components_svg_svg_damage_insulation_component__["a" /* SvgDamageInsulationComponent */],
+                __WEBPACK_IMPORTED_MODULE_47__components_svg_svg_damage_cladding_component__["a" /* SvgDamageCladdingComponent */],
+                __WEBPACK_IMPORTED_MODULE_49__components_svg_svg_mechanical_component__["a" /* SvgMechanicalComponent */],
+                __WEBPACK_IMPORTED_MODULE_50__components_svg_svg_electrical_component__["a" /* SvgElectricalComponent */],
+                __WEBPACK_IMPORTED_MODULE_48__components_svg_svg_ice_wet_component__["a" /* SvgIceWetComponent */],
+                __WEBPACK_IMPORTED_MODULE_51__components_svg_svg_leakage_component__["a" /* SvgLeakageComponent */],
+                __WEBPACK_IMPORTED_MODULE_52__components_svg_svg_other_safety_component__["a" /* SvgOtherSafetyComponent */],
+                __WEBPACK_IMPORTED_MODULE_53__components_svg_svg_cold_component__["a" /* SvgColdComponent */],
+                __WEBPACK_IMPORTED_MODULE_54__components_svg_svg_pipe_insulation_component__["a" /* SvgPipeInsultationComponent */],
+                __WEBPACK_IMPORTED_MODULE_55__components_svg_svg_pipe_component__["a" /* SvgPipeComponent */],
+                __WEBPACK_IMPORTED_MODULE_56__components_svg_svg_valve_component__["a" /* SvgValveComponent */],
+                __WEBPACK_IMPORTED_MODULE_57__components_svg_svg_surface_component__["a" /* SvgSurfaceComponent */],
+                __WEBPACK_IMPORTED_MODULE_58__components_svg_svg_damaged_cladding_component__["a" /* SvgDamagedCladdingComponent */],
+                __WEBPACK_IMPORTED_MODULE_59__components_svg_svg_damaged_insulation_component__["a" /* SvgDamagedInsulationComponent */],
+                __WEBPACK_IMPORTED_MODULE_60__components_svg_svg_energy_component__["a" /* SvgEnergyComponent */],
+                __WEBPACK_IMPORTED_MODULE_61__components_svg_svg_insulated_surface_component__["a" /* SvgInsulatedSurfaceComponent */],
+                __WEBPACK_IMPORTED_MODULE_62__components_svg_svg_others_component__["a" /* SvgOthersComponent */],
+                __WEBPACK_IMPORTED_MODULE_63__components_svg_svg_insulated_others_component__["a" /* SvgInsulatedOthersComponent */],
+                __WEBPACK_IMPORTED_MODULE_64__components_svg_svg_cilinder_area_component__["a" /* SvgCilinderAreaComponent */],
+                __WEBPACK_IMPORTED_MODULE_65__components_svg_svg_cube_area_component__["a" /* SvgCubeAreaComponent */],
+                __WEBPACK_IMPORTED_MODULE_66__components_svg_svg_circle_area_component__["a" /* SvgCircleAreaComponent */],
+                __WEBPACK_IMPORTED_MODULE_69__components_svg_svg_rectangle_area_component__["a" /* SvgRectangleAreaComponent */],
+                __WEBPACK_IMPORTED_MODULE_67__components_svg_svg_housekeeping_component__["a" /* SvgHousekeepingComponent */],
+                __WEBPACK_IMPORTED_MODULE_68__components_svg_svg_structural_component__["a" /* SvgStructuralComponent */],
+                __WEBPACK_IMPORTED_MODULE_70__components_svg_svg_like_component__["a" /* SvgLikeComponent */],
+                __WEBPACK_IMPORTED_MODULE_71__components_svg_svg_increase_component__["a" /* SvgIncreaseComponent */]
+            ],
+            imports: [
+                __WEBPACK_IMPORTED_MODULE_4__angular_platform_browser__["a" /* BrowserModule */],
+                __WEBPACK_IMPORTED_MODULE_0__angular_http__["b" /* HttpModule */],
+                __WEBPACK_IMPORTED_MODULE_2__angular_platform_browser_animations__["a" /* BrowserAnimationsModule */],
+                __WEBPACK_IMPORTED_MODULE_3__angular_forms__["a" /* FormsModule */],
+                __WEBPACK_IMPORTED_MODULE_5_ionic_angular__["f" /* IonicModule */].forRoot(__WEBPACK_IMPORTED_MODULE_8__app_component__["a" /* MyApp */], {
+                    iconMode: 'ios',
+                    modalEnter: 'modal-slide-in',
+                    modalLeave: 'modal-slide-out',
+                    tabsPlacement: 'bottom',
+                    pageTransition: 'ios-transition',
+                    scrollPadding: false,
+                    scrollAssist: true,
+                    autoFocusAssist: true
+                }, {
+                    links: []
+                }),
+                __WEBPACK_IMPORTED_MODULE_6_ionic_tooltips__["a" /* TooltipsModule */],
+                __WEBPACK_IMPORTED_MODULE_75__progress_kendo_angular_pdf_export__["b" /* PDFExportModule */]
+            ],
+            bootstrap: [__WEBPACK_IMPORTED_MODULE_5_ionic_angular__["d" /* IonicApp */]],
+            entryComponents: [
+                __WEBPACK_IMPORTED_MODULE_8__app_component__["a" /* MyApp */],
+                __WEBPACK_IMPORTED_MODULE_9__pages_download_download__["a" /* DownloadPage */],
+                __WEBPACK_IMPORTED_MODULE_10__pages_contact_contact__["a" /* ContactPage */],
+                __WEBPACK_IMPORTED_MODULE_11__pages_home_home__["a" /* ProjectReportsPage */],
+                __WEBPACK_IMPORTED_MODULE_12__pages_projects_projects__["a" /* ProjectsPage */],
+                __WEBPACK_IMPORTED_MODULE_13__pages_projects_edit__["a" /* EditProjectPage */],
+                __WEBPACK_IMPORTED_MODULE_14__pages_projects_project__["a" /* ProjectPage */],
+                __WEBPACK_IMPORTED_MODULE_73__pages_reports__["a" /* GenericReportPage */],
+                __WEBPACK_IMPORTED_MODULE_73__pages_reports__["w" /* ReportsPage */],
+                __WEBPACK_IMPORTED_MODULE_7__pages_init_init__["a" /* InitPage */],
+                __WEBPACK_IMPORTED_MODULE_17__pages_pictures_pictures__["a" /* PicturesPage */],
+                __WEBPACK_IMPORTED_MODULE_15__pages_summary_summary__["a" /* SummaryPage */],
+                __WEBPACK_IMPORTED_MODULE_16__pages_summary_summary_edit__["a" /* SummaryEditPage */],
+                __WEBPACK_IMPORTED_MODULE_73__pages_reports__["b" /* KnownTempPage */],
+                //Reports
+                __WEBPACK_IMPORTED_MODULE_73__pages_reports__["k" /* ReportHeaderComponent */],
+                __WEBPACK_IMPORTED_MODULE_73__pages_reports__["j" /* ReportFooterComponent */],
+                __WEBPACK_IMPORTED_MODULE_73__pages_reports__["d" /* ReportAreaModalComponent */],
+                __WEBPACK_IMPORTED_MODULE_73__pages_reports__["u" /* ReportTempMarkersWindowComponent */],
+                __WEBPACK_IMPORTED_MODULE_73__pages_reports__["t" /* ReportSurfacePage */],
+                __WEBPACK_IMPORTED_MODULE_73__pages_reports__["m" /* ReportInsulatedSurfacePage */],
+                __WEBPACK_IMPORTED_MODULE_73__pages_reports__["i" /* ReportFlangePage */],
+                __WEBPACK_IMPORTED_MODULE_73__pages_reports__["r" /* ReportPipePage */],
+                __WEBPACK_IMPORTED_MODULE_73__pages_reports__["l" /* ReportInsulatedPipePage */],
+                __WEBPACK_IMPORTED_MODULE_73__pages_reports__["v" /* ReportValvePage */],
+                __WEBPACK_IMPORTED_MODULE_73__pages_reports__["f" /* ReportDamagedPage */],
+                __WEBPACK_IMPORTED_MODULE_73__pages_reports__["e" /* ReportCondensationPage */],
+                __WEBPACK_IMPORTED_MODULE_73__pages_reports__["n" /* ReportLeakagePage */],
+                __WEBPACK_IMPORTED_MODULE_76__components_tools_tools_component__["a" /* ToolsComponent */]
+            ],
+            providers: [
+                /*App services*/
+                __WEBPACK_IMPORTED_MODULE_34__services_messages_service__["a" /* MessageService */],
+                __WEBPACK_IMPORTED_MODULE_29__services_report_service__["a" /* ReportService */],
+                __WEBPACK_IMPORTED_MODULE_28__services__["e" /* ProjectService */],
+                __WEBPACK_IMPORTED_MODULE_30__services_component_service__["a" /* ComponentService */],
+                __WEBPACK_IMPORTED_MODULE_24__ionic_native_status_bar__["a" /* StatusBar */],
+                __WEBPACK_IMPORTED_MODULE_25__ionic_native_splash_screen__["a" /* SplashScreen */],
+                __WEBPACK_IMPORTED_MODULE_21__ionic_native_file_opener__["a" /* FileOpener */],
+                __WEBPACK_IMPORTED_MODULE_20__ionic_native_file_path__["a" /* FilePath */],
+                __WEBPACK_IMPORTED_MODULE_22__ionic_native_file__["a" /* File */],
+                __WEBPACK_IMPORTED_MODULE_18__ionic_native_camera__["a" /* Camera */],
+                __WEBPACK_IMPORTED_MODULE_23__ionic_native_screen_orientation__["a" /* ScreenOrientation */],
+                //PictureLocalService,
+                __WEBPACK_IMPORTED_MODULE_31__services_file_device_service__["a" /* FileDeviceService */],
+                __WEBPACK_IMPORTED_MODULE_33__services_file_local_service__["a" /* FileLocalService */],
+                __WEBPACK_IMPORTED_MODULE_19__ionic_native_file_chooser__["a" /* FileChooser */],
+                __WEBPACK_IMPORTED_MODULE_26__ionic_native_unique_device_id__["a" /* UniqueDeviceID */],
+                __WEBPACK_IMPORTED_MODULE_27__ionic_native_file_transfer__["a" /* FileTransfer */],
+                //{ provide: ErrorHandler, useClass: GlobalErrorHandler, deps: [MessageService, Http] },
+                { provide: __WEBPACK_IMPORTED_MODULE_1__angular_core__["u" /* ErrorHandler */], useClass: __WEBPACK_IMPORTED_MODULE_5_ionic_angular__["e" /* IonicErrorHandler */] },
+                //Mock services
+                //{ provide: PictureService, useClass: PictureDeviceService },
+                __WEBPACK_IMPORTED_MODULE_36__services_licences_service__["a" /* LicencesService */],
+                __WEBPACK_IMPORTED_MODULE_35__services_picture_service__["a" /* PictureService */],
+                __WEBPACK_IMPORTED_MODULE_77__ionic_native_flashlight__["a" /* Flashlight */],
+                __WEBPACK_IMPORTED_MODULE_28__services__["b" /* LoadindService */],
+                __WEBPACK_IMPORTED_MODULE_5_ionic_angular__["h" /* LoadingController */],
+                { provide: __WEBPACK_IMPORTED_MODULE_32__services_file_service__["a" /* FileService */], useClass: __WEBPACK_IMPORTED_MODULE_33__services_file_local_service__["a" /* FileLocalService */] }
+            ]
+        })
+    ], AppModule);
+    return AppModule;
+}());
+
+//# sourceMappingURL=app.module.js.map
+
+/***/ }),
+
+/***/ 46:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__value__ = __webpack_require__(169);
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "e", function() { return __WEBPACK_IMPORTED_MODULE_0__value__["a"]; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__fields__ = __webpack_require__(170);
+/* unused harmony reexport Fields */
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__result__ = __webpack_require__(100);
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "d", function() { return __WEBPACK_IMPORTED_MODULE_2__result__["a"]; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__component_location__ = __webpack_require__(470);
+/* unused harmony reexport ComponentLocation */
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__project__ = __webpack_require__(168);
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return __WEBPACK_IMPORTED_MODULE_4__project__["b"]; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__document_class__ = __webpack_require__(471);
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return __WEBPACK_IMPORTED_MODULE_5__document_class__["a"]; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__report_base__ = __webpack_require__(24);
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return __WEBPACK_IMPORTED_MODULE_6__report_base__["a"]; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__report_category__ = __webpack_require__(472);
+/* unused harmony reexport ReportCategory */
+
+
+
+
+
+
+
+
+//# sourceMappingURL=index.js.map
+
+/***/ }),
+
+/***/ 470:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* unused harmony export ComponentLocation */
+var ComponentLocation = /** @class */ (function () {
+    function ComponentLocation(component) {
+        var _this = this;
+        this.component = component;
+        this.reports = new Map();
+        this.insulated = false;
+        ['Insulation', 'Safety', 'Maintenance', 'Custom'].forEach(function (key) {
+            _this.reports[key] = _this.component.reports.filter(function (r) { return r.path.startsWith(key); });
+        });
+        this.name = this.component.fields.location;
+        this.section_input = new SectionInput(component);
+        this.section_energy = new SectionEnergy(component.reports.find(function (r) { return r.path.startsWith('Insulation'); }));
+        this.insulated = !!this.reports['Insulation'].length && this.reports['Insulation'].find(function (r) { return -1 !== r.path.lastIndexOf('\\Insulated'); });
+    }
+    return ComponentLocation;
+}());
+
+var SectionInput = /** @class */ (function () {
+    function SectionInput(component) {
+        this.fields = component.fields;
+        this.dimension = !!this.fields.surface ? this.fields.surface : !!this.fields.length ? this.fields.length : null;
+    }
+    return SectionInput;
+}());
+var SectionEnergy = /** @class */ (function () {
+    function SectionEnergy(report) {
+        this.advises = new Map([
+            ['System OK', 'OK'],
+            ['Insulation recommended', 'Recommended'],
+            ['SAFETY-Insulation recommended', 'SAFETY-Recommended']
+        ]);
+        this.heat_lost = report.result.headLost;
+        this.saving_potential_max = report.result.savingPotentialMax;
+        this.saving_potential_min = report.result.savingPotentialMin;
+        this.insulated = report.path.startsWith('Insulation\Insulated') ? 'Yes' : 'No';
+        this.tbi = this.advises.get(report.result.advise);
+    }
+    return SectionEnergy;
+}());
+//# sourceMappingURL=component-location.js.map
+
+/***/ }),
+
+/***/ 471:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Document; });
+var Document = /** @class */ (function () {
+    function Document(document) {
+        this.folder = '';
+        this.file = '';
+        this.size = 0;
+        if (!!document)
+            Object.assign(this, document);
+    }
+    Object.defineProperty(Document.prototype, "extension", {
+        get: function () {
+            try {
+                return this.file.substr(this.file.lastIndexOf('.') + 1, this.file.length - 1).toLowerCase();
+            }
+            catch (_a) {
+                return 'unknown';
+            }
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(Document.prototype, "mime", {
+        get: function () {
+            switch (this.extension) {
+                case 'pdf': return 'application/pdf';
+                case 'doc': return 'application/msword';
+                case 'docx': return 'application/vnd.openxmlformats-officedocument.wordprocessingml.document';
+                case 'xls': return 'application/vnd.ms-excel';
+                case 'xlsx': return 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet';
+                case 'ppt': return 'application/vnd.ms-powerpoint';
+                case 'pps': return 'application/vnd.ms-powerpoint';
+                case 'pptx': return 'application/vnd.openxmlformats-officedocument.presentationml.presentation';
+                case 'ppsx': return 'application/vnd.openxmlformats-officedocument.presentationml.slideshow';
+                case 'jpg': 'image/jpeg';
+                case 'bmp': 'image/bmp';
+                case 'png': 'image/png';
+                case 'txt': return 'text/*';
+                default: return 'application/octet-stream';
+            }
+        },
+        enumerable: true,
+        configurable: true
+    });
+    return Document;
+}());
+
+//# sourceMappingURL=document.class.js.map
+
+/***/ }),
+
+/***/ 472:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* unused harmony export ReportCategory */
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__enums__ = __webpack_require__(473);
+
+var ReportCategory = /** @class */ (function () {
+    function ReportCategory(item) {
+        this.id = 0;
+        this.name = '';
+        this.categories = null;
+        this.reports = null;
+        this.type = __WEBPACK_IMPORTED_MODULE_0__enums__["a" /* ReportCategories */].OTHERS;
+        if (!!item) {
+            Object.assign(this, item);
+        }
+    }
+    return ReportCategory;
+}());
+
+//# sourceMappingURL=report-category.js.map
+
+/***/ }),
+
+/***/ 473:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__report_categories_enum__ = __webpack_require__(474);
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return __WEBPACK_IMPORTED_MODULE_0__report_categories_enum__["a"]; });
+
+//# sourceMappingURL=index.js.map
+
+/***/ }),
+
+/***/ 474:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ReportCategories; });
+var ReportCategories;
+(function (ReportCategories) {
+    ReportCategories[ReportCategories["OTHERS"] = 0] = "OTHERS";
+    ReportCategories[ReportCategories["INSULATION"] = 1] = "INSULATION";
+    ReportCategories[ReportCategories["SAFETY"] = 2] = "SAFETY";
+    ReportCategories[ReportCategories["MANTENANCE"] = 3] = "MANTENANCE";
+    ReportCategories[ReportCategories["ENERGY_AND_SAVINGS"] = 4] = "ENERGY_AND_SAVINGS";
+    ReportCategories[ReportCategories["ENERGY"] = 5] = "ENERGY";
+    ReportCategories[ReportCategories["HOT_SURFACE"] = 6] = "HOT_SURFACE";
+})(ReportCategories || (ReportCategories = {}));
+//# sourceMappingURL=report-categories.enum.js.map
+
+/***/ }),
+
+/***/ 475:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ProjectJson; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__project__ = __webpack_require__(168);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__component_json__ = __webpack_require__(476);
+
+
+var ProjectJson = /** @class */ (function () {
+    function ProjectJson(project) {
+        this.id = '';
+        this.name = '';
+        this.desc = '';
+        this.date = new Date();
+        this.user = '';
+        this.picture = '';
+        this.documents = [];
+        this.components = [];
+        this.price = null;
+        this.people = new __WEBPACK_IMPORTED_MODULE_0__project__["a" /* People */]();
+        this.co2 = 0;
+        this.id = project.id;
+        this.name = project.name;
+        this.desc = project.desc;
+        this.date = project.date;
+        this.user = project.user;
+        this.price = project.price;
+        this.picture = project.picture;
+        this.components = project.components.map(function (c) { return new __WEBPACK_IMPORTED_MODULE_1__component_json__["a" /* TbiComponentJson */](c); });
+        this.documents = project.documents || [];
+        this.people = new __WEBPACK_IMPORTED_MODULE_0__project__["a" /* People */](project.people);
+        this.co2 = project.co2 || 0;
+    }
+    ProjectJson.prototype.flatten = function (arr) {
+        return [].concat.apply([], arr);
+    };
+    ProjectJson.prototype.get_reports_by_type = function (type) {
+        var reports = this.components.map(function (c) { return c.reports.filter(function (r) { return !!r.path.match(new RegExp(type, 'gi')); }); });
+        return this.flatten(reports);
+    };
+    return ProjectJson;
+}());
+
+//# sourceMappingURL=project.json.js.map
+
+/***/ }),
+
+/***/ 476:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return TbiComponentJson; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__fields__ = __webpack_require__(170);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__report_base_json__ = __webpack_require__(477);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__marker__ = __webpack_require__(75);
+
+
+
+var TbiComponentJson = /** @class */ (function () {
+    function TbiComponentJson(item) {
+        this.id = '';
+        this.reports = [];
+        this.fields = new __WEBPACK_IMPORTED_MODULE_0__fields__["a" /* Fields */]();
+        this.validation = '';
+        this.id = item.id;
+        this.reports = (item.reports || []).map(function (r) { return new __WEBPACK_IMPORTED_MODULE_1__report_base_json__["a" /* ReportBaseJson */](r); });
+        this.fields = new __WEBPACK_IMPORTED_MODULE_0__fields__["a" /* Fields */](item.fields);
+        this.markers = (item.markers || []).map(function (m) { return new __WEBPACK_IMPORTED_MODULE_2__marker__["a" /* Marker */](m); });
+        this.date = item.date || new Date();
+        this.validation = item.validation;
+    }
+    return TbiComponentJson;
+}());
+
+//# sourceMappingURL=component.json.js.map
+
+/***/ }),
+
+/***/ 477:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ReportBaseJson; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__result__ = __webpack_require__(100);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__picture__ = __webpack_require__(101);
+
+
+var ReportBaseJson = /** @class */ (function () {
+    function ReportBaseJson(item) {
+        this.id = '';
+        this.name = '';
+        this.path = '';
+        this.result = null;
+        this.pictures = [];
+        this.insulated = false;
+        this.summary_id = '';
+        this.readonly_summary_id = '';
+        this.comment = '';
+        this.id = item.id;
+        this.name = item.name;
+        this.path = item.path;
+        this.summary_id = item.summary_id;
+        this.comment = item.comment;
+        this.readonly_summary_id = item.readonly_summary_id || item.summary_id;
+        this.insulated = !!item.insulated;
+        this.result = new __WEBPACK_IMPORTED_MODULE_0__result__["a" /* Result */](item.result);
+        this.pictures = (item.pictures || []).map(function (p) { return new __WEBPACK_IMPORTED_MODULE_1__picture__["a" /* Picture */](p); });
+    }
+    return ReportBaseJson;
+}());
+
+//# sourceMappingURL=report-base.json.js.map
+
+/***/ }),
+
+/***/ 485:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ReportFooterComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__models_reports__ = __webpack_require__(21);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+var ReportFooterComponent = /** @class */ (function () {
+    function ReportFooterComponent() {
+    }
+    ReportFooterComponent.prototype.ngOnInit = function () {
+        this.calculate_text = this.calculate_text || 'Calculate';
+    };
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["D" /* Input */])(),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1__models_reports__["a" /* BaseReportPage */])
+    ], ReportFooterComponent.prototype, "parent", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["D" /* Input */])(),
+        __metadata("design:type", String)
+    ], ReportFooterComponent.prototype, "calculate_text", void 0);
+    ReportFooterComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
+            selector: 'report-footer',template:/*ion-inline-start:"D:\Sofware Factory\tbi\src\pages\reports\components\report-footer\report-footer.component.html"*/'<ion-footer>\n\n  <ion-grid no-padding>\n\n    <ion-row no-padding>\n\n      <ion-col col-4 no-padding>\n\n        <button tabindex="22" *ngIf="(parent.view!=\'edit_picture\') || (parent.view==\'edit_picture\' && !parent.is_energy_report)" ion-button small color="light" (click)="parent.go_back()">\n\n          <ion-icon name="arrow-back"></ion-icon>&nbsp;Back\n\n        </button>\n\n      </ion-col>\n\n      <ion-col col-4 text-right no-padding *ngIf="parent.view==\'edit_picture\' && parent.is_energy_report">\n\n        <button tabindex="22" ion-button small color="royal" (click)="parent.go_back()">\n\n          Next\n\n        </button>\n\n      </ion-col>\n\n      <ion-col col-4 text-center>\n\n        <tools></tools>\n\n      </ion-col>\n\n      <ion-col col-4 text-right no-padding *ngIf="parent.view!=\'edit_picture\' && parent.segment===\'input\'">\n\n        <button id="submit-button" tabindex="20" ion-button small pull-right color="primary" (click)="parent.calculate()" *ngIf="parent.view!=\'edit_picture\' && parent.view!=\'result\'">\n\n          <!-- {{calculate_text}} -->\n\n          Next\n\n        </button>\n\n        <button id="submit-button" tabindex="21" ion-button small pull-right color="primary" (click)="parent.save()" *ngIf="parent.view==\'result\' && !parent.form.invalid">\n\n          Next\n\n        </button>\n\n      </ion-col>\n\n    </ion-row>\n\n  </ion-grid>\n\n</ion-footer>\n\n'/*ion-inline-end:"D:\Sofware Factory\tbi\src\pages\reports\components\report-footer\report-footer.component.html"*/
+        })
+    ], ReportFooterComponent);
+    return ReportFooterComponent;
+}());
+
+//# sourceMappingURL=report-footer.component.js.map
+
+/***/ }),
+
+/***/ 486:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ReportCondensation; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__report_base__ = __webpack_require__(24);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__pages_reports__ = __webpack_require__(20);
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+
+
+var ReportCondensation = /** @class */ (function (_super) {
+    __extends(ReportCondensation, _super);
+    function ReportCondensation(project, component, item) {
+        var _this = _super.call(this, project, component, item) || this;
+        _this.project = project;
+        _this.component = component;
+        _this.page = __WEBPACK_IMPORTED_MODULE_1__pages_reports__["e" /* ReportCondensationPage */];
+        _this.name = "Condensation";
+        return _this;
+        // this.component.fields.location = 'Test flange borrar';
+        // this.component.fields.operational_time = 8760;
+        // this.component.fields.nominal_diameter = 200;
+        // this.component.fields.number = 1;
+        // this.component.fields.surface_material = 0.8;
+        // this.component.fields.ambient_temp = 12;
+        // this.component.fields.surface_temp = 250;
+    }
+    return ReportCondensation;
+}(__WEBPACK_IMPORTED_MODULE_0__report_base__["a" /* ReportBase */]));
+
+//# sourceMappingURL=report-condensation.class.js.map
+
+/***/ }),
+
+/***/ 487:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ReportDamaged; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__report_base__ = __webpack_require__(24);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__pages_reports__ = __webpack_require__(20);
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+
+
+var ReportDamaged = /** @class */ (function (_super) {
+    __extends(ReportDamaged, _super);
+    function ReportDamaged(project, component, item) {
+        var _this = _super.call(this, project, component, item) || this;
+        _this.project = project;
+        _this.component = component;
+        _this.page = __WEBPACK_IMPORTED_MODULE_1__pages_reports__["f" /* ReportDamagedPage */];
+        _this.name = "Damaged";
+        return _this;
+        // this.component.fields.location = 'Test flange borrar';
+        // this.component.fields.operational_time = 8760;
+        // this.component.fields.nominal_diameter = 200;
+        // this.component.fields.number = 1;
+        // this.component.fields.surface_material = 0.8;
+        // this.component.fields.ambient_temp = 12;
+        // this.component.fields.surface_temp = 250;
+    }
+    return ReportDamaged;
+}(__WEBPACK_IMPORTED_MODULE_0__report_base__["a" /* ReportBase */]));
+
+//# sourceMappingURL=report-damaged.class.js.map
+
+/***/ }),
+
+/***/ 488:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ReportInsulatedSurface; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__report_base__ = __webpack_require__(24);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__pages_reports__ = __webpack_require__(20);
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+
+
+var ReportInsulatedSurface = /** @class */ (function (_super) {
+    __extends(ReportInsulatedSurface, _super);
+    function ReportInsulatedSurface(project, component, item) {
+        var _this = _super.call(this, project, component, item) || this;
+        _this.project = project;
+        _this.component = component;
+        _this.page = __WEBPACK_IMPORTED_MODULE_1__pages_reports__["m" /* ReportInsulatedSurfacePage */];
+        _this.name = "Insulated Surface";
+        //public path = REPORT.INSULATION.INSULATED_EQUIPMENTS.SURFACE;
+        _this.insulated = true;
+        return _this;
+        // this.component.fields.location = 'Test isurface borrar';
+        // this.component.fields.operational_time = 8760;
+        // this.component.fields.surface = 20;
+        // this.component.fields.surface_material = 0.6;
+        // this.component.fields.ambient_temp = 12;
+        // this.component.fields.surface_temp = 89;
+    }
+    Object.defineProperty(ReportInsulatedSurface.prototype, "potential_measure", {
+        get: function () {
+            return (!this.component || !this.component.fields || null == this.component.fields.surface) ? 'kWh/m2' : 'kWh';
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(ReportInsulatedSurface.prototype, "money_measure", {
+        get: function () {
+            return (!this.component || !this.component.fields || null == this.component.fields.surface) ? '€/m2' : '€';
+        },
+        enumerable: true,
+        configurable: true
+    });
+    return ReportInsulatedSurface;
+}(__WEBPACK_IMPORTED_MODULE_0__report_base__["a" /* ReportBase */]));
+
+//# sourceMappingURL=report-isurface.class.js.map
+
+/***/ }),
+
+/***/ 489:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ReportValve; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__report_base__ = __webpack_require__(24);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__pages_reports__ = __webpack_require__(20);
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+
+
+var ReportValve = /** @class */ (function (_super) {
+    __extends(ReportValve, _super);
+    function ReportValve(project, component, item) {
+        var _this = _super.call(this, project, component, item) || this;
+        _this.project = project;
+        _this.component = component;
+        _this.page = __WEBPACK_IMPORTED_MODULE_1__pages_reports__["v" /* ReportValvePage */];
+        _this.name = "Uninsulated Valve";
+        return _this;
+        // this.component.fields.location = 'Test valve borrar';
+        // this.component.fields.operational_time = 8760;
+        // this.component.fields.nominal_diameter = 200;
+        // this.component.fields.length = 1;
+        // this.component.fields.number = 1;
+        // this.component.fields.surface_material = 0.8;
+        // this.component.fields.ambient_temp = 25;
+        // this.component.fields.surface_temp = 250;
+    }
+    return ReportValve;
+}(__WEBPACK_IMPORTED_MODULE_0__report_base__["a" /* ReportBase */]));
+
+//# sourceMappingURL=report-valve.class.js.map
+
+/***/ }),
+
+/***/ 490:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ReportFlange; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__report_base__ = __webpack_require__(24);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__pages_reports__ = __webpack_require__(20);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__calculators__ = __webpack_require__(303);
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+
+
+
+var ReportFlange = /** @class */ (function (_super) {
+    __extends(ReportFlange, _super);
+    function ReportFlange(project, component, item) {
+        var _this = _super.call(this, project, component, item) || this;
+        _this.project = project;
+        _this.component = component;
+        _this.page = __WEBPACK_IMPORTED_MODULE_1__pages_reports__["i" /* ReportFlangePage */];
+        _this.name = "Uninsulated Flange";
+        //public path = REPORT.INSULATION.UNINSULATED_EQUIPMENTS.FLANGE;
+        _this.calculator = new __WEBPACK_IMPORTED_MODULE_2__calculators__["a" /* FlangeDecorator */];
+        return _this;
+        // this.component.fields.location = 'Test flange borrar';
+        // this.component.fields.operational_time = 8760;
+        // this.component.fields.nominal_diameter = 200;
+        // this.component.fields.number = 1;
+        // this.component.fields.surface_material = 0.8;
+        // this.component.fields.ambient_temp = 12;
+        // this.component.fields.surface_temp = 250;
+    }
+    return ReportFlange;
+}(__WEBPACK_IMPORTED_MODULE_0__report_base__["a" /* ReportBase */]));
+
+//# sourceMappingURL=report-flange.class.js.map
+
+/***/ }),
+
+/***/ 491:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return IPipeDecorator; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__base_calculator_class__ = __webpack_require__(64);
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+
+var IPipeDecorator = /** @class */ (function () {
+    function IPipeDecorator() {
+    }
+    IPipeDecorator.prototype.calculate = function (report) {
+        return new IPipeCalculator(report).execute();
+    };
+    return IPipeDecorator;
+}());
+
+var IPipeCalculator = /** @class */ (function (_super) {
+    __extends(IPipeCalculator, _super);
+    function IPipeCalculator(report) {
+        var _this = _super.call(this, report, [
+            // /*02*/() => this.hcv = 1.74 * Math.pow(this.Δθ, 1 / 3),
+            // /*04*/() => this.q = this.hse * this.Δθ,
+            function () { _this.θse_min = 55; _this.θse_max = 35; _this.θa_min = 35; _this.θa_max = 1; },
+            /**00*/ function () { return _this.Δθ = Math.abs(_this.θse - _this.θa); },
+            /*01*/ function () { return _this.hr = _this.ε * _this.δ * (Math.pow(_this.θse + 273, 4) - Math.pow(_this.θa + 273, 4)) / ((_this.θse + 273) - (_this.θa + 273)); },
+            /*01min*/ function () { return _this.hr_min = _this.ε_default * _this.δ * (Math.pow(_this.θse_min + 273, 4) - Math.pow(_this.θa_min + 273, 4)) / ((_this.θse_min + 273) - (_this.θa_min + 273)); },
+            /**07*/ function () { return _this.θm_min = (_this.θse + _this.θa + 35) / 2; },
+            /**08*/ function () { return _this.θm_max = (_this.θse + _this.θa + 20) / 2; },
+            /**09*/ function () { return _this.λm_min = _this.a + _this.b * _this.θm_min + _this.c * Math.pow(_this.θm_min, 2) + _this.d * Math.pow(_this.θm_min, 3); },
+            /**10*/ function () { return _this.λm_max = _this.a + _this.b * _this.θm_max + _this.c * Math.pow(_this.θm_max, 2) + _this.d * Math.pow(_this.θm_max, 3); },
+            /**11*/ function () { return _this.λdes_min = _this.λm_min * _this.Ft; },
+            /**12*/ function () { return _this.λdes_max = _this.λm_max * _this.Ft; },
+            /**13*/ function () { return _this.e_min = _this.get_l(0); },
+            /**14*/ function () { return _this.e_max = _this.get_l(1); },
+            /*36*/ function () { return _this.De_min = _this.De; },
+            /*37*/ function () { return _this.De_max = _this.De; },
+            /*32*/ function () { return _this.lort = Math.pow(_this.De, 3) * _this.Δθ; },
+            /*32min*/ function () { return _this.lort_min = Math.pow(_this.De, 3) * Math.abs(_this.θse_min - _this.θa_min); },
+            /*33*/ function () { return _this.hcv_laminar = 1.25 * Math.pow(_this.Δθ / _this.De, 0.25); },
+            /*33min*/ function () { return _this.hcv_laminar_min = 1.25 * Math.pow(Math.abs(_this.θse_min - _this.θa_min) / _this.De_min, 0.25); },
+            ///**33min*/() => this.hcv_laminar_max = 1.25 * Math.pow(Math.abs(this.θse_max - this.θa_max) / this.De_max, 0.25),
+            /**34*/ function () { return _this.hcv_turbulent = 1.21 * Math.pow(_this.Δθ, 0.33); },
+            /**34min*/ function () { return _this.hcv_turbulent_min = 1.21 * Math.pow(Math.abs(_this.θse_min - _this.θa_min), 0.33); },
+            /**35*/ function () { return _this.hse = _this.hr + (_this.lort < 10 ? _this.hcv_laminar : _this.hcv_turbulent); },
+            /**35min*/ function () { return _this.hse_min = _this.hr_min + (_this.lort < 10 ? _this.hcv_laminar_min : _this.hcv_turbulent); },
+            /**35max*/ function () { return _this.hse_max = _this.hr + (_this.lort < 10 ? _this.hcv_laminar_max : _this.hcv_turbulent); },
+            /**42*/ function () { return _this.Rle = 1 / (_this.hse * Math.PI * _this.De); },
+            /**42min*/ function () { return _this.Rle_min = 1 / (_this.hse_min * Math.PI * _this.De_min); },
+            /**42max*/ function () { return _this.Rle_max = 1 / (_this.hse_max * Math.PI * _this.De_max); },
+            ///*41*/() => this.qref_pb = this.q - ((10000 * this.Cpb_surface_pipe) / this.Ot / this.Σ),
+            /**43*/ function () { return _this.ql = _this.Δθ / _this.Rle; },
+            /**38*/ function () { return _this.Rins_min = (Math.log(_this.De_min / _this.De)) / (2 * Math.PI * _this.λdes_min); },
+            /**39*/ function () { return _this.Rins_max = (Math.log(_this.De_max / _this.De)) / (2 * Math.PI * _this.λdes_max); },
+            /**45*/ function () { return _this.ql_min = (Math.abs(_this.θse_min - _this.θa_min)) / (_this.Rle_min + _this.Rins_min); },
+            /**46*/ function () { return _this.ql_max = 114; },
+            //*47*/() => this.Qkwh = this.ql * this.l * this.Ot * this.l * 1 / 1000,
+            /**40*/ function () { return _this.Sp = Math.PI * _this.De_min; },
+            /**44*/ function () { return _this.Qkwh = _this.ql * _this.l * _this.Ot * 1 / 1000; },
+            /**44min*/ function () { return _this.Qkwh_min = _this.ql_min * _this.l * _this.Ot * 1 / 1000; },
+            /**44max*/ function () { return _this.Qkwh_max = _this.ql_max * _this.l * _this.Ot * 1 / 1000; },
+            /*48*/ function () { return _this.ql_ref_pb = _this.ql - ((10000 * _this.Cpb_surface_pipe * _this.Sp) / (_this.Ot * _this.Σ)); },
+            /*06*/ function () { return _this.Qε = _this.Qkwh * _this.Σ; },
+            /*24*/ function () { return _this.Qε_min = _this.Qkwh_min * _this.Σ; },
+            /*25*/ function () { return _this.Qε_max = _this.Qkwh_max * _this.Σ; },
+            /*26*/ function () { return _this.Savingkwh_min = _this.Qkwh - _this.Qkwh_min; },
+            /*27*/ function () { return _this.Savingkwh_max = _this.Qkwh - _this.Qkwh_max; },
+            /*28*/ function () { return _this.Savingε_min = _this.Qε - _this.Qε_min; },
+            /*29*/ function () { return _this.Savingε_max = _this.Qε - _this.Qε_max; },
+            /*30*/ function () { return _this.Insulation_advice = _this.ql_ref_pb > _this.ql_min ? 'Savings can be achieved by increasing the insulant performance or thickness' : 'System OK'; },
+        ]) || this;
+        return _this;
+    }
+    return IPipeCalculator;
+}(__WEBPACK_IMPORTED_MODULE_0__base_calculator_class__["a" /* BaseCalculator */]));
+//# sourceMappingURL=ipipe.class.js.map
+
+/***/ }),
+
+/***/ 492:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ISurfaceDecorator; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__base_calculator_class__ = __webpack_require__(64);
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+
+var ISurfaceDecorator = /** @class */ (function () {
+    function ISurfaceDecorator() {
+    }
+    ISurfaceDecorator.prototype.calculate = function (report) {
+        return new ISurfaceCalculator(report).execute();
+    };
+    return ISurfaceDecorator;
+}());
+
+var ISurfaceCalculator = /** @class */ (function (_super) {
+    __extends(ISurfaceCalculator, _super);
+    function ISurfaceCalculator(report) {
+        var _this = _super.call(this, report, [
+            function () { _this.θse_min = 55; _this.θse_max = 35; _this.θa_min = 35; _this.θa_max = 1; },
+            /*00*/ function () { return _this.Δθ = Math.abs(_this.θse - _this.θa); },
+            /*01*/ function () { return _this.hr = _this.ε * _this.δ * (Math.pow(_this.θse + 273, 4) - Math.pow(_this.θa + 273, 4)) / ((_this.θse + 273) - (_this.θa + 273)); },
+            /*01min*/ function () { return _this.hr_min = _this.ε * _this.δ * (Math.pow(_this.θse_min + 273, 4) - Math.pow(_this.θa_min + 273, 4)) / ((_this.θse_min + 273) - (_this.θa_min + 273)); },
+            /*02*/ function () { return _this.hcv = 1.74 * Math.pow(_this.Δθ, 1 / 3); },
+            /*02min*/ function () { return _this.hcv_min = 1.74 * Math.pow(Math.abs(_this.θse_min - _this.θa_min), 1 / 3); },
+            /*03*/ function () { return _this.hse = _this.hr + _this.hcv; },
+            /*03min*/ function () { return _this.hse_min = _this.hr_min + _this.hcv_min; },
+            /*04*/ function () { return _this.q = _this.hse * _this.Δθ; },
+            /*05*/ function () { return _this.Qkwh = _this.q * _this.S * _this.Ot * 1 / 1000; },
+            /*06*/ function () { return _this.Qε = _this.Qkwh * _this.Σ; },
+            /*07*/ function () { return _this.θm_min = (_this.θse_min + (_this.θa + 35)) / 2; },
+            /*08*/ function () { return _this.θm_max = (_this.θse_max + (_this.θa + 20)) / 2; },
+            /*09*/ function () { return _this.λm_min = _this.a + _this.b * _this.θm_min + _this.c * Math.pow(_this.θm_min, 2) + _this.d * Math.pow(_this.θm_min, 3); },
+            /*10*/ function () { return _this.λm_max = _this.a + _this.b * _this.θm_max + _this.c * Math.pow(_this.θm_max, 2) + _this.d * Math.pow(_this.θm_max, 3); },
+            /*11*/ function () { return _this.λdes_min = _this.λm_min * _this.Ft; },
+            /*12*/ function () { return _this.λdes_max = _this.λm_max * _this.Ft; },
+            /*13*/ function () { return _this.e_min = _this.get_l(0); },
+            /*14*/ function () { return _this.e_max = _this.get_l(1); },
+            /*15*/ function () { return _this.Rse_min = 1 / _this.hse; },
+            /*16*/ function () { return _this.Rse_max = 1 / _this.hse; },
+            /*17*/ function () { return _this.Rins_min = _this.e_min / _this.λdes_min; },
+            /*18*/ function () { return _this.Rins_max = _this.e_max / _this.λdes_max; },
+            /*19*/ function () { return _this.qref_pb = _this.q - ((10000 * _this.Cpb_surface_pipe) / _this.Ot / _this.Σ); },
+            /*20*/ function () { return _this.q_min = _this.hse_min * Math.abs(_this.θse_min - _this.θa_min); },
+            /*21*/ function () { return _this.q_max = 90; },
+            /*22*/ function () { return _this.Qkwh_min = _this.q_min * _this.S * _this.Ot * 1 / 1000; },
+            /*23*/ function () { return _this.Qkwh_max = _this.q_max * _this.S * _this.Ot * 1 / 1000; },
+            /*24*/ function () { return _this.Qε_min = _this.Qkwh_min * _this.Σ; },
+            /*25*/ function () { return _this.Qε_max = _this.Qkwh_max * _this.Σ; },
+            /*26*/ function () { return _this.Savingkwh_min = _this.Qkwh - _this.Qkwh_min; },
+            /*27*/ function () { return _this.Savingkwh_max = _this.Qkwh - _this.Qkwh_max; },
+            /*28*/ function () { return _this.Savingε_min = _this.Qε - _this.Qε_min; },
+            /*29*/ function () { return _this.Savingε_max = _this.Qε - _this.Qε_max; },
+            /*30*/ function () { return _this.Insulation_advice = _this.qref_pb > _this.q_min ? 'Savings can be achieved by increasing insulation performance or thickness' : 'System OK'; }
+        ]) || this;
+        return _this;
+    }
+    return ISurfaceCalculator;
+}(__WEBPACK_IMPORTED_MODULE_0__base_calculator_class__["a" /* BaseCalculator */]));
+//# sourceMappingURL=isurface.class.js.map
+
+/***/ }),
+
+/***/ 493:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ValveDecorator; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__base_calculator_class__ = __webpack_require__(64);
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+
+var ValveDecorator = /** @class */ (function () {
+    function ValveDecorator() {
+    }
+    ValveDecorator.prototype.calculate = function (report) {
+        return new ValveCalculator(report).execute();
+    };
+    return ValveDecorator;
+}());
+
+var ValveCalculator = /** @class */ (function (_super) {
+    __extends(ValveCalculator, _super);
+    function ValveCalculator(report) {
+        var _this = _super.call(this, report, [
+            // /*02*/() => this.hcv = 1.74 * Math.pow(this.Δθ, 1 / 3),
+            // /*04*/() => this.q = this.hse * this.Δθ,
+            /*00*/ function () { return _this.Δθ = Math.abs(_this.θse - _this.θa); },
+            /*01*/ function () { return _this.hr = _this.ε * _this.δ * (Math.pow(_this.θse + 273, 4) - Math.pow(_this.θa + 273, 4)) / ((_this.θse + 273) - (_this.θa + 273)); },
+            /*07*/ function () { return _this.θm_min = (_this.θse + _this.θa + 35) / 2; },
+            /*08*/ function () { return _this.θm_max = (_this.θse + _this.θa + 20) / 2; },
+            /*09*/ function () { return _this.λm_min = _this.a + _this.b * _this.θm_min + _this.c * Math.pow(_this.θm_min, 2) + _this.d * Math.pow(_this.θm_min, 3); },
+            /*10*/ function () { return _this.λm_max = _this.a + _this.b * _this.θm_max + _this.c * Math.pow(_this.θm_max, 2) + _this.d * Math.pow(_this.θm_max, 3); },
+            /*11*/ function () { return _this.λdes_min = _this.λm_min * _this.Ft; },
+            /*12*/ function () { return _this.λdes_max = _this.λm_max * _this.Ft; },
+            /*13*/ function () { return _this.e_min = _this.get_l(0); },
+            /*14*/ function () { return _this.e_max = _this.get_l(1); },
+            /*36*/ function () { return _this.De_min = _this.De + 2 * _this.e_min; },
+            /*37*/ function () { return _this.De_max = _this.De + 2 * _this.e_max; },
+            /**32*/ function () { return _this.lort = Math.pow(_this.De, 3) * _this.Δθ; },
+            /**32min*/ function () { return _this.lort_min = Math.pow(_this.De_min, 3) * _this.Δθ; },
+            /**32max*/ function () { return _this.lort_max = Math.pow(_this.De_max, 3) * _this.Δθ; },
+            /**33*/ function () { return _this.hcv_laminar = 1.25 * Math.pow(_this.Δθ / _this.De, 0.25); },
+            /**33min*/ function () { return _this.hcv_laminar_min = 1.25 * Math.pow(_this.Δθ / _this.De_min, 0.25); },
+            /**33max*/ function () { return _this.hcv_laminar_max = 1.25 * Math.pow(_this.Δθ / _this.De_max, 0.25); },
+            /**34*/ function () { return _this.hcv_turbulent = 1.21 * Math.pow(_this.Δθ, 0.33); },
+            /**35*/ function () { return _this.hse = _this.hr + (_this.lort < 10 ? _this.hcv_laminar : _this.hcv_turbulent); },
+            /**35min*/ function () { return _this.hse_min = _this.hr + (_this.lort_min < 10 ? _this.hcv_laminar_min : _this.hcv_turbulent); },
+            /**35max*/ function () { return _this.hse_max = _this.hr + (_this.lort_max < 10 ? _this.hcv_laminar_max : _this.hcv_turbulent); },
+            /**42*/ function () { return _this.Rle = 1 / (_this.hse * Math.PI * _this.De); },
+            /**43*/ function () { return _this.ql = _this.Δθ / _this.Rle; },
+            /**42min*/ function () { return _this.Rle_min = 1 / (_this.hse_min * Math.PI * _this.De_min); },
+            /**42max*/ function () { return _this.Rle_max = 1 / (_this.hse_max * Math.PI * _this.De_max); },
+            /**38*/ function () { return _this.Rins_min = (Math.log(_this.De_min / _this.De)) / (2 * Math.PI * _this.λdes_min); },
+            /**39*/ function () { return _this.Rins_max = (Math.log(_this.De_max / _this.De)) / (2 * Math.PI * _this.λdes_max); },
+            /**45*/ function () { return _this.ql_min = _this.Δθ / (_this.Rle_min + _this.Rins_min); },
+            /**46*/ function () { return _this.ql_max = _this.Δθ / (_this.Rle_max + _this.Rins_max); },
+            //*47*/() => this.Qkwh = this.ql * this.l * this.Ot * this.l * 1 / 1000,
+            ///*41*/() => this.qref_pb = this.q - ((10000 * this.Cpb_surface_pipe) / this.Ot / this.Σ),
+            /*40*/ function () { return _this.Sp = Math.PI * _this.De_min; },
+            /*44*/ function () { return _this.Qkwh = _this.ql * _this.l * _this.n * _this.Ot * 1 / 1000; },
+            /*44min*/ function () { return _this.Qkwh_min = _this.ql_min * _this.l * _this.n * _this.Ot / 1000; },
+            /*44max*/ function () { return _this.Qkwh_max = _this.ql_max * _this.l * _this.n * _this.Ot / 1000; },
+            /*48*/ function () { return _this.ql_ref_pb = _this.ql - ((10000 * _this.Cpb_surface_pipe * _this.Sp) / (_this.Ot * _this.Σ)); },
+            /*06*/ function () { return _this.Qε = _this.Qkwh * _this.Σ; },
+            /*24*/ function () { return _this.Qε_min = _this.Qkwh_min * _this.Σ; },
+            /*25*/ function () { return _this.Qε_max = _this.Qkwh_max * _this.Σ; },
+            /*26*/ function () { return _this.Savingkwh_min = _this.Qkwh - _this.Qkwh_min; },
+            /*27*/ function () { return _this.Savingkwh_max = _this.Qkwh - _this.Qkwh_max; },
+            /*28*/ function () { return _this.Savingε_min = _this.Qε - _this.Qε_min; },
+            /*29*/ function () { return _this.Savingε_max = _this.Qε - _this.Qε_max; },
+            /*30*/ function () { return _this.Insulation_advice = _this.ql_ref_pb > _this.ql_min ? 'SAFETY-Insulation recommended' : 'System OK'; },
+        ]) || this;
+        return _this;
+    }
+    return ValveCalculator;
+}(__WEBPACK_IMPORTED_MODULE_0__base_calculator_class__["a" /* BaseCalculator */]));
+//# sourceMappingURL=valve.class.js.map
+
+/***/ }),
+
+/***/ 494:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return PipeDecorator; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__base_calculator_class__ = __webpack_require__(64);
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+
+var PipeDecorator = /** @class */ (function () {
+    function PipeDecorator() {
+    }
+    PipeDecorator.prototype.calculate = function (report) {
+        return new PipeCalculator(report).execute();
+    };
+    return PipeDecorator;
+}());
+
+var PipeCalculator = /** @class */ (function (_super) {
+    __extends(PipeCalculator, _super);
+    function PipeCalculator(report) {
+        var _this = _super.call(this, report, [
+            // /*02*/() => this.hcv = 1.74 * Math.pow(this.Δθ, 1 / 3),
+            // /*04*/() => this.q = this.hse * this.Δθ,
+            /**00*/ function () { return _this.Δθ = Math.abs(_this.θse - _this.θa); },
+            /**01*/ function () { return _this.hr = _this.ε * _this.δ * (Math.pow(_this.θse + 273, 4) - Math.pow(_this.θa + 273, 4)) / ((_this.θse + 273) - (_this.θa + 273)); },
+            /**07*/ function () { return _this.θm_min = (_this.θse + _this.θa + 35) / 2; },
+            /**08*/ function () { return _this.θm_max = (_this.θse + _this.θa + 20) / 2; },
+            /**09*/ function () { return _this.λm_min = _this.a + _this.b * _this.θm_min + _this.c * Math.pow(_this.θm_min, 2) + _this.d * Math.pow(_this.θm_min, 3); },
+            /**10*/ function () { return _this.λm_max = _this.a + _this.b * _this.θm_max + _this.c * Math.pow(_this.θm_max, 2) + _this.d * Math.pow(_this.θm_max, 3); },
+            /**11*/ function () { return _this.λdes_min = _this.λm_min * _this.Ft; },
+            /**12*/ function () { return _this.λdes_max = _this.λm_max * _this.Ft; },
+            /**13*/ function () { return _this.e_min = _this.get_l(0); },
+            /**14*/ function () { return _this.e_max = _this.get_l(1); },
+            /**32*/ function () { return _this.lort = Math.pow(_this.De, 3) * _this.Δθ; },
+            /**36*/ function () { return _this.De_min = _this.De + 2 * _this.e_min; },
+            /**37*/ function () { return _this.De_max = _this.De + 2 * _this.e_max; },
+            /**33*/ function () { return _this.hcv_laminar = 1.25 * Math.pow(_this.Δθ / _this.De, 0.25); },
+            /**33min*/ function () { return _this.hcv_laminar_min = 1.25 * Math.pow(_this.Δθ / _this.De_min, 0.25); },
+            /**34min*/ function () { return _this.hcv_laminar_max = 1.25 * Math.pow(_this.Δθ / _this.De_max, 0.25); },
+            /**34*/ function () { return _this.hcv_turbulent = 1.21 * Math.pow(_this.Δθ, 0.33); },
+            /**35*/ function () { return _this.hse = _this.hr + (_this.lort < 10 ? _this.hcv_laminar : _this.hcv_turbulent); },
+            /**35min*/ function () { return _this.hse_min = _this.hr + (_this.lort < 10 ? _this.hcv_laminar_min : _this.hcv_turbulent); },
+            /**35max*/ function () { return _this.hse_max = _this.hr + (_this.lort < 10 ? _this.hcv_laminar_max : _this.hcv_turbulent); },
+            /**42*/ function () { return _this.Rle = 1 / (_this.hse * Math.PI * _this.De); },
+            /**43*/ function () { return _this.ql = _this.Δθ / _this.Rle; },
+            ///*41*/() => this.qref_pb = this.q - ((10000 * this.Cpb_surface_pipe) / this.Ot / this.Σ),
+            /**42min*/ function () { return _this.Rle_min = 1 / (_this.hse_min * Math.PI * _this.De_min); },
+            /**42max*/ function () { return _this.Rle_max = 1 / (_this.hse_max * Math.PI * _this.De_max); },
+            /**38*/ function () { return _this.Rins_min = (Math.log(_this.De_min / _this.De)) / (2 * Math.PI * _this.λdes_min); },
+            /**39*/ function () { return _this.Rins_max = (Math.log(_this.De_max / _this.De)) / (2 * Math.PI * _this.λdes_max); },
+            /**45*/ function () { return _this.ql_min = _this.Δθ / (_this.Rle_min + _this.Rins_min); },
+            /**46*/ function () { return _this.ql_max = _this.Δθ / (_this.Rle_max + _this.Rins_max); },
+            //*47*/() => this.Qkwh = this.ql * this.l * this.Ot * this.l * 1 / 1000,
+            /**40*/ function () { return _this.Sp = Math.PI * _this.De_min; },
+            /**44*/ function () { return _this.Qkwh = _this.ql * _this.l * _this.Ot * 1 / 1000; },
+            /**44min*/ function () { return _this.Qkwh_min = _this.ql_min * _this.l * _this.Ot * 1 / 1000; },
+            /**44max*/ function () { return _this.Qkwh_max = _this.ql_max * _this.l * _this.Ot * 1 / 1000; },
+            /*48*/ function () { return _this.ql_ref_pb = _this.ql - ((10000 * _this.Cpb_surface_pipe * _this.Sp) / (_this.Ot * _this.Σ)); },
+            /*06*/ function () { return _this.Qε = _this.Qkwh * _this.Σ; },
+            /*24*/ function () { return _this.Qε_min = _this.Qkwh_min * _this.Σ; },
+            /*25*/ function () { return _this.Qε_max = _this.Qkwh_max * _this.Σ; },
+            /*26*/ function () { return _this.Savingkwh_min = _this.Qkwh - _this.Qkwh_min; },
+            /*27*/ function () { return _this.Savingkwh_max = _this.Qkwh - _this.Qkwh_max; },
+            /*28*/ function () { return _this.Savingε_min = _this.Qε - _this.Qε_min; },
+            /*29*/ function () { return _this.Savingε_max = _this.Qε - _this.Qε_max; },
+            /*30*/ function () { return _this.Insulation_advice = _this.ql_ref_pb > _this.ql_min ? 'Insulation recommended' : 'System OK'; },
+        ]) || this;
+        return _this;
+    }
+    return PipeCalculator;
+}(__WEBPACK_IMPORTED_MODULE_0__base_calculator_class__["a" /* BaseCalculator */]));
+//# sourceMappingURL=pipe.class.js.map
+
+/***/ }),
+
+/***/ 495:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return FlangeDecorator; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__base_calculator_class__ = __webpack_require__(64);
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+
+var FlangeDecorator = /** @class */ (function () {
+    function FlangeDecorator() {
+    }
+    FlangeDecorator.prototype.calculate = function (report) {
+        return new FlangeCalculator(report).execute();
+    };
+    return FlangeDecorator;
+}());
+
+var FlangeCalculator = /** @class */ (function (_super) {
+    __extends(FlangeCalculator, _super);
+    function FlangeCalculator(report) {
+        var _this = _super.call(this, report, [
+            /*00*/ function () { return _this.Δθ = Math.abs(_this.θse - _this.θa); },
+            /*01*/ function () { return _this.hr = _this.ε * _this.δ * (Math.pow(_this.θse + 273, 4) - Math.pow(_this.θa + 273, 4)) / ((_this.θse + 273) - (_this.θa + 273)); },
+            /*02*/ function () { return _this.hcv = 1.74 * Math.pow(_this.Δθ, 1 / 3); },
+            /*04*/ function () { return _this.q = _this.hse * _this.Δθ; },
+            /*07*/ function () { return _this.θm_min = (_this.θse + _this.θa + 35) / 2; },
+            /*08*/ function () { return _this.θm_max = (_this.θse + _this.θa + 20) / 2; },
+            /*09*/ function () { return _this.λm_min = _this.a + _this.b * _this.θm_min + _this.c * Math.pow(_this.θm_min, 2) + _this.d * Math.pow(_this.θm_min, 3); },
+            /*10*/ function () { return _this.λm_max = _this.a + _this.b * _this.θm_max + _this.c * Math.pow(_this.θm_max, 2) + _this.d * Math.pow(_this.θm_max, 3); },
+            /*11*/ function () { return _this.λdes_min = _this.λm_min * _this.Ft; },
+            /*12*/ function () { return _this.λdes_max = _this.λm_max * _this.Ft; },
+            /**13*/ function () { return _this.e_min = _this.get_l(0); },
+            /**14*/ function () { return _this.e_max = _this.get_l(1); },
+            /*32*/ function () { return _this.lort = Math.pow(_this.De, 3) * _this.Δθ; },
+            /**36*/ function () { return _this.De_min = _this.De + 2 * _this.e_min; },
+            /**37*/ function () { return _this.De_max = _this.De + 2 * _this.e_max; },
+            /*33*/ function () { return _this.hcv_laminar = 1.25 * Math.pow(_this.Δθ / _this.De, 0.25); },
+            /*33min*/ function () { return _this.hcv_laminar_min = 1.25 * Math.pow(_this.Δθ / _this.De_min, 0.25); },
+            /*34min*/ function () { return _this.hcv_laminar_max = 1.25 * Math.pow(_this.Δθ / _this.De_max, 0.25); },
+            /*34*/ function () { return _this.hcv_turbulent = 1.21 * Math.pow(_this.Δθ, 0.33); },
+            /*35*/ function () { return _this.hse = _this.hr + (_this.lort < 10 ? _this.hcv_laminar : _this.hcv_turbulent); },
+            /*35min*/ function () { return _this.hse_min = _this.hr + (_this.lort < 10 ? _this.hcv_laminar_min : _this.hcv_turbulent); },
+            /*35max*/ function () { return _this.hse_max = _this.hr + (_this.lort < 10 ? _this.hcv_laminar_max : _this.hcv_turbulent); },
+            /**42*/ function () { return _this.Rle = 1 / (_this.hse * Math.PI * _this.De); },
+            /*43*/ function () { return _this.ql = _this.Δθ / _this.Rle; },
+            /**42min*/ function () { return _this.Rle_min = 1 / (_this.hse_min * Math.PI * _this.De_min); },
+            /**42max*/ function () { return _this.Rle_max = 1 / (_this.hse_max * Math.PI * _this.De_max); },
+            /**38*/ function () { return _this.Rins_min = (Math.log(_this.De_min / _this.De)) / (2 * Math.PI * _this.λdes_min); },
+            /**39*/ function () { return _this.Rins_max = (Math.log(_this.De_max / _this.De)) / (2 * Math.PI * _this.λdes_max); },
+            /*45*/ function () { return _this.ql_min = _this.Δθ / (_this.Rle_min + _this.Rins_min); },
+            /*46*/ function () { return _this.ql_max = _this.Δθ / (_this.Rle_max + _this.Rins_max); },
+            /*47*/ function () { return _this.Qkwh = _this.ql * _this.l * _this.Ot * _this.n * 1 / 1000; },
+            /*40*/ function () { return _this.Sp = Math.PI * _this.De_min; },
+            /*48*/ function () { return _this.ql_ref_pb = _this.ql - (10000 * _this.Cpb_valve_flange * _this.Sp / _this.Ot / _this.Σ); },
+            /*06*/ function () { return _this.Qε = _this.Qkwh * _this.Σ; },
+            /*22*/ function () { return _this.Qkwh_min = _this.ql_min * _this.l * _this.Ot * _this.n / 1000; },
+            /*23*/ function () { return _this.Qkwh_max = _this.ql_max * _this.l * _this.Ot * _this.n / 1000; },
+            /*24*/ function () { return _this.Qε_min = _this.Qkwh_min * _this.Σ; },
+            /*25*/ function () { return _this.Qε_max = _this.Qkwh_max * _this.Σ; },
+            /*26*/ function () { return _this.Savingkwh_min = _this.Qkwh - _this.Qkwh_min; },
+            /*27*/ function () { return _this.Savingkwh_max = _this.Qkwh - _this.Qkwh_max; },
+            /*28*/ function () { return _this.Savingε_min = _this.Qε - _this.Qε_min; },
+            /*29*/ function () { return _this.Savingε_max = _this.Qε - _this.Qε_max; },
+            /*30*/ function () { return _this.Insulation_advice = _this.ql_ref_pb > _this.ql_min ? 'Insulation recommended' : 'System OK'; },
+        ]) || this;
+        return _this;
+    }
+    Object.defineProperty(FlangeCalculator.prototype, "default_length", {
+        get: function () {
+            return .5;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    return FlangeCalculator;
+}(__WEBPACK_IMPORTED_MODULE_0__base_calculator_class__["a" /* BaseCalculator */]));
+//# sourceMappingURL=flange.class.js.map
+
+/***/ }),
+
+/***/ 496:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SurfaceDecorator; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__base_calculator_class__ = __webpack_require__(64);
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+
+var SurfaceDecorator = /** @class */ (function () {
+    function SurfaceDecorator() {
+    }
+    SurfaceDecorator.prototype.calculate = function (report) {
+        return new SurfaceCalculator(report).execute();
+    };
+    return SurfaceDecorator;
+}());
+
+var SurfaceCalculator = /** @class */ (function (_super) {
+    __extends(SurfaceCalculator, _super);
+    function SurfaceCalculator(report) {
+        var _this = _super.call(this, report, [
+            /*00*/ function () { return _this.Δθ = Math.abs(_this.θse - _this.θa); },
+            /*01*/ function () { return _this.hr = _this.ε * _this.δ * (Math.pow(_this.θse + 273, 4) - Math.pow(_this.θa + 273, 4)) / ((_this.θse + 273) - (_this.θa + 273)); },
+            /*02*/ function () { return _this.hcv = 1.74 * Math.pow(_this.Δθ, 1 / 3); },
+            /*03*/ function () { return _this.hse = _this.hr + _this.hcv; },
+            /*04*/ function () { return _this.q = _this.hse * _this.Δθ; },
+            /*05*/ function () { return _this.Qkwh = _this.q * _this.S * _this.Ot * 1 / 1000; },
+            /*06*/ function () { return _this.Qε = _this.Qkwh * _this.Σ; },
+            /*07*/ function () { return _this.θm_min = (_this.θse_min + (_this.θa + 35)) / 2; },
+            /*08*/ function () { return _this.θm_max = (_this.θse_max + (_this.θa + 20)) / 2; },
+            /*09*/ function () { return _this.λm_min = _this.a + _this.b * _this.θm_min + _this.c * Math.pow(_this.θm_min, 2) + _this.d * Math.pow(_this.θm_min, 3); },
+            /*10*/ function () { return _this.λm_max = _this.a + _this.b * _this.θm_max + _this.c * Math.pow(_this.θm_max, 2) + _this.d * Math.pow(_this.θm_max, 3); },
+            /*11*/ function () { return _this.λdes_min = _this.λm_min * _this.Ft; },
+            /*12*/ function () { return _this.λdes_max = _this.λm_max * _this.Ft; },
+            /*13*/ function () { return _this.e_min = _this.get_l(0); },
+            /*14*/ function () { return _this.e_max = _this.get_l(1); },
+            /*15*/ function () { return _this.Rse_min = 1 / _this.hse; },
+            /*16*/ function () { return _this.Rse_max = 1 / _this.hse; },
+            /*17*/ function () { return _this.Rins_min = _this.e_min / _this.λdes_min; },
+            /*18*/ function () { return _this.Rins_max = _this.e_max / _this.λdes_max; },
+            /*19*/ function () { return _this.qref_pb = _this.q - ((10000 * _this.Cpb_surface_pipe) / _this.Ot / _this.Σ); },
+            /*20*/ function () { return _this.q_min = _this.Δθ / (_this.Rse_min + _this.Rins_min); },
+            /*21*/ function () { return _this.q_max = _this.Δθ / (_this.Rse_max + _this.Rins_max); },
+            /*22*/ function () { return _this.Qkwh_min = _this.q_min * _this.S * _this.Ot * 1 / 1000; },
+            /*23*/ function () { return _this.Qkwh_max = _this.q_max * _this.S * _this.Ot * 1 / 1000; },
+            /*24*/ function () { return _this.Qε_min = _this.Qkwh_min * _this.Σ; },
+            /*25*/ function () { return _this.Qε_max = _this.Qkwh_max * _this.Σ; },
+            /*26*/ function () { return _this.Savingkwh_min = _this.Qkwh - _this.Qkwh_min; },
+            /*27*/ function () { return _this.Savingkwh_max = _this.Qkwh - _this.Qkwh_max; },
+            /*28*/ function () { return _this.Savingε_min = _this.Qε - _this.Qε_min; },
+            /*29*/ function () { return _this.Savingε_max = _this.Qε - _this.Qε_max; },
+            /*30*/ function () { return _this.Insulation_advice = _this.qref_pb > _this.q_min ? 'Insulation recommended' : 'System OK'; }
+        ]) || this;
+        return _this;
+    }
+    return SurfaceCalculator;
+}(__WEBPACK_IMPORTED_MODULE_0__base_calculator_class__["a" /* BaseCalculator */]));
+//# sourceMappingURL=surface.class.js.map
+
+/***/ }),
+
+/***/ 497:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ReportSurface; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__report_base__ = __webpack_require__(24);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__pages_reports__ = __webpack_require__(20);
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+
+
+var ReportSurface = /** @class */ (function (_super) {
+    __extends(ReportSurface, _super);
+    function ReportSurface(project, component, item) {
+        var _this = _super.call(this, project, component, item) || this;
+        _this.project = project;
+        _this.component = component;
+        _this.page = __WEBPACK_IMPORTED_MODULE_1__pages_reports__["t" /* ReportSurfacePage */];
+        _this.name = "Uninsulated Surface";
+        return _this;
+    }
+    Object.defineProperty(ReportSurface.prototype, "potential_measure", {
+        //public path = REPORT.INSULATION.UNINSULATED_EQUIPMENTS.SURFACE;
+        get: function () {
+            return (!this.component || !this.component.fields || null == this.component.fields.surface) ? 'kWh/m2' : 'kWh';
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(ReportSurface.prototype, "money_measure", {
+        get: function () {
+            return (!this.component || !this.component.fields || null == this.component.fields.surface) ? '€/m2' : '€';
+        },
+        enumerable: true,
+        configurable: true
+    });
+    return ReportSurface;
+}(__WEBPACK_IMPORTED_MODULE_0__report_base__["a" /* ReportBase */]));
+
+//# sourceMappingURL=report-surface.class.js.map
+
+/***/ }),
+
+/***/ 498:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CalculatorFactory; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0____ = __webpack_require__(303);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__const__ = __webpack_require__(499);
+
+
+var CalculatorFactory = /** @class */ (function () {
+    function CalculatorFactory() {
+        this.decorators = new Map();
+        this.decorators.set(__WEBPACK_IMPORTED_MODULE_1__const__["a" /* REPORT */].INSULATION.UNINSULATED_EQUIPMENTS.SURFACE, function () { return new __WEBPACK_IMPORTED_MODULE_0____["e" /* SurfaceDecorator */](); });
+        this.decorators.set(__WEBPACK_IMPORTED_MODULE_1__const__["a" /* REPORT */].INSULATION.UNINSULATED_EQUIPMENTS.FLANGE, function () { return new __WEBPACK_IMPORTED_MODULE_0____["a" /* FlangeDecorator */](); });
+        this.decorators.set(__WEBPACK_IMPORTED_MODULE_1__const__["a" /* REPORT */].INSULATION.UNINSULATED_EQUIPMENTS.PIPE, function () { return new __WEBPACK_IMPORTED_MODULE_0____["d" /* PipeDecorator */](); });
+        this.decorators.set(__WEBPACK_IMPORTED_MODULE_1__const__["a" /* REPORT */].INSULATION.UNINSULATED_EQUIPMENTS.VALVE, function () { return new __WEBPACK_IMPORTED_MODULE_0____["f" /* ValveDecorator */](); });
+        this.decorators.set(__WEBPACK_IMPORTED_MODULE_1__const__["a" /* REPORT */].INSULATION.INSULATED_EQUIPMENTS.SURFACE, function () { return new __WEBPACK_IMPORTED_MODULE_0____["c" /* ISurfaceDecorator */](); });
+        this.decorators.set(__WEBPACK_IMPORTED_MODULE_1__const__["a" /* REPORT */].INSULATION.INSULATED_EQUIPMENTS.PIPE, function () { return new __WEBPACK_IMPORTED_MODULE_0____["b" /* IPipeDecorator */](); });
+    }
+    CalculatorFactory.prototype.calculate = function (report) {
+        return this.decorators.get(report.path)().calculate(report);
+    };
+    return CalculatorFactory;
+}());
+
+//# sourceMappingURL=calculator.factory.js.map
 
 /***/ }),
 
@@ -4272,458 +4319,10 @@ var ReportPipePage = /** @class */ (function (_super) {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ReportFlangePage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__models_reports__ = __webpack_require__(21);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(6);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__services_report_service__ = __webpack_require__(30);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__services_messages_service__ = __webpack_require__(16);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__services__ = __webpack_require__(17);
-var __extends = (this && this.__extends) || (function () {
-    var extendStatics = Object.setPrototypeOf ||
-        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
-    return function (d, b) {
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__report_const__ = __webpack_require__(179);
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return __WEBPACK_IMPORTED_MODULE_0__report_const__["a"]; });
 
-
-
-
-
-
-var ReportFlangePage = /** @class */ (function (_super) {
-    __extends(ReportFlangePage, _super);
-    function ReportFlangePage(navCtrl, navParams, service, alertCtrl, picture, message, keyboard) {
-        var _this = _super.call(this, new __WEBPACK_IMPORTED_MODULE_1__models_reports__["d" /* ReportFlange */](navParams.data.project, navParams.data.component, navParams.data.report), navCtrl, service, alertCtrl, picture, message, keyboard) || this;
-        _this.navCtrl = navCtrl;
-        _this.service = service;
-        _this.alertCtrl = alertCtrl;
-        _this.picture = picture;
-        _this.message = message;
-        _this.keyboard = keyboard;
-        _this.unknow_length = true;
-        return _this;
-    }
-    ReportFlangePage = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-report-flange',template:/*ion-inline-start:"D:\Sofware Factory\tbi\src\pages\reports\flange\report-flange.component.html"*/'<report-header [parent]="this"></report-header>\n\n\n\n<ion-content #content>\n\n\n\n  <ion-grid [hidden]="view==\'edit_picture\'" class="fixed-col">\n\n    <ion-row>\n\n      <ion-col col-7 col-lg-6 no-padding>\n\n\n\n        <form novalidate #form="ngForm" [hidden]="segment!=\'input\'" (submit)="calculate()">\n\n          <ion-row>\n\n            <ion-col col-10>\n\n              <ion-item>\n\n                <ion-label stacked>Component/Location</ion-label>\n\n                <ion-input tabindex="1" (ionFocus)="on_focus($event)" name="location" required data-val-required="Please input Component/Location"\n\n                  [(ngModel)]="report.component.fields.location" type="text"></ion-input>\n\n              </ion-item>\n\n            </ion-col>\n\n            <ion-col col-10>\n\n              <ion-item>\n\n                <ion-label stacked>Item number</ion-label>\n\n                <ion-input min="0" tabindex="2" (ionFocus)="on_focus($event)" name="number" required data-val-required="Please input Item number"\n\n                  [(ngModel)]="report.component.fields.number" type="number"></ion-input>\n\n              </ion-item>\n\n            </ion-col>\n\n          </ion-row>\n\n          <ion-row>\n\n            <ion-col col-10>\n\n              <ion-item>\n\n                <ion-label stacked>Operational time (hours)</ion-label>\n\n                <ion-input tabindex="3" (ionFocus)="on_focus($event)" required data-val-required="Please input operational time"\n\n                  name="operational_time" [(ngModel)]="report.component.fields.operational_time" type="number"></ion-input>\n\n              </ion-item>\n\n            </ion-col>\n\n            <ion-col col-2>\n\n              <more pull-left #time (change)="report.component.fields.operational_time=time.value" [type]="\'time\'"\n\n                modal-button></more>\n\n            </ion-col>\n\n          </ion-row>\n\n          <ion-row>\n\n            <ion-col col-10>\n\n              <ion-item>\n\n                <ion-label stacked>Diameter (mm)</ion-label>\n\n                <ion-input #after_time tabindex="4" (ionFocus)="on_focus($event)" name="nominal_diameter" required\n\n                  data-val-required="Please input Diameter" [(ngModel)]="report.component.fields.nominal_diameter"\n\n                  type="number"></ion-input>\n\n              </ion-item>\n\n            </ion-col>\n\n            <!-- <ion-col col-2>\n\n              <div (click)="set_length(\'Default value for flanges 0.5m\', 0.5)" tabindex="-1" pull-left no-padding\n\n                ion-button small color="light" class="with-action">\n\n                <ion-icon name="custom-flange"></ion-icon>\n\n              </div>\n\n            </ion-col> -->\n\n          </ion-row>\n\n          <ion-row>\n\n            <ion-col col-10>\n\n              <ion-item class="edit_surface_material" [class.editable]="edit_surface_material">\n\n                <ion-label stacked>Surface material [ε]</ion-label>\n\n                <ion-input tabindex="5" class="literal" (focus)="toggle_surface_material(true)" [value]="report.component.fields.surface_material_friendly"\n\n                  type="text"></ion-input>\n\n                <ion-input tabindex="6" class="numeric" (focusout)="toggle_surface_material(false)" (ionFocus)="on_focus($event)"\n\n                  name="surface_material" required data-val-required="Please input surface emissivity" [(ngModel)]="report.component.fields.surface_material"\n\n                  type="number" (change)="set_surface_material(report.component.fields.surface_material, $event)"></ion-input>\n\n              </ion-item>\n\n            </ion-col>\n\n            <ion-col col-2>\n\n              <more pull-left #material (change)="set_surface_material(material.value, $event)" [type]="\'materials\'"\n\n                modal-button></more>\n\n            </ion-col>\n\n          </ion-row>\n\n          <ion-row>\n\n            <ion-col col-10>\n\n              <ion-item>\n\n                <ion-label stacked>Medium or Surface temperature (<sup>º</sup>C)</ion-label>\n\n                <ion-input #after_material tabindex="7" (ionFocus)="on_focus($event)" name="surface_temp" [pattern]="patterns.REQUIRED_NUMBER"\n\n                  data-val-pattern="Please input a valid Medium or Surface temperature" required data-val-required="Please input Medium or Surface temperature"\n\n                  [(ngModel)]="report.component.fields.surface_temp" type="tel"></ion-input>\n\n              </ion-item>\n\n            </ion-col>\n\n            <ion-col col-2>\n\n              <medium-temp #medium [report]="report" modal-button pull-left></medium-temp>\n\n            </ion-col>\n\n          </ion-row>\n\n          <ion-row>\n\n            <ion-col col-10>\n\n              <ion-item>\n\n                <ion-label stacked>Ambient temperature (<sup>º</sup>C)</ion-label>\n\n                <ion-input tabindex="8" (ionFocus)="on_focus($event)" (keyup.enter)="on_keypress($event)" name="ambient_temp"\n\n                  [pattern]="patterns.REQUIRED_NUMBER" data-val-pattern="Please input a valid Ambient temperature"\n\n                  required data-val-required="Please input Ambient temperature" [(ngModel)]="report.component.fields.ambient_temp"\n\n                  type="tel"></ion-input>\n\n              </ion-item>\n\n            </ion-col>\n\n            <ion-col col-2></ion-col>\n\n          </ion-row>\n\n          <ion-row>\n\n            <ion-col col-12>\n\n              <ion-item>\n\n                <ion-label stacked>Annual Saving Potenyial</ion-label>\n\n                <ion-input tabindex="-1" name="annual_saving" value="{{report.annual_saving}}" type="text"></ion-input>\n\n              </ion-item>\n\n            </ion-col>\n\n          </ion-row>\n\n        </form>\n\n      </ion-col>\n\n\n\n      <ion-col col-5 col-lg-6 no-padding>\n\n        <ion-row>\n\n          <ion-col col-12 picture-slide [report]="report" [editable]="editable" (onStartEdit)="on_picture_start_edit($event)">\n\n          </ion-col>\n\n        </ion-row>\n\n        <report-errors padding #errors col-12 [hidden]="view==\'!result\' && report.result"></report-errors>\n\n      </ion-col>\n\n    </ion-row>\n\n\n\n    <ion-row>\n\n      <ion-col col-12>\n\n        <report-result col-12 [parent]="this" *ngIf="view==\'result\' && (!!form && !form.invalid)"></report-result>\n\n      </ion-col>\n\n    </ion-row>\n\n  </ion-grid>\n\n\n\n  <edit-picture *ngIf="view==\'edit_picture\'" [report]="report" [picture]="editing_picture"></edit-picture>\n\n\n\n</ion-content>\n\n\n\n<report-footer [parent]="this"></report-footer>\n\n'/*ion-inline-end:"D:\Sofware Factory\tbi\src\pages\reports\flange\report-flange.component.html"*/
-        }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2_ionic_angular__["h" /* NavController */],
-            __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["i" /* NavParams */],
-            __WEBPACK_IMPORTED_MODULE_3__services_report_service__["a" /* ReportService */],
-            __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["b" /* AlertController */],
-            __WEBPACK_IMPORTED_MODULE_5__services__["c" /* PictureService */],
-            __WEBPACK_IMPORTED_MODULE_4__services_messages_service__["a" /* MessageService */],
-            __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["f" /* Keyboard */]])
-    ], ReportFlangePage);
-    return ReportFlangePage;
-}(__WEBPACK_IMPORTED_MODULE_1__models_reports__["a" /* BaseReportPage */]));
-
-//# sourceMappingURL=report-flange.component.js.map
-
-/***/ }),
-
-/***/ 500:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ReportEditPictureComponent; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__models_picture__ = __webpack_require__(101);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__models_marker__ = __webpack_require__(75);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ionic_angular__ = __webpack_require__(6);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__models__ = __webpack_require__(46);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-
-
-
-var ReportEditPictureComponent = /** @class */ (function () {
-    function ReportEditPictureComponent(alertCtrl) {
-        this.alertCtrl = alertCtrl;
-        this.max_markers = 10;
-    }
-    ReportEditPictureComponent.prototype.create_marker = function (event) {
-        if ((this.report.component.markers.length + this.picture.markers.length) < this.max_markers) {
-            this.show_prompt(event, null);
-        }
-        else {
-            var alert_1 = this.alertCtrl.create({
-                //title: 'Temperature',
-                message: "This component already has " + this.max_markers + " temperature markers",
-                cssClass: "ion-dialog-horizontal",
-                enableBackdropDismiss: false,
-                buttons: [
-                    {
-                        text: 'Ok',
-                        role: 'cancel'
-                    }
-                ]
-            });
-            alert_1.present();
-        }
-    };
-    ReportEditPictureComponent.prototype.edit_marker = function (marker) {
-        this.show_prompt(null, marker);
-    };
-    ReportEditPictureComponent.prototype.show_prompt = function (event, marker) {
-        var _this = this;
-        if (!this.report.path.match(/(surface|pipe|valve|flange)/gi))
-            return;
-        var alert = this.alertCtrl.create({
-            message: 'Measurement',
-            cssClass: "ion-dialog-horizontal margin-top",
-            enableBackdropDismiss: false,
-            inputs: [
-                {
-                    name: 'temperature',
-                    placeholder: 'ºC',
-                    type: 'tel',
-                    value: !isNaN(parseFloat(String(marker))) ? marker.temperature.toString() : ''
-                }
-            ],
-            buttons: [
-                {
-                    text: 'Cancel',
-                    role: 'cancel'
-                },
-                {
-                    text: 'Ok',
-                    role: 'submit',
-                    handler: function (data) {
-                        if (isNaN(parseFloat(String(data.temperature))))
-                            return;
-                        if (!!marker) {
-                            marker.temperature = data.temperature;
-                        }
-                        else {
-                            var marker_size = {
-                                width: 32,
-                                height: 83
-                            };
-                            _this.picture.markers.push(new __WEBPACK_IMPORTED_MODULE_2__models_marker__["a" /* Marker */]({
-                                x: event.offsetX - marker_size.width,
-                                y: event.offsetY - marker_size.height,
-                                temperature: data.temperature
-                            }));
-                        }
-                    }
-                }
-            ]
-        });
-        if (!!marker) {
-            alert.addButton({
-                text: 'Remove',
-                role: 'remove',
-                handler: function () { _this.picture.markers = _this.picture.markers.filter(function (m) { return m !== marker; }); }
-            });
-        }
-        alert.present();
-    };
-    __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["D" /* Input */])(),
-        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1__models_picture__["a" /* Picture */])
-    ], ReportEditPictureComponent.prototype, "picture", void 0);
-    __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["D" /* Input */])(),
-        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_4__models__["c" /* ReportBase */])
-    ], ReportEditPictureComponent.prototype, "report", void 0);
-    ReportEditPictureComponent = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'edit-picture',template:/*ion-inline-start:"D:\Sofware Factory\tbi\src\pages\reports\components\edit-picture\edit-picture.component.html"*/'<ng-container>\n\n<svg *ngFor="let marker of picture?.markers_with_values"\n\n  (click)="edit_marker(marker)"\n\n  version="1.1" \n\n  xmlns="http://www.w3.org/2000/svg" \n\n  xmlns:xlink="http://www.w3.org/1999/xlink" \n\n  x="0" y="0"\n\n  viewBox="0 0 366.1 485.2" \n\n  xml:space="preserve"\n\n  [style.transform]="marker.position">\n\n  <g [attr.class]="marker.color">\n\n    <circle cx="183.1" cy="181" r="130.8"/>\n\n    <path d="M184,0C83.5,0,2,81.5,2,182s151.6,303.3,182,303.3c30.3,0,182-202.8,182-303.3S284.4,0,184,0z M184,303.3\n\n	c-66.9,0-121.3-54.4-121.3-121.3S117.1,60.7,184,60.7c66.9,0,121.3,54.4,121.3,121.3S250.9,303.3,184,303.3z" />\n\n    <text [attr.transform]="marker.transform">{{marker.temperature}}</text>\n\n  </g>\n\n</svg>\n\n<img [src]="picture?.picture" width="100%" height="auto" (click)="create_marker($event)">\n\n'/*ion-inline-end:"D:\Sofware Factory\tbi\src\pages\reports\components\edit-picture\edit-picture.component.html"*/
-        }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_3_ionic_angular__["b" /* AlertController */]])
-    ], ReportEditPictureComponent);
-    return ReportEditPictureComponent;
-}());
-
-//# sourceMappingURL=edit-picture.component.js.map
-
-/***/ }),
-
-/***/ 501:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ReportPictureSlideComponent; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__models__ = __webpack_require__(46);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__const_images__ = __webpack_require__(171);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-
-var ReportPictureSlideComponent = /** @class */ (function () {
-    function ReportPictureSlideComponent() {
-        this.onStartEdit = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["v" /* EventEmitter */]();
-        this.can_edit = false;
-        this.NON_PICTURE = __WEBPACK_IMPORTED_MODULE_2__const_images__["a" /* NON_PICTURE */];
-    }
-    ;
-    ReportPictureSlideComponent.prototype.ngOnInit = function () {
-        this.can_edit = !!this.report.path.match(/(surface|pipe|valve|flange)/gi);
-    };
-    ReportPictureSlideComponent.prototype.edit = function (picture) {
-        this.onStartEdit.emit(picture);
-    };
-    __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["D" /* Input */])(),
-        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1__models__["c" /* ReportBase */])
-    ], ReportPictureSlideComponent.prototype, "report", void 0);
-    __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["D" /* Input */])(),
-        __metadata("design:type", Boolean)
-    ], ReportPictureSlideComponent.prototype, "editable", void 0);
-    __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["O" /* Output */])(),
-        __metadata("design:type", Object)
-    ], ReportPictureSlideComponent.prototype, "onStartEdit", void 0);
-    ReportPictureSlideComponent = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: '[picture-slide]',template:/*ion-inline-start:"D:\Sofware Factory\tbi\src\pages\reports\components\picture-slide\picture-slide.component.html"*/'<ion-row>\n\n  <ion-col col-12 text-center>\n\n    <img [src]="NON_PICTURE" class="non-picture" *ngIf="!report || !report.pictures.length"/>\n\n    <ion-slides no-padding pager="true" zoom="true" *ngIf="!!report && !!report.pictures.length">\n\n      <ion-slide *ngFor="let picture of report.pictures">\n\n        <img [src]="picture.picture" (click)="edit(picture)">\n\n        <div *ngIf="!!can_edit" class="markers">Measurements: {{picture.markers.length}}</div>\n\n      </ion-slide>\n\n    </ion-slides>\n\n  </ion-col>\n\n</ion-row>\n\n<ion-row *ngIf="!!report.component.has_markers(report) && !!can_edit" text-center>\n\n    <ion-col col-8 offset-2>\n\n      <button ion-button round outline small color="royal" (click)="report.component.fields.surface_temp=report.component.min_temp(report)">\n\n        Minimun<br>{{report.component.min_temp(report) | number: \'1.2-2\'}}ºC\n\n      </button>\n\n    </ion-col>\n\n    <ion-col col-8 offset-2>\n\n      <button ion-button round outline small color="royal" (click)="report.component.fields.surface_temp=report.component.medium_temp(report)">\n\n        Average<br>{{report.component.medium_temp(report) | number: \'1.2-2\'}}ºC\n\n      </button>\n\n    </ion-col>\n\n    <ion-col col-8 offset-2>\n\n      <button ion-button round outline small color="royal" (click)="report.component.fields.surface_temp=report.component.max_temp(report)">\n\n        Maximun<br>{{report.component.max_temp(report) | number: \'1.2-2\'}}ºC\n\n      </button>\n\n    </ion-col>\n\n  </ion-row>'/*ion-inline-end:"D:\Sofware Factory\tbi\src\pages\reports\components\picture-slide\picture-slide.component.html"*/
-        })
-    ], ReportPictureSlideComponent);
-    return ReportPictureSlideComponent;
-}());
-
-//# sourceMappingURL=picture-slide.component.js.map
-
-/***/ }),
-
-/***/ 502:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ReportErrorsComponent; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_forms__ = __webpack_require__(18);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-var ReportErrorsComponent = /** @class */ (function () {
-    function ReportErrorsComponent() {
-        this.errors = [];
-        this.on_change = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["v" /* EventEmitter */]();
-    }
-    Object.defineProperty(ReportErrorsComponent.prototype, "form", {
-        set: function (form) {
-            var _this = this;
-            if (!!this._form)
-                return;
-            this._form = form;
-            form.valueChanges.subscribe(function (ev) {
-                _this.on_change.emit(form);
-                _this.update();
-            });
-            this.update();
-        },
-        enumerable: true,
-        configurable: true
-    });
-    ;
-    ReportErrorsComponent.prototype.get = function () {
-        return this._form;
-    };
-    ReportErrorsComponent.prototype.understood = function () {
-        this.page.view = 'form';
-    };
-    ReportErrorsComponent.prototype.update = function () {
-        var _this = this;
-        this.errors = [];
-        Object.keys(this._form.controls).forEach(function (key) {
-            var controlErrors = _this._form.controls[key].errors;
-            if (controlErrors != null) {
-                Object.keys(controlErrors).forEach(function (error) {
-                    _this.errors.push({
-                        key: key,
-                        error: error,
-                        message: Array.from(document.getElementsByName(key))[1].attributes["data-val-" + error].value
-                    });
-                });
-            }
-        });
-        return this;
-    };
-    __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["D" /* Input */])('form'),
-        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1__angular_forms__["d" /* NgForm */]),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_forms__["d" /* NgForm */]])
-    ], ReportErrorsComponent.prototype, "form", null);
-    ReportErrorsComponent = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'report-errors',template:/*ion-inline-start:"D:\Sofware Factory\tbi\src\pages\reports\components\errors\report-errors.component.html"*/'<ion-col col-12 *ngIf="!!errors?.length">\n  <ion-title col-12>Warnings</ion-title>\n  <!-- <p>Report contains error, resuelva los errores para poder realizar el cálculo.</p> -->\n  <ul>\n    <li *ngFor="let e of errors">\n      {{e.message}}\n    </li>\n  </ul>\n  <!-- <button (tap)="understood()" style="margin-top: 2rem" offset-3 col-6 block ion-button small outline color="danger">Understood</button> -->\n</ion-col>\n\n'/*ion-inline-end:"D:\Sofware Factory\tbi\src\pages\reports\components\errors\report-errors.component.html"*/,
-        }),
-        __metadata("design:paramtypes", [])
-    ], ReportErrorsComponent);
-    return ReportErrorsComponent;
-}());
-
-//# sourceMappingURL=report-errors.component.js.map
-
-/***/ }),
-
-/***/ 503:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ReportsPage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__const_report_const__ = __webpack_require__(179);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(6);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__services_project_service__ = __webpack_require__(53);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__projects_projects__ = __webpack_require__(74);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__models_report_router__ = __webpack_require__(306);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__summary_summary__ = __webpack_require__(180);
-var __extends = (this && this.__extends) || (function () {
-    var extendStatics = Object.setPrototypeOf ||
-        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
-    return function (d, b) {
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-
-
-
-
-//import { Segment } from './segment/segment.class';
-
-var ReportsPage = /** @class */ (function (_super) {
-    __extends(ReportsPage, _super);
-    function ReportsPage(navCtrl, navParams, alertCtrl, service) {
-        var _this = _super.call(this, navParams.get('project'), navParams.get('component'), navCtrl) || this;
-        _this.navCtrl = navCtrl;
-        _this.navParams = navParams;
-        _this.alertCtrl = alertCtrl;
-        _this.service = service;
-        _this.type = "";
-        //public segment: Segment = new Segment();
-        _this.REPORT = __WEBPACK_IMPORTED_MODULE_0__const_report_const__["a" /* REPORT */];
-        _this.type = navParams.get('type') || '';
-        _this.report = navParams.get('report');
-        //this.segment.set(this.type);
-        if (!!navParams.get('to'))
-            _this.navigate_to(navParams.get('to'), '');
-        return _this;
-    }
-    ReportsPage_1 = ReportsPage;
-    ReportsPage.prototype.ionViewDidLoad = function () {
-        if (!this.navParams.get('message'))
-            return;
-        var toast = this.alertCtrl.create({
-            title: null,
-            message: this.navParams.get('message'),
-            buttons: [{
-                    text: 'OK'
-                }]
-        });
-        toast.present();
-    };
-    ReportsPage.prototype.disabled_for = function (family) {
-        switch (family) {
-            // case 'custom':
-            //   return this.component.reports.filter(r => r.path == REPORT.CUSTOM).length >= 2;
-            // case 'safety':
-            //   return this.component.reports.filter(r => !!r.path.match(/safety/gi)).length >= 2;
-            // case 'maintenance':
-            //   return this.component.reports.filter(r => !!r.path.match(/maintenance/gi)).length >= 2;
-            case 'insulation':
-                return this.component.reports.filter(function (r) { return !!r.path.match(/insulation/gi); }).length >= 1;
-            default:
-                return false;
-        }
-    };
-    ReportsPage.prototype.open_summary = function () {
-        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_6__summary_summary__["a" /* SummaryPage */], { project: this.project });
-    };
-    ReportsPage.prototype.navigate_to = function (name, report_name) {
-        // let page: any = null
-        // let params: any = { project: this.project, parent: this, component: this.component };
-        // switch (name) {
-        //   default:
-        //     page = ReportsPage;
-        //     params.type = name;
-        // }
-        //this.navCtrl.push(page, params);
-        this.navCtrl.push(ReportsPage_1, { type: name, project: this.project, parent: this, component: this.component });
-    };
-    ReportsPage.prototype.go_back = function () {
-        if (!this.type)
-            this.navigate_to_projects();
-        else
-            this.navigate_to('', 'Reports');
-    };
-    ReportsPage.prototype.navigate_to_projects = function () {
-        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_4__projects_projects__["a" /* ProjectsPage */], {
-            project: this.project,
-            parent: this.navParams.get('parent')
-        });
-    };
-    ReportsPage = ReportsPage_1 = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["m" /* Component */])({
-            selector: 'page-reports',template:/*ion-inline-start:"D:\Sofware Factory\tbi\src\pages\reports\reports.html"*/'<ion-header>\n\n  <ion-navbar hideBackButton>\n\n    <ion-title>\n\n      {{project.name}}\n\n    </ion-title>\n\n  </ion-navbar>\n\n  <!-- <ion-segment [(ngModel)]="segment.value">\n\n    <ion-segment-button *ngFor="let option of segment.options; let i=index" [value]="i">\n\n      {{option}}\n\n    </ion-segment-button>\n\n  </ion-segment> -->\n\n</ion-header>\n\n\n\n<ion-content>\n\n  <ion-grid [ngSwitch]="type" v-center style="margin-top: -2rem">\n\n    <ng-container *ngSwitchCase="\'\'">\n\n      <ion-row>\n\n        <ion-col card-container col-lg-6 offset-lg-3 col-8 offset-2>\n\n          <ion-card (click)="navigate_to(\'insulation\')" [class.disabled]="disabled_for(\'insulation\')">\n\n            <span svg="insulation"></span>\n\n            <h1>Insulation</h1>\n\n          </ion-card>\n\n        </ion-col>\n\n        <ion-col card-container col-lg-6 offset-lg-3 col-8 offset-2>\n\n          <ion-card [class.disabled]="disabled_for(\'safety\')" (click)="navigate_to(\'safety\')">\n\n            <span svg="safety"></span>\n\n            <h1>Safety</h1>\n\n          </ion-card>\n\n        </ion-col>\n\n        <ion-col card-container col-lg-6 offset-lg-3 col-8 offset-2>\n\n          <ion-card [class.disabled]="disabled_for(\'maintenance\')" (click)="navigate_to(\'maintenance\')">\n\n            <span svg="maintenance"></span>\n\n            <h1>Maintenance</h1>\n\n          </ion-card>\n\n        </ion-col>\n\n        <ion-col card-container col-lg-6 offset-lg-3 col-8 offset-2>\n\n          <ion-card [class.disabled]="disabled_for(\'custom\')" on-tap="navigate_to_report(REPORT.CUSTOM, \'Others\')">\n\n            <span svg="custom"></span>\n\n            <h1>Custom</h1>\n\n          </ion-card>\n\n        </ion-col>\n\n      </ion-row>\n\n    </ng-container>\n\n\n\n    <ng-container *ngSwitchCase="\'insulation\'">\n\n      <ion-row>\n\n        <ion-col card-container col-lg-6 offset-lg-3 col-8 offset-2>\n\n          <ion-card on-tap="navigate_to(\'insulation-uninsulated\')">\n\n            <span svg="empty"></span>\n\n            <h1>Uninsulated</h1>\n\n          </ion-card>\n\n        </ion-col>\n\n        <ion-col card-container col-lg-6 offset-lg-3 col-8 offset-2>\n\n          <ion-card on-tap="navigate_to(\'insulation-insulated\')">\n\n            <span svg="empty"></span>\n\n            <h1>Insulated</h1>\n\n          </ion-card>\n\n        </ion-col>\n\n        <ion-col card-container col-lg-6 offset-lg-3 col-8 offset-2>\n\n          <ion-card on-tap="navigate_to(\'cold-insulation\')">\n\n            <span svg="empty"></span>\n\n            <h1>Cold Insulation</h1>\n\n          </ion-card>\n\n        </ion-col>\n\n      </ion-row>\n\n    </ng-container>\n\n\n\n    <ng-container *ngSwitchCase="\'insulation-uninsulated\'">\n\n      <ion-row>\n\n        <ion-col card-container col-lg-6 offset-lg-3 col-8 offset-2>\n\n          <ion-card [class.disabled]="disabled_for(\'insulation\')" on-tap="navigate_to_report(REPORT.INSULATION.UNINSULATED_EQUIPMENTS.PIPE, \'Uninsulated pipe\')">\n\n            <span svg="pipe"></span>\n\n            <h1>Pipe</h1>\n\n          </ion-card>\n\n        </ion-col>\n\n        <ion-col card-container col-lg-6 offset-lg-3 col-8 offset-2>\n\n          <ion-card [class.disabled]="disabled_for(\'insulation\')" on-tap="navigate_to_report(REPORT.INSULATION.UNINSULATED_EQUIPMENTS.VALVE, \'Uninsulated valve\')">\n\n            <span svg="valve"></span>\n\n            <h1>Valve</h1>\n\n          </ion-card>\n\n        </ion-col>\n\n        <ion-col card-container col-lg-6 offset-lg-3 col-8 offset-2>\n\n          <ion-card [class.disabled]="disabled_for(\'insulation\')" on-tap="navigate_to_report(REPORT.INSULATION.UNINSULATED_EQUIPMENTS.FLANGE, \'Uninsulated flange\')">\n\n            <span svg="flange"></span>\n\n            <h1>Flange</h1>\n\n          </ion-card>\n\n        </ion-col>\n\n        <ion-col card-container col-lg-6 offset-lg-3 col-8 offset-2>\n\n          <ion-card [class.disabled]="disabled_for(\'insulation\')" on-tap="navigate_to_report(REPORT.INSULATION.UNINSULATED_EQUIPMENTS.SURFACE, \'Uninsulated surface\')">\n\n            <span svg="surface"></span>\n\n            <h1>Surface</h1>\n\n          </ion-card>\n\n        </ion-col>\n\n      </ion-row>\n\n    </ng-container>\n\n\n\n    <ng-container *ngSwitchCase="\'insulation-insulated\'">\n\n      <ion-row>\n\n        <ion-col card-container col-lg-6 offset-lg-3 col-8 offset-2>\n\n          <ion-card [class.disabled]="disabled_for(\'insulation\')" on-tap="navigate_to_report(REPORT.INSULATION.INSULATED_EQUIPMENTS.PIPE, \'Insulated pipe\')">\n\n            <span svg="pipe-insulation"></span>\n\n            <h1>Pipe</h1>\n\n          </ion-card>\n\n        </ion-col>\n\n        <ion-col card-container col-lg-6 offset-lg-3 col-8 offset-2>\n\n          <ion-card [class.disabled]="disabled_for(\'insulation\')" on-tap="navigate_to_report(REPORT.INSULATION.INSULATED_EQUIPMENTS.SURFACE, \'Insulated surface\')">\n\n            <span svg="surface"></span>\n\n            <h1>Surface</h1>\n\n          </ion-card>\n\n        </ion-col>\n\n        <ion-col card-container col-lg-6 offset-lg-3 col-8 offset-2>\n\n          <ion-icon name="information-circle-outline" duration="3000" arrow tooltip="Damaged insulation and/or cladding"\n\n            positionV="top"></ion-icon>\n\n          <ion-card [class.disabled]="disabled_for(\'insulation\')" on-tap="navigate_to_report(REPORT.INSULATION.INSULATED_EQUIPMENTS.DAMAGED, \'Insulated damaged\')">\n\n            <span svg="damaged-insulation"></span>\n\n            <h1>Damaged</h1>\n\n          </ion-card>\n\n        </ion-col>\n\n      </ion-row>\n\n    </ng-container>\n\n\n\n    <ng-container *ngSwitchCase="\'cold-insulation\'">\n\n      <ion-row>\n\n        <ion-col card-container col-lg-6 offset-lg-3 col-8 offset-2>\n\n          <!-- <ion-card [class.disabled]="disabled_for(\'insulation\')" on-tap="navigate_to_report(REPORT.INSULATION.COLD_INSULATION.ENERGY, \'Cold energy\')"> -->\n\n          <ion-card [class.disabled]="disabled_for(\'insulation\')" (click)="navigate_to(\'hot-surface\')">\n\n            <span svg="cold"></span>\n\n            <h1>Energy</h1>\n\n          </ion-card>\n\n        </ion-col>\n\n        <ion-col card-container col-lg-6 offset-lg-3 col-8 offset-2>\n\n          <ion-card [class.disabled]="disabled_for(\'insulation\')" on-tap="navigate_to_report(REPORT.INSULATION.COLD_INSULATION.CONDENSATION, \'Condensation\')">\n\n            <span svg="ice-wet"></span>\n\n            <h1>Condensation</h1>\n\n          </ion-card>\n\n        </ion-col>\n\n        <ion-col card-container col-lg-6 offset-lg-3 col-8 offset-2>\n\n          <ion-icon name="information-circle-outline" duration="3000" arrow tooltip="Damaged insulation and/or cladding"\n\n            positionV="top"></ion-icon>\n\n          <ion-card [class.disabled]="disabled_for(\'insulation\')" on-tap="navigate_to_report(REPORT.INSULATION.COLD_INSULATION.DAMAGED, \'Damaged\')">\n\n            <span svg="damaged-insulation"></span>\n\n            <h1>Damaged</h1>\n\n          </ion-card>\n\n        </ion-col>\n\n      </ion-row>\n\n    </ng-container>\n\n\n\n    <ng-container *ngSwitchCase="\'safety\'">\n\n      <ion-row>\n\n        <ion-col card-container col-lg-6 offset-lg-3 col-8 offset-2>\n\n          <ion-card [class.disabled]="disabled_for(\'insulation\')" (click)="navigate_to(\'insulation\')">\n\n            <span svg="hot-surface"></span>\n\n            <h1>Hot Surface</h1>\n\n          </ion-card>\n\n        </ion-col>\n\n        <ion-col card-container col-lg-6 offset-lg-3 col-8 offset-2>\n\n          <ion-card [class.disabled]="disabled_for(\'safety\')" on-tap="navigate_to_report(REPORT.SAFETY.FIRE_PROTECTION, \'Fire Protect\')">\n\n            <span svg="fire-protection"></span>\n\n            <h1>Fire Protection</h1>\n\n          </ion-card>\n\n        </ion-col>\n\n        <ion-col card-container col-lg-6 offset-lg-3 col-8 offset-2>\n\n          <ion-card [class.disabled]="disabled_for(\'safety\')" on-tap="navigate_to_report(REPORT.SAFETY.HOUSEKEEPING, \'Housekeeping\')">\n\n            <span svg="housekeeping"></span>\n\n            <h1>Housekeeping</h1>\n\n          </ion-card>\n\n        </ion-col>\n\n        <ion-col card-container col-lg-6 offset-lg-3 col-8 offset-2>\n\n          <ion-card [class.disabled]="disabled_for(\'safety\')" on-tap="navigate_to_report(REPORT.SAFETY.OTHER, \'Others\')">\n\n            <span svg="safety"></span>\n\n            <h1>Other</h1>\n\n          </ion-card>\n\n        </ion-col>\n\n      </ion-row>\n\n      <!-- <ion-row>\n\n        <ion-col  card-container col-md-3 col-sm-6 offset-md-3>\n\n          <ion-card [class.disabled]="disabled_for(\'safety\')" on-tap="navigate_to_report(REPORT.SAFETY.TRAFFIC, \'Traffic\')">\n\n            <span svg="traffic"></span>\n\n            <h1>Traffic</h1>\n\n          </ion-card>\n\n        </ion-col>\n\n        \n\n      </ion-row> -->\n\n    </ng-container>\n\n\n\n    <ng-container *ngSwitchCase="\'maintenance\'">\n\n      <ion-row>\n\n        <ion-col card-container col-lg-6 offset-lg-3 col-8 offset-2>\n\n          <ion-icon name="information-circle-outline" duration="3000" arrow tooltip="Damaged insulation and/or cladding"\n\n            positionV="top"></ion-icon>\n\n          <ion-card [class.disabled]="disabled_for(\'maintenance\')" on-tap="navigate_to_report(REPORT.MANTENANCE.DAMAGED, \'Damaged\')">\n\n            <span svg="damage-insulation"></span>\n\n            <h1>Damaged</h1>\n\n          </ion-card>\n\n        </ion-col>\n\n        <ion-col card-container col-lg-6 offset-lg-3 col-8 offset-2>\n\n          <ion-card [class.disabled]="disabled_for(\'maintenance\')" on-tap="navigate_to_report(REPORT.MANTENANCE.CONDENSATION, \'Condensation\')">\n\n            <span svg="ice-wet"></span>\n\n            <h1>Condensation</h1>\n\n          </ion-card>\n\n        </ion-col>\n\n        <ion-col card-container col-lg-6 offset-lg-3 col-8 offset-2>\n\n          <ion-card [class.disabled]="disabled_for(\'maintenance\')" on-tap="navigate_to_report(REPORT.MANTENANCE.LEAKAGE, \'Leakage\')">\n\n            <span svg="leakage"></span>\n\n            <h1>Leakage</h1>\n\n          </ion-card>\n\n        </ion-col>\n\n        <ion-col card-container col-lg-6 offset-lg-3 col-8 offset-2>\n\n          <ion-card [class.disabled]="disabled_for(\'custom\')" on-tap="navigate_to_report(REPORT.CUSTOM, \'Others\')">\n\n            <span svg="maintenance"></span>\n\n            <h1>Others</h1>\n\n          </ion-card>\n\n        </ion-col>\n\n        <!-- <ion-col  card-container col-md-3 col-sm-6 offset-md-2>\n\n          <ion-card [class.disabled]="disabled_for(\'maintenance\')" on-tap="navigate_to_report(REPORT.MANTENANCE.STRUCTURAL, \'Structural\')">\n\n            <span svg="structural"></span>\n\n            <h1>Structural</h1>\n\n          </ion-card>\n\n        </ion-col>\n\n        <ion-col  card-container col-md-3 col-sm-6>\n\n          <ion-card [class.disabled]="disabled_for(\'maintenance\')" on-tap="navigate_to_report(REPORT.MANTENANCE.MECHANICAL, \'Mechanical\')">\n\n            <span svg="mechanical"></span>\n\n            <h1>Mechanical</h1>\n\n          </ion-card>\n\n        </ion-col>\n\n        <ion-col  card-container col-md-3 col-sm-6>\n\n            <ion-card [class.disabled]="disabled_for(\'maintenance\')" on-tap="navigate_to_report(REPORT.MANTENANCE.ELECTRICAL, \'Electrical\')">\n\n            <span svg="electrical"></span>\n\n            <h1>Electrical</h1>\n\n          </ion-card>\n\n        </ion-col> -->\n\n      </ion-row>\n\n    </ng-container>\n\n\n\n    <!-- <ng-container *ngSwitchCase="\'hot-surface\'">\n\n      <ion-row *ngIf="segment.value==0">\n\n        <ion-col card-container offset-md-3 col-md-3 col-sm-6>\n\n          <ion-card [class.disabled]="disabled_for(\'insulation\')" on-tap="navigate_to_report(REPORT.SAFETY.HOT_SURFACE.UNINSULATED_EQUIPMENTS.PIPE, \'Uninsulated pipe\')">\n\n            <span svg="pipe"></span>\n\n            <h1>Pipe</h1>\n\n          </ion-card>\n\n        </ion-col>\n\n        <ion-col card-container col-md-3 col-sm-6>\n\n          <ion-card [class.disabled]="disabled_for(\'insulation\')" on-tap="navigate_to_report(REPORT.SAFETY.HOT_SURFACE.UNINSULATED_EQUIPMENTS.VALVE, \'Uninsulated valve\')">\n\n            <span svg="valve"></span>\n\n            <h1>Valve</h1>\n\n          </ion-card>\n\n        </ion-col>\n\n        <ion-col [class.disabled]="disabled_for(\'insulation\')" card-container offset-md-3 col-md-3 col-sm-6>\n\n          <ion-card [class.disabled]="disabled_for(\'insulation\')" on-tap="navigate_to_report(REPORT.SAFETY.HOT_SURFACE.UNINSULATED_EQUIPMENTS.FLANGE, \'Uninsulated flange\')">\n\n            <span svg="flange"></span>\n\n            <h1>Flange</h1>\n\n          </ion-card>\n\n        </ion-col>\n\n        <ion-col card-container col-md-3 col-sm-6>\n\n          <ion-card [class.disabled]="disabled_for(\'insulation\')" on-tap="navigate_to_report(REPORT.SAFETY.HOT_SURFACE.UNINSULATED_EQUIPMENTS.SURFACE, \'Uninsulated surface\')">\n\n            <span svg="surface"></span>\n\n            <h1>Surface</h1>\n\n          </ion-card>\n\n        </ion-col>\n\n      </ion-row>\n\n\n\n      <ion-row *ngIf="segment.value==1">\n\n        <ion-col card-container col-md-3 col-sm-6 offset-md-2>\n\n          <ion-card [class.disabled]="disabled_for(\'insulation\')" on-tap="navigate_to_report(REPORT.SAFETY.HOT_SURFACE.INSULATED_EQUIPMENTS.PIPE, \'Insulated pipe\')">\n\n            <span svg="pipe-insulation"></span>\n\n            <h1>Pipe</h1>\n\n          </ion-card>\n\n        </ion-col>\n\n        <ion-col card-container col-md-3 col-sm-6>\n\n          <ion-icon name="information-circle-outline" duration="3000" arrow tooltip="Damaged insulation and/or cladding"\n\n            positionV="top"></ion-icon>\n\n          <ion-card [class.disabled]="disabled_for(\'insulation\')" on-tap="navigate_to_report(REPORT.SAFETY.HOT_SURFACE.INSULATED_EQUIPMENTS.DAMAGED, \'Damaged\')">\n\n            <span svg="damaged-insulation"></span>\n\n            <h1>Damaged</h1>\n\n          </ion-card>\n\n        </ion-col>\n\n        <ion-col card-container col-md-3 col-sm-6>\n\n          <ion-card [class.disabled]="disabled_for(\'insulation\')" on-tap="navigate_to_report(REPORT.SAFETY.HOT_SURFACE.INSULATED_EQUIPMENTS.SURFACE, \'Insulated surface\')">\n\n            <span svg="surface"></span>\n\n            <h1>Surface</h1>\n\n          </ion-card>\n\n        </ion-col>\n\n      </ion-row>\n\n\n\n    </ng-container> -->\n\n  </ion-grid>\n\n</ion-content>\n\n\n\n<ion-footer>\n\n  <ion-grid no-padding>\n\n    <ion-row no-padding>\n\n      <ion-col col-4 no-padding>\n\n        <button ion-button small color="light" (click)="go_back()">\n\n          <ion-icon name="arrow-back"></ion-icon>&nbsp;Back\n\n        </button>\n\n      </ion-col>\n\n      <ion-col col-4 text-center>\n\n        <tools></tools>\n\n      </ion-col>\n\n      <ion-col col-4 no-padding text-right *ngIf="!component?.id">\n\n        <button *ngIf="type==\'\'" ion-button small color="royal" on-tap="open_summary()">\n\n          <ion-icon name="grid"></ion-icon>&nbsp;Summary\n\n        </button>\n\n      </ion-col>\n\n    </ion-row>\n\n  </ion-grid>\n\n</ion-footer>\n\n'/*ion-inline-end:"D:\Sofware Factory\tbi\src\pages\reports\reports.html"*/
-        }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2_ionic_angular__["h" /* NavController */],
-            __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["i" /* NavParams */],
-            __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["b" /* AlertController */],
-            __WEBPACK_IMPORTED_MODULE_3__services_project_service__["a" /* ProjectService */]])
-    ], ReportsPage);
-    return ReportsPage;
-    var ReportsPage_1;
-}(__WEBPACK_IMPORTED_MODULE_5__models_report_router__["a" /* ReportRouter */]));
-
-//# sourceMappingURL=reports.js.map
+//# sourceMappingURL=index.js.map
 
 /***/ }),
 
@@ -4734,7 +4333,7 @@ var ReportsPage = /** @class */ (function (_super) {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ProjectService; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__models__ = __webpack_require__(46);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__models_project_json__ = __webpack_require__(472);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__models_project_json__ = __webpack_require__(475);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__file_service__ = __webpack_require__(54);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__messages_service__ = __webpack_require__(16);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__licences_service__ = __webpack_require__(102);
@@ -4788,7 +4387,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 
 
 
-var STORAGE_KEY = 'tbi-app-v5';
+var STORAGE_KEY = 'tbi-app-v6';
 var ProjectService = /** @class */ (function () {
     function ProjectService(file, message, licences) {
         this.file = file;
@@ -4911,7 +4510,8 @@ var ProjectService = /** @class */ (function () {
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return FileService; });
 var FileService = /** @class */ (function () {
-    function FileService() {
+    function FileService(loading) {
+        this.loading = loading;
     }
     return FileService;
 }());
@@ -4920,15 +4520,552 @@ var FileService = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 587:
+/***/ 588:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ReportPipePage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__models_reports__ = __webpack_require__(21);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(5);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__services_report_service__ = __webpack_require__(30);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__models_reports_report_pipe_class__ = __webpack_require__(302);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__services_messages_service__ = __webpack_require__(16);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__services__ = __webpack_require__(17);
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+
+
+var ReportPipePage = /** @class */ (function (_super) {
+    __extends(ReportPipePage, _super);
+    function ReportPipePage(navCtrl, navParams, service, alertCtrl, picture, message, keyboard, modalCtrl) {
+        var _this = _super.call(this, new __WEBPACK_IMPORTED_MODULE_4__models_reports_report_pipe_class__["a" /* ReportPipe */](navParams.data.project, navParams.data.component, navParams.data.report), navCtrl, service, alertCtrl, picture, message, keyboard, modalCtrl) || this;
+        _this.navCtrl = navCtrl;
+        _this.service = service;
+        _this.alertCtrl = alertCtrl;
+        _this.picture = picture;
+        _this.message = message;
+        _this.keyboard = keyboard;
+        _this.modalCtrl = modalCtrl;
+        return _this;
+    }
+    ReportPipePage = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
+            selector: 'page-report-pipe',template:/*ion-inline-start:"D:\Sofware Factory\tbi\src\pages\reports\pipe\report-pipe.component.html"*/'<report-header [parent]="this"></report-header>\n\n\n\n<ion-content #content>\n\n\n\n  <ion-grid [hidden]="view==\'edit_picture\'" class="fixed-col">\n\n    <ion-row>\n\n      <ion-col col-7 col-lg-6 no-padding>\n\n        <form novalidate #form="ngForm" [hidden]="segment!=\'input\'" (submit)="calculate()">\n\n          <ion-row>\n\n            <ion-col col-10>\n\n              <ion-item>\n\n                <ion-label stacked>Component/Location</ion-label>\n\n                <ion-input tabindex="1" (ionFocus)="on_focus($event)" name="location" required data-val-required="Please input Component/Location"\n\n                  [(ngModel)]="report.component.fields.location" type="text"></ion-input>\n\n              </ion-item>\n\n            </ion-col>\n\n            <ion-col col-2></ion-col>\n\n          </ion-row>\n\n          <ion-row>\n\n            <ion-col col-10>\n\n              <ion-item>\n\n                <ion-label stacked>Operational time (hours)</ion-label>\n\n                <ion-input tabindex="2" (ionFocus)="on_focus($event)" required data-val-required="Please input operational time"\n\n                  name="operational_time" [(ngModel)]="report.component.fields.operational_time" type="number"></ion-input>\n\n              </ion-item>\n\n            </ion-col>\n\n            <ion-col col-2>\n\n              <more pull-left #time (change)="report.component.fields.operational_time=time.value" [type]="\'time\'"\n\n                modal-button></more>\n\n            </ion-col>\n\n          </ion-row>\n\n          <ion-row>\n\n            <ion-col col-7>\n\n              <ion-item>\n\n                <ion-label stacked>Diameter (mm)</ion-label>\n\n                <ion-input #after_time tabindex="4" (ionFocus)="on_focus($event)" name="nominal_diameter" required\n\n                  data-val-required="Please input Diameter" [(ngModel)]="report.component.fields.nominal_diameter"\n\n                  type="number"></ion-input>\n\n              </ion-item>\n\n            </ion-col>\n\n            <ion-col col-4>\n\n              <ion-item>\n\n                <ion-label stacked>Length (m)</ion-label>\n\n                <ion-input tabindex="5" min="0" (ionFocus)="on_focus($event)" name="number" required data-val-required="Please input length"\n\n                  [(ngModel)]="report.component.fields.length" type="number"></ion-input>\n\n              </ion-item>\n\n            </ion-col>\n\n          </ion-row>\n\n          <ion-row>\n\n            <ion-col col-10>\n\n              <ion-item class="edit_surface_material" [class.editable]="edit_surface_material">\n\n                <ion-label stacked>Surface material [ε]</ion-label>\n\n                <ion-input tabindex="6" class="literal" (ionFocus)="on_focus($event);toggle_surface_material(true)"\n\n                  [value]="report.component.fields.surface_material_friendly" type="text"></ion-input>\n\n                <ion-input tabindex="7" class="numeric" (ionFocus)="on_focus($event)" (focusout)="toggle_surface_material(false)"\n\n                  (ionFocus)="on_focus($event)" name="surface_material" required data-val-required="Please input surface emissivity"\n\n                  [(ngModel)]="report.component.fields.surface_material" type="number" (change)="set_surface_material(report.component.fields.surface_material, $event)"></ion-input>\n\n              </ion-item>\n\n            </ion-col>\n\n            <ion-col col-2>\n\n              <more pull-left #material (change)="set_surface_material(material.value, $event)" [type]="\'materials\'"\n\n                modal-button></more>\n\n            </ion-col>\n\n          </ion-row>\n\n          <ion-row>\n\n              <ion-col col-5 class="pr-0">\n\n                <ion-item class="pr-0">\n\n                  <ion-label stacked>Surface temperature (<sup>º</sup>C)</ion-label>\n\n                  <ion-input tabindex="8"  [style.visibility]="report.component.fields.unknow_surface_temp ? \'hidden\' : \'visible\'" #after_material (ionFocus)="on_focus($event)" scroll="-80" name="surface_temp"\n\n                    required data-val-required="Please input Medium or Surface temperature" [pattern]="patterns.REQUIRED_NUMBER"\n\n                    data-val-pattern="Please input a valid Medium or Surface temperature" [(ngModel)]="report.component.fields.surface_temp"\n\n                    type="tel"></ion-input>\n\n                </ion-item>\n\n              </ion-col>\n\n              <ion-col col-5 toggle-container>\n\n                <ion-item>\n\n                  <ion-label stacked>Unknown</ion-label>\n\n                  <ion-toggle style="padding-left:0" [(ngModel)]="report.component.fields.unknow_surface_temp" (ionChange)="toggle_know_temp()"\n\n                    name="unknow_surface_temp"></ion-toggle>\n\n                </ion-item>\n\n              </ion-col>\n\n              <ion-col col-2>\n\n                <!-- <medium-temp #medium (change)="report.component.fields.surface_temp=medium.value" modal-button pull-left></medium-temp> -->\n\n                <medium-temp #medium [report]="report" modal-button pull-left></medium-temp>\n\n              </ion-col>\n\n            </ion-row>\n\n          <ion-row>\n\n            <ion-col col-10>\n\n              <ion-item>\n\n                <ion-label stacked>Ambient temperature (<sup>º</sup>C)</ion-label>\n\n                <ion-input tabindex="9" (ionFocus)="on_focus($event)" (keyup.enter)="on_keypress($event)" name="ambient_temp"\n\n                  [pattern]="patterns.REQUIRED_NUMBER" data-val-pattern="Please input a valid Ambient temperature"\n\n                  required data-val-required="Please input Ambient temperature" [(ngModel)]="report.component.fields.ambient_temp"\n\n                  type="tel"></ion-input>\n\n              </ion-item>\n\n            </ion-col>\n\n            <ion-col col-2></ion-col>\n\n          </ion-row>\n\n          <ion-row>\n\n            <ion-col col-12>\n\n              <ion-item>\n\n                <ion-label stacked>Annual Saving Potenyial</ion-label>\n\n                <ion-input tabindex="-1" name="annual_saving" value="{{report.annual_saving}}" type="text"></ion-input>\n\n              </ion-item>\n\n            </ion-col>\n\n          </ion-row>\n\n        </form>\n\n      </ion-col>\n\n\n\n      <ion-col col-5 col-lg-6 no-padding text-center>\n\n        <ion-row>\n\n          <ion-col col-12 picture-slide [parent]="this"   [report]="report" [editable]="editable"\n\n            (onStartEdit)="on_picture_start_edit($event)">\n\n          </ion-col>\n\n        </ion-row>\n\n      </ion-col>\n\n\n\n      <ion-col col-12 padding>\n\n        <div report-result col-12 [parent]="this" *ngIf="view==\'result\' && (!!form && !form.invalid)"></div>\n\n      </ion-col>\n\n      <ion-col col-12 padding>\n\n        <report-errors padding #errors col-12 [hidden]="view==\'!result\' && report.result"></report-errors>\n\n      </ion-col>\n\n    </ion-row>\n\n  </ion-grid>\n\n\n\n  <edit-picture *ngIf="view==\'edit_picture\'" [report]="report" [picture]="editing_picture"></edit-picture>\n\n\n\n</ion-content>\n\n\n\n<report-footer [parent]="this"></report-footer>\n\n'/*ion-inline-end:"D:\Sofware Factory\tbi\src\pages\reports\pipe\report-pipe.component.html"*/
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2_ionic_angular__["j" /* NavController */],
+            __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["k" /* NavParams */],
+            __WEBPACK_IMPORTED_MODULE_3__services_report_service__["a" /* ReportService */],
+            __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["b" /* AlertController */],
+            __WEBPACK_IMPORTED_MODULE_6__services__["d" /* PictureService */],
+            __WEBPACK_IMPORTED_MODULE_5__services_messages_service__["a" /* MessageService */],
+            __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["g" /* Keyboard */],
+            __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["i" /* ModalController */]])
+    ], ReportPipePage);
+    return ReportPipePage;
+}(__WEBPACK_IMPORTED_MODULE_1__models_reports__["a" /* BaseReportPage */]));
+
+//# sourceMappingURL=report-pipe.component.js.map
+
+/***/ }),
+
+/***/ 589:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ReportFlangePage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__models_reports__ = __webpack_require__(21);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(5);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__services_report_service__ = __webpack_require__(30);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__services_messages_service__ = __webpack_require__(16);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__services__ = __webpack_require__(17);
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+
+var ReportFlangePage = /** @class */ (function (_super) {
+    __extends(ReportFlangePage, _super);
+    function ReportFlangePage(navCtrl, navParams, service, alertCtrl, picture, message, keyboard, modalCtrl) {
+        var _this = _super.call(this, new __WEBPACK_IMPORTED_MODULE_1__models_reports__["d" /* ReportFlange */](navParams.data.project, navParams.data.component, navParams.data.report), navCtrl, service, alertCtrl, picture, message, keyboard, modalCtrl) || this;
+        _this.navCtrl = navCtrl;
+        _this.service = service;
+        _this.alertCtrl = alertCtrl;
+        _this.picture = picture;
+        _this.message = message;
+        _this.keyboard = keyboard;
+        _this.modalCtrl = modalCtrl;
+        _this.unknow_length = true;
+        return _this;
+    }
+    ReportFlangePage = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
+            selector: 'page-report-flange',template:/*ion-inline-start:"D:\Sofware Factory\tbi\src\pages\reports\flange\report-flange.component.html"*/'<report-header [parent]="this"></report-header>\n\n\n\n<ion-content #content>\n\n\n\n  <ion-grid [hidden]="view==\'edit_picture\'" class="fixed-col">\n\n    <ion-row>\n\n      <ion-col col-7 col-lg-6 no-padding>\n\n\n\n        <form novalidate #form="ngForm" [hidden]="segment!=\'input\'" (submit)="calculate()">\n\n          <ion-row>\n\n            <ion-col col-10>\n\n              <ion-item>\n\n                <ion-label stacked>Component/Location</ion-label>\n\n                <ion-input tabindex="1" (ionFocus)="on_focus($event)" name="location" required data-val-required="Please input Component/Location"\n\n                  [(ngModel)]="report.component.fields.location" type="text"></ion-input>\n\n              </ion-item>\n\n            </ion-col>\n\n            <ion-col col-10>\n\n              <ion-item>\n\n                <ion-label stacked>Item number</ion-label>\n\n                <ion-input min="0" tabindex="2" (ionFocus)="on_focus($event)" name="number" required data-val-required="Please input Item number"\n\n                  [(ngModel)]="report.component.fields.number" type="number"></ion-input>\n\n              </ion-item>\n\n            </ion-col>\n\n          </ion-row>\n\n          <ion-row>\n\n            <ion-col col-10>\n\n              <ion-item>\n\n                <ion-label stacked>Operational time (hours)</ion-label>\n\n                <ion-input tabindex="3" (ionFocus)="on_focus($event)" required data-val-required="Please input operational time"\n\n                  name="operational_time" [(ngModel)]="report.component.fields.operational_time" type="number"></ion-input>\n\n              </ion-item>\n\n            </ion-col>\n\n            <ion-col col-2>\n\n              <more pull-left #time (change)="report.component.fields.operational_time=time.value" [type]="\'time\'"\n\n                modal-button></more>\n\n            </ion-col>\n\n          </ion-row>\n\n          <ion-row>\n\n            <ion-col col-10>\n\n              <ion-item>\n\n                <ion-label stacked>Diameter (mm)</ion-label>\n\n                <ion-input #after_time tabindex="4" (ionFocus)="on_focus($event)" name="nominal_diameter" required\n\n                  data-val-required="Please input Diameter" [(ngModel)]="report.component.fields.nominal_diameter"\n\n                  type="number"></ion-input>\n\n              </ion-item>\n\n            </ion-col>\n\n            <!-- <ion-col col-2>\n\n              <div (click)="set_length(\'Default value for flanges 0.5m\', 0.5)" tabindex="-1" pull-left no-padding\n\n                ion-button small color="light" class="with-action">\n\n                <ion-icon name="custom-flange"></ion-icon>\n\n              </div>\n\n            </ion-col> -->\n\n          </ion-row>\n\n          <ion-row>\n\n            <ion-col col-10>\n\n              <ion-item class="edit_surface_material" [class.editable]="edit_surface_material">\n\n                <ion-label stacked>Surface material [ε]</ion-label>\n\n                <ion-input tabindex="5" class="literal" (focus)="toggle_surface_material(true)" [value]="report.component.fields.surface_material_friendly"\n\n                  type="text"></ion-input>\n\n                <ion-input tabindex="6" class="numeric" (focusout)="toggle_surface_material(false)" (ionFocus)="on_focus($event)"\n\n                  name="surface_material" required data-val-required="Please input surface emissivity" [(ngModel)]="report.component.fields.surface_material"\n\n                  type="number" (change)="set_surface_material(report.component.fields.surface_material, $event)"></ion-input>\n\n              </ion-item>\n\n            </ion-col>\n\n            <ion-col col-2>\n\n              <more pull-left #material (change)="set_surface_material(material.value, $event)" [type]="\'materials\'"\n\n                modal-button></more>\n\n            </ion-col>\n\n          </ion-row>\n\n          <ion-row>\n\n              <ion-col col-5 class="pr-0">\n\n                <ion-item class="pr-0">\n\n                  <ion-label stacked>Surface temperature (<sup>º</sup>C)</ion-label>\n\n                  <ion-input tabindex="7"  [style.visibility]="report.component.fields.unknow_surface_temp ? \'hidden\' : \'visible\'" #after_material (ionFocus)="on_focus($event)" scroll="-80" name="surface_temp"\n\n                    required data-val-required="Please input Medium or Surface temperature" [pattern]="patterns.REQUIRED_NUMBER"\n\n                    data-val-pattern="Please input a valid Medium or Surface temperature" [(ngModel)]="report.component.fields.surface_temp"\n\n                    type="tel"></ion-input>\n\n                </ion-item>\n\n              </ion-col>\n\n              <ion-col col-5 toggle-container>\n\n                <ion-item>\n\n                  <ion-label stacked>Unknown</ion-label>\n\n                  <ion-toggle style="padding-left:0" [(ngModel)]="report.component.fields.unknow_surface_temp" (ionChange)="toggle_know_temp()"\n\n                    name="unknow_surface_temp"></ion-toggle>\n\n                </ion-item>\n\n              </ion-col>\n\n              <ion-col col-2>\n\n                <!-- <medium-temp #medium (change)="report.component.fields.surface_temp=medium.value" modal-button pull-left></medium-temp> -->\n\n                <medium-temp #medium [report]="report" modal-button pull-left></medium-temp>\n\n              </ion-col>\n\n            </ion-row>\n\n          <ion-row>\n\n            <ion-col col-10>\n\n              <ion-item>\n\n                <ion-label stacked>Ambient temperature (<sup>º</sup>C)</ion-label>\n\n                <ion-input tabindex="8" (ionFocus)="on_focus($event)" (keyup.enter)="on_keypress($event)" name="ambient_temp"\n\n                  [pattern]="patterns.REQUIRED_NUMBER" data-val-pattern="Please input a valid Ambient temperature"\n\n                  required data-val-required="Please input Ambient temperature" [(ngModel)]="report.component.fields.ambient_temp"\n\n                  type="tel"></ion-input>\n\n              </ion-item>\n\n            </ion-col>\n\n            <ion-col col-2></ion-col>\n\n          </ion-row>\n\n          <ion-row>\n\n            <ion-col col-12>\n\n              <ion-item>\n\n                <ion-label stacked>Annual Saving Potenyial</ion-label>\n\n                <ion-input tabindex="-1" name="annual_saving" value="{{report.annual_saving}}" type="text"></ion-input>\n\n              </ion-item>\n\n            </ion-col>\n\n          </ion-row>\n\n        </form>\n\n      </ion-col>\n\n\n\n      <ion-col col-5 col-lg-6 no-padding>\n\n        <ion-row>\n\n          <ion-col col-12 picture-slide [parent]="this"   [report]="report" [editable]="editable" (onStartEdit)="on_picture_start_edit($event)">\n\n          </ion-col>\n\n        </ion-row>\n\n        <report-errors padding #errors col-12 [hidden]="view==\'!result\' && report.result"></report-errors>\n\n      </ion-col>\n\n    </ion-row>\n\n\n\n    <ion-row>\n\n      <ion-col col-12>\n\n        <div report-result col-12 [parent]="this" *ngIf="view==\'result\' && (!!form && !form.invalid)"></div>\n\n      </ion-col>\n\n    </ion-row>\n\n  </ion-grid>\n\n\n\n  <edit-picture *ngIf="view==\'edit_picture\'" [report]="report" [picture]="editing_picture"></edit-picture>\n\n\n\n</ion-content>\n\n\n\n<report-footer [parent]="this"></report-footer>\n\n'/*ion-inline-end:"D:\Sofware Factory\tbi\src\pages\reports\flange\report-flange.component.html"*/
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2_ionic_angular__["j" /* NavController */],
+            __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["k" /* NavParams */],
+            __WEBPACK_IMPORTED_MODULE_3__services_report_service__["a" /* ReportService */],
+            __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["b" /* AlertController */],
+            __WEBPACK_IMPORTED_MODULE_5__services__["d" /* PictureService */],
+            __WEBPACK_IMPORTED_MODULE_4__services_messages_service__["a" /* MessageService */],
+            __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["g" /* Keyboard */],
+            __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["i" /* ModalController */]])
+    ], ReportFlangePage);
+    return ReportFlangePage;
+}(__WEBPACK_IMPORTED_MODULE_1__models_reports__["a" /* BaseReportPage */]));
+
+//# sourceMappingURL=report-flange.component.js.map
+
+/***/ }),
+
+/***/ 590:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ReportEditPictureComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__models_picture__ = __webpack_require__(101);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__models_marker__ = __webpack_require__(75);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ionic_angular__ = __webpack_require__(5);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__models__ = __webpack_require__(46);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+var ReportEditPictureComponent = /** @class */ (function () {
+    function ReportEditPictureComponent(alertCtrl) {
+        this.alertCtrl = alertCtrl;
+        this.max_markers = 10;
+    }
+    ReportEditPictureComponent.prototype.create_marker = function (event) {
+        if ((this.report.component.markers.length + this.picture.markers.length) < this.max_markers) {
+            this.show_prompt(event, null);
+        }
+        else {
+            var alert_1 = this.alertCtrl.create({
+                //title: 'Temperature',
+                message: "This component already has " + this.max_markers + " temperature markers",
+                cssClass: "ion-dialog-horizontal",
+                enableBackdropDismiss: false,
+                buttons: [
+                    {
+                        text: 'Ok',
+                        role: 'cancel'
+                    }
+                ]
+            });
+            alert_1.present();
+        }
+    };
+    ReportEditPictureComponent.prototype.edit_marker = function (marker) {
+        this.show_prompt(null, marker);
+    };
+    ReportEditPictureComponent.prototype.show_prompt = function (event, marker) {
+        var _this = this;
+        if (!this.report.path.match(/(surface|pipe|valve|flange)/gi))
+            return;
+        var alert = this.alertCtrl.create({
+            message: 'Measurement',
+            cssClass: "ion-dialog-horizontal margin-top",
+            enableBackdropDismiss: false,
+            inputs: [
+                {
+                    name: 'temperature',
+                    placeholder: 'ºC',
+                    type: 'tel',
+                    value: !isNaN(parseFloat(String(marker))) ? marker.temperature.toString() : ''
+                }
+            ],
+            buttons: [
+                {
+                    text: 'Cancel',
+                    role: 'cancel'
+                },
+                {
+                    text: 'Ok',
+                    role: 'submit',
+                    handler: function (data) {
+                        if (isNaN(parseFloat(String(data.temperature))))
+                            return;
+                        if (!!marker) {
+                            marker.temperature = data.temperature;
+                        }
+                        else {
+                            var marker_size = {
+                                width: 32,
+                                height: 83
+                            };
+                            _this.picture.markers.push(new __WEBPACK_IMPORTED_MODULE_2__models_marker__["a" /* Marker */]({
+                                x: event.offsetX - marker_size.width,
+                                y: event.offsetY - marker_size.height,
+                                temperature: data.temperature
+                            }));
+                        }
+                    }
+                }
+            ]
+        });
+        if (!!marker) {
+            alert.addButton({
+                text: 'Remove',
+                role: 'remove',
+                handler: function () { _this.picture.markers = _this.picture.markers.filter(function (m) { return m !== marker; }); }
+            });
+        }
+        alert.present();
+    };
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["D" /* Input */])(),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1__models_picture__["a" /* Picture */])
+    ], ReportEditPictureComponent.prototype, "picture", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["D" /* Input */])(),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_4__models__["c" /* ReportBase */])
+    ], ReportEditPictureComponent.prototype, "report", void 0);
+    ReportEditPictureComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
+            selector: 'edit-picture',template:/*ion-inline-start:"D:\Sofware Factory\tbi\src\pages\reports\components\edit-picture\edit-picture.component.html"*/'<ng-container>\n\n<svg *ngFor="let marker of picture?.markers_with_values"\n\n  (click)="edit_marker(marker)"\n\n  version="1.1" \n\n  xmlns="http://www.w3.org/2000/svg" \n\n  xmlns:xlink="http://www.w3.org/1999/xlink" \n\n  x="0" y="0"\n\n  viewBox="0 0 366.1 485.2" \n\n  xml:space="preserve"\n\n  [style.transform]="marker.position">\n\n  <g [attr.class]="marker.color">\n\n    <circle cx="183.1" cy="181" r="130.8"/>\n\n    <path d="M184,0C83.5,0,2,81.5,2,182s151.6,303.3,182,303.3c30.3,0,182-202.8,182-303.3S284.4,0,184,0z M184,303.3\n\n	c-66.9,0-121.3-54.4-121.3-121.3S117.1,60.7,184,60.7c66.9,0,121.3,54.4,121.3,121.3S250.9,303.3,184,303.3z" />\n\n    <text [attr.transform]="marker.transform">{{marker.temperature}}</text>\n\n  </g>\n\n</svg>\n\n<img [src]="picture?.picture" width="100%" height="auto" (click)="create_marker($event)">\n\n'/*ion-inline-end:"D:\Sofware Factory\tbi\src\pages\reports\components\edit-picture\edit-picture.component.html"*/
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_3_ionic_angular__["b" /* AlertController */]])
+    ], ReportEditPictureComponent);
+    return ReportEditPictureComponent;
+}());
+
+//# sourceMappingURL=edit-picture.component.js.map
+
+/***/ }),
+
+/***/ 591:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ReportPictureSlideComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__models__ = __webpack_require__(46);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__const_images__ = __webpack_require__(171);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__models_reports_base_report_page_class__ = __webpack_require__(304);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+var ReportPictureSlideComponent = /** @class */ (function () {
+    function ReportPictureSlideComponent() {
+        this.onStartEdit = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["v" /* EventEmitter */]();
+        this.can_edit = false;
+        this.NON_PICTURE = __WEBPACK_IMPORTED_MODULE_2__const_images__["a" /* NON_PICTURE */];
+    }
+    ReportPictureSlideComponent.prototype.ngOnInit = function () {
+        this.can_edit = !!this.report.path.match(/(surface|pipe|valve|flange)/gi);
+    };
+    ReportPictureSlideComponent.prototype.edit = function (picture) {
+        this.onStartEdit.emit(picture);
+    };
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["D" /* Input */])(),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1__models__["c" /* ReportBase */])
+    ], ReportPictureSlideComponent.prototype, "report", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["D" /* Input */])(),
+        __metadata("design:type", Boolean)
+    ], ReportPictureSlideComponent.prototype, "editable", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["O" /* Output */])(),
+        __metadata("design:type", Object)
+    ], ReportPictureSlideComponent.prototype, "onStartEdit", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["D" /* Input */])(),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_3__models_reports_base_report_page_class__["a" /* BaseReportPage */])
+    ], ReportPictureSlideComponent.prototype, "parent", void 0);
+    ReportPictureSlideComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
+            selector: '[picture-slide]',template:/*ion-inline-start:"D:\Sofware Factory\tbi\src\pages\reports\components\picture-slide\picture-slide.component.html"*/'<ion-row>\n\n  <ion-col col-12 text-center>\n\n    <img [src]="NON_PICTURE" class="non-picture" on-tap="parent.take_picture()" *ngIf="!report || !report.pictures.length"/>\n\n    <ion-slides no-padding pager="true" zoom="true" *ngIf="!!report && !!report.pictures.length">\n\n      <ion-slide *ngFor="let picture of report.pictures">\n\n        <img [src]="picture.picture" (click)="edit(picture)">\n\n        <div *ngIf="!!can_edit" class="markers">Measurements: {{picture.markers.length}}</div>\n\n      </ion-slide>\n\n    </ion-slides>\n\n  </ion-col>\n\n</ion-row>\n\n<ion-row *ngIf="!!report.component.has_markers(report) && !!can_edit" text-center>\n\n    <ion-col col-8 offset-2>\n\n      <button ion-button round outline small color="royal" (click)="report.component.fields.surface_temp=report.component.min_temp(report)">\n\n        Minimun<br>{{report.component.min_temp(report) | number: \'1.2-2\'}}ºC\n\n      </button>\n\n    </ion-col>\n\n    <ion-col col-8 offset-2>\n\n      <button ion-button round outline small color="royal" (click)="report.component.fields.surface_temp=report.component.medium_temp(report)">\n\n        Average<br>{{report.component.medium_temp(report) | number: \'1.2-2\'}}ºC\n\n      </button>\n\n    </ion-col>\n\n    <ion-col col-8 offset-2>\n\n      <button ion-button round outline small color="royal" (click)="report.component.fields.surface_temp=report.component.max_temp(report)">\n\n        Maximun<br>{{report.component.max_temp(report) | number: \'1.2-2\'}}ºC\n\n      </button>\n\n    </ion-col>\n\n  </ion-row>'/*ion-inline-end:"D:\Sofware Factory\tbi\src\pages\reports\components\picture-slide\picture-slide.component.html"*/
+        })
+    ], ReportPictureSlideComponent);
+    return ReportPictureSlideComponent;
+}());
+
+//# sourceMappingURL=picture-slide.component.js.map
+
+/***/ }),
+
+/***/ 592:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ReportErrorsComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_forms__ = __webpack_require__(18);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+var ReportErrorsComponent = /** @class */ (function () {
+    function ReportErrorsComponent() {
+        this.errors = [];
+        this.on_change = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["v" /* EventEmitter */]();
+    }
+    Object.defineProperty(ReportErrorsComponent.prototype, "form", {
+        set: function (form) {
+            var _this = this;
+            if (!!this._form)
+                return;
+            this._form = form;
+            form.valueChanges.subscribe(function (ev) {
+                _this.on_change.emit(form);
+                _this.update();
+            });
+            this.update();
+        },
+        enumerable: true,
+        configurable: true
+    });
+    ;
+    ReportErrorsComponent.prototype.get = function () {
+        return this._form;
+    };
+    ReportErrorsComponent.prototype.understood = function () {
+        this.page.view = 'form';
+    };
+    ReportErrorsComponent.prototype.update = function () {
+        var _this = this;
+        this.errors = [];
+        Object.keys(this._form.controls).forEach(function (key) {
+            var controlErrors = _this._form.controls[key].errors;
+            if (controlErrors != null) {
+                Object.keys(controlErrors).forEach(function (error) {
+                    _this.errors.push({
+                        key: key,
+                        error: error,
+                        message: Array.from(document.getElementsByName(key))[1].attributes["data-val-" + error].value
+                    });
+                });
+            }
+        });
+        return this;
+    };
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["D" /* Input */])('form'),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1__angular_forms__["d" /* NgForm */]),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_forms__["d" /* NgForm */]])
+    ], ReportErrorsComponent.prototype, "form", null);
+    ReportErrorsComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
+            selector: 'report-errors',template:/*ion-inline-start:"D:\Sofware Factory\tbi\src\pages\reports\components\errors\report-errors.component.html"*/'<ion-col col-12 *ngIf="!!errors?.length">\n  <ion-title col-12>Warnings</ion-title>\n  <!-- <p>Report contains error, resuelva los errores para poder realizar el cálculo.</p> -->\n  <ul>\n    <li *ngFor="let e of errors">\n      {{e.message}}\n    </li>\n  </ul>\n  <!-- <button (tap)="understood()" style="margin-top: 2rem" offset-3 col-6 block ion-button small outline color="danger">Understood</button> -->\n</ion-col>\n\n'/*ion-inline-end:"D:\Sofware Factory\tbi\src\pages\reports\components\errors\report-errors.component.html"*/,
+        }),
+        __metadata("design:paramtypes", [])
+    ], ReportErrorsComponent);
+    return ReportErrorsComponent;
+}());
+
+//# sourceMappingURL=report-errors.component.js.map
+
+/***/ }),
+
+/***/ 593:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ReportsPage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__const_report_const__ = __webpack_require__(179);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(5);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__services_project_service__ = __webpack_require__(53);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__projects_projects__ = __webpack_require__(99);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__models_report_router__ = __webpack_require__(307);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__summary_summary__ = __webpack_require__(103);
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+
+//import { Segment } from './segment/segment.class';
+
+var ReportsPage = /** @class */ (function (_super) {
+    __extends(ReportsPage, _super);
+    function ReportsPage(navCtrl, navParams, alertCtrl, service) {
+        var _this = _super.call(this, navParams.get('project'), navParams.get('component'), navCtrl) || this;
+        _this.navCtrl = navCtrl;
+        _this.navParams = navParams;
+        _this.alertCtrl = alertCtrl;
+        _this.service = service;
+        _this.type = "";
+        //public segment: Segment = new Segment();
+        _this.REPORT = __WEBPACK_IMPORTED_MODULE_0__const_report_const__["a" /* REPORT */];
+        _this.type = navParams.get('type') || '';
+        _this.report = navParams.get('report');
+        //this.segment.set(this.type);
+        if (!!navParams.get('to'))
+            _this.navigate_to(navParams.get('to'), '');
+        return _this;
+    }
+    ReportsPage_1 = ReportsPage;
+    ReportsPage.prototype.ionViewDidLoad = function () {
+        if (!this.navParams.get('message'))
+            return;
+        var toast = this.alertCtrl.create({
+            title: null,
+            message: this.navParams.get('message'),
+            buttons: [{
+                    text: 'OK'
+                }]
+        });
+        toast.present();
+    };
+    ReportsPage.prototype.disabled_for = function (family) {
+        switch (family) {
+            // case 'custom':
+            //   return this.component.reports.filter(r => r.path == REPORT.CUSTOM).length >= 2;
+            // case 'safety':
+            //   return this.component.reports.filter(r => !!r.path.match(/safety/gi)).length >= 2;
+            // case 'maintenance':
+            //   return this.component.reports.filter(r => !!r.path.match(/maintenance/gi)).length >= 2;
+            case 'insulation':
+                return this.component.reports.filter(function (r) { return !!r.path.match(/insulation/gi); }).length >= 1;
+            default:
+                return false;
+        }
+    };
+    ReportsPage.prototype.open_summary = function () {
+        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_6__summary_summary__["a" /* SummaryPage */], { project: this.project });
+    };
+    ReportsPage.prototype.navigate_to = function (name, report_name) {
+        // let page: any = null
+        // let params: any = { project: this.project, parent: this, component: this.component };
+        // switch (name) {
+        //   default:
+        //     page = ReportsPage;
+        //     params.type = name;
+        // }
+        //this.navCtrl.push(page, params);
+        this.navCtrl.push(ReportsPage_1, { type: name, project: this.project, parent: this, component: this.component });
+    };
+    ReportsPage.prototype.go_back = function () {
+        if (!this.type)
+            this.navigate_to_projects();
+        else
+            this.navigate_to('', 'Reports');
+    };
+    ReportsPage.prototype.navigate_to_projects = function () {
+        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_4__projects_projects__["a" /* ProjectsPage */], {
+            project: this.project,
+            parent: this.navParams.get('parent')
+        });
+    };
+    ReportsPage = ReportsPage_1 = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["m" /* Component */])({
+            selector: 'page-reports',template:/*ion-inline-start:"D:\Sofware Factory\tbi\src\pages\reports\reports.html"*/'<ion-header>\n\n  <ion-navbar hideBackButton>\n\n    <ion-title>\n\n      {{project.name}}\n\n    </ion-title>\n\n  </ion-navbar>\n\n  <!-- <ion-segment [(ngModel)]="segment.value">\n\n    <ion-segment-button *ngFor="let option of segment.options; let i=index" [value]="i">\n\n      {{option}}\n\n    </ion-segment-button>\n\n  </ion-segment> -->\n\n</ion-header>\n\n\n\n<ion-content>\n\n  <ion-grid [ngSwitch]="type" v-center style="margin-top: -2rem">\n\n    <ng-container *ngSwitchCase="\'\'">\n\n      <ion-row>\n\n        <ion-col card-container col-lg-6 offset-lg-3 col-8 offset-2>\n\n          <ion-card (click)="navigate_to(\'insulation\')" [class.disabled]="disabled_for(\'insulation\')">\n\n            <span svg="insulation"></span>\n\n            <h1>Insulation</h1>\n\n          </ion-card>\n\n        </ion-col>\n\n        <ion-col card-container col-lg-6 offset-lg-3 col-8 offset-2>\n\n          <ion-card [class.disabled]="disabled_for(\'safety\')" (click)="navigate_to(\'safety\')">\n\n            <span svg="safety"></span>\n\n            <h1>Safety</h1>\n\n          </ion-card>\n\n        </ion-col>\n\n        <ion-col card-container col-lg-6 offset-lg-3 col-8 offset-2>\n\n          <ion-card [class.disabled]="disabled_for(\'maintenance\')" (click)="navigate_to(\'maintenance\')">\n\n            <span svg="maintenance"></span>\n\n            <h1>Maintenance</h1>\n\n          </ion-card>\n\n        </ion-col>\n\n        <ion-col card-container col-lg-6 offset-lg-3 col-8 offset-2>\n\n          <ion-card [class.disabled]="disabled_for(\'custom\')" on-tap="navigate_to_report(REPORT.CUSTOM, \'Others\')">\n\n            <span svg="custom"></span>\n\n            <h1>Custom</h1>\n\n          </ion-card>\n\n        </ion-col>\n\n      </ion-row>\n\n    </ng-container>\n\n\n\n    <ng-container *ngSwitchCase="\'insulation\'">\n\n      <ion-row>\n\n        <ion-col card-container col-lg-6 offset-lg-3 col-8 offset-2>\n\n          <ion-card on-tap="navigate_to(\'insulation-uninsulated\')">\n\n            <span svg="empty"></span>\n\n            <h1>Uninsulated</h1>\n\n          </ion-card>\n\n        </ion-col>\n\n        <ion-col card-container col-lg-6 offset-lg-3 col-8 offset-2>\n\n          <ion-card on-tap="navigate_to(\'insulation-insulated\')">\n\n            <span svg="empty"></span>\n\n            <h1>Insulated</h1>\n\n          </ion-card>\n\n        </ion-col>\n\n        <ion-col card-container col-lg-6 offset-lg-3 col-8 offset-2>\n\n          <ion-card on-tap="navigate_to(\'cold-insulation\')">\n\n            <span svg="empty"></span>\n\n            <h1>Cold Insulation</h1>\n\n          </ion-card>\n\n        </ion-col>\n\n      </ion-row>\n\n    </ng-container>\n\n\n\n    <ng-container *ngSwitchCase="\'insulation-uninsulated\'">\n\n      <ion-row>\n\n        <ion-col card-container col-lg-6 offset-lg-3 col-8 offset-2>\n\n          <ion-card [class.disabled]="disabled_for(\'insulation\')" on-tap="navigate_to_report(REPORT.INSULATION.UNINSULATED_EQUIPMENTS.PIPE, \'Uninsulated pipe\')">\n\n            <span svg="pipe"></span>\n\n            <h1>Pipe</h1>\n\n          </ion-card>\n\n        </ion-col>\n\n        <ion-col card-container col-lg-6 offset-lg-3 col-8 offset-2>\n\n          <ion-card [class.disabled]="disabled_for(\'insulation\')" on-tap="navigate_to_report(REPORT.INSULATION.UNINSULATED_EQUIPMENTS.VALVE, \'Uninsulated valve\')">\n\n            <span svg="valve"></span>\n\n            <h1>Valve</h1>\n\n          </ion-card>\n\n        </ion-col>\n\n        <ion-col card-container col-lg-6 offset-lg-3 col-8 offset-2>\n\n          <ion-card [class.disabled]="disabled_for(\'insulation\')" on-tap="navigate_to_report(REPORT.INSULATION.UNINSULATED_EQUIPMENTS.FLANGE, \'Uninsulated flange\')">\n\n            <span svg="flange"></span>\n\n            <h1>Flange</h1>\n\n          </ion-card>\n\n        </ion-col>\n\n        <ion-col card-container col-lg-6 offset-lg-3 col-8 offset-2>\n\n          <ion-card [class.disabled]="disabled_for(\'insulation\')" on-tap="navigate_to_report(REPORT.INSULATION.UNINSULATED_EQUIPMENTS.SURFACE, \'Uninsulated surface\')">\n\n            <span svg="surface"></span>\n\n            <h1>Surface</h1>\n\n          </ion-card>\n\n        </ion-col>\n\n      </ion-row>\n\n    </ng-container>\n\n\n\n    <ng-container *ngSwitchCase="\'insulation-insulated\'">\n\n      <ion-row>\n\n        <ion-col card-container col-lg-6 offset-lg-3 col-8 offset-2>\n\n          <ion-card [class.disabled]="disabled_for(\'insulation\')" on-tap="navigate_to_report(REPORT.INSULATION.INSULATED_EQUIPMENTS.PIPE, \'Insulated pipe\')">\n\n            <span svg="pipe-insulation"></span>\n\n            <h1>Pipe</h1>\n\n          </ion-card>\n\n        </ion-col>\n\n        <ion-col card-container col-lg-6 offset-lg-3 col-8 offset-2>\n\n          <ion-card [class.disabled]="disabled_for(\'insulation\')" on-tap="navigate_to_report(REPORT.INSULATION.INSULATED_EQUIPMENTS.SURFACE, \'Insulated surface\')">\n\n            <span svg="surface"></span>\n\n            <h1>Surface</h1>\n\n          </ion-card>\n\n        </ion-col>\n\n        <ion-col card-container col-lg-6 offset-lg-3 col-8 offset-2>\n\n          <ion-icon name="information-circle-outline" duration="3000" arrow tooltip="Damaged insulation and/or cladding"\n\n            positionV="top"></ion-icon>\n\n          <ion-card [class.disabled]="disabled_for(\'insulation\')" on-tap="navigate_to_report(REPORT.INSULATION.INSULATED_EQUIPMENTS.DAMAGED, \'Insulated damaged\')">\n\n            <span svg="damaged-insulation"></span>\n\n            <h1>Damaged</h1>\n\n          </ion-card>\n\n        </ion-col>\n\n      </ion-row>\n\n    </ng-container>\n\n\n\n    <ng-container *ngSwitchCase="\'cold-insulation\'">\n\n      <ion-row>\n\n        <ion-col card-container col-lg-6 offset-lg-3 col-8 offset-2>\n\n          <!-- <ion-card [class.disabled]="disabled_for(\'insulation\')" on-tap="navigate_to_report(REPORT.INSULATION.COLD_INSULATION.ENERGY, \'Cold energy\')"> -->\n\n          <ion-card [class.disabled]="disabled_for(\'insulation\')" (click)="navigate_to(\'hot-surface\')">\n\n            <span svg="cold"></span>\n\n            <h1>Energy</h1>\n\n          </ion-card>\n\n        </ion-col>\n\n        <ion-col card-container col-lg-6 offset-lg-3 col-8 offset-2>\n\n          <ion-card [class.disabled]="disabled_for(\'insulation\')" on-tap="navigate_to_report(REPORT.INSULATION.COLD_INSULATION.CONDENSATION, \'Condensation\')">\n\n            <span svg="ice-wet"></span>\n\n            <h1>Condensation</h1>\n\n          </ion-card>\n\n        </ion-col>\n\n        <ion-col card-container col-lg-6 offset-lg-3 col-8 offset-2>\n\n          <ion-icon name="information-circle-outline" duration="3000" arrow tooltip="Damaged insulation and/or cladding"\n\n            positionV="top"></ion-icon>\n\n          <ion-card [class.disabled]="disabled_for(\'insulation\')" on-tap="navigate_to_report(REPORT.INSULATION.COLD_INSULATION.DAMAGED, \'Damaged\')">\n\n            <span svg="damaged-insulation"></span>\n\n            <h1>Damaged</h1>\n\n          </ion-card>\n\n        </ion-col>\n\n      </ion-row>\n\n    </ng-container>\n\n\n\n    <ng-container *ngSwitchCase="\'safety\'">\n\n      <ion-row>\n\n        <ion-col card-container col-lg-6 offset-lg-3 col-8 offset-2>\n\n          <ion-card [class.disabled]="disabled_for(\'insulation\')" (click)="navigate_to(\'insulation\')">\n\n            <span svg="hot-surface"></span>\n\n            <h1>Hot Surface</h1>\n\n          </ion-card>\n\n        </ion-col>\n\n        <ion-col card-container col-lg-6 offset-lg-3 col-8 offset-2>\n\n          <ion-card [class.disabled]="disabled_for(\'safety\')" on-tap="navigate_to_report(REPORT.SAFETY.FIRE_PROTECTION, \'Fire Protect\')">\n\n            <span svg="fire-protection"></span>\n\n            <h1>Fire Protection</h1>\n\n          </ion-card>\n\n        </ion-col>\n\n        <ion-col card-container col-lg-6 offset-lg-3 col-8 offset-2>\n\n          <ion-card [class.disabled]="disabled_for(\'safety\')" on-tap="navigate_to_report(REPORT.SAFETY.HOUSEKEEPING, \'Housekeeping\')">\n\n            <span svg="housekeeping"></span>\n\n            <h1>Housekeeping</h1>\n\n          </ion-card>\n\n        </ion-col>\n\n        <ion-col card-container col-lg-6 offset-lg-3 col-8 offset-2>\n\n          <ion-card [class.disabled]="disabled_for(\'safety\')" on-tap="navigate_to_report(REPORT.SAFETY.OTHER, \'Others\')">\n\n            <span svg="safety"></span>\n\n            <h1>Other</h1>\n\n          </ion-card>\n\n        </ion-col>\n\n      </ion-row>\n\n      <!-- <ion-row>\n\n        <ion-col  card-container col-md-3 col-sm-6 offset-md-3>\n\n          <ion-card [class.disabled]="disabled_for(\'safety\')" on-tap="navigate_to_report(REPORT.SAFETY.TRAFFIC, \'Traffic\')">\n\n            <span svg="traffic"></span>\n\n            <h1>Traffic</h1>\n\n          </ion-card>\n\n        </ion-col>\n\n        \n\n      </ion-row> -->\n\n    </ng-container>\n\n\n\n    <ng-container *ngSwitchCase="\'maintenance\'">\n\n      <ion-row>\n\n        <ion-col card-container col-lg-6 offset-lg-3 col-8 offset-2>\n\n          <ion-icon name="information-circle-outline" duration="3000" arrow tooltip="Damaged insulation and/or cladding"\n\n            positionV="top"></ion-icon>\n\n          <ion-card [class.disabled]="disabled_for(\'maintenance\')" on-tap="navigate_to_report(REPORT.MANTENANCE.DAMAGED, \'Damaged\')">\n\n            <span svg="damage-insulation"></span>\n\n            <h1>Damaged</h1>\n\n          </ion-card>\n\n        </ion-col>\n\n        <ion-col card-container col-lg-6 offset-lg-3 col-8 offset-2>\n\n          <ion-card [class.disabled]="disabled_for(\'maintenance\')" on-tap="navigate_to_report(REPORT.MANTENANCE.CONDENSATION, \'Condensation\')">\n\n            <span svg="ice-wet"></span>\n\n            <h1>Condensation</h1>\n\n          </ion-card>\n\n        </ion-col>\n\n        <ion-col card-container col-lg-6 offset-lg-3 col-8 offset-2>\n\n          <ion-card [class.disabled]="disabled_for(\'maintenance\')" on-tap="navigate_to_report(REPORT.MANTENANCE.LEAKAGE, \'Leakage\')">\n\n            <span svg="leakage"></span>\n\n            <h1>Leakage</h1>\n\n          </ion-card>\n\n        </ion-col>\n\n        <ion-col card-container col-lg-6 offset-lg-3 col-8 offset-2>\n\n          <ion-card [class.disabled]="disabled_for(\'custom\')" on-tap="navigate_to_report(REPORT.CUSTOM, \'Others\')">\n\n            <span svg="maintenance"></span>\n\n            <h1>Others</h1>\n\n          </ion-card>\n\n        </ion-col>\n\n        <!-- <ion-col  card-container col-md-3 col-sm-6 offset-md-2>\n\n          <ion-card [class.disabled]="disabled_for(\'maintenance\')" on-tap="navigate_to_report(REPORT.MANTENANCE.STRUCTURAL, \'Structural\')">\n\n            <span svg="structural"></span>\n\n            <h1>Structural</h1>\n\n          </ion-card>\n\n        </ion-col>\n\n        <ion-col  card-container col-md-3 col-sm-6>\n\n          <ion-card [class.disabled]="disabled_for(\'maintenance\')" on-tap="navigate_to_report(REPORT.MANTENANCE.MECHANICAL, \'Mechanical\')">\n\n            <span svg="mechanical"></span>\n\n            <h1>Mechanical</h1>\n\n          </ion-card>\n\n        </ion-col>\n\n        <ion-col  card-container col-md-3 col-sm-6>\n\n            <ion-card [class.disabled]="disabled_for(\'maintenance\')" on-tap="navigate_to_report(REPORT.MANTENANCE.ELECTRICAL, \'Electrical\')">\n\n            <span svg="electrical"></span>\n\n            <h1>Electrical</h1>\n\n          </ion-card>\n\n        </ion-col> -->\n\n      </ion-row>\n\n    </ng-container>\n\n\n\n    <!-- <ng-container *ngSwitchCase="\'hot-surface\'">\n\n      <ion-row *ngIf="segment.value==0">\n\n        <ion-col card-container offset-md-3 col-md-3 col-sm-6>\n\n          <ion-card [class.disabled]="disabled_for(\'insulation\')" on-tap="navigate_to_report(REPORT.SAFETY.HOT_SURFACE.UNINSULATED_EQUIPMENTS.PIPE, \'Uninsulated pipe\')">\n\n            <span svg="pipe"></span>\n\n            <h1>Pipe</h1>\n\n          </ion-card>\n\n        </ion-col>\n\n        <ion-col card-container col-md-3 col-sm-6>\n\n          <ion-card [class.disabled]="disabled_for(\'insulation\')" on-tap="navigate_to_report(REPORT.SAFETY.HOT_SURFACE.UNINSULATED_EQUIPMENTS.VALVE, \'Uninsulated valve\')">\n\n            <span svg="valve"></span>\n\n            <h1>Valve</h1>\n\n          </ion-card>\n\n        </ion-col>\n\n        <ion-col [class.disabled]="disabled_for(\'insulation\')" card-container offset-md-3 col-md-3 col-sm-6>\n\n          <ion-card [class.disabled]="disabled_for(\'insulation\')" on-tap="navigate_to_report(REPORT.SAFETY.HOT_SURFACE.UNINSULATED_EQUIPMENTS.FLANGE, \'Uninsulated flange\')">\n\n            <span svg="flange"></span>\n\n            <h1>Flange</h1>\n\n          </ion-card>\n\n        </ion-col>\n\n        <ion-col card-container col-md-3 col-sm-6>\n\n          <ion-card [class.disabled]="disabled_for(\'insulation\')" on-tap="navigate_to_report(REPORT.SAFETY.HOT_SURFACE.UNINSULATED_EQUIPMENTS.SURFACE, \'Uninsulated surface\')">\n\n            <span svg="surface"></span>\n\n            <h1>Surface</h1>\n\n          </ion-card>\n\n        </ion-col>\n\n      </ion-row>\n\n\n\n      <ion-row *ngIf="segment.value==1">\n\n        <ion-col card-container col-md-3 col-sm-6 offset-md-2>\n\n          <ion-card [class.disabled]="disabled_for(\'insulation\')" on-tap="navigate_to_report(REPORT.SAFETY.HOT_SURFACE.INSULATED_EQUIPMENTS.PIPE, \'Insulated pipe\')">\n\n            <span svg="pipe-insulation"></span>\n\n            <h1>Pipe</h1>\n\n          </ion-card>\n\n        </ion-col>\n\n        <ion-col card-container col-md-3 col-sm-6>\n\n          <ion-icon name="information-circle-outline" duration="3000" arrow tooltip="Damaged insulation and/or cladding"\n\n            positionV="top"></ion-icon>\n\n          <ion-card [class.disabled]="disabled_for(\'insulation\')" on-tap="navigate_to_report(REPORT.SAFETY.HOT_SURFACE.INSULATED_EQUIPMENTS.DAMAGED, \'Damaged\')">\n\n            <span svg="damaged-insulation"></span>\n\n            <h1>Damaged</h1>\n\n          </ion-card>\n\n        </ion-col>\n\n        <ion-col card-container col-md-3 col-sm-6>\n\n          <ion-card [class.disabled]="disabled_for(\'insulation\')" on-tap="navigate_to_report(REPORT.SAFETY.HOT_SURFACE.INSULATED_EQUIPMENTS.SURFACE, \'Insulated surface\')">\n\n            <span svg="surface"></span>\n\n            <h1>Surface</h1>\n\n          </ion-card>\n\n        </ion-col>\n\n      </ion-row>\n\n\n\n    </ng-container> -->\n\n  </ion-grid>\n\n</ion-content>\n\n\n\n<ion-footer>\n\n  <ion-grid no-padding>\n\n    <ion-row no-padding>\n\n      <ion-col col-4 no-padding>\n\n        <button ion-button small color="light" (click)="go_back()">\n\n          <ion-icon name="arrow-back"></ion-icon>&nbsp;Back\n\n        </button>\n\n      </ion-col>\n\n      <ion-col col-4 text-center>\n\n        <tools></tools>\n\n      </ion-col>\n\n      <ion-col col-4 no-padding text-right *ngIf="!component?.id">\n\n        <button *ngIf="type==\'\'" ion-button small color="royal" on-tap="open_summary()">\n\n          <ion-icon name="grid"></ion-icon>&nbsp;Summary\n\n        </button>\n\n      </ion-col>\n\n    </ion-row>\n\n  </ion-grid>\n\n</ion-footer>\n\n'/*ion-inline-end:"D:\Sofware Factory\tbi\src\pages\reports\reports.html"*/
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2_ionic_angular__["j" /* NavController */],
+            __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["k" /* NavParams */],
+            __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["b" /* AlertController */],
+            __WEBPACK_IMPORTED_MODULE_3__services_project_service__["a" /* ProjectService */]])
+    ], ReportsPage);
+    return ReportsPage;
+    var ReportsPage_1;
+}(__WEBPACK_IMPORTED_MODULE_5__models_report_router__["a" /* ReportRouter */]));
+
+//# sourceMappingURL=reports.js.map
+
+/***/ }),
+
+/***/ 594:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return GenericReportPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(6);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(5);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_report_service__ = __webpack_require__(30);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__models_reports_report_generic_class__ = __webpack_require__(307);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__models_reports_report_generic_class__ = __webpack_require__(308);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__models_reports__ = __webpack_require__(21);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__services_messages_service__ = __webpack_require__(16);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__services__ = __webpack_require__(17);
@@ -4982,15 +5119,15 @@ var GenericReportPage = /** @class */ (function (_super) {
     };
     GenericReportPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-generic-report',template:/*ion-inline-start:"D:\Sofware Factory\tbi\src\pages\reports\generic\generic.html"*/'<report-header [parent]="this"></report-header>\n\n<ion-content #content>\n\n  <ion-grid [hidden]="view==\'edit_picture\'" class="fixed-col">\n    <ion-row>\n      <ion-col col-7 col-lg-6 no-padding>\n\n        <form novalidate #form="ngForm" [hidden]="segment!=\'input\'" (submit)="calculate()">\n          <ion-row>\n            <ion-col col-10>\n              <ion-item>\n                <ion-label stacked>Component/Location</ion-label>\n                <ion-input [disabled]="!editable" tabindex="1" (ionFocus)="on_focus($event)" name="location" required data-val-required="Please input Component/Location"\n                  [(ngModel)]="report.component.fields.location" type="text"></ion-input>\n              </ion-item>\n            </ion-col>\n          </ion-row>\n          <ion-row>\n            <ion-col col-10>\n              <ion-item>\n                <ion-label stacked>Summary Id</ion-label>\n                <ion-input tabindex="2" maxlength="12" (ionFocus)="on_focus($event)" name="summary_id" [(ngModel)]="report.summary_id" required data-val-required="Please input summary id"\n                  type="text"></ion-input>\n              </ion-item>\n            </ion-col>\n          </ion-row>\n          <ion-row [hidden]="true">\n            <ion-col>\n              <ion-item>\n                <ion-input type="hidden" name="pictures" required data-val-required="Please take a picture" [(ngModel)]="picture_qty"></ion-input>\n              </ion-item>\n            </ion-col>\n          </ion-row>\n          <ion-row>\n            <ion-col col-10>\n              <ion-item>\n                <ion-label stacked>Comment</ion-label>\n                <ion-textarea rows="6" tabindex="3"  (ionFocus)="on_focus($event)" [(ngModel)]="report.comment"\n                  name="comment"></ion-textarea>\n              </ion-item>\n            </ion-col>\n          </ion-row>\n        </form>\n      </ion-col>\n\n      <ion-col col-5 col-lg-6 no-padding>\n          <ion-row>\n              <ion-col col-12 picture-slide  [report]="report" [editable]="editable"  (onStartEdit)="on_picture_start_edit($event)">\n          </ion-col>\n        </ion-row>\n        <report-errors padding #errors col-12 [hidden]="view==\'!result\' && report.result"></report-errors>\n      </ion-col>\n    </ion-row>\n    \n    <ion-row>\n      <ion-col col-12>\n        <report-result col-12 [parent]="this" *ngIf="view==\'result\' && (!!form && !form.invalid)"></report-result>\n      </ion-col>\n    </ion-row>\n  </ion-grid>\n\n  <edit-picture *ngIf="view==\'edit_picture\'" [report]="report"  [picture]="editing_picture" ></edit-picture>\n\n</ion-content>\n\n<report-footer [parent]="this" [calculate_text]="\'Report\'"></report-footer>'/*ion-inline-end:"D:\Sofware Factory\tbi\src\pages\reports\generic\generic.html"*/,
+            selector: 'page-generic-report',template:/*ion-inline-start:"D:\Sofware Factory\tbi\src\pages\reports\generic\generic.html"*/'<report-header [parent]="this"></report-header>\n\n<ion-content #content>\n\n  <ion-grid [hidden]="view==\'edit_picture\'" class="fixed-col">\n    <ion-row>\n      <ion-col col-7 col-lg-6 no-padding>\n\n        <form novalidate #form="ngForm" [hidden]="segment!=\'input\'" (submit)="calculate()">\n          <ion-row>\n            <ion-col col-10>\n              <ion-item>\n                <ion-label stacked>Component/Location</ion-label>\n                <ion-input [disabled]="!editable" tabindex="1" (ionFocus)="on_focus($event)" name="location" required data-val-required="Please input Component/Location"\n                  [(ngModel)]="report.component.fields.location" type="text"></ion-input>\n              </ion-item>\n            </ion-col>\n          </ion-row>\n          <ion-row>\n            <ion-col col-10>\n              <ion-item>\n                <ion-label stacked>Summary Id</ion-label>\n                <ion-input tabindex="2" maxlength="12" (ionFocus)="on_focus($event)" name="summary_id" [(ngModel)]="report.summary_id" required data-val-required="Please input summary id"\n                  type="text"></ion-input>\n              </ion-item>\n            </ion-col>\n          </ion-row>\n          <ion-row [hidden]="true">\n            <ion-col>\n              <ion-item>\n                <ion-input type="hidden" name="pictures" required data-val-required="Please take a picture" [(ngModel)]="picture_qty"></ion-input>\n              </ion-item>\n            </ion-col>\n          </ion-row>\n          <ion-row>\n            <ion-col col-10>\n              <ion-item>\n                <ion-label stacked>Comment</ion-label>\n                <ion-textarea rows="6" tabindex="3"  (ionFocus)="on_focus($event)" [(ngModel)]="report.comment"\n                  name="comment"></ion-textarea>\n              </ion-item>\n            </ion-col>\n          </ion-row>\n        </form>\n      </ion-col>\n\n      <ion-col col-5 col-lg-6 no-padding>\n          <ion-row>\n              <ion-col col-12 picture-slide [parent]="this"    [report]="report" [editable]="editable"  (onStartEdit)="on_picture_start_edit($event)">\n          </ion-col>\n        </ion-row>\n        <report-errors padding #errors col-12 [hidden]="view==\'!result\' && report.result"></report-errors>\n      </ion-col>\n    </ion-row>\n    \n    <ion-row>\n      <ion-col col-12>\n        <div report-result col-12 [parent]="this" *ngIf="view==\'result\' && (!!form && !form.invalid)"></div>\n      </ion-col>\n    </ion-row>\n  </ion-grid>\n\n  <edit-picture *ngIf="view==\'edit_picture\'" [report]="report"  [picture]="editing_picture" ></edit-picture>\n\n</ion-content>\n\n<report-footer [parent]="this" [calculate_text]="\'Report\'"></report-footer>'/*ion-inline-end:"D:\Sofware Factory\tbi\src\pages\reports\generic\generic.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */],
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */],
             __WEBPACK_IMPORTED_MODULE_2__services_report_service__["a" /* ReportService */],
             __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* AlertController */],
-            __WEBPACK_IMPORTED_MODULE_6__services__["c" /* PictureService */],
+            __WEBPACK_IMPORTED_MODULE_6__services__["d" /* PictureService */],
             __WEBPACK_IMPORTED_MODULE_5__services_messages_service__["a" /* MessageService */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* Keyboard */]])
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* Keyboard */]])
     ], GenericReportPage);
     return GenericReportPage;
 }(__WEBPACK_IMPORTED_MODULE_4__models_reports__["a" /* BaseReportPage */]));
@@ -4999,14 +5136,14 @@ var GenericReportPage = /** @class */ (function (_super) {
 
 /***/ }),
 
-/***/ 588:
+/***/ 595:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ReportSurfacePage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__models_reports__ = __webpack_require__(21);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(6);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(5);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__services_report_service__ = __webpack_require__(30);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__services_messages_service__ = __webpack_require__(16);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__services__ = __webpack_require__(17);
@@ -5037,28 +5174,29 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 var ReportSurfacePage = /** @class */ (function (_super) {
     __extends(ReportSurfacePage, _super);
-    function ReportSurfacePage(navCtrl, navParams, service, alertCtrl, picture, message, keyboard) {
-        var _this = _super.call(this, new __WEBPACK_IMPORTED_MODULE_1__models_reports__["h" /* ReportSurface */](navParams.data.project, navParams.data.component, navParams.data.report), navCtrl, service, alertCtrl, picture, message, keyboard) || this;
+    function ReportSurfacePage(navCtrl, navParams, service, alertCtrl, picture, message, keyboard, modalCtrl) {
+        var _this = _super.call(this, new __WEBPACK_IMPORTED_MODULE_1__models_reports__["h" /* ReportSurface */](navParams.data.project, navParams.data.component, navParams.data.report), navCtrl, service, alertCtrl, picture, message, keyboard, modalCtrl) || this;
         _this.navCtrl = navCtrl;
         _this.service = service;
         _this.alertCtrl = alertCtrl;
         _this.picture = picture;
         _this.message = message;
         _this.keyboard = keyboard;
-        _this.unknow_surface = false;
+        _this.modalCtrl = modalCtrl;
         return _this;
     }
     ReportSurfacePage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-report-surface',template:/*ion-inline-start:"D:\Sofware Factory\tbi\src\pages\reports\surface\report-surface.component.html"*/'<report-header [parent]="this"></report-header>\n\n\n\n<ion-content #content>\n\n\n\n  <ion-grid [hidden]="view==\'edit_picture\'" class="fixed-col">\n\n    <ion-row>\n\n      <ion-col col-7 col-lg-8 no-padding>\n\n        <form novalidate #form="ngForm" [hidden]="segment!=\'input\'" (submit)="calculate()">\n\n          <ion-row>\n\n            <ion-col col-10>\n\n              <ion-item>\n\n                <ion-label stacked>Component/Location</ion-label>\n\n                <ion-input tabindex="1" name="location" required data-val-required="Please input Component/Location"\n\n                  [(ngModel)]="report.component.fields.location" (ionFocus)="on_focus($event)" type="text"></ion-input>\n\n              </ion-item>\n\n            </ion-col>\n\n            <ion-col col-12></ion-col>\n\n          </ion-row>\n\n          <ion-row>\n\n            <ion-col col-10>\n\n              <ion-item>\n\n                <ion-label stacked>Operational time (hours)</ion-label>\n\n                <ion-input tabindex="2" (ionFocus)="on_focus($event)" required data-val-required="Please input operational time"\n\n                  name="operational_time" [(ngModel)]="report.component.fields.operational_time" type="number"></ion-input>\n\n              </ion-item>\n\n            </ion-col>\n\n            <ion-col col-2>\n\n              <more pull-left #time (change)="report.component.fields.operational_time=time.value" [type]="\'time\'"\n\n                modal-button></more>\n\n            </ion-col>\n\n          </ion-row>\n\n          <ion-row>\n\n            <ion-col col-5>\n\n              <ion-item>\n\n                <ion-label stacked>Surface (m<sup>2</sup>)</ion-label>\n\n                <ion-input tabindex="4" #after_time (ionFocus)="on_focus($event)" [disabled]="report.component.fields.unknow_surface"\n\n                  name="surface" required data-val-required="Please input surface in m²" [(ngModel)]="report.component.fields.surface"\n\n                  type="number" [(ngModel)]="surface"></ion-input>\n\n              </ion-item>\n\n            </ion-col>\n\n            <ion-col col-5 toggle-container style="padding-top: 1.05rem">\n\n              <ion-item>\n\n                <ion-label stacked>Unknown</ion-label>\n\n                <ion-toggle style="padding-left:0" [(ngModel)]="report.component.fields.unknow_surface" (ionChange)="toggle_know()"\n\n                  name="unknow_surface"></ion-toggle>\n\n              </ion-item>\n\n            </ion-col>\n\n            <ion-col col-2>\n\n              <area [hidden]="unknow_surface" pull-left #area (change)="report.component.fields.surface=area.value"\n\n                modal-button />\n\n            </ion-col>\n\n          </ion-row>\n\n          <ion-row>\n\n            <ion-col col-10>\n\n              <ion-item class="edit_surface_material" [class.editable]="edit_surface_material">\n\n                <ion-label stacked>Surface material [ε]</ion-label>\n\n                <ion-input tabindex="5" class="literal" (ionFocus)="on_focus($event); toggle_surface_material(true)"\n\n                  [value]="report.component.fields.surface_material_friendly" type="text"></ion-input>\n\n                <ion-input tabindex="6" class="numeric" (ionFocus)="on_focus($event)" (focusout)="toggle_surface_material(false)"\n\n                  name="surface_material" required data-val-required="Please input surface emissivity" [(ngModel)]="report.component.fields.surface_material"\n\n                  type="number" (change)="set_surface_material(report.component.fields.surface_material, $event)"></ion-input>\n\n              </ion-item>\n\n            </ion-col>\n\n            <ion-col col-2>\n\n              <more pull-left #material (change)="set_surface_material(material.value, $event)" [type]="\'materials\'"\n\n                modal-button></more>\n\n            </ion-col>\n\n          </ion-row>\n\n          <ion-row>\n\n            <ion-col col-10>\n\n              <ion-item>\n\n                <ion-label stacked>Medium or Surface temperature (<sup>º</sup>C)</ion-label>\n\n                <ion-input tabindex="7" #after_material (ionFocus)="on_focus($event)" scroll="-80" name="surface_temp"\n\n                  required data-val-required="Please input Medium or Surface temperature" [pattern]="patterns.REQUIRED_NUMBER"\n\n                  data-val-pattern="Please input a valid Medium or Surface temperature" [(ngModel)]="report.component.fields.surface_temp"\n\n                  type="tel"></ion-input>\n\n              </ion-item>\n\n            </ion-col>\n\n            <ion-col col-2>\n\n              <!-- <medium-temp #medium (change)="report.component.fields.surface_temp=medium.value" modal-button pull-left></medium-temp> -->\n\n              <medium-temp #medium [report]="report" modal-button pull-left></medium-temp>\n\n            </ion-col>\n\n          </ion-row>\n\n          <ion-row>\n\n            <ion-col col-10>\n\n              <ion-item>\n\n                <ion-label stacked>Ambient temperature (<sup>º</sup>C)</ion-label>\n\n                <ion-input tabindex="7" (ionFocus)="on_focus($event)" scroll="-90" (keyup.enter)="on_keypress($event)"\n\n                  name="ambient_temp" [pattern]="patterns.REQUIRED_NUMBER" data-val-pattern="Please input a valid Ambient temperature"\n\n                  required data-val-required="Please input Ambient temperature" [(ngModel)]="report.component.fields.ambient_temp"\n\n                  type="tel"></ion-input>\n\n              </ion-item>\n\n            </ion-col>\n\n            <ion-col col-2></ion-col>\n\n          </ion-row>\n\n          <ion-row>\n\n            <ion-col col-12>\n\n              <ion-item>\n\n                <ion-label stacked>Annual Saving Potenyial</ion-label>\n\n                <ion-input tabindex="-1" name="annual_saving" value="{{report.annual_saving}}" type="text"></ion-input>\n\n              </ion-item>\n\n            </ion-col>\n\n          </ion-row>\n\n        </form>\n\n      </ion-col>\n\n\n\n      <ion-col col-5 col-lg-4 no-padding>\n\n        <ion-row>\n\n          <ion-col col-12 picture-slide [report]="report" [editable]="editable" (onStartEdit)="on_picture_start_edit($event)">\n\n          </ion-col>\n\n        </ion-row>\n\n      </ion-col>\n\n    </ion-row>\n\n    <ion-row>\n\n      <ion-col col-12 padding>\n\n        <report-result col-12 [parent]="this" *ngIf="view==\'result\' && (!!form && !form.invalid)"></report-result>\n\n      </ion-col>\n\n      <ion-col col-12 padding>\n\n        <report-errors padding #errors col-12 [hidden]="view==\'!result\' && report.result"></report-errors>\n\n      </ion-col>\n\n    </ion-row>\n\n  </ion-grid>\n\n\n\n  <edit-picture *ngIf="view==\'edit_picture\'" [report]="report" [picture]="editing_picture"></edit-picture>\n\n\n\n</ion-content>\n\n\n\n<report-footer [parent]="this"></report-footer>\n\n'/*ion-inline-end:"D:\Sofware Factory\tbi\src\pages\reports\surface\report-surface.component.html"*/
+            selector: 'page-report-surface',template:/*ion-inline-start:"D:\Sofware Factory\tbi\src\pages\reports\surface\report-surface.component.html"*/'<report-header [parent]="this"></report-header>\n\n\n\n<ion-content #content>\n\n\n\n  <ion-grid [hidden]="view==\'edit_picture\'" class="fixed-col">\n\n    <ion-row>\n\n      <ion-col col-7 col-lg-8 no-padding>\n\n        <form novalidate #form="ngForm" [hidden]="segment!=\'input\'" (submit)="calculate()">\n\n          <ion-row>\n\n            <ion-col col-10>\n\n              <ion-item>\n\n                <ion-label stacked>Component/Location</ion-label>\n\n                <ion-input tabindex="1" name="location" required data-val-required="Please input Component/Location"\n\n                  [(ngModel)]="report.component.fields.location" (ionFocus)="on_focus($event)" type="text"></ion-input>\n\n              </ion-item>\n\n            </ion-col>\n\n            <ion-col col-12></ion-col>\n\n          </ion-row>\n\n          <ion-row>\n\n            <ion-col col-10>\n\n              <ion-item>\n\n                <ion-label stacked>Operational time (hours)</ion-label>\n\n                <ion-input [disabled]="!!report.component.validation" tabindex="2" (ionFocus)="on_focus($event)" required data-val-required="Please input operational time"\n\n                  name="operational_time" [(ngModel)]="report.component.fields.operational_time" type="number"></ion-input>\n\n              </ion-item>\n\n            </ion-col>\n\n            <ion-col col-2>\n\n              <more pull-left [hidden]="!!report.component.validation" #time (change)="report.component.fields.operational_time=time.value" [type]="\'time\'"\n\n                modal-button></more>\n\n            </ion-col>\n\n          </ion-row>\n\n          <ion-row>\n\n            <ion-col col-5 class="pr-0">\n\n              <ion-item class="pr-0">\n\n                <ion-label stacked>Surface (m<sup>2</sup>)</ion-label>\n\n                <ion-input tabindex="4" #after_time (ionFocus)="on_focus($event)" [disabled]="report.component.fields.unknow_surface"\n\n                  name="surface" required data-val-required="Please input surface in m²" [(ngModel)]="report.component.fields.surface"\n\n                  type="number" [(ngModel)]="surface"></ion-input>\n\n              </ion-item>\n\n            </ion-col>\n\n            <ion-col col-5 toggle-container>\n\n              <ion-item>\n\n                <ion-label stacked>Unknown</ion-label>\n\n                <ion-toggle style="padding-left:0" [(ngModel)]="report.component.fields.unknow_surface" (ionChange)="toggle_know()"\n\n                  name="unknow_surface"></ion-toggle>\n\n              </ion-item>\n\n            </ion-col>\n\n            <ion-col col-2>\n\n              <area [hidden]="unknow_surface" pull-left #area (change)="report.component.fields.surface=area.value"\n\n                modal-button />\n\n            </ion-col>\n\n          </ion-row>\n\n          <ion-row>\n\n            <ion-col col-10>\n\n              <ion-item class="edit_surface_material" [class.editable]="edit_surface_material">\n\n                <ion-label stacked>Surface material [ε]</ion-label>\n\n                <ion-input tabindex="5" class="literal" (ionFocus)="on_focus($event); toggle_surface_material(true)"\n\n                  [value]="report.component.fields.surface_material_friendly" type="text"></ion-input>\n\n                <ion-input tabindex="6" class="numeric" (ionFocus)="on_focus($event)" (focusout)="toggle_surface_material(false)"\n\n                  name="surface_material" required data-val-required="Please input surface emissivity" [(ngModel)]="report.component.fields.surface_material"\n\n                  type="number" (change)="set_surface_material(report.component.fields.surface_material, $event)"></ion-input>\n\n              </ion-item>\n\n            </ion-col>\n\n            <ion-col col-2>\n\n              <more pull-left #material (change)="set_surface_material(material.value, $event)" [type]="\'materials\'"\n\n                modal-button></more>\n\n            </ion-col>\n\n          </ion-row>\n\n          <ion-row>\n\n            <ion-col col-5 class="pr-0">\n\n              <ion-item class="pr-0">\n\n                <ion-label stacked>Surface temperature (<sup>º</sup>C)</ion-label>\n\n                <ion-input tabindex="7" [style.visibility]="report.component.fields.unknow_surface_temp ? \'hidden\' : \'visible\'" #after_material (ionFocus)="on_focus($event)" scroll="-80" name="surface_temp"\n\n                  required data-val-required="Please input Medium or Surface temperature" [pattern]="patterns.REQUIRED_NUMBER"\n\n                  data-val-pattern="Please input a valid Medium or Surface temperature" [(ngModel)]="report.component.fields.surface_temp"\n\n                  type="tel"></ion-input>\n\n              </ion-item>\n\n            </ion-col>\n\n            <ion-col col-5 toggle-container>\n\n              <ion-item>\n\n                <ion-label stacked>Unknown</ion-label>\n\n                <ion-toggle [(ngModel)]="report.component.fields.unknow_surface_temp" (ionChange)="toggle_know_temp()"\n\n                  name="unknow_surface_temp"></ion-toggle>\n\n              </ion-item>\n\n            </ion-col>\n\n            <ion-col col-2>\n\n              <!-- <medium-temp #medium (change)="report.component.fields.surface_temp=medium.value" modal-button pull-left></medium-temp> -->\n\n              <medium-temp #medium [report]="report" modal-button pull-left></medium-temp>\n\n            </ion-col>\n\n          </ion-row>\n\n          <ion-row>\n\n            <ion-col col-10>\n\n              <ion-item>\n\n                <ion-label stacked>Ambient temperature (<sup>º</sup>C)</ion-label>\n\n                <ion-input tabindex="7" (ionFocus)="on_focus($event)" scroll="-90" (keyup.enter)="on_keypress($event)"\n\n                  name="ambient_temp" [pattern]="patterns.REQUIRED_NUMBER" data-val-pattern="Please input a valid Ambient temperature"\n\n                  required data-val-required="Please input Ambient temperature" [(ngModel)]="report.component.fields.ambient_temp"\n\n                  type="tel"></ion-input>\n\n              </ion-item>\n\n            </ion-col>\n\n            <ion-col col-2></ion-col>\n\n          </ion-row>\n\n          <ion-row>\n\n            <ion-col col-12>\n\n              <ion-item>\n\n                <ion-label stacked>Annual Saving Potential</ion-label>\n\n                <ion-input readonly tabindex="-1" name="annual_saving" value="{{report.annual_saving}}" type="text"></ion-input>\n\n              </ion-item>\n\n            </ion-col>\n\n          </ion-row>\n\n        </form>\n\n      </ion-col>\n\n\n\n      <ion-col col-5 col-lg-4 no-padding>\n\n        <ion-row>\n\n          <ion-col col-12 picture-slide [parent]="this"   [report]="report" [editable]="editable" (onStartEdit)="on_picture_start_edit($event)">\n\n          </ion-col>\n\n        </ion-row>\n\n      </ion-col>\n\n    </ion-row>\n\n    <ion-row>\n\n      <ion-col col-12 padding>\n\n        <div report-result col-12 [parent]="this" *ngIf="view==\'result\' && (!!form && !form.invalid)"></div>\n\n      </ion-col>\n\n      <ion-col col-12 padding>\n\n        <report-errors padding #errors col-12 [hidden]="view==\'!result\' && report.result"></report-errors>\n\n      </ion-col>\n\n    </ion-row>\n\n  </ion-grid>\n\n\n\n  <edit-picture *ngIf="view==\'edit_picture\'" [report]="report" [picture]="editing_picture"></edit-picture>\n\n\n\n</ion-content>\n\n\n\n<report-footer [parent]="this"></report-footer>\n\n'/*ion-inline-end:"D:\Sofware Factory\tbi\src\pages\reports\surface\report-surface.component.html"*/
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2_ionic_angular__["h" /* NavController */],
-            __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["i" /* NavParams */],
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2_ionic_angular__["j" /* NavController */],
+            __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["k" /* NavParams */],
             __WEBPACK_IMPORTED_MODULE_3__services_report_service__["a" /* ReportService */],
             __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["b" /* AlertController */],
-            __WEBPACK_IMPORTED_MODULE_5__services__["c" /* PictureService */],
+            __WEBPACK_IMPORTED_MODULE_5__services__["d" /* PictureService */],
             __WEBPACK_IMPORTED_MODULE_4__services_messages_service__["a" /* MessageService */],
-            __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["f" /* Keyboard */]])
+            __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["g" /* Keyboard */],
+            __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["i" /* ModalController */]])
     ], ReportSurfacePage);
     return ReportSurfacePage;
 }(__WEBPACK_IMPORTED_MODULE_1__models_reports__["a" /* BaseReportPage */]));
@@ -5067,7 +5205,7 @@ var ReportSurfacePage = /** @class */ (function (_super) {
 
 /***/ }),
 
-/***/ 589:
+/***/ 596:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -5105,14 +5243,14 @@ var ReportHeaderComponent = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 590:
+/***/ 597:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ReportAreaButtonComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(6);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__report_area_modal_component__ = __webpack_require__(357);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(5);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__report_area_modal_component__ = __webpack_require__(360);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -5159,7 +5297,7 @@ var ReportAreaButtonComponent = /** @class */ (function () {
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
             selector: 'area',template:/*ion-inline-start:"D:\Sofware Factory\tbi\src\pages\reports\components\area\report-area-button.component.html"*/'<div  (click)="show_modal()" tabindex="-1" with-action no-padding ion-button small color="light">\n    <ion-icon name="cube"></ion-icon>\n</div>\n'/*ion-inline-end:"D:\Sofware Factory\tbi\src\pages\reports\components\area\report-area-button.component.html"*/
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* ModalController */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* ModalController */]])
     ], ReportAreaButtonComponent);
     return ReportAreaButtonComponent;
 }());
@@ -5168,14 +5306,14 @@ var ReportAreaButtonComponent = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 591:
+/***/ 598:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ReportMoreButtonComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(6);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__const_more_more__ = __webpack_require__(99);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(5);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__const_more_more__ = __webpack_require__(63);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -5201,7 +5339,8 @@ var ReportMoreButtonComponent = /** @class */ (function () {
                     role: 'cancel',
                 }],
             time: __WEBPACK_IMPORTED_MODULE_2__const_more_more__["a" /* More */].TIMES,
-            materials: __WEBPACK_IMPORTED_MODULE_2__const_more_more__["a" /* More */].MATERIALS
+            materials: __WEBPACK_IMPORTED_MODULE_2__const_more_more__["a" /* More */].MATERIALS,
+            co2: __WEBPACK_IMPORTED_MODULE_2__const_more_more__["a" /* More */].CO2
         };
     }
     ReportMoreButtonComponent.prototype.show_options = function () {
@@ -5230,7 +5369,8 @@ var ReportMoreButtonComponent = /** @class */ (function () {
             buttons = buttons.concat(this.options.cancel);
         }
         var actionSheet = this.actionSheetCtrl.create({
-            buttons: buttons
+            buttons: buttons,
+            cssClass: 'action-width-45'
         });
         actionSheet.present();
         return actionSheet;
@@ -5264,13 +5404,13 @@ var ReportMoreButtonComponent = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 592:
+/***/ 599:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ReportMediumTempButtonsComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(6);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(5);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2____ = __webpack_require__(20);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__models__ = __webpack_require__(46);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -5294,7 +5434,7 @@ var ReportMediumTempButtonsComponent = /** @class */ (function () {
     }
     ReportMediumTempButtonsComponent.prototype.show_markers = function () {
         var _this = this;
-        var modal = this.modalCtrl.create(__WEBPACK_IMPORTED_MODULE_2____["t" /* ReportTempMarkersWindowComponent */], {
+        var modal = this.modalCtrl.create(__WEBPACK_IMPORTED_MODULE_2____["u" /* ReportTempMarkersWindowComponent */], {
             report: this.report
         }, {
             cssClass: "modal-window-markers",
@@ -5329,7 +5469,7 @@ var ReportMediumTempButtonsComponent = /** @class */ (function () {
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
             selector: 'medium-temp',template:/*ion-inline-start:"D:\Sofware Factory\tbi\src\pages\reports\components\medium-temp\medium-temp-buttons.component.html"*/'<div style="display: none" (click)="show_markers()" tabindex="-1" pull-left no-padding ion-button small color="light" class="with-action">\n  <ion-icon name="ios-pin"></ion-icon>\n</div>\n'/*ion-inline-end:"D:\Sofware Factory\tbi\src\pages\reports\components\medium-temp\medium-temp-buttons.component.html"*/
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* ModalController */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* ModalController */]])
     ], ReportMediumTempButtonsComponent);
     return ReportMediumTempButtonsComponent;
 }());
@@ -5338,14 +5478,14 @@ var ReportMediumTempButtonsComponent = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 593:
+/***/ 600:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ReportTempMarkersWindowComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__models_marker__ = __webpack_require__(75);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(6);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(5);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__scroll_to_component_class__ = __webpack_require__(173);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__const_patterns__ = __webpack_require__(305);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__angular_forms__ = __webpack_require__(18);
@@ -5440,7 +5580,7 @@ var ReportTempMarkersWindowComponent = /** @class */ (function (_super) {
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
             selector: 'markers-window',template:/*ion-inline-start:"D:\Sofware Factory\tbi\src\pages\reports\components\medium-temp\temp-marker-window.component.html"*/'<ion-content>\n  <form novalidate #form="ngForm">\n  <ion-grid>\n    <ion-row>\n      <ion-col col-6 *ngFor="let m of markers; let i=index">\n        <ion-item>\n          <ion-label stacked>P{{(i + 1).toString().padStart(2, \'0\')}}</ion-label>\n          <ion-input (ionFocus)="on_focus($event)" (keyup.enter)="on_keypress($event)" [ngModelOptions]="{standalone: true}" [name]="\'point_\' + i" \n          [(ngModel)]="m.marker.temperature" \n          [pattern]="patterns.REQUIRED_NUMBER" data-val-pattern="Please input a valid temperature" \n          type="tel"></ion-input>\n        </ion-item>\n      </ion-col>\n    </ion-row>\n</ion-grid>\n</form>\n</ion-content>\n<ion-footer>\n  <ion-grid no-padding>\n    <ion-row no-padding>\n      <!-- <ion-col col-6 no-padding>\n        <button (click)="close()" ion-button small block pull-right color="light">Cancel</button>\n      </ion-col> -->\n      <ion-col col-12 no-padding text-center>\n        <button id="submit-button" (click)="calculate()" ion-button small color="royal">Report</button>\n      </ion-col>\n    </ion-row>\n  </ion-grid>\n</ion-footer>\n'/*ion-inline-end:"D:\Sofware Factory\tbi\src\pages\reports\components\medium-temp\temp-marker-window.component.html"*/
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2_ionic_angular__["k" /* ViewController */], __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["i" /* NavParams */], __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["f" /* Keyboard */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2_ionic_angular__["m" /* ViewController */], __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["k" /* NavParams */], __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["g" /* Keyboard */]])
     ], ReportTempMarkersWindowComponent);
     return ReportTempMarkersWindowComponent;
 }(__WEBPACK_IMPORTED_MODULE_3__scroll_to_component_class__["a" /* ScrollToComponent */]));
@@ -5449,13 +5589,13 @@ var ReportTempMarkersWindowComponent = /** @class */ (function (_super) {
 
 /***/ }),
 
-/***/ 594:
+/***/ 601:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ReportResultComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__const_images_non_picture__ = __webpack_require__(298);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__const_images_non_picture__ = __webpack_require__(297);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__models_reports__ = __webpack_require__(21);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -5472,6 +5612,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var ReportResultComponent = /** @class */ (function () {
     function ReportResultComponent() {
         this.show_advise = true;
+        this.unknow_surface = false;
         this.bars = {
             current: {
                 losses: [0, 0],
@@ -5503,7 +5644,8 @@ var ReportResultComponent = /** @class */ (function () {
         setTimeout(function () { return _this.initialize_values(); }, 250);
     };
     ReportResultComponent.prototype.initialize_values = function () {
-        var height = 130;
+        var height = 200;
+        this.unknow_surface = this.parent.report.component && this.parent.report.component.fields.unknow_surface;
         this.scale.max = this.up(this.parent.report.result.headLost.power / 100);
         this.scale.medium = Math.ceil(this.scale.max / 1.5);
         this.scale.min = Math.ceil(this.scale.max / 2);
@@ -5551,7 +5693,7 @@ var ReportResultComponent = /** @class */ (function () {
     ], ReportResultComponent.prototype, "show_advise", void 0);
     ReportResultComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'report-result',template:/*ion-inline-start:"D:\Sofware Factory\tbi\src\pages\reports\components\result\report-result.component.html"*/'<!-- <ion-grid>\n\n  <ion-row>\n\n    <ion-col col-4 on-tap="parent.view=\'form\'" img-container [style.backgroundImage]="\'url(\'+ first_picture +\')\'"></ion-col>\n\n\n\n    <ion-col col-8>\n\n      <ion-row head-lost>\n\n        <h1 col-12 no-padding no-margin class="text-center">Heat loss</h1>\n\n        <ion-col col-10 text-center>\n\n          <span>{{ parent.report.result.headLost.power | number: \'1.0-0\'}} {{parent.report.potential_measure}}</span>\n\n        </ion-col>\n\n        <ion-col col-10 text-center>\n\n          <span>{{ parent.report.result.headLost.money | number: \'1.0-0\'}} {{parent.report.money_measure}}</span>\n\n        </ion-col>\n\n      </ion-row>\n\n    </ion-col>\n\n  </ion-row>\n\n\n\n  <ion-row saving-potential>\n\n    <ion-col col-12>\n\n      <h1 no-padding no-margin>Saving potential</h1>\n\n    </ion-col>\n\n    <ion-col col-12>\n\n      <ion-row>\n\n        <ion-col col-3 text-right>\n\n          <span>{{ parent.report.result.savingPotentialMin.power | number: \'1.0-0\'}}</span>\n\n        </ion-col>\n\n        <ion-col col-1 offset-1 text-center>\n\n          <ion-icon name="md-arrow-forward"></ion-icon>\n\n        </ion-col>\n\n        <ion-col col-4 text-right>\n\n          <span>{{ parent.report.result.savingPotentialMax.power | number: \'1.0-0\'}}</span>\n\n        </ion-col>\n\n        <ion-col col-3>\n\n          {{parent.report.potential_measure}}\n\n        </ion-col>\n\n      </ion-row>\n\n      <ion-row>\n\n        <ion-col col-3 text-right>\n\n          <span style="white-space: nowrap">{{ parent.report.result.savingPotentialMin.money | number: \'1.0-0\'}}</span>\n\n        </ion-col>\n\n        <ion-col col-1 offset-1 text-center>\n\n          <ion-icon name="md-arrow-forward"></ion-icon>\n\n        </ion-col>\n\n        <ion-col col-4 text-right>\n\n          <span style="white-space: nowrap">{{ parent.report.result.savingPotentialMax.money | number: \'1.0-0\'}}</span>\n\n        </ion-col>\n\n        <ion-col col-3>\n\n          {{parent.report.money_measure}}\n\n        </ion-col>\n\n      </ion-row>\n\n    </ion-col>\n\n  </ion-row>\n\n\n\n</ion-grid> -->\n\n\n\n<ion-grid>\n\n  <ion-row>\n\n    <ion-col text-center>\n\n      <table cellspacing="0" cellpadding="0" border="0" class="result-chart">\n\n        <thead>\n\n          <tr>\n\n            <th colspan="2" style="border-right: 1px solid #7f7f7f"></th>\n\n            <th class="dashed-right">Current</th>\n\n            <th>basic<br>insulation</th>\n\n            <th>good<br>insulation</th>\n\n          </tr>\n\n        </thead>\n\n        <tbody>\n\n          <tr>\n\n            <td class="section" rowspan="2"><strong>Anual<br>Consumption</strong></td>\n\n            <td class="scale"><span>{{scale.max / 10 | number: \'1.1-1\'}}</span></td>\n\n            <td class="b-line bar" rowspan="2">\n\n              <div style.height="{{bars.current.losses[0]}}px" class="gray">\n\n                <span>{{bars.current.losses[1] | number: \'1.0-0\'}}€</span>\n\n              </div>\n\n            </td>\n\n            <td class="b-line bar dashed-left" rowspan="2">\n\n              <div style.height="{{bars.basic.losses[0]}}px" class="blue pattern">\n\n                <span>{{bars.basic.losses[1] | number: \'1.0-0\'}}€</span>\n\n              </div>\n\n            </td>\n\n            <td class="b-line bar" rowspan="2">\n\n              <div style.height="{{bars.economical.losses[0]}}px" class="green pattern">\n\n                <span>{{bars.economical.losses[1] | number: \'1.0-0\'}}€</span>\n\n              </div>\n\n            </td>\n\n          </tr>\n\n          <tr>\n\n            <td class="scale"><span>{{scale.min / 10 | number: \'1.1-1\'}}</span><span class="kwh">MWh</span></td>\n\n          </tr>\n\n        </tbody>\n\n        <tbody class="inverse">\n\n          <tr>\n\n            <td class="section" rowspan="2"><strong>Annual<br>Saving</strong></td>\n\n            <td class="scale inverse"><span>{{scale.min / 10 | number: \'1.1-1\'}}</span></td>\n\n            <td class="bar" rowspan="2">\n\n\n\n            </td>\n\n            <td class="bar dashed-left" rowspan="2">\n\n              <div style.height="{{bars.basic.savings[0]}}px" class="blue">\n\n                <span style.marginTop="{{bars.basic.savings[0] + 3}}px">{{bars.basic.savings[1] | number: \'1.0-0\'}}€</span>\n\n              </div>\n\n            </td>\n\n            <td class="bar" rowspan="2">\n\n              <div style.height="{{bars.economical.savings[0]}}px" class="green">\n\n                <span style.marginTop="{{bars.economical.savings[0] + 3}}px">{{bars.economical.savings[1] | number:\n\n                  \'1.0-0\'}}€</span>\n\n              </div>\n\n            </td>\n\n          </tr>\n\n          <tr>\n\n            <td class="scale inverse"><span>{{scale.max / 10 | number: \'1.1-1\'}}</span></td>\n\n          </tr>\n\n          <tr>\n\n            <th colspan="2" style="border-right: 1px solid #7f7f7f; height: 40px;"></th>\n\n            <th colspan="3"></th>\n\n          </tr>\n\n        </tbody>\n\n        <tfoot>\n\n          <tr>\n\n            <th colspan="2">\n\n              <svg version="1.1" id="co2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"\n\n                x="0px" y="0px" viewBox="0 0 489.5 489.5" style="enable-background:new 0 0 489.5 489.5;" xml:space="preserve">\n\n                <path d="M366.7,360.3h-42.9c-3.6,0-6.9-2.2-8.3-5.5s-0.7-7.2,1.9-9.8l32.1-32.6c1-1.5,1.6-3.3,1.6-5.1c0-5-4.1-9.1-9.1-9.1\n\n               s-9.1,4.1-9.1,9.1s-4,9-9,9s-9-4-9-9c0-14.9,12.1-27.1,27.1-27.1c14.9,0,27.1,12.1,27.1,27.1c0,6-1.9,11.6-5.5,16.4\n\n               c-0.2,0.3-0.5,0.6-0.7,0.9l-17.5,17.8h21.3c5,0,9,4,9,9C375.7,356.3,371.7,360.3,366.7,360.3z" />\n\n                <path d="M259.9,340.6c-28.4,0-51.5-23.1-51.5-51.5s23.1-51.5,51.5-51.5s51.5,23.1,51.5,51.5S288.3,340.6,259.9,340.6z M259.9,258.5\n\n               c-16.9,0-30.6,13.7-30.6,30.6s13.7,30.6,30.6,30.6s30.6-13.7,30.6-30.6S276.8,258.5,259.9,258.5z" />\n\n                <path d="M164.2,338.5c-27.8,0-50.5-22.6-50.5-50.5c0-27.8,22.6-50.5,50.5-50.5c15.9,0,31.1,7.7,40.6,20.5c3.4,4.6,2.5,11.2-2.2,14.6\n\n               c-4.6,3.4-11.2,2.5-14.6-2.2c-5.6-7.6-14.3-12-23.8-12c-16.3,0-29.6,13.3-29.6,29.6c0,16.3,13.3,29.6,29.6,29.6\n\n               c8.2,0,16.2-3.5,21.8-9.5c3.9-4.3,10.5-4.5,14.8-0.6s4.5,10.5,0.6,14.8C191.8,332.6,178.3,338.5,164.2,338.5z" />\n\n                <path d="M363.4,428H126C56.2,428,0,371.8,0,302c0-54.2,34.4-102.1,84.4-118.7c19.7-71.9,85.3-121.9,160.3-121.9\n\n               s140.6,51,160.4,122.9c51,17.7,84.4,64.6,84.4,118.7C489.5,371.9,433.2,428,363.4,428z M244.7,102.1c-60.4,0-111.5,42.7-122.9,102.1\n\n               c-1,8.3-7.3,14.6-15.6,16.7c-38.5,9.4-65.6,42.7-65.6,82.3c0,46.9,38.5,85.4,85.4,85.4h237.5c46.9,0,85.4-38.5,85.4-85.4\n\n               c0-39.6-27.1-74-65.6-82.3c-8.3-2.1-13.5-8.3-15.6-16.7C356.2,144.8,305.1,102.1,244.7,102.1z" />\n\n              </svg>\n\n            </th>\n\n            <th class="color">{{parent.report.result.co2[0] | number: \'1.1-2\'}} t</th>\n\n            <th class="color">{{parent.report.result.co2[1] | number: \'1.1-2\'}} t</th>\n\n            <th class="color">{{parent.report.result.co2[2] | number: \'1.1-2\'}} t</th>\n\n          </tr>\n\n        </tfoot>\n\n      </table>\n\n    </ion-col>\n\n  </ion-row>\n\n  <ion-row *ngIf="!!show_advise">\n\n    <ion-col message>\n\n      <h4>>>{{parent.report.result.advise}}<<</h4> </ion-col> </ion-row> </ion-grid>\n\n'/*ion-inline-end:"D:\Sofware Factory\tbi\src\pages\reports\components\result\report-result.component.html"*/
+            selector: '[report-result]',template:/*ion-inline-start:"D:\Sofware Factory\tbi\src\pages\reports\components\result\report-result.component.html"*/'<ion-grid>\n\n  <ion-row>\n\n    <ion-col text-center>\n\n      <table cellspacing="0" cellpadding="0" border="0" class="result-chart">\n\n        <thead>\n\n          <tr>\n\n            <th><div style="width: 25px; height: 1px"></div></th>\n\n            <th><div style="width: 0; height: 1px"></div></th>\n\n            <th><div style="width: 100px; height: 1px"></div></th>\n\n            <th><div style="width: 100px; height: 1px"></div></th>\n\n            <th><div style="width: 100px; height: 1px"></div></th>\n\n          </tr>\n\n          <tr>\n\n            <th colspan="2" style="height: 20px; border-right: 1px solid #7f7f7f"></th>\n\n            <th class="dashed-right">\n\n              <!-- <div class="x-title white">Current</div> -->\n\n            </th>\n\n            <th>\n\n              <div class="x-title" style="color: #4b71c1">basic<br/>insulation</div>\n\n            </th>\n\n            <th>\n\n              <div class="x-title" style="color: #6daf3d">good<br/>insulation</div>\n\n            </th>\n\n          </tr>\n\n        </thead>\n\n        <tbody>\n\n          <tr>\n\n            <td class="section" rowspan="2"><strong>Annual Consumption</strong></td>\n\n            <td class="scale"><span>{{scale.max / 10 | number: \'1.1-1\'}}</span></td>\n\n            <td class="b-line bar" rowspan="2">\n\n              <div style.height="{{bars.current.losses[0]}}px" class="gray">\n\n                <span class="x-price">\n\n                  <strong style="display: block; padding: 0!important; text-align: center">Current</strong>\n\n                  {{bars.current.losses[1] | number: \'1.0-0\'}}€<span *ngIf="unknow_surface">/m<sup>2</sup></span>\n\n                </span>\n\n              </div>\n\n            </td>\n\n            <td class="b-line bar dashed-left" rowspan="2">\n\n              <div style.height="{{bars.basic.losses[0]}}px" class="blue pattern">\n\n                <span>{{bars.basic.losses[1] | number: \'1.0-0\'}}€<span *ngIf="unknow_surface">/m<sup>2</sup></span></span>\n\n              </div>\n\n            </td>\n\n            <td class="b-line bar" rowspan="2">\n\n              <div style.height="{{bars.economical.losses[0]}}px" class="green pattern">\n\n                <span>{{bars.economical.losses[1] | number: \'1.0-0\'}}€<span *ngIf="unknow_surface">/m<sup>2</sup></span></span>\n\n              </div>\n\n            </td>\n\n          </tr>\n\n          <tr>\n\n            <td class="scale"><span>{{scale.min / 10 | number: \'1.1-1\'}}</span><span class="kwh">MWh<span *ngIf="unknow_surface">/m<sup>2</sup></span></span></td>\n\n          </tr>\n\n        </tbody>\n\n        <tbody class="inverse">\n\n          <tr>\n\n            <td class="section" rowspan="2"><strong>Annual Saving</strong></td>\n\n            <td class="scale inverse"><span>{{scale.min / 10 | number: \'1.1-1\'}}</span></td>\n\n            <td class="bar" rowspan="2">\n\n\n\n            </td>\n\n            <td class="bar dashed-left" rowspan="2">\n\n              <div style.height="{{bars.basic.savings[0]}}px" class="blue">\n\n                <span style.marginTop="{{bars.basic.savings[0] + 3}}px">{{bars.basic.savings[1] | number: \'1.0-0\'}}€<span *ngIf="unknow_surface">/m<sup>2</sup></span></span>\n\n              </div>\n\n            </td>\n\n            <td class="bar" rowspan="2">\n\n              <div style.height="{{bars.economical.savings[0]}}px" class="green">\n\n                <span style.marginTop="{{bars.economical.savings[0] + 3}}px">{{bars.economical.savings[1] | number:\n\n                  \'1.0-0\'}}€<span *ngIf="unknow_surface">/m<sup>2</sup></span></span>\n\n              </div>\n\n            </td>\n\n          </tr>\n\n          <tr>\n\n            <td class="scale inverse"><span>{{scale.max / 10 | number: \'1.1-1\'}}</span></td>\n\n          </tr>\n\n          <tr>\n\n            <th colspan="2" style="border-right: 1px solid #7f7f7f; height: 20px;"></th>\n\n            <th colspan="3"></th>\n\n          </tr>\n\n        </tbody>\n\n        <tfoot>\n\n          <tr>\n\n            <th colspan="2">\n\n              <svg version="1.1" id="co2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"\n\n                x="0px" y="0px" viewBox="0 0 489.5 489.5" style="enable-background:new 0 0 489.5 489.5;" xml:space="preserve">\n\n                <path fill="#7f7f7f" d="M366.7,360.3h-42.9c-3.6,0-6.9-2.2-8.3-5.5s-0.7-7.2,1.9-9.8l32.1-32.6c1-1.5,1.6-3.3,1.6-5.1c0-5-4.1-9.1-9.1-9.1\n\n               s-9.1,4.1-9.1,9.1s-4,9-9,9s-9-4-9-9c0-14.9,12.1-27.1,27.1-27.1c14.9,0,27.1,12.1,27.1,27.1c0,6-1.9,11.6-5.5,16.4\n\n               c-0.2,0.3-0.5,0.6-0.7,0.9l-17.5,17.8h21.3c5,0,9,4,9,9C375.7,356.3,371.7,360.3,366.7,360.3z" />\n\n                <path fill="#7f7f7f" d="M259.9,340.6c-28.4,0-51.5-23.1-51.5-51.5s23.1-51.5,51.5-51.5s51.5,23.1,51.5,51.5S288.3,340.6,259.9,340.6z M259.9,258.5\n\n               c-16.9,0-30.6,13.7-30.6,30.6s13.7,30.6,30.6,30.6s30.6-13.7,30.6-30.6S276.8,258.5,259.9,258.5z" />\n\n                <path fill="#7f7f7f" d="M164.2,338.5c-27.8,0-50.5-22.6-50.5-50.5c0-27.8,22.6-50.5,50.5-50.5c15.9,0,31.1,7.7,40.6,20.5c3.4,4.6,2.5,11.2-2.2,14.6\n\n               c-4.6,3.4-11.2,2.5-14.6-2.2c-5.6-7.6-14.3-12-23.8-12c-16.3,0-29.6,13.3-29.6,29.6c0,16.3,13.3,29.6,29.6,29.6\n\n               c8.2,0,16.2-3.5,21.8-9.5c3.9-4.3,10.5-4.5,14.8-0.6s4.5,10.5,0.6,14.8C191.8,332.6,178.3,338.5,164.2,338.5z" />\n\n                <path fill="#7f7f7f" d="M363.4,428H126C56.2,428,0,371.8,0,302c0-54.2,34.4-102.1,84.4-118.7c19.7-71.9,85.3-121.9,160.3-121.9\n\n               s140.6,51,160.4,122.9c51,17.7,84.4,64.6,84.4,118.7C489.5,371.9,433.2,428,363.4,428z M244.7,102.1c-60.4,0-111.5,42.7-122.9,102.1\n\n               c-1,8.3-7.3,14.6-15.6,16.7c-38.5,9.4-65.6,42.7-65.6,82.3c0,46.9,38.5,85.4,85.4,85.4h237.5c46.9,0,85.4-38.5,85.4-85.4\n\n               c0-39.6-27.1-74-65.6-82.3c-8.3-2.1-13.5-8.3-15.6-16.7C356.2,144.8,305.1,102.1,244.7,102.1z" />\n\n              </svg>\n\n            </th>\n\n            <th class="color">{{parent.report.result.co2[0] | number: \'1.1-1\'}} t<span *ngIf="unknow_surface">/m<sup>2</sup></span></th>\n\n            <th class="color">{{parent.report.result.co2[1] | number: \'1.1-1\'}} t<span *ngIf="unknow_surface">/m<sup>2</sup></span></th>\n\n            <th class="color">{{parent.report.result.co2[2] | number: \'1.1-1\'}} t<span *ngIf="unknow_surface">/m<sup>2</sup></span></th>\n\n          </tr>\n\n        </tfoot>\n\n      </table>\n\n    </ion-col>\n\n  </ion-row>\n\n  <ion-row *ngIf="!!show_advise">\n\n    <ion-col message>\n\n      <h4>&gt;&gt;{{parent.report.result.advise}}&lt;&lt;</h4>\n\n    </ion-col>\n\n  </ion-row>\n\n</ion-grid>\n\n'/*ion-inline-end:"D:\Sofware Factory\tbi\src\pages\reports\components\result\report-result.component.html"*/
         }),
         __metadata("design:paramtypes", [])
     ], ReportResultComponent);
@@ -5562,14 +5704,14 @@ var ReportResultComponent = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 595:
+/***/ 602:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ReportValvePage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__models_reports__ = __webpack_require__(21);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(6);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(5);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__services_report_service__ = __webpack_require__(30);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__services_messages_service__ = __webpack_require__(16);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__services__ = __webpack_require__(17);
@@ -5600,28 +5742,30 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 var ReportValvePage = /** @class */ (function (_super) {
     __extends(ReportValvePage, _super);
-    function ReportValvePage(navCtrl, navParams, service, alertCtrl, picture, message, keyboard) {
-        var _this = _super.call(this, new __WEBPACK_IMPORTED_MODULE_1__models_reports__["i" /* ReportValve */](navParams.data.project, navParams.data.component, navParams.data.report), navCtrl, service, alertCtrl, picture, message, keyboard) || this;
+    function ReportValvePage(navCtrl, navParams, service, alertCtrl, picture, message, keyboard, modalCtrl) {
+        var _this = _super.call(this, new __WEBPACK_IMPORTED_MODULE_1__models_reports__["i" /* ReportValve */](navParams.data.project, navParams.data.component, navParams.data.report), navCtrl, service, alertCtrl, picture, message, keyboard, modalCtrl) || this;
         _this.navCtrl = navCtrl;
         _this.service = service;
         _this.alertCtrl = alertCtrl;
         _this.picture = picture;
         _this.message = message;
         _this.keyboard = keyboard;
+        _this.modalCtrl = modalCtrl;
         _this.unknow_length = true;
         return _this;
     }
     ReportValvePage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-report-valve',template:/*ion-inline-start:"D:\Sofware Factory\tbi\src\pages\reports\valve\report-valve.component.html"*/'<report-header [parent]="this"></report-header>\n\n\n\n<ion-content #content>\n\n\n\n  <ion-grid [hidden]="view==\'edit_picture\'" class="fixed-col">\n\n    <ion-row>\n\n      <ion-col col-7 col-lg-6 no-padding>\n\n        <form novalidate #form="ngForm" [hidden]="segment!=\'input\'" (submit)="calculate()">\n\n          <ion-row>\n\n            <ion-col col-10>\n\n              <ion-item>\n\n                <ion-label stacked>Component/Location</ion-label>\n\n                <ion-input tabindex="1" (ionFocus)="on_focus($event)" name="location" required data-val-required="Please input Component/Location"\n\n                  [(ngModel)]="report.component.fields.location" type="text"></ion-input>\n\n              </ion-item>\n\n            </ion-col>\n\n            <ion-col col-10>\n\n              <ion-item>\n\n                <ion-label stacked>Item number</ion-label>\n\n                <ion-input tabindex="3" (ionFocus)="on_focus($event)" name="number" required data-val-required="Please input Item number"\n\n                  [(ngModel)]="report.component.fields.number" type="number" min="0"></ion-input>\n\n              </ion-item>\n\n            </ion-col>\n\n          </ion-row>\n\n          <ion-row>\n\n            <ion-col col-10>\n\n              <ion-item>\n\n                <ion-label stacked>Operational time (hours)</ion-label>\n\n                <ion-input tabindex="3" (ionFocus)="on_focus($event)" required data-val-required="Please input operational time"\n\n                  name="operational_time" [(ngModel)]="report.component.fields.operational_time" type="number"></ion-input>\n\n              </ion-item>\n\n            </ion-col>\n\n            <ion-col col-2>\n\n              <more pull-left #time (change)="report.component.fields.operational_time=time.value" [type]="\'time\'"\n\n                modal-button></more>\n\n            </ion-col>\n\n          </ion-row>\n\n          <ion-row>\n\n            <ion-col col-10>\n\n              <ion-item>\n\n                <ion-label stacked>Diameter (mm)</ion-label>\n\n                <ion-input tabindex="4" #after_time (ionFocus)="on_focus($event)" name="nominal_diameter" required\n\n                  data-val-required="Please input Diameter" [(ngModel)]="report.component.fields.nominal_diameter"\n\n                  type="number"></ion-input>\n\n              </ion-item>\n\n            </ion-col>\n\n            <ion-input type="hidden" name="length" [(ngModel)]="report.component.fields.length"></ion-input>\n\n            <!-- <ion-col col-2>\n\n              <div (click)="set_length(\'Default value for valves 1m\', 1)" tabindex="-1" pull-left no-padding ion-button\n\n                small color="light" class="with-action">\n\n                <ion-icon name="custom-valve"></ion-icon>\n\n              </div>\n\n            </ion-col> -->\n\n          </ion-row>\n\n          <ion-row>\n\n            <ion-col col-10>\n\n              <ion-item class="edit_surface_material" [class.editable]="edit_surface_material">\n\n                <ion-label stacked>Surface material [ε]</ion-label>\n\n                <ion-input tabindex="4" class="literal" (focus)="toggle_surface_material(true); on_focus($event)"\n\n                  [value]="report.component.fields.surface_material_friendly" type="text"></ion-input>\n\n                <ion-input tabindex="4" class="numeric" (focusout)="toggle_surface_material(false)" (ionFocus)="on_focus($event)"\n\n                  name="surface_material" required data-val-required="Please input surface emissivity" [(ngModel)]="report.component.fields.surface_material"\n\n                  type="number" (change)="set_surface_material(report.component.fields.surface_material, $event)"></ion-input>\n\n              </ion-item>\n\n            </ion-col>\n\n            <ion-col col-2>\n\n              <more pull-left #material (change)="set_surface_material(material.value, $event)" [type]="\'materials\'"\n\n                modal-button></more>\n\n            </ion-col>\n\n          </ion-row>\n\n          <ion-row>\n\n            <ion-col col-10>\n\n              <ion-item>\n\n                <ion-label stacked>Medium or Surface temperature (<sup>º</sup>C)</ion-label>\n\n                <ion-input tabindex="5" #after_material (ionFocus)="on_focus($event)" name="surface_temp" [pattern]="patterns.REQUIRED_NUMBER"\n\n                  data-val-pattern="Please input a valid Medium or Surface temperature" required data-val-required="Please input Medium or Surface temperature"\n\n                  [(ngModel)]="report.component.fields.surface_temp" type="tel"></ion-input>\n\n              </ion-item>\n\n            </ion-col>\n\n            <ion-col col-2>\n\n              <medium-temp #medium [report]="report" modal-button pull-left></medium-temp>\n\n            </ion-col>\n\n          </ion-row>\n\n          <ion-row>\n\n            <ion-col col-10>\n\n              <ion-item>\n\n                <ion-label stacked>Ambient temperature (<sup>º</sup>C)</ion-label>\n\n                <ion-input tabindex="6" (ionFocus)="on_focus($event)" (keyup.enter)="on_keypress($event)" name="ambient_temp"\n\n                  [pattern]="patterns.REQUIRED_NUMBER" data-val-pattern="Please input a valid Ambient temperature"\n\n                  required data-val-required="Please input Ambient temperature" [(ngModel)]="report.component.fields.ambient_temp"\n\n                  type="tel"></ion-input>\n\n              </ion-item>\n\n            </ion-col>\n\n            <ion-col col-2></ion-col>\n\n          </ion-row>\n\n          <ion-row>\n\n            <ion-col col-12>\n\n              <ion-item>\n\n                <ion-label stacked>Annual Saving Potenyial</ion-label>\n\n                <ion-input tabindex="-1" name="annual_saving" value="{{report.annual_saving}}" type="text"></ion-input>\n\n              </ion-item>\n\n            </ion-col>\n\n          </ion-row>\n\n        </form>\n\n      </ion-col>\n\n\n\n      <ion-col col-5 col-lg-6 no-padding>\n\n          <ion-row>\n\n            <ion-col col-12 picture-slide [report]="report" [editable]="editable" (onStartEdit)="on_picture_start_edit($event)">\n\n          </ion-col>\n\n        </ion-row>\n\n        <report-errors padding #errors col-12 [hidden]="view==\'!result\' && report.result"></report-errors>\n\n      </ion-col>\n\n    </ion-row>\n\n\n\n    <ion-row>\n\n      <ion-col col-12>\n\n        <report-result col-12 [parent]="this" *ngIf="view==\'result\' && (!!form && !form.invalid)"></report-result>\n\n      </ion-col>\n\n    </ion-row>\n\n\n\n  </ion-grid>\n\n\n\n  <edit-picture *ngIf="view==\'edit_picture\'" [report]="report" [picture]="editing_picture"></edit-picture>\n\n\n\n</ion-content>\n\n\n\n<report-footer [parent]="this"></report-footer>\n\n'/*ion-inline-end:"D:\Sofware Factory\tbi\src\pages\reports\valve\report-valve.component.html"*/
+            selector: 'page-report-valve',template:/*ion-inline-start:"D:\Sofware Factory\tbi\src\pages\reports\valve\report-valve.component.html"*/'<report-header [parent]="this"></report-header>\n\n\n\n<ion-content #content>\n\n\n\n  <ion-grid [hidden]="view==\'edit_picture\'" class="fixed-col">\n\n    <ion-row>\n\n      <ion-col col-7 col-lg-6 no-padding>\n\n        <form novalidate #form="ngForm" [hidden]="segment!=\'input\'" (submit)="calculate()">\n\n          <ion-row>\n\n            <ion-col col-10>\n\n              <ion-item>\n\n                <ion-label stacked>Component/Location</ion-label>\n\n                <ion-input tabindex="1" (ionFocus)="on_focus($event)" name="location" required data-val-required="Please input Component/Location"\n\n                  [(ngModel)]="report.component.fields.location" type="text"></ion-input>\n\n              </ion-item>\n\n            </ion-col>\n\n            <ion-col col-10>\n\n              <ion-item>\n\n                <ion-label stacked>Item number</ion-label>\n\n                <ion-input tabindex="3" (ionFocus)="on_focus($event)" name="number" required data-val-required="Please input Item number"\n\n                  [(ngModel)]="report.component.fields.number" type="number" min="0"></ion-input>\n\n              </ion-item>\n\n            </ion-col>\n\n          </ion-row>\n\n          <ion-row>\n\n            <ion-col col-10>\n\n              <ion-item>\n\n                <ion-label stacked>Operational time (hours)</ion-label>\n\n                <ion-input tabindex="3" (ionFocus)="on_focus($event)" required data-val-required="Please input operational time"\n\n                  name="operational_time" [(ngModel)]="report.component.fields.operational_time" type="number"></ion-input>\n\n              </ion-item>\n\n            </ion-col>\n\n            <ion-col col-2>\n\n              <more pull-left #time (change)="report.component.fields.operational_time=time.value" [type]="\'time\'"\n\n                modal-button></more>\n\n            </ion-col>\n\n          </ion-row>\n\n          <ion-row>\n\n            <ion-col col-10>\n\n              <ion-item>\n\n                <ion-label stacked>Diameter (mm)</ion-label>\n\n                <ion-input tabindex="4" #after_time (ionFocus)="on_focus($event)" name="nominal_diameter" required\n\n                  data-val-required="Please input Diameter" [(ngModel)]="report.component.fields.nominal_diameter"\n\n                  type="number"></ion-input>\n\n              </ion-item>\n\n            </ion-col>\n\n            <ion-input type="hidden" name="length" [(ngModel)]="report.component.fields.length"></ion-input>\n\n            <!-- <ion-col col-2>\n\n              <div (click)="set_length(\'Default value for valves 1m\', 1)" tabindex="-1" pull-left no-padding ion-button\n\n                small color="light" class="with-action">\n\n                <ion-icon name="custom-valve"></ion-icon>\n\n              </div>\n\n            </ion-col> -->\n\n          </ion-row>\n\n          <ion-row>\n\n            <ion-col col-10>\n\n              <ion-item class="edit_surface_material" [class.editable]="edit_surface_material">\n\n                <ion-label stacked>Surface material [ε]</ion-label>\n\n                <ion-input tabindex="4" class="literal" (focus)="toggle_surface_material(true); on_focus($event)"\n\n                  [value]="report.component.fields.surface_material_friendly" type="text"></ion-input>\n\n                <ion-input tabindex="4" class="numeric" (focusout)="toggle_surface_material(false)" (ionFocus)="on_focus($event)"\n\n                  name="surface_material" required data-val-required="Please input surface emissivity" [(ngModel)]="report.component.fields.surface_material"\n\n                  type="number" (change)="set_surface_material(report.component.fields.surface_material, $event)"></ion-input>\n\n              </ion-item>\n\n            </ion-col>\n\n            <ion-col col-2>\n\n              <more pull-left #material (change)="set_surface_material(material.value, $event)" [type]="\'materials\'"\n\n                modal-button></more>\n\n            </ion-col>\n\n          </ion-row>\n\n          <ion-row>\n\n              <ion-col col-5 class="pr-0">\n\n                <ion-item class="pr-0">\n\n                  <ion-label stacked>Surface temperature (<sup>º</sup>C)</ion-label>\n\n                  <ion-input tabindex="7" [style.visibility]="report.component.fields.unknow_surface_temp ? \'hidden\' : \'visible\'" #after_material (ionFocus)="on_focus($event)" scroll="-80" name="surface_temp"\n\n                    required data-val-required="Please input Medium or Surface temperature" [pattern]="patterns.REQUIRED_NUMBER"\n\n                    data-val-pattern="Please input a valid Medium or Surface temperature" [(ngModel)]="report.component.fields.surface_temp"\n\n                    type="tel"></ion-input>\n\n                </ion-item>\n\n              </ion-col>\n\n              <ion-col col-5 toggle-container>\n\n                <ion-item>\n\n                  <ion-label stacked>Unknown</ion-label>\n\n                  <ion-toggle style="padding-left:0" [(ngModel)]="report.component.fields.unknow_surface_temp" (ionChange)="toggle_know_temp()"\n\n                    name="unknow_surface_temp"></ion-toggle>\n\n                </ion-item>\n\n              </ion-col>\n\n              <ion-col col-2>\n\n                <!-- <medium-temp #medium (change)="report.component.fields.surface_temp=medium.value" modal-button pull-left></medium-temp> -->\n\n                <medium-temp #medium [report]="report" modal-button pull-left></medium-temp>\n\n              </ion-col>\n\n            </ion-row>\n\n          <ion-row>\n\n            <ion-col col-10>\n\n              <ion-item>\n\n                <ion-label stacked>Ambient temperature (<sup>º</sup>C)</ion-label>\n\n                <ion-input tabindex="6" (ionFocus)="on_focus($event)" (keyup.enter)="on_keypress($event)" name="ambient_temp"\n\n                  [pattern]="patterns.REQUIRED_NUMBER" data-val-pattern="Please input a valid Ambient temperature"\n\n                  required data-val-required="Please input Ambient temperature" [(ngModel)]="report.component.fields.ambient_temp"\n\n                  type="tel"></ion-input>\n\n              </ion-item>\n\n            </ion-col>\n\n            <ion-col col-2></ion-col>\n\n          </ion-row>\n\n          <ion-row>\n\n            <ion-col col-12>\n\n              <ion-item>\n\n                <ion-label stacked>Annual Saving Potenyial</ion-label>\n\n                <ion-input tabindex="-1" name="annual_saving" value="{{report.annual_saving}}" type="text"></ion-input>\n\n              </ion-item>\n\n            </ion-col>\n\n          </ion-row>\n\n        </form>\n\n      </ion-col>\n\n\n\n      <ion-col col-5 col-lg-6 no-padding>\n\n          <ion-row>\n\n            <ion-col col-12 picture-slide [parent]="this"   [report]="report" [editable]="editable" (onStartEdit)="on_picture_start_edit($event)">\n\n          </ion-col>\n\n        </ion-row>\n\n        <report-errors padding #errors col-12 [hidden]="view==\'!result\' && report.result"></report-errors>\n\n      </ion-col>\n\n    </ion-row>\n\n\n\n    <ion-row>\n\n      <ion-col col-12>\n\n        <div report-result col-12 [parent]="this" *ngIf="view==\'result\' && (!!form && !form.invalid)"></div>\n\n      </ion-col>\n\n    </ion-row>\n\n\n\n  </ion-grid>\n\n\n\n  <edit-picture *ngIf="view==\'edit_picture\'" [report]="report" [picture]="editing_picture"></edit-picture>\n\n\n\n</ion-content>\n\n\n\n<report-footer [parent]="this"></report-footer>\n\n'/*ion-inline-end:"D:\Sofware Factory\tbi\src\pages\reports\valve\report-valve.component.html"*/
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2_ionic_angular__["h" /* NavController */],
-            __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["i" /* NavParams */],
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2_ionic_angular__["j" /* NavController */],
+            __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["k" /* NavParams */],
             __WEBPACK_IMPORTED_MODULE_3__services_report_service__["a" /* ReportService */],
             __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["b" /* AlertController */],
-            __WEBPACK_IMPORTED_MODULE_5__services__["c" /* PictureService */],
+            __WEBPACK_IMPORTED_MODULE_5__services__["d" /* PictureService */],
             __WEBPACK_IMPORTED_MODULE_4__services_messages_service__["a" /* MessageService */],
-            __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["f" /* Keyboard */]])
+            __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["g" /* Keyboard */],
+            __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["i" /* ModalController */]])
     ], ReportValvePage);
     return ReportValvePage;
 }(__WEBPACK_IMPORTED_MODULE_1__models_reports__["a" /* BaseReportPage */]));
@@ -5630,14 +5774,14 @@ var ReportValvePage = /** @class */ (function (_super) {
 
 /***/ }),
 
-/***/ 596:
+/***/ 603:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ReportInsulatedSurfacePage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__models_reports__ = __webpack_require__(21);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(6);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(5);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__services_report_service__ = __webpack_require__(30);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__services_messages_service__ = __webpack_require__(16);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__services__ = __webpack_require__(17);
@@ -5681,15 +5825,15 @@ var ReportInsulatedSurfacePage = /** @class */ (function (_super) {
     }
     ReportInsulatedSurfacePage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-report-surface',template:/*ion-inline-start:"D:\Sofware Factory\tbi\src\pages\reports\isurface\report-isurface.component.html"*/'<report-header [parent]="this"></report-header>\n\n\n\n<ion-content #content>\n\n\n\n  <ion-grid [hidden]="view==\'edit_picture\'" class="fixed-col">\n\n    <ion-row>\n\n      <ion-col col-7 col-lg-8 no-padding>\n\n        <form novalidate #form="ngForm" [hidden]="segment!=\'input\'" (submit)="calculate()">\n\n          <ion-row>\n\n            <ion-col col-10>\n\n              <ion-item>\n\n                <ion-label stacked>Component/Location</ion-label>\n\n                <ion-input tabindex="1" (ionFocus)="on_focus($event)" name="location" required data-val-required="Please input Component/Location"\n\n                  [(ngModel)]="report.component.fields.location" type="text"></ion-input>\n\n              </ion-item>\n\n            </ion-col>\n\n            <ion-col col-12></ion-col>\n\n          </ion-row>\n\n          <ion-row>\n\n            <ion-col col-10>\n\n              <ion-item>\n\n                <ion-label stacked>Operational time (hours)</ion-label>\n\n                <ion-input tabindex="2" (ionFocus)="on_focus($event)" required data-val-required="Please input operational time"\n\n                  name="operational_time" [(ngModel)]="report.component.fields.operational_time" type="number"></ion-input>\n\n              </ion-item>\n\n            </ion-col>\n\n            <ion-col col-2>\n\n              <more pull-left #time (change)="report.component.fields.operational_time=time.value" [type]="\'time\'"\n\n                modal-button></more>\n\n            </ion-col>\n\n          </ion-row>\n\n          <ion-row>\n\n            <ion-col col-6>\n\n              <ion-item>\n\n                <ion-label stacked>Surface (m<sup>2</sup>)</ion-label>\n\n                <ion-input #after_time tabindex="3" (ionFocus)="on_focus($event)" [disabled]="report.component.fields.unknow_surface"\n\n                  name="surface" required data-val-required="Please input surface in m²" [(ngModel)]="report.component.fields.surface"\n\n                  type="number" [(ngModel)]="surface"></ion-input>\n\n              </ion-item>\n\n            </ion-col>\n\n            <ion-col col-4 toggle-container style="padding-top: 1rem">\n\n              <ion-label stacked style="margin-top: 1.5rem">Unknown</ion-label>\n\n              <ion-toggle [(ngModel)]="report.component.fields.unknow_surface" (ionChange)="toggle_know()" name="unknow_surface"></ion-toggle>\n\n            </ion-col>\n\n            <ion-col col-2>\n\n              <area [hidden]="unknow_surface" pull-left #area (change)="report.component.fields.surface=area.value"\n\n                modal-button />\n\n            </ion-col>\n\n          </ion-row>\n\n          <ion-row>\n\n            <ion-col col-10>\n\n              <ion-item class="edit_surface_material" [class.editable]="edit_surface_material">\n\n                <ion-label stacked>Surface material [ε]</ion-label>\n\n                <ion-input tabindex="5" class="literal" (ionFocus)="on_focus($event);toggle_surface_material(true)"\n\n                  [value]="report.component.fields.surface_material_friendly" type="text"></ion-input>\n\n                <ion-input tabindex="6" class="numeric" (ionFocus)="on_focus($event)" (focusout)="toggle_surface_material(false)"\n\n                  name="surface_material" required data-val-required="Please input surface emissivity" [(ngModel)]="report.component.fields.surface_material"\n\n                  type="number" (change)="set_surface_material(report.component.fields.surface_material, $event)"></ion-input>\n\n              </ion-item>\n\n            </ion-col>\n\n            <ion-col col-2>\n\n              <more pull-left #material (change)="set_surface_material(material.value, $event)" [type]="\'materials\'"\n\n                modal-button></more>\n\n            </ion-col>\n\n          </ion-row>\n\n          <ion-row>\n\n            <ion-col col-10>\n\n              <ion-item>\n\n                <ion-label stacked>Surface temperature (<sup>º</sup>C)</ion-label>\n\n                <ion-input #after_material tabindex="7" (ionFocus)="on_focus($event)" name="surface_temp" [pattern]="patterns.REQUIRED_NUMBER"\n\n                  data-val-pattern="Please input a valid Surface temperature" required data-val-required="Please input Surface temperature"\n\n                  [(ngModel)]="report.component.fields.surface_temp" type="tel"></ion-input>\n\n              </ion-item>\n\n            </ion-col>\n\n            <ion-col col-2>\n\n              <!-- <medium-temp #medium (change)="report.component.fields.surface_temp=medium.value" modal-button pull-left></medium-temp> -->\n\n              <medium-temp #medium [report]="report" modal-button pull-left></medium-temp>\n\n            </ion-col>\n\n          </ion-row>\n\n          <ion-row>\n\n            <ion-col col-10>\n\n              <ion-item>\n\n                <ion-label stacked>Medium temperature (<sup>º</sup>C)</ion-label>\n\n                <ion-input tabindex="8" (ionFocus)="on_focus($event)" name="medium_temp" [pattern]="patterns.REQUIRED_NUMBER"\n\n                  data-val-pattern="Please input a valid Medium temperature" required data-val-required="Please input Medium temperature"\n\n                  [(ngModel)]="report.component.fields.medium_temp" type="tel"></ion-input>\n\n              </ion-item>\n\n            </ion-col>\n\n            <ion-col col-2></ion-col>\n\n          </ion-row>\n\n          <ion-row>\n\n            <ion-col col-10>\n\n              <ion-item>\n\n                <ion-label stacked>Ambient temperature (<sup>º</sup>C)</ion-label>\n\n                <ion-input tabindex="9" (ionFocus)="on_focus($event)" (keyup.enter)="on_keypress($event)" name="ambient_temp"\n\n                  [pattern]="patterns.REQUIRED_NUMBER" data-val-pattern="Please input a valid Ambient temperature"\n\n                  required data-val-required="Please input Ambient temperature" [(ngModel)]="report.component.fields.ambient_temp"\n\n                  type="tel"></ion-input>\n\n              </ion-item>\n\n            </ion-col>\n\n            <ion-col col-2></ion-col>\n\n          </ion-row>\n\n          <ion-row>\n\n            <ion-col col-12>\n\n              <ion-item>\n\n                <ion-label stacked>Annual Saving Potenyial</ion-label>\n\n                <ion-input tabindex="-1" name="annual_saving" value="{{report.annual_saving}}" type="text"></ion-input>\n\n              </ion-item>\n\n            </ion-col>\n\n          </ion-row>\n\n        </form>\n\n      </ion-col>\n\n\n\n      <ion-col col-5 col-lg-8 no-padding>\n\n        <ion-row>\n\n          <ion-col col-12 picture-slide [report]="report" [editable]="editable" (onStartEdit)="on_picture_start_edit($event)">\n\n          </ion-col>\n\n        </ion-row>\n\n      </ion-col>\n\n    </ion-row>\n\n    <ion-row>\n\n      <ion-col col-12 padding>\n\n        <report-result col-12 [parent]="this" *ngIf="view==\'result\' && (!!form && !form.invalid)"></report-result>\n\n      </ion-col>\n\n      <ion-col col-12 padding>\n\n        <report-errors padding #errors col-12 [hidden]="view==\'!result\' && report.result"></report-errors>\n\n      </ion-col>\n\n    </ion-row>\n\n  </ion-grid>\n\n\n\n  <edit-picture *ngIf="view==\'edit_picture\'" [report]="report" [picture]="editing_picture"></edit-picture>\n\n\n\n</ion-content>\n\n\n\n<report-footer [parent]="this"></report-footer>\n\n'/*ion-inline-end:"D:\Sofware Factory\tbi\src\pages\reports\isurface\report-isurface.component.html"*/
+            selector: 'page-report-surface',template:/*ion-inline-start:"D:\Sofware Factory\tbi\src\pages\reports\isurface\report-isurface.component.html"*/'<report-header [parent]="this"></report-header>\n\n\n\n<ion-content #content>\n\n\n\n  <ion-grid [hidden]="view==\'edit_picture\'" class="fixed-col">\n\n    <ion-row>\n\n      <ion-col col-7 col-lg-8 no-padding>\n\n        <form novalidate #form="ngForm" [hidden]="segment!=\'input\'" (submit)="calculate()">\n\n          <ion-row>\n\n            <ion-col col-10>\n\n              <ion-item>\n\n                <ion-label stacked>Component/Location</ion-label>\n\n                <ion-input tabindex="1" (ionFocus)="on_focus($event)" name="location" required data-val-required="Please input Component/Location"\n\n                  [(ngModel)]="report.component.fields.location" type="text"></ion-input>\n\n              </ion-item>\n\n            </ion-col>\n\n            <ion-col col-12></ion-col>\n\n          </ion-row>\n\n          <ion-row>\n\n            <ion-col col-10>\n\n              <ion-item>\n\n                <ion-label stacked>Operational time (hours)</ion-label>\n\n                <ion-input tabindex="2" (ionFocus)="on_focus($event)" required data-val-required="Please input operational time"\n\n                  name="operational_time" [(ngModel)]="report.component.fields.operational_time" type="number"></ion-input>\n\n              </ion-item>\n\n            </ion-col>\n\n            <ion-col col-2>\n\n              <more pull-left #time (change)="report.component.fields.operational_time=time.value" [type]="\'time\'"\n\n                modal-button></more>\n\n            </ion-col>\n\n          </ion-row>\n\n          <ion-row>\n\n            <ion-col col-5 class="pr-0">\n\n              <ion-item class="pr-0">\n\n                <ion-label stacked>Surface (m<sup>2</sup>)</ion-label>\n\n                <ion-input #after_time tabindex="3" (ionFocus)="on_focus($event)" [disabled]="report.component.fields.unknow_surface"\n\n                  name="surface" required data-val-required="Please input surface in m²" [(ngModel)]="report.component.fields.surface"\n\n                  type="number" [(ngModel)]="surface"></ion-input>\n\n              </ion-item>\n\n            </ion-col>\n\n            <ion-col col-5 toggle-container>\n\n              <ion-item>\n\n                <ion-label stacked>Unknown</ion-label>\n\n                <ion-toggle style="padding-left:0" [(ngModel)]="report.component.fields.unknow_surface" (ionChange)="toggle_know()" name="unknow_surface"></ion-toggle>\n\n              </ion-item>\n\n            </ion-col>\n\n            <ion-col col-2>\n\n              <area [hidden]="unknow_surface" pull-left #area (change)="report.component.fields.surface=area.value"\n\n                modal-button />\n\n            </ion-col>\n\n          </ion-row>\n\n          <ion-row>\n\n            <ion-col col-10>\n\n              <ion-item class="edit_surface_material" [class.editable]="edit_surface_material">\n\n                <ion-label stacked>Surface material [ε]</ion-label>\n\n                <ion-input tabindex="5" class="literal" (ionFocus)="on_focus($event);toggle_surface_material(true)"\n\n                  [value]="report.component.fields.surface_material_friendly" type="text"></ion-input>\n\n                <ion-input tabindex="6" class="numeric" (ionFocus)="on_focus($event)" (focusout)="toggle_surface_material(false)"\n\n                  name="surface_material" required data-val-required="Please input surface emissivity" [(ngModel)]="report.component.fields.surface_material"\n\n                  type="number" (change)="set_surface_material(report.component.fields.surface_material, $event)"></ion-input>\n\n              </ion-item>\n\n            </ion-col>\n\n            <ion-col col-2>\n\n              <more pull-left #material (change)="set_surface_material(material.value, $event)" [type]="\'materials\'"\n\n                modal-button></more>\n\n            </ion-col>\n\n          </ion-row>\n\n          <ion-row>\n\n            <ion-col col-10>\n\n              <ion-item>\n\n                <ion-label stacked>Surface temperature (<sup>º</sup>C)</ion-label>\n\n                <ion-input #after_material tabindex="7" (ionFocus)="on_focus($event)" name="surface_temp" [pattern]="patterns.REQUIRED_NUMBER"\n\n                  data-val-pattern="Please input a valid Surface temperature" required data-val-required="Please input Surface temperature"\n\n                  [(ngModel)]="report.component.fields.surface_temp" type="tel"></ion-input>\n\n              </ion-item>\n\n            </ion-col>\n\n            <ion-col col-2>\n\n              <!-- <medium-temp #medium (change)="report.component.fields.surface_temp=medium.value" modal-button pull-left></medium-temp> -->\n\n              <medium-temp #medium [report]="report" modal-button pull-left></medium-temp>\n\n            </ion-col>\n\n          </ion-row>\n\n          <ion-row>\n\n            <ion-col col-10>\n\n              <ion-item>\n\n                <ion-label stacked>Medium temperature (<sup>º</sup>C)</ion-label>\n\n                <ion-input tabindex="8" (ionFocus)="on_focus($event)" name="medium_temp" [pattern]="patterns.REQUIRED_NUMBER"\n\n                  data-val-pattern="Please input a valid Medium temperature" required data-val-required="Please input Medium temperature"\n\n                  [(ngModel)]="report.component.fields.medium_temp" type="tel"></ion-input>\n\n              </ion-item>\n\n            </ion-col>\n\n            <ion-col col-2></ion-col>\n\n          </ion-row>\n\n          <ion-row>\n\n            <ion-col col-10>\n\n              <ion-item>\n\n                <ion-label stacked>Ambient temperature (<sup>º</sup>C)</ion-label>\n\n                <ion-input tabindex="9" (ionFocus)="on_focus($event)" (keyup.enter)="on_keypress($event)" name="ambient_temp"\n\n                  [pattern]="patterns.REQUIRED_NUMBER" data-val-pattern="Please input a valid Ambient temperature"\n\n                  required data-val-required="Please input Ambient temperature" [(ngModel)]="report.component.fields.ambient_temp"\n\n                  type="tel"></ion-input>\n\n              </ion-item>\n\n            </ion-col>\n\n            <ion-col col-2></ion-col>\n\n          </ion-row>\n\n          <ion-row>\n\n            <ion-col col-12>\n\n              <ion-item>\n\n                <ion-label stacked>Annual Saving Potenyial</ion-label>\n\n                <ion-input tabindex="-1" name="annual_saving" value="{{report.annual_saving}}" type="text"></ion-input>\n\n              </ion-item>\n\n            </ion-col>\n\n          </ion-row>\n\n        </form>\n\n      </ion-col>\n\n\n\n      <ion-col col-5 col-lg-8 no-padding>\n\n        <ion-row>\n\n          <ion-col col-12 picture-slide [parent]="this"   [report]="report" [editable]="editable" (onStartEdit)="on_picture_start_edit($event)">\n\n          </ion-col>\n\n        </ion-row>\n\n      </ion-col>\n\n    </ion-row>\n\n    <ion-row>\n\n      <ion-col col-12 padding>\n\n        <div report-result col-12 [parent]="this" *ngIf="view==\'result\' && (!!form && !form.invalid)"></div>\n\n      </ion-col>\n\n      <ion-col col-12 padding>\n\n        <report-errors padding #errors col-12 [hidden]="view==\'!result\' && report.result"></report-errors>\n\n      </ion-col>\n\n    </ion-row>\n\n  </ion-grid>\n\n\n\n  <edit-picture *ngIf="view==\'edit_picture\'" [report]="report" [picture]="editing_picture"></edit-picture>\n\n\n\n</ion-content>\n\n\n\n<report-footer [parent]="this"></report-footer>\n\n'/*ion-inline-end:"D:\Sofware Factory\tbi\src\pages\reports\isurface\report-isurface.component.html"*/
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2_ionic_angular__["h" /* NavController */],
-            __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["i" /* NavParams */],
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2_ionic_angular__["j" /* NavController */],
+            __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["k" /* NavParams */],
             __WEBPACK_IMPORTED_MODULE_3__services_report_service__["a" /* ReportService */],
             __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["b" /* AlertController */],
-            __WEBPACK_IMPORTED_MODULE_5__services__["c" /* PictureService */],
+            __WEBPACK_IMPORTED_MODULE_5__services__["d" /* PictureService */],
             __WEBPACK_IMPORTED_MODULE_4__services_messages_service__["a" /* MessageService */],
-            __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["f" /* Keyboard */]])
+            __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["g" /* Keyboard */]])
     ], ReportInsulatedSurfacePage);
     return ReportInsulatedSurfacePage;
 }(__WEBPACK_IMPORTED_MODULE_1__models_reports__["a" /* BaseReportPage */]));
@@ -5698,16 +5842,16 @@ var ReportInsulatedSurfacePage = /** @class */ (function (_super) {
 
 /***/ }),
 
-/***/ 597:
+/***/ 604:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ReportInsulatedPipePage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__models_reports__ = __webpack_require__(21);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(6);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(5);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__services_report_service__ = __webpack_require__(30);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__models_reports_report_ipipe_class__ = __webpack_require__(302);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__models_reports_report_ipipe_class__ = __webpack_require__(301);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__services_messages_service__ = __webpack_require__(16);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__services__ = __webpack_require__(17);
 var __extends = (this && this.__extends) || (function () {
@@ -5750,15 +5894,15 @@ var ReportInsulatedPipePage = /** @class */ (function (_super) {
     }
     ReportInsulatedPipePage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-report-pipe',template:/*ion-inline-start:"D:\Sofware Factory\tbi\src\pages\reports\ipipe\report-ipipe.component.html"*/'<report-header [parent]="this"></report-header>\n\n\n\n<ion-content #content>\n\n\n\n  <ion-grid [hidden]="view==\'edit_picture\'" class="fixed-col">\n\n    <ion-row>\n\n      <ion-col col-7 col-lg-8 no-padding>\n\n        <form novalidate #form="ngForm" [hidden]="segment!=\'input\'" (submit)="calculate()">\n\n          <ion-row>\n\n            <ion-col col-10>\n\n              <ion-item>\n\n                <ion-label stacked>Component/Location</ion-label>\n\n                <ion-input tabindex="1" (ionFocus)="on_focus($event)" name="location" required data-val-required="Please input Component/Location"\n\n                  [(ngModel)]="report.component.fields.location" type="text"></ion-input>\n\n              </ion-item>\n\n            </ion-col>\n\n            <ion-col col-2></ion-col>\n\n          </ion-row>\n\n          <ion-row>\n\n            <ion-col col-10>\n\n              <ion-item>\n\n                <ion-label stacked>Operational time (hours)</ion-label>\n\n                <ion-input tabindex="2" (ionFocus)="on_focus($event)" required data-val-required="Please input operational time"\n\n                  name="operational_time" [(ngModel)]="report.component.fields.operational_time" type="number"></ion-input>\n\n              </ion-item>\n\n            </ion-col>\n\n            <ion-col col-2>\n\n              <more pull-left #time (change)="report.component.fields.operational_time=time.value" [type]="\'time\'"\n\n                modal-button></more>\n\n            </ion-col>\n\n          </ion-row>\n\n          <ion-row>\n\n            <ion-col col-7>\n\n              <ion-item>\n\n                <ion-label stacked>Diameter (mm)</ion-label>\n\n                <ion-input #after_time tabindex="3" (ionFocus)="on_focus($event)" name="nominal_diameter" required\n\n                  data-val-required="Please input Diameter" [(ngModel)]="report.component.fields.nominal_diameter"\n\n                  type="number"></ion-input>\n\n              </ion-item>\n\n            </ion-col>\n\n            <ion-col col-4>\n\n              <ion-item>\n\n                <ion-label stacked>Length (m)</ion-label>\n\n                <ion-input tabindex="4" (ionFocus)="on_focus($event)" name="number" required data-val-required="Please input length"\n\n                  [(ngModel)]="report.component.fields.length" type="number"></ion-input>\n\n              </ion-item>\n\n            </ion-col>\n\n            <ion-col col-1></ion-col>\n\n          </ion-row>\n\n          <ion-row>\n\n            <ion-col col-10>\n\n              <ion-item class="edit_surface_material" [class.editable]="edit_surface_material">\n\n                <ion-label stacked>Surface material [ε]</ion-label>\n\n                <ion-input tabindex="5" class="literal" (ionFocus)="on_focus($event);toggle_surface_material(true)"\n\n                  [value]="report.component.fields.surface_material_friendly" type="text"></ion-input>\n\n                <ion-input tabindex="6" (ionFocus)="on_focus($event)" class="numeric" (focusout)="toggle_surface_material(false)"\n\n                  (ionFocus)="on_focus($event)" name="surface_material" required data-val-required="Please input surface emissivity"\n\n                  [(ngModel)]="report.component.fields.surface_material" type="number" (change)="set_surface_material(report.component.fields.surface_material, $event)"></ion-input>\n\n              </ion-item>\n\n            </ion-col>\n\n            <ion-col col-2>\n\n              <more pull-left #material (change)="set_surface_material(material.value, $event)" [type]="\'materials\'"\n\n                modal-button></more>\n\n            </ion-col>\n\n          </ion-row>\n\n          <ion-row>\n\n            <ion-col col-10>\n\n              <ion-item>\n\n                <ion-label stacked>Medium temperature (<sup>º</sup>C)</ion-label>\n\n                <ion-input #after_material tabindex="7" (ionFocus)="on_focus($event)" name="medium_temp" [pattern]="patterns.REQUIRED_NUMBER"\n\n                  data-val-pattern="Please input a valid Medium temperature" required data-val-required="Please input Medium temperature"\n\n                  [(ngModel)]="report.component.fields.medium_temp" type="tel"></ion-input>\n\n              </ion-item>\n\n            </ion-col>\n\n          </ion-row>\n\n          <ion-row>\n\n            <ion-col col-10>\n\n              <ion-item>\n\n                <ion-label stacked>Surface temperature (<sup>º</sup>C)</ion-label>\n\n                <ion-input tabindex="8" (ionFocus)="on_focus($event)" name="surface_temp" [pattern]="patterns.REQUIRED_NUMBER"\n\n                  data-val-pattern="Please input a valid Surface temperature" required data-val-required="Please input Surface temperature"\n\n                  [(ngModel)]="report.component.fields.surface_temp" type="tel"></ion-input>\n\n              </ion-item>\n\n            </ion-col>\n\n            <ion-col col-2>\n\n              <!-- <medium-temp #medium (change)="report.component.fields.surface_temp=medium.value" modal-button pull-left></medium-temp> -->\n\n              <medium-temp #medium [report]="report" modal-button pull-left></medium-temp>\n\n            </ion-col>\n\n          </ion-row>\n\n          <ion-row>\n\n            <ion-col col-10>\n\n              <ion-item>\n\n                <ion-label stacked>Ambient temperature (<sup>º</sup>C)</ion-label>\n\n                <ion-input tabindex="9" (ionFocus)="on_focus($event)" (keyup.enter)="on_keypress($event)" name="ambient_temp"\n\n                  [pattern]="patterns.REQUIRED_NUMBER" data-val-pattern="Please input a valid Ambient temperature"\n\n                  required data-val-required="Please input Ambient temperature" [(ngModel)]="report.component.fields.ambient_temp"\n\n                  type="tel"></ion-input>\n\n              </ion-item>\n\n            </ion-col>\n\n            <ion-col col-2></ion-col>\n\n          </ion-row>\n\n          <ion-row>\n\n            <ion-col col-12>\n\n              <ion-item>\n\n                <ion-label stacked>Annual Saving Potenyial</ion-label>\n\n                <ion-input tabindex="-1" name="annual_saving" value="{{report.annual_saving}}" type="text"></ion-input>\n\n              </ion-item>\n\n            </ion-col>\n\n          </ion-row>\n\n        </form>\n\n      </ion-col>\n\n\n\n      <ion-col col-5 col-lg-8 no-padding>\n\n        <ion-row>\n\n          <ion-col col-12 picture-slide [report]="report" [editable]="editable" (onStartEdit)="on_picture_start_edit($event)">\n\n          </ion-col>\n\n        </ion-row>\n\n      </ion-col>\n\n    </ion-row>\n\n    <ion-row>\n\n      <ion-col col-12 padding>\n\n        <report-result col-12 [parent]="this" *ngIf="view==\'result\' && (!!form && !form.invalid)"></report-result>\n\n      </ion-col>\n\n      <ion-col col-12 padding>\n\n        <report-errors padding #errors col-12 [hidden]="view==\'!result\' && report.result"></report-errors>\n\n      </ion-col>\n\n    </ion-row>\n\n  </ion-grid>\n\n\n\n  <edit-picture *ngIf="view==\'edit_picture\'" [report]="report" [picture]="editing_picture"></edit-picture>\n\n\n\n</ion-content>\n\n\n\n<report-footer [parent]="this"></report-footer>\n\n'/*ion-inline-end:"D:\Sofware Factory\tbi\src\pages\reports\ipipe\report-ipipe.component.html"*/
+            selector: 'page-report-pipe',template:/*ion-inline-start:"D:\Sofware Factory\tbi\src\pages\reports\ipipe\report-ipipe.component.html"*/'<report-header [parent]="this"></report-header>\n\n\n\n<ion-content #content>\n\n\n\n  <ion-grid [hidden]="view==\'edit_picture\'" class="fixed-col">\n\n    <ion-row>\n\n      <ion-col col-7 col-lg-8 no-padding>\n\n        <form novalidate #form="ngForm" [hidden]="segment!=\'input\'" (submit)="calculate()">\n\n          <ion-row>\n\n            <ion-col col-10>\n\n              <ion-item>\n\n                <ion-label stacked>Component/Location</ion-label>\n\n                <ion-input tabindex="1" (ionFocus)="on_focus($event)" name="location" required data-val-required="Please input Component/Location"\n\n                  [(ngModel)]="report.component.fields.location" type="text"></ion-input>\n\n              </ion-item>\n\n            </ion-col>\n\n            <ion-col col-2></ion-col>\n\n          </ion-row>\n\n          <ion-row>\n\n            <ion-col col-10>\n\n              <ion-item>\n\n                <ion-label stacked>Operational time (hours)</ion-label>\n\n                <ion-input tabindex="2" (ionFocus)="on_focus($event)" required data-val-required="Please input operational time"\n\n                  name="operational_time" [(ngModel)]="report.component.fields.operational_time" type="number"></ion-input>\n\n              </ion-item>\n\n            </ion-col>\n\n            <ion-col col-2>\n\n              <more pull-left #time (change)="report.component.fields.operational_time=time.value" [type]="\'time\'"\n\n                modal-button></more>\n\n            </ion-col>\n\n          </ion-row>\n\n          <ion-row>\n\n            <ion-col col-7>\n\n              <ion-item>\n\n                <ion-label stacked>Diameter (mm)</ion-label>\n\n                <ion-input #after_time tabindex="3" (ionFocus)="on_focus($event)" name="nominal_diameter" required\n\n                  data-val-required="Please input Diameter" [(ngModel)]="report.component.fields.nominal_diameter"\n\n                  type="number"></ion-input>\n\n              </ion-item>\n\n            </ion-col>\n\n            <ion-col col-4>\n\n              <ion-item>\n\n                <ion-label stacked>Length (m)</ion-label>\n\n                <ion-input tabindex="4" (ionFocus)="on_focus($event)" name="number" required data-val-required="Please input length"\n\n                  [(ngModel)]="report.component.fields.length" type="number"></ion-input>\n\n              </ion-item>\n\n            </ion-col>\n\n            <ion-col col-1></ion-col>\n\n          </ion-row>\n\n          <ion-row>\n\n            <ion-col col-10>\n\n              <ion-item class="edit_surface_material" [class.editable]="edit_surface_material">\n\n                <ion-label stacked>Surface material [ε]</ion-label>\n\n                <ion-input tabindex="5" class="literal" (ionFocus)="on_focus($event);toggle_surface_material(true)"\n\n                  [value]="report.component.fields.surface_material_friendly" type="text"></ion-input>\n\n                <ion-input tabindex="6" (ionFocus)="on_focus($event)" class="numeric" (focusout)="toggle_surface_material(false)"\n\n                  (ionFocus)="on_focus($event)" name="surface_material" required data-val-required="Please input surface emissivity"\n\n                  [(ngModel)]="report.component.fields.surface_material" type="number" (change)="set_surface_material(report.component.fields.surface_material, $event)"></ion-input>\n\n              </ion-item>\n\n            </ion-col>\n\n            <ion-col col-2>\n\n              <more pull-left #material (change)="set_surface_material(material.value, $event)" [type]="\'materials\'"\n\n                modal-button></more>\n\n            </ion-col>\n\n          </ion-row>\n\n          <ion-row>\n\n            <ion-col col-10>\n\n              <ion-item>\n\n                <ion-label stacked>Medium temperature (<sup>º</sup>C)</ion-label>\n\n                <ion-input #after_material tabindex="7" (ionFocus)="on_focus($event)" name="medium_temp" [pattern]="patterns.REQUIRED_NUMBER"\n\n                  data-val-pattern="Please input a valid Medium temperature" required data-val-required="Please input Medium temperature"\n\n                  [(ngModel)]="report.component.fields.medium_temp" type="tel"></ion-input>\n\n              </ion-item>\n\n            </ion-col>\n\n          </ion-row>\n\n          <ion-row>\n\n            <ion-col col-10>\n\n              <ion-item>\n\n                <ion-label stacked>Surface temperature (<sup>º</sup>C)</ion-label>\n\n                <ion-input tabindex="8" (ionFocus)="on_focus($event)" name="surface_temp" [pattern]="patterns.REQUIRED_NUMBER"\n\n                  data-val-pattern="Please input a valid Surface temperature" required data-val-required="Please input Surface temperature"\n\n                  [(ngModel)]="report.component.fields.surface_temp" type="tel"></ion-input>\n\n              </ion-item>\n\n            </ion-col>\n\n            <ion-col col-2>\n\n              <!-- <medium-temp #medium (change)="report.component.fields.surface_temp=medium.value" modal-button pull-left></medium-temp> -->\n\n              <medium-temp #medium [report]="report" modal-button pull-left></medium-temp>\n\n            </ion-col>\n\n          </ion-row>\n\n          <ion-row>\n\n            <ion-col col-10>\n\n              <ion-item>\n\n                <ion-label stacked>Ambient temperature (<sup>º</sup>C)</ion-label>\n\n                <ion-input tabindex="9" (ionFocus)="on_focus($event)" (keyup.enter)="on_keypress($event)" name="ambient_temp"\n\n                  [pattern]="patterns.REQUIRED_NUMBER" data-val-pattern="Please input a valid Ambient temperature"\n\n                  required data-val-required="Please input Ambient temperature" [(ngModel)]="report.component.fields.ambient_temp"\n\n                  type="tel"></ion-input>\n\n              </ion-item>\n\n            </ion-col>\n\n            <ion-col col-2></ion-col>\n\n          </ion-row>\n\n          <ion-row>\n\n            <ion-col col-12>\n\n              <ion-item>\n\n                <ion-label stacked>Annual Saving Potenyial</ion-label>\n\n                <ion-input tabindex="-1" name="annual_saving" value="{{report.annual_saving}}" type="text"></ion-input>\n\n              </ion-item>\n\n            </ion-col>\n\n          </ion-row>\n\n        </form>\n\n      </ion-col>\n\n\n\n      <ion-col col-5 col-lg-8 no-padding>\n\n        <ion-row>\n\n          <ion-col col-12 picture-slide [parent]="this"   [report]="report" [editable]="editable" (onStartEdit)="on_picture_start_edit($event)">\n\n          </ion-col>\n\n        </ion-row>\n\n      </ion-col>\n\n    </ion-row>\n\n    <ion-row>\n\n      <ion-col col-12 padding>\n\n        <div report-result col-12 [parent]="this" *ngIf="view==\'result\' && (!!form && !form.invalid)"></div>\n\n      </ion-col>\n\n      <ion-col col-12 padding>\n\n        <report-errors padding #errors col-12 [hidden]="view==\'!result\' && report.result"></report-errors>\n\n      </ion-col>\n\n    </ion-row>\n\n  </ion-grid>\n\n\n\n  <edit-picture *ngIf="view==\'edit_picture\'" [report]="report" [picture]="editing_picture"></edit-picture>\n\n\n\n</ion-content>\n\n\n\n<report-footer [parent]="this"></report-footer>\n\n'/*ion-inline-end:"D:\Sofware Factory\tbi\src\pages\reports\ipipe\report-ipipe.component.html"*/
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2_ionic_angular__["h" /* NavController */],
-            __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["i" /* NavParams */],
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2_ionic_angular__["j" /* NavController */],
+            __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["k" /* NavParams */],
             __WEBPACK_IMPORTED_MODULE_3__services_report_service__["a" /* ReportService */],
             __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["b" /* AlertController */],
-            __WEBPACK_IMPORTED_MODULE_6__services__["c" /* PictureService */],
+            __WEBPACK_IMPORTED_MODULE_6__services__["d" /* PictureService */],
             __WEBPACK_IMPORTED_MODULE_5__services_messages_service__["a" /* MessageService */],
-            __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["f" /* Keyboard */]])
+            __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["g" /* Keyboard */]])
     ], ReportInsulatedPipePage);
     return ReportInsulatedPipePage;
 }(__WEBPACK_IMPORTED_MODULE_1__models_reports__["a" /* BaseReportPage */]));
@@ -5767,14 +5911,14 @@ var ReportInsulatedPipePage = /** @class */ (function (_super) {
 
 /***/ }),
 
-/***/ 598:
+/***/ 605:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ReportDamagedPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__models_reports__ = __webpack_require__(21);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(6);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(5);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__services_report_service__ = __webpack_require__(30);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__services_messages_service__ = __webpack_require__(16);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__services__ = __webpack_require__(17);
@@ -5848,15 +5992,15 @@ var ReportDamagedPage = /** @class */ (function (_super) {
     };
     ReportDamagedPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-report-damaged',template:/*ion-inline-start:"D:\Sofware Factory\tbi\src\pages\reports\damaged\report-damaged.component.html"*/'<report-header [parent]="this"></report-header>\n\n\n\n<ion-content #content>\n\n\n\n  <ion-grid [hidden]="view==\'edit_picture\'" class="fixed-col">\n\n    <ion-row>\n\n      <ion-col col-7 col-lg-6 no-padding>\n\n        <form novalidate #form="ngForm" [hidden]="segment!=\'input\'" (submit)="calculate()">\n\n          <ion-row>\n\n            <ion-col col-10>\n\n              <ion-item>\n\n                <ion-label stacked>Component/Location</ion-label>\n\n                <ion-input [disabled]="!editable" tabindex="1" (ionFocus)="on_focus($event)" name="location" required\n\n                  data-val-required="Please input Component/Location" [(ngModel)]="report.component.fields.location"\n\n                  type="text"></ion-input>\n\n              </ion-item>\n\n            </ion-col>\n\n            <ion-col col-12></ion-col>\n\n          </ion-row>\n\n          <ion-row>\n\n            <ion-col col-10>\n\n              <ion-item>\n\n                <ion-label stacked>Summary Id</ion-label>\n\n                <ion-input tabindex="2" (ionFocus)="on_focus($event)" name="summary_id" [(ngModel)]="report.summary_id"\n\n                  required data-val-required="Please input summary id" type="text"></ion-input>\n\n              </ion-item>\n\n            </ion-col>\n\n          </ion-row>\n\n          <ion-row [hidden]="true">\n\n            <ion-col>\n\n              <ion-item>\n\n                <ion-input type="hidden" name="pictures" required data-val-required="Please take a picture" [(ngModel)]="picture_qty"></ion-input>\n\n              </ion-item>\n\n            </ion-col>\n\n          </ion-row>\n\n          <!--\n\n          <ion-row>\n\n            <ion-col col-10>\n\n              <ion-item>\n\n                <ion-label stacked>Operational time (hours)</ion-label>\n\n                <ion-input [disabled]="!editable" tabindex="2" (ionFocus)="on_focus($event)"\n\n                  name="operational_time" [(ngModel)]="report.component.fields.operational_time" type="number"></ion-input>\n\n              </ion-item>\n\n            </ion-col>\n\n            <ion-col col-2>\n\n              <more pull-left *ngIf="editable" #time (change)="report.component.fields.operational_time=time.value"\n\n                [type]="\'time\'" modal-button></more>\n\n            </ion-col>\n\n          </ion-row>\n\n          <ion-row>\n\n            <ion-col col-10>\n\n              <ion-item class="edit_surface_material" [class.editable]="edit_surface_material">\n\n                <ion-label stacked>Surface material [ε]</ion-label>\n\n                <ion-input #after_time [disabled]="!editable" tabindex="5" class="literal" (ionFocus)="on_focus($event);toggle_surface_material(true)"\n\n                  [value]="report.component.fields.surface_material_friendly" type="text"></ion-input>\n\n                <ion-input [disabled]="!editable" tabindex="6" class="numeric" (ionFocus)="on_focus($event)" (focusout)="toggle_surface_material(false)"\n\n                  name="surface_material" [(ngModel)]="report.component.fields.surface_material"\n\n                  type="number" (change)="set_surface_material(report.component.fields.surface_material, $event)"></ion-input>\n\n              </ion-item>\n\n            </ion-col>\n\n            <ion-col col-2>\n\n              <more pull-left *ngIf="editable" #material (change)="set_surface_material(material.value, $event)" [type]="\'materials\'"\n\n                modal-button></more>\n\n            </ion-col>\n\n          </ion-row>\n\n          <ion-row>\n\n            <ion-col col-10>\n\n              <ion-item>\n\n                <ion-label stacked>Medium temperature (<sup>º</sup>C)</ion-label>\n\n                <ion-input #after_material [disabled]="!editable" tabindex="7" (ionFocus)="on_focus($event)" scroll="-80" name="surface_temp"\n\n                  [pattern]="patterns.REQUIRED_NUMBER" data-val-pattern="Please input a valid Medium temperature"\n\n                  [(ngModel)]="report.component.fields.surface_temp" type="tel"></ion-input>\n\n              </ion-item>\n\n            </ion-col>\n\n          </ion-row>\n\n          -->\n\n          <ion-row>\n\n            <ion-col col-10>\n\n              <ion-item>\n\n                <ion-label stacked style="margin-top: 1.4rem;color: #999;">Damaged cladding</ion-label>\n\n                <ion-toggle [(ngModel)]="report.component.fields.damaged_cladding" name="damaged_cladding"></ion-toggle>\n\n              </ion-item>\n\n            </ion-col>\n\n          </ion-row>\n\n          <ion-row *ngIf="report.component.fields.damaged_cladding">\n\n            <ion-col col-9 offset-1>\n\n              <ion-list radio-group [(ngModel)]="report.component.fields.damaged_cladding_selection" name="radio-cladding">\n\n                <ion-item>\n\n                  <ion-label>Lack of cladding</ion-label>\n\n                  <ion-checkbox value="1"></ion-checkbox>\n\n                </ion-item>\n\n\n\n                <ion-item>\n\n                  <ion-label>Foot traffic/Dent</ion-label>\n\n                  <ion-checkbox value="2"></ion-checkbox>\n\n                </ion-item>\n\n\n\n                <ion-item>\n\n                  <ion-label>Highly corred</ion-label>\n\n                  <ion-checkbox value="3"></ion-checkbox>\n\n                </ion-item>\n\n              </ion-list>\n\n            </ion-col>\n\n          </ion-row>\n\n\n\n\n\n          <ion-row>\n\n            <ion-col col-10>\n\n              <ion-item>\n\n                <ion-label stacked style="margin-top: 1.4rem;color: #999;">Damaged insulation</ion-label>\n\n                <ion-toggle [(ngModel)]="report.component.fields.damaged_insulation" name="damaged_insulation"></ion-toggle>\n\n              </ion-item>\n\n            </ion-col>\n\n          </ion-row>\n\n\n\n          <ion-row *ngIf="report.component.fields.damaged_insulation">\n\n            <ion-col col-9 offset-1>\n\n              <ion-list radio-group [(ngModel)]="report.component.fields.damaged_insulation_selection" name="radio-cladding">\n\n                <ion-item>\n\n                  <ion-label>Lack of insulation</ion-label>\n\n                  <ion-checkbox value="1"></ion-checkbox>\n\n                </ion-item>\n\n\n\n                <ion-item>\n\n                  <ion-label>Wet insulation</ion-label>\n\n                  <ion-checkbox value="2"></ion-checkbox>\n\n                </ion-item>\n\n\n\n                <ion-item>\n\n                  <ion-label>Old insulation</ion-label>\n\n                  <ion-checkbox value="3"></ion-checkbox>\n\n                </ion-item>\n\n\n\n                \n\n              </ion-list>\n\n            </ion-col>\n\n          </ion-row>\n\n\n\n          <ion-row>\n\n            <ion-col col-10>\n\n              <ion-item>\n\n                <ion-label stacked>Comments</ion-label>\n\n                <ion-input type="text" tabindex="8" (ionFocus)="on_focus($event)" (keyup.enter)="on_keypress($event)"\n\n                  name="Comments" [(ngModel)]="report.component.fields.damaged_comment"></ion-input>\n\n              </ion-item>\n\n            </ion-col>\n\n          </ion-row>\n\n\n\n        </form>\n\n      </ion-col>\n\n      <ion-col col-5 col-lg-6 no-padding>\n\n        <ion-row>\n\n          <ion-col col-12 picture-slide [report]="report" [editable]="false" (onStartEdit)="on_picture_start_edit($event)"></ion-col>\n\n        </ion-row>\n\n      </ion-col>\n\n    </ion-row>\n\n    \n\n    <report-errors padding #errors col-12 [hidden]="view==\'!result\' && report.result"></report-errors>\n\n<!--\n\n    <ion-row>\n\n      <ion-col col-12>\n\n        <ion-row col-12 p-4 *ngIf="view==\'result\' && (!!form && !form.invalid)" mx-3>\n\n          <ion-col col-8 class="damaged-result" *ngIf="report.component.fields.damaged_cladding">Cladding holds\n\n            insualtion in place an protect it from external agents ensuring its performance.</ion-col>\n\n          <ion-col col-12 class="damaged-result" *ngIf="report.component.fields.damaged_cladding_selection == 1">The\n\n            insulation is not protected anymore, water or other agent could get in.</ion-col>\n\n          <ion-col col-12 class="damaged-result" *ngIf="report.component.fields.damaged_cladding_selection == 2">There\n\n            is a reduction of the insulation thickness, higher energy conmsuption. The system is not watertight\n\n            anhmore.</ion-col>\n\n          <ion-col col-12 class="damaged-result" *ngIf="report.component.fields.damaged_cladding_selection == 3">Probably,\n\n            there is a leak above in the system. Jacketing as a protecting layer gets weaker.</ion-col>\n\n\n\n          <ion-col col-8 class="damaged-result" *ngIf="report.component.fields.damaged_insulation">Any damage in the\n\n            insulant leads to reduce its thermal performance and to increase the energy consumption.</ion-col>\n\n          <ion-col col-12 class="damaged-result" *ngIf="report.component.fields.damaged_insulation_selection == 1">A\n\n            lack of insulation in a system means an easy way out/in for the heat increasing the energy consumption.</ion-col>\n\n          <ion-col col-12 class="damaged-result" *ngIf="report.component.fields.damaged_insulation_selection == 2">Moisture\n\n            inside the insulation structure can reduce the thermal performance up to 50% and increase the risk of CUI.</ion-col>\n\n          <ion-col col-12 class="damaged-result" *ngIf="report.component.fields.damaged_insulation_selection == 3">Heat\n\n            cycles and external condition changes affect the estructure of the insulant reducing its performance.</ion-col>\n\n\n\n        </ion-row>\n\n      </ion-col>\n\n\n\n    </ion-row>\n\n    -->\n\n  </ion-grid>\n\n\n\n  <edit-picture *ngIf="view==\'edit_picture\'" [report]="report" [picture]="editing_picture"></edit-picture>\n\n\n\n</ion-content>\n\n\n\n<report-footer [parent]="this" [calculate_text]="\'Validate\'"></report-footer>\n\n'/*ion-inline-end:"D:\Sofware Factory\tbi\src\pages\reports\damaged\report-damaged.component.html"*/
+            selector: 'page-report-damaged',template:/*ion-inline-start:"D:\Sofware Factory\tbi\src\pages\reports\damaged\report-damaged.component.html"*/'<report-header [parent]="this"></report-header>\n\n\n\n<ion-content #content>\n\n\n\n  <ion-grid [hidden]="view==\'edit_picture\'" class="fixed-col">\n\n    <ion-row>\n\n      <ion-col col-7 col-lg-6 no-padding>\n\n        <form novalidate #form="ngForm" [hidden]="segment!=\'input\'" (submit)="calculate()">\n\n          <ion-row>\n\n            <ion-col col-10>\n\n              <ion-item>\n\n                <ion-label stacked>Component/Location</ion-label>\n\n                <ion-input [disabled]="!editable" tabindex="1" (ionFocus)="on_focus($event)" name="location" required\n\n                  data-val-required="Please input Component/Location" [(ngModel)]="report.component.fields.location"\n\n                  type="text"></ion-input>\n\n              </ion-item>\n\n            </ion-col>\n\n            <ion-col col-12></ion-col>\n\n          </ion-row>\n\n          <ion-row>\n\n            <ion-col col-10>\n\n              <ion-item>\n\n                <ion-label stacked>Summary Id</ion-label>\n\n                <ion-input tabindex="2" (ionFocus)="on_focus($event)" name="summary_id" [(ngModel)]="report.summary_id"\n\n                  required data-val-required="Please input summary id" type="text"></ion-input>\n\n              </ion-item>\n\n            </ion-col>\n\n          </ion-row>\n\n          <ion-row [hidden]="true">\n\n            <ion-col>\n\n              <ion-item>\n\n                <ion-input type="hidden" name="pictures" required data-val-required="Please take a picture" [(ngModel)]="picture_qty"></ion-input>\n\n              </ion-item>\n\n            </ion-col>\n\n          </ion-row>\n\n          <!--\n\n          <ion-row>\n\n            <ion-col col-10>\n\n              <ion-item>\n\n                <ion-label stacked>Operational time (hours)</ion-label>\n\n                <ion-input [disabled]="!editable" tabindex="2" (ionFocus)="on_focus($event)"\n\n                  name="operational_time" [(ngModel)]="report.component.fields.operational_time" type="number"></ion-input>\n\n              </ion-item>\n\n            </ion-col>\n\n            <ion-col col-2>\n\n              <more pull-left *ngIf="editable" #time (change)="report.component.fields.operational_time=time.value"\n\n                [type]="\'time\'" modal-button></more>\n\n            </ion-col>\n\n          </ion-row>\n\n          <ion-row>\n\n            <ion-col col-10>\n\n              <ion-item class="edit_surface_material" [class.editable]="edit_surface_material">\n\n                <ion-label stacked>Surface material [ε]</ion-label>\n\n                <ion-input #after_time [disabled]="!editable" tabindex="5" class="literal" (ionFocus)="on_focus($event);toggle_surface_material(true)"\n\n                  [value]="report.component.fields.surface_material_friendly" type="text"></ion-input>\n\n                <ion-input [disabled]="!editable" tabindex="6" class="numeric" (ionFocus)="on_focus($event)" (focusout)="toggle_surface_material(false)"\n\n                  name="surface_material" [(ngModel)]="report.component.fields.surface_material"\n\n                  type="number" (change)="set_surface_material(report.component.fields.surface_material, $event)"></ion-input>\n\n              </ion-item>\n\n            </ion-col>\n\n            <ion-col col-2>\n\n              <more pull-left *ngIf="editable" #material (change)="set_surface_material(material.value, $event)" [type]="\'materials\'"\n\n                modal-button></more>\n\n            </ion-col>\n\n          </ion-row>\n\n          <ion-row>\n\n            <ion-col col-10>\n\n              <ion-item>\n\n                <ion-label stacked>Medium temperature (<sup>º</sup>C)</ion-label>\n\n                <ion-input #after_material [disabled]="!editable" tabindex="7" (ionFocus)="on_focus($event)" scroll="-80" name="surface_temp"\n\n                  [pattern]="patterns.REQUIRED_NUMBER" data-val-pattern="Please input a valid Medium temperature"\n\n                  [(ngModel)]="report.component.fields.surface_temp" type="tel"></ion-input>\n\n              </ion-item>\n\n            </ion-col>\n\n          </ion-row>\n\n          -->\n\n          <ion-row>\n\n            <ion-col col-10>\n\n              <ion-item>\n\n                <ion-label stacked style="margin-top: 1.4rem;color: #999;">Damaged cladding</ion-label>\n\n                <ion-toggle [(ngModel)]="report.component.fields.damaged_cladding" name="damaged_cladding"></ion-toggle>\n\n              </ion-item>\n\n            </ion-col>\n\n          </ion-row>\n\n          <ion-row *ngIf="report.component.fields.damaged_cladding">\n\n            <ion-col col-9 offset-1>\n\n              <ion-list radio-group [(ngModel)]="report.component.fields.damaged_cladding_selection" name="radio-cladding">\n\n                <ion-item>\n\n                  <ion-label>Lack of cladding</ion-label>\n\n                  <ion-checkbox value="1"></ion-checkbox>\n\n                </ion-item>\n\n\n\n                <ion-item>\n\n                  <ion-label>Foot traffic/Dent</ion-label>\n\n                  <ion-checkbox value="2"></ion-checkbox>\n\n                </ion-item>\n\n\n\n                <ion-item>\n\n                  <ion-label>Highly corred</ion-label>\n\n                  <ion-checkbox value="3"></ion-checkbox>\n\n                </ion-item>\n\n              </ion-list>\n\n            </ion-col>\n\n          </ion-row>\n\n\n\n\n\n          <ion-row>\n\n            <ion-col col-10>\n\n              <ion-item>\n\n                <ion-label stacked style="margin-top: 1.4rem;color: #999;">Damaged insulation</ion-label>\n\n                <ion-toggle [(ngModel)]="report.component.fields.damaged_insulation" name="damaged_insulation"></ion-toggle>\n\n              </ion-item>\n\n            </ion-col>\n\n          </ion-row>\n\n\n\n          <ion-row *ngIf="report.component.fields.damaged_insulation">\n\n            <ion-col col-9 offset-1>\n\n              <ion-list radio-group [(ngModel)]="report.component.fields.damaged_insulation_selection" name="radio-cladding">\n\n                <ion-item>\n\n                  <ion-label>Lack of insulation</ion-label>\n\n                  <ion-checkbox value="1"></ion-checkbox>\n\n                </ion-item>\n\n\n\n                <ion-item>\n\n                  <ion-label>Wet insulation</ion-label>\n\n                  <ion-checkbox value="2"></ion-checkbox>\n\n                </ion-item>\n\n\n\n                <ion-item>\n\n                  <ion-label>Old insulation</ion-label>\n\n                  <ion-checkbox value="3"></ion-checkbox>\n\n                </ion-item>\n\n\n\n                \n\n              </ion-list>\n\n            </ion-col>\n\n          </ion-row>\n\n\n\n          <ion-row>\n\n            <ion-col col-10>\n\n              <ion-item>\n\n                <ion-label stacked>Comments</ion-label>\n\n                <ion-input type="text" tabindex="8" (ionFocus)="on_focus($event)" (keyup.enter)="on_keypress($event)"\n\n                  name="Comments" [(ngModel)]="report.component.fields.damaged_comment"></ion-input>\n\n              </ion-item>\n\n            </ion-col>\n\n          </ion-row>\n\n\n\n        </form>\n\n      </ion-col>\n\n      <ion-col col-5 col-lg-6 no-padding>\n\n        <ion-row>\n\n          <ion-col col-12 picture-slide [parent]="this"   [report]="report" [editable]="false" (onStartEdit)="on_picture_start_edit($event)"></ion-col>\n\n        </ion-row>\n\n      </ion-col>\n\n    </ion-row>\n\n    \n\n    <report-errors padding #errors col-12 [hidden]="view==\'!result\' && report.result"></report-errors>\n\n<!--\n\n    <ion-row>\n\n      <ion-col col-12>\n\n        <ion-row col-12 p-4 *ngIf="view==\'result\' && (!!form && !form.invalid)" mx-3>\n\n          <ion-col col-8 class="damaged-result" *ngIf="report.component.fields.damaged_cladding">Cladding holds\n\n            insualtion in place an protect it from external agents ensuring its performance.</ion-col>\n\n          <ion-col col-12 class="damaged-result" *ngIf="report.component.fields.damaged_cladding_selection == 1">The\n\n            insulation is not protected anymore, water or other agent could get in.</ion-col>\n\n          <ion-col col-12 class="damaged-result" *ngIf="report.component.fields.damaged_cladding_selection == 2">There\n\n            is a reduction of the insulation thickness, higher energy conmsuption. The system is not watertight\n\n            anhmore.</ion-col>\n\n          <ion-col col-12 class="damaged-result" *ngIf="report.component.fields.damaged_cladding_selection == 3">Probably,\n\n            there is a leak above in the system. Jacketing as a protecting layer gets weaker.</ion-col>\n\n\n\n          <ion-col col-8 class="damaged-result" *ngIf="report.component.fields.damaged_insulation">Any damage in the\n\n            insulant leads to reduce its thermal performance and to increase the energy consumption.</ion-col>\n\n          <ion-col col-12 class="damaged-result" *ngIf="report.component.fields.damaged_insulation_selection == 1">A\n\n            lack of insulation in a system means an easy way out/in for the heat increasing the energy consumption.</ion-col>\n\n          <ion-col col-12 class="damaged-result" *ngIf="report.component.fields.damaged_insulation_selection == 2">Moisture\n\n            inside the insulation structure can reduce the thermal performance up to 50% and increase the risk of CUI.</ion-col>\n\n          <ion-col col-12 class="damaged-result" *ngIf="report.component.fields.damaged_insulation_selection == 3">Heat\n\n            cycles and external condition changes affect the estructure of the insulant reducing its performance.</ion-col>\n\n\n\n        </ion-row>\n\n      </ion-col>\n\n\n\n    </ion-row>\n\n    -->\n\n  </ion-grid>\n\n\n\n  <edit-picture *ngIf="view==\'edit_picture\'" [report]="report" [picture]="editing_picture"></edit-picture>\n\n\n\n</ion-content>\n\n\n\n<report-footer [parent]="this" [calculate_text]="\'Validate\'"></report-footer>\n\n'/*ion-inline-end:"D:\Sofware Factory\tbi\src\pages\reports\damaged\report-damaged.component.html"*/
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2_ionic_angular__["h" /* NavController */],
-            __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["i" /* NavParams */],
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2_ionic_angular__["j" /* NavController */],
+            __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["k" /* NavParams */],
             __WEBPACK_IMPORTED_MODULE_3__services_report_service__["a" /* ReportService */],
             __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["b" /* AlertController */],
-            __WEBPACK_IMPORTED_MODULE_5__services__["c" /* PictureService */],
+            __WEBPACK_IMPORTED_MODULE_5__services__["d" /* PictureService */],
             __WEBPACK_IMPORTED_MODULE_4__services_messages_service__["a" /* MessageService */],
-            __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["f" /* Keyboard */]])
+            __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["g" /* Keyboard */]])
     ], ReportDamagedPage);
     return ReportDamagedPage;
 }(__WEBPACK_IMPORTED_MODULE_1__models_reports__["a" /* BaseReportPage */]));
@@ -5865,14 +6009,14 @@ var ReportDamagedPage = /** @class */ (function (_super) {
 
 /***/ }),
 
-/***/ 599:
+/***/ 606:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ReportCondensationPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__models_reports__ = __webpack_require__(21);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(6);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(5);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__services_report_service__ = __webpack_require__(30);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__services_messages_service__ = __webpack_require__(16);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__services__ = __webpack_require__(17);
@@ -5926,15 +6070,15 @@ var ReportCondensationPage = /** @class */ (function (_super) {
     };
     ReportCondensationPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-report-condensation',template:/*ion-inline-start:"D:\Sofware Factory\tbi\src\pages\reports\condensation\report-condensation.component.html"*/'<report-header [parent]="this"></report-header>\n\n\n\n<ion-content #content>\n\n\n\n  <ion-grid [hidden]="view==\'edit_picture\'">\n\n    <ion-row>\n\n      <ion-col col-7 col-lg-6 no-padding>\n\n        <form novalidate #form="ngForm" [hidden]="segment!=\'input\'" (submit)="calculate()">\n\n          <ion-row>\n\n            <ion-col col-10>\n\n              <ion-item>\n\n                <ion-label stacked>Component/Location</ion-label>\n\n                <ion-input tabindex="1" (ionFocus)="on_focus($event)" name="location" required data-val-required="Please input Component/Location"\n\n                  [(ngModel)]="report.component.fields.location" type="text"></ion-input>\n\n              </ion-item>\n\n            </ion-col>\n\n            <ion-col col-12></ion-col>\n\n          </ion-row>\n\n          <ion-row [hidden]="true">\n\n            <ion-col>\n\n              <ion-item>\n\n                <ion-input type="hidden" name="pictures" required data-val-required="Please take a picture" [(ngModel)]="picture_qty"></ion-input>\n\n              </ion-item>\n\n            </ion-col>\n\n          </ion-row>\n\n          <ion-row>\n\n            <ion-col col-10>\n\n              <ion-item>\n\n                <ion-label stacked>Summary Id</ion-label>\n\n                <ion-input tabindex="2" (ionFocus)="on_focus($event)" name="summary_id" [(ngModel)]="report.summary_id"\n\n                  required data-val-required="Please input summary id" type="text"></ion-input>\n\n              </ion-item>\n\n            </ion-col>\n\n          </ion-row>\n\n          <!--\n\n          <ion-row>\n\n            <ion-col col-10>\n\n              <ion-item>\n\n                <ion-label stacked>Operational time (hours)</ion-label>\n\n                <ion-input tabindex="3" (ionFocus)="on_focus($event)" name="operational_time" [(ngModel)]="report.component.fields.operational_time"\n\n                  type="number"></ion-input>\n\n              </ion-item>\n\n            </ion-col>\n\n            <ion-col col-2>\n\n              <more pull-left #time (change)="report.component.fields.operational_time=time.value" [type]="\'time\'"\n\n                modal-button></more>\n\n            </ion-col>\n\n          </ion-row>\n\n          <ion-row>\n\n            <ion-col col-10>\n\n              <ion-item class="edit_surface_material" [class.editable]="edit_surface_material">\n\n                <ion-label stacked>Surface material [ε]</ion-label>\n\n                <ion-input tabindex="4" #after_time class="literal" (ionFocus)="on_focus($event);toggle_surface_material(true)"\n\n                  [value]="report.component.fields.surface_material_friendly" type="text"></ion-input>\n\n                <ion-input tabindex="5" class="numeric" (ionFocus)="on_focus($event)" (focusout)="toggle_surface_material(false)"\n\n                  name="surface_material" [(ngModel)]="report.component.fields.surface_material" type="number" (change)="set_surface_material(report.component.fields.surface_material, $event)"></ion-input>\n\n              </ion-item>\n\n            </ion-col>\n\n            <ion-col col-2>\n\n              <more pull-left #material (change)="set_surface_material(material.value, $event)" [type]="\'materials\'"\n\n                modal-button></more>\n\n            </ion-col>\n\n          </ion-row>\n\n          <ion-row>\n\n            <ion-col col-10>\n\n              <ion-item>\n\n                <ion-label stacked>Medium temperature (<sup>º</sup>C)</ion-label>\n\n                <ion-input tabindex="6" #after_material (ionFocus)="on_focus($event)" (keyup.enter)="on_keypress($event)" name="surface_temp"\n\n                  [pattern]="patterns.REQUIRED_NUMBER" data-val-pattern="Please input a valid Medium temperature" \n\n                  [(ngModel)]="report.component.fields.surface_temp" type="tel"></ion-input>\n\n              </ion-item>\n\n            </ion-col>\n\n          </ion-row>\n\n        -->\n\n          <ion-row>\n\n            <ion-col col-6>\n\n              <ion-item>\n\n                <ion-label stacked style="margin-top: 1.4rem;color: #999;">Ice block</ion-label>\n\n                <ion-toggle tabindex="7" [(ngModel)]="report.component.fields.condensation_ice_block" name="ice_block"></ion-toggle>\n\n              </ion-item>\n\n            </ion-col>\n\n            <ion-col col-6></ion-col>\n\n            <ion-col col-6>\n\n              <ion-item>\n\n                <ion-label stacked style="margin-top: 1.4rem;color: #999;">Wet surface</ion-label>\n\n                <ion-toggle tabindex="8" [(ngModel)]="report.component.fields.condensation_wet_surface" name="wet_surface"></ion-toggle>\n\n              </ion-item>\n\n            </ion-col>\n\n            <ion-col col-6></ion-col>\n\n            <!-- <ion-col col-6>\n\n              <ion-item>\n\n                <ion-label stacked style="margin-top: 1.4rem;color: #999;">Others</ion-label>\n\n                <ion-toggle tabindex="9" [(ngModel)]="report.component.fields.condensation_other" name="other"></ion-toggle>\n\n              </ion-item>\n\n            </ion-col> -->\n\n          </ion-row>\n\n          <ion-row>\n\n              <ion-col col-10>\n\n                <ion-item>\n\n                  <ion-label stacked>Comments</ion-label>\n\n                  <ion-input type="text" tabindex="8" (ionFocus)="on_focus($event)" (keyup.enter)="on_keypress($event)"\n\n                    name="Comments" [(ngModel)]="report.component.fields.condensation_comment"></ion-input>\n\n                </ion-item>\n\n              </ion-col>\n\n            </ion-row>\n\n  \n\n        </form>\n\n      </ion-col>\n\n      <ion-col col-5 col-lg-6 no-padding>\n\n        <ion-row>\n\n            <ion-col col-12 picture-slide  [report]="report" [editable]="false"  (onStartEdit)="on_picture_start_edit($event)"></ion-col>\n\n        </ion-row>\n\n        <!-- <ion-row col-12 p-4 *ngIf="view==\'result\' && (!!form && !form.invalid)">\n\n          <ion-col col-4 img-container [style.backgroundImage]="\'url(\'+ first_picture +\')\'"></ion-col>\n\n          <ion-col col-8 class="damaged-result">Insulation in cold systems is critical not only for energy efficiency but for safety and process requirements.</ion-col>\n\n          <ion-col col-8 class="damaged-result" *ngIf="report.component.fields.condensation_ice_block">Ice block indicates the failure of the insulation system (or the lack of it). A part from the potential energy savings, its weight represents a risk for the installation break down.</ion-col>\n\n          <ion-col col-8 class="damaged-result" *ngIf="report.component.fields.condensation_wet_surface">Condensations indicates the need of a better insulation solution to bring the surface temperature above the dew point.</ion-col>\n\n        </ion-row> -->\n\n      </ion-col>\n\n\n\n    </ion-row>\n\n\n\n    <report-errors padding #errors col-12 [hidden]="view==\'!result\' && report.result"></report-errors>\n\n\n\n  </ion-grid>\n\n\n\n  <edit-picture *ngIf="view==\'edit_picture\'" [report]="report" [picture]="editing_picture"></edit-picture>\n\n\n\n</ion-content>\n\n\n\n<report-footer [parent]="this" [calculate_text]="\'Validate\'"></report-footer>\n\n'/*ion-inline-end:"D:\Sofware Factory\tbi\src\pages\reports\condensation\report-condensation.component.html"*/
+            selector: 'page-report-condensation',template:/*ion-inline-start:"D:\Sofware Factory\tbi\src\pages\reports\condensation\report-condensation.component.html"*/'<report-header [parent]="this"></report-header>\n\n\n\n<ion-content #content>\n\n\n\n  <ion-grid [hidden]="view==\'edit_picture\'">\n\n    <ion-row>\n\n      <ion-col col-7 col-lg-6 no-padding>\n\n        <form novalidate #form="ngForm" [hidden]="segment!=\'input\'" (submit)="calculate()">\n\n          <ion-row>\n\n            <ion-col col-10>\n\n              <ion-item>\n\n                <ion-label stacked>Component/Location</ion-label>\n\n                <ion-input tabindex="1" (ionFocus)="on_focus($event)" name="location" required data-val-required="Please input Component/Location"\n\n                  [(ngModel)]="report.component.fields.location" type="text"></ion-input>\n\n              </ion-item>\n\n            </ion-col>\n\n            <ion-col col-12></ion-col>\n\n          </ion-row>\n\n          <ion-row [hidden]="true">\n\n            <ion-col>\n\n              <ion-item>\n\n                <ion-input type="hidden" name="pictures" required data-val-required="Please take a picture" [(ngModel)]="picture_qty"></ion-input>\n\n              </ion-item>\n\n            </ion-col>\n\n          </ion-row>\n\n          <ion-row>\n\n            <ion-col col-10>\n\n              <ion-item>\n\n                <ion-label stacked>Summary Id</ion-label>\n\n                <ion-input tabindex="2" (ionFocus)="on_focus($event)" name="summary_id" [(ngModel)]="report.summary_id"\n\n                  required data-val-required="Please input summary id" type="text"></ion-input>\n\n              </ion-item>\n\n            </ion-col>\n\n          </ion-row>\n\n          <!--\n\n          <ion-row>\n\n            <ion-col col-10>\n\n              <ion-item>\n\n                <ion-label stacked>Operational time (hours)</ion-label>\n\n                <ion-input tabindex="3" (ionFocus)="on_focus($event)" name="operational_time" [(ngModel)]="report.component.fields.operational_time"\n\n                  type="number"></ion-input>\n\n              </ion-item>\n\n            </ion-col>\n\n            <ion-col col-2>\n\n              <more pull-left #time (change)="report.component.fields.operational_time=time.value" [type]="\'time\'"\n\n                modal-button></more>\n\n            </ion-col>\n\n          </ion-row>\n\n          <ion-row>\n\n            <ion-col col-10>\n\n              <ion-item class="edit_surface_material" [class.editable]="edit_surface_material">\n\n                <ion-label stacked>Surface material [ε]</ion-label>\n\n                <ion-input tabindex="4" #after_time class="literal" (ionFocus)="on_focus($event);toggle_surface_material(true)"\n\n                  [value]="report.component.fields.surface_material_friendly" type="text"></ion-input>\n\n                <ion-input tabindex="5" class="numeric" (ionFocus)="on_focus($event)" (focusout)="toggle_surface_material(false)"\n\n                  name="surface_material" [(ngModel)]="report.component.fields.surface_material" type="number" (change)="set_surface_material(report.component.fields.surface_material, $event)"></ion-input>\n\n              </ion-item>\n\n            </ion-col>\n\n            <ion-col col-2>\n\n              <more pull-left #material (change)="set_surface_material(material.value, $event)" [type]="\'materials\'"\n\n                modal-button></more>\n\n            </ion-col>\n\n          </ion-row>\n\n          <ion-row>\n\n            <ion-col col-10>\n\n              <ion-item>\n\n                <ion-label stacked>Medium temperature (<sup>º</sup>C)</ion-label>\n\n                <ion-input tabindex="6" #after_material (ionFocus)="on_focus($event)" (keyup.enter)="on_keypress($event)" name="surface_temp"\n\n                  [pattern]="patterns.REQUIRED_NUMBER" data-val-pattern="Please input a valid Medium temperature" \n\n                  [(ngModel)]="report.component.fields.surface_temp" type="tel"></ion-input>\n\n              </ion-item>\n\n            </ion-col>\n\n          </ion-row>\n\n        -->\n\n          <ion-row>\n\n            <ion-col col-6>\n\n              <ion-item>\n\n                <ion-label stacked style="margin-top: 1.4rem;color: #999;">Ice block</ion-label>\n\n                <ion-toggle tabindex="7" [(ngModel)]="report.component.fields.condensation_ice_block" name="ice_block"></ion-toggle>\n\n              </ion-item>\n\n            </ion-col>\n\n            <ion-col col-6></ion-col>\n\n            <ion-col col-6>\n\n              <ion-item>\n\n                <ion-label stacked style="margin-top: 1.4rem;color: #999;">Wet surface</ion-label>\n\n                <ion-toggle tabindex="8" [(ngModel)]="report.component.fields.condensation_wet_surface" name="wet_surface"></ion-toggle>\n\n              </ion-item>\n\n            </ion-col>\n\n            <ion-col col-6></ion-col>\n\n            <!-- <ion-col col-6>\n\n              <ion-item>\n\n                <ion-label stacked style="margin-top: 1.4rem;color: #999;">Others</ion-label>\n\n                <ion-toggle tabindex="9" [(ngModel)]="report.component.fields.condensation_other" name="other"></ion-toggle>\n\n              </ion-item>\n\n            </ion-col> -->\n\n          </ion-row>\n\n          <ion-row>\n\n              <ion-col col-10>\n\n                <ion-item>\n\n                  <ion-label stacked>Comments</ion-label>\n\n                  <ion-input type="text" tabindex="8" (ionFocus)="on_focus($event)" (keyup.enter)="on_keypress($event)"\n\n                    name="Comments" [(ngModel)]="report.component.fields.condensation_comment"></ion-input>\n\n                </ion-item>\n\n              </ion-col>\n\n            </ion-row>\n\n  \n\n        </form>\n\n      </ion-col>\n\n      <ion-col col-5 col-lg-6 no-padding>\n\n        <ion-row>\n\n            <ion-col col-12 picture-slide [parent]="this"    [report]="report" [editable]="false"  (onStartEdit)="on_picture_start_edit($event)"></ion-col>\n\n        </ion-row>\n\n        <!-- <ion-row col-12 p-4 *ngIf="view==\'result\' && (!!form && !form.invalid)">\n\n          <ion-col col-4 img-container [style.backgroundImage]="\'url(\'+ first_picture +\')\'"></ion-col>\n\n          <ion-col col-8 class="damaged-result">Insulation in cold systems is critical not only for energy efficiency but for safety and process requirements.</ion-col>\n\n          <ion-col col-8 class="damaged-result" *ngIf="report.component.fields.condensation_ice_block">Ice block indicates the failure of the insulation system (or the lack of it). A part from the potential energy savings, its weight represents a risk for the installation break down.</ion-col>\n\n          <ion-col col-8 class="damaged-result" *ngIf="report.component.fields.condensation_wet_surface">Condensations indicates the need of a better insulation solution to bring the surface temperature above the dew point.</ion-col>\n\n        </ion-row> -->\n\n      </ion-col>\n\n\n\n    </ion-row>\n\n\n\n    <report-errors padding #errors col-12 [hidden]="view==\'!result\' && report.result"></report-errors>\n\n\n\n  </ion-grid>\n\n\n\n  <edit-picture *ngIf="view==\'edit_picture\'" [report]="report" [picture]="editing_picture"></edit-picture>\n\n\n\n</ion-content>\n\n\n\n<report-footer [parent]="this" [calculate_text]="\'Validate\'"></report-footer>\n\n'/*ion-inline-end:"D:\Sofware Factory\tbi\src\pages\reports\condensation\report-condensation.component.html"*/
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2_ionic_angular__["h" /* NavController */],
-            __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["i" /* NavParams */],
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2_ionic_angular__["j" /* NavController */],
+            __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["k" /* NavParams */],
             __WEBPACK_IMPORTED_MODULE_3__services_report_service__["a" /* ReportService */],
             __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["b" /* AlertController */],
-            __WEBPACK_IMPORTED_MODULE_5__services__["c" /* PictureService */],
+            __WEBPACK_IMPORTED_MODULE_5__services__["d" /* PictureService */],
             __WEBPACK_IMPORTED_MODULE_4__services_messages_service__["a" /* MessageService */],
-            __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["f" /* Keyboard */]])
+            __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["g" /* Keyboard */]])
     ], ReportCondensationPage);
     return ReportCondensationPage;
 }(__WEBPACK_IMPORTED_MODULE_1__models_reports__["a" /* BaseReportPage */]));
@@ -5943,13 +6087,13 @@ var ReportCondensationPage = /** @class */ (function (_super) {
 
 /***/ }),
 
-/***/ 600:
+/***/ 607:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ReportLeakage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__report_base__ = __webpack_require__(24);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__pages_reports_leakage_report_leakage_component__ = __webpack_require__(358);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__pages_reports_leakage_report_leakage_component__ = __webpack_require__(361);
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = Object.setPrototypeOf ||
         ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
@@ -5980,16 +6124,74 @@ var ReportLeakage = /** @class */ (function (_super) {
 
 /***/ }),
 
-/***/ 601:
+/***/ 608:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return KnownTempPage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(5);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+var KnownTempPage = /** @class */ (function () {
+    function KnownTempPage(viewCtrl, params, alertCtrl) {
+        this.viewCtrl = viewCtrl;
+        this.alertCtrl = alertCtrl;
+        this.medium_temp = 0;
+        this.gas = '0';
+        this.medium_temp = params.get('medium_temp') || '';
+    }
+    KnownTempPage.prototype.isNumber = function () {
+        return this.medium_temp.toString() != '' && !isNaN(this.medium_temp);
+    };
+    KnownTempPage.prototype.close = function () {
+        this.viewCtrl.dismiss(null);
+        return this;
+    };
+    KnownTempPage.prototype.ok = function () {
+        if (this.gas == '1') {
+            this.alertCtrl.create({
+                message: 'The properties of the gas affect the heat transfer calculation. Outputs are just an estimation, please contact your insulation expert to have a more accurate calculation',
+                buttons: ['Agree']
+            }).present();
+        }
+        ;
+        this.viewCtrl.dismiss(this.medium_temp);
+        return this;
+    };
+    KnownTempPage = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
+            selector: 'unknown-temp',template:/*ion-inline-start:"D:\Sofware Factory\tbi\src\pages\reports\unknown-temp\unknown-temp.component.html"*/'<ion-content>\n\n  <form>\n\n    <ion-grid>\n\n      <ion-row>\n\n        <ion-col col-12>\n\n          <ion-item>\n\n            <ion-label stacked>Medium temperature (<sup>º</sup>C)</ion-label>\n\n            <ion-input tabindex="1" name="medium_temp" required data-val-required="Please input Medium temperature"\n\n              data-val-pattern="Please input a valid Medium temperature" [(ngModel)]="medium_temp" type="tel"></ion-input>\n\n          </ion-item>\n\n        </ion-col>\n\n      </ion-row>\n\n      <ion-row>\n\n        <ion-col col-12>\n\n          <ion-list radio-group [(ngModel)]="gas" name="state">\n\n            <ion-item>\n\n                <ion-label>Liquid</ion-label>\n\n                <ion-radio value="0"></ion-radio>\n\n            </ion-item>\n\n            <ion-item>\n\n                <ion-label>Gas</ion-label>\n\n                <ion-radio value="1"></ion-radio>\n\n            </ion-item>\n\n          </ion-list>\n\n        </ion-col>\n\n      </ion-row>\n\n    </ion-grid>\n\n  </form>\n\n</ion-content>\n\n<ion-footer>\n\n  <ion-grid no-padding>\n\n    <ion-row no-padding>\n\n      <ion-col col-6 no-padding>\n\n        <button (click)="close()" tabindex="200" ion-button small color="light">Cancel</button>\n\n      </ion-col>\n\n      <ion-col col-6 no-padding>\n\n        <button (click)="ok()" tabindex="201" [disabled]="!isNumber()" ion-button small pull-right>Next</button>\n\n      </ion-col>\n\n    </ion-row>\n\n  </ion-grid>\n\n</ion-footer>\n\n'/*ion-inline-end:"D:\Sofware Factory\tbi\src\pages\reports\unknown-temp\unknown-temp.component.html"*/
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* ViewController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* AlertController */]])
+    ], KnownTempPage);
+    return KnownTempPage;
+}());
+
+//# sourceMappingURL=unknown-temp.component.js.map
+
+/***/ }),
+
+/***/ 609:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MyApp; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(6);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__ = __webpack_require__(361);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__ = __webpack_require__(362);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_init_init__ = __webpack_require__(296);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(5);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__ = __webpack_require__(364);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__ = __webpack_require__(365);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_init_init__ = __webpack_require__(295);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__ionic_native_screen_orientation__ = __webpack_require__(366);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -6004,8 +6206,10 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 var MyApp = /** @class */ (function () {
-    function MyApp(platform, statusBar, splashScreen) {
+    function MyApp(platform, statusBar, splashScreen, orientation) {
+        this.orientation = orientation;
         this.rootPage = __WEBPACK_IMPORTED_MODULE_4__pages_init_init__["a" /* InitPage */];
         platform.ready().then(function () {
             //throw 'error'
@@ -6013,12 +6217,16 @@ var MyApp = /** @class */ (function () {
             // Here you can do any higher level native things you might need.
             statusBar.hide();
             splashScreen.hide();
+            // this.orientation.lock(this.orientation.ORIENTATIONS.PORTRAIT)
+            // this.orientation.onChange().subscribe(() => {
+            //   document.getElementsByTagName('html')[0].className = !!this.orientation.type.match(/landscape/i) ? 'landscape' : '';
+            // })
         });
     }
     MyApp = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({template:/*ion-inline-start:"D:\Sofware Factory\tbi\src\app\app.html"*/'<ion-nav [root]="rootPage"></ion-nav>\n'/*ion-inline-end:"D:\Sofware Factory\tbi\src\app\app.html"*/
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* Platform */], __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__["a" /* StatusBar */], __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__["a" /* SplashScreen */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* Platform */], __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__["a" /* StatusBar */], __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__["a" /* SplashScreen */], __WEBPACK_IMPORTED_MODULE_5__ionic_native_screen_orientation__["a" /* ScreenOrientation */]])
     ], MyApp);
     return MyApp;
 }());
@@ -6027,13 +6235,13 @@ var MyApp = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 602:
+/***/ 610:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ContactPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(6);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(5);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__models__ = __webpack_require__(46);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__services__ = __webpack_require__(17);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__projects_project_page_base__ = __webpack_require__(172);
@@ -6087,11 +6295,11 @@ var ContactPage = /** @class */ (function (_super) {
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
             selector: 'page-contact',template:/*ion-inline-start:"D:\Sofware Factory\tbi\src\pages\contact\contact.html"*/'<ion-header>\n  <ion-navbar hideBackButton>\n      <ion-buttons start>\n        <button ion-button color="royal" (click)="after_delete()">Cancel</button>\n      </ion-buttons>\n    <ion-title>\n      {{ project.name }}\n    </ion-title>\n    <ion-buttons end>\n        <button ion-button color="royal" (click)="save()">OK</button>\n      </ion-buttons>\n  </ion-navbar>\n</ion-header>\n\n<ion-content>\n    <ion-list>\n\n        <ion-item>\n          <ion-label>Name</ion-label>\n          <ion-input type="text" [(ngModel)]="project.name"></ion-input>\n        </ion-item>\n\n        <ion-item>\n          <ion-label>Description</ion-label>\n          <ion-textarea rows="5" [(ngModel)]="project.desc"></ion-textarea>\n        </ion-item>\n\n      </ion-list>\n\n      <div padding>\n          <button (click)="delete_project(project)" ion-button color="danger" block>Remove</button>\n      </div>\n</ion-content>\n'/*ion-inline-end:"D:\Sofware Factory\tbi\src\pages\contact\contact.html"*/
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */],
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */],
             __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* AlertController */],
-            __WEBPACK_IMPORTED_MODULE_3__services__["d" /* ProjectService */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* Keyboard */]])
+            __WEBPACK_IMPORTED_MODULE_3__services__["e" /* ProjectService */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* Keyboard */]])
     ], ContactPage);
     return ContactPage;
 }(__WEBPACK_IMPORTED_MODULE_4__projects_project_page_base__["a" /* ProjectPageBase */]));
@@ -6100,14 +6308,14 @@ var ContactPage = /** @class */ (function (_super) {
 
 /***/ }),
 
-/***/ 603:
+/***/ 611:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ProjectReportsPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(6);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_camera__ = __webpack_require__(177);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(5);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_camera__ = __webpack_require__(178);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -6165,8 +6373,8 @@ var ProjectReportsPage = /** @class */ (function () {
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
             selector: 'page-home',template:/*ion-inline-start:"D:\Sofware Factory\tbi\src\pages\home\home.html"*/'<ion-header>\n  <ion-navbar>\n    <ion-title>\n      {{project.name}}\n    </ion-title>\n    <!-- <ion-buttons end>\n      <button ion-button icon-only (click)="takePicture()">\n        <ion-icon name="camera"></ion-icon>\n      </button>\n    </ion-buttons> -->\n    <!-- <ion-buttons start>\n        <button ion-button color="royal" (click)="back()">\n          <ion-icon name="arrow-back"></ion-icon>&nbsp;Back\n        </button>\n      </ion-buttons> -->\n    <ion-buttons end>\n      <button ion-button color="royal" (click)="takePicture()">Docs</button>\n    </ion-buttons>\n\n  </ion-navbar>\n</ion-header>\n\n<ion-content id="page2">\n    <ion-list style="margin-top: 1.5rem" *ngFor="let cg of project.components_groups">\n      <ion-list-header>\n        <h2>{{cg.name}}</h2>\n      </ion-list-header>\n      <ion-item (touchend)="on_touch_end()" (touchstart)="on_touch_start(c)" *ngFor="let c of cg.components" (click)="goto_component(c)">\n        <ion-thumbnail item-start>\n          <img [src]="c.icon">\n        </ion-thumbnail>\n        <h2>{{c.name}}</h2>\n        <p style="white-space: normal">{{c.show_long_desc ? c.long_desc : c.short_desc}}</p>\n        <ion-badge item-end>{{c.reports.length}}</ion-badge>\n      </ion-item>\n    </ion-list>\n</ion-content>\n\n'/*ion-inline-end:"D:\Sofware Factory\tbi\src\pages\home\home.html"*/
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */],
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */],
             __WEBPACK_IMPORTED_MODULE_2__ionic_native_camera__["a" /* Camera */]])
     ], ProjectReportsPage);
     return ProjectReportsPage;
@@ -6176,13 +6384,13 @@ var ProjectReportsPage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 604:
+/***/ 612:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ProjectPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(6);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(5);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_project_service__ = __webpack_require__(53);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -6210,8 +6418,8 @@ var ProjectPage = /** @class */ (function () {
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
             selector: 'page-project',template:/*ion-inline-start:"D:\Sofware Factory\tbi\src\pages\projects\project.html"*/'<ion-header [ngSwitch]="segment">\n  <ion-navbar *ngSwitchCase="\'reports\'">\n    <ion-title>\n      {{project.name}}\n    </ion-title>\n  </ion-navbar>\n  <ion-navbar *ngSwitchCase="\'summary\'">\n    <ion-title>\n      {{project.name}}\n    </ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content [ngSwitch]="segment">\n  <ion-grid *ngSwitchCase="\'reports\'" [ngSwitch]="filter">\n    <ion-row *ngSwitchCase="\'\'">\n      <ion-col text-center col-6 col-xs-12>\n        <ion-card>\n          <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"\n            viewBox="0 0 480 480" style="enable-background:new 0 0 480 480;" xml:space="preserve">\n            <path d="M480,252h-64v-32h-48v16h-32v16h-24v-24h16v-48h-56v-32h26.576l23.864-16H456V76H317.6l-24.328,16H272V76\n              c0-13.255-10.745-24-24-24h-16c-13.255,0-24,10.745-24,24v16h-24v56h24v32h-56v48h16v24h-24v-16h-32v-16H64v32H0v144h64v32h48v-16\n              h32v-16h192v16h32v16h48v-32h64V252z M224,76c0-4.418,3.582-8,8-8h16c4.418,0,8,3.582,8,8v16h-32V76z M200,132v-24h8h64h26.064\n              L322.4,92H440v24H317.6l-23.896,16H272h-64H200z M224,148h32v32h-32V148z M168,196h40h64h40v16h-8H176h-8V196z M16,380V268h48v112\n              H16z M80,412v-16V252v-16h16v176H80z M128,396h-16V252h16v8v128V396z M144,380V268h32c4.418,0,8-3.582,8-8v-32h112v32\n              c0,4.418,3.582,8,8,8h32v112H144z M352,396v-8V260v-8h16v144H352z M400,412h-16V236h16v16v144V412z M464,380h-48V268h48V380z"/>\n          </svg>\n          <h1>Insulation Report</h1>\n        </ion-card>\n      </ion-col>\n      <ion-col text-center col-6 col-xs-12>\n          <ion-card (click)="set_filter(\'safety\')">\n              <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"\n              viewBox="0 0 512.001 512.001" style="enable-background:new 0 0 512.001 512.001;" xml:space="preserve">\n                 <path d="M499.058,2.53c-2.49-2.074-5.775-2.937-8.965-2.349L320.791,31.31c-5.184,0.954-8.947,5.472-8.947,10.742v3.55h-52.976\n                   v-9.648c0-12.748-10.371-23.12-23.12-23.12h-46.604c-6.308,0-12.029,2.545-16.205,6.656c-7.69-6.743-17.752-10.843-28.759-10.843\n                   c-24.091,0-43.691,19.6-43.691,43.691c0,10.146,3.487,19.488,9.312,26.912c-46.71,14.423-80.746,58.003-80.746,109.385v24.749\n                   h-9.12c-6.033,0-10.923,4.89-10.923,10.923v98.304c0,6.033,4.89,10.923,10.923,10.923h43.691c6.033,0,10.923-4.89,10.923-10.923\n                   v-98.304c0-6.033-4.89-10.923-10.923-10.923H50.901v-24.749c0-51.063,41.543-92.607,92.606-92.607l0.016-0.016\n                   c0.22,0.003,0.437,0.016,0.656,0.016c7.955,0,15.414-2.147,21.845-5.878v32.034c-38.002,2.132-68.267,33.714-68.267,72.239\n                   v283.989c0,18.521,15.067,33.587,33.587,33.587h162.202c18.52,0,33.587-15.067,33.587-33.587v-283.99\n                   c0-38.525-30.265-70.107-68.267-72.239v-11.046h52.975v3.55c0,5.27,3.763,9.789,8.947,10.742l169.301,31.13\n                   c0.658,0.121,1.318,0.18,1.976,0.18c2.533,0,5.012-0.883,6.989-2.53c2.491-2.075,3.933-5.15,3.933-8.393V10.923\n                   C502.99,7.681,501.549,4.605,499.058,2.53z M52.703,235.23v76.459H30.858V235.23H52.703z M189.146,34.68h46.604\n                   c0.703,0,1.275,0.571,1.275,1.275v86.107h-49.152V35.955h-0.001C187.871,35.252,188.442,34.68,189.146,34.68z M144.18,74.184\n                   c-12.046,0-21.845-9.8-21.845-21.845s9.8-21.845,21.845-21.845s21.845,9.8,21.845,21.845S156.226,74.184,144.18,74.184z\n                    M305.29,478.413c0,6.475-5.267,11.742-11.742,11.742H131.346c-6.475,0-11.742-5.267-11.742-11.742v-18.842H305.29V478.413z\n                    M305.29,295.185h-48.06c-6.031,0-10.923,4.89-10.923,10.923s4.891,10.923,10.923,10.923h48.06v20.871h-90.112\n                   c-6.033,0-10.923,4.89-10.923,10.923s4.89,10.923,10.923,10.923h90.112v77.979H119.604V224.734H305.29V295.185z M305.29,194.424\n                   v8.465H119.604v-8.465c0-27.855,22.662-50.517,50.517-50.517h84.651C282.628,143.906,305.29,166.569,305.29,194.424z\n                    M311.843,89.293h-52.975V67.448h52.975V89.293z M481.145,132.704l-147.456-27.113V51.15l147.456-27.113V132.704z"/>\n                 <path d="M214.086,317.031h1.092c6.033,0,10.923-4.89,10.923-10.923s-4.89-10.923-10.923-10.923h-1.092\n                   c-6.033,0-10.923,4.89-10.923,10.923S208.053,317.031,214.086,317.031z"/>\n              </svg>\n            <h1>Safety Report</h1>\n          </ion-card>\n      </ion-col>\n      <ion-col text-center col-6 col-xs-12>\n          <ion-card>\n            <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"\n              viewBox="0 0 480 480" style="enable-background:new 0 0 480 480;" xml:space="preserve">\n               <path d="M440,32h-56v-8c0-13.232-10.768-24-24-24s-24,10.768-24,24v8H144v-8c0-13.232-10.768-24-24-24S96,10.768,96,24v8H40\n                 C17.944,32,0,49.944,0,72v368c0,22.056,17.944,40,40,40h400c22.056,0,40-17.944,40-40V72C480,49.944,462.056,32,440,32z M352,24\n                 c0-4.416,3.584-8,8-8c4.416,0,8,3.584,8,8v64c0,4.416-3.584,8-8,8c-4.416,0-8-3.584-8-8V24z M336.04,88.4\n                 c0.224,13.048,10.864,23.6,23.96,23.6s23.736-10.552,23.96-23.6C393.096,90.24,400,98.328,400,108c0,11.032-8.968,20-20,20h-40\n                 c-11.032,0-20-8.968-20-20C320,98.328,326.904,90.24,336.04,88.4z M112,24c0-4.416,3.584-8,8-8s8,3.584,8,8v64\n                 c0,4.416-3.584,8-8,8s-8-3.584-8-8V24z M96.04,88.4C96.264,101.448,106.904,112,120,112s23.736-10.552,23.96-23.6\n                 C153.096,90.24,160,98.328,160,108c0,11.032-8.968,20-20,20h-40c-11.032,0-20-8.968-20-20C80,98.328,86.904,90.24,96.04,88.4z\n                  M464,440c0,13.232-10.768,24-24,24H40c-13.232,0-24-10.768-24-24V176h448V440z M464,160H16V72c0-13.232,10.768-24,24-24h56\n                 v24.408C78.048,74.424,64,89.52,64,108c0,19.848,16.152,36,36,36h40c19.848,0,36-16.152,36-36c0-18.48-14.048-33.576-32-35.592V48\n                 h192v24.408C318.048,74.424,304,89.52,304,108c0,19.848,16.152,36,36,36h40c19.848,0,36-16.152,36-36\n                 c0-18.48-14.048-33.576-32-35.592V48h56c13.232,0,24,10.768,24,24V160z"/>\n               <rect x="96" y="192" width="16" height="16"/>\n               <rect x="64" y="192" width="16" height="16"/>\n               <rect x="32" y="192" width="16" height="16"/>\n               <path d="M433.312,376.112l-48-8c-2.528-0.408-5.144,0.408-6.968,2.232L372.688,376H264v-16c0-4.424-3.576-8-8-8h-33\n                 c-2.208,0-4.32,0.912-5.832,2.528l-9.512,10.152l-11.168-10.504C195,352.784,193.04,352,191,352H48c-4.424,0-8,3.576-8,8v80\n                 c0,4.424,3.576,8,8,8h144c2.128,0,4.16-0.84,5.656-2.344L208,435.312l10.344,10.344C219.84,447.16,221.872,448,224,448h32\n                 c4.424,0,8-3.576,8-8v-16h108.688l5.656,5.656c1.512,1.512,3.552,2.344,5.656,2.344c0.44,0,0.872-0.04,1.312-0.112l48-8\n                 c3.856-0.64,6.688-3.976,6.688-7.888v-32C440,380.088,437.168,376.752,433.312,376.112z M248,384v32v16h-20.688l-13.656-13.656\n                 c-3.128-3.128-8.184-3.128-11.312,0L188.688,432H56v-64h131.832l14.688,13.832c1.544,1.456,3.664,2.344,5.736,2.168\n                 c2.128-0.064,4.136-0.968,5.584-2.52L226.472,368H248V384z M424,409.224l-37.256,6.2l-5.088-5.088\n                 C380.16,408.84,378.128,408,376,408H264v-16h112c2.128,0,4.16-0.84,5.656-2.344l5.088-5.088L424,390.776V409.224z"/>\n                <path d="M424,296h-52l-18-24l18-24h52c3.08,0,5.872-1.768,7.208-4.528c1.328-2.776,0.96-6.064-0.96-8.472l-32-40\n                 c-1.52-1.896-3.816-3-6.248-3h-48c-2.128,0-4.16,0.84-5.656,2.344L292.688,240H64c-17.648,0-32,14.352-32,32s14.352,32,32,32\n                 h228.688l45.656,45.656C339.84,351.16,341.872,352,344,352h48c2.432,0,4.728-1.104,6.248-3l32-40\n                 c1.92-2.408,2.288-5.696,0.96-8.472C429.872,297.768,427.08,296,424,296z M388.16,335.992h-40.84l-45.656-45.656\n                 C300.16,288.84,298.128,288,296,288H64c-8.824,0-16-7.176-16-16c0-8.824,7.176-16,16-16h232c2.128,0,4.16-0.84,5.656-2.344\n                 L347.312,208h40.84l19.192,24H368c-2.512,0-4.888,1.184-6.4,3.2l-24,32c-2.136,2.84-2.136,6.752,0,9.592l24,32\n                 c1.504,2.016,3.88,3.2,6.4,3.2h39.352L388.16,335.992z"/>\n               <rect x="72" y="384" width="56" height="16"/>\n               <rect x="144" y="384" width="16" height="16"/>\n            </svg>\n            <h1>Maintenance Report</h1>\n          </ion-card>\n      </ion-col>\n      <ion-col text-center col-6 col-xs-12>\n          <ion-card>\n            <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"\n              viewBox="0 0 508 508" style="enable-background:new 0 0 508 508;" xml:space="preserve">\n               <rect x="49.2" y="221.2" width="262.2" height="16.4"/>\n               <rect x="49.2" y="286.8" width="237.6" height="16.4"/>\n               <rect x="49.2" y="352.3" width="163.9" height="16.4"/>\n               <rect x="49.2" y="417.9" width="16.4" height="16.4"/>\n               <rect x="81.9" y="417.9" width="16.4" height="16.4"/>\n               <rect x="114.7" y="417.9" width="16.4" height="16.4"/>\n               <path d="M500.8,202.4l-23.2-23.2c-9.3-9.3-25.5-9.3-34.8,0l-82.3,82.3V0H144.1L0,144.1V508h360.5V377.5l140.3-140.3\n                 C510.4,227.6,510.4,212,500.8,202.4z M139.3,28v111.3H28L139.3,28z M16.4,491.6V155.7h139.3V16.4h188.5V278L221,401.2l-14.5,72.4\n                 l72.4-14.5l65.2-65.2v97.7H16.4z M233.5,421.8l24.7,24.7l-30.9,6.2L233.5,421.8z M274.9,440l-34.8-34.8L402.3,243l34.8,34.8\n                 L274.9,440z M448.7,266.2l-34.8-34.8l11.6-11.6l34.8,34.8L448.7,266.2z M489.2,225.6L471.8,243L437,208.2l17.4-17.4\n                 c3.1-3.1,8.5-3.1,11.6,0l23.2,23.2C492.4,217.2,492.4,222.4,489.2,225.6z"/>\n               <polygon points="254,90.1 254,41 237.6,41 237.6,90.1 188.5,90.1 188.5,106.5 237.6,106.5 237.6,155.7 254,155.7 254,106.5\n                 303.2,106.5 303.2,90.1 		"/>\n            </svg>\n            <h1>Custom Report</h1>\n          </ion-card>\n      </ion-col>\n    </ion-row>\n    <ion-row *ngSwitchCase="\'safety\'">\n      <ion-col text-center col-6 col-xs-12>\n        <ion-card (click)="navigate_to(\'selection\')">\n          <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"\n            viewBox="0 0 511.989 511.989" style="enable-background:new 0 0 511.989 511.989;" xml:space="preserve">\n             <path d="M181.178,71.178c-8.768-17.728-15.68-31.723-0.427-54.613c3.264-4.907,1.92-11.52-2.965-14.784\n               c-4.843-3.243-11.499-1.941-14.784,2.965c-22.101,33.109-10.368,56.832-0.939,75.883c8.811,17.835,15.189,30.72,0.939,52.117\n               c-3.285,4.907-1.941,11.52,2.944,14.784c1.813,1.216,3.883,1.792,5.931,1.792c3.435,0,6.805-1.664,8.853-4.757\n               C201.829,112.949,190.394,89.781,181.178,71.178z"/>\n             <path d="M266.17,71.178c-8.789-17.728-15.701-31.723-0.448-54.613c3.264-4.907,1.92-11.52-2.965-14.784\n               c-4.843-3.243-11.52-1.941-14.784,2.965c-22.08,33.131-10.347,56.853-0.939,75.904c8.811,17.835,15.189,30.72,0.939,52.096\n               c-3.264,4.907-1.92,11.52,2.965,14.784c1.813,1.216,3.861,1.792,5.909,1.792c3.435,0,6.805-1.664,8.875-4.757\n               C286.821,112.949,275.386,89.781,266.17,71.178z"/>\n             <path d="M351.141,71.178c-8.789-17.728-15.701-31.723-0.448-54.613c3.264-4.907,1.92-11.52-2.965-14.784\n               c-4.843-3.243-11.52-1.941-14.784,2.965c-22.08,33.131-10.347,56.853-0.939,75.904c8.811,17.835,15.189,30.72,0.939,52.096\n               c-3.264,4.907-1.92,11.52,2.965,14.784c1.813,1.216,3.861,1.792,5.909,1.792c3.456,0,6.827-1.664,8.875-4.757\n               C371.792,112.949,360.357,89.781,351.141,71.178z"/>\n             <path d="M437.328,170.655H74.661c-29.419,0-53.333,23.936-53.333,53.333v192c0,29.397,23.915,53.333,53.333,53.333h362.667\n               c29.419,0,53.333-23.936,53.333-53.333v-192C490.661,194.591,466.746,170.655,437.328,170.655z M469.328,415.989\n               c0,17.643-14.357,32-32,32H74.661c-17.643,0-32-14.357-32-32v-192c0-17.643,14.357-32,32-32h362.667c17.643,0,32,14.357,32,32\n               V415.989z"/>\n             <path d="M95.994,213.322c-5.888,0-10.667,4.779-10.667,10.667v192c0,5.888,4.779,10.667,10.667,10.667s10.667-4.779,10.667-10.667\n               v-192C106.661,218.101,101.882,213.322,95.994,213.322z"/>\n             <path d="M159.994,213.322c-5.888,0-10.667,4.779-10.667,10.667v192c0,5.888,4.779,10.667,10.667,10.667\n               s10.667-4.779,10.667-10.667v-192C170.661,218.101,165.882,213.322,159.994,213.322z"/>\n             <path d="M223.994,213.322c-5.888,0-10.667,4.779-10.667,10.667v192c0,5.888,4.779,10.667,10.667,10.667\n               s10.667-4.779,10.667-10.667v-192C234.661,218.101,229.882,213.322,223.994,213.322z"/>\n             <path d="M287.994,213.322c-5.888,0-10.667,4.779-10.667,10.667v192c0,5.888,4.779,10.667,10.667,10.667\n               s10.667-4.779,10.667-10.667v-192C298.661,218.101,293.882,213.322,287.994,213.322z"/>\n             <path d="M351.994,213.322c-5.888,0-10.667,4.779-10.667,10.667v192c0,5.888,4.779,10.667,10.667,10.667\n               c5.888,0,10.667-4.779,10.667-10.667v-192C362.661,218.101,357.882,213.322,351.994,213.322z"/>\n             <path d="M415.994,213.322c-5.888,0-10.667,4.779-10.667,10.667v192c0,5.888,4.779,10.667,10.667,10.667\n               c5.888,0,10.667-4.779,10.667-10.667v-192C426.661,218.101,421.882,213.322,415.994,213.322z"/>\n             <path d="M117.328,447.989c-5.888,0-10.667,4.779-10.667,10.667v42.667c0,5.888,4.779,10.667,10.667,10.667\n               s10.667-4.779,10.667-10.667v-42.667C127.994,452.767,123.216,447.989,117.328,447.989z"/>\n             <path d="M394.661,447.989c-5.888,0-10.667,4.779-10.667,10.667v42.667c0,5.888,4.779,10.667,10.667,10.667\n               s10.667-4.779,10.667-10.667v-42.667C405.328,452.767,400.549,447.989,394.661,447.989z"/>\n          </svg>\n          <h1>Hot Surface</h1>\n        </ion-card>\n      </ion-col>\n      <ion-col text-center col-6 col-xs-12>\n          <ion-card>\n              <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"\n              viewBox="0 0 512.001 512.001" style="enable-background:new 0 0 512.001 512.001;" xml:space="preserve">\n                 <path d="M499.058,2.53c-2.49-2.074-5.775-2.937-8.965-2.349L320.791,31.31c-5.184,0.954-8.947,5.472-8.947,10.742v3.55h-52.976\n                   v-9.648c0-12.748-10.371-23.12-23.12-23.12h-46.604c-6.308,0-12.029,2.545-16.205,6.656c-7.69-6.743-17.752-10.843-28.759-10.843\n                   c-24.091,0-43.691,19.6-43.691,43.691c0,10.146,3.487,19.488,9.312,26.912c-46.71,14.423-80.746,58.003-80.746,109.385v24.749\n                   h-9.12c-6.033,0-10.923,4.89-10.923,10.923v98.304c0,6.033,4.89,10.923,10.923,10.923h43.691c6.033,0,10.923-4.89,10.923-10.923\n                   v-98.304c0-6.033-4.89-10.923-10.923-10.923H50.901v-24.749c0-51.063,41.543-92.607,92.606-92.607l0.016-0.016\n                   c0.22,0.003,0.437,0.016,0.656,0.016c7.955,0,15.414-2.147,21.845-5.878v32.034c-38.002,2.132-68.267,33.714-68.267,72.239\n                   v283.989c0,18.521,15.067,33.587,33.587,33.587h162.202c18.52,0,33.587-15.067,33.587-33.587v-283.99\n                   c0-38.525-30.265-70.107-68.267-72.239v-11.046h52.975v3.55c0,5.27,3.763,9.789,8.947,10.742l169.301,31.13\n                   c0.658,0.121,1.318,0.18,1.976,0.18c2.533,0,5.012-0.883,6.989-2.53c2.491-2.075,3.933-5.15,3.933-8.393V10.923\n                   C502.99,7.681,501.549,4.605,499.058,2.53z M52.703,235.23v76.459H30.858V235.23H52.703z M189.146,34.68h46.604\n                   c0.703,0,1.275,0.571,1.275,1.275v86.107h-49.152V35.955h-0.001C187.871,35.252,188.442,34.68,189.146,34.68z M144.18,74.184\n                   c-12.046,0-21.845-9.8-21.845-21.845s9.8-21.845,21.845-21.845s21.845,9.8,21.845,21.845S156.226,74.184,144.18,74.184z\n                    M305.29,478.413c0,6.475-5.267,11.742-11.742,11.742H131.346c-6.475,0-11.742-5.267-11.742-11.742v-18.842H305.29V478.413z\n                    M305.29,295.185h-48.06c-6.031,0-10.923,4.89-10.923,10.923s4.891,10.923,10.923,10.923h48.06v20.871h-90.112\n                   c-6.033,0-10.923,4.89-10.923,10.923s4.89,10.923,10.923,10.923h90.112v77.979H119.604V224.734H305.29V295.185z M305.29,194.424\n                   v8.465H119.604v-8.465c0-27.855,22.662-50.517,50.517-50.517h84.651C282.628,143.906,305.29,166.569,305.29,194.424z\n                    M311.843,89.293h-52.975V67.448h52.975V89.293z M481.145,132.704l-147.456-27.113V51.15l147.456-27.113V132.704z"/>\n                 <path d="M214.086,317.031h1.092c6.033,0,10.923-4.89,10.923-10.923s-4.89-10.923-10.923-10.923h-1.092\n                   c-6.033,0-10.923,4.89-10.923,10.923S208.053,317.031,214.086,317.031z"/>\n              </svg>\n            <h1>Fire Protection</h1>\n          </ion-card>\n      </ion-col>\n      <ion-col text-center col-6 col-xs-12>\n          <ion-card>\n            <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"\n	 viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve">\n			<path d="M267.477,377.446c-4.471-1.604-9.327,0.725-10.914,5.171c-1.57,4.437,0.742,9.327,5.18,10.906\n				c4.787,1.707,8.542,5.427,10.291,10.206c1.263,3.456,4.54,5.606,8.013,5.606c0.981,0,1.971-0.171,2.935-0.529\n				c4.429-1.621,6.699-6.519,5.086-10.94C284.561,388.301,277.06,380.86,267.477,377.446z"/>\n			<path d="M63.531,100.966c12.186,8.124,21.803,14.532,21.803,44.1c0,4.71,3.814,8.533,8.533,8.533s8.533-3.823,8.533-8.533\n				c0-38.699-15.616-49.109-29.397-58.3C62.089,79.497,53.231,73.591,51.507,51.2H128c4.719,0,8.533-3.823,8.533-8.533\n				c0-14.114,11.486-25.6,25.6-25.6h187.733c14.114,0,25.6,11.486,25.6,25.6c0,4.71,3.814,8.533,8.533,8.533h76.493\n				c-1.724,22.391-10.581,28.297-21.495,35.567c-13.781,9.19-29.397,19.601-29.397,58.3c0,4.71,3.814,8.533,8.533,8.533\n				c4.719,0,8.533-3.823,8.533-8.533c0-29.568,9.617-35.977,21.803-44.1c13.781-9.19,29.397-19.601,29.397-58.3\n				c0-4.71-3.814-8.533-8.533-8.533h-77.67C387.712,14.686,370.466,0,349.867,0H162.133c-20.599,0-37.845,14.686-41.796,34.133\n				h-77.67c-4.719,0-8.533,3.823-8.533,8.533C34.133,81.365,49.749,91.776,63.531,100.966z"/>\n			<path d="M256,341.333c-37.641,0-68.267,30.626-68.267,68.267c0,37.641,30.626,68.267,68.267,68.267\n				c37.641,0,68.267-30.626,68.267-68.267C324.267,371.959,293.641,341.333,256,341.333z M256,460.8\n				c-28.237,0-51.2-22.963-51.2-51.2c0-28.237,22.963-51.2,51.2-51.2c28.237,0,51.2,22.963,51.2,51.2\n				C307.2,437.837,284.237,460.8,256,460.8z"/>\n			<path d="M267.477,223.846c-4.471-1.604-9.327,0.725-10.914,5.171c-1.57,4.437,0.742,9.327,5.18,10.906\n				c4.787,1.707,8.542,5.427,10.291,10.206c1.263,3.456,4.54,5.606,8.013,5.606c0.981,0,1.971-0.171,2.935-0.529\n				c4.429-1.621,6.699-6.519,5.086-10.94C284.561,234.701,277.06,227.26,267.477,223.846z"/>\n			<path d="M256,187.733c-37.641,0-68.267,30.626-68.267,68.267c0,37.641,30.626,68.267,68.267,68.267\n				c37.641,0,68.267-30.626,68.267-68.267C324.267,218.359,293.641,187.733,256,187.733z M256,307.2\n				c-28.237,0-51.2-22.963-51.2-51.2s22.963-51.2,51.2-51.2c28.237,0,51.2,22.963,51.2,51.2S284.237,307.2,256,307.2z"/>\n			<path d="M469.333,187.733h-76.8V76.8c0-4.71-3.814-8.533-8.533-8.533s-8.533,3.823-8.533,8.533v119.467\n				c0,4.71,3.814,8.533,8.533,8.533h76.493c-1.724,22.391-10.581,28.297-21.495,35.567c-13.781,9.19-29.397,19.601-29.397,58.3\n				c0,4.71,3.814,8.533,8.533,8.533c4.719,0,8.533-3.823,8.533-8.533c0-29.568,9.617-35.977,21.803-44.1\n				c13.781-9.19,29.397-19.601,29.397-58.3C477.867,191.556,474.052,187.733,469.333,187.733z"/>\n			<path d="M267.477,70.246c-4.471-1.596-9.327,0.734-10.914,5.171c-1.57,4.437,0.742,9.327,5.18,10.906\n				c4.787,1.707,8.542,5.427,10.291,10.206c1.263,3.456,4.54,5.606,8.013,5.606c0.981,0,1.971-0.171,2.935-0.529\n				c4.429-1.621,6.699-6.519,5.086-10.948C284.561,81.101,277.06,73.66,267.477,70.246z"/>\n			<path d="M469.333,341.333h-76.8V230.4c0-4.71-3.814-8.533-8.533-8.533s-8.533,3.823-8.533,8.533v119.467\n				c0,4.71,3.814,8.533,8.533,8.533h76.493c-1.724,22.391-10.581,28.297-21.495,35.567c-13.781,9.19-29.397,19.601-29.397,58.3\n				c0,4.71,3.814,8.533,8.533,8.533c4.719,0,8.533-3.823,8.533-8.533c0-29.568,9.617-35.977,21.803-44.1\n				c13.781-9.19,29.397-19.601,29.397-58.3C477.867,345.156,474.052,341.333,469.333,341.333z"/>\n			<path d="M73.003,393.967c-10.914-7.27-19.772-13.175-21.495-35.567H128c4.719,0,8.533-3.823,8.533-8.533V230.4\n				c0-4.71-3.814-8.533-8.533-8.533s-8.533,3.823-8.533,8.533v110.933h-76.8c-4.719,0-8.533,3.823-8.533,8.533\n				c0,38.699,15.616,49.109,29.397,58.3c12.186,8.124,21.803,14.532,21.803,44.1c0,4.71,3.814,8.533,8.533,8.533\n				s8.533-3.823,8.533-8.533C102.4,413.568,86.784,403.157,73.003,393.967z"/>\n			<path d="M384,375.467c-4.719,0-8.533,3.823-8.533,8.533v85.333c0,14.114-11.486,25.6-25.6,25.6H162.133\n				c-14.114,0-25.6-11.486-25.6-25.6V384c0-4.71-3.814-8.533-8.533-8.533s-8.533,3.823-8.533,8.533v85.333\n				c0,23.526,19.14,42.667,42.667,42.667h187.733c23.526,0,42.667-19.14,42.667-42.667V384\n				C392.533,379.29,388.719,375.467,384,375.467z"/>\n			<path d="M63.531,254.566c12.186,8.124,21.803,14.532,21.803,44.1c0,4.71,3.814,8.533,8.533,8.533s8.533-3.823,8.533-8.533\n				c0-38.699-15.616-49.109-29.397-58.3c-10.914-7.27-19.772-13.175-21.495-35.567H128c4.719,0,8.533-3.823,8.533-8.533V76.8\n				c0-4.71-3.814-8.533-8.533-8.533s-8.533,3.823-8.533,8.533v110.933h-76.8c-4.719,0-8.533,3.823-8.533,8.533\n				C34.133,234.965,49.749,245.376,63.531,254.566z"/>\n			<path d="M256,34.133c-37.641,0-68.267,30.626-68.267,68.267c0,37.641,30.626,68.267,68.267,68.267\n				c37.641,0,68.267-30.626,68.267-68.267C324.267,64.759,293.641,34.133,256,34.133z M256,153.6c-28.237,0-51.2-22.963-51.2-51.2\n				c0-28.237,22.963-51.2,51.2-51.2c28.237,0,51.2,22.963,51.2,51.2C307.2,130.637,284.237,153.6,256,153.6z"/>\n            </svg>\n            <h1>Traffic</h1>\n          </ion-card>\n      </ion-col>\n      <ion-col text-center col-6 col-xs-12>\n          <ion-card>\n            <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"\n              viewBox="0 0 508 508" style="enable-background:new 0 0 508 508;" xml:space="preserve">\n               <rect x="49.2" y="221.2" width="262.2" height="16.4"/>\n               <rect x="49.2" y="286.8" width="237.6" height="16.4"/>\n               <rect x="49.2" y="352.3" width="163.9" height="16.4"/>\n               <rect x="49.2" y="417.9" width="16.4" height="16.4"/>\n               <rect x="81.9" y="417.9" width="16.4" height="16.4"/>\n               <rect x="114.7" y="417.9" width="16.4" height="16.4"/>\n               <path d="M500.8,202.4l-23.2-23.2c-9.3-9.3-25.5-9.3-34.8,0l-82.3,82.3V0H144.1L0,144.1V508h360.5V377.5l140.3-140.3\n                 C510.4,227.6,510.4,212,500.8,202.4z M139.3,28v111.3H28L139.3,28z M16.4,491.6V155.7h139.3V16.4h188.5V278L221,401.2l-14.5,72.4\n                 l72.4-14.5l65.2-65.2v97.7H16.4z M233.5,421.8l24.7,24.7l-30.9,6.2L233.5,421.8z M274.9,440l-34.8-34.8L402.3,243l34.8,34.8\n                 L274.9,440z M448.7,266.2l-34.8-34.8l11.6-11.6l34.8,34.8L448.7,266.2z M489.2,225.6L471.8,243L437,208.2l17.4-17.4\n                 c3.1-3.1,8.5-3.1,11.6,0l23.2,23.2C492.4,217.2,492.4,222.4,489.2,225.6z"/>\n               <polygon points="254,90.1 254,41 237.6,41 237.6,90.1 188.5,90.1 188.5,106.5 237.6,106.5 237.6,155.7 254,155.7 254,106.5\n                 303.2,106.5 303.2,90.1 		"/>\n            </svg>\n            <h1>Any Other Safety Report</h1>\n          </ion-card>\n      </ion-col>\n    </ion-row>\n  </ion-grid>\n\n  <ion-list *ngSwitchCase="\'summary\'">\n  </ion-list>\n</ion-content>\n\n<ion-footer>\n  <ion-toolbar>\n    <ion-segment [(ngModel)]="segment">\n      <ion-segment-button value="reports">\n        Reports\n      </ion-segment-button>\n      <ion-segment-button value="summary">\n        Summary\n      </ion-segment-button>\n    </ion-segment>\n  </ion-toolbar>\n</ion-footer>\n'/*ion-inline-end:"D:\Sofware Factory\tbi\src\pages\projects\project.html"*/
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */],
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */],
             __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* AlertController */],
             __WEBPACK_IMPORTED_MODULE_2__services_project_service__["a" /* ProjectService */]])
     ], ProjectPage);
@@ -6222,13 +6430,13 @@ var ProjectPage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 605:
+/***/ 613:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return PicturesPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(6);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(5);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -6250,8 +6458,8 @@ var PicturesPage = /** @class */ (function () {
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
             selector: 'page-pictures',template:/*ion-inline-start:"D:\Sofware Factory\tbi\src\pages\pictures\pictures.html"*/'<ion-header>\n\n    <ion-toolbar>\n\n      <ion-buttons start>\n\n        <button ion-button icon-only color="royal">\n\n          <ion-icon name="search"></ion-icon>\n\n        </button>\n\n      </ion-buttons>\n\n      <ion-title>{{project.name}}</ion-title>\n\n      <ion-buttons end>\n\n        <button ion-button icon-only color="royal">\n\n          <ion-icon name="person-add"></ion-icon>\n\n        </button>\n\n      </ion-buttons>\n\n    </ion-toolbar>\n\n  </ion-header>\n\n\n\n<ion-content>\n\n  <ion-searchbar></ion-searchbar>\n\n  <ion-list padding>\n\n    <ion-list-header>\n\n      Header\n\n    </ion-list-header>\n\n    <ion-item-sliding>\n\n      <ion-item>\n\n        <h2>Finn</h2>\n\n        <h3>Don\'t Know What To Do!</h3>\n\n        <p>I\'ve had a pretty messed up day. If we just...</p>\n\n      </ion-item>\n\n      <ion-item-options side="right">\n\n        <button ion-button color="primary">\n\n          <ion-icon name="text"></ion-icon>\n\n          Text\n\n        </button>\n\n        <button ion-button color="danger">\n\n          Remove\n\n          <ion-icon name="ios-trash-outline"></ion-icon>\n\n        </button>\n\n      </ion-item-options>\n\n    </ion-item-sliding>\n\n    <ion-item>\n\n      <ion-label>Sam</ion-label>\n\n      <ion-toggle checked="false"></ion-toggle>\n\n    </ion-item>\n\n    <ion-item>\n\n      <ion-label>Legolas</ion-label>\n\n      <ion-toggle checked="true"></ion-toggle>\n\n    </ion-item>\n\n  </ion-list>\n\n</ion-content>\n\n\n\n\n\n<ion-footer>\n\n  <ion-grid no-padding>\n\n    <ion-row no-padding>\n\n      <ion-col col-6>\n\n        <button small ion-button color="light" (click)="navCtrl.pop()">\n\n          <ion-icon name="arrow-back"></ion-icon>&nbsp;Back\n\n        </button>\n\n      </ion-col>\n\n      <ion-col col-6 text-right>\n\n        <button small ion-button color="light" (click)="navCtrl.pop()">\n\n          Save report\n\n        </button>\n\n      </ion-col>\n\n    </ion-row>\n\n  </ion-grid>\n\n</ion-footer>\n\n'/*ion-inline-end:"D:\Sofware Factory\tbi\src\pages\pictures\pictures.html"*/
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */]])
     ], PicturesPage);
     return PicturesPage;
 }());
@@ -6260,21 +6468,22 @@ var PicturesPage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 606:
+/***/ 614:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return FileDeviceService; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__messages_service__ = __webpack_require__(16);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_file__ = __webpack_require__(365);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_file__ = __webpack_require__(369);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__file_service__ = __webpack_require__(54);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_native_file_chooser__ = __webpack_require__(363);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__ionic_native_file_path__ = __webpack_require__(364);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_native_file_chooser__ = __webpack_require__(367);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__ionic_native_file_path__ = __webpack_require__(368);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__models__ = __webpack_require__(46);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__ionic_native_file_transfer__ = __webpack_require__(366);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_jszip__ = __webpack_require__(607);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__ionic_native_file_transfer__ = __webpack_require__(370);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_jszip__ = __webpack_require__(615);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_jszip___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_8_jszip__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__loading_service__ = __webpack_require__(176);
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = Object.setPrototypeOf ||
         ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
@@ -6338,15 +6547,17 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 
 
 
+
 var FileDeviceService = /** @class */ (function (_super) {
     __extends(FileDeviceService, _super);
-    function FileDeviceService(file, message, chooser, path, transfer) {
-        var _this = _super.call(this) || this;
+    function FileDeviceService(file, message, chooser, path, transfer, loading) {
+        var _this = _super.call(this, loading) || this;
         _this.file = file;
         _this.message = message;
         _this.chooser = chooser;
         _this.path = path;
         _this.transfer = transfer;
+        _this.loading = loading;
         _this.download_emiter = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["v" /* EventEmitter */]();
         _this.total_files = [];
         _this.working_folder = _this.file.dataDirectory;
@@ -6458,13 +6669,19 @@ var FileDeviceService = /** @class */ (function (_super) {
             var _this = this;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0: return [4 /*yield*/, this.create_file(filename)];
+                    case 0:
+                        this.loading.show();
+                        return [4 /*yield*/, this.create_file(filename)];
                     case 1:
                         _a.sent();
                         return [2 /*return*/, new Promise(function (resolve, reject) {
                                 _this.file.readAsText(_this.working_folder, filename + ".json")
-                                    .then(function (r) { return resolve(r); })
+                                    .then(function (r) {
+                                    _this.loading.hide();
+                                    resolve(r);
+                                })
                                     .catch(function (ex) {
+                                    _this.loading.hide();
                                     reject(ex.message);
                                     throw ex;
                                 });
@@ -6478,13 +6695,19 @@ var FileDeviceService = /** @class */ (function (_super) {
             var _this = this;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0: return [4 /*yield*/, this.create_file(filename)];
+                    case 0:
+                        this.loading.show();
+                        return [4 /*yield*/, this.create_file(filename)];
                     case 1:
                         _a.sent();
                         return [2 /*return*/, new Promise(function (resolve, reject) {
                                 _this.file.writeFile(_this.working_folder, filename + ".json", content, { replace: true })
-                                    .then(function () { return resolve(true); })
+                                    .then(function () {
+                                    _this.loading.hide();
+                                    resolve(true);
+                                })
                                     .catch(function (ex) {
+                                    _this.loading.hide();
                                     reject(ex);
                                     throw ex;
                                 });
@@ -6587,7 +6810,12 @@ var FileDeviceService = /** @class */ (function (_super) {
     };
     FileDeviceService = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["A" /* Injectable */])(),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2__ionic_native_file__["a" /* File */], __WEBPACK_IMPORTED_MODULE_1__messages_service__["a" /* MessageService */], __WEBPACK_IMPORTED_MODULE_4__ionic_native_file_chooser__["a" /* FileChooser */], __WEBPACK_IMPORTED_MODULE_5__ionic_native_file_path__["a" /* FilePath */], __WEBPACK_IMPORTED_MODULE_7__ionic_native_file_transfer__["a" /* FileTransfer */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2__ionic_native_file__["a" /* File */],
+            __WEBPACK_IMPORTED_MODULE_1__messages_service__["a" /* MessageService */],
+            __WEBPACK_IMPORTED_MODULE_4__ionic_native_file_chooser__["a" /* FileChooser */],
+            __WEBPACK_IMPORTED_MODULE_5__ionic_native_file_path__["a" /* FilePath */],
+            __WEBPACK_IMPORTED_MODULE_7__ionic_native_file_transfer__["a" /* FileTransfer */],
+            __WEBPACK_IMPORTED_MODULE_9__loading_service__["a" /* LoadindService */]])
     ], FileDeviceService);
     return FileDeviceService;
 }(__WEBPACK_IMPORTED_MODULE_3__file_service__["a" /* FileService */]));
@@ -6596,14 +6824,14 @@ var FileDeviceService = /** @class */ (function (_super) {
 
 /***/ }),
 
-/***/ 612:
+/***/ 620:
 /***/ (function(module, exports) {
 
 /* (ignored) */
 
 /***/ }),
 
-/***/ 614:
+/***/ 622:
 /***/ (function(module, exports) {
 
 /* (ignored) */
@@ -6614,9 +6842,54 @@ var FileDeviceService = /** @class */ (function (_super) {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return More; });
+var More = {
+    CO2: [
+        ["eia - Coal anthracite [354]", 354, 354],
+        ["eia - Coal bituminous [319]", 319, 319],
+        ["eia - Coal lignite [334]", 334, 334],
+        ["eia - Diesel fuel and heating oil [250]", 250, 250],
+        ["eia - Gasoline [244]", 244, 244],
+        ["eia - Propane [215]", 215, 215],
+        ["eia - Natural gas [181]", 181, 181],
+        ["VDI 4610: Coal import [342]", 342, 342],
+        ["VDI 4610: Brown coal dust Rheinland [353]", 353, 353],
+        ["VDI 4610: Coal Rheinland [410]", 410, 410],
+        ["VDI 4610: Heavy fuel oil [381]", 381, 381],
+        ["VDI 4610: Natural gas H composite [ 202", 202, 202]
+    ],
+    MATERIALS: [
+        ['General value  [0.80]', 10000000000, 0.80],
+        ['Metallic bright   [0.30]', 10000000001, 0.30],
+        ['Metallic   [0.60]', 10000000002, 0.60],
+        ['Corroded  [0.80]', 10000000003, 0.80],
+        ['Painted  [0.90]', 10000000004, 0.90],
+        ['Non metallic  [0.90]', 10000000005, 0.90]
+    ],
+    TIMES: [
+        ['1000 hours', 1000],
+        ['2000 hours', 2000],
+        ['3000 hours', 3000],
+        ['4380 hours (1/2 year)', 4380],
+        ['5000 hours', 5000],
+        ['6000 hours', 6000],
+        ['7000 hours', 7000],
+        ['8760 hours (full year)', 8760]
+    ]
+};
+//# sourceMappingURL=more.js.map
+
+/***/ }),
+
+/***/ 64:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return BaseCalculator; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__value__ = __webpack_require__(169);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__result__ = __webpack_require__(100);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__const_more_more__ = __webpack_require__(63);
+
 
 
 var BaseCalculator = /** @class */ (function () {
@@ -6780,6 +7053,7 @@ var BaseCalculator = /** @class */ (function () {
         //     'this.ql_ref_pb': this.ql_ref_pb,
         //     'this.ql_min': this.ql_min,
         // })
+        var _co2 = Number(__WEBPACK_IMPORTED_MODULE_2__const_more_more__["a" /* More */].CO2.find(function (m) { return Number(m[1]) == _this.report.project.co2; })[2]);
         this.report.result = new __WEBPACK_IMPORTED_MODULE_1__result__["a" /* Result */]({
             advise: this.Insulation_advice,
             headLost: new __WEBPACK_IMPORTED_MODULE_0__value__["a" /* Value */]({
@@ -6795,9 +7069,9 @@ var BaseCalculator = /** @class */ (function () {
                 money: this.Savingε_max
             }),
             co2: [
-                this.Qkwh * this.report.component.project.co2 / 1000000,
-                this.Qkwh_min * this.report.component.project.co2 / 1000000,
-                this.Qkwh_max * this.report.component.project.co2 / 1000000,
+                this.Qkwh * _co2 / 1000000,
+                this.Qkwh_min * _co2 / 1000000,
+                this.Qkwh_max * _co2 / 1000000,
             ]
         });
         return this.report;
@@ -6809,13 +7083,14 @@ var BaseCalculator = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 660:
+/***/ 668:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return FileLocalService; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__file_service__ = __webpack_require__(54);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__loading_service__ = __webpack_require__(176);
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = Object.setPrototypeOf ||
         ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
@@ -6837,19 +7112,23 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 
 
+
 var FileLocalService = /** @class */ (function (_super) {
     __extends(FileLocalService, _super);
-    function FileLocalService() {
-        var _this = _super.call(this) || this;
+    function FileLocalService(loading) {
+        var _this = _super.call(this, loading) || this;
+        _this.loading = loading;
         _this.working_folder = 'D:\\Sofware Factory\\tbi\\src\\assets\\';
         return _this;
     }
     FileLocalService.prototype.create_pdf = function (base64, filename) {
         var _this = this;
+        this.loading.show();
         return new Promise(function (resolve, reject) {
             var blob = new Blob([_this.base64_to_uint(base64)], { type: 'application/pdf' });
             var newWindow = window.open('/', '_blank');
             newWindow.location.href = URL.createObjectURL(blob);
+            _this.loading.hide();
             resolve(filename);
         });
     };
@@ -6873,13 +7152,19 @@ var FileLocalService = /** @class */ (function (_super) {
         throw new Error("Method not implemented.");
     };
     FileLocalService.prototype.read_text = function (filename) {
+        var _this = this;
+        this.loading.show();
         return new Promise(function (resolve, reject) {
+            _this.loading.hide();
             resolve(localStorage.getItem(filename));
         });
     };
     FileLocalService.prototype.write_text = function (filename, content) {
+        var _this = this;
+        this.loading.show();
         return new Promise(function (resolve, reject) {
             localStorage.setItem(filename, content);
+            _this.loading.hide();
             resolve(true);
         });
     };
@@ -6891,7 +7176,7 @@ var FileLocalService = /** @class */ (function (_super) {
     };
     FileLocalService = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["A" /* Injectable */])(),
-        __metadata("design:paramtypes", [])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2__loading_service__["a" /* LoadindService */]])
     ], FileLocalService);
     return FileLocalService;
 }(__WEBPACK_IMPORTED_MODULE_1__file_service__["a" /* FileService */]));
@@ -6900,7 +7185,7 @@ var FileLocalService = /** @class */ (function (_super) {
 
 /***/ }),
 
-/***/ 661:
+/***/ 669:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -6928,7 +7213,7 @@ var SvgInsulationComponent = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 662:
+/***/ 670:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -6956,7 +7241,7 @@ var SvgCO2Component = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 663:
+/***/ 671:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -6984,7 +7269,7 @@ var SvgCustomComponent = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 664:
+/***/ 672:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -7012,7 +7297,7 @@ var SvgSafetyComponent = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 665:
+/***/ 673:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -7040,7 +7325,7 @@ var SvgMaintenanceComponent = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 666:
+/***/ 674:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -7068,7 +7353,7 @@ var SvgFlangeComponent = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 667:
+/***/ 675:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -7096,7 +7381,7 @@ var SvgHotSurfaceComponent = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 668:
+/***/ 676:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -7124,7 +7409,7 @@ var SvgFireProtectionComponent = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 669:
+/***/ 677:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -7152,7 +7437,7 @@ var SvgTrafficComponent = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 670:
+/***/ 678:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -7180,7 +7465,7 @@ var SvgDamageInsulationComponent = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 671:
+/***/ 679:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -7208,7 +7493,7 @@ var SvgDamageCladdingComponent = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 672:
+/***/ 680:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -7236,7 +7521,7 @@ var SvgIceWetComponent = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 673:
+/***/ 681:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -7264,7 +7549,7 @@ var SvgMechanicalComponent = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 674:
+/***/ 682:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -7292,7 +7577,7 @@ var SvgElectricalComponent = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 675:
+/***/ 683:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -7320,7 +7605,7 @@ var SvgLeakageComponent = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 676:
+/***/ 684:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -7348,7 +7633,7 @@ var SvgOtherSafetyComponent = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 677:
+/***/ 685:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -7376,7 +7661,7 @@ var SvgColdComponent = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 678:
+/***/ 686:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -7404,7 +7689,7 @@ var SvgPipeInsultationComponent = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 679:
+/***/ 687:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -7432,7 +7717,7 @@ var SvgPipeComponent = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 680:
+/***/ 688:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -7460,7 +7745,7 @@ var SvgValveComponent = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 681:
+/***/ 689:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -7488,7 +7773,7 @@ var SvgSurfaceComponent = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 682:
+/***/ 690:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -7516,7 +7801,7 @@ var SvgDamagedCladdingComponent = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 683:
+/***/ 691:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -7544,7 +7829,7 @@ var SvgDamagedInsulationComponent = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 684:
+/***/ 692:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -7572,7 +7857,7 @@ var SvgEnergyComponent = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 685:
+/***/ 693:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -7600,7 +7885,7 @@ var SvgInsulatedSurfaceComponent = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 686:
+/***/ 694:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -7628,7 +7913,7 @@ var SvgOthersComponent = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 687:
+/***/ 695:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -7656,7 +7941,7 @@ var SvgInsulatedOthersComponent = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 688:
+/***/ 696:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -7684,7 +7969,7 @@ var SvgCilinderAreaComponent = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 689:
+/***/ 697:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -7712,7 +7997,7 @@ var SvgCubeAreaComponent = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 690:
+/***/ 698:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -7740,7 +8025,7 @@ var SvgCircleAreaComponent = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 691:
+/***/ 699:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -7768,7 +8053,7 @@ var SvgHousekeepingComponent = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 692:
+/***/ 700:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -7796,7 +8081,7 @@ var SvgStructuralComponent = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 693:
+/***/ 701:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -7824,7 +8109,7 @@ var SvgRectangleAreaComponent = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 694:
+/***/ 702:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -7852,7 +8137,7 @@ var SvgLikeComponent = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 695:
+/***/ 703:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -7880,7 +8165,7 @@ var SvgIncreaseComponent = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 696:
+/***/ 704:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -7908,13 +8193,13 @@ var SvgEmptyComponent = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 697:
+/***/ 705:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SurfaceMaterialPipe; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__const_more_more__ = __webpack_require__(99);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__const_more_more__ = __webpack_require__(63);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -7940,13 +8225,13 @@ var SurfaceMaterialPipe = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 704:
+/***/ 706:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ToolsComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__ionic_native_flashlight__ = __webpack_require__(397);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__ionic_native_flashlight__ = __webpack_require__(399);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services__ = __webpack_require__(17);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -7998,331 +8283,12 @@ var ToolsComponent = /** @class */ (function () {
             selector: 'tools',template:/*ion-inline-start:"D:\Sofware Factory\tbi\src\components\tools\tools.component.html"*/'  <button ion-button small icon-only color="light" (click)="open_calculator()">\n\n    <ion-icon name="ios-calculator"></ion-icon>\n\n  </button>\n\n  <button ion-button small icon-only color="light" [class.pushed]="flashlight_on" (click)="toggle_light()">\n\n    <ion-icon name="ios-sunny"></ion-icon>\n\n  </button>'/*ion-inline-end:"D:\Sofware Factory\tbi\src\components\tools\tools.component.html"*/,
             encapsulation: __WEBPACK_IMPORTED_MODULE_0__angular_core__["_11" /* ViewEncapsulation */].None
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__ionic_native_flashlight__["a" /* Flashlight */], __WEBPACK_IMPORTED_MODULE_2__services__["b" /* MessageService */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__ionic_native_flashlight__["a" /* Flashlight */], __WEBPACK_IMPORTED_MODULE_2__services__["c" /* MessageService */]])
     ], ToolsComponent);
     return ToolsComponent;
 }());
 
 //# sourceMappingURL=tools.component.js.map
-
-/***/ }),
-
-/***/ 705:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return GlobalErrorHandler; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_http__ = __webpack_require__(122);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_add_operator_map__ = __webpack_require__(706);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_rxjs_add_operator_map__);
-
-
-var GlobalErrorHandler = /** @class */ (function () {
-    function GlobalErrorHandler(message, http) {
-        this.message = message;
-        this.http = http;
-    }
-    GlobalErrorHandler.prototype.handleError = function (err) {
-        var _this = this;
-        //this.message.alert('ERROR', `${err.message || err.toString()}<br>${err.stack || ''}`);
-        var _message = {
-            text: "User: " + localStorage.getItem('tbi-user'),
-            attachments: [
-                {
-                    color: 'danger',
-                    fields: [
-                        //{ title: 'Message', value: err.message || err.toString(), short: false },
-                        { title: 'Stack', value: err.stack || '', short: false },
-                    ]
-                }
-            ]
-        };
-        var _headers = new __WEBPACK_IMPORTED_MODULE_0__angular_http__["a" /* Headers */]();
-        _headers.append("Content-type", "application/x-www-form-urlencoded; charset=UTF-8");
-        try {
-            this.http.post('https://hooks.slack.com/services/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', "payload=" + JSON.stringify(_message, null, 2), {
-                headers: _headers
-            })
-                .toPromise()
-                .catch(function (ex) { return _this.message.alert('Error', ex.toString()); });
-        }
-        catch (ex) {
-            //
-        }
-    };
-    return GlobalErrorHandler;
-}());
-
-//# sourceMappingURL=global-error.js.map
-
-/***/ }),
-
-/***/ 74:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ProjectsPage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__models_project__ = __webpack_require__(168);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_project_service__ = __webpack_require__(53);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ionic_angular__ = __webpack_require__(6);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__project_page_base__ = __webpack_require__(172);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__edit__ = __webpack_require__(299);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__ionic_native_screen_orientation__ = __webpack_require__(178);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__reports__ = __webpack_require__(20);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__ionic_native_unique_device_id__ = __webpack_require__(359);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__services_licences_service__ = __webpack_require__(102);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__download_download__ = __webpack_require__(360);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__summary_summary__ = __webpack_require__(180);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__models_component__ = __webpack_require__(76);
-var __extends = (this && this.__extends) || (function () {
-    var extendStatics = Object.setPrototypeOf ||
-        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
-    return function (d, b) {
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-
-
-
-
-
-
-
-
-
-
-
-var ProjectsPage = /** @class */ (function (_super) {
-    __extends(ProjectsPage, _super);
-    function ProjectsPage(navCtrl, navParams, service, platform, alertCtrl, actionSheetCtrl, orientation, licences, uuid, keyboard) {
-        var _this = _super.call(this, alertCtrl, service, keyboard) || this;
-        _this.navCtrl = navCtrl;
-        _this.navParams = navParams;
-        _this.service = service;
-        _this.platform = platform;
-        _this.alertCtrl = alertCtrl;
-        _this.actionSheetCtrl = actionSheetCtrl;
-        _this.licences = licences;
-        _this.keyboard = keyboard;
-        _this.projects = [];
-        _this.edit_mode = false;
-        _this.orientation = "";
-        _this.user_name = '';
-        _this.top_categories = [];
-        _this.apps = [];
-        uuid.get()
-            .then(function (uuid) { return console.log(uuid); })
-            .catch(function (error) { return console.log(error); });
-        _this.orientation = orientation.type;
-        _this.user_name = _this.navParams.get("user_name") || _this.user_name;
-        orientation.onChange().subscribe(function () { return _this.orientation = orientation.type; });
-        if (!!navParams.get('summary'))
-            _this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_11__summary_summary__["a" /* SummaryPage */], { project: navParams.get('project') }, { animate: true, direction: 'backward' });
-        return _this;
-    }
-    ProjectsPage.prototype.duplicate = function (project, event) {
-        var _this = this;
-        event.cancelBubble = true;
-        event.preventDefault();
-        var new_project = new __WEBPACK_IMPORTED_MODULE_0__models_project__["b" /* Project */](project);
-        new_project.id = '';
-        new_project.name = project.name + " Copy";
-        new_project.date = new Date();
-        new_project.components = new_project.components.map(function (c) {
-            var new_component = new __WEBPACK_IMPORTED_MODULE_12__models_component__["a" /* TbiComponent */](new_project, c);
-            new_component.id = '';
-            new_component.date = new_project.date;
-            new_component.fields.location = c.fields.location + " Copy";
-            return new_component;
-        });
-        this.service.save(new_project).then(function () { return _this.load(); });
-    };
-    ProjectsPage.prototype.open_report = function (project) {
-        if (this.licences.lock) {
-            this.alert_licence();
-        }
-        else {
-            this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_7__reports__["v" /* ReportsPage */], {
-                project: project,
-                report: null,
-                parent: this
-            });
-        }
-    };
-    ProjectsPage.prototype.ask_for_action = function (project) {
-        var _this = this;
-        this.actionSheetCtrl.create({
-            //title: 'What would you like to do?',
-            cssClass: 'project-action-sheet',
-            buttons: [
-                {
-                    text: 'Report',
-                    icon: 'document',
-                    handler: function () {
-                        _this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_7__reports__["v" /* ReportsPage */], {
-                            project: project,
-                            parent: _this
-                        });
-                    }
-                },
-                {
-                    text: 'Summary',
-                    icon: 'grid',
-                    handler: function () {
-                        _this.navigate_to_reports(project);
-                    }
-                },
-                {
-                    text: 'Edit',
-                    icon: 'create',
-                    handler: function () {
-                        _this.navigate_to_edit(project);
-                    }
-                },
-                {
-                    text: 'Delete',
-                    role: 'destructive',
-                    icon: 'trash',
-                    handler: function () {
-                        setTimeout(function () { return _this.delete_project(project, null); }, 250);
-                    }
-                }, {
-                    text: 'Cancel',
-                    //icon: 'thumbs-down',
-                    role: 'cancel'
-                }
-            ]
-        }).present();
-    };
-    ProjectsPage.prototype.alert_licence = function () {
-        this.alertCtrl.create({
-            //title: 'Licence',
-            message: 'To create more projects upgrade to Pro or Enterprise version',
-            cssClass: 'project-action-sheet',
-            buttons: [
-                {
-                    text: 'Upgrade',
-                    handler: function () {
-                    }
-                },
-                {
-                    text: 'Cancel',
-                    role: 'cancel'
-                }
-            ]
-        }).present();
-    };
-    ProjectsPage.prototype.ionViewWillEnter = function () {
-        this.load();
-    };
-    ProjectsPage.prototype.load = function () {
-        var _this = this;
-        this.service.get_all().then(function (p) {
-            _this.projects = p;
-            if (!_this.projects.length)
-                _this.edit_mode = false;
-        });
-    };
-    ProjectsPage.prototype.open = function (project) {
-        if (this.remove_mode) {
-            this.remove_mode = false;
-        }
-        else if (this.edit_mode) {
-            this.edit_mode = false;
-            this.navigate_to_edit(project);
-        }
-        else {
-            this.navigate_to_reports(project);
-        }
-    };
-    ProjectsPage.prototype.navigate_to_reports = function (project) {
-        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_7__reports__["v" /* ReportsPage */], {
-            project: project,
-            parent: this
-        });
-    };
-    ProjectsPage.prototype.navigate_to_edit = function (project, event) {
-        if (!!event)
-            event.stopPropagation();
-        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_5__edit__["a" /* EditProjectPage */], {
-            project: project,
-            parent: this
-        });
-    };
-    ProjectsPage.prototype.toggle_edit_mode = function () {
-        this.edit_mode = !this.edit_mode;
-    };
-    ProjectsPage.prototype.select_file = function () {
-        var _this = this;
-        this.edit_mode = false;
-        setTimeout(function () { return _this.create(); }, 200);
-    };
-    ProjectsPage.prototype.create = function () {
-        var _this = this;
-        if (this.licences.type == 'BASIC' && !this.edit_mode && this.projects.length > 0) {
-            this.alert_licence();
-            return;
-        }
-        setTimeout(function () { return _this.navigate_to_edit(new __WEBPACK_IMPORTED_MODULE_0__models_project__["b" /* Project */]()); }, this.edit_mode ? 200 : 0);
-        this.edit_mode = false;
-    };
-    ProjectsPage.prototype.create_db = function () {
-        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_10__download_download__["a" /* DownloadPage */]);
-        // this.service.create_database().then(blob => {
-        //   var a = document.createElement("a"),
-        //     url = URL.createObjectURL(blob);
-        //   a.href = url;
-        //   a.download = 'db.zip';
-        //   a.click();
-        //   setTimeout(function () {
-        //     window.URL.revokeObjectURL(url);
-        //   }, 0);
-        // })
-    };
-    ProjectsPage.prototype.after_delete = function () {
-        this.load();
-    };
-    ProjectsPage.prototype.flatten = function (arr) {
-        return [].concat.apply([], arr);
-    };
-    ProjectsPage.prototype.get_by_type = function (project, type) {
-        //return project.get_reports_by_types(type);
-        return this.flatten(project.components.map(function (c) { return c.reports; })).filter(function (r) { return !!r.path.match(new RegExp('(' + type + ')', 'gi')); });
-    };
-    ProjectsPage = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_2__angular_core__["m" /* Component */])({
-            selector: 'page-project',template:/*ion-inline-start:"D:\Sofware Factory\tbi\src\pages\projects\projects.html"*/'<ion-header>\n\n  <ion-toolbar>\n\n    <ion-title></ion-title>\n\n  </ion-toolbar>\n\n</ion-header>\n\n\n\n<ion-content>\n\n  <ion-grid projects>\n\n    <ion-row>\n\n      <ion-col col-xs-3 col-sm-2>\n\n      </ion-col>\n\n      <ion-col col-xs-9 col-sm-10>\n\n        <ion-row no-margin no-padding>\n\n          <ion-col col-12>\n\n          </ion-col>\n\n        </ion-row>\n\n        <ion-row no-margin no-padding>\n\n          <ion-col col-8>\n\n          </ion-col>\n\n          <ion-col svg="insulation" col-sm-1 class="flex bg-gray">\n\n          </ion-col>\n\n          <ion-col svg="safety" col-sm-1 class="flex">\n\n          </ion-col>\n\n          <ion-col svg="maintenance" col-sm-1 class="flex bg-gray">\n\n          </ion-col>\n\n          <ion-col svg="custom" col-sm-1 class="flex">\n\n          </ion-col>\n\n        </ion-row>\n\n      </ion-col>\n\n    </ion-row>\n\n    <ion-row *ngFor="let p of projects">\n\n      <ion-col col-xs-3 col-sm-2 id="project-{{p.id}}" (click)="open_report(p)">\n\n        <img [src]="p.picture">\n\n      </ion-col>\n\n      <ion-col col-xs-9 col-sm-10 (click)="open_report(p)">\n\n        <ion-row no-margin no-padding>\n\n          <ion-col col-12>\n\n            <h1 no-margin>{{p.name}}</h1>\n\n          </ion-col>\n\n        </ion-row>\n\n        <ion-row no-margin no-padding>\n\n          <ion-col col-8>\n\n            <ion-row>\n\n              <h5 col-12 no-margin>Project Leader: {{p.people.leader.name || \'(none)\'}}</h5>\n\n              <!-- <h5 col-12 no-margin>Energy Manager: {{p.people.energy_manager.name || \'(none)\'}}</h5> -->\n\n            </ion-row>\n\n          </ion-col>\n\n          <ion-col col-md-1 class="flex bg-gray">\n\n            <h4 no-margin>{{get_by_type(p, \'pipe|surface|flange|valve\').length}}</h4>\n\n          </ion-col>\n\n          <ion-col col-md-1 class="flex">\n\n            <h4 no-margin>{{get_by_type(p, \'safety\').length}}</h4>\n\n          </ion-col>\n\n          <ion-col col-md-1 class="flex bg-gray">\n\n            <h4 no-margin>{{get_by_type(p, \'maintenance\').length}}</h4>\n\n          </ion-col>\n\n          <ion-col col-md-1 class="flex">\n\n            <h4 no-margin>{{get_by_type(p, \'custom\').length}}</h4>\n\n          </ion-col>\n\n        </ion-row>\n\n        <ion-row>\n\n          <ion-col col-12 text-right>\n\n            <button ion-button small pull-right color="royal" (click)="duplicate(p, $event)">\n\n              <ion-icon name="ios-copy"></ion-icon>Duplicate\n\n            </button>\n\n            <button ion-button small pull-right (click)="navigate_to_edit(p, $event)">\n\n              <ion-icon name="create"></ion-icon>Edit\n\n            </button>\n\n            <button ion-button small pull-right color="danger" (click)="this.delete_project(p, $event)">\n\n              <ion-icon name="trash"></ion-icon>Delete\n\n            </button>\n\n          </ion-col>\n\n        </ion-row>\n\n        <!-- <ion-row no-margin no-padding>\n\n            <ion-col col-12>\n\n              <p no-margin>{{p.desc}}</p>\n\n            </ion-col>\n\n          </ion-row> -->\n\n      </ion-col>\n\n    </ion-row>\n\n  </ion-grid>\n\n\n\n  <div license-alert *ngIf="licences.type==\'BASIC\'" col-6 offset-3>\n\n    <ion-grid no-padding>\n\n      <ion-row no-padding>\n\n        <ion-col col-12 no-padding>\n\n          La versión BASIC solo le permite crear 5 componentes, contrate la versión PRO o ENTERPRISE y disfrute de\n\n          todas sus ventajas.\n\n        </ion-col>\n\n        <ion-col col-4 offset-8 text-right>\n\n          <button ion-button small round color="light" outline>Upgrade NOW</button>\n\n        </ion-col>\n\n      </ion-row>\n\n    </ion-grid>\n\n  </div>\n\n</ion-content>\n\n\n\n<ion-footer>\n\n  <ion-grid>\n\n    <ion-row>\n\n      <ion-col col-4 text-left>\n\n        <button ion-button small color="light" (click)="create_db()">\n\n          <ion-icon name="md-archive"></ion-icon>Download data\n\n        </button>\n\n      </ion-col>\n\n      <ion-col col-4 text-center>\n\n        <tools></tools>\n\n      </ion-col>\n\n      <ion-col col-4 text-right>\n\n        <button ion-button small color="royal" (click)="create()">\n\n          New project\n\n        </button>\n\n      </ion-col>\n\n    </ion-row>\n\n  </ion-grid>\n\n</ion-footer>\n\n'/*ion-inline-end:"D:\Sofware Factory\tbi\src\pages\projects\projects.html"*/
-        }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_3_ionic_angular__["h" /* NavController */],
-            __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["i" /* NavParams */],
-            __WEBPACK_IMPORTED_MODULE_1__services_project_service__["a" /* ProjectService */],
-            __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["j" /* Platform */],
-            __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["b" /* AlertController */],
-            __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["a" /* ActionSheetController */],
-            __WEBPACK_IMPORTED_MODULE_6__ionic_native_screen_orientation__["a" /* ScreenOrientation */],
-            __WEBPACK_IMPORTED_MODULE_9__services_licences_service__["a" /* LicencesService */],
-            __WEBPACK_IMPORTED_MODULE_8__ionic_native_unique_device_id__["a" /* UniqueDeviceID */],
-            __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["f" /* Keyboard */]])
-    ], ProjectsPage);
-    return ProjectsPage;
-}(__WEBPACK_IMPORTED_MODULE_4__project_page_base__["a" /* ProjectPageBase */]));
-
-//# sourceMappingURL=projects.js.map
 
 /***/ }),
 
@@ -8401,6 +8367,7 @@ var TbiComponent = /** @class */ (function () {
         this.reports = [];
         this.fields = new __WEBPACK_IMPORTED_MODULE_1__fields__["a" /* Fields */]();
         this.date = new Date();
+        this.validation = '';
         this.project = project;
         if (!!item) {
             this.fields = new __WEBPACK_IMPORTED_MODULE_1__fields__["a" /* Fields */](item.fields);
@@ -8410,6 +8377,7 @@ var TbiComponent = /** @class */ (function () {
             this.id = item.id || Math.random().toString().substr(2);
             this.reports = (item.reports || []).map(function (r) { return new __WEBPACK_IMPORTED_MODULE_0__report_base__["a" /* ReportBase */](project, _this, r); });
             this.markers = (item.markers || []).map(function (m) { return new __WEBPACK_IMPORTED_MODULE_2__marker__["a" /* Marker */](m); });
+            this.validation = item.validation;
             var report = this.reports.find(function (r) { return !!(r.path).match(/(surface|pipe|valve|flange)/gi); });
             this.result = !!report ? report.result : null;
         }
@@ -8494,30 +8462,269 @@ var TbiComponent = /** @class */ (function () {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return More; });
-var More = {
-    MATERIALS: [
-        ['General value  [0.80]', 10000000000, 0.80],
-        ['Metallic bright   [0.30]', 10000000001, 0.30],
-        ['Metallic   [0.60]', 10000000002, 0.60],
-        ['Corroded  [0.80]', 10000000003, 0.80],
-        ['Painted  [0.90]', 10000000004, 0.90],
-        ['Non metallic  [0.90]', 10000000005, 0.90]
-    ],
-    TIMES: [
-        ['1000 hours', 1000],
-        ['2000 hours', 2000],
-        ['3000 hours', 3000],
-        ['4380 hours (1/2 year)', 4380],
-        ['5000 hours', 5000],
-        ['6000 hours', 6000],
-        ['7000 hours', 7000],
-        ['8760 hours (full year)', 8760]
-    ]
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ProjectsPage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__models_project__ = __webpack_require__(168);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_project_service__ = __webpack_require__(53);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ionic_angular__ = __webpack_require__(5);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__project_page_base__ = __webpack_require__(172);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__edit__ = __webpack_require__(298);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__reports__ = __webpack_require__(20);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__ionic_native_unique_device_id__ = __webpack_require__(362);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__services_licences_service__ = __webpack_require__(102);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__download_download__ = __webpack_require__(363);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__summary_summary__ = __webpack_require__(103);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__models_component__ = __webpack_require__(76);
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
-//# sourceMappingURL=more.js.map
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+
+
+
+
+
+
+
+var ProjectsPage = /** @class */ (function (_super) {
+    __extends(ProjectsPage, _super);
+    function ProjectsPage(navCtrl, navParams, service, platform, alertCtrl, actionSheetCtrl, licences, uuid, keyboard) {
+        var _this = _super.call(this, alertCtrl, service, keyboard) || this;
+        _this.navCtrl = navCtrl;
+        _this.navParams = navParams;
+        _this.service = service;
+        _this.platform = platform;
+        _this.alertCtrl = alertCtrl;
+        _this.actionSheetCtrl = actionSheetCtrl;
+        _this.licences = licences;
+        _this.keyboard = keyboard;
+        _this.projects = [];
+        _this.edit_mode = false;
+        _this.user_name = '';
+        _this.top_categories = [];
+        _this.apps = [];
+        // uuid.get()
+        //   .then((uuid: any) => console.log(uuid))
+        //   .catch((error: any) => console.log(error));
+        _this.user_name = _this.navParams.get("user_name") || _this.user_name;
+        return _this;
+    }
+    ProjectsPage.prototype.duplicate = function (project, event) {
+        var _this = this;
+        event.cancelBubble = true;
+        event.preventDefault();
+        var new_project = new __WEBPACK_IMPORTED_MODULE_0__models_project__["b" /* Project */](project);
+        new_project.id = '';
+        new_project.name = project.name + " Copy";
+        new_project.date = new Date();
+        new_project.components = new_project.components.map(function (c) {
+            var new_component = new __WEBPACK_IMPORTED_MODULE_11__models_component__["a" /* TbiComponent */](new_project, c);
+            new_component.id = '';
+            new_component.date = new_project.date;
+            new_component.fields.location = c.fields.location + " Copy";
+            return new_component;
+        });
+        this.service.save(new_project).then(function () { return _this.load(); });
+    };
+    ProjectsPage.prototype.open_report = function (project) {
+        if (this.licences.lock) {
+            this.alert_licence();
+        }
+        else {
+            this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_6__reports__["w" /* ReportsPage */], {
+                project: project,
+                report: null,
+                parent: this
+            });
+        }
+    };
+    ProjectsPage.prototype.ask_for_action = function (project) {
+        var _this = this;
+        this.actionSheetCtrl.create({
+            //title: 'What would you like to do?',
+            cssClass: 'project-action-sheet',
+            buttons: [
+                {
+                    text: 'Report',
+                    icon: 'document',
+                    handler: function () {
+                        _this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_6__reports__["w" /* ReportsPage */], {
+                            project: project,
+                            parent: _this
+                        });
+                    }
+                },
+                {
+                    text: 'Summary',
+                    icon: 'grid',
+                    handler: function () {
+                        _this.navigate_to_reports(project);
+                    }
+                },
+                {
+                    text: 'Edit',
+                    icon: 'create',
+                    handler: function () {
+                        _this.navigate_to_edit(project);
+                    }
+                },
+                {
+                    text: 'Delete',
+                    role: 'destructive',
+                    icon: 'trash',
+                    handler: function () {
+                        setTimeout(function () { return _this.delete_project(project, null); }, 250);
+                    }
+                }, {
+                    text: 'Cancel',
+                    //icon: 'thumbs-down',
+                    role: 'cancel'
+                }
+            ]
+        }).present();
+    };
+    ProjectsPage.prototype.alert_licence = function () {
+        this.alertCtrl.create({
+            //title: 'Licence',
+            message: 'To create more projects upgrade to Pro or Enterprise version',
+            cssClass: 'project-action-sheet',
+            buttons: [
+                {
+                    text: 'Upgrade',
+                    handler: function () {
+                    }
+                },
+                {
+                    text: 'Cancel',
+                    role: 'cancel'
+                }
+            ]
+        }).present();
+    };
+    ProjectsPage.prototype.ionViewWillEnter = function () {
+        var _this = this;
+        this.load().then(function () {
+            if (!!_this.navParams.get('summary'))
+                _this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_10__summary_summary__["a" /* SummaryPage */], { project: _this.projects.find(function (p) { return p.id == _this.navParams.get('project'); }) }, { animate: true, direction: 'backward' });
+        });
+    };
+    ProjectsPage.prototype.load = function () {
+        var _this = this;
+        return new Promise(function (resolve) {
+            _this.service.get_all().then(function (p) {
+                _this.projects = p;
+                if (!_this.projects.length)
+                    _this.edit_mode = false;
+                resolve(true);
+            });
+        });
+    };
+    ProjectsPage.prototype.open = function (project) {
+        if (this.remove_mode) {
+            this.remove_mode = false;
+        }
+        else if (this.edit_mode) {
+            this.edit_mode = false;
+            this.navigate_to_edit(project);
+        }
+        else {
+            this.navigate_to_reports(project);
+        }
+    };
+    ProjectsPage.prototype.navigate_to_reports = function (project) {
+        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_6__reports__["w" /* ReportsPage */], {
+            project: project,
+            parent: this
+        });
+    };
+    ProjectsPage.prototype.navigate_to_edit = function (project, event) {
+        if (!!event)
+            event.stopPropagation();
+        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_5__edit__["a" /* EditProjectPage */], {
+            project: project,
+            parent: this
+        });
+    };
+    ProjectsPage.prototype.toggle_edit_mode = function () {
+        this.edit_mode = !this.edit_mode;
+    };
+    ProjectsPage.prototype.select_file = function () {
+        var _this = this;
+        this.edit_mode = false;
+        setTimeout(function () { return _this.create(); }, 200);
+    };
+    ProjectsPage.prototype.create = function () {
+        var _this = this;
+        if (this.licences.type == 'BASIC' && !this.edit_mode && this.projects.length > 0) {
+            this.alert_licence();
+            return;
+        }
+        setTimeout(function () { return _this.navigate_to_edit(new __WEBPACK_IMPORTED_MODULE_0__models_project__["b" /* Project */]()); }, this.edit_mode ? 200 : 0);
+        this.edit_mode = false;
+    };
+    ProjectsPage.prototype.create_db = function () {
+        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_9__download_download__["a" /* DownloadPage */]);
+        // this.service.create_database().then(blob => {
+        //   var a = document.createElement("a"),
+        //     url = URL.createObjectURL(blob);
+        //   a.href = url;
+        //   a.download = 'db.zip';
+        //   a.click();
+        //   setTimeout(function () {
+        //     window.URL.revokeObjectURL(url);
+        //   }, 0);
+        // })
+    };
+    ProjectsPage.prototype.after_delete = function () {
+        this.load();
+    };
+    ProjectsPage.prototype.flatten = function (arr) {
+        return [].concat.apply([], arr);
+    };
+    ProjectsPage.prototype.get_by_type = function (project, type) {
+        //return project.get_reports_by_types(type);
+        return this.flatten(project.components.map(function (c) { return c.reports; })).filter(function (r) { return !!r.path.match(new RegExp('(' + type + ')', 'gi')); });
+    };
+    ProjectsPage = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_2__angular_core__["m" /* Component */])({
+            selector: 'page-project',template:/*ion-inline-start:"D:\Sofware Factory\tbi\src\pages\projects\projects.html"*/'<ion-header>\n\n  <ion-toolbar>\n\n    <ion-title></ion-title>\n\n  </ion-toolbar>\n\n</ion-header>\n\n\n\n<ion-content>\n\n  <ion-grid projects>\n\n    <ion-row>\n\n      <ion-col col-xs-3 col-sm-2>\n\n      </ion-col>\n\n      <ion-col col-xs-9 col-sm-10>\n\n        <ion-row no-margin no-padding>\n\n          <ion-col col-12>\n\n          </ion-col>\n\n        </ion-row>\n\n        <ion-row no-margin no-padding>\n\n          <ion-col col-8>\n\n          </ion-col>\n\n          <ion-col svg="insulation" col-sm-1 class="flex bg-gray">\n\n          </ion-col>\n\n          <ion-col svg="safety" col-sm-1 class="flex">\n\n          </ion-col>\n\n          <ion-col svg="maintenance" col-sm-1 class="flex bg-gray">\n\n          </ion-col>\n\n          <ion-col svg="custom" col-sm-1 class="flex">\n\n          </ion-col>\n\n        </ion-row>\n\n      </ion-col>\n\n    </ion-row>\n\n    <ion-row *ngFor="let p of projects">\n\n      <ion-col col-xs-3 col-sm-2 id="project-{{p.id}}" (click)="open_report(p)">\n\n        <img [src]="p.picture">\n\n      </ion-col>\n\n      <ion-col col-xs-9 col-sm-10 (click)="open_report(p)">\n\n        <ion-row no-margin no-padding>\n\n          <ion-col col-12>\n\n            <h1 no-margin>{{p.name}}</h1>\n\n          </ion-col>\n\n        </ion-row>\n\n        <ion-row no-margin no-padding>\n\n          <ion-col col-8>\n\n            <ion-row>\n\n              <h5 col-12 no-margin>Project Leader: {{p.people.leader.name || \'(none)\'}}</h5>\n\n              <!-- <h5 col-12 no-margin>Energy Manager: {{p.people.energy_manager.name || \'(none)\'}}</h5> -->\n\n            </ion-row>\n\n          </ion-col>\n\n          <ion-col col-md-1 class="flex bg-gray">\n\n            <h4 no-margin>{{get_by_type(p, \'pipe|surface|flange|valve\').length}}</h4>\n\n          </ion-col>\n\n          <ion-col col-md-1 class="flex">\n\n            <h4 no-margin>{{get_by_type(p, \'safety\').length}}</h4>\n\n          </ion-col>\n\n          <ion-col col-md-1 class="flex bg-gray">\n\n            <h4 no-margin>{{get_by_type(p, \'maintenance\').length}}</h4>\n\n          </ion-col>\n\n          <ion-col col-md-1 class="flex">\n\n            <h4 no-margin>{{get_by_type(p, \'custom\').length}}</h4>\n\n          </ion-col>\n\n        </ion-row>\n\n        <ion-row>\n\n          <ion-col col-12 text-right>\n\n            <button ion-button small pull-right color="royal" (click)="duplicate(p, $event)">\n\n              <ion-icon name="ios-copy"></ion-icon>Duplicate\n\n            </button>\n\n            <button ion-button small pull-right (click)="navigate_to_edit(p, $event)">\n\n              <ion-icon name="create"></ion-icon>Edit\n\n            </button>\n\n            <button ion-button small pull-right color="danger" (click)="this.delete_project(p, $event)">\n\n              <ion-icon name="trash"></ion-icon>Delete\n\n            </button>\n\n          </ion-col>\n\n        </ion-row>\n\n        <!-- <ion-row no-margin no-padding>\n\n            <ion-col col-12>\n\n              <p no-margin>{{p.desc}}</p>\n\n            </ion-col>\n\n          </ion-row> -->\n\n      </ion-col>\n\n    </ion-row>\n\n  </ion-grid>\n\n\n\n  <div license-alert *ngIf="licences.type==\'BASIC\'" col-6 offset-3>\n\n    <ion-grid no-padding>\n\n      <ion-row no-padding>\n\n        <ion-col col-12 no-padding>\n\n          La versión BASIC solo le permite crear 5 componentes, contrate la versión PRO o ENTERPRISE y disfrute de\n\n          todas sus ventajas.\n\n        </ion-col>\n\n        <ion-col col-4 offset-8 text-right>\n\n          <button ion-button small round color="light" outline>Upgrade NOW</button>\n\n        </ion-col>\n\n      </ion-row>\n\n    </ion-grid>\n\n  </div>\n\n</ion-content>\n\n\n\n<ion-footer>\n\n  <ion-grid>\n\n    <ion-row>\n\n      <ion-col col-4 text-left>\n\n        <button ion-button small color="light" (click)="create_db()">\n\n          <ion-icon name="md-archive"></ion-icon>Download data\n\n        </button>\n\n      </ion-col>\n\n      <ion-col col-4 text-center>\n\n        <tools></tools>\n\n      </ion-col>\n\n      <ion-col col-4 text-right>\n\n        <button ion-button small color="royal" (click)="create()">\n\n          New project\n\n        </button>\n\n      </ion-col>\n\n    </ion-row>\n\n  </ion-grid>\n\n</ion-footer>\n\n'/*ion-inline-end:"D:\Sofware Factory\tbi\src\pages\projects\projects.html"*/
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_3_ionic_angular__["j" /* NavController */],
+            __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["k" /* NavParams */],
+            __WEBPACK_IMPORTED_MODULE_1__services_project_service__["a" /* ProjectService */],
+            __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["l" /* Platform */],
+            __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["b" /* AlertController */],
+            __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["a" /* ActionSheetController */],
+            __WEBPACK_IMPORTED_MODULE_8__services_licences_service__["a" /* LicencesService */],
+            __WEBPACK_IMPORTED_MODULE_7__ionic_native_unique_device_id__["a" /* UniqueDeviceID */],
+            __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["g" /* Keyboard */]])
+    ], ProjectsPage);
+    return ProjectsPage;
+}(__WEBPACK_IMPORTED_MODULE_4__project_page_base__["a" /* ProjectPageBase */]));
+
+//# sourceMappingURL=projects.js.map
 
 /***/ })
 
-},[398]);
+},[400]);
 //# sourceMappingURL=main.js.map

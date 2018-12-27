@@ -5,7 +5,7 @@ import { FileService } from './file.service';
 import { MessageService } from './messages.service';
 import { LicencesService } from './licences.service';
 
-const STORAGE_KEY: string = 'tbi-app-v5';
+const STORAGE_KEY: string = 'tbi-app-v6';
 
 @Injectable()
 export class ProjectService {

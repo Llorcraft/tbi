@@ -39,19 +39,36 @@
   box-shadow: 0 !important;
 }
 
+.pr-0 {
+  padding-right: 0;
+}
 ion-col[toggle-container] {
-  ion-label {
-    float: left;
-    margin-top: .75rem;
+  padding-top: 7px;
+  padding-left: 0;
+
+  ion-item {
+    padding-top: 11px;
+    padding-left: 0;
+
+    ion-label {
+      float: left;
+      font-weight: 100; 
+      margin-top: 25px;
+    }
+
+    ion-toggle {
+      padding-left:0
+    }
   }
 
   ion-toggle {
     float: left;
     margin-top: .25rem;
+    padding-left:0
   }
 }
 
-button[ion-button][round][outline]{
-  padding: 1rem 0!important;
+button[ion-button][round][outline] {
+  padding: 1rem 0 !important;
   width: 100%;
 }

@@ -12,6 +12,7 @@ export class TbiComponent {
     public fields: Fields = new Fields();
     public markers: Marker[];
     public date: Date = new Date();
+    public validation: string = '';
 
     private flatten(arr: any[]): any[] {
         return [].concat.apply([], arr);
@@ -71,10 +72,9 @@ export class TbiComponent {
             this.id = item.id || Math.random().toString().substr(2);
             this.reports = (item.reports || []).map(r => new ReportBase(project, this, r));
             this.markers = (item.markers || []).map(m => new Marker(m));
-
+            this.validation = item.validation;
             const report = this.reports.find(r => !!(r.path).match(/(surface|pipe|valve|flange)/gi));
             this.result = !!report ? report.result : null;
-            
         }
     }
     // private update_surface_temp(): TbiComponent {

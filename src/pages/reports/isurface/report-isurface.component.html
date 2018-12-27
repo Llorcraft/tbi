@@ -30,17 +30,19 @@
             </ion-col>
           </ion-row>
           <ion-row>
-            <ion-col col-6>
-              <ion-item>
+            <ion-col col-5 class="pr-0">
+              <ion-item class="pr-0">
                 <ion-label stacked>Surface (m<sup>2</sup>)</ion-label>
                 <ion-input #after_time tabindex="3" (ionFocus)="on_focus($event)" [disabled]="report.component.fields.unknow_surface"
                   name="surface" required data-val-required="Please input surface in m²" [(ngModel)]="report.component.fields.surface"
                   type="number" [(ngModel)]="surface"></ion-input>
               </ion-item>
             </ion-col>
-            <ion-col col-4 toggle-container style="padding-top: 1rem">
-              <ion-label stacked style="margin-top: 1.5rem">Unknown</ion-label>
-              <ion-toggle [(ngModel)]="report.component.fields.unknow_surface" (ionChange)="toggle_know()" name="unknow_surface"></ion-toggle>
+            <ion-col col-5 toggle-container>
+              <ion-item>
+                <ion-label stacked>Unknown</ion-label>
+                <ion-toggle style="padding-left:0" [(ngModel)]="report.component.fields.unknow_surface" (ionChange)="toggle_know()" name="unknow_surface"></ion-toggle>
+              </ion-item>
             </ion-col>
             <ion-col col-2>
               <area [hidden]="unknow_surface" pull-left #area (change)="report.component.fields.surface=area.value"
@@ -113,14 +115,14 @@
 
       <ion-col col-5 col-lg-8 no-padding>
         <ion-row>
-          <ion-col col-12 picture-slide [report]="report" [editable]="editable" (onStartEdit)="on_picture_start_edit($event)">
+          <ion-col col-12 picture-slide [parent]="this"   [report]="report" [editable]="editable" (onStartEdit)="on_picture_start_edit($event)">
           </ion-col>
         </ion-row>
       </ion-col>
     </ion-row>
     <ion-row>
       <ion-col col-12 padding>
-        <report-result col-12 [parent]="this" *ngIf="view=='result' && (!!form && !form.invalid)"></report-result>
+        <div report-result col-12 [parent]="this" *ngIf="view=='result' && (!!form && !form.invalid)"></div>
       </ion-col>
       <ion-col col-12 padding>
         <report-errors padding #errors col-12 [hidden]="view=='!result' && report.result"></report-errors>

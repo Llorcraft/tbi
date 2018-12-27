@@ -1,10 +1,10 @@
-import { NavController, AlertController, Keyboard, Content } from "ionic-angular";
+import { NavController, AlertController, Keyboard, Content, ModalController } from "ionic-angular";
 import { NgForm } from '@angular/forms';
 import { ViewChild, OnInit, AfterViewInit } from "@angular/core";
 import { ReportBase, Project } from "..";
 import { CalculatorFactory } from "../calculators/calculator.factory";
 import { Picture } from "../picture";
-import { ReportErrorsComponent, ReportsPage, ReportMoreButtonComponent } from "../../pages/reports";
+import { ReportErrorsComponent, ReportsPage, ReportMoreButtonComponent, KnownTempPage } from "../../pages/reports";
 import { ReportService } from "../../services/report.service";
 import { More } from "../../const/more/more";
 import { TbiComponent } from "../component";
@@ -13,7 +13,7 @@ import { ScrollToComponent } from "../../pages/scroll_to_component.class";
 import { NON_PICTURE } from "../../const/images";
 import { PictureService } from "../../services";
 import { Patterns } from "../../const/patterns";
-import { ProjectsPage } from "../../pages/projects/projects";
+import { SummaryPage } from "../../pages/summary/summary";
 
 export class BaseReportPage extends ScrollToComponent implements OnInit, AfterViewInit {
   @ViewChild('form') form: NgForm;
@@ -24,7 +24,7 @@ export class BaseReportPage extends ScrollToComponent implements OnInit, AfterVi
   @ViewChild('material', { read: ReportMoreButtonComponent }) material: ReportMoreButtonComponent;
   @ViewChild('after_material') after_material;
   @ViewChild(Content) content: Content
-
+  public unknow_surface: boolean = false;
   public calculator = new CalculatorFactory();
   public edit_surface_material = false;
   public view: string = 'form';
@@ -34,7 +34,6 @@ export class BaseReportPage extends ScrollToComponent implements OnInit, AfterVi
   public patterns: any = Patterns;
 
   private _original_component: TbiComponent;
-  public unknow_surface: boolean = false;
   public editable: boolean = false;
   public get picture_qty(): number {
     return !!this.report.pictures.length ? this.report.pictures.length : null;
@@ -47,7 +46,8 @@ export class BaseReportPage extends ScrollToComponent implements OnInit, AfterVi
     protected alertCtrl: AlertController,
     protected picture: PictureService,
     protected message: MessageService,
-    protected keyboard: Keyboard
+    protected keyboard: Keyboard,
+    public modalCtrl?: ModalController
   ) {
     super(keyboard);
     this._original_component = this.report.component;
@@ -149,7 +149,7 @@ export class BaseReportPage extends ScrollToComponent implements OnInit, AfterVi
     this.confirm_space().then(space => {
       this.report.component.fields.space_warning = space;
       this.service.save(this.report).then(p => {
-        this.navCtrl.setRoot(ProjectsPage, { project: p, summary: true }, { animate: true, direction: 'backward' });
+        this.navCtrl.setRoot(SummaryPage, { project: p, summary: true }, { animate: true, direction: 'backward' });
       });
     });
     //this.ask_for_more_reports(project);
@@ -304,6 +304,24 @@ export class BaseReportPage extends ScrollToComponent implements OnInit, AfterVi
     if (!!this.report.component.fields.unknow_surface) this.report.component.fields.surface = null;
   }
 
+  protected toggle_know_temp() {
+    if (!!this.report.component.fields.unknow_surface_temp) {
+      let known_temp = this.modalCtrl.create(KnownTempPage, { medium_temp: this.report.component.fields.surface_temp }, {
+        showBackdrop: true,
+        enableBackdropDismiss: false,
+        cssClass: 'known-temp'
+      });
+      known_temp.onDidDismiss(r => {
+        if (r!=null && r.toString()!= '' && !isNaN(r)) {
+          this.report.component.fields.surface_temp = Number(r);
+        } else {
+          this.report.component.fields.unknow_surface_temp = false;
+        }
+      })
+      known_temp.present();
+    }
+  }
+
   protected before_calculate(temp: number) {
     this.report.component.fields.surface_temp = temp;
   }
@@ -347,24 +365,24 @@ export class BaseReportPage extends ScrollToComponent implements OnInit, AfterVi
   }
 
   public confirm_space(): Promise<boolean> {
-    return (!this.report.insulated) 
-    ? new Promise(resolve => {
-      resolve(false)
-    })
-    : new Promise(resolve => {
-      let confirm = this.alertCtrl.create({
-        message: `Is there enough space to place the insulation?`,
-        enableBackdropDismiss: false,
-        buttons: [
-          {
-            text: 'Yes',
-            handler: () => resolve(false)
-          }, {
-            text: 'No',
-            handler: () => resolve(true)
-          }]
+    return (!this.report.insulated)
+      ? new Promise(resolve => {
+        resolve(false)
       })
-      confirm.present();
-    });
+      : new Promise(resolve => {
+        let confirm = this.alertCtrl.create({
+          message: `Is there enough space to place the insulation?`,
+          enableBackdropDismiss: false,
+          buttons: [
+            {
+              text: 'Yes',
+              handler: () => resolve(false)
+            }, {
+              text: 'No',
+              handler: () => resolve(true)
+            }]
+        })
+        confirm.present();
+      });
   }
 }

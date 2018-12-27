@@ -1,6 +1,6 @@
 <ion-row>
   <ion-col col-12 text-center>
-    <img [src]="NON_PICTURE" class="non-picture" *ngIf="!report || !report.pictures.length"/>
+    <img [src]="NON_PICTURE" class="non-picture" on-tap="parent.take_picture()" *ngIf="!report || !report.pictures.length"/>
     <ion-slides no-padding pager="true" zoom="true" *ngIf="!!report && !!report.pictures.length">
       <ion-slide *ngFor="let picture of report.pictures">
         <img [src]="picture.picture" (click)="edit(picture)">

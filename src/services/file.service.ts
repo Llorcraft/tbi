@@ -1,9 +1,10 @@
 import { Document } from "../models";
 import { Picture } from "../models/picture";
+import { LoadindService } from "./loading.service";
 
 export abstract class FileService {
 
-    constructor() { }
+    constructor(public loading: LoadindService) { }
 
     public working_folder: string;
 

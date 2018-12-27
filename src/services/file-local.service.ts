@@ -2,24 +2,27 @@ import { Injectable } from '@angular/core';
 import { FileService } from './file.service';
 import { Document } from '../models';
 import { Picture } from '../models/picture';
+import { LoadindService } from './loading.service';
 
 @Injectable()
 export class FileLocalService extends FileService {
-    constructor() {
-        super();
+    constructor(public loading: LoadindService) {
+        super(loading);
     }
 
     public working_folder: string = 'D:\\Sofware Factory\\tbi\\src\\assets\\';
 
-    public create_pdf(base64: string, filename: string): Promise<string>{
+    public create_pdf(base64: string, filename: string): Promise<string> {
+        this.loading.show();
         return new Promise<string>((resolve, reject) => {
-            let blob = new Blob([this.base64_to_uint(base64)], {type: 'application/pdf'});
+            let blob = new Blob([this.base64_to_uint(base64)], { type: 'application/pdf' });
             let newWindow = window.open('/', '_blank');
             newWindow.location.href = URL.createObjectURL(blob);
+            this.loading.hide();
             resolve(filename);
         });
     }
-    
+
     public base64_to_uint(base64: string): Uint8Array {
         let arr = base64.split(','),
             bstr = atob(arr[1]),
@@ -36,7 +39,7 @@ export class FileLocalService extends FileService {
         throw new Error("Method not implemented.");
     }
 
-    public get_documents(): Promise<Document[]>{
+    public get_documents(): Promise<Document[]> {
         throw new Error("Method not implemented.");
     }
 
@@ -49,14 +52,18 @@ export class FileLocalService extends FileService {
     }
 
     public read_text(filename: string): Promise<string> {
+        this.loading.show();
         return new Promise<string>((resolve, reject) => {
+            this.loading.hide();
             resolve(localStorage.getItem(filename));
         });
     }
 
     public write_text(filename: string, content: string): Promise<boolean> {
+        this.loading.show();
         return new Promise<boolean>((resolve, reject) => {
             localStorage.setItem(filename, content);
+            this.loading.hide();
             resolve(true);
         });
     }

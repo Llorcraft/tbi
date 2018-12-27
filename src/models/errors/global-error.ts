@@ -25,13 +25,14 @@ export class GlobalErrorHandler implements ErrorHandler {
 
         _headers.append("Content-type", "application/x-www-form-urlencoded; charset=UTF-8");
         try {
-        this.http.post('https://hooks.slack.com/services/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',
-            `payload=${JSON.stringify(_message, null, 2)}`, {
-                headers: _headers
-            })
-            .toPromise()
-            .catch(ex => this.message.alert('Error', ex.toString()));
-        } catch (ex){
+            console.log(err);
+            this.http.post('https://hooks.slack.com/services/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',
+                `payload=${JSON.stringify(_message, null, 2)}`, {
+                    headers: _headers
+                })
+                .toPromise()
+                .catch(ex => this.message.alert('Error', ex.toString()));
+        } catch (ex) {
             //
         }
     }

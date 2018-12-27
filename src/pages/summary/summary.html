@@ -2,7 +2,7 @@
   <ion-toolbar>
     <ion-title>Summary - {{project?.name}}</ion-title>
     <ion-buttons end>
-      <button ion-button on-tap="export_pdf(pdf)">
+      <button ion-button on-tap="export_pdf()">
         <ion-icon name="document-pdf"></ion-icon>&nbsp;PDF
       </button>
     </ion-buttons>
@@ -10,235 +10,174 @@
 </ion-header>
 
 <ion-content>
-  <kendo-pdf-export #pdf paperSize="A4" margin=".5cm" [scale]="0.5" landscape="true">
+  <kendo-pdf-export #pdf paperSize="A4" margin=".5cm" [scale]="0.5" landscape="true" forcePageBreak=".page-break">
 
-    <!-- <ion-grid class="summary-total" *ngIf="!!totals">
-      <ion-row>
-        <ion-col col-12 text-center>
-          <table class="total red">
-            <tr>
-              <td class="c-red">Energy loss per year</td>
-              <td text-right>{{totals.headLost.power | number: '1.0-0'}}</td>
-              <td>kWh</td>
+    <div class="table-container">
+      <table class="data">
+        <colgroup>
+          <col style="width: 50px">
+          <col style="width: 100px">
+          <col style="width: 50px">
+          <col style="width: 50px">
+          <col style="width: 50px">
+          <col style="width: 10px">
+          <col style="width: 50px">
+          <col style="width: 50px">
+          <col style="width: 100px">
+          <col style="width: 100px">
+          <col style="width: 100px">
+          <col style="width: 80px">
+          <col style="width: 30px">
+          <col style="width: 30px">
+          <col style="width: 30px">
+          <col style="width: 30px">
+          <col style="width: 30px">
+        </colgroup>
+        <thead>
+          <tr>
+            <th colspan="2"></th>
+            <th colspan="6" style="border: 2px solid #fff; color:#fff; border-width: 0 2px 4px 0; background-color: rgb(112,173,71)">Energy & CO2 analysis per year</th>
+            <th rowspan="2" style="background-color: rgb(48,84,150); border: 2px solid #fff; color:#fff; border-width: 0 2px 4px 2px"><span svg="safety"></span>Safety</th>
+            <th rowspan="2" style="background-color: rgb(48,84,150); border: 2px solid #fff; color:#fff; border-width: 0 2px 4px 2px"><span svg="maintenance"></span>Maintenance</th>
+            <th rowspan="2" style="background-color: rgb(48,84,150); border: 2px solid #fff; color:#fff; border-width: 0 2px 4px 2px"><span svg="custom"></span>Others</th>
+            <th rowspan="2" style="background-color: rgb(48,84,150); border: 2px solid #fff; color:#fff; border-width: 0 2px 4px 2px">TBI Advise</th>
+            <th colspan="5" style="background-color: rgb(48,84,150); border: 2px solid #fff; color:#fff; border-width: 0 0 4px 2px">Input</th>
+          </tr>
+          <tr>
+            <th colspan="2">Component / Location</th>
+            <th colspan="2" style="background-color:rgb(217,217,217); border: 2px solid #fff; border-width: 0 2px 4px 0">Current Losses<br>& Emissions</th>
+            <th colspan="4" style="background-color:rgb(217,217,217); border: 2px solid #fff; border-width: 0 2px 4px 2px">Potential<br>savings year</th>
+            <th class="vertical">
+              <div><span one-line>Insulated</span></div>
+            </th>
+            <th class="vertical">
+              <div><span one-line>Surface (m<sup>2</sup>)</span></div>
+            </th>
+            <th class="vertical">
+              <div><span one-line>Diameter</span></div>
+            </th>
+            <th class="vertical">
+              <div><span one-line>Length</span></div>
+            </th>
+            <th class="vertical">
+              <div><span one-line>Items number</span></div>
+            </th>
+          </tr>
+        </thead>
+        <tbody *ngFor="let c of components; let i=index">
+          <tr [class.disabled]="c.fields.unknow_surface">
+            <td rowspan="3" (click)="actions(c, $event)" double-border text-center style="white-space: nowrap; padding-right: 1rem">
+              <ion-icon name="md-menu" style="margin: 0 .25rem 0; float: left"></ion-icon>
+              {{i+1}}-
+            </td>
+            <td rowspan="3" double-border>{{ellipsis(c.fields.location)}}</td>
+            <td *ngIf="!!c.result" text-right>{{c.result.headLost.power / 1000 | number: '1.1-1'}}</td>
+            <td *ngIf="!!c.result">MWh<span *ngIf="c.fields.unknow_surface">/m<sup>2</sup></span></td>
+            <td *ngIf="!!c.result" text-right>{{c.result.savingPotentialMin?.power / 1000 | number: '1.1-1'}}</td>
+            <td *ngIf="!!c.result" text-center class="p-0" style="padding: 0; white-space: nowrap">
+              <!-- <ion-icon name="md-arrow-forward"></ion-icon> -->
+              --
+            </td>
+            <td *ngIf="!!c.result" text-left>{{c.result.savingPotentialMax?.power / 1000 | number: '1.1-1'}}</td>
+            <td *ngIf="!!c.result" class="mesure">MWh<span *ngIf="c.fields.unknow_surface">/m<sup>2</sup></span></td>
+            <td *ngIf="!c.result" colspan="2" double-border rowspan="3"></td>
+            <td *ngIf="!c.result" colspan="4" double-border rowspan="3"></td>
+
+            <td rowspan="3" style="background: rgb(180,198,231)" double-border text-center>
+              <ng-container *ngFor="let r of c.reports_by_type('safety|hot')">
+                <a href="#" (click)="open(r, $event)" *ngIf="!r.component.is_hot">{{r.summary_id}}</a>
+                <a href="#" (click)="open(r, $event)" *ngIf="!!r.component.is_hot">Hot surface</a>
+              </ng-container>
+              <ion-icon name="md-add-circle" (click)="add_report('safety', c, $event)"></ion-icon>
+            </td>
+            <td rowspan="3" style="background: rgb(217,225,242)" double-border text-center>
+              <a href="#" (click)="open(r, $event)" *ngFor="let r of c.reports_by_type('maintenance|condensation|damaged')">{{r.summary_id}}</a>
+              <ion-icon name="md-add-circle" (click)="add_report('maintenance',c , $event)"></ion-icon>
+            </td>
+            <td rowspan="3" style="background: rgb(231,235,247)" double-border text-center>
+              <a href="#" (click)="open(r, $event)" *ngFor="let r of c.reports_by_type('generic|custom')">{{r.summary_id}}</a>
+              <a href="#" (click)="edit(c, $event)" *ngIf="!!c.fields.space_warning"><strong style="white-space: nowrap">No
+                  Space</strong></a>
+              <ion-icon name="md-add-circle" (click)="add_report('maintenance', c, $event)"></ion-icon>
+            </td>
+            <td rowspan="3" *ngIf="!!c.result" double-border text-center>
+              <ng-container [ngSwitch]="advises.get(c.result.advise)">
+                <span advise-picture *ngSwitchCase="'Recommended'" svg="insulation"></span>
+                <span advise-picture *ngSwitchCase="'Maintenance'" svg="mechanical"></span>
+                <span advise-picture *ngSwitchCase="'Unknow surface'" svg="surface"></span>
+                <span advise-picture *ngSwitchCase="'OK'" svg="like"></span>
+                <span advise-picture *ngSwitchCase="'SAVINGS-achieved'" svg="increase"></span>
+              </ng-container>
+            </td>
+            <td rowspan="3" *ngIf="!c.result" double-border text-center></td>
+            <td rowspan="3" double-border text-center>{{!!c.insulated ? 'Y' : 'N'}}</td>
+            <td *ngIf="null!=c.fields.surface_temp" rowspan="3" double-border text-center>{{c.fields.surface}}</td>
+            <td *ngIf="null==c.fields.surface_temp" rowspan="3" double-border text-center>&nbsp;</td>
+            <td rowspan="3" double-border text-center>
+              <!-- <span *ngIf="!!c.surface">{{c.fields.surface}} m<sup>2</sup></span> -->
+              <span>{{c.fields.main_dimension || c.fields.nominal_diameter}}</span>
+            </td>
+            <td rowspan="3" double-border text-center>{{c.fields.length}}</td>
+            <td rowspan="3" double-border text-center>{{c.fields.number}}</td>
+          </tr>
+
+          <tr *ngIf="!!c.result" [class.disabled]="c.fields.unknow_surface">
+            <td text-right>{{c.result.headLost?.money | number: '1.0-0'}}</td>
+            <td class="mesure">€<span *ngIf="c.fields.unknow_surface">/m<sup>2</sup></span></td>
+            <td text-right>{{c.result.savingPotentialMin?.money | number: '1.0-0'}}</td>
+            <td text-center class="p-0" style="padding: 0; white-space: nowrap;">--</td>
+            <td text-left>{{c.result.savingPotentialMax?.money | number: '1.0-0'}}</td>
+            <td class="mesure">€<span *ngIf="c.fields.unknow_surface">/m<sup>2</sup></span></td>
+          </tr>
+
+          <tr *ngIf="!!c.result" [class.disabled]="c.fields.unknow_surface">
+              <td double-border text-right>{{c.result.co2[0] | number: '1.1-1'}}</td>
+              <td double-border class="mesure">tn CO<sub>2</sub><span *ngIf="c.fields.unknow_surface">/m<sup>2</sup></span></td>
+              <td double-border text-right>{{c.result.co2[1] | number: '1.1-1'}}</td>
+              <td double-border text-center class="p-0" style="padding: 0; white-space: nowrap;">--</td>
+              <td double-border text-left>{{c.result.co2[2] | number: '1.1-1'}}</td>
+              <td double-border class="mesure">tn CO<sub>2</sub><span *ngIf="c.fields.unknow_surface">/m<sup>2</sup></span></td>
             </tr>
-            <tr>
-              <td>Money loss per year</td>
-              <td text-right>{{totals.headLost.money | number: '1.0-0'}}</td>
-              <td>€</td>
+
+          
+        </tbody>
+        <tfoot>
+          <tr>
+            <td rowspan="3" colspan="2" double-border text-right>
+              TOTAL PROJECT
+            </td>
+            <td text-right >{{totals.headLost.power / 1000 | number: '1.1-1'}}</td>
+            <td>MWh</td>
+            <td text-right>{{totals.savingPotentialMin?.power / 1000 | number: '1.1-1'}}</td>
+            <td text-center class="p-0" style="padding: 0; white-space: nowrap">--</td>
+            <td text-left>{{totals.savingPotentialMax?.power / 1000 | number: '1.1-1'}}</td>
+            <td class="mesure">MWh</td>
+          </tr>
+
+          <tr>
+            <td text-right>{{totals.headLost?.money | number: '1.0-0'}}</td>
+            <td class="mesure">€</td>
+            <td text-right>{{totals.savingPotentialMin?.money | number: '1.0-0'}}</td>
+            <td text-center class="p-0" style="padding: 0; white-space: nowrap;">--</td>
+            <td text-left>{{totals.savingPotentialMax?.money | number: '1.0-0'}}</td>
+            <td class="mesure">€</td>
+          </tr>
+
+          <tr>
+              <td double-border text-right>{{totals.co2[0] | number: '1.1-1'}}</td>
+              <td double-border class="mesure">tn CO<sub>2</sub></td>
+              <td double-border text-right>{{totals.co2[1] | number: '1.1-1'}}</td>
+              <td double-border text-center class="p-0" style="padding: 0; white-space: nowrap;">--</td>
+              <td double-border text-left>{{totals.co2[2] | number: '1.1-1'}}</td>
+              <td double-border class="mesure">tn CO<sub>2</sub></td>
             </tr>
-          </table>
+        </tfoot>
+      </table>
+    </div>
 
-          <table class="total green">
-            <tr>
-              <td>Potential energy saving per year</td>
-              <td text-right>{{totals.savingPotentialMin.power | number: '1.0-0'}}</td>
-              <td text-center>
-                <ion-icon name="md-arrow-forward"></ion-icon>
-              </td>
-              <td text-right>{{totals.savingPotentialMax.power | number: '1.0-0'}}</td>
-              <td>kWh</td>
-            </tr>
-            <tr>
-              <td>Potential money saving per year</td>
-              <td text-right>{{totals.savingPotentialMin.money | number: '1.0-0'}}</td>
-              <td text-center>
-                <ion-icon name="md-arrow-forward"></ion-icon>
-              </td>
-              <td text-right>{{totals.savingPotentialMax.money | number: '1.0-0'}}</td>
-              <td>€</td>
-            </tr>
-          </table>
-        </ion-col>
-      </ion-row>
-    </ion-grid> -->
-    <table class="data">
-      <thead>
-        <tr>
-          <th colspan="2"></th>
-          <th colspan="6" class="bg-green" style="border-bottom: 5px solid #fff;">Energy analysis</th>
-          <th rowspan="2" class="bg-red">
-            <span svg="safety"></span>
-            Safety
-          </th>
-          <th rowspan="2" class="bg-blue">
-            <span svg="maintenance"></span>
-            Maintenance
-          </th>
-          <th rowspan="2" class="bg-gray">
-            <span svg="custom"></span>
-            Others
-          </th>
-          <th class="bg-blue-light">TBI</th>
-          <th class="bg-green-light" colspan="5">Input</th>
-        </tr>
-        <tr>
-          <th colspan="2" style="border-right: 1px solid #444">Component / Location</th>
-          <th colspan="2" style="border-top: 1px solid #444; border-right: 1px solid #444; color: red">Energy Loss<br>per
-            year</th>
-          <th colspan="4" style="border-top: 1px solid #444; border-right: 1px solid #444; color: #375623">Potential
-            Savings<br>per
-            year</th>
-          <th>Insulation<br>Advise</th>
-          <th class="vertical">
-            <div><span one-line>Insulated</span></div>
-          </th>
-          <th class="vertical">
-            <div><span one-line>Surface (m<sup>2</sup>)</span></div>
-          </th>
-          <th class="vertical">
-            <div><span one-line>Diameter</span></div>
-          </th>
-          <th class="vertical">
-            <div><span one-line>Length</span></div>
-          </th>
-          <th class="vertical">
-            <div><span one-line>Items number</span></div>
-          </th>
-        </tr>
-      </thead>
-      <tbody *ngFor="let c of components; let i=index">
-        <tr [class.disabled]="c.fields.unknow_surface">
-          <td rowspan="2" (click)="actions(c, $event)" double-border text-center style="white-space: nowrap; padding-right: 1rem">
-            <ion-icon name="md-menu" style="margin: 0 .25rem 0; float: left"></ion-icon>
-            {{i+1}}-
-          </td>
-          <td rowspan="2" double-border class="b-right" style="min-width: 10vw">
-            {{ellipsis(c.fields.location)}}
-          </td>
-          <td *ngIf="!!c.result" text-right class="bg-light-red c-red">{{c.result.headLost.power / 1000 | number:
-            '1.1-1'}}</td>
-          <td *ngIf="!!c.result" class="bg-light-red c-red b-right">MWh<span *ngIf="c.fields.unknow_surface">/m<sup>2</sup></span></td>
-          <td *ngIf="!!c.result" text-right class="bg-green c-gree">{{c.result.savingPotentialMin?.power / 1000 |
-            number: '1.1-1'}}</td>
-          <td *ngIf="!!c.result" text-center class="bg-green c-gree p-0" style="width: 15px; padding: 0; white-space: nowrap">
-            <!-- <ion-icon name="md-arrow-forward"></ion-icon> -->
-            --
-          </td>
-          <td *ngIf="!!c.result" text-left class="bg-green c-gree">{{c.result.savingPotentialMax?.power / 1000 |
-            number: '1.1-1'}}</td>
-          <td *ngIf="!!c.result" class="bg-green c-gree mesure b-right">MWh<span *ngIf="c.fields.unknow_surface">/m<sup>2</sup></span></td>
-          <td *ngIf="!c.result" colspan="2" class="b-right"></td>
-          <td *ngIf="!c.result" colspan="4" class="b-right"></td>
-
-          <td rowspan="2" double-border text-center class="bg-red">
-            <ng-container *ngFor="let r of c.reports_by_type('safety|hot')">
-              <a href="#" (click)="open(r, $event)" *ngIf="!r.component.is_hot">{{r.summary_id}}</a>
-              <a href="#" (click)="open(r, $event)" *ngIf="!!r.component.is_hot">Hot surface</a>
-            </ng-container>
-            <ion-icon name="md-add-circle" (click)="add_report('safety', c, $event)"></ion-icon>
-          </td>
-          <td rowspan="2" double-border text-center class="bg-blue">
-            <a href="#" (click)="open(r, $event)" *ngFor="let r of c.reports_by_type('maintenance|condensation|damaged')">{{r.summary_id}}</a>
-            <ion-icon name="md-add-circle" (click)="add_report('maintenance',c , $event)"></ion-icon>
-          </td>
-          <td rowspan="2" double-border text-center class="bg-gray">
-            <a href="#" (click)="open(r, $event)" *ngFor="let r of c.reports_by_type('generic|custom')">{{r.summary_id}}</a>
-            <a href="#" (click)="edit(c, $event)" *ngIf="!!c.fields.space_warning"><strong style="white-space: nowrap">No Space</strong></a>
-            <ion-icon name="md-add-circle" (click)="add_report('maintenance', c, $event)"></ion-icon>
-          </td>
-          <td rowspan="2" *ngIf="!!c.result" double-border text-center>
-            <ng-container [ngSwitch]="advises.get(c.result.advise)">
-              <span advise-picture *ngSwitchCase="'Recommended'" svg="insulation"></span>
-              <span advise-picture *ngSwitchCase="'Maintenance'" svg="mechanical"></span>
-              <span advise-picture *ngSwitchCase="'Unknow surface'" svg="surface"></span>
-              <span advise-picture *ngSwitchCase="'OK'" svg="like"></span>
-              <span advise-picture *ngSwitchCase="'SAVINGS-achieved'" svg="increase"></span>
-            </ng-container>
-          </td>
-          <td rowspan="2" *ngIf="!c.result" double-border text-center></td>
-          <td rowspan="2" double-border text-center>{{!!c.insulated ? 'Y' : 'N'}}</td>
-          <td *ngIf="null!=c.fields.surface_temp" rowspan="2" double-border text-center>{{c.fields.surface}}</td>
-          <td *ngIf="null==c.fields.surface_temp" rowspan="2" double-border text-center>&nbsp;</td>
-          <td rowspan="2" double-border text-center>
-            <!-- <span *ngIf="!!c.surface">{{c.fields.surface}} m<sup>2</sup></span> -->
-            <span>{{c.fields.main_dimension || c.fields.nominal_diameter}}</span>
-          </td>
-          <td rowspan="2" double-border text-center>{{c.fields.length}}</td>
-          <td rowspan="2" double-border text-center>{{c.fields.number}}</td>
-        </tr>
-
-        <tr *ngIf="!!c.result" [class.disabled]="c.fields.unknow_surface">
-          <td double-border text-right class="c-red">{{c.result.headLost?.money | number: '1.0-0'}}</td>
-          <td double-border class="c-red mesure b-right">€<span *ngIf="c.fields.unknow_surface">/m<sup>2</sup></span></td>
-          <td double-border text-right class="c-gree">{{c.result.savingPotentialMin?.money | number: '1.0-0'}}</td>
-          <td double-border text-center class="c-gree p-0" style="width: 15px; padding: 0; white-space: nowrap;">
-            <!-- <ion-icon name="md-arrow-forward"></ion-icon> -->
-            --
-          </td>
-          <td double-border text-left class="c-gree">{{c.result.savingPotentialMax?.money | number: '1.0-0'}}</td>
-          <td double-border class="c-gree mesure b-right">€<span *ngIf="c.fields.unknow_surface">/m<sup>2</sup></span></td>
-        </tr>
-        <tr *ngIf="!c.result" [class.disabled]="c.fields.unknow_surface">
-          <td double-border colspan="2" class="b-right"></td>
-          <td double-border colspan="4" class="b-right"></td>
-        </tr>
-      </tbody>
-      <tfoot>
-        <tr>
-          <td rowspan="2" colspan="2" double-border class="b-right" text-right>
-            TOTAL PROJECT
-          </td>
-          <td text-right class="bg-light-red c-red">{{totals.headLost.power / 1000 | number: '1.1-1'}}</td>
-          <td class="bg-light-red c-red b-right">MWh</td>
-          <td text-right class="bg-green c-gree">{{totals.savingPotentialMin?.power / 1000 | number: '1.1-1'}}</td>
-          <td text-center class="bg-green c-gree p-0" style="width: 15px; padding: 0; white-space: nowrap">--</td>
-          <td text-left class="bg-green c-gree">{{totals.savingPotentialMax?.power / 1000 | number: '1.1-1'}}</td>
-          <td class="bg-green c-gree mesure b-right">MWh</td>
-        </tr>
-
-        <tr>
-          <td double-border text-right class="c-red">{{totals.headLost?.money | number: '1.0-0'}}</td>
-          <td double-border class="c-red mesure b-right">€</td>
-          <td double-border text-right class="c-gree">{{totals.savingPotentialMin?.money | number: '1.0-0'}}</td>
-          <td double-border text-center class="c-gree p-0" style="width: 15px; padding: 0; white-space: nowrap;">--</td>
-          <td double-border text-left class="c-gree">{{totals.savingPotentialMax?.money | number: '1.0-0'}}</td>
-          <td double-border class="c-gree mesure b-right">€</td>
-        </tr>
-      </tfoot>
-    </table>
-
-    <!-- <ion-grid style="margin-top: 2rem">
-      <ion-row>
-        <ion-col col-6 col-lg-4>
-          <span class="legend" advise-picture svg="like"></span><strong>System OK</strong>
-        </ion-col>
-        <ion-col col-6 col-lg-4>
-          <span class="legend" advise-picture svg="insulation"></span><strong>Insulation recommended</strong>
-        </ion-col>
-        <ion-col col-6 col-lg-4>
-          <span class="legend" advise-picture svg="mechanical"></span><strong>Maintenace</strong>
-        </ion-col>
-        <ion-col col-6 col-lg-4>
-          <span class="legend" advise-picture svg="surface"></span><strong>Surface unknown</strong>
-        </ion-col>
-        <ion-col col-6 col-lg-4>
-          <span class="legend" advise-picture svg="increase"></span><strong>Increace performance or thickness</strong>
-        </ion-col>
-      </ion-row>
-    </ion-grid> -->
-
-    <!-- <ion-grid legend>
-      <ion-row>
-        <ion-col col-1 class="icon"><div svg="insulation" style="margin:.4rem 0 -.4rem"></div></ion-col>
-        <ion-col col-11 class="text">Insulation recommended</ion-col>
-        <ion-col col-1 class="icon"><div svg="surface" style="margin:.2rem 0 -.2rem"></div></ion-col>
-        <ion-col col-11 class="text">Surface unknown</ion-col>
-        <ion-col col-1 class="icon"><div svg="maintenance"></div></ion-col>
-        <ion-col col-11 class="text">Maintenance</ion-col>
-        <ion-col col-1 class="icon"><div svg="like"></div></ion-col>
-        <ion-col col-11 class="text">System OK</ion-col>
-        <ion-col col-1 class="icon"><div svg="increase"></div></ion-col>
-        <ion-col col-11 class="text">Increase performance or thickness</ion-col>
-      </ion-row>
-    </ion-grid> -->
-
-    <ion-grid chart>
-      <ion-row>
-        <ion-col col-12>
-          <report-result *ngIf="report" [parent]="this" [show_advise]="false"></report-result>
-        </ion-col>
-      </ion-row>
-    </ion-grid>
+    <div class="page-break chart text-center" style="padding: 1rem 10%">
+      <div report-result *ngIf="!!report && !!totals.headLost.power" [parent]="this" [show_advise]="false"></div>
+    </div>
 
   </kendo-pdf-export>
 

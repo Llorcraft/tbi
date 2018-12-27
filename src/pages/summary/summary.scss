@@ -1,5 +1,16 @@
 page-summary {
 
+  ion-header {
+    .bar-buttons {
+      button {
+        color: #fff;
+        border: 1px solid #fff;
+        height: 42px;
+        padding: 0 1rem;
+      }
+    }
+  }
+
   kendo-pdf-export {
     img {
       margin: auto;
@@ -95,19 +106,62 @@ page-summary {
     padding: 0 1rem 1rem;
   }
 
-  .summary-total {
-    //position: fixed;
-    //top: 40px;
+  .table-container {
+    width: 100%;
+    overflow: auto;
+    padding: 0 0 1rem;
   }
 
   table.data {
-    width: calc(100%);
+    width: 1500px;
     border-spacing: 0;
     border-collapse: separate;
     font-size: 1rem;
     background: #fff;
     //border-bottom: 1px solid #444;
     margin-top: 0;
+
+    thead {
+      // &> tr{
+      //   &:nth-child(1){
+      //     th{
+      //       &:nth-child(1){min-width: 300px}
+      //       &:nth-child(2){min-width: 370px}
+      //       &:nth-child(3){width: 150px}
+      //       &:nth-child(4){width: 150px}
+      //       &:nth-child(5){width: 150px}
+      //       &:nth-child(6){width: 100px}
+      //       &:nth-child(7){width: 250px}
+      //     }
+      //   }
+      //   &:nth-child(2){
+      //     th{
+      //       &:nth-child(1){min-width: 330px}
+      //       &:nth-child(2){min-width: 130px}
+      //       &:nth-child(3){min-width: 240px}
+      //       &:nth-child(4){width: 100px}
+      //       &:nth-child(5){width: 50px}
+      //       &:nth-child(6){width: 50px}
+      //       &:nth-child(7){width: 50px}
+      //       &:nth-child(8){width: 50px}
+      //       &:nth-child(9){width: 50px}
+      //     }
+      //   }
+      //   &:nth-child(3){
+      //     th{
+      //       &:nth-child(1){width: 130px}
+      //       &:nth-child(2){width: 240px}
+      //     }
+      //   }
+      // }
+    }
+    tbody {
+      &>tr{
+          &:nth-child(1){td:not([rowspan]){background: #efefef}}
+          &:nth-child(2){td{background: #fff}}
+          &:nth-child(3){td:not([rowspan]){background: #efefef}}
+      }
+    }
 
     tr {
 
@@ -162,7 +216,7 @@ page-summary {
         color: #fff;
         border: 5px solid #fff;
         border-top: 0;
-        min-width: 150px;
+        //min-width: 150px;
       }
 
       &.bg-blue {
@@ -171,7 +225,7 @@ page-summary {
         border-left: 5px solid #fff;
         border-right: 5px solid #fff;
         border-bottom: 5px solid #fff;
-        min-width: 150px;
+        //min-width: 150px;
 
         &-light {
           background-color: rgb(221, 235, 247);
@@ -187,7 +241,7 @@ page-summary {
         border-left: 5px solid #fff;
         border-right: 5px solid #fff;
         border-bottom: 5px solid #fff;
-        min-width: 150px;
+        //min-width: 150px;
       }
 
       &.vertical {
@@ -222,56 +276,18 @@ page-summary {
       font-weight: 600;
       vertical-align: middle; //border: 1px solid #ccc;
 
-      &:nth-child(1) {
-        width: 30px
-      }
+      // &.mesure {
+      //   white-space: nowrap;
+      // }
+      // &:nth-child(9) {
+      //   border-right: 1px solid #fff
+      // }
 
-      &:nth-child(2) {
-        width: 30%
-      }
+      // &:nth-child(10) {
+      //   border-right: 1px solid #fff
+      // }
 
-      &:nth-child(3) {
-        width: 1%;
-      }
-
-      &:nth-child(4) {
-        width: 100px
-      }
-
-      &:nth-child(5) {
-        width: 1px
-      }
-
-      &:nth-child(6) {
-        width: 20px
-      }
-
-      &:nth-child(7) {
-        width: 5%
-      }
-
-      &:nth-child(8) {
-        width: 20px
-      }
-
-      &:nth-child(9) {
-        width: 20%;
-        border-right: 1px solid #fff
-      }
-
-      &:nth-child(10) {
-        width: 20%;
-        border-right: 1px solid #fff
-      }
-
-      &:nth-child(11) {
-        width: 20%
-      }
-
-      &.mesure {
-        width: 20px
-      }
-
+      
       &.b-right {
         border-right: 1px solid #444
       }
@@ -321,16 +337,7 @@ page-summary {
 
     tbody {
       >tr {
-        &:nth-child(2n-1) {
-          td {
-            border-top: 1px solid #444 !important;
-          }
-        }
-
         >td {
-          &.name {
-            min-width: 200px;
-          }
 
           &.bg-green {
             background: rgb(226, 239, 218)

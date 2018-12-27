@@ -2,6 +2,7 @@ import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
 import { Picture } from '../../../../models/picture';
 import { ReportBase } from '../../../../models';
 import { NON_PICTURE } from '../../../../const/images';
+import { BaseReportPage } from '../../../../models/reports/base-report-page.class';
 
 @Component({
     selector: '[picture-slide]',
@@ -11,7 +12,8 @@ import { NON_PICTURE } from '../../../../const/images';
 export class ReportPictureSlideComponent implements OnInit {
     @Input() report: ReportBase;
     @Input() editable: boolean;
-    @Output() onStartEdit = new EventEmitter<Picture>();;
+    @Output() onStartEdit = new EventEmitter<Picture>();
+    @Input() parent: BaseReportPage;
 
     can_edit: boolean = false;
 

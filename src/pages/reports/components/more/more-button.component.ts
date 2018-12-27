@@ -21,7 +21,8 @@ export class ReportMoreButtonComponent {
       role: 'cancel',
     }],
     time: More.TIMES,
-    materials: More.MATERIALS
+    materials: More.MATERIALS,
+    co2: More.CO2
   }
   protected show_options(): ActionSheet {
     let buttons = this.options[this.type].map(b => {
@@ -48,7 +49,8 @@ export class ReportMoreButtonComponent {
       buttons = buttons.concat(this.options.cancel)
     }
     const actionSheet = this.actionSheetCtrl.create({
-      buttons: buttons
+      buttons: buttons,
+      cssClass: 'action-width-45'
     });
     actionSheet.present();
     return actionSheet;
