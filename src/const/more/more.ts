@@ -12,7 +12,7 @@ export const More =
         ["VDI 4610: Brown coal dust Rheinland [353]", 353, 353],
         ["VDI 4610: Coal Rheinland [410]", 410, 410],
         ["VDI 4610: Heavy fuel oil [381]", 381, 381],
-        ["VDI 4610: Natural gas H composite [ 202", 202, 202]
+        ["VDI 4610: Natural gas H composite [202]", 202, 202]
     ],
     MATERIALS: [
         ['General value  [0.80]', 10000000000, 0.80],

@@ -1,4 +1,9 @@
-<ion-grid>
+<ion-grid id="result-grid">
+  <ion-row *ngIf="!!parent.report.annual_saving">
+      <ion-col text-center col-12>
+      <h4>Annual saving potential: {{parent.report.annual_saving}}</h4>
+    </ion-col>
+  </ion-row>
   <ion-row>
     <ion-col text-center>
       <table cellspacing="0" cellpadding="0" border="0" class="result-chart">

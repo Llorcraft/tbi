@@ -230,10 +230,9 @@ export class BaseReportPage extends ScrollToComponent implements OnInit, AfterVi
   };
 
   protected calculate() {
-    //const _contents = document.getElementsByClassName('scroll-content');
-    //_contents[_contents.length - 1].scrollTo(100000, 0);
-    //this.content.scrollToTop(500);
-    //setTimeout(()=>this.content.scrollToBottom(250), 500);
+    // const _elm = document.getElementById('result-grid');
+    // _elm.closest('.scroll-content').scrollTo(0, _elm.closest('.scroll-content').scrollTop - 150);
+
     this.start_changes_observer();
     this.errors.page = this;
     if (!this.form.invalid) {

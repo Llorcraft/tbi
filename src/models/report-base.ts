@@ -58,7 +58,8 @@ export class ReportBase {
 
   get annual_saving():string {
     return !this.result || this.result.headLost.power == 0
-      ? `Click on Next to get the result` 
-      : `From ${this.result.annual_saving_from} € to ${this.result.annual_saving_to} €`;
+      //? `Click on Next to get the result` 
+      ? `` 
+      : `from ${this.result.annual_saving_from} € to ${this.result.annual_saving_to} €`;
   }
 }
