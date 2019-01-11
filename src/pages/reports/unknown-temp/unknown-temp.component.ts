@@ -1,4 +1,4 @@
-import { Component } from "@angular/core";
+import { Component, ViewChild, ElementRef } from "@angular/core";
 import { ViewController, NavParams, AlertController } from "ionic-angular";
 
 @Component({
@@ -6,15 +6,16 @@ import { ViewController, NavParams, AlertController } from "ionic-angular";
   templateUrl: 'unknown-temp.component.html'
 })
 
-export class KnownTempPage{
+export class KnownTempPage {
   public medium_temp: number = 0;
   public gas: string = '0';
+  @ViewChild('medium_temp_field') medium_temp_field: any;
   constructor(private viewCtrl: ViewController, params: NavParams, private alertCtrl: AlertController) {
     this.medium_temp = params.get('medium_temp') || '';
   }
 
-  isNumber():boolean{
-    return this.medium_temp.toString()!= '' && !isNaN(this.medium_temp);
+  isNumber(): boolean {
+    return this.medium_temp.toString() != '' && !isNaN(this.medium_temp);
   }
 
   protected close(): KnownTempPage {
@@ -23,7 +24,7 @@ export class KnownTempPage{
   }
 
   protected ok(): KnownTempPage {
-    if(this.gas == '1'){
+    if (this.gas == '1') {
       this.alertCtrl.create({
         message: 'The properties of the gas affect the heat transfer calculation. Outputs are just an estimation, please contact your insulation expert to have a more accurate calculation',
         buttons: ['Agree']
@@ -31,5 +32,11 @@ export class KnownTempPage{
     };
     this.viewCtrl.dismiss(this.medium_temp);
     return this;
+  }
+
+  ngAfterViewInit(): void {
+    setTimeout(() => {
+      this.medium_temp_field.setFocus();
+    }, 500);
   }
 }

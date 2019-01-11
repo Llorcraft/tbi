@@ -43,21 +43,25 @@
   padding-right: 0;
 }
 ion-col[toggle-container] {
-  padding-top: 7px;
+  //padding-top: 12px;
   padding-left: 0;
 
   ion-item {
-    padding-top: 11px;
+    //padding-top: 11px;
     padding-left: 0;
+    flex-direction: column;
 
     ion-label {
-      float: left;
+      //float: left;
       font-weight: 100; 
-      margin-top: 25px;
+      //margin-top: 25px;
+      //font-size: .9rem; 
+      //text-align: right
     }
 
     ion-toggle {
-      padding-left:0
+      padding-left:0;
+      padding-bottom: 11px!important;
     }
   }
 

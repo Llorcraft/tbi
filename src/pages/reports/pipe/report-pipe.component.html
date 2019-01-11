@@ -63,7 +63,7 @@
             </ion-col>
           </ion-row>
           <ion-row>
-              <ion-col col-5 class="pr-0">
+              <ion-col col-7 class="pr-0">
                 <ion-item class="pr-0">
                   <ion-label stacked>Surface temperature (<sup>º</sup>C)</ion-label>
                   <ion-input tabindex="8"  [style.visibility]="report.component.fields.unknow_surface_temp ? 'hidden' : 'visible'" #after_material (ionFocus)="on_focus($event)" scroll="-80" name="surface_temp"
@@ -72,7 +72,7 @@
                     type="tel"></ion-input>
                 </ion-item>
               </ion-col>
-              <ion-col col-5 toggle-container>
+              <ion-col col-3 toggle-container>
                 <ion-item>
                   <ion-label stacked>Unknown</ion-label>
                   <ion-toggle style="padding-left:0" [(ngModel)]="report.component.fields.unknow_surface_temp" (ionChange)="toggle_know_temp()"

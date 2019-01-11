@@ -5,21 +5,24 @@
         <ion-col col-12>
           <ion-item>
             <ion-label stacked>Medium temperature (<sup>º</sup>C)</ion-label>
-            <ion-input tabindex="1" name="medium_temp" required data-val-required="Please input Medium temperature"
+            <ion-input tabindex="1" #medium_temp_field name="medium_temp" required data-val-required="Please input Medium temperature"
               data-val-pattern="Please input a valid Medium temperature" [(ngModel)]="medium_temp" type="tel"></ion-input>
           </ion-item>
         </ion-col>
       </ion-row>
       <ion-row>
         <ion-col col-12>
+          <ion-item border-none style="min-height: auto">
+            <ion-label stacked style="color:#999!important">Medium</ion-label>
+          </ion-item>
           <ion-list radio-group [(ngModel)]="gas" name="state">
-            <ion-item>
-                <ion-label>Liquid</ion-label>
-                <ion-radio value="0"></ion-radio>
+            <ion-item border-none>
+              <ion-label>Liquid</ion-label>
+              <ion-radio value="0"></ion-radio>
             </ion-item>
             <ion-item>
-                <ion-label>Gas</ion-label>
-                <ion-radio value="1"></ion-radio>
+              <ion-label>Gas</ion-label>
+              <ion-radio value="1"></ion-radio>
             </ion-item>
           </ion-list>
         </ion-col>

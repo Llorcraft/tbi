@@ -30,7 +30,7 @@
             </ion-col>
           </ion-row>
           <ion-row>
-            <ion-col col-5 class="pr-0">
+            <ion-col col-7 class="pr-0">
               <ion-item class="pr-0">
                 <ion-label stacked>Surface (m<sup>2</sup>)</ion-label>
                 <ion-input #after_time tabindex="3" (ionFocus)="on_focus($event)" [disabled]="report.component.fields.unknow_surface"
@@ -38,7 +38,7 @@
                   type="number" [(ngModel)]="surface"></ion-input>
               </ion-item>
             </ion-col>
-            <ion-col col-5 toggle-container>
+            <ion-col col-3 toggle-container>
               <ion-item>
                 <ion-label stacked>Unknown</ion-label>
                 <ion-toggle style="padding-left:0" [(ngModel)]="report.component.fields.unknow_surface" (ionChange)="toggle_know()" name="unknow_surface"></ion-toggle>

@@ -29280,23 +29280,25 @@ sup {
 }
 
 ion-col[toggle-container] {
-  padding-top: 7px;
   padding-left: 0;
 }
 
 ion-col[toggle-container] ion-item {
-  padding-top: 11px;
   padding-left: 0;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
 }
 
 ion-col[toggle-container] ion-item ion-label {
-  float: left;
   font-weight: 100;
-  margin-top: 25px;
 }
 
 ion-col[toggle-container] ion-item ion-toggle {
   padding-left: 0;
+  padding-bottom: 11px !important;
 }
 
 ion-col[toggle-container] ion-toggle {
