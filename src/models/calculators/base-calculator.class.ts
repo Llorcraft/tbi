@@ -106,7 +106,7 @@ export class BaseCalculator {
         ]
         const filter = range.find(r => r[0] > this.DN);
         return filter ?
-            range.lastIndexOf(filter) > 0 ? range[range.lastIndexOf(filter) - 1][1] : range[0][1] : 0;
+            range.lastIndexOf(filter) > 0 ? range[range.lastIndexOf(filter) - 1][1] : range[0][1] : range[range.length -1][1];
     };
     public De_min: number = 1;
     public De_max: number = 1;
@@ -116,7 +116,7 @@ export class BaseCalculator {
     public ql_max: number = 1;
     public Rle_min: number = 1;
     public Rle_max: number = 1;
-    /*Report and Project propesties*/
+    /*Report and Project properties*/
     public δ: number = 0.00000005670367;
     public θse = Number(this.report.component.fields.surface_temp);
     public θse_min: number = this.θse;
@@ -126,7 +126,7 @@ export class BaseCalculator {
     public θa_max: number = this.θa;
     public Ot = Number(this.report.component.fields.operational_time);
     public ε = Number(this.report.component.fields.surface_material);
-    public Σ = Number(this.report.component.project.price);
+    public Σ = Number(this.report.component.project.price * this.report.component.project.price_delta);
     public S = Number(this.report.component.fields.surface || 1);
     public l = Number(this.report.component.fields.length || this.default_length);
     public n = Number(this.report.component.fields.number);
@@ -144,13 +144,9 @@ export class BaseCalculator {
 
     public execute(): ReportBase {
         this.fnc.forEach(f => f.apply(this));
-        // console.clear();
-        // console.table({
-        //     'this.Sp': this.Sp,
-        //     'this.ql_ref_pb': this.ql_ref_pb,
-        //     'this.ql_min': this.ql_min,
-        // })
-        let _co2 = Number(More.CO2.find(m => Number(m[1]) == this.report.project.co2)[2]);
+
+        let _find = More.CO2.find(m => Number(m[1]) == this.report.project.co2);
+        let _co2 = Number(!!_find ? _find[2] : isNaN(this.report.project.co2) ? 0 : this.report.project.co2)
 
         this.report.result = new Result({
             advise: this.Insulation_advice,
@@ -167,11 +163,39 @@ export class BaseCalculator {
                 money: this.Savingε_max
             }),
             co2: [
-                this.Qkwh * _co2 / 1000000,
-                this.Qkwh_min * _co2 / 1000000,
-                this.Qkwh_max * _co2 / 1000000,
+                this.Qkwh * _co2 / 1000000, //* (!Number(this.report.component.fields.unknow_surface_temp) ? 1 : Number(this.report.component.fields.unknow_surface_temp)),
+                this.Qkwh_min * _co2 / 1000000,// * (!Number(this.report.component.fields.unknow_surface_temp) ? 1 : Number(this.report.component.fields.unknow_surface_temp)),
+                this.Qkwh_max * _co2 / 1000000// * (!Number(this.report.component.fields.unknow_surface_temp) ? 1 : Number(this.report.component.fields.unknow_surface_temp)),
             ]
         });
+
+        // console.log({
+        //     //"ql*l*Ot": (this.ql * this.l * this.Ot / 1000),
+        //     "De": this.De,
+        //     θse: this.θse,
+        //     θa: this.θa,
+        //     ql: this.ql,
+        //     Rins_min: this.Rins_min,
+        //     Rins_max: this.Rins_max,
+        //     qref_pb: this.qref_pb,
+        //     q: this.q,
+        //     hr: this.hr, 
+        //     hr_min: this.hr_min,
+        //     hcv_min: this.hcv_min,
+        //     q_min: this.q_min,
+        //     q_max: this.q_max,
+        //     hse: this.hse,
+        //     hse_min: this.hse_min,
+        //     hse_max: this.hse_max,
+        //     Qkwh: this.Qkwh,
+        //     Sp: this.Sp,
+        //     Qkwh_min: this.Qkwh_min,
+        //     Qkwh_max: this.Qkwh_max,
+        //     ql_ref_pb: this.ql_ref_pb,
+        //     Qε: this.Qε,
+        //     Qε_min: this.Qε_min,
+        //     Qε_max: this.Qε_max
+        // });
         return this.report;
     }
 

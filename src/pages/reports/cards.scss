@@ -9,7 +9,7 @@ ion-card {
   h1 {
     color: #fff!important;
     margin: 0 .25rem!important;
-    font-size: 1.8rem!important;
+    font-size: 1.8rem;
     font-weight: normal!important;
     text-transform: uppercase;
   }
@@ -44,6 +44,18 @@ ion-card {
   }
 
 }
+
+@media (max-width: 575px) {
+  ion-card {
+    > span[svg] {
+      height: 6rem!important;
+    }
+    > h1 {
+      font-size: 1.5rem!important;
+    }
+  }
+}
+
 sup {
   font-size: 50%!important;
 }

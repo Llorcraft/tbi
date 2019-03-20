@@ -21,7 +21,7 @@ export class ReportLeakagePage extends BaseReportPage {
     protected message: MessageService,
     protected keyboard: Keyboard
   ) {
-    super(new ReportLeakage(navParams.data.project, navParams.data.component, navParams.data.report), navCtrl, service, alertCtrl, picture, message, keyboard);
+    super(new ReportLeakage(navParams.data.project, navParams.data.component, navParams.data.report), navParams, navCtrl, service, alertCtrl, picture, message, keyboard);
   }
 
   protected calculate(): ReportBase {

@@ -126,34 +126,34 @@ export class FileDeviceService extends FileService {
         });
     }
 
-    public async read_text(filename: string): Promise<string> {
-        this.loading.show();
+    public async read_text(filename: string, hide?: boolean): Promise<string> {
+        !hide && this.loading.show();
         await this.create_file(filename);
         return new Promise<string>((resolve, reject) => {
             this.file.readAsText(this.working_folder, `${filename}.json`)
                 .then(r => {
-                    this.loading.hide();
+                    !hide && this.loading.hide();
                     resolve(r);
                 })
                 .catch(ex => {
-                    this.loading.hide();
+                    !hide && this.loading.hide();
                     reject(ex.message);
                     throw ex;
                 });
         });
     }
 
-    public async write_text(filename: string, content: string): Promise<boolean> {
-        this.loading.show();
+    public async write_text(filename: string, content: string, hide?: boolean): Promise<boolean> {
+        !hide && this.loading.show();
         await this.create_file(filename);
         return new Promise<boolean>((resolve, reject) => {
             this.file.writeFile(this.working_folder, `${filename}.json`, content, { replace: true })
                 .then(() => {
-                    this.loading.hide();
+                    !hide && this.loading.hide();
                     resolve(true);
                 })
                 .catch(ex => {
-                    this.loading.hide();
+                    !hide && this.loading.hide();
                     reject(ex);
                     throw ex;
                 });

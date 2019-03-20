@@ -1,7 +1,26 @@
 page-summary {
-  .gray-text {
-    color: #999!important
+  .tickcheck {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    span {
+      font-weight: 700;
+      color: rgb(48, 84, 150);
+      line-height: 4rem;
+    }
+
+    img {
+      display: inline-block;
+      height: 4rem;
+      margin: 1rem 0 0 1rem;
+    }
   }
+
+  .gray-text {
+    color: #999 !important
+  }
+
   ion-header {
     .bar-buttons {
       button {
@@ -9,6 +28,23 @@ page-summary {
         border: 1px solid #fff;
         height: 42px;
         padding: 0 1rem;
+      }
+    }
+  }
+
+  ion-content {
+    .hide-pdf {
+      height: calc(100vh + 100px);
+      width: calc(100vw - 40px);
+      position: absolute;
+      background: #fff;
+      z-index: 1000;
+      display: none;
+    }
+
+    &.creating-pdf {
+      .hide-pdf {
+        display: block;
       }
     }
   }
@@ -27,9 +63,23 @@ page-summary {
       }
     }
 
+    summary-header {
+      display: none;
+    }
+
     &.print {
+
+      .table-container,
+      .result-chart {
+        margin-top: 5cm;
+      }
+
       ion-icon {
         display: none !important;
+      }
+
+      summary-header {
+        display: block;
       }
 
       span,
@@ -79,10 +129,29 @@ page-summary {
 
   }
 
+  .row.legend {
+    font-size: .8rem;
+    color: #666;
+
+    ion-col {
+      line-height: 20px;
+    }
+
+    img {
+      opacity: .6;
+      float: left;
+      margin: 0 .25rem 0 0;
+      width: 16px;
+    }
+  }
 
   [advise-picture] {
     &>svg {
-      width: 60%;
+      width: 75%;
+    }
+
+    &>img {
+      width: 35%;
     }
 
     &.legend {
@@ -116,9 +185,19 @@ page-summary {
 
   table.data {
     width: 1500px;
+
+    @media (max-width: 575px) {
+      width: 1200px;
+    }
+
     border-spacing: 0;
     border-collapse: separate;
     font-size: 1rem;
+
+    @media (max-width: 575px) {
+      font-size: .9rem;
+    }
+
     background: #fff;
     //border-bottom: 1px solid #444;
     margin-top: 0;
@@ -157,11 +236,26 @@ page-summary {
       //   }
       // }
     }
+
     tbody {
-      &>tr{
-          &:nth-child(1){td:not([rowspan]){background: #efefef}}
-          &:nth-child(2){td{background: #fff}}
-          &:nth-child(3){td:not([rowspan]){background: #efefef}}
+      &>tr {
+        &:nth-child(1) {
+          td:not([rowspan]) {
+            background: #efefef
+          }
+        }
+
+        &:nth-child(2) {
+          td {
+            background: #fff
+          }
+        }
+
+        &:nth-child(3) {
+          td:not([rowspan]) {
+            background: #efefef
+          }
+        }
       }
     }
 
@@ -278,9 +372,10 @@ page-summary {
       font-weight: 600;
       vertical-align: middle; //border: 1px solid #ccc;
 
-      // &.mesure {
-      //   white-space: nowrap;
-      // }
+      &.mesure {
+        white-space: nowrap;
+      }
+
       // &:nth-child(9) {
       //   border-right: 1px solid #fff
       // }
@@ -289,7 +384,7 @@ page-summary {
       //   border-right: 1px solid #fff
       // }
 
-      
+
       &.b-right {
         border-right: 1px solid #444
       }
@@ -411,6 +506,52 @@ page-summary {
   ion-toolbar {
     .toolbar-background {
       background: #fff !important;
+    }
+  }
+}
+
+.action-sheet-sub-title {
+  margin: .5rem 1rem;
+}
+
+.action-sheet-icon {
+  //font-size: 1.7rem !important;
+}
+
+.basic_sheet {
+  .action-sheet-container {
+    >.action-sheet-group:nth-child(1) {
+      >button {
+        .button-inner {
+          display: block;
+
+          // &:after {
+          //   margin-top: 1rem;
+          //   margin-bottom: .5rem;
+          //   // font-size: 1.8rem;
+          //   // line-height: 2rem;
+          //   display: block;
+          //   text-align: left;
+          //   font-weight: 100;
+          // }
+        }
+
+        // &:first-of-type {
+        //   .button-inner {
+        //     &:after {
+        //       content: '(Please note: The previous one will be deleted!)';
+        //     }
+        //   }
+        // }
+
+        // &:last-of-type {
+        //   .button-inner {
+        //     &:after {
+        //       content: 'Click to go to www.eiif.org/tbi and upgrade to the TBI-App professional with unlimited components and project options (fees apply)';
+        //     }
+        //   }
+        // }
+      }
     }
   }
 }

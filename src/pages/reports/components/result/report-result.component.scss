@@ -2,16 +2,110 @@
   display: block;
   margin-top: 0;
 
-  
+  .zoom-buttons {
+    float: right;
+    background: rgba(255, 255, 255, .6);
+    width: auto;
+    zoom: 1!important;
+    flex-direction: row;
+
+    >button {
+      margin-top: -.5rem;
+      zoom: 1!important;
+      height: 4rem;
+      span {
+        margin-left: .2rem;
+        zoom: 1!important;
+        font-size: 2rem;
+        margin-left: -.5rem;
+        margin-top: .5rem;
+      }
+
+      &:last-of-type {
+        margin-left: -2rem;
+      }
+    }
+  }
+
+  .annual-saving-message {
+    text-align: center;
+    font-size: 16px;
+    color: rgb(127, 127, 127);
+    font-weight: 600;
+
+    small {
+      font-size: 16px;
+      color: rgb(127, 127, 127);
+      font-weight: 600;
+      display: block;
+    }
+  }
+
+  .result-advise {
+    text-align: center;
+    color: #fff;
+    background: #014a97;
+
+    h4 {
+      margin: 0;
+      font-size: 1.3rem !important;
+      font-weight: 300 !important;
+
+      ion-icon {
+        margin-right: 1rem;
+        font-size: 1.5rem !important;
+        font-weight: 700;
+      }
+    }
+  }
+
+  ion-col[text-center] {
+    text-align: center;
+
+    @media (max-width: 575px) {
+      text-align: left;
+    }
+  }
+
+  #scroll_button {
+    font-size: 2rem;
+    zoom: 1!important;
+    margin-right: .5rem;
+    background: rgba(255, 255, 255, .5);
+    padding: 0 .5rem;
+    height: 3rem;
+    //bottom: 0;
+    z-index: 2000;
+
+    span.button-inner {
+      zoom: 1!important;
+      flex-flow: column;
+      padding: 0;
+
+      >strong {
+        &:nth-child(1) {
+          font-size: 2rem;
+          margin: -.5rem 0 -.75rem;
+        }
+
+        font-size: 1rem;
+        display: block;
+        width: 100%;
+      }
+    }
+  }
+
   .x-title {
     margin-bottom: -60px;
     margin-top: 50px;
-    &.white{
+
+    &.white {
       color: #fff;
     }
   }
-  .x-price{
-    margin-top: 5px!important;
+
+  .x-price {
+    margin-top: 5px !important;
     margin-bottom: 0;
     color: #fff;
   }
@@ -91,11 +185,60 @@
     font-size: 1rem;
     color: #7f7f7f;
     margin: auto;
-    display: block;
+    display: inline-block;
+
+    &.saving_lower {
+      thead {
+        >tr {
+          &:nth-child(2) {
+            >th {
+
+              &:nth-child(2),
+              &:nth-child(3),
+              &:nth-child(4) {
+                display: none;
+              }
+            }
+          }
+        }
+      }
+
+      tbody {
+        >tr {
+          &:nth-child(1) {
+            >td {
+              min-height: 80px;
+              &:nth-child(5),
+              &:nth-child(4) {
+                display: none;
+              }
+            }
+          }
+        }
+      }
+
+      tfoot {
+        >tr {
+          &:nth-child(1) {
+            >th {
+
+              &:nth-child(3),
+              &:nth-child(4) {
+                display: none;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    @media (max-width: 575px) {
+      zoom: .55;
+    }
 
     thead th {
       font-size: 1rem;
-      padding: 0 20px 20px;
+      padding: 0 5px 5px;
     }
 
     thead tr:last-of-type th:nth-child(2) {
@@ -131,6 +274,9 @@
 
     tbody td.bar div.gray {
       background-color: #7f7f7f;
+      &.opaque {
+        visibility: hidden;
+      }
       //border: 1px solid #7f7f7f;
     }
 
@@ -255,16 +401,60 @@
 
     tfoot {
       font-size: 1rem;
+
       svg {
         height: 4rem;
         //float: right;
         margin-right: 1rem;
         fill: #7f7f7f
       }
+
       th {
-        &:nth-child(2){color: #7f7f7f }
-        &:nth-child(3){color: #4b71c1}
-        &:nth-child(4){color: #6daf3d}
+        &:nth-child(2) {
+          color: #7f7f7f
+        }
+
+        &:nth-child(3) {
+          color: #4b71c1
+        }
+
+        &:nth-child(4) {
+          color: #6daf3d
+        }
+      }
+    }
+  }
+
+  ion-row {
+    &.legend {
+      ion-col {
+        line-height: 32px;
+      }
+    }
+  }
+
+  [advise-picture] {
+    line-height: 40px;
+    vertical-align: middle;
+
+    svg {
+      max-width: 24px;
+      margin-right: .5rem;
+    }
+
+    img {
+      width: 32px;
+      float: left;
+      margin-right: 2rem;
+    }
+  }
+
+  .view-port {
+    overflow: auto;
+
+    #result-grid {
+      & * {
+        transition: all linear .25s;
       }
     }
   }

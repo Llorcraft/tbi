@@ -23,6 +23,6 @@ export class ReportValvePage extends BaseReportPage {
     protected keyboard: Keyboard,
     public modalCtrl: ModalController
   ) {
-    super(new ReportValve(navParams.data.project, navParams.data.component, navParams.data.report), navCtrl, service, alertCtrl, picture, message, keyboard, modalCtrl);
+    super(new ReportValve(navParams.data.project, navParams.data.component, navParams.data.report), navParams, navCtrl, service, alertCtrl, picture, message, keyboard, modalCtrl);
   }
 }

@@ -17,7 +17,7 @@ class SurfaceCalculator extends BaseCalculator {
       /*02*/() => this.hcv = 1.74 * Math.pow(this.Δθ, 1 / 3),
       /*03*/() => this.hse = this.hr + this.hcv,
       /*04*/() => this.q = this.hse * this.Δθ,
-      /*05*/() => this.Qkwh = this.q * this.S * this.Ot * 1 / 1000,
+      /*05*/() => this.Qkwh = (this.q * this.S * this.Ot * 1 / 1000) * (!Number(report.component.fields.unknow_surface_temp)? 1 : Number(report.component.fields.unknow_surface_temp)),
       /*06*/() => this.Qε = this.Qkwh * this.Σ,
       /*07*/() => this.θm_min = (this.θse_min + (this.θa + 35)) / 2,
       /*08*/() => this.θm_max = (this.θse_max + (this.θa + 20)) / 2,

@@ -14,8 +14,12 @@ export class ProjectJson {
   public documents: Document[] = [];
   public components: TbiComponentJson[] = [];
   public price?: number = null;
+  public price_delta: number = 1;
   public people: People = new People();
-  public co2: number = 0;
+  public co2?: number;
+  public currency: string = "EUR"
+  public currency_index: number = 1;
+  public co2_index: number = 0;
 
   constructor(project: Partial<Project>) {
     this.id = project.id;
@@ -24,11 +28,15 @@ export class ProjectJson {
     this.date = project.date;
     this.user = project.user;
     this.price = project.price;
+    this.currency = project.currency || "EUR";
+    this.price_delta = project.price_delta;
     this.picture = project.picture;
     this.components = project.components.map(c => new TbiComponentJson(c));
     this.documents = project.documents || [];
     this.people = new People(project.people);
-    this.co2 = project.co2 || 0;
+    this.co2 = project.co2;
+    this.currency_index = project.currency_index || 1;
+    this.co2_index = project.co2_index || 0;
   }
 
   private flatten(arr: any[]): any[] {

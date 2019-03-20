@@ -1,23 +1,30 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { AlertController, NavParams, ModalController, NavController, ActionSheetController } from 'ionic-angular';
+import { Component, OnInit, ViewChild, ChangeDetectionStrategy, ChangeDetectorRef } from '@angular/core';
+import { AlertController, NavParams, ModalController, NavController, ActionSheetController, Content } from 'ionic-angular';
 import { Project, Value, ReportBase, Result, Fields } from '../../models';
 import { ProjectService } from '../../services/project.service';
 import { SummaryEditPage } from './summary-edit';
 import { ReportRouter } from '../../models/report-router';
-import { ReportsPage } from '../reports';
+import { ReportsPage, ReportResultComponent } from '../reports';
 import { TbiComponent } from '../../models/component';
 import { PDFExportComponent } from '@progress/kendo-angular-pdf-export';
 import { Group, exportPDF } from '@progress/kendo-drawing';
 import { ProjectsPage } from '../projects/projects';
-import { FileService } from '../../services';
+import { FileService, MessageService, LicencesService } from '../../services';
 import { FileOpener } from '@ionic-native/file-opener';
+import { IMAGES } from '../../const/images';
+import { InitPage } from '../init/init';
+import { EditProjectPage } from '../projects/edit';
+
 
 @Component({
   selector: 'page-summary',
-  templateUrl: 'summary.html'
+  templateUrl: 'summary.html',
+  changeDetection: ChangeDetectionStrategy.Default
 })
 
 export class SummaryPage implements OnInit {
+  public creating_pdf = false;
+  public images = IMAGES;
   public project: Project;
   public report: ReportBase;
   public components: TbiComponent[] = [];
@@ -31,8 +38,10 @@ export class SummaryPage implements OnInit {
     ['SAFETY-Insulation recommended', 'SAFETY-Recommended'],
     ['Savings can be achieved by increasing insulation performance or thickness', 'SAVINGS-achieved']
   ]);
-  public totals: Result = new Result()
+  public totals: Result = new Result();
   @ViewChild('pdf') public pdf: PDFExportComponent;
+  @ViewChild('report_result', { read: ReportResultComponent }) public report_result: ReportResultComponent;
+  @ViewChild(Content) content: Content;
   constructor(
     protected navParams: NavParams,
     protected alertCtrl: AlertController,
@@ -41,7 +50,10 @@ export class SummaryPage implements OnInit {
     protected service: ProjectService,
     protected navCtrl: NavController,
     private opener: FileOpener,
-    private file: FileService) {
+    private message: MessageService,
+    public licences: LicencesService,
+    private file: FileService,
+    private cdRef: ChangeDetectorRef) {
 
   }
 
@@ -117,15 +129,26 @@ export class SummaryPage implements OnInit {
           }
         }]
     });
-    if (this.components.find(c => c.validation == cl.id) || !cl.reports.filter(r => r.path.match(/(surface|pipe|valve|flange)/gi).length)) {
+    if (this.licences.type != 'PRO') {
       actionSheet.data.buttons.splice(3, 1);
+      actionSheet.data.buttons.splice(2, 1);
+      actionSheet.data.buttons.splice(0, 1);
+    }
+    if (this.licences.type == 'PRO' && !!cl.validationReport
+      || cl.reports.find(r => r.insulated)
+      || (!cl.reports.filter(r => r.path.match(/(surface|pipe|valve|flange)/gi)).length)) {
+      actionSheet.data.buttons.splice(3, 1);
+    }
+    if (this.licences.type == 'PRO' && !!cl.validationReport) {
+      actionSheet.data.buttons.splice(1, 1);
     }
     await actionSheet.present();
   }
 
   duplicate(c: TbiComponent) {
     var component = new TbiComponent(c.project, c);
-    component.id = '';
+    component.id = Math.random().toString().substr(2);
+    component.validationReport = null;
     component.fields.location += ' Copy';
     component.date = new Date();
     this.project.components.push(component);
@@ -142,17 +165,18 @@ export class SummaryPage implements OnInit {
     component.result = null;
     let report = new ReportBase(component.project, component, c.reports.find(r => !!r.path.match(/(surface|pipe|valve|flange)/gi)))
     report.result = null;
+
     component.reports.push(report);
     component.fields = new Fields({
+      unknow_surface_temp: 0,
       location: component.fields.location,
       operational_time: component.fields.operational_time,
-      length: c.fields.length
-    })
-    // this.project.components.push(component);
-    // this.service.save(this.project).then(p => {
-    //   this.navCtrl.setRoot(SummaryPage, {project: this.project});
-    // })
-    this.open(report, null);
+      nominal_diameter: component.fields.nominal_diameter,
+      number: c.fields.number,
+      surface: report.name == "Uninsulated Surface" ? component.fields.surface : null
+    });
+
+    this.open(report, null, c.result);
   }
 
   protected remove(cl: TbiComponent, event: Event) {
@@ -180,45 +204,61 @@ export class SummaryPage implements OnInit {
     confirm.present();
   }
 
-  private hide_svg(pdf: any) {
-    Array.from(pdf.element.nativeElement.getElementsByTagName('svg'))
-      .forEach((svg: any, i: number) => {
-        if (i < 3) svg.style.fill = '#fff';
-        let img = document.createElement('img');
-        img.src = `data:image/svg+xml;base64,${window.btoa(new XMLSerializer().serializeToString(svg))}`;
-        img.width = svg.getBoundingClientRect().width;
-        //img.height = svg.getBoundingClientRect().height;
-        svg.parentElement.appendChild(img);
-      });
-    pdf.element.nativeElement.className = 'print'
-  }
-
-  private show_svg(pdf: any) {
-    Array.from(pdf.element.nativeElement.getElementsByTagName('img'))
-      .forEach((img: any) => img.remove());
-    pdf.element.nativeElement.className = '';
-  }
-
-  public export_pdf() {
-    this.hide_svg(this.pdf);
-    this.pdf.export().then((g: Group) => {
-      exportPDF(g).then(data => {
-        this.file.create_pdf(data, `${(new Date()).getTime()}`).then(r => {
-          this.opener.open(r, 'application/pdf');
-          this.show_svg(this.pdf);
-        })
-      })
+  private hide_svg(pdf: any): Promise<any> {
+    // Array.from(pdf.element.nativeElement.getElementsByTagName('svg'))
+    //   .forEach((svg: any, i: number) => {
+    //     if (i < 3) svg.style.fill = '#fff';
+    //     let img = document.createElement('img');
+    //     img.src = `data:image/svg+xml;base64,${window.btoa(new XMLSerializer().serializeToString(svg))}`;
+    //     img.width = svg.getBoundingClientRect().width;
+    //     //img.height = svg.getBoundingClientRect().height;
+    //     svg.parentElement.appendChild(img);
+    //   });
+    return new Promise<any>(resolve => {
+      //let chart_zoom = getComputedStyle(document.querySelector(".result-chart")).zoom;
+      document.querySelector(".result-chart").className = 'result-chart zoom-normal';
+      pdf.element.nativeElement.className = 'print';
+      resolve(true);
     })
   }
 
-  public open(report: ReportBase, event: Event) {
-    if (event) event.cancelBubble = true;
-    (new ReportRouter(report.component.project, report.component, this.navCtrl)).navigate_to_report(report.path, report.summary_id, report);
+  private show_svg(pdf: any, restore: any): Promise<any> {
+    // Array.from(pdf.element.nativeElement.getElementsByTagName('img'))
+    //   .forEach((img: any) => img.remove());
+    return new Promise<any>(resolve => {
+      document.querySelector(".result-chart").className = 'result-chart';
+      pdf.element.nativeElement.className = '';
+      resolve(true);
+    });
+
   }
 
-  protected edit(cl: TbiComponent): SummaryPage {
+  public export_pdf() {
+    this.creating_pdf = true;
+    this.hide_svg(this.pdf).then(restores => {
+      this.pdf.export().then((g: Group) => {
+        exportPDF(g).then(data => {
+          this.file.create_pdf(data, `TBI-"${this.project.name}"`).then(r => {
+            this.opener.open(r, 'application/pdf');
+            this.show_svg(this.pdf, restores).then(() => this.creating_pdf = false);
+          })
+        })
+      })
+    });
+  }
+
+  public open(report: ReportBase, event: Event, result?: Result) {
+    if (event) event.cancelBubble = true;
+    (new ReportRouter(report.component.project, report.component, this.navCtrl)).navigate_to_report(report.path, report.summary_id, report, null, result);
+  }
+
+  public edit_validation(cl: TbiComponent): SummaryPage {
+    return this.edit(Object.assign(cl.validationReport, { project: cl.project }) as TbiComponent, cl.result);
+  }
+  protected edit(cl: TbiComponent, result?: Result): SummaryPage {
+    if (!!cl.validationReport) return
     if (cl.reports.length == 1) {
-      (new ReportRouter(cl.project, cl, this.navCtrl)).navigate_to_report(cl.reports[0].path, cl.reports[0].summary_id, cl.reports[0]);
+      (new ReportRouter(cl.project, cl, this.navCtrl)).navigate_to_report(cl.reports[0].path, cl.reports[0].summary_id, cl.reports[0], null, result);
       return this;
     }
     const modal = this.modalCtrl.create(SummaryEditPage,
@@ -240,11 +280,169 @@ export class SummaryPage implements OnInit {
     return this;
   }
 
+  async next_action() {
+    event.preventDefault();
+    event.cancelBubble = true;
+    let user = !!this.navParams.get('parent') && this.navParams.get('parent').hasOwnProperty('report') ? localStorage.getItem('tbi-user') : '';
+    let actionSheet = this.licences.type != 'PRO'
+      ? this.create_action_sheet_basic(user)
+      : this.create_action_sheet(user);
+
+    await actionSheet.present();
+  }
+
+  create_action_sheet(user: string = '') {
+    let action_sheet = this.actionSheetCtrl.create({
+      title: !!user ? `The component ${this.navParams.data.parent.report.component.fields.location} has been saved by ${user}` : null,
+      subTitle: 'What do you want to do next?',
+      buttons: [
+        {
+          text: 'Change user',
+          icon: 'person',
+          handler: () => {
+            this.navCtrl.setRoot(InitPage);
+          }
+        },
+        {
+          text: 'Continue',
+          //icon: 'add-circle',
+          handler: () => {
+            this.go_to_reports(null);
+          }
+        },
+        {
+          text: 'Change project',
+          //icon: 'checkmark-circle',
+          handler: () => {
+            this.navCtrl.setRoot(ProjectsPage);
+            // this.navCtrl.push(EditProjectPage, {
+            //   project: this.project,
+            //   parent: this
+            // });
+          }
+        },
+        {
+          text: 'New project',
+          //icon: 'checkmark-circle',
+          handler: () => {
+            //this.navCtrl.setRoot(ProjectsPage);
+            this.navCtrl.push(EditProjectPage, {
+              project: new Project(),
+              parent: SummaryPage
+            });
+          }
+        },
+        {
+          text: 'Cancel',
+          //icon: 'close',
+          role: 'cancel',
+          handler: () => {
+            console.log('Cancel clicked');
+          }
+        }]
+    });
+    return action_sheet;
+  }
+
+  create_action_sheet_basic(user: string) {
+    let action_sheet = this.actionSheetCtrl.create({
+      //title: !!user ? `The component reported by ${user} have been saved` : null,
+      //title: !!user ? `The component ${this.navParams.data.parent.report.component.fields.location} has been saved by ${user}` : null,
+      //subTitle: 'What do you want to do next?',
+      title: 'What do you want to do next?',
+      cssClass: 'basic_sheet',
+      buttons: [
+        {
+          text: 'Delete & New Component',
+          //icon: 'add-circle',
+          handler: () => {
+            this.project.components = [];
+            this.go_to_reports(null);
+          }
+        },
+        {
+          text: 'Edit project',
+          //icon: 'create',
+          handler: () => {
+            this.navCtrl.push(EditProjectPage, {
+              project: this.project,
+              parent: this
+            });
+          }
+        },
+        {
+          text: 'Purchase TBI-Pro',
+          //icon: 'open',
+          handler: () => {
+            window.open('http://www.eiif.org/tbi', '_system', 'location=yes')
+          }
+        },
+        {
+          text: 'Insert TBI-Pro code',
+          //icon: 'information-circle',
+          handler: () => {
+            this.alertCtrl.create({
+              message: 'Please, type your TBI-app code.',
+              cssClass: `ion-dialog-horizontal margin-top`,
+              enableBackdropDismiss: false,
+              inputs: [
+                {
+                  name: 'code',
+                  value: ''
+                }
+              ],
+              buttons: [
+                {
+                  text: 'Cancel',
+                  role: 'cancel'
+                },
+                {
+                  text: 'Validate',
+                  role: 'submit',
+                  handler: (data) => {
+                    this.licences.validate(data.code).then((result: { ok: boolean, message: string }) => {
+                      this.alertCtrl.create({
+                        message: result.message,
+                        cssClass: `ion-dialog-horizontal margin-top`,
+                        enableBackdropDismiss: false,
+                        buttons: [{
+                          text: 'OK',
+                          role: 'submit',
+                          handler: () => {
+                            if (result.ok) {
+                              this.navCtrl.setRoot(ProjectsPage, { animate: true, direction: 'backward' })
+                            }
+                          }
+                        }]
+                      }).present();
+                    })
+                  }
+                }]
+            }).present()
+          }
+        },
+        {
+          text: 'Cancel',
+          //icon: 'close',
+          role: 'cancel'
+        }]
+    });
+    return action_sheet;
+  }
+
   ngOnInit(): void {
     this.service.get(this.navParams.get('project').id).then(p => {
       this.project = p;
       this.get_project();
       this.get_report();
+
+      this.content.scrollToTop(500);
+      this.cdRef.detectChanges();
+
+      // if (this.navParams.get('parent').hasOwnProperty('report')) {
+      //   debugger;
+      //   this.create_action_sheet(localStorage.getItem('tbi-user')).present();
+      // }
     })
   }
 
@@ -262,7 +460,7 @@ export class SummaryPage implements OnInit {
     this.totals.savingPotentialMax.money = 0;
     this.totals.co2 = [0, 0, 0];
 
-    this.components = (this.project.components || []).sort((a, b) => a.date > b.date ? 1 : -1);
+    this.components = (this.project.components || []).filter(c => !c.validation).sort((a, b) => a.date > b.date ? 1 : -1);
 
     this.components.filter(c => !!c.result && !c.fields.unknow_surface)
       .map(c => c.result)
@@ -279,4 +477,13 @@ export class SummaryPage implements OnInit {
       });
     //});
   }
+
+  down(value: number): number {
+    return value > 1000 ? Math.floor(Math.trunc(value) / 100) * 100 : Math.floor(Math.trunc(value) / 10) * 10;
+  }
+
+  up(value: number): number {
+    return value > 1000 ? Math.ceil(Math.trunc(value) / 100) * 100 : Math.ceil(Math.trunc(value) / 10) * 10;
+  }
+
 }

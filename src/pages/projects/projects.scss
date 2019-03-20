@@ -12,10 +12,29 @@
 }
 
 ion-grid[projects] {
+  background: #fff;
+  padding: 0;
+
+  //box-shadow: 0 0 10px rgba(0, 0, 0, .5);
+  ion-icon[color=danger] {
+    &:before {
+      font-size: 3rem;
+    }
+  }
+
+  &.projects {
+    margin-top: .5rem;
+    box-shadow: none;
+  }
+
+  .transition-width {
+    transition: width linear 1s;
+  }
+
   svg#insulation {
-    width: 110%!important;
+    width: 95%;
     margin-top: .2rem;
-    margin-left: -.2rem;
+    margin-left: .25rem;
   }
 
   h5 {
@@ -51,8 +70,11 @@ ion-grid[projects] {
 
     h1 {
       font-size: 2rem;
+      @media (max-width: 575px) {
+        font-size: 1.4rem;
+      }
       color: #333 !important;
-      margin: 1rem 0 0;
+      margin: 0;
     }
 
     h1+p {
@@ -63,12 +85,22 @@ ion-grid[projects] {
 
     h5 {
       color: #aaa;
-      margin: .5rem 0;
+      margin: 1rem 0;
+      font-size: 1.2rem;
+      @media (max-width: 575px) {
+        display: inline-block;
+        margin: 0;
+        font-size: 1rem;
+      }
+      &+h5 {
+        @media (max-width: 575px) {
+        }
+      }
     }
 
     svg {
       @media screen and (orientation: portrait) {
-        width: 100%;
+        width: 90%;
       }
 
       @media screen and (orientation:landscape) {
@@ -81,6 +113,31 @@ ion-grid[projects] {
 
       * {
         fill: #aaa;
+      }
+    }
+  }
+}
+
+page-project {
+  ion-icon[name="menu"]{
+    margin: auto;
+    font-size: 3rem;
+  }
+  @media (max-width: 575px) {
+    ion-icon[name="menu"]{
+      font-size: 2rem
+    }
+    [type-report] {
+      text-align: center;
+
+      svg {
+        width: 50% !important;
+        margin: auto;
+
+        &#insulation {
+          width: 65% !important;
+          margin: auto !important;
+        }
       }
     }
   }

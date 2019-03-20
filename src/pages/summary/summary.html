@@ -3,15 +3,15 @@
     <ion-title>Summary - {{project?.name}}</ion-title>
     <ion-buttons end>
       <button ion-button on-tap="export_pdf()">
-        <ion-icon name="document-pdf"></ion-icon>&nbsp;PDF
+        <ion-icon name="document-pdf"></ion-icon><span hidden-xs>&nbsp;PDF</span>
       </button>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content [ngClass]="{'creating-pdf': creating_pdf}">
+  <div class="hide-pdf"></div>
   <kendo-pdf-export #pdf paperSize="A4" margin=".5cm" [scale]="0.5" landscape="true" forcePageBreak=".page-break">
-
     <div class="table-container">
       <table class="data">
         <colgroup>
@@ -23,10 +23,14 @@
           <col style="width: 10px">
           <col style="width: 50px">
           <col style="width: 50px">
+          <col style="width: 10px">
           <col style="width: 100px">
           <col style="width: 100px">
           <col style="width: 100px">
           <col style="width: 80px">
+          <col style="width: 50px">
+          <col style="width: 50px">
+          <col style="width: 10px">
           <col style="width: 30px">
           <col style="width: 30px">
           <col style="width: 30px">
@@ -36,17 +40,29 @@
         <thead>
           <tr>
             <th colspan="2"></th>
-            <th colspan="6" style="border: 2px solid #fff; color:#fff; border-width: 0 2px 4px 0; background-color: rgb(112,173,71)">Energy & CO2 analysis per year</th>
-            <th rowspan="2" style="background-color: rgb(48,84,150); border: 2px solid #fff; color:#fff; border-width: 0 2px 4px 2px"><span svg="safety"></span>Safety</th>
-            <th rowspan="2" style="background-color: rgb(48,84,150); border: 2px solid #fff; color:#fff; border-width: 0 2px 4px 2px"><span svg="maintenance"></span>Maintenance</th>
-            <th rowspan="2" style="background-color: rgb(48,84,150); border: 2px solid #fff; color:#fff; border-width: 0 2px 4px 2px"><span svg="custom"></span>Others</th>
-            <th rowspan="2" style="background-color: rgb(48,84,150); border: 2px solid #fff; color:#fff; border-width: 0 2px 4px 2px">TBI Advise</th>
+            <th colspan="6" style="border: 2px solid #fff; color:#fff; border-width: 0 2px 4px 0; background-color: rgb(112,173,71)">Energy
+              & CO2 analysis per year</th>
+            <th rowspan="2"></th>
+            <th rowspan="2" style="background-color: rgb(48,84,150); border: 2px solid #fff; color:#fff; border-width: 0 2px 4px 2px">
+              <!-- <span svg="safety"></span> -->
+              Safety</th>
+            <th rowspan="2" style="background-color: rgb(48,84,150); border: 2px solid #fff; color:#fff; border-width: 0 2px 4px 2px">
+              <!-- <span svg="maintenance"></span> -->
+              Maintenance</th>
+            <th rowspan="2" style="background-color: rgb(48,84,150); border: 2px solid #fff; color:#fff; border-width: 0 2px 4px 2px">
+              <!-- <span svg="custom"></span> -->
+              Others</th>
+            <th rowspan="2" style="background-color: rgb(48,84,150); border: 2px solid #fff; color:#fff; border-width: 0 2px 4px 2px">TBI Advice</th>
+            <th rowspan="2" colspan="2" style="background-color: rgb(48,84,150); border: 2px solid #fff; color:#fff; border-width: 0 2px 4px 2px">Validation</th>
+            <th rowspan="2"></th>
             <th colspan="5" style="background-color: rgb(48,84,150); border: 2px solid #fff; color:#fff; border-width: 0 0 4px 2px">Input</th>
           </tr>
           <tr>
             <th colspan="2">Component / Location</th>
-            <th colspan="2" style="background-color:rgb(217,217,217); border: 2px solid #fff; border-width: 0 2px 4px 0">Current Losses<br>& Emissions</th>
-            <th colspan="4" style="background-color:rgb(217,217,217); border: 2px solid #fff; border-width: 0 2px 4px 2px">Potential<br>savings year</th>
+            <th colspan="2" style="background-color:rgb(217,217,217); border: 2px solid #fff; border-width: 0 2px 4px 0">Current
+              Losses<br>& Emissions</th>
+            <th colspan="4" style="background-color:rgb(217,217,217); border: 2px solid #fff; border-width: 0 2px 4px 2px">Potential<br>savings
+              year</th>
             <th class="vertical">
               <div><span one-line>Insulated</span></div>
             </th>
@@ -67,22 +83,27 @@
         <tbody *ngFor="let c of components; let i=index">
           <tr [class.disabled]="c.fields.unknow_surface">
             <td rowspan="3" (click)="actions(c, $event)" double-border text-center style="white-space: nowrap; padding-right: 1rem">
-              <ion-icon name="md-menu" style="margin: 0 .25rem 0; float: left"></ion-icon>
+              <ion-icon slot="icon-only" name="md-more" style="margin: 0 .25rem 0; float: left"></ion-icon>
               {{i+1}}-
             </td>
-            <td rowspan="3" double-border>{{ellipsis(c.fields.location)}}</td>
-            <td [class.gray-text]="!!c.result && c.fields.unknow_surface" *ngIf="!!c.result" text-right>{{c.result.headLost.power / 1000 | number: '1.1-1'}}</td>
-            <td [class.gray-text]="!!c.result && c.fields.unknow_surface" *ngIf="!!c.result">MWh<span *ngIf="c.fields.unknow_surface">/m<sup>2</sup></span></td>
-            <td [class.gray-text]="!!c.result && c.fields.unknow_surface" *ngIf="!!c.result" text-right>{{c.result.savingPotentialMin?.power / 1000 | number: '1.1-1'}}</td>
-            <td [class.gray-text]="!!c.result && c.fields.unknow_surface" *ngIf="!!c.result" text-center class="p-0" style="padding: 0; white-space: nowrap">
+            <td rowspan="3" on-tap="edit(c)" double-border>{{ellipsis(c.fields.location)}}</td>
+            <td [class.gray-text]="!!c.result && c.fields.unknow_surface" *ngIf="!!c.result" text-right>{{c.result.headLost.power
+              / 1000 | number: '1.2-2'}}</td>
+            <td [class.gray-text]="!!c.result && c.fields.unknow_surface" *ngIf="!!c.result">{{project.s_measure}}<span *ngIf="c.fields.unknow_surface">/m<sup>2</sup></span></td>
+            <td [class.gray-text]="!!c.result && c.fields.unknow_surface" *ngIf="!!c.result" text-right>{{c.result.savingPotentialMin?.power
+              / 1000 | number: '1.2-2'}}</td>
+            <td [class.gray-text]="!!c.result && c.fields.unknow_surface" *ngIf="!!c.result" text-center class="p-0"
+              style="padding: 0; white-space: nowrap">
               <!-- <ion-icon name="md-arrow-forward"></ion-icon> -->
               --
             </td>
-            <td [class.gray-text]="!!c.result && c.fields.unknow_surface" *ngIf="!!c.result" text-left>{{c.result.savingPotentialMax?.power / 1000 | number: '1.1-1'}}</td>
-            <td [class.gray-text]="!!c.result && c.fields.unknow_surface" *ngIf="!!c.result" class="mesure">MWh<span *ngIf="c.fields.unknow_surface">/m<sup>2</sup></span></td>
+            <td [class.gray-text]="!!c.result && c.fields.unknow_surface" *ngIf="!!c.result" text-left>{{c.result.savingPotentialMax?.power
+              / 1000 | number: '1.2-2'}}</td>
+            <td [class.gray-text]="!!c.result && c.fields.unknow_surface" *ngIf="!!c.result" class="mesure">{{project.s_measure}}<span
+                *ngIf="c.fields.unknow_surface">/m<sup>2</sup></span></td>
             <td *ngIf="!c.result" colspan="2" double-border rowspan="3"></td>
             <td *ngIf="!c.result" colspan="4" double-border rowspan="3"></td>
-
+            <td rowspan="3"></td>
             <td rowspan="3" style="background: rgb(180,198,231)" double-border text-center>
               <ng-container *ngFor="let r of c.reports_by_type('safety|hot')">
                 <a href="#" (click)="open(r, $event)" *ngIf="!r.component.is_hot">{{r.summary_id}}</a>
@@ -102,13 +123,20 @@
             </td>
             <td rowspan="3" *ngIf="!!c.result" double-border text-center>
               <ng-container [ngSwitch]="advises.get(c.result.advise)">
-                <span advise-picture *ngSwitchCase="'Recommended'" svg="insulation"></span>
-                <span advise-picture *ngSwitchCase="'Maintenance'" svg="mechanical"></span>
-                <span advise-picture *ngSwitchCase="'Unknow surface'" svg="surface"></span>
-                <span advise-picture *ngSwitchCase="'OK'" svg="like"></span>
-                <span advise-picture *ngSwitchCase="'SAVINGS-achieved'" svg="increase"></span>
+                <!-- <span advise-picture *ngSwitchCase="'Recommended'" svg="insulation"></span> -->
+                <span advise-picture *ngSwitchCase="'Recommended'"><img src="{{images.INSULATION}}"></span>
+                <span advise-picture *ngSwitchCase="'Maintenance'"><img src="{{images.MECHANICAL}}"></span>
+                <span advise-picture *ngSwitchCase="'Unknow surface'"><img src="{{images.SURFACE}}"></span>
+                <span advise-picture *ngSwitchCase="'OK'"><img src="{{images.LIKE}}"></span>
+                <span advise-picture *ngSwitchCase="'SAVINGS-achieved'"><img src="{{images.INCREASE}}"></span>
               </ng-container>
             </td>
+            <td double-border rowspan="3" *ngIf="!c.validationReport" style="background: #fff"></td>
+            <td double-border rowspan="3" *ngIf="!c.validationReport" style="background: #fff"></td>
+            <td *ngIf="!!c.validationReport" on-tap="edit_validation(c)" text-right>{{c.validationReport.reports[0].result.headLost.power
+              / 1000 | number: '1.2-2'}}</td>
+            <td *ngIf="!!c.validationReport" on-tap="edit_validation(c)" class="measure">{{project.s_measure}}</td>
+            <td rowspan="3"></td>
             <td rowspan="3" *ngIf="!c.result" double-border text-center></td>
             <td rowspan="3" double-border text-center>{{!!c.insulated ? 'Y' : 'N'}}</td>
             <td *ngIf="null!=c.fields.surface_temp" rowspan="3" double-border text-center>{{c.fields.surface}}</td>
@@ -123,80 +151,149 @@
 
           <tr [class.gray-text]="!!c.result && c.fields.unknow_surface" *ngIf="!!c.result" [class.disabled]="c.fields.unknow_surface">
             <td text-right>{{c.result.headLost?.money | number: '1.0-0'}}</td>
-            <td class="mesure">€<span *ngIf="c.fields.unknow_surface">/m<sup>2</sup></span></td>
+            <td class="mesure">{{project.currency}}<span *ngIf="c.fields.unknow_surface">/m<sup>2</sup></span></td>
             <td text-right>{{c.result.savingPotentialMin?.money | number: '1.0-0'}}</td>
             <td text-center class="p-0" style="padding: 0; white-space: nowrap;">--</td>
             <td text-left>{{c.result.savingPotentialMax?.money | number: '1.0-0'}}</td>
-            <td class="mesure">€<span *ngIf="c.fields.unknow_surface">/m<sup>2</sup></span></td>
+            <td class="mesure">{{project.currency}}<span *ngIf="c.fields.unknow_surface">/m<sup>2</sup></span></td>
+            <td *ngIf="!!c.validationReport" on-tap="edit_validation(c)" text-right>{{c.validationReport.reports[0].result.headLost?.money
+              | number: '1.0-0'}}</td>
+            <td *ngIf="!!c.validationReport" on-tap="edit_validation(c)" class="measure">{{project.currency}}</td>
           </tr>
 
           <tr [class.gray-text]="!!c.result && c.fields.unknow_surface" *ngIf="!!c.result" [class.disabled]="c.fields.unknow_surface">
-              <td double-border text-right>{{c.result.co2[0] | number: '1.1-1'}}</td>
-              <td double-border class="mesure">tn CO<sub>2</sub><span *ngIf="c.fields.unknow_surface">/m<sup>2</sup></span></td>
-              <td double-border text-right>{{c.result.co2[1] | number: '1.1-1'}}</td>
-              <td double-border text-center class="p-0" style="padding: 0; white-space: nowrap;">--</td>
-              <td double-border text-left>{{c.result.co2[2] | number: '1.1-1'}}</td>
-              <td double-border class="mesure">tn CO<sub>2</sub><span *ngIf="c.fields.unknow_surface">/m<sup>2</sup></span></td>
-            </tr>
+            <td double-border text-right>{{c.result.co2[0] | number: '1.2-2'}}</td>
+            <td double-border class="mesure">tn CO<sub>2</sub><span *ngIf="c.fields.unknow_surface">/m<sup>2</sup></span></td>
+            <td double-border text-right>{{c.result.co2[0] - c.result.co2[1] | number: '1.2-2'}}</td>
+            <td double-border text-center class="p-0" style="padding: 0; white-space: nowrap;">--</td>
+            <td double-border text-left>{{c.result.co2[0] - c.result.co2[2] | number: '1.2-2'}}</td>
+            <td double-border class="mesure">tn CO<sub>2</sub><span *ngIf="c.fields.unknow_surface">/m<sup>2</sup></span></td>
+            <td *ngIf="!!c.validationReport" on-tap="edit_validation(c)" double-border text-right>{{c.validationReport.reports[0].result.co2[0]
+              | number: '1.2-2'}}</td>
+            <td *ngIf="!!c.validationReport" on-tap="edit_validation(c)" double-border class="mesure">tn CO<sub>2</sub></td>
+          </tr>
 
-          
+
         </tbody>
-        <tfoot>
+        <tfoot *ngIf="!!components.length && !!report_result">
           <tr>
             <td rowspan="3" colspan="2" double-border text-right>
               TOTAL PROJECT
+              <small style="display: block;">(Rounded figures)</small>
             </td>
-            <td text-right >{{totals.headLost.power / 1000 | number: '1.1-1'}}</td>
-            <td>MWh</td>
-            <td text-right>{{totals.savingPotentialMin?.power / 1000 | number: '1.1-1'}}</td>
+            <td text-right>{{(totals.headLost.power / 1000) | number: '1.2-2'}}</td>
+            <td>{{project.s_measure}}</td>
+            <td text-right>{{totals.savingPotentialMin?.power / 1000 | number: '1.2-2'}}</td>
             <td text-center class="p-0" style="padding: 0; white-space: nowrap">--</td>
-            <td text-left>{{totals.savingPotentialMax?.power / 1000 | number: '1.1-1'}}</td>
-            <td class="mesure">MWh</td>
+            <td text-left>{{totals.savingPotentialMax?.power / 1000 | number: '1.2-2'}}</td>
+            <td class="mesure">{{project.s_measure}}</td>
+            <td rowspan="3"></td>
+            <td double-border colspan="6" rowspan="3">
+              <ion-grid>
+                <ion-row class="legend">
+                  <ion-col no-padding col-6><span advise-picture><img src="{{images.INSULATION}}"></span>Insulation recommended</ion-col>
+                  <ion-col no-padding col-6><span advise-picture><img src="{{images.MECHANICAL}}"></span>Maintenance</ion-col>
+                  <ion-col no-padding col-6><span advise-picture><img src="{{images.SURFACE}}"></span>Surface unknown</ion-col>
+                  <ion-col no-padding col-6><span advise-picture><img src="{{images.LIKE}}"></span>System OK</ion-col>
+                  <ion-col no-padding col-12><span advise-picture><img src="{{images.INCREASE}}"></span>Increase performance or thickness</ion-col>
+              </ion-row>
+              </ion-grid>
+            </td>
+            <td rowspan="3"></td>
+            <td double-border rowspan="3" colspan="5"></td>
           </tr>
 
           <tr>
-            <td text-right>{{totals.headLost?.money | number: '1.0-0'}}</td>
-            <td class="mesure">€</td>
-            <td text-right>{{totals.savingPotentialMin?.money | number: '1.0-0'}}</td>
+            <td text-right>{{report_result.bars.current.losses[1] | number: '1.0-0'}}</td>
+            <td class="mesure">{{project.currency}}</td>
+            <td text-right>{{report_result.bars.basic.savings[1] | number: '1.0-0'}}</td>
             <td text-center class="p-0" style="padding: 0; white-space: nowrap;">--</td>
-            <td text-left>{{totals.savingPotentialMax?.money | number: '1.0-0'}}</td>
-            <td class="mesure">€</td>
+            <td text-left>{{report_result.bars.economical.savings[1] | number: '1.0-0'}}</td>
+            <td class="mesure">{{project.currency}}</td>
           </tr>
 
           <tr>
-              <td double-border text-right>{{totals.co2[0] | number: '1.1-1'}}</td>
-              <td double-border class="mesure">tn CO<sub>2</sub></td>
-              <td double-border text-right>{{totals.co2[1] | number: '1.1-1'}}</td>
-              <td double-border text-center class="p-0" style="padding: 0; white-space: nowrap;">--</td>
-              <td double-border text-left>{{totals.co2[2] | number: '1.1-1'}}</td>
-              <td double-border class="mesure">tn CO<sub>2</sub></td>
-            </tr>
+            <td double-border text-right>{{totals.co2[0] | number: '1.2-2'}}</td>
+            <td double-border class="mesure">tn CO<sub>2</sub></td>
+            <td double-border text-right>{{totals.co2[0] - totals.co2[1] | number: '1.2-2'}}</td>
+            <td double-border text-center class="p-0" style="padding: 0; white-space: nowrap;">--</td>
+            <td double-border text-left>{{totals.co2[0] - totals.co2[2] | number: '1.2-2'}}</td>
+            <td double-border class="mesure">tn CO<sub>2</sub></td>
+          </tr>
         </tfoot>
       </table>
     </div>
 
-    <div class="page-break chart text-center" style="padding: 1rem 10%">
-      <div report-result *ngIf="!!report && !!totals.headLost.power" [parent]="this" [show_advise]="false"></div>
+    <div no-padding class="chart text-center" style="padding: 1rem 0" [ngClass]="{'page-break': 1 == 1}">
+      <div report-result #report_result *ngIf="!!report && !!totals.headLost.power" [parent]="this" [currency]="project.currency" [show_advise]="false"></div>
     </div>
 
-  </kendo-pdf-export>
+    <ng-template kendoPDFTemplate >
+      <div class="page-template">
+        <div class="header">
+            <ion-grid class="header" style="border-bottom: 2px solid rgb(48,84,150)">
+                <ion-row>
+                  <ion-col col-3>
 
+                  </ion-col>
+                  <ion-col col-6>
+                    <h3 col-12 text-center class="tickcheck">
+                      <span>TICKCHECK Based inspection</span>
+                      <img src="{{images.TBI}}">
+                    </h3>
+                  </ion-col>
+                  <ion-col col-3 class="engineer">
+                      <strong>Insulation expert (TICKCHECK engineer)</strong>
+                      <span>Luis Lopez Bunner</span>
+                      <a href="mailto:luis.lopez@eiig.org">
+                        <ion-icon name="mail"></ion-icon>luis.lopez@eiig.org
+                      </a>
+                      <a href="phone:+32499219797">
+                        <ion-icon name="call"></ion-icon>+32499219797
+                      </a>
+                    </ion-col>
+                </ion-row>
+            </ion-grid>
+        </div>
+        <div class="footer">
+            <ion-grid class="footer" style="border-top: 1px solid #ccc">
+                <ion-row>
+                    <ion-col col-12>
+                        <b>Disclaimer:</b> Tbi is a reporting tool developed by the European Industrial 
+                        Insulation Fundation to estimate energy losses and potential savings and report 
+                        about safety, maintenance or any others relevant issues to insulation. Estimations 
+                        are based on basic heat transfer formulation and inputs provided by 
+                        the user, assuming some scenarios which that not necessary reflect the real life 
+                        (wind speed, orientation, ...). EiiF does not warrant any outcome of the tool and 
+                        shall not be liable for any damage incurred by the user or third party resulting 
+                        from the use of this reporting tool. Tbi does not provide or recommend any technical 
+                        solutions or insulation material.
+                    </ion-col>
+                </ion-row>
+            </ion-grid>
+        </div>
+      </div>
+    </ng-template>
+
+  </kendo-pdf-export>
 </ion-content>
 
 <ion-footer>
   <ion-grid no-padding>
     <ion-row no-padding>
       <ion-col col-4 no-padding>
-        <button ion-button small color="light" (click)="go_to_projects()">
-          HOME
-        </button>
+        <!-- <button ion-button small color="light" (click)="go_to_projects()">
+            <ion-icon visible-xs name="arrow-back"></ion-icon>
+            <span hidden-xs>Home</span>
+        </button> -->
       </ion-col>
       <ion-col col-4 text-center>
         <tools></tools>
       </ion-col>
       <ion-col col-4 text-right>
-        <button tabindex="15" ion-button small color="primary" (click)="go_to_reports()">
-          New component
+        <button tabindex="15" ion-button small color="primary" (click)="next_action()">
+            <ion-icon visible-xs name="arrow-forward"></ion-icon>
+            <span hidden-xs>Next</span>
         </button>
       </ion-col>
     </ion-row>

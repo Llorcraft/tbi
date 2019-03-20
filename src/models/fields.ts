@@ -1,15 +1,8 @@
-import { More } from "../const/more/more";
-
 export class Fields {
   public location: string = '';
   public operational_time?: number = null;
   public surface?: number = null;
   public surface_material?: number = null;
-  public surface_material_index?: number = null;
-  public get surface_material_friendly(): string {
-    const material = More.MATERIALS.find(t => t[1] == this.surface_material_index);
-    return !!material ? `${material[0]}` : `${this.surface_material || ''}`;
-  }
   public ambient_temp?: number = null;
   public surface_temp?: number = null;
   public medium_temp?: number = null;
@@ -25,6 +18,9 @@ export class Fields {
   public damaged_insulation_selection: number = 4;
   public damaged_comment: string = '';
   public space_warning: boolean = false;
+
+  public operational_time_index: number = 0;
+  public surface_material_index: number = 0;
 
   private _condensation_ice_block: boolean = false
   public get condensation_ice_block(): boolean {
@@ -63,7 +59,7 @@ export class Fields {
 
   public condensation_comment: string = '';
   public unknow_surface: boolean = false
-  public unknow_surface_temp: boolean = false
+  public unknow_surface_temp: number = 0;
 
   private _damaged_cladding: boolean = false
   public get damaged_cladding(): boolean {
@@ -115,8 +111,11 @@ export class Fields {
     this.condensation_wet_surface = !!f.condensation_wet_surface;
     this.condensation_comment = f.condensation_comment || '';
     this.unknow_surface = !!f.unknow_surface;
-    this.unknow_surface_temp = !!f.unknow_surface_temp;
+    this.unknow_surface_temp = Number(f.unknow_surface_temp || '0');
     this.space_warning =  f.space_warning
+
+    this.operational_time_index = f.operational_time_index || 0;
+    this.surface_material_index = f.surface_material_index || 0;
   }
 
   private number_or_null(value?: number | string): number {

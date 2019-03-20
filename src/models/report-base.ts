@@ -1,5 +1,4 @@
 import { Project } from './project';
-import { Page } from 'ionic-angular/umd/navigation/nav-util';
 import { Result } from './result';
 import { TbiComponent } from './component';
 import { Picture } from './picture';
@@ -9,7 +8,7 @@ export class ReportBase {
   public id: string = '';
   public name: string = '';
   public path: string = '';
-  public page: Page = null;
+  public page: any = null;
   public result: Result = null;
   public project: Project = null;
   public component?: TbiComponent = null;
@@ -18,7 +17,9 @@ export class ReportBase {
   public summary_id: string = '';
   public readonly_summary_id: string = '';
   public comment: string = '';
-  public is_validation: boolean = false
+  public get is_validation(): boolean {
+    return !!this.component && !!this.component.validation;
+  }
   public get potential_measure(): string {
     return 'kWh/a';
   }

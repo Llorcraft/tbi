@@ -4,10 +4,10 @@
 
   <ion-grid [hidden]="view=='edit_picture'" class="fixed-col">
     <ion-row>
-      <ion-col col-7 col-lg-6 no-padding>
+      <ion-col col-12 col-md-8 no-padding>
         <form novalidate #form="ngForm" [hidden]="segment!='input'" (submit)="calculate()">
           <ion-row>
-            <ion-col col-10>
+            <ion-col col-11 col-md-10>
               <ion-item>
                 <ion-label stacked>Component/Location</ion-label>
                 <ion-input [disabled]="!editable" tabindex="1" (ionFocus)="on_focus($event)" name="location" required
@@ -15,10 +15,10 @@
                   type="text"></ion-input>
               </ion-item>
             </ion-col>
-            <ion-col col-12></ion-col>
+            <ion-col col-11 col-md-10></ion-col>
           </ion-row>
           <ion-row>
-            <ion-col col-10>
+            <ion-col col-11 col-md-10>
               <ion-item>
                 <ion-label stacked>Summary Id</ion-label>
                 <ion-input tabindex="2" (ionFocus)="on_focus($event)" name="summary_id" [(ngModel)]="report.summary_id"
@@ -33,49 +33,8 @@
               </ion-item>
             </ion-col>
           </ion-row>
-          <!--
           <ion-row>
-            <ion-col col-10>
-              <ion-item>
-                <ion-label stacked>Operational time (hours)</ion-label>
-                <ion-input [disabled]="!editable" tabindex="2" (ionFocus)="on_focus($event)"
-                  name="operational_time" [(ngModel)]="report.component.fields.operational_time" type="number"></ion-input>
-              </ion-item>
-            </ion-col>
-            <ion-col col-2>
-              <more pull-left *ngIf="editable" #time (change)="report.component.fields.operational_time=time.value"
-                [type]="'time'" modal-button></more>
-            </ion-col>
-          </ion-row>
-          <ion-row>
-            <ion-col col-10>
-              <ion-item class="edit_surface_material" [class.editable]="edit_surface_material">
-                <ion-label stacked>Surface material [ε]</ion-label>
-                <ion-input #after_time [disabled]="!editable" tabindex="5" class="literal" (ionFocus)="on_focus($event);toggle_surface_material(true)"
-                  [value]="report.component.fields.surface_material_friendly" type="text"></ion-input>
-                <ion-input [disabled]="!editable" tabindex="6" class="numeric" (ionFocus)="on_focus($event)" (focusout)="toggle_surface_material(false)"
-                  name="surface_material" [(ngModel)]="report.component.fields.surface_material"
-                  type="number" (change)="set_surface_material(report.component.fields.surface_material, $event)"></ion-input>
-              </ion-item>
-            </ion-col>
-            <ion-col col-2>
-              <more pull-left *ngIf="editable" #material (change)="set_surface_material(material.value, $event)" [type]="'materials'"
-                modal-button></more>
-            </ion-col>
-          </ion-row>
-          <ion-row>
-            <ion-col col-10>
-              <ion-item>
-                <ion-label stacked>Medium temperature (<sup>º</sup>C)</ion-label>
-                <ion-input #after_material [disabled]="!editable" tabindex="7" (ionFocus)="on_focus($event)" scroll="-80" name="surface_temp"
-                  [pattern]="patterns.REQUIRED_NUMBER" data-val-pattern="Please input a valid Medium temperature"
-                  [(ngModel)]="report.component.fields.surface_temp" type="tel"></ion-input>
-              </ion-item>
-            </ion-col>
-          </ion-row>
-          -->
-          <ion-row>
-            <ion-col col-10>
+            <ion-col col-11 col-md-10>
               <ion-item>
                 <ion-label stacked style="margin-top: 1.4rem;color: #999;">Damaged cladding</ion-label>
                 <ion-toggle [(ngModel)]="report.component.fields.damaged_cladding" name="damaged_cladding"></ion-toggle>
@@ -83,7 +42,7 @@
             </ion-col>
           </ion-row>
           <ion-row *ngIf="report.component.fields.damaged_cladding">
-            <ion-col col-9 offset-1>
+            <ion-col col-10 offset-1 col-md-9>
               <ion-list radio-group [(ngModel)]="report.component.fields.damaged_cladding_selection" name="radio-cladding">
                 <ion-item>
                   <ion-label>Lack of cladding</ion-label>
@@ -105,7 +64,7 @@
 
 
           <ion-row>
-            <ion-col col-10>
+            <ion-col col-11 col-md-10>
               <ion-item>
                 <ion-label stacked style="margin-top: 1.4rem;color: #999;">Damaged insulation</ion-label>
                 <ion-toggle [(ngModel)]="report.component.fields.damaged_insulation" name="damaged_insulation"></ion-toggle>
@@ -114,7 +73,7 @@
           </ion-row>
 
           <ion-row *ngIf="report.component.fields.damaged_insulation">
-            <ion-col col-9 offset-1>
+            <ion-col col-10 col-md-9 offset-1>
               <ion-list radio-group [(ngModel)]="report.component.fields.damaged_insulation_selection" name="radio-cladding">
                 <ion-item>
                   <ion-label>Lack of insulation</ion-label>
@@ -137,7 +96,7 @@
           </ion-row>
 
           <ion-row>
-            <ion-col col-10>
+            <ion-col col-11 col-md-10>
               <ion-item>
                 <ion-label stacked>Comments</ion-label>
                 <ion-input type="text" tabindex="8" (ionFocus)="on_focus($event)" (keyup.enter)="on_keypress($event)"
@@ -148,7 +107,7 @@
 
         </form>
       </ion-col>
-      <ion-col col-5 col-lg-6 no-padding>
+      <ion-col col-12 col-md-4 no-padding>
         <ion-row>
           <ion-col col-12 picture-slide [parent]="this"   [report]="report" [editable]="false" (onStartEdit)="on_picture_start_edit($event)"></ion-col>
         </ion-row>

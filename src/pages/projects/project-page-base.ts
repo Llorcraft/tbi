@@ -14,7 +14,7 @@ export class ProjectPageBase extends ScrollToComponent {
   }
 
   public delete_project(project: Project, event: Event) {
-    event.stopPropagation();
+    !!event && event.stopPropagation();
     this.remove_mode = true;
     let confirm = this.alertCtrl.create({
       //title: `Remove`,

@@ -23,7 +23,7 @@ export class ReportDamagedPage extends BaseReportPage {
     protected message: MessageService,
     protected keyboard: Keyboard
   ) {
-    super(new ReportDamaged(navParams.data.project, navParams.data.component, navParams.data.report), navCtrl, service, alertCtrl, picture, message, keyboard);
+    super(new ReportDamaged(navParams.data.project, navParams.data.component, navParams.data.report), navParams, navCtrl, service, alertCtrl, picture, message, keyboard);
 
     if (!!this.report.component.fields.damaged_cladding_selection) this.damaged_cladding[this.report.component.fields.damaged_cladding_selection] = !0;
     if (!!this.report.component.fields.damaged_insulation_selection) this.damaged_insulation[this.report.component.fields.damaged_insulation_selection] = !0;

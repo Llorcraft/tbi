@@ -1,6 +1,7 @@
-import { Component, Input, AfterContentInit } from '@angular/core';
+import { Component, Input, AfterContentInit, Output } from '@angular/core';
 import { NON_PICTURE } from '../../../../const/images/non-picture';
 import { BaseReportPage } from '../../../../models/reports';
+import { IMAGES } from '../../../../const/images';
 
 @Component({
     selector: '[report-result]',
@@ -10,7 +11,11 @@ import { BaseReportPage } from '../../../../models/reports';
 export class ReportResultComponent implements AfterContentInit {
     @Input() parent: BaseReportPage;
     @Input() show_advise?: boolean = true;
-    unknow_surface: boolean = false; 
+    unknow_surface: boolean = false;
+    is_validation: boolean = false;
+    images = IMAGES;
+    zoom = 1;
+    @Input() currency: string;
     protected get first_picture(): string {
         return this.parent.report.pictures.length ? this.parent.report.pictures[0].picture : NON_PICTURE;
     }
@@ -19,15 +24,60 @@ export class ReportResultComponent implements AfterContentInit {
         setTimeout(() => this.initialize_values(), 250)
     }
 
+    go_top() {
+        document.getElementsByClassName('scroll-content')[3].scrollTo(0, 0)
+    }
+
     initialize_values(): void {
+        this.is_validation = !!this.parent
+            && !!this.parent.report
+            && !!this.parent.report.component
+            && !!this.parent.report.component.validation;
+
         const height = 200;
         this.unknow_surface = this.parent.report.component && this.parent.report.component.fields.unknow_surface;
+        let _max: number = this.parent.report.result.headLost.power;
+        if (!!this.parent.report.result.previousHeadLost.power && this.parent.report.result.previousHeadLost.power > this.parent.report.result.headLost.power)
+            _max = this.parent.report.result.previousHeadLost.power;
 
-        this.scale.max = this.up(this.parent.report.result.headLost.power / 100);
+        this.scale.max = this.up(_max / 100);
         this.scale.medium = Math.ceil(this.scale.max / 1.5);
         this.scale.min = Math.ceil(this.scale.max / 2)
         this.scale.max;
+        this.currency = this.currency || this.parent.report.component.project.currency;
 
+        if (!this.parent.report.result.previousHeadLost.power)
+            this.set_values(height);
+        else
+            this.set_validation_values(height);
+    }
+
+    private set_validation_values(height: number) {
+        this.bars.current.losses = [
+            this.get_delta() * (this.parent.report.result.previousHeadLost.power / 100 * height / (this.scale.max)),
+            this.get_delta() * this.down(this.parent.report.result.previousHeadLost.money)
+        ];
+
+        this.bars.basic.losses = [
+            (this.parent.report.result.headLost.power / 100 * height / (this.scale.max)),
+            this.up(this.parent.report.result.headLost.money)
+        ];
+
+        this.bars.basic.savings = [
+            (this.bars.current.losses[0] - this.bars.basic.losses[0]),
+            (this.bars.current.losses[1] - this.bars.basic.losses[1])
+        ];
+    }
+
+    private get_delta(): number {
+        return !this.parent.report || !this.parent.report.component
+            ? 1
+            : !Number(this.parent.report.component.fields.unknow_surface_temp)
+                ? 1
+                : Number(this.parent.report.component.fields.unknow_surface_temp)
+    }
+
+    private set_values(height: number) {
         this.bars.current.losses = [
             (this.parent.report.result.headLost.power / 100 * height / (this.scale.max)),
             this.down(this.parent.report.result.headLost.money)
@@ -62,7 +112,15 @@ export class ReportResultComponent implements AfterContentInit {
         //}
     }
 
-    bars: any = {
+    get show_savings(): boolean {
+        return !!this.parent.report.annual_saving
+            && (!!this.parent.report.component && !this.parent.report.component.validation)
+            && !(Number(String(this.parent.report.result.annual_saving_from || 0)) < 0
+                && Number(String(this.parent.report.result.annual_saving_to || 0)) < 0
+                && !!this.parent.report.name.match(/Insulated/))
+    }
+
+    @Output() bars: any = {
         current: {
             losses: [0, 0],
         },
@@ -76,19 +134,29 @@ export class ReportResultComponent implements AfterContentInit {
         }
     }
 
-    scale: any = {
+    @Output() scale: any = {
         min: 0,
         medium: 0,
         max: 0
     }
 
     down(value: number): number {
-        return value > 1000 ? Math.floor(Math.trunc(value) / 100) * 100 : Math.floor(Math.trunc(value) / 10) * 10;
+        return value > 1000 ? Math.floor((value) / 100) * 100 : Math.floor((value) / 10) * 10;
     }
 
     up(value: number): number {
-        return value > 1000 ? Math.ceil(Math.trunc(value) / 100) * 100 : Math.ceil(Math.trunc(value) / 10) * 10;
+        return value > 1000 ? Math.ceil((value) / 100) * 100 : Math.ceil((value) / 10) * 10;
     }
+
+    do_zoom(value: number) {
+        this.zoom += value
+    }
+
+    get saving_lower(): boolean {
+        return this.parent.report.result.annual_saving_from < 0
+            || this.parent.report.result.annual_saving_to < 0;
+    }
+
     constructor() {
     }
 

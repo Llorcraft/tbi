@@ -7,8 +7,8 @@ export class LoadindService {
     constructor(private loadingCtrl: LoadingController) {
     }
 
-    show(message?: string) {
-        if(!!this.loading) return;
+    show(message?: string): boolean {
+        if(!!this.loading) return true;
         this.loading = this.loadingCtrl.create({
             spinner: 'crescent',
             enableBackdropDismiss: false,
@@ -16,15 +16,18 @@ export class LoadindService {
             content:message || 'Loading, please wait...',
             dismissOnPageChange: true
         });
+        console.log('Loading');
         this.loading.present();
+        return true;
     }
 
-    hide(wait: number = 0) {
+    hide(wait: number = 0): boolean {
         setTimeout(() => {
             if(!this.loading) return;
             this.loading.dismissAll();
             this.loading = null;
         }, wait);
+        return true;
     }
 
 }

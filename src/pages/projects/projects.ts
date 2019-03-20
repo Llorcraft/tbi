@@ -11,7 +11,7 @@ import { LicencesService } from '../../services/licences.service';
 import { DownloadPage } from '../download/download';
 import { SummaryPage } from '../summary/summary';
 import { TbiComponent } from '../../models/component';
-
+import { ReportRouter } from '../../models/report-router';
 
 @Component({
   selector: 'page-project',
@@ -43,14 +43,14 @@ export class ProjectsPage extends ProjectPageBase {
     //   .catch((error: any) => console.log(error));
 
     this.user_name = this.navParams.get("user_name") || this.user_name
-
-
-
   }
 
-  public duplicate(project: Project, event: Event) {
-    event.cancelBubble = true;
-    event.preventDefault();
+
+  public duplicate(project: Project, event?: Event) {
+    if (!!event) {
+      event.cancelBubble = true;
+      event.preventDefault();
+    }
     let new_project = new Project(project);
     new_project.id = '';
     new_project.name = `${project.name} Copy`;
@@ -66,6 +66,11 @@ export class ProjectsPage extends ProjectPageBase {
   }
 
   public open_report(project: Project): void {
+    if (this.edit_mode) {
+      this.edit_mode = false;
+      return this.navigate_to_edit(project);
+    }
+
     if (this.licences.lock) {
       this.alert_licence();
     } else {
@@ -78,59 +83,62 @@ export class ProjectsPage extends ProjectPageBase {
   }
 
   ask_for_action(project: Project) {
+    let buttons = [
+      {
+        text: 'Open',
+        icon: 'document',
+        handler: () => {
+          this.open(project)
+        }
+      },
+      {
+        text: 'Edit properties',
+        icon: 'create',
+        handler: () => {
+          this.navigate_to_edit(project)
+        }
+      },
+      {
+        text: 'Duplicate',
+        icon: 'copy',
+        handler: () => {
+          this.duplicate(project)
+        }
+      },
+      {
+        text: 'Delete',
+        role: 'destructive',
+        icon: 'trash',
+        handler: () => {
+          setTimeout(() => this.delete_project(project, null), 250);
+        }
+      }, {
+        text: 'Cancel',
+        //icon: 'thumbs-down',
+        role: 'cancel'
+      }
+    ]
+    if (this.licences.type != 'PRO') {
+      buttons.splice(3, 1);
+      buttons.splice(2, 1);
+    }
     this.actionSheetCtrl.create({
       //title: 'What would you like to do?',
       cssClass: 'project-action-sheet',
-      buttons: [
-        {
-          text: 'Report',
-          icon: 'document',
-          handler: () => {
-            this.navCtrl.push(ReportsPage, {
-              project: project,
-              parent: this
-            });
-          }
-        },
-        {
-          text: 'Summary',
-          icon: 'grid',
-          handler: () => {
-            this.navigate_to_reports(project);
-          }
-        },
-        {
-          text: 'Edit',
-          icon: 'create',
-          handler: () => {
-            this.navigate_to_edit(project)
-          }
-        },
-        {
-          text: 'Delete',
-          role: 'destructive',
-          icon: 'trash',
-          handler: () => {
-            setTimeout(() => this.delete_project(project, null), 250);
-          }
-        }, {
-          text: 'Cancel',
-          //icon: 'thumbs-down',
-          role: 'cancel'
-        }
-      ]
+      buttons: buttons
     }).present();
   }
 
   alert_licence() {
     this.alertCtrl.create({
       //title: 'Licence',
-      message: 'To create more projects upgrade to Pro or Enterprise version',
+      message: 'To create more projects upgrade to TBI-App professinal',
       cssClass: 'project-action-sheet',
       buttons: [
         {
           text: 'Upgrade',
           handler: () => {
+            window.open('http://www.eiif.org/tbi', '_system', 'location=yes')
           }
         },
         {
@@ -145,6 +153,16 @@ export class ProjectsPage extends ProjectPageBase {
     this.load().then(() => {
       if (!!this.navParams.get('summary'))
         this.navCtrl.setRoot(SummaryPage, { project: this.projects.find(p => p.id == this.navParams.get('project')) }, { animate: true, direction: 'backward' });
+      if (!this.projects.length && this.licences.type != 'PRO') {
+        this.service.save(new Project({
+          name: 'TBI Easy',
+          price: 0.05,
+          price_delta: 1,
+          co2: 202,
+          currency: 'EUR',
+          user: localStorage.getItem('tbi-user')
+        })).then(() => setTimeout(() => this.ionViewWillEnter(), 500))
+      }
     });
   }
 
@@ -168,17 +186,19 @@ export class ProjectsPage extends ProjectPageBase {
       this.navigate_to_reports(project);
     }
   }
-  private navigate_to_reports(project?: Project): void {
-    this.navCtrl.push(ReportsPage, {
-      project: project,
-      parent: this
-    });
+  private navigate_to_reports(project?: Project): any {
+    return !!project.components.length
+      ? this.open_summary(project)
+      : this.navCtrl.push(ReportsPage, {
+        project: project,
+        parent: this
+      });
   }
   private navigate_to_edit(project?: Project, event?: Event): void {
     if (!!event) event.stopPropagation();
     this.navCtrl.push(EditProjectPage, {
       project: project,
-      parent: this
+      parent: ProjectsPage
     });
   }
   public toggle_edit_mode(): void {
@@ -199,7 +219,8 @@ export class ProjectsPage extends ProjectPageBase {
   }
 
   public create_db(): void {
-    this.navCtrl.push(DownloadPage);
+    localStorage.removeItem('tbi-licence');
+    //this.navCtrl.push(DownloadPage);
     // this.service.create_database().then(blob => {
     //   var a = document.createElement("a"),
     //     url = URL.createObjectURL(blob);
@@ -221,6 +242,18 @@ export class ProjectsPage extends ProjectPageBase {
   }
   get_by_type(project: Project, type: string): ReportBase[] {
     //return project.get_reports_by_types(type);
-    return this.flatten(project.components.map(c => c.reports)).filter(r => !!r.path.match(new RegExp('(' + type + ')', 'gi')));
+    return this.flatten(project.components.filter(c => !c.validation).map(c => c.reports)).filter(r => !!r.path.match(new RegExp('(' + type + ')', 'gi')));
+  }
+
+  protected open_summary(project): void {
+    this.navCtrl.push(SummaryPage, { project: project, parent: this });
+  }
+
+  go_next() {
+    if (!!this.projects.length && !this.projects[0].components.length) {
+      this.open_summary(this.projects[0])
+    } else {
+      (new ReportRouter(this.projects[0], this.projects[0].components[0], this.navCtrl)).navigate_to_report(this.projects[0].components[0].reports[0].path, this.projects[0].components[0].reports[0].summary_id, this.projects[0].components[0].reports[0], null, this.projects[0].components[0].result);
+    }
   }
 }

@@ -10,10 +10,12 @@ export class IPipeDecorator implements ICalculator {
 
 class IPipeCalculator extends BaseCalculator {
   constructor(report: ReportBase) {
+    let r45 = report.component.fields.surface_temp < report.component.fields.ambient_temp ? .8 : 1;
+    let r46 = report.component.fields.surface_temp < report.component.fields.ambient_temp? .8 :1;
     super(report, [
-        // /*02*/() => this.hcv = 1.74 * Math.pow(this.Δθ, 1 / 3),
-        // /*04*/() => this.q = this.hse * this.Δθ,
-        () => { this.θse_min = 55; this.θse_max = 35; this.θa_min = 35; this.θa_max = 1; },
+      // /*02*/() => this.hcv = 1.74 * Math.pow(this.Δθ, 1 / 3),
+      // /*04*/() => this.q = this.hse * this.Δθ,
+      () => { this.θse_min = 55; this.θse_max = 35; this.θa_min = 35; this.θa_max = 1; },
         /**00*/() => this.Δθ = Math.abs(this.θse - this.θa),
         /*01*/() => this.hr = this.ε * this.δ * (Math.pow(this.θse + 273, 4) - Math.pow(this.θa + 273, 4)) / ((this.θse + 273) - (this.θa + 273)),
         /*01min*/() => this.hr_min = this.ε_default * this.δ * (Math.pow(this.θse_min + 273, 4) - Math.pow(this.θa_min + 273, 4)) / ((this.θse_min + 273) - (this.θa_min + 273)),
@@ -46,13 +48,13 @@ class IPipeCalculator extends BaseCalculator {
         /**43*/() => this.ql = this.Δθ / this.Rle,
         /**38*/() => this.Rins_min = (Math.log(this.De_min / this.De)) / (2 * Math.PI * this.λdes_min),
         /**39*/() => this.Rins_max = (Math.log(this.De_max / this.De)) / (2 * Math.PI * this.λdes_max),
-        /**45*/() => this.ql_min = (Math.abs(this.θse_min - this.θa_min)) / (this.Rle_min + this.Rins_min),
-        /**46*/() => this.ql_max = 114,
+        /**45*/() => this.ql_min = (this.θse < this.θa) ? this.ql * .7 : (Math.abs(this.θse_min - this.θa_min)) / (this.Rle_min + this.Rins_min),
+        /**46*/() => this.ql_max = (this.θse < this.θa) ? this.ql * .45 : this.ql_min * .85,
         //*47*/() => this.Qkwh = this.ql * this.l * this.Ot * this.l * 1 / 1000,
         /**40*/() => this.Sp = Math.PI * this.De_min,
-        /**44*/() => this.Qkwh =  this.ql * this.l * this.Ot * 1 / 1000,
-        /**44min*/() => this.Qkwh_min =  this.ql_min * this.l * this.Ot * 1 / 1000,
-        /**44max*/() => this.Qkwh_max =  this.ql_max * this.l * this.Ot * 1 / 1000,
+        /**44*/() => this.Qkwh = this.ql * this.l * this.Ot * 1 / 1000,
+        /**44min*/() => this.Qkwh_min = this.ql_min * this.l * this.Ot * 1 / 1000,
+        /**44max*/() => this.Qkwh_max = this.ql_max * this.l * this.Ot * 1 / 1000,
         /*48*/() => this.ql_ref_pb = this.ql - ((10000 * this.Cpb_surface_pipe * this.Sp) / (this.Ot * this.Σ)),
         /*06*/() => this.Qε = this.Qkwh * this.Σ,
         /*24*/() => this.Qε_min = this.Qkwh_min * this.Σ,

@@ -1,3 +1,4 @@
+export { SurfaceMaterialComponent } from './components/surface-material/surface-material.component';
 export { ReportFooterComponent } from './components/report-footer/report-footer.component';
 export { ReportPipePage } from './pipe/report-pipe.component';
 export { ReportFlangePage } from './flange/report-flange.component';

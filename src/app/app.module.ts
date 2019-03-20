@@ -1,5 +1,8 @@
+registerLocaleData(localeES);
+
 import { HttpModule, Http } from '@angular/http';
-import { NgModule, ErrorHandler } from '@angular/core';
+import { NgModule, ErrorHandler, CUSTOM_ELEMENTS_SCHEMA, LOCALE_ID } from '@angular/core';
+import localeES from '@angular/common/locales/en';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
@@ -17,7 +20,6 @@ import { EditProjectPage } from '../pages/projects/edit';
 import { ProjectPage } from '../pages/projects/project';
 import { SummaryPage } from '../pages/summary/summary';
 import { SummaryEditPage } from '../pages/summary/summary-edit';
-import { PicturesPage } from '../pages/pictures/pictures';
 
 /*Plugins*/
 import { Camera } from '@ionic-native/camera';
@@ -43,6 +45,8 @@ import { PictureService } from '../services/picture.service';
 import { LicencesService } from '../services/licences.service';
 // import { ReportSafetSurfacePage } from '../pages/reports/safety/surface';
 
+/*Custom Validators */
+import { InsulatedCompareTempValidator } from '../validations';
 
 /*Components*/
 import { SvgInsulationComponent } from '../components/svg/svg-insulation.component';
@@ -106,7 +110,8 @@ import {
   ReportDamagedPage,
   ReportCondensationPage,
   ReportLeakagePage,
-  KnownTempPage
+  KnownTempPage,
+  SurfaceMaterialComponent
 } from '../pages/reports'
 
 //Pipes
@@ -116,6 +121,10 @@ import { SurfaceMaterialPipe } from '../pipes/surface-material.pipe';
 import { PDFExportModule } from '@progress/kendo-angular-pdf-export';
 import { ToolsComponent } from '../components/tools/tools.component';
 import { Flashlight } from '@ionic-native/flashlight';
+import { SummaryHeaderComponent } from '../pages/summary/components/header';
+import { CommonModule, registerLocaleData } from '@angular/common';
+import { GlobalErrorHandler } from '../models/errors/global-error';
+
 //import { GlobalErrorHandler } from '../models/errors/global-error';
 
 @NgModule({
@@ -130,9 +139,9 @@ import { Flashlight } from '@ionic-native/flashlight';
     GenericReportPage,
     ReportsPage,
     InitPage,
-    PicturesPage,
     SummaryPage,
     SummaryEditPage,
+    SummaryHeaderComponent,
     KnownTempPage,
     //Pipes
     SurfaceMaterialPipe,
@@ -157,7 +166,10 @@ import { Flashlight } from '@ionic-native/flashlight';
     ReportDamagedPage,
     ReportCondensationPage,
     ReportLeakagePage,
+    //Custom Validators
+    InsulatedCompareTempValidator,
     //Components
+    SurfaceMaterialComponent,
     ToolsComponent,
     SvgEmptyComponent,
     SvgInsulationComponent,
@@ -201,6 +213,7 @@ import { Flashlight } from '@ionic-native/flashlight';
     HttpModule,
     BrowserAnimationsModule,
     FormsModule,
+    CommonModule,
     IonicModule.forRoot(MyApp, {
       iconMode: 'ios',
       modalEnter: 'modal-slide-in',
@@ -226,11 +239,12 @@ import { Flashlight } from '@ionic-native/flashlight';
     GenericReportPage,
     ReportsPage,
     InitPage,
-    PicturesPage,
     SummaryPage,
     SummaryEditPage,
+    SummaryHeaderComponent,
     KnownTempPage,
     //Reports
+    SurfaceMaterialComponent,
     ReportHeaderComponent,
     ReportFooterComponent,
     ReportAreaModalComponent,
@@ -265,8 +279,8 @@ import { Flashlight } from '@ionic-native/flashlight';
     FileChooser,
     UniqueDeviceID,
     FileTransfer,
-    //{ provide: ErrorHandler, useClass: GlobalErrorHandler, deps: [MessageService, Http] },
-    { provide: ErrorHandler, useClass: IonicErrorHandler },
+    { provide: ErrorHandler, useClass: GlobalErrorHandler, deps: [MessageService, Http] },
+    //{ provide: ErrorHandler, useClass: IonicErrorHandler },
     //Mock services
     //{ provide: PictureService, useClass: PictureDeviceService },
     LicencesService,
@@ -274,7 +288,10 @@ import { Flashlight } from '@ionic-native/flashlight';
     Flashlight,
     LoadindService,
     LoadingController,
-    {provide: FileService, useClass: FileDeviceService}
-  ]
+    { provide: LOCALE_ID, useValue: "en-US" },
+    { provide: FileService, useClass: FileLocalService }
+  ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
-export class AppModule { }
+export class AppModule {  
+ }

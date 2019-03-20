@@ -2,25 +2,35 @@
   <ion-grid no-padding>
     <ion-row no-padding>
       <ion-col col-4 no-padding>
-        <button tabindex="22" *ngIf="(parent.view!='edit_picture') || (parent.view=='edit_picture' && !parent.is_energy_report)" ion-button small color="light" (click)="parent.go_back()">
-          <ion-icon name="arrow-back"></ion-icon>&nbsp;Back
-        </button>
-      </ion-col>
-      <ion-col col-4 text-right no-padding *ngIf="parent.view=='edit_picture' && parent.is_energy_report">
-        <button tabindex="22" ion-button small color="royal" (click)="parent.go_back()">
-          Next
+        <button tabindex="22" *ngIf="(parent.view!='edit_picture') || (parent.view=='edit_picture' && !parent.is_energy_report)"
+          ion-button small color="light" (click)="parent.go_back()">
+          <ion-icon name="arrow-back"></ion-icon>
+          <span hidden-xs>&nbsp;Back</span>
         </button>
       </ion-col>
       <ion-col col-4 text-center>
         <tools></tools>
       </ion-col>
       <ion-col col-4 text-right no-padding *ngIf="parent.view!='edit_picture' && parent.segment==='input'">
-        <button id="submit-button" tabindex="20" ion-button small pull-right color="primary" (click)="parent.calculate()" *ngIf="parent.view!='edit_picture' && parent.view!='result'">
-          <!-- {{calculate_text}} -->
-          Next
+        <button *ngIf="!!parent.can_remove" tabindex="20" ion-button small color="danger" (click)="parent.remove_report()">
+          <ion-icon visible-xs name="trash"></ion-icon>
+          <span hidden-xs>Remove</span>
         </button>
-        <button id="submit-button" tabindex="21" ion-button small pull-right color="primary" (click)="parent.save()" *ngIf="parent.view=='result' && !parent.form.invalid">
-          Next
+        <button id="submit-button" tabindex="21" ion-button small pull-right color="primary" (click)="parent.calculate()"
+          *ngIf="parent.view!='edit_picture' && parent.view!='result'">
+          <ion-icon visible-xs name="arrow-forward">
+          </ion-icon><span hidden-xs>Next</span>          
+        </button>
+        <button id="submit-button" tabindex="22" ion-button small pull-right color="primary" (click)="parent.save()"
+          *ngIf="parent.view=='result' && !parent.form.invalid">
+            <ion-icon visible-xs name="arrow-forward">
+            </ion-icon><span hidden-xs>Next</span>
+        </button>
+      </ion-col>
+      <ion-col col-4 text-right no-padding *ngIf="parent.view=='edit_picture' && parent.is_energy_report">
+        <button tabindex="23" ion-button small color="royal" (click)="parent.go_back(); parent.scrollToBottom()">
+          <ion-icon visible-xs name="arrow-forward">
+          </ion-icon><span hidden-xs>Next</span>
         </button>
       </ion-col>
     </ion-row>

@@ -1,86 +1,75 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title></ion-title>
-  </ion-toolbar>
+  <ion-navbar hideBackButton>
+    <ion-title>Project list</ion-title>
+    <ion-buttons end>
+      <button ion-button  icon-only small color="light" on-tap="create()">
+        <ion-icon name="md-add-circle"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
 </ion-header>
 
 <ion-content>
-  <ion-grid projects>
-    <ion-row>
-      <ion-col col-xs-3 col-sm-2>
+  <ion-grid projects hidden-xs style="margin: -1rem 0">
+    <ion-row class="row">
+      <ion-col col-1>
       </ion-col>
-      <ion-col col-xs-9 col-sm-10>
-        <ion-row no-margin no-padding>
-          <ion-col col-12>
-          </ion-col>
-        </ion-row>
-        <ion-row no-margin no-padding>
-          <ion-col col-8>
-          </ion-col>
-          <ion-col svg="insulation" col-sm-1 class="flex bg-gray">
-          </ion-col>
-          <ion-col svg="safety" col-sm-1 class="flex">
-          </ion-col>
-          <ion-col svg="maintenance" col-sm-1 class="flex bg-gray">
-          </ion-col>
-          <ion-col svg="custom" col-sm-1 class="flex">
-          </ion-col>
-        </ion-row>
+      <ion-col col-0 col-sm-2>
       </ion-col>
-    </ion-row>
-    <ion-row *ngFor="let p of projects">
-      <ion-col col-xs-3 col-sm-2 id="project-{{p.id}}" (click)="open_report(p)">
-        <img [src]="p.picture">
-      </ion-col>
-      <ion-col col-xs-9 col-sm-10 (click)="open_report(p)">
-        <ion-row no-margin no-padding>
-          <ion-col col-12>
-            <h1 no-margin>{{p.name}}</h1>
+      <ion-col class="col col-12 col-sm-10">
+        <ion-row col-sm-12>
+          <ion-col class="col" col-12>
+            <h1 no-margin no-padding></h1>
+          </ion-col>
+          <ion-col col-12 col-sm-8 no-padding>
+          </ion-col>
+          <ion-col class="flex bg-gray" col-2 col-sm-1 type-report svg="insulation">
+          </ion-col>
+          <ion-col class="flex" col-2 col-sm-1 type-report svg="safety">
+          </ion-col>
+          <ion-col class="flex bg-gray" col-2 col-sm-1 type-report svg="maintenance">
+          </ion-col>
+          <ion-col class="flex" col-2 col-sm-1 type-report svg="custom">
           </ion-col>
         </ion-row>
-        <ion-row no-margin no-padding>
-          <ion-col col-8>
-            <ion-row>
-              <h5 col-12 no-margin>Project Leader: {{p.people.leader.name || '(none)'}}</h5>
-              <!-- <h5 col-12 no-margin>Energy Manager: {{p.people.energy_manager.name || '(none)'}}</h5> -->
-            </ion-row>
-          </ion-col>
-          <ion-col col-md-1 class="flex bg-gray">
-            <h4 no-margin>{{get_by_type(p, 'pipe|surface|flange|valve').length}}</h4>
-          </ion-col>
-          <ion-col col-md-1 class="flex">
-            <h4 no-margin>{{get_by_type(p, 'safety').length}}</h4>
-          </ion-col>
-          <ion-col col-md-1 class="flex bg-gray">
-            <h4 no-margin>{{get_by_type(p, 'maintenance').length}}</h4>
-          </ion-col>
-          <ion-col col-md-1 class="flex">
-            <h4 no-margin>{{get_by_type(p, 'custom').length}}</h4>
-          </ion-col>
-        </ion-row>
-        <ion-row>
-          <ion-col col-12 text-right>
-            <button ion-button small pull-right color="royal" (click)="duplicate(p, $event)">
-              <ion-icon name="ios-copy"></ion-icon>Duplicate
-            </button>
-            <button ion-button small pull-right (click)="navigate_to_edit(p, $event)">
-              <ion-icon name="create"></ion-icon>Edit
-            </button>
-            <button ion-button small pull-right color="danger" (click)="this.delete_project(p, $event)">
-              <ion-icon name="trash"></ion-icon>Delete
-            </button>
-          </ion-col>
-        </ion-row>
-        <!-- <ion-row no-margin no-padding>
-            <ion-col col-12>
-              <p no-margin>{{p.desc}}</p>
-            </ion-col>
-          </ion-row> -->
       </ion-col>
     </ion-row>
   </ion-grid>
-
-  <div license-alert *ngIf="licences.type=='BASIC'" col-6 offset-3>
+  <ion-grid projects class="projects" col-12>
+    <ion-row *ngFor="let p of projects">
+      <ion-col col-1 text-right class="flex vertical-middle">
+        <ion-icon style="font-size: 2rem; margin: auto" (click)="ask_for_action(p, $event)" slot="icon-only" name="md-more"></ion-icon>
+      </ion-col>
+      <ion-col col-0 col-sm-2 hidden-xs id="project-{{p.id}}" (click)="navigate_to_reports(p)">
+        <img [src]="p.picture">
+      </ion-col>
+      <ion-col class="transition-width" [ngClass]="{'col-12 col-sm-10': !editing_mode, 'col-11 col-sm-9': editing_mode}">
+        <ion-row col-sm-12>
+          <ion-col col-12 no-padding (tap)="navigate_to_reports(p)">
+            <h1 no-margin no-padding>{{p.name}}</h1>
+          </ion-col>
+          <ion-col col-12 col-sm-8 no-padding (click)="navigate_to_reports(p)">
+            <h5 no-margin no-padding>Energy price: {{p.price}} {{p.currency}}/{{p.measure}}</h5>
+            <h5 no-margin no-padding>CO<sub>2</sub> emissions: {{p.co2}} grCO<sub>2</sub>/{{p.m_measure}}</h5>
+            
+          </ion-col>
+          <ion-col hidden-xs col-2 col-sm-1 class="flex bg-gray">
+            <h4 no-margin>{{get_by_type(p, 'pipe|surface|flange|valve').length}}</h4>
+          </ion-col>
+          <ion-col hidden-xs col-2 col-sm-1 class="flex">
+            <h4 no-margin>{{get_by_type(p, 'safety').length}}</h4>
+          </ion-col>
+          <ion-col hidden-xs col-2 col-sm-1 class="flex bg-gray">
+            <h4 no-margin>{{get_by_type(p, 'maintenance').length}}</h4>
+          </ion-col>
+          <ion-col hidden-xs col-2 col-sm-1 class="flex">
+            <h4 no-margin>{{get_by_type(p, 'custom').length}}</h4>
+          </ion-col>
+        </ion-row>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <div license-alert *ngIf="1==2 && licences.type=='BASIC'"  col-10 offset-1>
     <ion-grid no-padding>
       <ion-row no-padding>
         <ion-col col-12 no-padding>
@@ -99,16 +88,18 @@
   <ion-grid>
     <ion-row>
       <ion-col col-4 text-left>
-        <button ion-button small color="light" (click)="create_db()">
-          <ion-icon name="md-archive"></ion-icon>Download data
+        <button *ngIf="licences.type=='PRO' || 1==1" ion-button small col-12 color="light" (click)="create_db()">
+          <ion-icon visible-xs name="cloud-download"></ion-icon>
+          <span hidden-xs>Download data</span>
         </button>
       </ion-col>
       <ion-col col-4 text-center>
         <tools></tools>
       </ion-col>
       <ion-col col-4 text-right>
-        <button ion-button small color="royal" (click)="create()">
-          New project
+        <button *ngIf="licences.type!='PRO'" ion-button small color="royal" (click)="go_next()">
+          <ion-icon visible-xs name="arrow-forward">
+          </ion-icon><span hidden-xs>Next</span>
         </button>
       </ion-col>
     </ion-row>

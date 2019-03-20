@@ -9,19 +9,19 @@
     </ion-slides>
   </ion-col>
 </ion-row>
-<ion-row *ngIf="!!report.component.has_markers(report) && !!can_edit" text-center>
+<ion-row *ngIf="!!report.component && !!report.component.has_markers && !!report.component.has_markers(report) && !!can_edit" text-center>
     <ion-col col-8 offset-2>
-      <button ion-button round outline small color="royal" (click)="report.component.fields.surface_temp=report.component.min_temp(report)">
+      <button ion-button outline small [attr.color]="set_button_color('min_temp')" (click)="set_temperature('min_temp')">
         Minimun<br>{{report.component.min_temp(report) | number: '1.2-2'}}ºC
       </button>
     </ion-col>
     <ion-col col-8 offset-2>
-      <button ion-button round outline small color="royal" (click)="report.component.fields.surface_temp=report.component.medium_temp(report)">
+      <button ion-button outline small [attr.color]="set_button_color('medium_temp')" (click)="set_temperature('medium_temp')">
         Average<br>{{report.component.medium_temp(report) | number: '1.2-2'}}ºC
       </button>
     </ion-col>
     <ion-col col-8 offset-2>
-      <button ion-button round outline small color="royal" (click)="report.component.fields.surface_temp=report.component.max_temp(report)">
+      <button ion-button outline small [attr.color]="set_button_color('max_temp')" (click)="set_temperature('max_temp')">
         Maximun<br>{{report.component.max_temp(report) | number: '1.2-2'}}ºC
       </button>
     </ion-col>

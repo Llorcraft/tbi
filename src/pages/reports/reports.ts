@@ -17,6 +17,7 @@ import { TbiComponent } from '../../models/component';
 export class ReportsPage extends ReportRouter {
   public report: ReportBase;
   public type: string = "";
+  public report_name: string = "";
   //public segment: Segment = new Segment();
   public REPORT = REPORT;
   constructor(
@@ -28,6 +29,7 @@ export class ReportsPage extends ReportRouter {
     super(navParams.get('project') as Project, navParams.get('component') as TbiComponent, navCtrl);
     this.type = navParams.get('type') || '';
     this.report = navParams.get('report');
+    this.report_name = navParams.get('report_name');
     //this.segment.set(this.type);
 
     if (!!navParams.get('to'))
@@ -64,7 +66,7 @@ export class ReportsPage extends ReportRouter {
   }
 
   protected open_summary(): void {
-    this.navCtrl.push(SummaryPage, { project: this.project });
+    this.navCtrl.push(SummaryPage, { project: this.project, parent: this });
   }
 
   public navigate_to(name: string | number, report_name: string): void {
@@ -76,14 +78,18 @@ export class ReportsPage extends ReportRouter {
     //     params.type = name;
     // }
     //this.navCtrl.push(page, params);
-    this.navCtrl.push(ReportsPage, { type: name, project: this.project, parent: this, component: this.component });
+    this.navCtrl.push(ReportsPage, { type: name, project: this.project, parent: this, component: this.component, report_name: report_name });
 
   }
   public go_back(): void {
-    if (!this.type)
-      this.navigate_to_projects();
-    else
-      this.navigate_to('', 'Reports');
+    //debugger;
+    // if (!this.type)
+    //   this.navigate_to_projects();
+    // else if (!this.type.match(/insulation-/g))
+    //   this.navigate_to('', 'insulation');
+    // else
+    //   this.navigate_to('', this.type);
+    this.navCtrl.pop();
   }
   public navigate_to_projects(): void {
     this.navCtrl.push(ProjectsPage, {

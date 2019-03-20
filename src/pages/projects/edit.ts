@@ -1,7 +1,7 @@
-import { Component } from '@angular/core';
-import { NavController, NavParams, AlertController, ActionSheetController, Keyboard } from 'ionic-angular';
+import { Component, ViewChild } from '@angular/core';
+import { NavController, NavParams, AlertController, ActionSheetController, Keyboard, TextInput } from 'ionic-angular';
 import { ProjectPageBase } from './project-page-base';
-import { Project, Document } from '../../models';
+import { Project, Document, ReportBase } from '../../models';
 import { ProjectService } from '../../services/project.service';
 import { NgForm } from '@angular/forms';
 import { MessageService } from '../../services/messages.service';
@@ -9,8 +9,9 @@ import { FileService } from '../../services/file.service';
 import { FileOpener } from '@ionic-native/file-opener';
 import { PictureService } from '../../services';
 import { More } from '../../const/more/more';
-
-
+import { CalculatorFactory } from '../../models/calculators/calculator.factory';
+import { ProjectsPage } from './projects';
+import { SummaryPage } from '../summary/summary';
 
 @Component({
   selector: 'page-edit-project',
@@ -21,8 +22,15 @@ export class EditProjectPage extends ProjectPageBase {
   public segment: string = 'properties';
   public edit_mode = false;
   public error: string = '';
-  public form: NgForm;
+  private initial_values: { price: number, price_delta: number } = {
+    price: 0,
+    price_delta: 1
+  }
+  @ViewChild('form') form: NgForm;
   private co2: string;
+  public edit_co2: boolean = false;
+  @ViewChild('co2_input') co2_input;
+  public more = More;
 
   constructor(
     public navCtrl: NavController,
@@ -38,26 +46,43 @@ export class EditProjectPage extends ProjectPageBase {
 
     super(alertCtrl, service, keyboard);
     this.project = navParams.get("project");
+
+    this.initial_values.price = this.project.price;
+    this.initial_values.price_delta = this.project.price_delta
+
     this.edit_mode = false;
-    this.set_co2()
+    this.change_measures_more();
     //this.project.documents.push(new Document({ file: 'lolo.pdf' }))
     //this.keyboard.onClose(() => document.querySelectorAll('.scroll-content').forEach((x) => x.scrollTo(0, 0)));
   }
 
-  // public on_focus(event: any, scroll: number = 0) {
-  //   const elm = event._elementRef.nativeElement
-  //   const offset = 170 - scroll;
-  //   elm.closest('.scroll-content').scrollTo(0, elm.closest('.scroll-content').scrollTop - 50);
-  //   this.scroll(elm.closest('.scroll-content'), elm.closest('.scroll-content').scrollTop + elm.closest('ion-item').getBoundingClientRect().top - offset);
-  // }
-
   scroll(elm: any, top: number) {
-    if (elm.scrollTop < top) {
-      elm.scrollTo(0, top);
-      setTimeout(() => this.scroll(elm, top), 1);
-    } else {
-      elm.scrollTo(0, top)
+    setTimeout(() => elm.scrollIntoView({ behavior: "smooth" }), 500);
+  }
+
+  get energy_validation(): number {
+    return !!this.form && this.form.submitted && (null == this.form.controls.price.value || isNaN(this.form.controls.price.value) || Number(this.form.controls.price.value.toString()) <= 0) ? null : 1;
+  }
+  get co2_validation(): number {
+    return !!this.form && this.form.submitted && (null == this.form.controls.co2.value || isNaN(this.form.controls.co2.value) || Number(this.form.controls.co2.value.toString()) <= 0) ? null : 1;
+  }
+  get currency_validation(): number {
+    return !!this.form && this.form.submitted && (null == this.form.controls.currency.value || !this.form.controls.currency.value.length) ? null : 1;
+  }
+  get showError() {
+    return {
+      required_name: !!this.form && this.form.submitted && this.form.controls.name.invalid,
+      energy_validation: !!this.form && this.form.submitted && this.form.controls.energy_validation.invalid,
+      co2_validation: !!this.form && this.form.submitted && this.form.controls.co2_validation.invalid,
+      required_currency: !!this.form && this.form.submitted && this.form.controls.currency_validation.invalid
     }
+  }
+
+  change_measures_more() {
+    More.MEASURES.forEach(m => {
+      const split = (m[0] as string).split("/");
+      m[0] = `${this.project.currency}/${split[split.length - 1]}`
+    })
   }
 
   protected hide_keyboard() {
@@ -65,7 +90,27 @@ export class EditProjectPage extends ProjectPageBase {
   }
 
   public save(): void {
-    this.service.save(this.project).then(() => this.navCtrl.pop());
+    setTimeout(() => {
+      if (!this.form.valid) return;
+      // if (this.project.price != this.initial_values.price || this.project.price_delta != this.initial_values.price_delta) {
+      // this.project.components.forEach(c => {
+      //   c.reports.forEach(r => (new CalculatorFactory()).calculate(new ReportBase(this.project, c, r)));
+      // });
+      // }
+      this.service.save(this.project, false).then(() => {
+        this.project.components.forEach(c => {
+          c.result = null;
+          c.reports = [
+            ...c.reports.filter(r => !r.result),
+            ...c.reports.filter(r => !!r.result).map(r => (new CalculatorFactory()).calculate(r, null))
+          ];
+        });
+        this.service.save(this.project, true).then(() => {
+          //this.navCtrl.setRoot(this.navParams.data.parent, { project: this.project}, {animate: true, direction: 'forward'});
+          this.navCtrl.setRoot(ProjectsPage, { }, {animate: true, direction: 'forward'});
+        });
+      });
+    }, 500);
   }
 
   private delete_file(file: Document): void {
@@ -163,11 +208,27 @@ export class EditProjectPage extends ProjectPageBase {
     });
   }
 
-  set_co2(value?: number) {
-    if (!!value) this.project.co2 = Number(More.CO2.find(m => Number(m[1]) == value)[1]);
-    this.co2 = !this.project.co2 ? '' : More.CO2.find(m => Number(m[1]) == this.project.co2)[0].toString()
+  set_measure(measure: { index?: number, value: number }) {
+    this.project.price_delta = measure.value;
+  }
+
+  set_currency(currency: { value?: string, index: number }, focused: TextInput) {
+    this.project.currency = currency.value;
+    this.project.currency_index = currency.index;
+    if (!currency.index) setTimeout(() => focused.setFocus(), 750);
+  }
+
+  set_co2(co2: { value?: number, index: number }, focused: TextInput) {
+    this.project.co2 = co2.value;
+    this.project.co2_index = co2.index;
+    if (!co2.index) setTimeout(() => focused.setFocus(), 750);
   }
   edit() {
     this.edit_mode = true;
+  }
+
+  public friendy_more(type: string, index: number) {
+    let _more = More[type].find(m => m[2] == index);
+    return _more[0];
   }
 }

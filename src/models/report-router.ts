@@ -5,6 +5,7 @@ import { TbiComponent } from "./component";
 import { ReportFlange, ReportPipe, ReportSurface, ReportValve, ReportInsulatedSurface, ReportInsulatedPipe, ReportDamaged, ReportCondensation } from "./reports";
 import { ReportGeneric } from "./reports/report-generic.class";
 import { ReportLeakage } from "./reports/report-leakage";
+import { Result } from "./result";
 
 export class ReportRouter {
   constructor(public project: Project,
@@ -13,12 +14,13 @@ export class ReportRouter {
     this.component = this.component || new TbiComponent(this.project);
   }
 
-  public navigate_to_report(path: string, summary_id: string, report?: ReportBase, event?: MouseEvent): ReportRouter {
+  public navigate_to_report(path: string, summary_id: string, report?: ReportBase, event?: MouseEvent, result?: Result): ReportRouter {
     const r = this.create_report(path, summary_id, report)
     this.navCtrl.push(r.page, {
       project: this.project,
       component: this.component,
-      report: r
+      report: r,
+      result: result
     });
     return this;
   }

@@ -46,7 +46,7 @@ class PipeCalculator extends BaseCalculator {
         /**46*/() => this.ql_max = this.Δθ / (this.Rle_max + this.Rins_max),
         //*47*/() => this.Qkwh = this.ql * this.l * this.Ot * this.l * 1 / 1000,
         /**40*/() => this.Sp = Math.PI * this.De_min,
-        /**44*/() => this.Qkwh =  this.ql * this.l * this.Ot * 1 / 1000,
+        /**44*/() => this.Qkwh =  (this.ql * this.l * this.Ot / 1000) * (!Number(report.component.fields.unknow_surface_temp) ? 1 : Number(report.component.fields.unknow_surface_temp)),
         /**44min*/() => this.Qkwh_min =  this.ql_min * this.l * this.Ot * 1 / 1000,
         /**44max*/() => this.Qkwh_max =  this.ql_max * this.l * this.Ot * 1 / 1000,
         /*48*/() => this.ql_ref_pb = this.ql - ((10000 * this.Cpb_surface_pipe * this.Sp) / (this.Ot * this.Σ)),

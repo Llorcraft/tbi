@@ -1,4 +1,4 @@
-import { PicturesPage } from './../pictures/pictures';
+//import { PicturesPage } from './../pictures/pictures';
 import { NavController, NavParams, AlertController } from 'ionic-angular';
 import { Project } from '../../models';
 import { ProjectService } from '../../services/project.service';
@@ -18,9 +18,9 @@ export class PictureReport {
   }
 
   public show_pictures(): void{
-    this.navCtrl.push(PicturesPage, {
-      project: this.project
-    });
+    // this.navCtrl.push(PicturesPage, {
+    //   project: this.project
+    // });
   }
 
   ionViewDidLoad() {

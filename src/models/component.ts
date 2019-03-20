@@ -13,6 +13,7 @@ export class TbiComponent {
     public markers: Marker[];
     public date: Date = new Date();
     public validation: string = '';
+    public validationReport: Partial<TbiComponent> = null
 
     private flatten(arr: any[]): any[] {
         return [].concat.apply([], arr);
@@ -63,7 +64,7 @@ export class TbiComponent {
         return Number((markers.reduce((a, t) => a + Number(t), 0) / this.all_markers(report).length).toFixed(2));
     }
 
-    constructor(project: Project, item?: Partial<TbiComponent>) {
+    constructor(project: Project, item?: Partial<TbiComponent>, validation?: Partial<TbiComponent>) {
         this.project = project;
         if (!!item) {
             this.fields = new Fields(item.fields);
@@ -75,6 +76,7 @@ export class TbiComponent {
             this.validation = item.validation;
             const report = this.reports.find(r => !!(r.path).match(/(surface|pipe|valve|flange)/gi));
             this.result = !!report ? report.result : null;
+            this.validationReport = validation;
         }
     }
     // private update_surface_temp(): TbiComponent {

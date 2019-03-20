@@ -3,7 +3,7 @@ report-errors {
   width: 100%;
   margin-top: 1rem;
   >ion-col {
-    padding: 1rem 2rem !important;
+    padding: .5rem !important;
     background-color: rgba(255, 69, 0, .1);
     display: inline-block;
     color: orangered;
@@ -25,6 +25,9 @@ report-errors {
       padding: 0;
       margin: 0;
       li {
+        @media (max-width: 575px) {
+          font-size: 1rem;
+        }
         margin: .5rem 0;
         list-style: none;
       }

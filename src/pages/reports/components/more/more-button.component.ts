@@ -8,9 +8,10 @@ import { More } from '../../../../const/more/more';
 })
 export class ReportMoreButtonComponent {
   @Output() value?: any = null;
+  @Output() index: number = 0;
   @Input() type: string = '';
   @Input() cancelable?: boolean = true;
-  @Output('change') change = new EventEmitter<number>();
+  @Output('change') change = new EventEmitter<{value?: any, index: number}>();
   
   constructor(private actionSheetCtrl: ActionSheetController) {
   }
@@ -22,7 +23,12 @@ export class ReportMoreButtonComponent {
     }],
     time: More.TIMES,
     materials: More.MATERIALS,
-    co2: More.CO2
+    co2: More.CO2,
+    currencies: More.CURRENCIES,
+    measures: More.MEASURES
+    // "€": More.MEASURES["€"],
+    // "$": More.MEASURES["$"],
+    // "£": More.MEASURES["£"]
   }
   protected show_options(): ActionSheet {
     let buttons = this.options[this.type].map(b => {
@@ -41,7 +47,8 @@ export class ReportMoreButtonComponent {
           //   }
           //   }, 1000);
           this.value = b[1];
-          this.change.next(this.value);
+          this.index = b[2];
+          this.change.next({value: b[1], index: b[2]});
         }
       }) as ActionSheetButton;
     });

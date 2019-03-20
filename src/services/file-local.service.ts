@@ -16,7 +16,7 @@ export class FileLocalService extends FileService {
         this.loading.show();
         return new Promise<string>((resolve, reject) => {
             let blob = new Blob([this.base64_to_uint(base64)], { type: 'application/pdf' });
-            let newWindow = window.open('/', '_blank');
+            let newWindow = window.open(filename, '_blank');
             newWindow.location.href = URL.createObjectURL(blob);
             this.loading.hide();
             resolve(filename);
@@ -51,19 +51,19 @@ export class FileLocalService extends FileService {
         throw new Error("Method not implemented.");
     }
 
-    public read_text(filename: string): Promise<string> {
-        this.loading.show();
+    public read_text(filename: string, hide?: boolean): Promise<string> {
+        !hide && this.loading.show();
         return new Promise<string>((resolve, reject) => {
-            this.loading.hide();
+            !hide && this.loading.hide();
             resolve(localStorage.getItem(filename));
         });
     }
 
-    public write_text(filename: string, content: string): Promise<boolean> {
-        this.loading.show();
+    public write_text(filename: string, content: string, hide?: boolean): Promise<boolean> {
+        !hide && this.loading.show();
         return new Promise<boolean>((resolve, reject) => {
             localStorage.setItem(filename, content);
-            this.loading.hide();
+            !hide && this.loading.hide();
             resolve(true);
         });
     }

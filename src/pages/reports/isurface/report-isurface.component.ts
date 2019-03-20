@@ -21,6 +21,6 @@ export class ReportInsulatedSurfacePage extends BaseReportPage {
     protected message: MessageService,
     protected keyboard: Keyboard 
   ) {
-    super(new ReportInsulatedSurface(navParams.data.project, navParams.data.component, navParams.data.report), navCtrl, service, alertCtrl, picture, message, keyboard);
+    super(new ReportInsulatedSurface(navParams.data.project, navParams.data.component, navParams.data.report), navParams, navCtrl, service, alertCtrl, picture, message, keyboard);
   }
 }

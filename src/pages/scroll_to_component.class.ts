@@ -1,7 +1,7 @@
 import { Keyboard } from "ionic-angular";
 
 export class ScrollToComponent {
-  constructor(protected keyboard: Keyboard) {}
+  constructor(protected keyboard: Keyboard) { }
 
   protected on_keypress(event: KeyboardEvent) {
     if (event.which === 13) {
@@ -11,8 +11,11 @@ export class ScrollToComponent {
     }
   }
 
+  public scrollTo(position: number) {
+    Array.from(document.getElementsByClassName('scroll-content')).forEach(e => e.scrollTo(0, position));
+  }
   public on_focus(event: any) {
-    return;
+    setTimeout(()=>event._elementRef.nativeElement.scrollIntoView({behavior:"smooth"}), 500);
     // const elm = event._elementRef.nativeElement
     // const offset = 60;
     // elm.closest('.scroll-content').scrollTo(0, elm.closest('.scroll-content').scrollTop - 50);

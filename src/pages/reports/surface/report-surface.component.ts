@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewEncapsulation } from '@angular/core';
 import { BaseReportPage, ReportSurface } from '../../../models/reports';
 import { ModalController, NavController, NavParams, AlertController, Keyboard } from 'ionic-angular';
 import { ReportService } from '../../../services/report.service';
@@ -22,6 +22,6 @@ export class ReportSurfacePage extends BaseReportPage {
     protected keyboard: Keyboard,
     public modalCtrl: ModalController
   ) {
-    super(new ReportSurface(navParams.data.project, navParams.data.component, navParams.data.report), navCtrl, service, alertCtrl, picture, message, keyboard, modalCtrl);
+    super(new ReportSurface(navParams.data.project, navParams.data.component, navParams.data.report), navParams, navCtrl, service, alertCtrl, picture, message, keyboard, modalCtrl);
   }
 }

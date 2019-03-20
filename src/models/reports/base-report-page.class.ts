@@ -1,6 +1,6 @@
-import { NavController, AlertController, Keyboard, Content, ModalController } from "ionic-angular";
+import { NavController, AlertController, Keyboard, Content, ModalController, NavParams, IonicFormInput } from "ionic-angular";
 import { NgForm } from '@angular/forms';
-import { ViewChild, OnInit, AfterViewInit } from "@angular/core";
+import { ViewChild, OnInit, AfterViewInit, ElementRef } from "@angular/core";
 import { ReportBase, Project } from "..";
 import { CalculatorFactory } from "../calculators/calculator.factory";
 import { Picture } from "../picture";
@@ -19,11 +19,18 @@ export class BaseReportPage extends ScrollToComponent implements OnInit, AfterVi
   @ViewChild('form') form: NgForm;
   @ViewChild('errors') errors: ReportErrorsComponent;
   //Focus input after option select
-  @ViewChild('time', { read: ReportMoreButtonComponent }) time: ReportMoreButtonComponent;
   @ViewChild('after_time') after_time;
-  @ViewChild('material', { read: ReportMoreButtonComponent }) material: ReportMoreButtonComponent;
+  @ViewChild('before_time') before_time;
   @ViewChild('after_material') after_material;
-  @ViewChild(Content) content: Content
+  @ViewChild('before_material') before_material;
+
+
+  @ViewChild('time', { read: ReportMoreButtonComponent }) time: ReportMoreButtonComponent;
+  @ViewChild('material', { read: ReportMoreButtonComponent }) material: ReportMoreButtonComponent;
+  @ViewChild('surface_material') surface_material;
+  @ViewChild(Content) content: Content;
+  @ViewChild('resultGrid') resultGrid: ElementRef;
+  public can_remove: boolean = false;
   public unknow_surface: boolean = false;
   public calculator = new CalculatorFactory();
   public edit_surface_material = false;
@@ -32,15 +39,104 @@ export class BaseReportPage extends ScrollToComponent implements OnInit, AfterVi
   protected editing_picture: Picture = new Picture();
   protected segment = 'input';
   public patterns: any = Patterns;
+  public more = More;
 
   private _original_component: TbiComponent;
   public editable: boolean = false;
+
+  //#region Custom Validations
   public get picture_qty(): number {
     return !!this.report.pictures.length ? this.report.pictures.length : null;
   }
-
+  public get compare_insulated_temp(): number {
+    let c = this.report.component.fields;
+    return (!c || (c.surface_temp == null || c.surface_temp.toString() == '')
+      || (c.medium_temp == null || c.medium_temp.toString() == '')
+      || (c.ambient_temp == null || c.ambient_temp.toString() == ''))
+      ? 1
+      : Number(c.surface_temp) < Number(c.medium_temp)
+        && Number(c.surface_temp) < Number(c.ambient_temp) ? null : 1;
+  }
+  public get surface_temp_abs(): number {
+    let c = this.report.component.fields;
+    return (!c || (c.medium_temp == null || c.medium_temp.toString() == '' || c.unknow_surface)
+      || (c.surface_temp == null || c.surface_temp.toString() == '')
+    )
+      ? 1
+      : Math.abs(Number(c.medium_temp) - Number(c.surface_temp)) < 15
+        ? null
+        : 1;
+  }
+  public get surface_material_range(): number {
+    let c = this.report.component.fields;
+    return (!c || (c.surface_material == null || c.surface_material.toString() == ''))
+      ? 1
+      : Number(c.surface_material) < 0 || Number(c.surface_material) > 1
+        ? null
+        : 1;
+  }
+  public get operational_time_range(): number {
+    let c = this.report.component.fields;
+    return (!c || (c.operational_time == null || c.operational_time.toString() == ''))
+      ? 1
+      : Number(c.operational_time) < 0 || Number(c.operational_time) > 8760
+        ? null
+        : 1;
+  }
+  public get temp_range_diff(): number {
+    let c = this.report.component.fields;
+    return (!c || (c.ambient_temp == null || c.ambient_temp.toString() == '')
+      || (c.surface_temp == null || c.surface_temp.toString() == '')
+    )
+      ? 1
+      : Math.abs(Number(c.surface_temp) - Number(c.ambient_temp)) < 5
+        ? null
+        : 1;
+  }
+  public get diameter_low(): number {
+    let c = this.report.component.fields;
+    return (!c || (c.nominal_diameter == null || c.nominal_diameter.toString() == ''))
+      ? 1
+      : Number(c.nominal_diameter) <= 0
+        ? null
+        : 1;
+  }
+  public get length_low(): number {
+    let c = this.report.component.fields;
+    return (!c || (c.length == null || c.length.toString() == ''))
+      ? 1
+      : Number(c.length) <= 0
+        ? null
+        : 1;
+  }
+  public get items_low(): number {
+    let c = this.report.component.fields;
+    return (!c || (c.number == null || c.number.toString() == ''))
+      ? 1
+      : Number(c.number) <= 0
+        ? null
+        : 1;
+  }
+  public get surface_low(): number {
+    let c = this.report.component.fields;
+    return (!c || (c.surface == null || c.surface.toString() == '' || c.unknow_surface))
+      ? 1
+      : Number(c.surface) <= 0
+        ? null
+        : 1;
+  }
+  public get surface_temp_range(): number {
+    let c = this.report.component.fields;
+    return (!c || (c.surface_temp == null || c.surface_temp.toString() == ''))
+      ? 1
+      : Number(c.surface_temp) >= 1000
+        ? null
+        : 1;
+  }
+  //#endregion
   constructor(
     public report: ReportBase,
+    protected navParam: NavParams,
     protected navCtrl: NavController,
     protected service: ReportService,
     protected alertCtrl: AlertController,
@@ -53,7 +149,7 @@ export class BaseReportPage extends ScrollToComponent implements OnInit, AfterVi
     this._original_component = this.report.component;
     this.report.component = new TbiComponent(this._original_component.project, this._original_component);
     this.report.component.id = this._original_component.id;
-
+    //this.can_remove = !!this.report.id && 1 == 2;
     this.editable = !this.report.component.reports.filter(r => !!r.path.match(/(surface|pipe|valve|flange)/gi) && !!r.result).length;
     this.is_energy_report = !!this.report.path.match(/(pipe|surface|valve|flange)/gi);
 
@@ -63,26 +159,25 @@ export class BaseReportPage extends ScrollToComponent implements OnInit, AfterVi
   }
 
   ngAfterViewInit() {
-    const wait: number = 1000;
-    if (!!this.time) {
-      this.time.change.subscribe(v => {
-        setTimeout(() => this.after_time.setFocus(), wait);
-      })
-    }
-    if (!!this.material) {
-      this.material.change.subscribe(v => {
-        setTimeout(() => this.after_material.setFocus(), wait);
-      })
-    }
+    //const wait: number = 1000;
+    // if (!!this.time && !!this.after_time) {
+    //   this.time.change.subscribe(v => {
+    //     setTimeout(() => this.after_time.setFocus(), wait);
+    //   })
+    // }
+    // if (!!this.material) {
+    //   this.material.change.subscribe(v => {
+    //     setTimeout(() => this.after_material.setFocus(), wait);
+    //   })
+    // }
   }
 
   ngOnInit(): void {
     if (!!this.report.result.headLost.power && !!this.report.id && !!this.report.path.match(/(pipe|surface|valve|flange)/gi)) setTimeout(() => this.calculate(), 250);
   }
 
-  set_operational_time() {
-    this.report.component.fields.operational_time = this.time.value;
-    setTimeout(() => this.after_time.setFocus(), 400);
+  remove_report() {
+    debugger;
   }
 
   public get first_picture(): string {
@@ -118,18 +213,12 @@ export class BaseReportPage extends ScrollToComponent implements OnInit, AfterVi
     alert.present();
   }
 
-  protected toggle_surface_material(value: boolean) {
-    if (!this.editable) return;
+  public toggle_surface_material(value: boolean) {
+    //if (!this.editable) return;
     this.edit_surface_material = value;
-    setTimeout(() => {
-      if (!!value) document.getElementsByName('surface_material')[1].focus();
-    }, 200);
-  }
-
-  protected set_surface_material(index?: number, event?: number | Event) {
-    const material = More.MATERIALS.find(c => c[1] == index);
-    this.report.component.fields.surface_material_index = typeof event == 'object' ? null : index;
-    this.report.component.fields.surface_material = !!material ? Number(material[2]) : !!index ? Number(index) : index;
+    value && setTimeout(() => {
+      this.surface_material.setFocus();
+    }, 150);
   }
 
   protected start_changes_observer(): void {
@@ -146,12 +235,12 @@ export class BaseReportPage extends ScrollToComponent implements OnInit, AfterVi
     if (!this.report.component.reports.find(c => c.id === this.report.id)) this.report.component.reports.push(this.report);
     if (!project.components.find(c => c.id === this.report.component.id)) project.components.push(this.report.component);
 
-    this.confirm_space().then(space => {
-      this.report.component.fields.space_warning = space;
-      this.service.save(this.report).then(p => {
-        this.navCtrl.setRoot(SummaryPage, { project: p, summary: true }, { animate: true, direction: 'backward' });
-      });
+    //this.confirm_space().then(space => {
+    //this.report.component.fields.space_warning = space;
+    this.service.save(this.report).then(p => {
+      this.navCtrl.setRoot(SummaryPage, { project: p, summary: true, parent: this, report: this.report }, { animate: true, direction: 'backward' });
     });
+    //});
     //this.ask_for_more_reports(project);
     //this.navCtrl.push(ProjectPage, { project: project });
   }
@@ -237,16 +326,22 @@ export class BaseReportPage extends ScrollToComponent implements OnInit, AfterVi
     this.errors.page = this;
     if (!this.form.invalid) {
       this.view = 'result';
-      //this.content.scrollToBottom(500);
-      return this.calculator.calculate(this.report);
+      this.report = this.calculator.calculate(this.report, this.navParam.data.result);
+      setTimeout(() => {
+        this.content.scrollToBottom(400).then(() => {
+          //Array.from(document.getElementsByClassName('scroll-content'))[2].scrollTop = window.innerHeight + 200;
+        });
+      }, 500);
+      return this.report;
     } else {
       this.view = 'form';
     }
+    setTimeout(() => this.content.scrollTo(0, 2000, 1500), 150);
   }
 
   private remove_picture(include_markers: boolean) {
     //He comentado lo de eliminar fisicamente el archivo
-    //porque si no guarda los cambios, el usuario, 
+    //porque si no guarda los cambios, el usuario,
     //ya se habrá perdido el archivo.
     //this.picture.delete_picture(this.editing_picture).then(picture => {
     if (!include_markers) {
@@ -274,6 +369,12 @@ export class BaseReportPage extends ScrollToComponent implements OnInit, AfterVi
     confirm.present();
   }
 
+  scrollToBottom(): Promise<boolean> {
+    return new Promise<boolean>(resolve => {
+      setTimeout(() => this.content.scrollToBottom(400).then(() => resolve(true)), 500);
+    });      
+  }
+  
   protected on_picture_start_edit(picture: Picture): void {
     //(document.getElementsByTagName('ion-buttons')[0] as any).style.display = 'none';
     this.editing_picture = picture;
@@ -294,7 +395,6 @@ export class BaseReportPage extends ScrollToComponent implements OnInit, AfterVi
   }
 
   protected take_picture() {
-    //this.alert('Hacer foto');
     this.picture.take_picture().then(d => this.report.pictures.push(new Picture({ picture: d })))
       .catch(ex => this.message.alert('Error take picture', JSON.stringify(ex, null, 2)));
   }
@@ -311,10 +411,11 @@ export class BaseReportPage extends ScrollToComponent implements OnInit, AfterVi
         cssClass: 'known-temp'
       });
       known_temp.onDidDismiss(r => {
-        if (r!=null && r.toString()!= '' && !isNaN(r)) {
-          this.report.component.fields.surface_temp = Number(r);
+        if (!!r) {
+          this.report.component.fields.surface_temp = Number(r.temp);
+          this.report.component.fields.unknow_surface_temp = Number(r.gas);
         } else {
-          this.report.component.fields.unknow_surface_temp = false;
+          this.report.component.fields.unknow_surface_temp = 0;
         }
       })
       known_temp.present();
@@ -364,7 +465,7 @@ export class BaseReportPage extends ScrollToComponent implements OnInit, AfterVi
   }
 
   public confirm_space(): Promise<boolean> {
-    return (!this.report.insulated)
+    return (!this.report.insulated || this.report.is_validation)
       ? new Promise(resolve => {
         resolve(false)
       })
@@ -383,5 +484,23 @@ export class BaseReportPage extends ScrollToComponent implements OnInit, AfterVi
         })
         confirm.present();
       });
+  }
+
+  public friendy_more(type: string, index: number) {
+    let _more = More[type].find(m => m[2] == index);
+    return _more[0];
+  }
+
+  public set_operational_time(more) {
+    this.report.component.fields.operational_time = more.value;
+    this.report.component.fields.operational_time_index = more.index;
+    setTimeout(() => ((more.index == 0) ? this.before_time : this.after_time).setFocus(), 650);
+  }
+
+  public set_surface_material(more) {
+    this.report.component.fields.surface_material = more.value;
+    this.report.component.fields.surface_material_index = more.index;
+    console.log(more)
+    setTimeout(() => ((more.index == 0) ? this.before_material : this.after_material).setFocus(), 650);
   }
 }

@@ -8,7 +8,8 @@ import { ViewController, NavParams, AlertController } from "ionic-angular";
 
 export class KnownTempPage {
   public medium_temp: number = 0;
-  public gas: string = '0';
+  public gas: string = '1';
+ 
   @ViewChild('medium_temp_field') medium_temp_field: any;
   constructor(private viewCtrl: ViewController, params: NavParams, private alertCtrl: AlertController) {
     this.medium_temp = params.get('medium_temp') || '';
@@ -24,13 +25,13 @@ export class KnownTempPage {
   }
 
   protected ok(): KnownTempPage {
-    if (this.gas == '1') {
-      this.alertCtrl.create({
-        message: 'The properties of the gas affect the heat transfer calculation. Outputs are just an estimation, please contact your insulation expert to have a more accurate calculation',
-        buttons: ['Agree']
-      }).present();
-    };
-    this.viewCtrl.dismiss(this.medium_temp);
+    // if (this.gas == '1') {
+    //   this.alertCtrl.create({
+    //     message: 'The properties of the gas affect the heat transfer calculation. Outputs are just an estimation, please contact your insulation expert to have a more accurate calculation',
+    //     buttons: ['Agree']
+    //   }).present();
+    // };
+    this.viewCtrl.dismiss({temp: this.medium_temp, gas: Number(this.gas)});
     return this;
   }
 

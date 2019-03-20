@@ -46,7 +46,7 @@ class FlangeCalculator extends BaseCalculator {
         /**39*/() => this.Rins_max = (Math.log(this.De_max / this.De)) / (2 * Math.PI * this.λdes_max),
         /*45*/() => this.ql_min = this.Δθ / (this.Rle_min + this.Rins_min),
         /*46*/() => this.ql_max = this.Δθ / (this.Rle_max + this.Rins_max),
-        /*47*/() => this.Qkwh = this.ql * this.l * this.Ot * this.n * 1 / 1000,
+        /*47*/() => this.Qkwh = (this.ql * this.l * this.Ot * this.n * 1 / 1000) * (!Number(report.component.fields.unknow_surface_temp)? 1 : Number(report.component.fields.unknow_surface_temp)),
         /*40*/() => this.Sp = Math.PI * this.De_min,
         /*48*/() => this.ql_ref_pb = this.ql - (10000 * this.Cpb_valve_flange * this.Sp / this.Ot / this.Σ),
         /*06*/() => this.Qε = this.Qkwh * this.Σ,

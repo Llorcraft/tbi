@@ -10,6 +10,10 @@ img.non-picture {
   display: block;
   margin: 0 auto -2rem;
   padding-top: 5rem;
+  @media (max-width: 575px) {
+    padding-top: 0;
+    margin: auto 1rem;
+  }
   ion-slides {
     ion-slide {
       .slide-zoom {
@@ -31,8 +35,14 @@ img.non-picture {
     
   }
   
-  button[ion-button][round][outline]{
+  button[ion-button][outline]{
     padding: 1.5rem 0!important;
     width: 97%;
+    text-transform: capitalize;
+
+    &[color="light"]{
+      border-color: #ccc!important;
+      color: #ccc!important;
+    }
   }
 }

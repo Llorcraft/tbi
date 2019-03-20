@@ -1,1 +1,1 @@
-ionic cordova build android
+ionic cordova build android --prod --aot --minifyjs --optimizejs --minifycss

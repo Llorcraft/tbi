@@ -22,7 +22,7 @@ export class GenericReportPage extends BaseReportPage {
     protected message: MessageService,
     protected keyboard: Keyboard
   ) {
-    super(new ReportGeneric(navParams.data.project, navParams.data.component, navParams.data.report), navCtrl, service, alertCtrl, picture, message, keyboard);
+    super(new ReportGeneric(navParams.data.project, navParams.data.component, navParams.data.report), navParams, navCtrl, service, alertCtrl, picture, message, keyboard);
   }
 
   protected calculate(): ReportBase {

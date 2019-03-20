@@ -20,6 +20,6 @@ export class ReportInsulatedPipePage extends BaseReportPage {
     protected message: MessageService,
     protected keyboard: Keyboard
   ) {
-    super(new ReportInsulatedPipe(navParams.data.project, navParams.data.component, navParams.data.report), navCtrl, service, alertCtrl, picture, message, keyboard);
+    super(new ReportInsulatedPipe(navParams.data.project, navParams.data.component, navParams.data.report), navParams, navCtrl, service, alertCtrl, picture, message, keyboard);
   }
 }

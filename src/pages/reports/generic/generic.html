@@ -4,11 +4,11 @@
 
   <ion-grid [hidden]="view=='edit_picture'" class="fixed-col">
     <ion-row>
-      <ion-col col-7 col-lg-6 no-padding>
+      <ion-col col-12 col-md-8 no-padding>
 
         <form novalidate #form="ngForm" [hidden]="segment!='input'" (submit)="calculate()">
           <ion-row>
-            <ion-col col-10>
+            <ion-col col-11 col-md-10>
               <ion-item>
                 <ion-label stacked>Component/Location</ion-label>
                 <ion-input [disabled]="!editable" tabindex="1" (ionFocus)="on_focus($event)" name="location" required data-val-required="Please input Component/Location"
@@ -17,7 +17,7 @@
             </ion-col>
           </ion-row>
           <ion-row>
-            <ion-col col-10>
+            <ion-col col-11 col-md-10>
               <ion-item>
                 <ion-label stacked>Summary Id</ion-label>
                 <ion-input tabindex="2" maxlength="12" (ionFocus)="on_focus($event)" name="summary_id" [(ngModel)]="report.summary_id" required data-val-required="Please input summary id"
@@ -33,7 +33,7 @@
             </ion-col>
           </ion-row>
           <ion-row>
-            <ion-col col-10>
+            <ion-col col-11 col-md-10>
               <ion-item>
                 <ion-label stacked>Comment</ion-label>
                 <ion-textarea rows="6" tabindex="3"  (ionFocus)="on_focus($event)" [(ngModel)]="report.comment"
@@ -44,7 +44,7 @@
         </form>
       </ion-col>
 
-      <ion-col col-5 col-lg-6 no-padding>
+      <ion-col col-12 col-md-4 no-padding>
           <ion-row>
               <ion-col col-12 picture-slide [parent]="this"    [report]="report" [editable]="editable"  (onStartEdit)="on_picture_start_edit($event)">
           </ion-col>
@@ -54,7 +54,7 @@
     </ion-row>
     
     <ion-row>
-      <ion-col col-12>
+      <ion-col col-12 no-padding>
         <div report-result col-12 [parent]="this" *ngIf="view=='result' && (!!form && !form.invalid)"></div>
       </ion-col>
     </ion-row>
