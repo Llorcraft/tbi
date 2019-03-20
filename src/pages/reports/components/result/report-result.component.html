@@ -6,13 +6,13 @@
           from {{(parent.report.result.annual_saving_from || 0) | number}} {{currency}} to {{(parent.report.result.annual_saving_to || 0)| number}} {{currency}}
         </h5>
         <h5 *ngIf="!!saving_lower" class="annual-saving-message">
-          Insulation Ok
+          Insulation System Ok
         </h5>
     </ion-col>
   </ion-row>
   <ion-row>
     <ion-col text-center style="overflow: auto">
-      <table  [style.zoom]="zoom" cellspacing="0" cellpadding="0" border="0" class="result-chart" [class.saving_lower]="saving_lower">
+      <table [style.zoom]="zoom" cellspacing="0" cellpadding="0" border="0" class="result-chart" [class.saving_lower]="saving_lower">
         <thead>
           <tr>
             <th><div style="width: 25px; height: 1px"></div></th>
@@ -126,10 +126,10 @@
         <strong>TOP</strong>
       </button>
       <div class="row zoom-buttons">
-        <button ion-button small icon-only clear color="royal" (click)="do_zoom(.1)">
+        <button ion-button small icon-only clear color="royal" [disabled]="zoom==3" (click)="do_zoom(.1)">
           <ion-icon name="add-circle-outline"></ion-icon>
         </button>
-        <button ion-button small icon-only clear color="royal" (click)="do_zoom(-.1)">
+        <button ion-button small icon-only clear color="royal" [disabled]="zoom==.5" (click)="do_zoom(-.1)">
           <ion-icon name="remove-circle-outline"></ion-icon>
         </button>
       </div>

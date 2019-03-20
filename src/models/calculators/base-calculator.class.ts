@@ -105,8 +105,9 @@ export class BaseCalculator {
             [3400, 3.420]
         ]
         const filter = range.find(r => r[0] > this.DN);
-        return filter ?
-            range.lastIndexOf(filter) > 0 ? range[range.lastIndexOf(filter) - 1][1] : range[0][1] : range[range.length -1][1];
+        // return filter ?
+        //     range.lastIndexOf(filter) > 0 ? range[range.lastIndexOf(filter) - 1][1] : range[0][1] : range[range.length -1][1];
+        return this.DN;
     };
     public De_min: number = 1;
     public De_max: number = 1;

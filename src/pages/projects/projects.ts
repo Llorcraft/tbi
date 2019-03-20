@@ -250,10 +250,11 @@ export class ProjectsPage extends ProjectPageBase {
   }
 
   go_next() {
-    if (!!this.projects.length && !this.projects[0].components.length) {
-      this.open_summary(this.projects[0])
-    } else {
-      (new ReportRouter(this.projects[0], this.projects[0].components[0], this.navCtrl)).navigate_to_report(this.projects[0].components[0].reports[0].path, this.projects[0].components[0].reports[0].summary_id, this.projects[0].components[0].reports[0], null, this.projects[0].components[0].result);
-    }
+    this.navigate_to_reports(this.projects[0])
+    // if (!!this.projects.length && !this.projects[0].components.length) {
+    //   this.open_summary(this.projects[0])
+    // } else {
+    //   (new ReportRouter(this.projects[0], this.projects[0].components[0], this.navCtrl)).navigate_to_report(this.projects[0].components[0].reports[0].path, this.projects[0].components[0].reports[0].summary_id, this.projects[0].components[0].reports[0], null, this.projects[0].components[0].result);
+    // }
   }
 }

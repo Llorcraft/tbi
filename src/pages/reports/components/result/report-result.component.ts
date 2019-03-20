@@ -14,7 +14,7 @@ export class ReportResultComponent implements AfterContentInit {
     unknow_surface: boolean = false;
     is_validation: boolean = false;
     images = IMAGES;
-    zoom = 1;
+    zoom = .5;
     @Input() currency: string;
     protected get first_picture(): string {
         return this.parent.report.pictures.length ? this.parent.report.pictures[0].picture : NON_PICTURE;
