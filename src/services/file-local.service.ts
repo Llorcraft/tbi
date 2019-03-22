@@ -13,6 +13,7 @@ export class FileLocalService extends FileService {
     public working_folder: string = 'D:\\Sofware Factory\\tbi\\src\\assets\\';
 
     public create_pdf(base64: string, filename: string): Promise<string> {
+        filename = `${filename}-${(new Date()).toLocaleString().replace(/(\/| |:)/g, '')}`;
         this.loading.show();
         return new Promise<string>((resolve, reject) => {
             let blob = new Blob([this.base64_to_uint(base64)], { type: 'application/pdf' });

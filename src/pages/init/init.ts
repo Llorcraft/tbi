@@ -11,15 +11,24 @@ import { LicencesService } from '../../services';
 })
 export class InitPage implements AfterViewInit {
   public user_name: string = 'Dev';
-  public isPro = 0;
+  public isPro = -1;
   public code = '';
 
   constructor(
     public appCtrl: NavController,
     public license: LicencesService,
     private cd: ChangeDetectorRef) {
-      this.isPro = license.type == 'PRO' ? 1 : 0;
-      //this.save();
+    this.isPro = license.type == 'PRO' ? 1 : -1;
+    //this.save();
+  }
+
+  public onVersionSelected(e) {
+    debugger;
+    if (e == 0) this.save();
+  }
+
+  public onCodeChange(e){
+    if((e.value || '').toLowerCase() == 'pro') this.save();
   }
 
   public save(): void {

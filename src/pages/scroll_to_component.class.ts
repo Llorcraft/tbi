@@ -15,7 +15,12 @@ export class ScrollToComponent {
     Array.from(document.getElementsByClassName('scroll-content')).forEach(e => e.scrollTo(0, position));
   }
   public on_focus(event: any) {
-    setTimeout(()=>event._elementRef.nativeElement.scrollIntoView({behavior:"smooth"}), 500);
+    setTimeout(() => {
+      event._elementRef.nativeElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      setTimeout(() => {
+        event._elementRef.nativeElement.closest('.scroll-content').scrollTop -= 30;
+      }, 250);
+    }, 500);
     // const elm = event._elementRef.nativeElement
     // const offset = 60;
     // elm.closest('.scroll-content').scrollTo(0, elm.closest('.scroll-content').scrollTop - 50);

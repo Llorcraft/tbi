@@ -62,7 +62,7 @@
           <ion-row>
               <ion-col col-10>
                 <ion-item>
-                  <ion-label stacked>Surface material [ε] {{report.component.fields.operational_time_index}}</ion-label>
+                  <ion-label stacked>Surface material [ε]</ion-label>
                   <ion-input readonly tabindex="5" *ngIf="report.component.fields.surface_material_index!=0"
                   [value]="friendy_more('MATERIALS', report.component.fields.surface_material_index)"></ion-input>
                   <ion-input #before_material *ngIf="report.component.fields.surface_material_index==0" tabindex="5" name="surface_material" 

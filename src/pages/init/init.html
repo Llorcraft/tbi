@@ -1,56 +1,60 @@
-<ion-header text-right>
-  <!-- <small>
+<!-- <ion-header text-right>
+  <small>
     Build v7.2.1 25/02/2019 01:20
-  </small> -->
-</ion-header>
-<ion-content>
-  <form (ngSubmit)="save(f.form)" #f="ngForm" novalidate>
+  </small>
+</ion-header> -->
+<ion-content class="init">
+  <form (ngSubmit)="save(f.form)" #f="ngForm" novalidate style="background: #fff">
     <ion-grid padding>
       <ion-row>
-        <ion-col col-12 col-md-8 offset-md-2 text-left>
-          <h2 class="welcome">Welcome TBI Inspector</h2>
-        </ion-col>
         <ion-col col-12 col-md-8 offset-md-2>
           <ion-item no-padding [ngClass]="{'error': true}">
             <ion-label stacked>
-              <h2 class="welcome" style="padding-bottom: 1rem">Please fill in your name</h2>
+              <h2 class="welcome" style="padding-bottom: 1rem">Please insert your name</h2>
             </ion-label>
             <ion-input type="text" name="user_name" [(ngModel)]="user_name" placeholder="Your name" required></ion-input>
           </ion-item>
         </ion-col>
         <ion-col col-12 col-md-8 offset-md-2 style="margin: 1rem auto 2rem" *ngIf="license.type!='PRO'">
-          <ion-list radio-group name="version-type" [(ngModel)]="isPro">
+            <ion-label stacked>
+              <h2 class="welcome" style="padding-bottom: 1rem">Please select</h2>
+              </ion-label>
+          <ion-list radio-group name="version-type" [(ngModel)]="isPro" (ionChange)="onVersionSelected($event)">
+            <ion-item hidden>
+              <ion-label>Non version</ion-label>
+              <ion-radio value="-1" checked="{{isPro==-1}}"></ion-radio>
+            </ion-item>
             <ion-item>
               <ion-label>Version Easy</ion-label>
-              <ion-radio value="0" checked="{{!isPro}}"></ion-radio>
+              <ion-radio value="0" checked="{{isPro==0}}"></ion-radio>
             </ion-item>
             <ion-item>
               <ion-label>Version Pro</ion-label>
-              <ion-radio value="1" checked="{{!!isPro}}"></ion-radio>
+              <ion-radio value="1" checked="{{isPro==1}}"></ion-radio>
             </ion-item>
           </ion-list>
           <ion-item *ngIf="isPro==1" style="margin-top: -2rem">
             <ion-label stacked>Enter Pro version code validation</ion-label>
-            <ion-input type="text" name="pro-code" [(ngModel)]="code" placeholder="Enter code"></ion-input>
+            <ion-input type="text" name="pro-code" #proCode [(ngModel)]="code" (ionChange)="onCodeChange($event)" placeholder="Enter code"></ion-input>
           </ion-item>
         </ion-col>
-        <ion-col col-12 col-md-8 offset-md-2>
+        <!-- <ion-col col-12 col-md-8 offset-md-2>
           <small>technology powered by</small>
+        </ion-col> -->
+        <ion-col col-12 class="bg-logo-eiif" style="height: 120px">
+          <!-- <h5>Tap to select logo</h5> -->
         </ion-col>
-        <ion-col col-12 col-md-8 offset-md-2 class="client-logo">
-          <h5>Tap to select logo</h5>
-        </ion-col>
-        <ion-col col-12 col-md-8 offset-md-2 text-right>
+        <!-- <ion-col col-12 col-md-8 offset-md-2 text-right>
           <small>a member of</small>
           <div class="bg-logo-eiif"></div>
         </ion-col>
         <ion-col col-4 col-sm-6 col-md-6>
-        </ion-col>
-        <ion-col col-8 col-sm-6 col-md-4 text-right>
+        </ion-col> -->
+        <!-- <ion-col col-8 col-sm-6 col-md-4 text-right>
           <button ion-button block small color="primary" type="submit" [disabled]="f.invalid">
             Start
           </button>
-        </ion-col>
+        </ion-col> -->
       </ion-row>
     </ion-grid>
   </form>

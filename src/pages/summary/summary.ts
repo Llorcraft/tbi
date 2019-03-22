@@ -298,7 +298,7 @@ export class SummaryPage implements OnInit {
       buttons: [
         {
           text: 'Change user',
-          icon: 'person',
+          //icon: 'person',
           handler: () => {
             this.navCtrl.setRoot(InitPage);
           }

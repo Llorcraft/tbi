@@ -17,7 +17,7 @@ export class ProjectJson {
   public price_delta: number = 1;
   public people: People = new People();
   public co2?: number;
-  public currency: string = "EUR"
+  public currency: string = "€"
   public currency_index: number = 1;
   public co2_index: number = 0;
 
@@ -28,7 +28,7 @@ export class ProjectJson {
     this.date = project.date;
     this.user = project.user;
     this.price = project.price;
-    this.currency = project.currency || "EUR";
+    this.currency = project.currency || "€";
     this.price_delta = project.price_delta;
     this.picture = project.picture;
     this.components = project.components.map(c => new TbiComponentJson(c));

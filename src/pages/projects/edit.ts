@@ -1,7 +1,7 @@
 import { Component, ViewChild } from '@angular/core';
 import { NavController, NavParams, AlertController, ActionSheetController, Keyboard, TextInput } from 'ionic-angular';
 import { ProjectPageBase } from './project-page-base';
-import { Project, Document, ReportBase } from '../../models';
+import { Project, Document} from '../../models';
 import { ProjectService } from '../../services/project.service';
 import { NgForm } from '@angular/forms';
 import { MessageService } from '../../services/messages.service';
@@ -11,7 +11,6 @@ import { PictureService } from '../../services';
 import { More } from '../../const/more/more';
 import { CalculatorFactory } from '../../models/calculators/calculator.factory';
 import { ProjectsPage } from './projects';
-import { SummaryPage } from '../summary/summary';
 
 @Component({
   selector: 'page-edit-project',

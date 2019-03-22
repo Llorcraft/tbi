@@ -38,7 +38,7 @@ export class Project extends ModelWithPicture {
   public price_delta: number = 1;
   public people: People = new People();
   public co2?: number = null;
-  public currency: string = "EUR"
+  public currency: string = "€"
   public currency_index: number = 1;
   public co2_index: number = 0;
 
@@ -49,7 +49,7 @@ export class Project extends ModelWithPicture {
     this.desc = project.desc || '';
     this.date = project.date || new Date();
     this.user = project.user || '';
-    this.currency = project.currency || "EUR";
+    this.currency = project.currency || "€";
     this.price = Number(project.price) || null;
     this.price_delta = Number(project.price_delta) || 1;
     this.documents = (project.documents || []).map(d => new Document(d));

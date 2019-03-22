@@ -243,6 +243,7 @@ export class FileDeviceService extends FileService {
     }
 
     private after_check_pdf(base64: string, filename: string): Promise<string> {
+        filename = `${filename}-${(new Date()).toLocaleString().replace(/(\/| |:)/g, '')}`;
         return new Promise<string>((resolve, reject) => {
             this.file.writeFile(`${this.working_folder}temp`,
                 `${filename}.pdf`,

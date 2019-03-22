@@ -29,7 +29,7 @@ webpackJsonp([0],[
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "d", function() { return __WEBPACK_IMPORTED_MODULE_4__messages_service__["a"]; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__licences_service__ = __webpack_require__(103);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return __WEBPACK_IMPORTED_MODULE_5__licences_service__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__picture_service__ = __webpack_require__(302);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__picture_service__ = __webpack_require__(301);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "e", function() { return __WEBPACK_IMPORTED_MODULE_6__picture_service__["a"]; });
 
 
@@ -96,19 +96,19 @@ var MessageService = /** @class */ (function () {
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return __WEBPACK_IMPORTED_MODULE_0__report_condensation_class__["a"]; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__report_damaged_class__ = __webpack_require__(503);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return __WEBPACK_IMPORTED_MODULE_1__report_damaged_class__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__report_ipipe_class__ = __webpack_require__(305);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__report_ipipe_class__ = __webpack_require__(304);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "e", function() { return __WEBPACK_IMPORTED_MODULE_2__report_ipipe_class__["a"]; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__report_isurface_class__ = __webpack_require__(504);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "f", function() { return __WEBPACK_IMPORTED_MODULE_3__report_isurface_class__["a"]; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__report_valve_class__ = __webpack_require__(505);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "i", function() { return __WEBPACK_IMPORTED_MODULE_4__report_valve_class__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__report_pipe_class__ = __webpack_require__(306);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__report_pipe_class__ = __webpack_require__(305);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "g", function() { return __WEBPACK_IMPORTED_MODULE_5__report_pipe_class__["a"]; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__report_flange_class__ = __webpack_require__(506);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "d", function() { return __WEBPACK_IMPORTED_MODULE_6__report_flange_class__["a"]; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__report_surface_class__ = __webpack_require__(507);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "h", function() { return __WEBPACK_IMPORTED_MODULE_7__report_surface_class__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__base_report_page_class__ = __webpack_require__(307);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__base_report_page_class__ = __webpack_require__(306);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return __WEBPACK_IMPORTED_MODULE_8__base_report_page_class__["a"]; });
 
 
@@ -1184,12 +1184,20 @@ var ProjectsPage = /** @class */ (function (_super) {
     };
     ProjectsPage = ProjectsPage_1 = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_2__angular_core__["n" /* Component */])({
-            selector: 'page-project',template:/*ion-inline-start:"D:\Sofware Factory\tbi\src\pages\projects\projects.html"*/'<ion-header>\n\n  <ion-navbar hideBackButton>\n\n    <ion-title>Project list</ion-title>\n\n    <ion-buttons end>\n\n      <button ion-button  icon-only small color="light" on-tap="create()">\n\n        <ion-icon name="md-add-circle"></ion-icon>\n\n      </button>\n\n    </ion-buttons>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content>\n\n  <ion-grid projects hidden-xs style="margin: -1rem 0">\n\n    <ion-row class="row">\n\n      <ion-col col-1>\n\n      </ion-col>\n\n      <ion-col col-0 col-sm-2>\n\n      </ion-col>\n\n      <ion-col class="col col-12 col-sm-10">\n\n        <ion-row col-sm-12>\n\n          <ion-col class="col" col-12>\n\n            <h1 no-margin no-padding></h1>\n\n          </ion-col>\n\n          <ion-col col-12 col-sm-8 no-padding>\n\n          </ion-col>\n\n          <ion-col class="flex bg-gray" col-2 col-sm-1 type-report svg="insulation">\n\n          </ion-col>\n\n          <ion-col class="flex" col-2 col-sm-1 type-report svg="safety">\n\n          </ion-col>\n\n          <ion-col class="flex bg-gray" col-2 col-sm-1 type-report svg="maintenance">\n\n          </ion-col>\n\n          <ion-col class="flex" col-2 col-sm-1 type-report svg="custom">\n\n          </ion-col>\n\n        </ion-row>\n\n      </ion-col>\n\n    </ion-row>\n\n  </ion-grid>\n\n  <ion-grid projects class="projects" col-12>\n\n    <ion-row *ngFor="let p of projects">\n\n      <ion-col col-1 text-right class="flex vertical-middle">\n\n        <ion-icon style="font-size: 2rem; margin: auto" (click)="ask_for_action(p, $event)" slot="icon-only" name="md-more"></ion-icon>\n\n      </ion-col>\n\n      <ion-col col-0 col-sm-2 hidden-xs id="project-{{p.id}}" (click)="navigate_to_reports(p)">\n\n        <img [src]="p.picture">\n\n      </ion-col>\n\n      <ion-col class="transition-width" [ngClass]="{\'col-12 col-sm-10\': !editing_mode, \'col-11 col-sm-9\': editing_mode}">\n\n        <ion-row col-sm-12>\n\n          <ion-col col-12 no-padding (tap)="navigate_to_reports(p)">\n\n            <h1 no-margin no-padding>{{p.name}}</h1>\n\n          </ion-col>\n\n          <ion-col col-12 col-sm-8 no-padding (click)="navigate_to_reports(p)">\n\n            <h5 no-margin no-padding>Energy price: {{p.price}} {{p.currency}}/{{p.measure}}</h5>\n\n            <h5 no-margin no-padding>CO<sub>2</sub> emissions: {{p.co2}} grCO<sub>2</sub>/{{p.m_measure}}</h5>\n\n            \n\n          </ion-col>\n\n          <ion-col hidden-xs col-2 col-sm-1 class="flex bg-gray">\n\n            <h4 no-margin>{{get_by_type(p, \'pipe|surface|flange|valve\').length}}</h4>\n\n          </ion-col>\n\n          <ion-col hidden-xs col-2 col-sm-1 class="flex">\n\n            <h4 no-margin>{{get_by_type(p, \'safety\').length}}</h4>\n\n          </ion-col>\n\n          <ion-col hidden-xs col-2 col-sm-1 class="flex bg-gray">\n\n            <h4 no-margin>{{get_by_type(p, \'maintenance\').length}}</h4>\n\n          </ion-col>\n\n          <ion-col hidden-xs col-2 col-sm-1 class="flex">\n\n            <h4 no-margin>{{get_by_type(p, \'custom\').length}}</h4>\n\n          </ion-col>\n\n        </ion-row>\n\n      </ion-col>\n\n    </ion-row>\n\n  </ion-grid>\n\n  <div license-alert *ngIf="1==2 && licences.type==\'BASIC\'"  col-10 offset-1>\n\n    <ion-grid no-padding>\n\n      <ion-row no-padding>\n\n        <ion-col col-12 no-padding>\n\n          La versión BASIC solo le permite crear 5 componentes, contrate la versión PRO o ENTERPRISE y disfrute de\n\n          todas sus ventajas.\n\n        </ion-col>\n\n        <ion-col col-4 offset-8 text-right>\n\n          <button ion-button small round color="light" outline>Upgrade NOW</button>\n\n        </ion-col>\n\n      </ion-row>\n\n    </ion-grid>\n\n  </div>\n\n</ion-content>\n\n\n\n<ion-footer>\n\n  <ion-grid>\n\n    <ion-row>\n\n      <ion-col col-4 text-left>\n\n        <button *ngIf="licences.type==\'PRO\' || 1==1" ion-button small col-12 color="light" (click)="create_db()">\n\n          <ion-icon visible-xs name="cloud-download"></ion-icon>\n\n          <span hidden-xs>Download data</span>\n\n        </button>\n\n      </ion-col>\n\n      <ion-col col-4 text-center>\n\n        <tools></tools>\n\n      </ion-col>\n\n      <ion-col col-4 text-right>\n\n        <button *ngIf="licences.type!=\'PRO\'" ion-button small color="royal" (click)="go_next()">\n\n          <ion-icon visible-xs name="arrow-forward">\n\n          </ion-icon><span hidden-xs>Next</span>\n\n        </button>\n\n      </ion-col>\n\n    </ion-row>\n\n  </ion-grid>\n\n</ion-footer>\n\n'/*ion-inline-end:"D:\Sofware Factory\tbi\src\pages\projects\projects.html"*/
+            selector: 'page-project',template:/*ion-inline-start:"D:\Sofware Factory\tbi\src\pages\projects\projects.html"*/'<ion-header>\n\n  <ion-navbar hideBackButton>\n\n    <ion-title>Project list</ion-title>\n\n    <ion-buttons end>\n\n      <button ion-button  icon-only small color="light" on-tap="create()">\n\n        <ion-icon name="md-add-circle"></ion-icon>\n\n      </button>\n\n    </ion-buttons>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content>\n\n  <ion-grid projects hidden-xs style="margin: -1rem 0">\n\n    <ion-row class="row">\n\n      <ion-col col-1>\n\n      </ion-col>\n\n      <ion-col col-0 col-sm-2>\n\n      </ion-col>\n\n      <ion-col class="col col-12 col-sm-10">\n\n        <ion-row col-sm-12>\n\n          <ion-col class="col" col-12>\n\n            <h1 no-margin no-padding></h1>\n\n          </ion-col>\n\n          <ion-col col-12 col-sm-8 no-padding>\n\n          </ion-col>\n\n          <ion-col class="flex bg-gray" col-2 col-sm-1 type-report svg="insulation">\n\n          </ion-col>\n\n          <ion-col class="flex" col-2 col-sm-1 type-report svg="safety">\n\n          </ion-col>\n\n          <ion-col class="flex bg-gray" col-2 col-sm-1 type-report svg="maintenance">\n\n          </ion-col>\n\n          <ion-col class="flex" col-2 col-sm-1 type-report svg="custom">\n\n          </ion-col>\n\n        </ion-row>\n\n      </ion-col>\n\n    </ion-row>\n\n  </ion-grid>\n\n  <ion-grid projects class="projects" col-12>\n\n    <ion-row *ngFor="let p of projects">\n\n      <ion-col col-1 text-right class="flex vertical-middle">\n\n        <ion-icon style="font-size: 2rem; margin: auto" (click)="ask_for_action(p, $event)" slot="icon-only" name="md-more"></ion-icon>\n\n      </ion-col>\n\n      <ion-col col-0 col-sm-2 hidden-xs id="project-{{p.id}}" (click)="navigate_to_reports(p)">\n\n        <img [src]="p.picture">\n\n      </ion-col>\n\n      <ion-col class="transition-width" [ngClass]="{\'col-12 col-sm-10\': !editing_mode, \'col-11 col-sm-9\': editing_mode}">\n\n        <ion-row col-sm-12>\n\n          <ion-col col-12 no-padding (tap)="navigate_to_reports(p)">\n\n            <h1 no-margin no-padding>{{p.name}}</h1>\n\n          </ion-col>\n\n          <ion-col col-12 col-sm-8 no-padding (click)="navigate_to_reports(p)">\n\n            <h5 no-margin no-padding>Energy price: {{p.price}} {{p.currency}}/{{p.measure}}</h5>\n\n            <h5 no-margin no-padding>CO<sub>2</sub> emissions: {{p.co2}} grCO<sub>2</sub>/{{p.m_measure}}</h5>\n\n            \n\n          </ion-col>\n\n          <ion-col hidden-xs col-2 col-sm-1 class="flex bg-gray">\n\n            <h4 no-margin>{{get_by_type(p, \'pipe|surface|flange|valve\').length}}</h4>\n\n          </ion-col>\n\n          <ion-col hidden-xs col-2 col-sm-1 class="flex">\n\n            <h4 no-margin>{{get_by_type(p, \'safety\').length}}</h4>\n\n          </ion-col>\n\n          <ion-col hidden-xs col-2 col-sm-1 class="flex bg-gray">\n\n            <h4 no-margin>{{get_by_type(p, \'maintenance\').length}}</h4>\n\n          </ion-col>\n\n          <ion-col hidden-xs col-2 col-sm-1 class="flex">\n\n            <h4 no-margin>{{get_by_type(p, \'custom\').length}}</h4>\n\n          </ion-col>\n\n        </ion-row>\n\n      </ion-col>\n\n    </ion-row>\n\n  </ion-grid>\n\n  <div license-alert *ngIf="1==2 && licences.type==\'BASIC\'"  col-10 offset-1>\n\n    <ion-grid no-padding>\n\n      <ion-row no-padding>\n\n        <ion-col col-12 no-padding>\n\n          La versión BASIC solo le permite crear 5 componentes, contrate la versión PRO o ENTERPRISE y disfrute de\n\n          todas sus ventajas.\n\n        </ion-col>\n\n        <ion-col col-4 offset-8 text-right>\n\n          <button ion-button small round color="light" outline>Upgrade NOW</button>\n\n        </ion-col>\n\n      </ion-row>\n\n    </ion-grid>\n\n  </div>\n\n</ion-content>\n\n\n\n<ion-footer>\n\n  <ion-grid>\n\n    <ion-row>\n\n      <ion-col col-4 text-left>\n\n        <button *ngIf="licences.type==\'PRO\' || 1==1" ion-button small color="light" (click)="create_db()">\n\n          <ion-icon visible-xs name="cloud-download"></ion-icon>\n\n          <span hidden-xs>Download data</span>\n\n        </button>\n\n      </ion-col>\n\n      <ion-col col-4 text-center>\n\n        <tools></tools>\n\n      </ion-col>\n\n      <ion-col col-4 text-right>\n\n        <button *ngIf="licences.type!=\'PRO\'" ion-button small color="royal" (click)="go_next()">\n\n          <ion-icon visible-xs name="arrow-forward">\n\n          </ion-icon><span hidden-xs>Next</span>\n\n        </button>\n\n      </ion-col>\n\n    </ion-row>\n\n  </ion-grid>\n\n</ion-footer>\n\n'/*ion-inline-end:"D:\Sofware Factory\tbi\src\pages\projects\projects.html"*/
         }),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["i" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["i" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["j" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["j" /* NavParams */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1__services_project_service__["a" /* ProjectService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__services_project_service__["a" /* ProjectService */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["k" /* Platform */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["k" /* Platform */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["b" /* AlertController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["b" /* AlertController */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["a" /* ActionSheetController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["a" /* ActionSheetController */]) === "function" && _f || Object, typeof (_g = typeof __WEBPACK_IMPORTED_MODULE_8__services_licences_service__["a" /* LicencesService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_8__services_licences_service__["a" /* LicencesService */]) === "function" && _g || Object, typeof (_h = typeof __WEBPACK_IMPORTED_MODULE_7__ionic_native_unique_device_id__["a" /* UniqueDeviceID */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_7__ionic_native_unique_device_id__["a" /* UniqueDeviceID */]) === "function" && _h || Object, typeof (_j = typeof __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["f" /* Keyboard */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["f" /* Keyboard */]) === "function" && _j || Object])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_3_ionic_angular__["i" /* NavController */],
+            __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["j" /* NavParams */],
+            __WEBPACK_IMPORTED_MODULE_1__services_project_service__["a" /* ProjectService */],
+            __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["k" /* Platform */],
+            __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["b" /* AlertController */],
+            __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["a" /* ActionSheetController */],
+            __WEBPACK_IMPORTED_MODULE_8__services_licences_service__["a" /* LicencesService */],
+            __WEBPACK_IMPORTED_MODULE_7__ionic_native_unique_device_id__["a" /* UniqueDeviceID */],
+            __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["f" /* Keyboard */]])
     ], ProjectsPage);
     return ProjectsPage;
-    var ProjectsPage_1, _a, _b, _c, _d, _e, _f, _g, _h, _j;
+    var ProjectsPage_1;
 }(__WEBPACK_IMPORTED_MODULE_4__project_page_base__["a" /* ProjectPageBase */]));
 
 //# sourceMappingURL=projects.js.map
@@ -1461,7 +1469,7 @@ var Result = /** @class */ (function () {
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Picture; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__marker__ = __webpack_require__(77);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__model_with_picture__ = __webpack_require__(300);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__model_with_picture__ = __webpack_require__(299);
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = Object.setPrototypeOf ||
         ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
@@ -1665,8 +1673,8 @@ var LicencesService = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(5);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__models__ = __webpack_require__(46);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__services_project_service__ = __webpack_require__(53);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__summary_edit__ = __webpack_require__(309);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__models_report_router__ = __webpack_require__(184);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__summary_edit__ = __webpack_require__(308);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__models_report_router__ = __webpack_require__(309);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__reports__ = __webpack_require__(21);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__models_component__ = __webpack_require__(79);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__progress_kendo_angular_pdf_export__ = __webpack_require__(311);
@@ -2021,7 +2029,7 @@ var SummaryPage = /** @class */ (function () {
             buttons: [
                 {
                     text: 'Change user',
-                    icon: 'person',
+                    //icon: 'person',
                     handler: function () {
                         _this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_14__init_init__["a" /* InitPage */]);
                     }
@@ -2218,7 +2226,7 @@ var SummaryPage = /** @class */ (function () {
     ], SummaryPage.prototype, "content", void 0);
     SummaryPage = SummaryPage_1 = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-            selector: 'page-summary',template:/*ion-inline-start:"D:\Sofware Factory\tbi\src\pages\summary\summary.html"*/'<ion-header>\n\n  <ion-toolbar>\n\n    <ion-title>Summary - {{project?.name}}</ion-title>\n\n    <ion-buttons end>\n\n      <button ion-button on-tap="export_pdf()">\n\n        <ion-icon name="document-pdf"></ion-icon><span hidden-xs>&nbsp;PDF</span>\n\n      </button>\n\n    </ion-buttons>\n\n  </ion-toolbar>\n\n</ion-header>\n\n\n\n<ion-content [ngClass]="{\'creating-pdf\': creating_pdf}">\n\n  <div class="hide-pdf"></div>\n\n  <kendo-pdf-export #pdf paperSize="A4" margin=".5cm" [scale]="0.5" landscape="true" forcePageBreak=".page-break">\n\n    <div class="table-container">\n\n      <table class="data">\n\n        <colgroup>\n\n          <col style="width: 50px">\n\n          <col style="width: 100px">\n\n          <col style="width: 50px">\n\n          <col style="width: 50px">\n\n          <col style="width: 50px">\n\n          <col style="width: 10px">\n\n          <col style="width: 50px">\n\n          <col style="width: 50px">\n\n          <col style="width: 10px">\n\n          <col style="width: 100px">\n\n          <col style="width: 100px">\n\n          <col style="width: 100px">\n\n          <col style="width: 80px">\n\n          <col style="width: 50px">\n\n          <col style="width: 50px">\n\n          <col style="width: 10px">\n\n          <col style="width: 30px">\n\n          <col style="width: 30px">\n\n          <col style="width: 30px">\n\n          <col style="width: 30px">\n\n          <col style="width: 30px">\n\n        </colgroup>\n\n        <thead>\n\n          <tr>\n\n            <th colspan="2"></th>\n\n            <th colspan="6" style="border: 2px solid #fff; color:#fff; border-width: 0 2px 4px 0; background-color: rgb(112,173,71)">Energy\n\n              & CO2 analysis per year</th>\n\n            <th rowspan="2"></th>\n\n            <th rowspan="2" style="background-color: rgb(48,84,150); border: 2px solid #fff; color:#fff; border-width: 0 2px 4px 2px">\n\n              <!-- <span svg="safety"></span> -->\n\n              Safety</th>\n\n            <th rowspan="2" style="background-color: rgb(48,84,150); border: 2px solid #fff; color:#fff; border-width: 0 2px 4px 2px">\n\n              <!-- <span svg="maintenance"></span> -->\n\n              Maintenance</th>\n\n            <th rowspan="2" style="background-color: rgb(48,84,150); border: 2px solid #fff; color:#fff; border-width: 0 2px 4px 2px">\n\n              <!-- <span svg="custom"></span> -->\n\n              Others</th>\n\n            <th rowspan="2" style="background-color: rgb(48,84,150); border: 2px solid #fff; color:#fff; border-width: 0 2px 4px 2px">TBI Advice</th>\n\n            <th rowspan="2" colspan="2" style="background-color: rgb(48,84,150); border: 2px solid #fff; color:#fff; border-width: 0 2px 4px 2px">Validation</th>\n\n            <th rowspan="2"></th>\n\n            <th colspan="5" style="background-color: rgb(48,84,150); border: 2px solid #fff; color:#fff; border-width: 0 0 4px 2px">Input</th>\n\n          </tr>\n\n          <tr>\n\n            <th colspan="2">Component / Location</th>\n\n            <th colspan="2" style="background-color:rgb(217,217,217); border: 2px solid #fff; border-width: 0 2px 4px 0">Current\n\n              Losses<br>& Emissions</th>\n\n            <th colspan="4" style="background-color:rgb(217,217,217); border: 2px solid #fff; border-width: 0 2px 4px 2px">Potential<br>savings\n\n              year</th>\n\n            <th class="vertical">\n\n              <div><span one-line>Insulated</span></div>\n\n            </th>\n\n            <th class="vertical">\n\n              <div><span one-line>Surface (m<sup>2</sup>)</span></div>\n\n            </th>\n\n            <th class="vertical">\n\n              <div><span one-line>Diameter</span></div>\n\n            </th>\n\n            <th class="vertical">\n\n              <div><span one-line>Length</span></div>\n\n            </th>\n\n            <th class="vertical">\n\n              <div><span one-line>Items number</span></div>\n\n            </th>\n\n          </tr>\n\n        </thead>\n\n        <tbody *ngFor="let c of components; let i=index">\n\n          <tr [class.disabled]="c.fields.unknow_surface">\n\n            <td rowspan="3" (click)="actions(c, $event)" double-border text-center style="white-space: nowrap; padding-right: 1rem">\n\n              <ion-icon slot="icon-only" name="md-more" style="margin: 0 .25rem 0; float: left"></ion-icon>\n\n              {{i+1}}-\n\n            </td>\n\n            <td rowspan="3" on-tap="edit(c)" double-border>{{ellipsis(c.fields.location)}}</td>\n\n            <td [class.gray-text]="!!c.result && c.fields.unknow_surface" *ngIf="!!c.result" text-right>{{c.result.headLost.power\n\n              / 1000 | number: \'1.2-2\'}}</td>\n\n            <td [class.gray-text]="!!c.result && c.fields.unknow_surface" *ngIf="!!c.result">{{project.s_measure}}<span *ngIf="c.fields.unknow_surface">/m<sup>2</sup></span></td>\n\n            <td [class.gray-text]="!!c.result && c.fields.unknow_surface" *ngIf="!!c.result" text-right>{{c.result.savingPotentialMin?.power\n\n              / 1000 | number: \'1.2-2\'}}</td>\n\n            <td [class.gray-text]="!!c.result && c.fields.unknow_surface" *ngIf="!!c.result" text-center class="p-0"\n\n              style="padding: 0; white-space: nowrap">\n\n              <!-- <ion-icon name="md-arrow-forward"></ion-icon> -->\n\n              --\n\n            </td>\n\n            <td [class.gray-text]="!!c.result && c.fields.unknow_surface" *ngIf="!!c.result" text-left>{{c.result.savingPotentialMax?.power\n\n              / 1000 | number: \'1.2-2\'}}</td>\n\n            <td [class.gray-text]="!!c.result && c.fields.unknow_surface" *ngIf="!!c.result" class="mesure">{{project.s_measure}}<span\n\n                *ngIf="c.fields.unknow_surface">/m<sup>2</sup></span></td>\n\n            <td *ngIf="!c.result" colspan="2" double-border rowspan="3"></td>\n\n            <td *ngIf="!c.result" colspan="4" double-border rowspan="3"></td>\n\n            <td rowspan="3"></td>\n\n            <td rowspan="3" style="background: rgb(180,198,231)" double-border text-center>\n\n              <ng-container *ngFor="let r of c.reports_by_type(\'safety|hot\')">\n\n                <a href="#" (click)="open(r, $event)" *ngIf="!r.component.is_hot">{{r.summary_id}}</a>\n\n                <a href="#" (click)="open(r, $event)" *ngIf="!!r.component.is_hot">Hot surface</a>\n\n              </ng-container>\n\n              <ion-icon name="md-add-circle" (click)="add_report(\'safety\', c, $event)"></ion-icon>\n\n            </td>\n\n            <td rowspan="3" style="background: rgb(217,225,242)" double-border text-center>\n\n              <a href="#" (click)="open(r, $event)" *ngFor="let r of c.reports_by_type(\'maintenance|condensation|damaged\')">{{r.summary_id}}</a>\n\n              <ion-icon name="md-add-circle" (click)="add_report(\'maintenance\',c , $event)"></ion-icon>\n\n            </td>\n\n            <td rowspan="3" style="background: rgb(231,235,247)" double-border text-center>\n\n              <a href="#" (click)="open(r, $event)" *ngFor="let r of c.reports_by_type(\'generic|custom\')">{{r.summary_id}}</a>\n\n              <a href="#" (click)="edit(c, $event)" *ngIf="!!c.fields.space_warning"><strong style="white-space: nowrap">No\n\n                  Space</strong></a>\n\n              <ion-icon name="md-add-circle" (click)="add_report(\'maintenance\', c, $event)"></ion-icon>\n\n            </td>\n\n            <td rowspan="3" *ngIf="!!c.result" double-border text-center>\n\n              <ng-container [ngSwitch]="advises.get(c.result.advise)">\n\n                <!-- <span advise-picture *ngSwitchCase="\'Recommended\'" svg="insulation"></span> -->\n\n                <span advise-picture *ngSwitchCase="\'Recommended\'"><img src="{{images.INSULATION}}"></span>\n\n                <span advise-picture *ngSwitchCase="\'Maintenance\'"><img src="{{images.MECHANICAL}}"></span>\n\n                <span advise-picture *ngSwitchCase="\'Unknow surface\'"><img src="{{images.SURFACE}}"></span>\n\n                <span advise-picture *ngSwitchCase="\'OK\'"><img src="{{images.LIKE}}"></span>\n\n                <span advise-picture *ngSwitchCase="\'SAVINGS-achieved\'"><img src="{{images.INCREASE}}"></span>\n\n              </ng-container>\n\n            </td>\n\n            <td double-border rowspan="3" *ngIf="!c.validationReport" style="background: #fff"></td>\n\n            <td double-border rowspan="3" *ngIf="!c.validationReport" style="background: #fff"></td>\n\n            <td *ngIf="!!c.validationReport" on-tap="edit_validation(c)" text-right>{{c.validationReport.reports[0].result.headLost.power\n\n              / 1000 | number: \'1.2-2\'}}</td>\n\n            <td *ngIf="!!c.validationReport" on-tap="edit_validation(c)" class="measure">{{project.s_measure}}</td>\n\n            <td rowspan="3"></td>\n\n            <td rowspan="3" *ngIf="!c.result" double-border text-center></td>\n\n            <td rowspan="3" double-border text-center>{{!!c.insulated ? \'Y\' : \'N\'}}</td>\n\n            <td *ngIf="null!=c.fields.surface_temp" rowspan="3" double-border text-center>{{c.fields.surface}}</td>\n\n            <td *ngIf="null==c.fields.surface_temp" rowspan="3" double-border text-center>&nbsp;</td>\n\n            <td rowspan="3" double-border text-center>\n\n              <!-- <span *ngIf="!!c.surface">{{c.fields.surface}} m<sup>2</sup></span> -->\n\n              <span>{{c.fields.main_dimension || c.fields.nominal_diameter}}</span>\n\n            </td>\n\n            <td rowspan="3" double-border text-center>{{c.fields.length}}</td>\n\n            <td rowspan="3" double-border text-center>{{c.fields.number}}</td>\n\n          </tr>\n\n\n\n          <tr [class.gray-text]="!!c.result && c.fields.unknow_surface" *ngIf="!!c.result" [class.disabled]="c.fields.unknow_surface">\n\n            <td text-right>{{c.result.headLost?.money | number: \'1.0-0\'}}</td>\n\n            <td class="mesure">{{project.currency}}<span *ngIf="c.fields.unknow_surface">/m<sup>2</sup></span></td>\n\n            <td text-right>{{c.result.savingPotentialMin?.money | number: \'1.0-0\'}}</td>\n\n            <td text-center class="p-0" style="padding: 0; white-space: nowrap;">--</td>\n\n            <td text-left>{{c.result.savingPotentialMax?.money | number: \'1.0-0\'}}</td>\n\n            <td class="mesure">{{project.currency}}<span *ngIf="c.fields.unknow_surface">/m<sup>2</sup></span></td>\n\n            <td *ngIf="!!c.validationReport" on-tap="edit_validation(c)" text-right>{{c.validationReport.reports[0].result.headLost?.money\n\n              | number: \'1.0-0\'}}</td>\n\n            <td *ngIf="!!c.validationReport" on-tap="edit_validation(c)" class="measure">{{project.currency}}</td>\n\n          </tr>\n\n\n\n          <tr [class.gray-text]="!!c.result && c.fields.unknow_surface" *ngIf="!!c.result" [class.disabled]="c.fields.unknow_surface">\n\n            <td double-border text-right>{{c.result.co2[0] | number: \'1.2-2\'}}</td>\n\n            <td double-border class="mesure">tn CO<sub>2</sub><span *ngIf="c.fields.unknow_surface">/m<sup>2</sup></span></td>\n\n            <td double-border text-right>{{c.result.co2[0] - c.result.co2[1] | number: \'1.2-2\'}}</td>\n\n            <td double-border text-center class="p-0" style="padding: 0; white-space: nowrap;">--</td>\n\n            <td double-border text-left>{{c.result.co2[0] - c.result.co2[2] | number: \'1.2-2\'}}</td>\n\n            <td double-border class="mesure">tn CO<sub>2</sub><span *ngIf="c.fields.unknow_surface">/m<sup>2</sup></span></td>\n\n            <td *ngIf="!!c.validationReport" on-tap="edit_validation(c)" double-border text-right>{{c.validationReport.reports[0].result.co2[0]\n\n              | number: \'1.2-2\'}}</td>\n\n            <td *ngIf="!!c.validationReport" on-tap="edit_validation(c)" double-border class="mesure">tn CO<sub>2</sub></td>\n\n          </tr>\n\n\n\n\n\n        </tbody>\n\n        <tfoot *ngIf="!!components.length && !!report_result">\n\n          <tr>\n\n            <td rowspan="3" colspan="2" double-border text-right>\n\n              TOTAL PROJECT\n\n              <small style="display: block;">(Rounded figures)</small>\n\n            </td>\n\n            <td text-right>{{(totals.headLost.power / 1000) | number: \'1.2-2\'}}</td>\n\n            <td>{{project.s_measure}}</td>\n\n            <td text-right>{{totals.savingPotentialMin?.power / 1000 | number: \'1.2-2\'}}</td>\n\n            <td text-center class="p-0" style="padding: 0; white-space: nowrap">--</td>\n\n            <td text-left>{{totals.savingPotentialMax?.power / 1000 | number: \'1.2-2\'}}</td>\n\n            <td class="mesure">{{project.s_measure}}</td>\n\n            <td rowspan="3"></td>\n\n            <td double-border colspan="6" rowspan="3">\n\n              <ion-grid>\n\n                <ion-row class="legend">\n\n                  <ion-col no-padding col-6><span advise-picture><img src="{{images.INSULATION}}"></span>Insulation recommended</ion-col>\n\n                  <ion-col no-padding col-6><span advise-picture><img src="{{images.MECHANICAL}}"></span>Maintenance</ion-col>\n\n                  <ion-col no-padding col-6><span advise-picture><img src="{{images.SURFACE}}"></span>Surface unknown</ion-col>\n\n                  <ion-col no-padding col-6><span advise-picture><img src="{{images.LIKE}}"></span>System OK</ion-col>\n\n                  <ion-col no-padding col-12><span advise-picture><img src="{{images.INCREASE}}"></span>Increase performance or thickness</ion-col>\n\n              </ion-row>\n\n              </ion-grid>\n\n            </td>\n\n            <td rowspan="3"></td>\n\n            <td double-border rowspan="3" colspan="5"></td>\n\n          </tr>\n\n\n\n          <tr>\n\n            <td text-right>{{report_result.bars.current.losses[1] | number: \'1.0-0\'}}</td>\n\n            <td class="mesure">{{project.currency}}</td>\n\n            <td text-right>{{report_result.bars.basic.savings[1] | number: \'1.0-0\'}}</td>\n\n            <td text-center class="p-0" style="padding: 0; white-space: nowrap;">--</td>\n\n            <td text-left>{{report_result.bars.economical.savings[1] | number: \'1.0-0\'}}</td>\n\n            <td class="mesure">{{project.currency}}</td>\n\n          </tr>\n\n\n\n          <tr>\n\n            <td double-border text-right>{{totals.co2[0] | number: \'1.2-2\'}}</td>\n\n            <td double-border class="mesure">tn CO<sub>2</sub></td>\n\n            <td double-border text-right>{{totals.co2[0] - totals.co2[1] | number: \'1.2-2\'}}</td>\n\n            <td double-border text-center class="p-0" style="padding: 0; white-space: nowrap;">--</td>\n\n            <td double-border text-left>{{totals.co2[0] - totals.co2[2] | number: \'1.2-2\'}}</td>\n\n            <td double-border class="mesure">tn CO<sub>2</sub></td>\n\n          </tr>\n\n        </tfoot>\n\n      </table>\n\n    </div>\n\n\n\n    <div no-padding class="chart text-center" style="padding: 1rem 0" [ngClass]="{\'page-break\': 1 == 1}">\n\n      <div report-result #report_result *ngIf="!!report && !!totals.headLost.power" [parent]="this" [currency]="project.currency" [show_advise]="false"></div>\n\n    </div>\n\n\n\n    <ng-template kendoPDFTemplate >\n\n      <div class="page-template">\n\n        <div class="header">\n\n            <ion-grid class="header" style="border-bottom: 2px solid rgb(48,84,150)">\n\n                <ion-row>\n\n                  <ion-col col-3>\n\n\n\n                  </ion-col>\n\n                  <ion-col col-6>\n\n                    <h3 col-12 text-center class="tickcheck">\n\n                      <span>TICKCHECK Based inspection</span>\n\n                      <img src="{{images.TBI}}">\n\n                    </h3>\n\n                  </ion-col>\n\n                  <ion-col col-3 class="engineer">\n\n                      <strong>Insulation expert (TICKCHECK engineer)</strong>\n\n                      <span>Luis Lopez Bunner</span>\n\n                      <a href="mailto:luis.lopez@eiig.org">\n\n                        <ion-icon name="mail"></ion-icon>luis.lopez@eiig.org\n\n                      </a>\n\n                      <a href="phone:+32499219797">\n\n                        <ion-icon name="call"></ion-icon>+32499219797\n\n                      </a>\n\n                    </ion-col>\n\n                </ion-row>\n\n            </ion-grid>\n\n        </div>\n\n        <div class="footer">\n\n            <ion-grid class="footer" style="border-top: 1px solid #ccc">\n\n                <ion-row>\n\n                    <ion-col col-12>\n\n                        <b>Disclaimer:</b> Tbi is a reporting tool developed by the European Industrial \n\n                        Insulation Fundation to estimate energy losses and potential savings and report \n\n                        about safety, maintenance or any others relevant issues to insulation. Estimations \n\n                        are based on basic heat transfer formulation and inputs provided by \n\n                        the user, assuming some scenarios which that not necessary reflect the real life \n\n                        (wind speed, orientation, ...). EiiF does not warrant any outcome of the tool and \n\n                        shall not be liable for any damage incurred by the user or third party resulting \n\n                        from the use of this reporting tool. Tbi does not provide or recommend any technical \n\n                        solutions or insulation material.\n\n                    </ion-col>\n\n                </ion-row>\n\n            </ion-grid>\n\n        </div>\n\n      </div>\n\n    </ng-template>\n\n\n\n  </kendo-pdf-export>\n\n</ion-content>\n\n\n\n<ion-footer>\n\n  <ion-grid no-padding>\n\n    <ion-row no-padding>\n\n      <ion-col col-4 no-padding>\n\n        <!-- <button ion-button small color="light" (click)="go_to_projects()">\n\n            <ion-icon visible-xs name="arrow-back"></ion-icon>\n\n            <span hidden-xs>Home</span>\n\n        </button> -->\n\n      </ion-col>\n\n      <ion-col col-4 text-center>\n\n        <tools></tools>\n\n      </ion-col>\n\n      <ion-col col-4 text-right>\n\n        <button tabindex="15" ion-button small color="primary" (click)="next_action()">\n\n            <ion-icon visible-xs name="arrow-forward"></ion-icon>\n\n            <span hidden-xs>Next</span>\n\n        </button>\n\n      </ion-col>\n\n    </ion-row>\n\n  </ion-grid>\n\n</ion-footer>\n\n'/*ion-inline-end:"D:\Sofware Factory\tbi\src\pages\summary\summary.html"*/,
+            selector: 'page-summary',template:/*ion-inline-start:"D:\Sofware Factory\tbi\src\pages\summary\summary.html"*/'<ion-header>\n\n  <ion-toolbar>\n\n    <ion-title>Summary - {{project?.name}}</ion-title>\n\n    <ion-buttons end>\n\n      <button ion-button on-tap="export_pdf()">\n\n        <ion-icon name="document-pdf"></ion-icon><span hidden-xs>&nbsp;PDF</span>\n\n      </button>\n\n    </ion-buttons>\n\n  </ion-toolbar>\n\n</ion-header>\n\n\n\n<ion-content [ngClass]="{\'creating-pdf\': creating_pdf}">\n\n  <div class="hide-pdf"></div>\n\n  <kendo-pdf-export #pdf paperSize="A4" margin=".5cm" [scale]="0.5" landscape="true" forcePageBreak=".page-break">\n\n    <div class="table-container">\n\n      <table class="data">\n\n        <colgroup>\n\n          <col style="width: 50px">\n\n          <col style="width: 100px">\n\n          <col style="width: 50px">\n\n          <col style="width: 50px">\n\n          <col style="width: 50px">\n\n          <col style="width: 10px">\n\n          <col style="width: 50px">\n\n          <col style="width: 50px">\n\n          <col style="width: 10px">\n\n          <col style="width: 100px">\n\n          <col style="width: 100px">\n\n          <col style="width: 100px">\n\n          <col style="width: 80px">\n\n          <col style="width: 50px">\n\n          <col style="width: 50px">\n\n          <col style="width: 10px">\n\n          <col style="width: 30px">\n\n          <col style="width: 30px">\n\n          <col style="width: 30px">\n\n          <col style="width: 30px">\n\n          <col style="width: 30px">\n\n        </colgroup>\n\n        <thead>\n\n          <tr>\n\n            <th colspan="2"></th>\n\n            <th colspan="6" style="border: 2px solid #fff; color:#fff; border-width: 0 2px 4px 0; background-color: rgb(112,173,71)">Energy\n\n              & CO2 analysis per year</th>\n\n            <th rowspan="2"></th>\n\n            <th rowspan="2" style="background-color: rgb(48,84,150); border: 2px solid #fff; color:#fff; border-width: 0 2px 4px 2px">\n\n              <!-- <span svg="safety"></span> -->\n\n              Safety</th>\n\n            <th rowspan="2" style="background-color: rgb(48,84,150); border: 2px solid #fff; color:#fff; border-width: 0 2px 4px 2px">\n\n              <!-- <span svg="maintenance"></span> -->\n\n              Maintenance</th>\n\n            <th rowspan="2" style="background-color: rgb(48,84,150); border: 2px solid #fff; color:#fff; border-width: 0 2px 4px 2px">\n\n              <!-- <span svg="custom"></span> -->\n\n              Others</th>\n\n            <th rowspan="2" style="background-color: rgb(48,84,150); border: 2px solid #fff; color:#fff; border-width: 0 2px 4px 2px">TBI Advice</th>\n\n            <th rowspan="2" colspan="2" style="background-color: rgb(48,84,150); border: 2px solid #fff; color:#fff; border-width: 0 2px 4px 2px">Validation</th>\n\n            <th rowspan="2"></th>\n\n            <th colspan="5" style="background-color: rgb(48,84,150); border: 2px solid #fff; color:#fff; border-width: 0 0 4px 2px">Input</th>\n\n          </tr>\n\n          <tr>\n\n            <th colspan="2">Component / Location</th>\n\n            <th colspan="2" style="background-color:rgb(217,217,217); border: 2px solid #fff; border-width: 0 2px 4px 0">Current\n\n              Losses<br>& Emissions</th>\n\n            <th colspan="4" style="background-color:rgb(217,217,217); border: 2px solid #fff; border-width: 0 2px 4px 2px">Potential<br>savings\n\n              year</th>\n\n            <th class="vertical">\n\n              <div><span one-line>Insulated</span></div>\n\n            </th>\n\n            <th class="vertical">\n\n              <div><span one-line>Surface (m<sup>2</sup>)</span></div>\n\n            </th>\n\n            <th class="vertical">\n\n              <div><span one-line>Diameter</span></div>\n\n            </th>\n\n            <th class="vertical">\n\n              <div><span one-line>Length</span></div>\n\n            </th>\n\n            <th class="vertical">\n\n              <div><span one-line>Items number</span></div>\n\n            </th>\n\n          </tr>\n\n        </thead>\n\n        <tbody *ngFor="let c of components; let i=index">\n\n          <tr [class.disabled]="c.fields.unknow_surface">\n\n            <td rowspan="3" (click)="actions(c, $event)" double-border text-center style="white-space: nowrap; padding-right: 1rem">\n\n              <ion-icon slot="icon-only" name="md-more" style="margin: 0 .25rem 0; float: left"></ion-icon>\n\n              {{i+1}}-\n\n            </td>\n\n            <td rowspan="3" on-tap="edit(c)" double-border>{{ellipsis(c.fields.location)}}</td>\n\n            <td [class.gray-text]="!!c.result && c.fields.unknow_surface" *ngIf="!!c.result" text-right>{{c.result.headLost.power\n\n              / 1000 | number: \'1.2-2\'}}</td>\n\n            <td [class.gray-text]="!!c.result && c.fields.unknow_surface" *ngIf="!!c.result">{{project.s_measure}}<span *ngIf="c.fields.unknow_surface">/m<sup>2</sup></span></td>\n\n            <td [class.gray-text]="!!c.result && c.fields.unknow_surface" *ngIf="!!c.result" text-right>{{c.result.savingPotentialMin?.power\n\n              / 1000 | number: \'1.2-2\'}}</td>\n\n            <td [class.gray-text]="!!c.result && c.fields.unknow_surface" *ngIf="!!c.result" text-center class="p-0"\n\n              style="padding: 0; white-space: nowrap">\n\n              <!-- <ion-icon name="md-arrow-forward"></ion-icon> -->\n\n              --\n\n            </td>\n\n            <td [class.gray-text]="!!c.result && c.fields.unknow_surface" *ngIf="!!c.result" text-left>{{c.result.savingPotentialMax?.power\n\n              / 1000 | number: \'1.2-2\'}}</td>\n\n            <td [class.gray-text]="!!c.result && c.fields.unknow_surface" *ngIf="!!c.result" class="mesure">{{project.s_measure}}<span\n\n                *ngIf="c.fields.unknow_surface">/m<sup>2</sup></span></td>\n\n            <td *ngIf="!c.result" colspan="2" double-border rowspan="3"></td>\n\n            <td *ngIf="!c.result" colspan="4" double-border rowspan="3"></td>\n\n            <td rowspan="3"></td>\n\n            <td rowspan="3" style="background: rgb(180,198,231)" double-border text-center>\n\n              <ng-container *ngFor="let r of c.reports_by_type(\'safety|hot\')">\n\n                <a href="#" (click)="open(r, $event)" *ngIf="!r.component.is_hot">{{r.summary_id}}</a>\n\n                <a href="#" (click)="open(r, $event)" *ngIf="!!r.component.is_hot">Hot surface</a>\n\n              </ng-container>\n\n              <ion-icon name="md-add-circle" (click)="add_report(\'safety\', c, $event)"></ion-icon>\n\n            </td>\n\n            <td rowspan="3" style="background: rgb(217,225,242)" double-border text-center>\n\n              <a href="#" (click)="open(r, $event)" *ngFor="let r of c.reports_by_type(\'maintenance|condensation|damaged\')">{{r.summary_id}}</a>\n\n              <ion-icon name="md-add-circle" (click)="add_report(\'maintenance\',c , $event)"></ion-icon>\n\n            </td>\n\n            <td rowspan="3" style="background: rgb(231,235,247)" double-border text-center>\n\n              <a href="#" (click)="open(r, $event)" *ngFor="let r of c.reports_by_type(\'generic|custom\')">{{r.summary_id}}</a>\n\n              <a href="#" (click)="edit(c, $event)" *ngIf="!!c.fields.space_warning"><strong style="white-space: nowrap">No\n\n                  Space</strong></a>\n\n              <ion-icon name="md-add-circle" (click)="add_report(\'maintenance\', c, $event)"></ion-icon>\n\n            </td>\n\n            <td rowspan="3" *ngIf="!!c.result" double-border text-center>\n\n              <ng-container [ngSwitch]="advises.get(c.result.advise)">\n\n                <!-- <span advise-picture *ngSwitchCase="\'Recommended\'" svg="insulation"></span> -->\n\n                <span advise-picture *ngSwitchCase="\'Recommended\'"><img src="{{images.INSULATION}}"></span>\n\n                <span advise-picture *ngSwitchCase="\'Maintenance\'"><img src="{{images.MECHANICAL}}"></span>\n\n                <span advise-picture *ngSwitchCase="\'Unknow surface\'"><img src="{{images.SURFACE}}"></span>\n\n                <span advise-picture *ngSwitchCase="\'OK\'"><img src="{{images.LIKE}}"></span>\n\n                <span advise-picture *ngSwitchCase="\'SAVINGS-achieved\'"><img src="{{images.INCREASE}}"></span>\n\n              </ng-container>\n\n            </td>\n\n            <td double-border rowspan="3" *ngIf="!c.validationReport" style="background: #fff"></td>\n\n            <td double-border rowspan="3" *ngIf="!c.validationReport" style="background: #fff"></td>\n\n            <td *ngIf="!!c.validationReport" on-tap="edit_validation(c)" text-right>{{c.validationReport.reports[0].result.headLost.power\n\n              / 1000 | number: \'1.2-2\'}}</td>\n\n            <td *ngIf="!!c.validationReport" on-tap="edit_validation(c)" class="measure">{{project.s_measure}}</td>\n\n            <td rowspan="3"></td>\n\n            <td rowspan="3" *ngIf="!c.result" double-border text-center></td>\n\n            <td rowspan="3" double-border text-center>{{!!c.insulated ? \'Y\' : \'N\'}}</td>\n\n            <td *ngIf="null!=c.fields.surface_temp" rowspan="3" double-border text-center>{{c.fields.surface}}</td>\n\n            <td *ngIf="null==c.fields.surface_temp" rowspan="3" double-border text-center>&nbsp;</td>\n\n            <td rowspan="3" double-border text-center>\n\n              <!-- <span *ngIf="!!c.surface">{{c.fields.surface}} m<sup>2</sup></span> -->\n\n              <span>{{c.fields.main_dimension || c.fields.nominal_diameter}}</span>\n\n            </td>\n\n            <td rowspan="3" double-border text-center>{{c.fields.length}}</td>\n\n            <td rowspan="3" double-border text-center>{{c.fields.number}}</td>\n\n          </tr>\n\n\n\n          <tr [class.gray-text]="!!c.result && c.fields.unknow_surface" *ngIf="!!c.result" [class.disabled]="c.fields.unknow_surface">\n\n            <td text-right>{{c.result.headLost?.money | number: \'1.0-0\'}}</td>\n\n            <td class="mesure">{{project.currency}}<span *ngIf="c.fields.unknow_surface">/m<sup>2</sup></span></td>\n\n            <td text-right>{{c.result.savingPotentialMin?.money | number: \'1.0-0\'}}</td>\n\n            <td text-center class="p-0" style="padding: 0; white-space: nowrap;">--</td>\n\n            <td text-left>{{c.result.savingPotentialMax?.money | number: \'1.0-0\'}}</td>\n\n            <td class="mesure">{{project.currency}}<span *ngIf="c.fields.unknow_surface">/m<sup>2</sup></span></td>\n\n            <td *ngIf="!!c.validationReport" on-tap="edit_validation(c)" text-right>{{c.validationReport.reports[0].result.headLost?.money\n\n              | number: \'1.0-0\'}}</td>\n\n            <td *ngIf="!!c.validationReport" on-tap="edit_validation(c)" class="measure">{{project.currency}}</td>\n\n          </tr>\n\n\n\n          <tr [class.gray-text]="!!c.result && c.fields.unknow_surface" *ngIf="!!c.result" [class.disabled]="c.fields.unknow_surface">\n\n            <td double-border text-right>{{c.result.co2[0] | number: \'1.2-2\'}}</td>\n\n            <td double-border class="mesure">tn CO<sub>2</sub><span *ngIf="c.fields.unknow_surface">/m<sup>2</sup></span></td>\n\n            <td double-border text-right>{{c.result.co2[0] - c.result.co2[1] | number: \'1.2-2\'}}</td>\n\n            <td double-border text-center class="p-0" style="padding: 0; white-space: nowrap;">--</td>\n\n            <td double-border text-left>{{c.result.co2[0] - c.result.co2[2] | number: \'1.2-2\'}}</td>\n\n            <td double-border class="mesure">tn CO<sub>2</sub><span *ngIf="c.fields.unknow_surface">/m<sup>2</sup></span></td>\n\n            <td *ngIf="!!c.validationReport" on-tap="edit_validation(c)" double-border text-right>{{c.validationReport.reports[0].result.co2[0]\n\n              | number: \'1.2-2\'}}</td>\n\n            <td *ngIf="!!c.validationReport" on-tap="edit_validation(c)" double-border class="mesure">tn CO<sub>2</sub></td>\n\n          </tr>\n\n\n\n\n\n        </tbody>\n\n        <tfoot *ngIf="!!components.length && !!report_result">\n\n          <tr>\n\n            <td rowspan="3" colspan="2" double-border text-right>\n\n              TOTAL PROJECT\n\n              <small style="display: block;">(Rounded figures)</small>\n\n            </td>\n\n            <td text-right>{{(totals.headLost.power / 1000) | number: \'1.2-2\'}}</td>\n\n            <td>{{project.s_measure}}</td>\n\n            <td text-right>{{totals.savingPotentialMin?.power / 1000 | number: \'1.2-2\'}}</td>\n\n            <td text-center class="p-0" style="padding: 0; white-space: nowrap">--</td>\n\n            <td text-left>{{totals.savingPotentialMax?.power / 1000 | number: \'1.2-2\'}}</td>\n\n            <td class="mesure">{{project.s_measure}}</td>\n\n            <td rowspan="3"></td>\n\n            <td double-border colspan="6" rowspan="3">\n\n              <ion-grid>\n\n                <ion-row class="legend">\n\n                  <ion-col no-padding col-6><span advise-picture><img src="{{images.INSULATION}}"></span>Insulation recommended</ion-col>\n\n                  <ion-col no-padding col-6><span advise-picture><img src="{{images.MECHANICAL}}"></span>Maintenance</ion-col>\n\n                  <ion-col no-padding col-6><span advise-picture><img src="{{images.SURFACE}}"></span>Surface unknown</ion-col>\n\n                  <ion-col no-padding col-6><span advise-picture><img src="{{images.LIKE}}"></span>System OK</ion-col>\n\n                  <ion-col no-padding col-12><span advise-picture><img src="{{images.INCREASE}}"></span>Increase performance or thickness</ion-col>\n\n              </ion-row>\n\n              </ion-grid>\n\n            </td>\n\n            <td rowspan="3"></td>\n\n            <td double-border rowspan="3" colspan="5"></td>\n\n          </tr>\n\n\n\n          <tr>\n\n            <td text-right>{{report_result.bars.current.losses[1] | number: \'1.0-0\'}}</td>\n\n            <td class="mesure">{{project.currency}}</td>\n\n            <td text-right>{{report_result.bars.basic.savings[1] | number: \'1.0-0\'}}</td>\n\n            <td text-center class="p-0" style="padding: 0; white-space: nowrap;">--</td>\n\n            <td text-left>{{report_result.bars.economical.savings[1] | number: \'1.0-0\'}}</td>\n\n            <td class="mesure">{{project.currency}}</td>\n\n          </tr>\n\n\n\n          <tr>\n\n            <td double-border text-right>{{totals.co2[0] | number: \'1.2-2\'}}</td>\n\n            <td double-border class="mesure">tn CO<sub>2</sub></td>\n\n            <td double-border text-right>{{totals.co2[0] - totals.co2[1] | number: \'1.2-2\'}}</td>\n\n            <td double-border text-center class="p-0" style="padding: 0; white-space: nowrap;">--</td>\n\n            <td double-border text-left>{{totals.co2[0] - totals.co2[2] | number: \'1.2-2\'}}</td>\n\n            <td double-border class="mesure">tn CO<sub>2</sub></td>\n\n          </tr>\n\n        </tfoot>\n\n      </table>\n\n    </div>\n\n\n\n    <div no-padding class="chart text-center" style="padding: 1rem 0" [ngClass]="{\'page-break\': 1 == 1}">\n\n      <div report-result #report_result *ngIf="!!report && !!totals.headLost.power" [parent]="this" [currency]="project.currency" [show_advise]="false"></div>\n\n    </div>\n\n\n\n    <ng-template kendoPDFTemplate >\n\n      <div class="page-template">\n\n        <div class="header">\n\n            <ion-grid class="header" style="border-bottom: 2px solid rgb(48,84,150)">\n\n                <ion-row>\n\n                  <ion-col col-3>\n\n\n\n                  </ion-col>\n\n                  <ion-col col-6>\n\n                    <h3 col-12 text-center class="tickcheck">\n\n                      <span>TIPCHECK Based inspection</span>\n\n                      <img src="{{images.TBI}}">\n\n                    </h3>\n\n                  </ion-col>\n\n                  <ion-col col-3 class="engineer">\n\n                      <strong>Insulation expert (TIPCHECK engineer)</strong>\n\n                      <span>Luis Lopez Bunner</span>\n\n                      <a href="mailto:luis.lopez@eiig.org">\n\n                        <ion-icon name="mail"></ion-icon>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;luis.lopez@eiig.org\n\n                      </a>\n\n                      <a href="phone:+32499219797">\n\n                        <ion-icon name="call"></ion-icon>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;+32499219797\n\n                      </a>\n\n                    </ion-col>\n\n                </ion-row>\n\n            </ion-grid>\n\n        </div>\n\n        <div class="footer">\n\n            <ion-grid class="footer" style="border-top: 1px solid #ccc">\n\n                <ion-row>\n\n                    <ion-col col-12>\n\n                        <b>Disclaimer:</b> Tbi is a reporting tool developed by the European Industrial \n\n                        Insulation Fundation to estimate energy losses and potential savings and report \n\n                        about safety, maintenance or any others relevant issues to insulation. Estimations \n\n                        are based on basic heat transfer formulation and inputs provided by \n\n                        the user, assuming some scenarios which that not necessary reflect the real life \n\n                        (wind speed, orientation, ...). EiiF does not warrant any outcome of the tool and \n\n                        shall not be liable for any damage incurred by the user or third party resulting \n\n                        from the use of this reporting tool. Tbi does not provide or recommend any technical \n\n                        solutions or insulation material.\n\n                    </ion-col>\n\n                </ion-row>\n\n            </ion-grid>\n\n        </div>\n\n      </div>\n\n    </ng-template>\n\n\n\n  </kendo-pdf-export>\n\n</ion-content>\n\n\n\n<ion-footer>\n\n  <ion-grid no-padding>\n\n    <ion-row no-padding>\n\n      <ion-col col-4 no-padding>\n\n        <!-- <button ion-button small color="light" (click)="go_to_projects()">\n\n            <ion-icon visible-xs name="arrow-back"></ion-icon>\n\n            <span hidden-xs>Home</span>\n\n        </button> -->\n\n      </ion-col>\n\n      <ion-col col-4 text-center>\n\n        <tools></tools>\n\n      </ion-col>\n\n      <ion-col col-4 text-right>\n\n        <button tabindex="15" ion-button small color="primary" (click)="next_action()">\n\n            <ion-icon visible-xs name="arrow-forward"></ion-icon>\n\n            <span hidden-xs>Next</span>\n\n        </button>\n\n      </ion-col>\n\n    </ion-row>\n\n  </ion-grid>\n\n</ion-footer>\n\n'/*ion-inline-end:"D:\Sofware Factory\tbi\src\pages\summary\summary.html"*/,
             changeDetection: __WEBPACK_IMPORTED_MODULE_0__angular_core__["j" /* ChangeDetectionStrategy */].Default
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavParams */],
@@ -2333,11 +2341,20 @@ var InitPage = /** @class */ (function () {
         this.license = license;
         this.cd = cd;
         this.user_name = 'Dev';
-        this.isPro = 0;
+        this.isPro = -1;
         this.code = '';
-        this.isPro = license.type == 'PRO' ? 1 : 0;
+        this.isPro = license.type == 'PRO' ? 1 : -1;
         //this.save();
     }
+    InitPage.prototype.onVersionSelected = function (e) {
+        debugger;
+        if (e == 0)
+            this.save();
+    };
+    InitPage.prototype.onCodeChange = function (e) {
+        if ((e.value || '').toLowerCase() == 'pro')
+            this.save();
+    };
     InitPage.prototype.save = function () {
         //if(form.invalid) return;
         localStorage.setItem('tbi-user', this.user_name);
@@ -2351,7 +2368,7 @@ var InitPage = /** @class */ (function () {
     };
     InitPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-            selector: 'page-init',template:/*ion-inline-start:"D:\Sofware Factory\tbi\src\pages\init\init.html"*/'<ion-header text-right>\n  <!-- <small>\n    Build v7.2.1 25/02/2019 01:20\n  </small> -->\n</ion-header>\n<ion-content>\n  <form (ngSubmit)="save(f.form)" #f="ngForm" novalidate>\n    <ion-grid padding>\n      <ion-row>\n        <ion-col col-12 col-md-8 offset-md-2 text-left>\n          <h2 class="welcome">Welcome TBI Inspector</h2>\n        </ion-col>\n        <ion-col col-12 col-md-8 offset-md-2>\n          <ion-item no-padding [ngClass]="{\'error\': true}">\n            <ion-label stacked>\n              <h2 class="welcome" style="padding-bottom: 1rem">Please fill in your name</h2>\n            </ion-label>\n            <ion-input type="text" name="user_name" [(ngModel)]="user_name" placeholder="Your name" required></ion-input>\n          </ion-item>\n        </ion-col>\n        <ion-col col-12 col-md-8 offset-md-2 style="margin: 1rem auto 2rem" *ngIf="license.type!=\'PRO\'">\n          <ion-list radio-group name="version-type" [(ngModel)]="isPro">\n            <ion-item>\n              <ion-label>Version Easy</ion-label>\n              <ion-radio value="0" checked="{{!isPro}}"></ion-radio>\n            </ion-item>\n            <ion-item>\n              <ion-label>Version Pro</ion-label>\n              <ion-radio value="1" checked="{{!!isPro}}"></ion-radio>\n            </ion-item>\n          </ion-list>\n          <ion-item *ngIf="isPro==1" style="margin-top: -2rem">\n            <ion-label stacked>Enter Pro version code validation</ion-label>\n            <ion-input type="text" name="pro-code" [(ngModel)]="code" placeholder="Enter code"></ion-input>\n          </ion-item>\n        </ion-col>\n        <ion-col col-12 col-md-8 offset-md-2>\n          <small>technology powered by</small>\n        </ion-col>\n        <ion-col col-12 col-md-8 offset-md-2 class="client-logo">\n          <h5>Tap to select logo</h5>\n        </ion-col>\n        <ion-col col-12 col-md-8 offset-md-2 text-right>\n          <small>a member of</small>\n          <div class="bg-logo-eiif"></div>\n        </ion-col>\n        <ion-col col-4 col-sm-6 col-md-6>\n        </ion-col>\n        <ion-col col-8 col-sm-6 col-md-4 text-right>\n          <button ion-button block small color="primary" type="submit" [disabled]="f.invalid">\n            Start\n          </button>\n        </ion-col>\n      </ion-row>\n    </ion-grid>\n  </form>\n</ion-content>\n'/*ion-inline-end:"D:\Sofware Factory\tbi\src\pages\init\init.html"*/,
+            selector: 'page-init',template:/*ion-inline-start:"D:\Sofware Factory\tbi\src\pages\init\init.html"*/'<!-- <ion-header text-right>\n  <small>\n    Build v7.2.1 25/02/2019 01:20\n  </small>\n</ion-header> -->\n<ion-content class="init">\n  <form (ngSubmit)="save(f.form)" #f="ngForm" novalidate style="background: #fff">\n    <ion-grid padding>\n      <ion-row>\n        <ion-col col-12 col-md-8 offset-md-2>\n          <ion-item no-padding [ngClass]="{\'error\': true}">\n            <ion-label stacked>\n              <h2 class="welcome" style="padding-bottom: 1rem">Please insert your name</h2>\n            </ion-label>\n            <ion-input type="text" name="user_name" [(ngModel)]="user_name" placeholder="Your name" required></ion-input>\n          </ion-item>\n        </ion-col>\n        <ion-col col-12 col-md-8 offset-md-2 style="margin: 1rem auto 2rem" *ngIf="license.type!=\'PRO\'">\n            <ion-label stacked>\n              <h2 class="welcome" style="padding-bottom: 1rem">Please select</h2>\n              </ion-label>\n          <ion-list radio-group name="version-type" [(ngModel)]="isPro" (ionChange)="onVersionSelected($event)">\n            <ion-item hidden>\n              <ion-label>Non version</ion-label>\n              <ion-radio value="-1" checked="{{isPro==-1}}"></ion-radio>\n            </ion-item>\n            <ion-item>\n              <ion-label>Version Easy</ion-label>\n              <ion-radio value="0" checked="{{isPro==0}}"></ion-radio>\n            </ion-item>\n            <ion-item>\n              <ion-label>Version Pro</ion-label>\n              <ion-radio value="1" checked="{{isPro==1}}"></ion-radio>\n            </ion-item>\n          </ion-list>\n          <ion-item *ngIf="isPro==1" style="margin-top: -2rem">\n            <ion-label stacked>Enter Pro version code validation</ion-label>\n            <ion-input type="text" name="pro-code" #proCode [(ngModel)]="code" (ionChange)="onCodeChange($event)" placeholder="Enter code"></ion-input>\n          </ion-item>\n        </ion-col>\n        <!-- <ion-col col-12 col-md-8 offset-md-2>\n          <small>technology powered by</small>\n        </ion-col> -->\n        <ion-col col-12 class="bg-logo-eiif" style="height: 120px">\n          <!-- <h5>Tap to select logo</h5> -->\n        </ion-col>\n        <!-- <ion-col col-12 col-md-8 offset-md-2 text-right>\n          <small>a member of</small>\n          <div class="bg-logo-eiif"></div>\n        </ion-col>\n        <ion-col col-4 col-sm-6 col-md-6>\n        </ion-col> -->\n        <!-- <ion-col col-8 col-sm-6 col-md-4 text-right>\n          <button ion-button block small color="primary" type="submit" [disabled]="f.invalid">\n            Start\n          </button>\n        </ion-col> -->\n      </ion-row>\n    </ion-grid>\n  </form>\n</ion-content>\n'/*ion-inline-end:"D:\Sofware Factory\tbi\src\pages\init\init.html"*/,
             changeDetection: __WEBPACK_IMPORTED_MODULE_0__angular_core__["j" /* ChangeDetectionStrategy */].OnPush
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */],
@@ -2373,7 +2390,7 @@ var InitPage = /** @class */ (function () {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return Project; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0____ = __webpack_require__(46);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__component__ = __webpack_require__(79);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__model_with_picture__ = __webpack_require__(300);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__model_with_picture__ = __webpack_require__(299);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__const_more_more__ = __webpack_require__(63);
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = Object.setPrototypeOf ||
@@ -2428,7 +2445,7 @@ var Project = /** @class */ (function (_super) {
         _this.price_delta = 1;
         _this.people = new People();
         _this.co2 = null;
-        _this.currency = "EUR";
+        _this.currency = "€";
         _this.currency_index = 1;
         _this.co2_index = 0;
         if (!project)
@@ -2437,7 +2454,7 @@ var Project = /** @class */ (function (_super) {
         _this.desc = project.desc || '';
         _this.date = project.date || new Date();
         _this.user = project.user || '';
-        _this.currency = project.currency || "EUR";
+        _this.currency = project.currency || "€";
         _this.price = Number(project.price) || null;
         _this.price_delta = Number(project.price_delta) || 1;
         _this.documents = (project.documents || []).map(function (d) { return new __WEBPACK_IMPORTED_MODULE_0____["a" /* Document */](d); });
@@ -2756,7 +2773,12 @@ var ScrollToComponent = /** @class */ (function () {
         Array.from(document.getElementsByClassName('scroll-content')).forEach(function (e) { return e.scrollTo(0, position); });
     };
     ScrollToComponent.prototype.on_focus = function (event) {
-        setTimeout(function () { return event._elementRef.nativeElement.scrollIntoView({ behavior: "smooth" }); }, 500);
+        setTimeout(function () {
+            event._elementRef.nativeElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            setTimeout(function () {
+                event._elementRef.nativeElement.closest('.scroll-content').scrollTop -= 30;
+            }, 250);
+        }, 500);
         // const elm = event._elementRef.nativeElement
         // const offset = 60;
         // elm.closest('.scroll-content').scrollTo(0, elm.closest('.scroll-content').scrollTop - 50);
@@ -2793,7 +2815,7 @@ var ScrollToComponent = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__ionic_native_file_opener__ = __webpack_require__(178);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__services__ = __webpack_require__(14);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__const_more_more__ = __webpack_require__(63);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__models_calculators_calculator_factory__ = __webpack_require__(303);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__models_calculators_calculator_factory__ = __webpack_require__(302);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__projects__ = __webpack_require__(76);
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = Object.setPrototypeOf ||
@@ -3238,92 +3260,7 @@ var REPORT = {
 //# sourceMappingURL=report.const.js.map
 
 /***/ }),
-/* 184 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ReportRouter; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__const_report_const__ = __webpack_require__(183);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__component__ = __webpack_require__(79);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__reports__ = __webpack_require__(19);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__reports_report_generic_class__ = __webpack_require__(310);
-
-
-
-
-var ReportRouter = /** @class */ (function () {
-    function ReportRouter(project, component, navCtrl) {
-        this.project = project;
-        this.component = component;
-        this.navCtrl = navCtrl;
-        this.component = this.component || new __WEBPACK_IMPORTED_MODULE_1__component__["a" /* TbiComponent */](this.project);
-    }
-    ReportRouter.prototype.navigate_to_report = function (path, summary_id, report, event, result) {
-        var r = this.create_report(path, summary_id, report);
-        this.navCtrl.push(r.page, {
-            project: this.project,
-            component: this.component,
-            report: r,
-            result: result
-        });
-        return this;
-    };
-    ReportRouter.prototype.create_report = function (path, summary_id, report) {
-        var _report = report;
-        //if (!!_report) return _report;
-        switch (path) {
-            case __WEBPACK_IMPORTED_MODULE_0__const_report_const__["a" /* REPORT */].INSULATION.UNINSULATED_EQUIPMENTS.SURFACE:
-            case __WEBPACK_IMPORTED_MODULE_0__const_report_const__["a" /* REPORT */].SAFETY.HOT_SURFACE.UNINSULATED_EQUIPMENTS.SURFACE:
-                _report = new __WEBPACK_IMPORTED_MODULE_2__reports__["h" /* ReportSurface */](this.project, this.component, report);
-                break;
-            case __WEBPACK_IMPORTED_MODULE_0__const_report_const__["a" /* REPORT */].INSULATION.INSULATED_EQUIPMENTS.SURFACE:
-            case __WEBPACK_IMPORTED_MODULE_0__const_report_const__["a" /* REPORT */].SAFETY.HOT_SURFACE.INSULATED_EQUIPMENTS.SURFACE:
-                _report = new __WEBPACK_IMPORTED_MODULE_2__reports__["f" /* ReportInsulatedSurface */](this.project, this.component, report);
-                break;
-            case __WEBPACK_IMPORTED_MODULE_0__const_report_const__["a" /* REPORT */].INSULATION.UNINSULATED_EQUIPMENTS.FLANGE:
-            case __WEBPACK_IMPORTED_MODULE_0__const_report_const__["a" /* REPORT */].SAFETY.HOT_SURFACE.UNINSULATED_EQUIPMENTS.FLANGE:
-                _report = new __WEBPACK_IMPORTED_MODULE_2__reports__["d" /* ReportFlange */](this.project, this.component, report);
-                break;
-            case __WEBPACK_IMPORTED_MODULE_0__const_report_const__["a" /* REPORT */].INSULATION.UNINSULATED_EQUIPMENTS.PIPE:
-            case __WEBPACK_IMPORTED_MODULE_0__const_report_const__["a" /* REPORT */].SAFETY.HOT_SURFACE.UNINSULATED_EQUIPMENTS.PIPE:
-                _report = new __WEBPACK_IMPORTED_MODULE_2__reports__["g" /* ReportPipe */](this.project, this.component, report);
-                break;
-            case __WEBPACK_IMPORTED_MODULE_0__const_report_const__["a" /* REPORT */].INSULATION.INSULATED_EQUIPMENTS.PIPE:
-            case __WEBPACK_IMPORTED_MODULE_0__const_report_const__["a" /* REPORT */].SAFETY.HOT_SURFACE.INSULATED_EQUIPMENTS.PIPE:
-                _report = new __WEBPACK_IMPORTED_MODULE_2__reports__["e" /* ReportInsulatedPipe */](this.project, this.component, report);
-                break;
-            case __WEBPACK_IMPORTED_MODULE_0__const_report_const__["a" /* REPORT */].INSULATION.UNINSULATED_EQUIPMENTS.VALVE:
-            case __WEBPACK_IMPORTED_MODULE_0__const_report_const__["a" /* REPORT */].SAFETY.HOT_SURFACE.UNINSULATED_EQUIPMENTS.VALVE:
-                _report = new __WEBPACK_IMPORTED_MODULE_2__reports__["i" /* ReportValve */](this.project, this.component, report);
-                break;
-            case __WEBPACK_IMPORTED_MODULE_0__const_report_const__["a" /* REPORT */].INSULATION.INSULATED_EQUIPMENTS.DAMAGED:
-            case __WEBPACK_IMPORTED_MODULE_0__const_report_const__["a" /* REPORT */].INSULATION.COLD_INSULATION.DAMAGED:
-            case __WEBPACK_IMPORTED_MODULE_0__const_report_const__["a" /* REPORT */].SAFETY.HOT_SURFACE.INSULATED_EQUIPMENTS.DAMAGED:
-            case __WEBPACK_IMPORTED_MODULE_0__const_report_const__["a" /* REPORT */].MANTENANCE.DAMAGED:
-                _report = new __WEBPACK_IMPORTED_MODULE_2__reports__["c" /* ReportDamaged */](this.project, this.component, report);
-                break;
-            case __WEBPACK_IMPORTED_MODULE_0__const_report_const__["a" /* REPORT */].INSULATION.COLD_INSULATION.CONDENSATION:
-            case __WEBPACK_IMPORTED_MODULE_0__const_report_const__["a" /* REPORT */].MANTENANCE.CONDENSATION:
-                _report = new __WEBPACK_IMPORTED_MODULE_2__reports__["b" /* ReportCondensation */](this.project, this.component, report);
-                break;
-            // case REPORT.MANTENANCE.LEAKAGE:
-            //   _report = new ReportLeakage(this.project, this.component, report);
-            //   break;
-            default:
-                _report = new __WEBPACK_IMPORTED_MODULE_3__reports_report_generic_class__["a" /* ReportGeneric */](this.project, this.component, report);
-                break;
-        }
-        _report.path = path;
-        _report.summary_id = summary_id;
-        _report.readonly_summary_id = summary_id;
-        return _report;
-    };
-    return ReportRouter;
-}());
-
-//# sourceMappingURL=report-router.js.map
-
-/***/ }),
+/* 184 */,
 /* 185 */,
 /* 186 */,
 /* 187 */,
@@ -3355,8 +3292,7 @@ var ReportRouter = /** @class */ (function () {
 /* 213 */,
 /* 214 */,
 /* 215 */,
-/* 216 */,
-/* 217 */
+/* 216 */
 /***/ (function(module, exports) {
 
 function webpackEmptyAsyncContext(req) {
@@ -3369,9 +3305,10 @@ function webpackEmptyAsyncContext(req) {
 webpackEmptyAsyncContext.keys = function() { return []; };
 webpackEmptyAsyncContext.resolve = webpackEmptyAsyncContext;
 module.exports = webpackEmptyAsyncContext;
-webpackEmptyAsyncContext.id = 217;
+webpackEmptyAsyncContext.id = 216;
 
 /***/ }),
+/* 217 */,
 /* 218 */,
 /* 219 */,
 /* 220 */,
@@ -3412,8 +3349,7 @@ webpackEmptyAsyncContext.id = 217;
 /* 255 */,
 /* 256 */,
 /* 257 */,
-/* 258 */,
-/* 259 */
+/* 258 */
 /***/ (function(module, exports) {
 
 function webpackEmptyAsyncContext(req) {
@@ -3426,9 +3362,10 @@ function webpackEmptyAsyncContext(req) {
 webpackEmptyAsyncContext.keys = function() { return []; };
 webpackEmptyAsyncContext.resolve = webpackEmptyAsyncContext;
 module.exports = webpackEmptyAsyncContext;
-webpackEmptyAsyncContext.id = 259;
+webpackEmptyAsyncContext.id = 258;
 
 /***/ }),
+/* 259 */,
 /* 260 */,
 /* 261 */,
 /* 262 */,
@@ -3468,8 +3405,7 @@ webpackEmptyAsyncContext.id = 259;
 /* 296 */,
 /* 297 */,
 /* 298 */,
-/* 299 */,
-/* 300 */
+/* 299 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -3487,8 +3423,8 @@ var ModelWithPicture = /** @class */ (function () {
 //# sourceMappingURL=model-with-picture.js.map
 
 /***/ }),
-/* 301 */,
-/* 302 */
+/* 300 */,
+/* 301 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -3569,12 +3505,12 @@ var PictureService = /** @class */ (function () {
 //# sourceMappingURL=picture.service.js.map
 
 /***/ }),
-/* 303 */
+/* 302 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CalculatorFactory; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0____ = __webpack_require__(304);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0____ = __webpack_require__(303);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__const__ = __webpack_require__(500);
 
 
@@ -3607,7 +3543,7 @@ var CalculatorFactory = /** @class */ (function () {
 //# sourceMappingURL=calculator.factory.js.map
 
 /***/ }),
-/* 304 */
+/* 303 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -3632,7 +3568,7 @@ var CalculatorFactory = /** @class */ (function () {
 //# sourceMappingURL=index.js.map
 
 /***/ }),
-/* 305 */
+/* 304 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -3676,7 +3612,7 @@ var ReportInsulatedPipe = /** @class */ (function (_super) {
 //# sourceMappingURL=report-ipipe.class.js.map
 
 /***/ }),
-/* 306 */
+/* 305 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -3713,7 +3649,7 @@ var ReportPipe = /** @class */ (function (_super) {
 //# sourceMappingURL=report-pipe.class.js.map
 
 /***/ }),
-/* 307 */
+/* 306 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -3721,14 +3657,14 @@ var ReportPipe = /** @class */ (function (_super) {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_ionic_angular__ = __webpack_require__(5);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_forms__ = __webpack_require__(16);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__calculators_calculator_factory__ = __webpack_require__(303);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__calculators_calculator_factory__ = __webpack_require__(302);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__picture__ = __webpack_require__(102);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pages_reports__ = __webpack_require__(21);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__const_more_more__ = __webpack_require__(63);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__component__ = __webpack_require__(79);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__pages_scroll_to_component_class__ = __webpack_require__(176);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__const_images__ = __webpack_require__(78);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__const_patterns__ = __webpack_require__(308);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__const_patterns__ = __webpack_require__(307);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__pages_summary_summary__ = __webpack_require__(104);
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = Object.setPrototypeOf ||
@@ -4336,7 +4272,7 @@ var BaseReportPage = /** @class */ (function (_super) {
 //# sourceMappingURL=base-report-page.class.js.map
 
 /***/ }),
-/* 308 */
+/* 307 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -4349,7 +4285,7 @@ var Patterns;
 //# sourceMappingURL=patterns.js.map
 
 /***/ }),
-/* 309 */
+/* 308 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -4403,6 +4339,92 @@ var ReportListItem = /** @class */ (function () {
     return ReportListItem;
 }());
 //# sourceMappingURL=summary-edit.js.map
+
+/***/ }),
+/* 309 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ReportRouter; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__const_report_const__ = __webpack_require__(183);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__component__ = __webpack_require__(79);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__reports__ = __webpack_require__(19);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__reports_report_generic_class__ = __webpack_require__(310);
+
+
+
+
+var ReportRouter = /** @class */ (function () {
+    function ReportRouter(project, component, navCtrl) {
+        this.project = project;
+        this.component = component;
+        this.navCtrl = navCtrl;
+        this.component = this.component || new __WEBPACK_IMPORTED_MODULE_1__component__["a" /* TbiComponent */](this.project);
+    }
+    ReportRouter.prototype.navigate_to_report = function (path, summary_id, report, event, result) {
+        var r = this.create_report(path, summary_id, report);
+        this.navCtrl.push(r.page, {
+            project: this.project,
+            component: this.component,
+            report: r,
+            result: result
+        });
+        return this;
+    };
+    ReportRouter.prototype.create_report = function (path, summary_id, report) {
+        var _report = report;
+        //if (!!_report) return _report;
+        switch (path) {
+            case __WEBPACK_IMPORTED_MODULE_0__const_report_const__["a" /* REPORT */].INSULATION.UNINSULATED_EQUIPMENTS.SURFACE:
+            case __WEBPACK_IMPORTED_MODULE_0__const_report_const__["a" /* REPORT */].SAFETY.HOT_SURFACE.UNINSULATED_EQUIPMENTS.SURFACE:
+                _report = new __WEBPACK_IMPORTED_MODULE_2__reports__["h" /* ReportSurface */](this.project, this.component, report);
+                break;
+            case __WEBPACK_IMPORTED_MODULE_0__const_report_const__["a" /* REPORT */].INSULATION.INSULATED_EQUIPMENTS.SURFACE:
+            case __WEBPACK_IMPORTED_MODULE_0__const_report_const__["a" /* REPORT */].SAFETY.HOT_SURFACE.INSULATED_EQUIPMENTS.SURFACE:
+                _report = new __WEBPACK_IMPORTED_MODULE_2__reports__["f" /* ReportInsulatedSurface */](this.project, this.component, report);
+                break;
+            case __WEBPACK_IMPORTED_MODULE_0__const_report_const__["a" /* REPORT */].INSULATION.UNINSULATED_EQUIPMENTS.FLANGE:
+            case __WEBPACK_IMPORTED_MODULE_0__const_report_const__["a" /* REPORT */].SAFETY.HOT_SURFACE.UNINSULATED_EQUIPMENTS.FLANGE:
+                _report = new __WEBPACK_IMPORTED_MODULE_2__reports__["d" /* ReportFlange */](this.project, this.component, report);
+                break;
+            case __WEBPACK_IMPORTED_MODULE_0__const_report_const__["a" /* REPORT */].INSULATION.UNINSULATED_EQUIPMENTS.PIPE:
+            case __WEBPACK_IMPORTED_MODULE_0__const_report_const__["a" /* REPORT */].SAFETY.HOT_SURFACE.UNINSULATED_EQUIPMENTS.PIPE:
+                _report = new __WEBPACK_IMPORTED_MODULE_2__reports__["g" /* ReportPipe */](this.project, this.component, report);
+                break;
+            case __WEBPACK_IMPORTED_MODULE_0__const_report_const__["a" /* REPORT */].INSULATION.INSULATED_EQUIPMENTS.PIPE:
+            case __WEBPACK_IMPORTED_MODULE_0__const_report_const__["a" /* REPORT */].SAFETY.HOT_SURFACE.INSULATED_EQUIPMENTS.PIPE:
+                _report = new __WEBPACK_IMPORTED_MODULE_2__reports__["e" /* ReportInsulatedPipe */](this.project, this.component, report);
+                break;
+            case __WEBPACK_IMPORTED_MODULE_0__const_report_const__["a" /* REPORT */].INSULATION.UNINSULATED_EQUIPMENTS.VALVE:
+            case __WEBPACK_IMPORTED_MODULE_0__const_report_const__["a" /* REPORT */].SAFETY.HOT_SURFACE.UNINSULATED_EQUIPMENTS.VALVE:
+                _report = new __WEBPACK_IMPORTED_MODULE_2__reports__["i" /* ReportValve */](this.project, this.component, report);
+                break;
+            case __WEBPACK_IMPORTED_MODULE_0__const_report_const__["a" /* REPORT */].INSULATION.INSULATED_EQUIPMENTS.DAMAGED:
+            case __WEBPACK_IMPORTED_MODULE_0__const_report_const__["a" /* REPORT */].INSULATION.COLD_INSULATION.DAMAGED:
+            case __WEBPACK_IMPORTED_MODULE_0__const_report_const__["a" /* REPORT */].SAFETY.HOT_SURFACE.INSULATED_EQUIPMENTS.DAMAGED:
+            case __WEBPACK_IMPORTED_MODULE_0__const_report_const__["a" /* REPORT */].MANTENANCE.DAMAGED:
+                _report = new __WEBPACK_IMPORTED_MODULE_2__reports__["c" /* ReportDamaged */](this.project, this.component, report);
+                break;
+            case __WEBPACK_IMPORTED_MODULE_0__const_report_const__["a" /* REPORT */].INSULATION.COLD_INSULATION.CONDENSATION:
+            case __WEBPACK_IMPORTED_MODULE_0__const_report_const__["a" /* REPORT */].MANTENANCE.CONDENSATION:
+                _report = new __WEBPACK_IMPORTED_MODULE_2__reports__["b" /* ReportCondensation */](this.project, this.component, report);
+                break;
+            // case REPORT.MANTENANCE.LEAKAGE:
+            //   _report = new ReportLeakage(this.project, this.component, report);
+            //   break;
+            default:
+                _report = new __WEBPACK_IMPORTED_MODULE_3__reports_report_generic_class__["a" /* ReportGeneric */](this.project, this.component, report);
+                break;
+        }
+        _report.path = path;
+        _report.summary_id = summary_id;
+        _report.readonly_summary_id = summary_id;
+        return _report;
+    };
+    return ReportRouter;
+}());
+
+//# sourceMappingURL=report-router.js.map
 
 /***/ }),
 /* 310 */
@@ -4736,7 +4758,7 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__pages_projects_edit__ = __webpack_require__(177);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__pages_projects_project__ = __webpack_require__(622);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__pages_summary_summary__ = __webpack_require__(104);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__pages_summary_summary_edit__ = __webpack_require__(309);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__pages_summary_summary_edit__ = __webpack_require__(308);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__ionic_native_camera__ = __webpack_require__(182);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__ionic_native_file_chooser__ = __webpack_require__(368);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__ionic_native_file_path__ = __webpack_require__(369);
@@ -4754,7 +4776,7 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_32__services_file_service__ = __webpack_require__(54);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_33__services_file_local_service__ = __webpack_require__(677);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_34__services_messages_service__ = __webpack_require__(18);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_35__services_picture_service__ = __webpack_require__(302);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_35__services_picture_service__ = __webpack_require__(301);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_36__services_licences_service__ = __webpack_require__(103);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_37__validations__ = __webpack_require__(678);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_38__components_svg_svg_insulation_component__ = __webpack_require__(680);
@@ -5068,7 +5090,7 @@ var AppModule = /** @class */ (function () {
                 __WEBPACK_IMPORTED_MODULE_28__services__["c" /* LoadindService */],
                 __WEBPACK_IMPORTED_MODULE_6_ionic_angular__["g" /* LoadingController */],
                 { provide: __WEBPACK_IMPORTED_MODULE_1__angular_core__["H" /* LOCALE_ID */], useValue: "en-US" },
-                { provide: __WEBPACK_IMPORTED_MODULE_32__services_file_service__["a" /* FileService */], useClass: __WEBPACK_IMPORTED_MODULE_33__services_file_local_service__["a" /* FileLocalService */] }
+                { provide: __WEBPACK_IMPORTED_MODULE_32__services_file_service__["a" /* FileService */], useClass: __WEBPACK_IMPORTED_MODULE_31__services_file_device_service__["a" /* FileDeviceService */] }
             ],
             schemas: [__WEBPACK_IMPORTED_MODULE_1__angular_core__["i" /* CUSTOM_ELEMENTS_SCHEMA */]]
         })
@@ -5371,7 +5393,7 @@ var ProjectJson = /** @class */ (function () {
         this.price = null;
         this.price_delta = 1;
         this.people = new __WEBPACK_IMPORTED_MODULE_0__project__["a" /* People */]();
-        this.currency = "EUR";
+        this.currency = "€";
         this.currency_index = 1;
         this.co2_index = 0;
         this.id = project.id;
@@ -5380,7 +5402,7 @@ var ProjectJson = /** @class */ (function () {
         this.date = project.date;
         this.user = project.user;
         this.price = project.price;
-        this.currency = project.currency || "EUR";
+        this.currency = project.currency || "€";
         this.price_delta = project.price_delta;
         this.picture = project.picture;
         this.components = project.components.map(function (c) { return new __WEBPACK_IMPORTED_MODULE_1__component_json__["a" /* TbiComponentJson */](c); });
@@ -6212,7 +6234,7 @@ var ReportValve = /** @class */ (function (_super) {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ReportFlange; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__report_base__ = __webpack_require__(24);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__pages_reports__ = __webpack_require__(21);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__calculators__ = __webpack_require__(304);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__calculators__ = __webpack_require__(303);
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = Object.setPrototypeOf ||
         ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
@@ -6441,7 +6463,7 @@ var ReportFooterComponent = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__models_reports__ = __webpack_require__(19);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(5);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__services_report_service__ = __webpack_require__(30);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__models_reports_report_pipe_class__ = __webpack_require__(306);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__models_reports_report_pipe_class__ = __webpack_require__(305);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__services_messages_service__ = __webpack_require__(18);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__services__ = __webpack_require__(14);
 var __extends = (this && this.__extends) || (function () {
@@ -6705,7 +6727,7 @@ var ReportEditPictureComponent = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__models__ = __webpack_require__(46);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__const_images__ = __webpack_require__(78);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__models_reports_base_report_page_class__ = __webpack_require__(307);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__models_reports_base_report_page_class__ = __webpack_require__(306);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_ionic_angular__ = __webpack_require__(5);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -6861,7 +6883,7 @@ var ReportErrorsComponent = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(5);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__services_project_service__ = __webpack_require__(53);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__projects_projects__ = __webpack_require__(76);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__models_report_router__ = __webpack_require__(184);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__models_report_router__ = __webpack_require__(309);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__summary_summary__ = __webpack_require__(104);
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = Object.setPrototypeOf ||
@@ -7112,7 +7134,7 @@ var ReportSurfacePage = /** @class */ (function (_super) {
     }
     ReportSurfacePage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-            selector: 'page-report-surface',template:/*ion-inline-start:"D:\Sofware Factory\tbi\src\pages\reports\surface\report-surface.component.html"*/'<report-header [parent]="this"></report-header>\n\n\n\n<ion-content #content>\n\n\n\n  <ion-grid [hidden]="view==\'edit_picture\'" class="fixed-col">\n\n    <ion-row>\n\n      <ion-col col-12 col-md-8 no-padding>\n\n        <form novalidate #form="ngForm" [hidden]="segment!=\'input\'" (submit)="calculate()">\n\n            <ion-input type="hidden" name="surface_material_range" [(ngModel)]="surface_material_range" required data-val-required="Surface material emissivity must be between 0 and 1"></ion-input>\n\n            <ion-input type="hidden" name="operational_time_range" [(ngModel)]="operational_time_range" required data-val-required="Operational time must be between 0 and 8760 hours"></ion-input>\n\n            <ion-input type="hidden" name="temp_range_diff" [(ngModel)]="temp_range_diff" required data-val-required="Surface temperature must be at least 5°C diferent than ambient temperature"></ion-input>\n\n            <ion-input type="hidden" name="surface_low" [(ngModel)]="surface_low" required data-val-required="Surface must be > 0 m"></ion-input>\n\n            <ion-input type="hidden" name="surface_temp_range" [(ngModel)]="surface_temp_range" required data-val-required="Surface temperature must be < 1000°C"></ion-input>\n\n          <ion-row>\n\n            <ion-col col-10>\n\n              <ion-item>\n\n                <ion-label stacked>Component/Location</ion-label>\n\n                <ion-input [disabled]="!!report.component.validation" tabindex="1" name="location" required data-val-required="Please input Component/Location"\n\n                  [(ngModel)]="report.component.fields.location" (ionFocus)="on_focus($event)" type="text"></ion-input>\n\n              </ion-item>\n\n            </ion-col>\n\n            <ion-col col-12></ion-col>\n\n          </ion-row>\n\n          <ion-row>\n\n            <ion-col col-10>\n\n              <ion-item>\n\n                <ion-label stacked>Operational time (hrs/yrs)</ion-label>\n\n                <ion-input [disabled]="!!report.component.validation" readonly tabindex="2" *ngIf="!!report.component.fields.operational_time_index"\n\n                  [value]="friendy_more(\'TIMES\',  report.component.fields.operational_time_index)"></ion-input>\n\n                <ion-input #before_time *ngIf="!report.component.fields.operational_time_index" [disabled]="!!report.component.validation" tabindex="3" \n\n                  required data-val-required="Please input Operational time"\n\n                  [pattern]="patterns.REQUIRED_NUMBER" data-val-pattern="Please input a valid Operational time"\n\n                  name="operational_time" [(ngModel)]="report.component.fields.operational_time" type="tel"></ion-input>\n\n              </ion-item>\n\n            </ion-col>\n\n            <ion-col col-2>\n\n              <more pull-left [hidden]="!!report.component.validation" #time (change)="set_operational_time(time)" [type]="\'time\'"\n\n                modal-button></more>\n\n            </ion-col>\n\n          </ion-row>\n\n          <ion-row>\n\n            <ion-col col-md-7 col-6 class="pr-0">\n\n              <ion-item class="pr-0">\n\n                <ion-label stacked>Surface (m<sup>2</sup>)</ion-label>\n\n                <ion-input  [disabled]="!!report.component.validation" tabindex="4" #after_time (ionFocus)="on_focus($event)" [disabled]="report.component.fields.unknow_surface"\n\n                  name="surface" required data-val-required="Please input Surface in m²" [(ngModel)]="report.component.fields.surface"\n\n                  type="tel" [(ngModel)]="surface"></ion-input>\n\n              </ion-item>\n\n            </ion-col>\n\n            <ion-col col-md-3 col-4 toggle-container>\n\n              <ion-item>\n\n                <ion-label stacked>Unknown</ion-label>\n\n                <ion-toggle style="padding-left:0" [(ngModel)]="report.component.fields.unknow_surface" (ionChange)="toggle_know()"\n\n                  name="unknow_surface"></ion-toggle>\n\n              </ion-item>\n\n            </ion-col>\n\n            <ion-col col-2>\n\n              <area [hidden]="unknow_surface" pull-left #area (change)="report.component.fields.surface=area.value"\n\n                modal-button />\n\n            </ion-col>\n\n          </ion-row>\n\n          <ion-row>\n\n              <ion-col col-10>\n\n                <ion-item>\n\n                  <ion-label stacked>Surface material [ε] {{report.component.fields.operational_time_index}}</ion-label>\n\n                  <ion-input readonly tabindex="5" *ngIf="report.component.fields.surface_material_index!=0"\n\n                  [value]="friendy_more(\'MATERIALS\', report.component.fields.surface_material_index)"></ion-input>\n\n                  <ion-input #before_material *ngIf="report.component.fields.surface_material_index==0" tabindex="5" name="surface_material" \n\n                  required data-val-required="Please input Surface emissivity"\n\n                  [pattern]="patterns.REQUIRED_NUMBER" data-val-pattern="Please input a valid Surface emissivity"\n\n                  [(ngModel)]="report.component.fields.surface_material" type="tel"></ion-input>\n\n                </ion-item>\n\n              </ion-col>\n\n              <ion-col col-2>\n\n                <more pull-left #material (change)="set_surface_material($event)" [type]="\'materials\'" modal-button></more>\n\n              </ion-col>\n\n          </ion-row>\n\n          <ion-row>\n\n            <ion-col col-md-7 col-7 class="pr-0">\n\n              <ion-item class="pr-0">\n\n                <ion-label stacked>Surface temp<span hidden-xs>erature</span> (<sup>º</sup>C)</ion-label>\n\n                <ion-input tabindex="7" [style.visibility]="report.component.fields.unknow_surface_temp ? \'hidden\' : \'visible\'" #after_material (ionFocus)="on_focus($event)" scroll="-80" name="surface_temp"\n\n                  required data-val-required="Please Surface temperature" [pattern]="patterns.REQUIRED_NUMBER"\n\n                  data-val-pattern="Please input a valid Surface temperature" [(ngModel)]="report.component.fields.surface_temp"\n\n                  type="tel"></ion-input>\n\n              </ion-item>\n\n            </ion-col>\n\n            <ion-col col-md-3 col-4 toggle-container>\n\n              <ion-item>\n\n                <ion-label stacked>Unknown</ion-label>\n\n                <ion-toggle [disabled]="!!report.component.validation" [(ngModel)]="report.component.fields.unknow_surface_temp" (ionChange)="toggle_know_temp()"\n\n                  name="unknow_surface_temp"></ion-toggle>\n\n              </ion-item>\n\n            </ion-col>\n\n            <ion-col col-2>\n\n              <!-- <medium-temp #medium (change)="report.component.fields.surface_temp=medium.value" modal-button pull-left></medium-temp> -->\n\n              <medium-temp #medium [report]="report" modal-button pull-left></medium-temp>\n\n            </ion-col>\n\n          </ion-row>\n\n          <ion-row>\n\n            <ion-col col-10>\n\n              <ion-item>\n\n                <ion-label stacked>Ambient temperature (<sup>º</sup>C)</ion-label>\n\n                <ion-input tabindex="8" (ionFocus)="on_focus($event)" scroll="-90" (keyup.enter)="on_keypress($event)"\n\n                  name="ambient_temp" [pattern]="patterns.REQUIRED_NUMBER" data-val-pattern="Please input a valid Ambient temperature"\n\n                  required data-val-required="Please input Ambient temperature" [(ngModel)]="report.component.fields.ambient_temp"\n\n                  type="tel"></ion-input>\n\n              </ion-item>\n\n            </ion-col>\n\n            <ion-col col-2></ion-col>\n\n          </ion-row>\n\n        </form>\n\n      </ion-col>\n\n      <ion-col col-12 col-md-4 no-padding>\n\n        <ion-row>\n\n          <ion-col col-12 picture-slide [parent]="this" [input]="after_material" [report]="report" [editable]="editable" (onStartEdit)="on_picture_start_edit($event)">\n\n          </ion-col>\n\n        </ion-row>\n\n      </ion-col>\n\n    </ion-row>\n\n    <ion-row>\n\n      <ion-col col-12 no-padding>\n\n        <div report-result col-12 [parent]="this" *ngIf="view==\'result\' && (!!form && !form.invalid)"></div>\n\n      </ion-col>\n\n      <ion-col col-12 padding>\n\n        <report-errors padding #errors col-12 *ngIf="!(view==\'!result\' && report.result)"></report-errors>\n\n      </ion-col>\n\n    </ion-row>\n\n  </ion-grid>\n\n\n\n  <edit-picture *ngIf="view==\'edit_picture\'" [report]="report" [picture]="editing_picture"></edit-picture>\n\n\n\n</ion-content>\n\n\n\n<report-footer [parent]="this"></report-footer>\n\n'/*ion-inline-end:"D:\Sofware Factory\tbi\src\pages\reports\surface\report-surface.component.html"*/
+            selector: 'page-report-surface',template:/*ion-inline-start:"D:\Sofware Factory\tbi\src\pages\reports\surface\report-surface.component.html"*/'<report-header [parent]="this"></report-header>\n\n\n\n<ion-content #content>\n\n\n\n  <ion-grid [hidden]="view==\'edit_picture\'" class="fixed-col">\n\n    <ion-row>\n\n      <ion-col col-12 col-md-8 no-padding>\n\n        <form novalidate #form="ngForm" [hidden]="segment!=\'input\'" (submit)="calculate()">\n\n            <ion-input type="hidden" name="surface_material_range" [(ngModel)]="surface_material_range" required data-val-required="Surface material emissivity must be between 0 and 1"></ion-input>\n\n            <ion-input type="hidden" name="operational_time_range" [(ngModel)]="operational_time_range" required data-val-required="Operational time must be between 0 and 8760 hours"></ion-input>\n\n            <ion-input type="hidden" name="temp_range_diff" [(ngModel)]="temp_range_diff" required data-val-required="Surface temperature must be at least 5°C diferent than ambient temperature"></ion-input>\n\n            <ion-input type="hidden" name="surface_low" [(ngModel)]="surface_low" required data-val-required="Surface must be > 0 m"></ion-input>\n\n            <ion-input type="hidden" name="surface_temp_range" [(ngModel)]="surface_temp_range" required data-val-required="Surface temperature must be < 1000°C"></ion-input>\n\n          <ion-row>\n\n            <ion-col col-10>\n\n              <ion-item>\n\n                <ion-label stacked>Component/Location</ion-label>\n\n                <ion-input [disabled]="!!report.component.validation" tabindex="1" name="location" required data-val-required="Please input Component/Location"\n\n                  [(ngModel)]="report.component.fields.location" (ionFocus)="on_focus($event)" type="text"></ion-input>\n\n              </ion-item>\n\n            </ion-col>\n\n            <ion-col col-12></ion-col>\n\n          </ion-row>\n\n          <ion-row>\n\n            <ion-col col-10>\n\n              <ion-item>\n\n                <ion-label stacked>Operational time (hrs/yrs)</ion-label>\n\n                <ion-input [disabled]="!!report.component.validation" readonly tabindex="2" *ngIf="!!report.component.fields.operational_time_index"\n\n                  [value]="friendy_more(\'TIMES\',  report.component.fields.operational_time_index)"></ion-input>\n\n                <ion-input #before_time *ngIf="!report.component.fields.operational_time_index" [disabled]="!!report.component.validation" tabindex="3" \n\n                  required data-val-required="Please input Operational time"\n\n                  [pattern]="patterns.REQUIRED_NUMBER" data-val-pattern="Please input a valid Operational time"\n\n                  name="operational_time" [(ngModel)]="report.component.fields.operational_time" type="tel"></ion-input>\n\n              </ion-item>\n\n            </ion-col>\n\n            <ion-col col-2>\n\n              <more pull-left [hidden]="!!report.component.validation" #time (change)="set_operational_time(time)" [type]="\'time\'"\n\n                modal-button></more>\n\n            </ion-col>\n\n          </ion-row>\n\n          <ion-row>\n\n            <ion-col col-md-7 col-6 class="pr-0">\n\n              <ion-item class="pr-0">\n\n                <ion-label stacked>Surface (m<sup>2</sup>)</ion-label>\n\n                <ion-input  [disabled]="!!report.component.validation" tabindex="4" #after_time (ionFocus)="on_focus($event)" [disabled]="report.component.fields.unknow_surface"\n\n                  name="surface" required data-val-required="Please input Surface in m²" [(ngModel)]="report.component.fields.surface"\n\n                  type="tel" [(ngModel)]="surface"></ion-input>\n\n              </ion-item>\n\n            </ion-col>\n\n            <ion-col col-md-3 col-4 toggle-container>\n\n              <ion-item>\n\n                <ion-label stacked>Unknown</ion-label>\n\n                <ion-toggle style="padding-left:0" [(ngModel)]="report.component.fields.unknow_surface" (ionChange)="toggle_know()"\n\n                  name="unknow_surface"></ion-toggle>\n\n              </ion-item>\n\n            </ion-col>\n\n            <ion-col col-2>\n\n              <area [hidden]="unknow_surface" pull-left #area (change)="report.component.fields.surface=area.value"\n\n                modal-button />\n\n            </ion-col>\n\n          </ion-row>\n\n          <ion-row>\n\n              <ion-col col-10>\n\n                <ion-item>\n\n                  <ion-label stacked>Surface material [ε]</ion-label>\n\n                  <ion-input readonly tabindex="5" *ngIf="report.component.fields.surface_material_index!=0"\n\n                  [value]="friendy_more(\'MATERIALS\', report.component.fields.surface_material_index)"></ion-input>\n\n                  <ion-input #before_material *ngIf="report.component.fields.surface_material_index==0" tabindex="5" name="surface_material" \n\n                  required data-val-required="Please input Surface emissivity"\n\n                  [pattern]="patterns.REQUIRED_NUMBER" data-val-pattern="Please input a valid Surface emissivity"\n\n                  [(ngModel)]="report.component.fields.surface_material" type="tel"></ion-input>\n\n                </ion-item>\n\n              </ion-col>\n\n              <ion-col col-2>\n\n                <more pull-left #material (change)="set_surface_material($event)" [type]="\'materials\'" modal-button></more>\n\n              </ion-col>\n\n          </ion-row>\n\n          <ion-row>\n\n            <ion-col col-md-7 col-7 class="pr-0">\n\n              <ion-item class="pr-0">\n\n                <ion-label stacked>Surface temp<span hidden-xs>erature</span> (<sup>º</sup>C)</ion-label>\n\n                <ion-input tabindex="7" [style.visibility]="report.component.fields.unknow_surface_temp ? \'hidden\' : \'visible\'" #after_material (ionFocus)="on_focus($event)" scroll="-80" name="surface_temp"\n\n                  required data-val-required="Please Surface temperature" [pattern]="patterns.REQUIRED_NUMBER"\n\n                  data-val-pattern="Please input a valid Surface temperature" [(ngModel)]="report.component.fields.surface_temp"\n\n                  type="tel"></ion-input>\n\n              </ion-item>\n\n            </ion-col>\n\n            <ion-col col-md-3 col-4 toggle-container>\n\n              <ion-item>\n\n                <ion-label stacked>Unknown</ion-label>\n\n                <ion-toggle [disabled]="!!report.component.validation" [(ngModel)]="report.component.fields.unknow_surface_temp" (ionChange)="toggle_know_temp()"\n\n                  name="unknow_surface_temp"></ion-toggle>\n\n              </ion-item>\n\n            </ion-col>\n\n            <ion-col col-2>\n\n              <!-- <medium-temp #medium (change)="report.component.fields.surface_temp=medium.value" modal-button pull-left></medium-temp> -->\n\n              <medium-temp #medium [report]="report" modal-button pull-left></medium-temp>\n\n            </ion-col>\n\n          </ion-row>\n\n          <ion-row>\n\n            <ion-col col-10>\n\n              <ion-item>\n\n                <ion-label stacked>Ambient temperature (<sup>º</sup>C)</ion-label>\n\n                <ion-input tabindex="8" (ionFocus)="on_focus($event)" scroll="-90" (keyup.enter)="on_keypress($event)"\n\n                  name="ambient_temp" [pattern]="patterns.REQUIRED_NUMBER" data-val-pattern="Please input a valid Ambient temperature"\n\n                  required data-val-required="Please input Ambient temperature" [(ngModel)]="report.component.fields.ambient_temp"\n\n                  type="tel"></ion-input>\n\n              </ion-item>\n\n            </ion-col>\n\n            <ion-col col-2></ion-col>\n\n          </ion-row>\n\n        </form>\n\n      </ion-col>\n\n      <ion-col col-12 col-md-4 no-padding>\n\n        <ion-row>\n\n          <ion-col col-12 picture-slide [parent]="this" [input]="after_material" [report]="report" [editable]="editable" (onStartEdit)="on_picture_start_edit($event)">\n\n          </ion-col>\n\n        </ion-row>\n\n      </ion-col>\n\n    </ion-row>\n\n    <ion-row>\n\n      <ion-col col-12 no-padding>\n\n        <div report-result col-12 [parent]="this" *ngIf="view==\'result\' && (!!form && !form.invalid)"></div>\n\n      </ion-col>\n\n      <ion-col col-12 padding>\n\n        <report-errors padding #errors col-12 *ngIf="!(view==\'!result\' && report.result)"></report-errors>\n\n      </ion-col>\n\n    </ion-row>\n\n  </ion-grid>\n\n\n\n  <edit-picture *ngIf="view==\'edit_picture\'" [report]="report" [picture]="editing_picture"></edit-picture>\n\n\n\n</ion-content>\n\n\n\n<report-footer [parent]="this"></report-footer>\n\n'/*ion-inline-end:"D:\Sofware Factory\tbi\src\pages\reports\surface\report-surface.component.html"*/
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2_ionic_angular__["i" /* NavController */],
             __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["j" /* NavParams */],
@@ -7418,7 +7440,7 @@ var ReportMediumTempButtonsComponent = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__models_marker__ = __webpack_require__(77);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(5);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__scroll_to_component_class__ = __webpack_require__(176);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__const_patterns__ = __webpack_require__(308);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__const_patterns__ = __webpack_require__(307);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__angular_forms__ = __webpack_require__(16);
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = Object.setPrototypeOf ||
@@ -7680,7 +7702,7 @@ var ReportResultComponent = /** @class */ (function () {
     });
     __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["E" /* Input */])(),
-        __metadata("design:type", typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2__models_reports__["a" /* BaseReportPage */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__models_reports__["a" /* BaseReportPage */]) === "function" && _a || Object)
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_2__models_reports__["a" /* BaseReportPage */])
     ], ReportResultComponent.prototype, "parent", void 0);
     __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["E" /* Input */])(),
@@ -7700,12 +7722,11 @@ var ReportResultComponent = /** @class */ (function () {
     ], ReportResultComponent.prototype, "scale", void 0);
     ReportResultComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-            selector: '[report-result]',template:/*ion-inline-start:"D:\Sofware Factory\tbi\src\pages\reports\components\result\report-result.component.html"*/'<div class="view-port">\n\n<ion-grid id="result-grid" #resultGrid>\n\n  <ion-row *ngIf="show_savings">\n\n      <ion-col text-center col-12 no-padding>\n\n        <h5 *ngIf="!saving_lower" class="annual-saving-message"><small><strong>Annual saving potential</strong></small>\n\n          from {{(parent.report.result.annual_saving_from || 0) | number}} {{currency}} to {{(parent.report.result.annual_saving_to || 0)| number}} {{currency}}\n\n        </h5>\n\n        <h5 *ngIf="!!saving_lower" class="annual-saving-message">\n\n          Insulation System Ok\n\n        </h5>\n\n    </ion-col>\n\n  </ion-row>\n\n  <ion-row>\n\n    <ion-col text-center style="overflow: auto">\n\n      <table [style.zoom]="zoom" cellspacing="0" cellpadding="0" border="0" class="result-chart" [class.saving_lower]="saving_lower">\n\n        <thead>\n\n          <tr>\n\n            <th><div style="width: 25px; height: 1px"></div></th>\n\n            <th><div style="width: 0; height: 1px"></div></th>\n\n            <th><div style="width: 130px; height: 1px"></div></th>\n\n            <th><div style="width: 130px; height: 1px"></div></th>\n\n            <th><div style="width: 130px; height: 1px"></div></th>\n\n          </tr>\n\n          <tr>\n\n            <th colspan="2" style="height: 20px; border-right: 1px solid #7f7f7f; text-align: right">\n\n              <span>{{scale.max / 10 | number: \'1.1-1\'}}</span>\n\n            </th>\n\n            <th class="dashed-right">\n\n              <!-- <div class="x-title white">Current</div> -->\n\n            </th>\n\n            <th>\n\n              <div *ngIf="!is_validation" class="x-title" style="color: #4b71c1; margin-top: 18px">basic<br/>insulation</div>\n\n              <div *ngIf="!!is_validation" class="x-title" style="color: #4b71c1; margin-top: 18px">after<br>insulation</div>\n\n            </th>\n\n            <th *ngIf="!is_validation">\n\n              <div class="x-title" style="color: #6daf3d; margin-top: 18px">good<br/>insulation</div>\n\n            </th>\n\n          </tr>\n\n        </thead>\n\n        <tbody>\n\n          <tr>\n\n            <td class="section" rowspan="2"><strong>Annual Consumption</strong></td>\n\n            <td class="scale"></td>\n\n            <td class="b-line bar" rowspan="2">\n\n                <div style.height="{{bars.current.losses[0]}}px" class="gray">\n\n                  <span class="x-price">\n\n                    <strong style="display: block; padding: 0!important; text-align: center">{{!is_validation ? \'current\' : \'before\'}}</strong>\n\n                    {{bars.current.losses[1] | number: \'1.0-0\'}}{{currency}}<span *ngIf="unknow_surface">/m<sup>2</sup></span>\n\n                  </span>\n\n                </div>\n\n            </td>\n\n            <td class="b-line bar dashed-left" rowspan="2">\n\n              <div style.height="{{bars.basic.losses[0]}}px" class="blue pattern">\n\n                <span style="color: #4b71c1">{{bars.basic.losses[1] | number: \'1.0-0\'}}{{currency}}<span *ngIf="unknow_surface">/m<sup>2</sup></span></span>\n\n              </div>\n\n            </td>\n\n            <td *ngIf="!is_validation" class="b-line bar" rowspan="2">\n\n              <div style.height="{{bars.economical.losses[0]}}px" class="green pattern">\n\n                <span style="color: #6daf3d">{{bars.economical.losses[1] | number: \'1.0-0\'}}{{currency}}<span *ngIf="unknow_surface">/m<sup>2</sup></span></span>\n\n              </div>\n\n            </td>\n\n          </tr>\n\n          <tr>\n\n            <td class="scale"><span>{{scale.min / 10 | number: \'1.1-1\'}}</span><span class="kwh">MWh<span *ngIf="unknow_surface">/m<sup>2</sup></span></span></td>\n\n          </tr>\n\n        </tbody>\n\n        <tbody class="inverse">\n\n          <tr>\n\n            <td class="section" rowspan="2"><strong>Annual Saving</strong></td>\n\n            <td class="scale inverse"><span>{{scale.min / 10 | number: \'1.1-1\'}}</span></td>\n\n            <td class="bar" rowspan="2">\n\n                <div style.height="{{bars.current.losses[0]}}px" class="gray opaque">\n\n                    <span class="x-price">\n\n                      <strong style="display: block; padding: 0!important; text-align: center">{{!is_validation ? \'current\' : \'before\'}}</strong>\n\n                      {{bars.current.losses[1] | number: \'1.0-0\'}}{{currency}}<span *ngIf="unknow_surface">/m<sup>2</sup></span>\n\n                    </span>\n\n                  </div>\n\n            </td>\n\n            <td class="bar dashed-left" rowspan="2">\n\n              <div style.height="{{bars.basic.savings[0]}}px" class="blue">\n\n                <span style.marginTop="{{bars.basic.savings[0] + 3}}px">{{bars.basic.savings[1] | number: \'1.0-0\'}}{{currency}}<span *ngIf="unknow_surface">/m<sup>2</sup></span></span>\n\n              </div>\n\n            </td>\n\n            <td *ngIf="!is_validation" class="bar" rowspan="2">\n\n              <div style.height="{{bars.economical.savings[0]}}px" class="green">\n\n                <span style.marginTop="{{bars.economical.savings[0] + 3}}px">{{bars.economical.savings[1] | number:\n\n                  \'1.0-0\'}}{{currency}}<span *ngIf="unknow_surface">/m<sup>2</sup></span></span>\n\n              </div>\n\n            </td>\n\n          </tr>\n\n          <tr>\n\n            <td class="scale inverse"></td>\n\n          </tr>\n\n          <tr>\n\n            <th colspan="2" style="border-right: 1px solid #7f7f7f; height: 20px; text-align: right">\n\n              <span>{{scale.max / 10 | number: \'1.1-1\'}}</span>\n\n            </th>\n\n            <th colspan="3"></th>\n\n          </tr>\n\n        </tbody>\n\n        <tfoot>\n\n          <tr>\n\n            <th colspan="2" style="padding-top: 2rem">\n\n                <img src="{{images.CO2}}">\n\n            </th>\n\n            <th style="padding-top: 2rem" class="color">{{parent.report.result.co2[!is_validation ? 0 : 3 ] | number: !show_advise ? \'1.2-2\' : \'1.2-2\'}} t<span *ngIf="unknow_surface">/m<sup>2</sup></span></th>\n\n            <th style="padding-top: 2rem" class="color">{{parent.report.result.co2[!is_validation ? 1: 0] | number: !show_advise ? \'1.2-2\' : \'1.2-2\'}} t<span *ngIf="unknow_surface">/m<sup>2</sup></span></th>\n\n            <th style="padding-top: 2rem" *ngIf="!is_validation" class="color">{{parent.report.result.co2[2] | number: !show_advise ? \'1.2-2\' : \'1.2-2\'}} t<span *ngIf="unknow_surface">/m<sup>2</sup></span></th>\n\n          </tr>\n\n        </tfoot>\n\n      </table>\n\n    </ion-col>\n\n  </ion-row>\n\n  <ion-row *ngIf="!!show_advise && 1 == 2 && !parent.report.component.validation">\n\n    <ion-col class="result-advise">\n\n        <h4>\n\n          <ion-icon name="information-circle-outline"></ion-icon>\n\n          {{parent.report.result.advise}}\n\n      </h4>\n\n    </ion-col>\n\n  </ion-row>\n\n  <ion-row>\n\n    <ion-col col-12 text-right>\n\n      <button *ngIf="!!show_advise" ion-button id="scroll_button" outline (click)="parent.content.scrollToTop(500)">\n\n        <strong>^</strong>\n\n        <strong>TOP</strong>\n\n      </button>\n\n      <div class="row zoom-buttons">\n\n        <button ion-button small icon-only clear color="royal" [disabled]="zoom==3" (click)="do_zoom(.1)">\n\n          <ion-icon name="add-circle-outline"></ion-icon>\n\n        </button>\n\n        <button ion-button small icon-only clear color="royal" [disabled]="zoom==.5" (click)="do_zoom(-.1)">\n\n          <ion-icon name="remove-circle-outline"></ion-icon>\n\n        </button>\n\n      </div>\n\n    </ion-col>\n\n  </ion-row>\n\n</ion-grid>\n\n\n\n</div>\n\n'/*ion-inline-end:"D:\Sofware Factory\tbi\src\pages\reports\components\result\report-result.component.html"*/
+            selector: '[report-result]',template:/*ion-inline-start:"D:\Sofware Factory\tbi\src\pages\reports\components\result\report-result.component.html"*/'<div class="view-port">\n\n<ion-grid id="result-grid" #resultGrid>\n\n  <ion-row *ngIf="show_savings">\n\n      <ion-col text-center col-12 no-padding>\n\n        <h5 *ngIf="!saving_lower" class="annual-saving-message"><small><strong>Annual saving potential</strong></small>\n\n          from {{(parent.report.result.annual_saving_from || 0) | number}} {{currency}} to {{(parent.report.result.annual_saving_to || 0)| number}} {{currency}}\n\n        </h5>\n\n        <h5 *ngIf="!!saving_lower" class="annual-saving-message">\n\n          Insulation System Ok\n\n        </h5>\n\n    </ion-col>\n\n  </ion-row>\n\n  <ion-row>\n\n    <ion-col text-center style="overflow: auto">\n\n      <table [style.zoom]="zoom" cellspacing="0" cellpadding="0" border="0" class="result-chart" [class.saving_lower]="saving_lower">\n\n        <thead>\n\n          <tr>\n\n            <th><div style="width: 25px; height: 1px"></div></th>\n\n            <th><div style="width: 0; height: 1px"></div></th>\n\n            <th><div style="width: 130px; height: 1px"></div></th>\n\n            <th><div style="width: 130px; height: 1px"></div></th>\n\n            <th><div style="width: 130px; height: 1px"></div></th>\n\n          </tr>\n\n          <tr>\n\n            <th class="scale" colspan="2" style="height: 20px; border-right: 1px solid #7f7f7f; text-align: right">\n\n              <span>{{scale.max / 10 | number: \'1.1-1\'}}</span>\n\n            </th>\n\n            <th class="dashed-right">\n\n              <!-- <div class="x-title white">Current</div> -->\n\n            </th>\n\n            <th>\n\n              <div *ngIf="!is_validation" class="x-title" style="color: #4b71c1; margin-top: 18px">basic<br/>insulation</div>\n\n              <div *ngIf="!!is_validation" class="x-title" style="color: #4b71c1; margin-top: 18px">after<br>insulation</div>\n\n            </th>\n\n            <th *ngIf="!is_validation">\n\n              <div class="x-title" style="color: #6daf3d; margin-top: 18px">good<br/>insulation</div>\n\n            </th>\n\n          </tr>\n\n        </thead>\n\n        <tbody>\n\n          <tr>\n\n            <td class="section" rowspan="2"><strong>Annual Consumption</strong></td>\n\n            <td class="scale"></td>\n\n            <td class="b-line bar" rowspan="2">\n\n                <div style.height="{{bars.current.losses[0]}}px" class="gray">\n\n                  <span class="x-price">\n\n                    <strong style="display: block; padding: 0!important; text-align: center">{{!is_validation ? \'current\' : \'before\'}}</strong>\n\n                    {{bars.current.losses[1] | number: \'1.0-0\'}}{{currency}}<span *ngIf="unknow_surface">/m<sup>2</sup></span>\n\n                  </span>\n\n                </div>\n\n            </td>\n\n            <td class="b-line bar dashed-left" rowspan="2">\n\n              <div style.height="{{bars.basic.losses[0]}}px" class="blue pattern">\n\n                <span style="color: #4b71c1">{{bars.basic.losses[1] | number: \'1.0-0\'}}{{currency}}<span *ngIf="unknow_surface">/m<sup>2</sup></span></span>\n\n              </div>\n\n            </td>\n\n            <td *ngIf="!is_validation" class="b-line bar" rowspan="2">\n\n              <div style.height="{{bars.economical.losses[0]}}px" class="green pattern">\n\n                <span style="color: #6daf3d">{{bars.economical.losses[1] | number: \'1.0-0\'}}{{currency}}<span *ngIf="unknow_surface">/m<sup>2</sup></span></span>\n\n              </div>\n\n            </td>\n\n          </tr>\n\n          <tr>\n\n            <td class="scale">\n\n              <span>{{scale.min / 10 | number: \'1.1-1\'}} </span><span class="kwh">MWh<span *ngIf="unknow_surface">/m<sup>2</sup></span></span>\n\n            </td>\n\n          </tr>\n\n        </tbody>\n\n        <tbody class="inverse">\n\n          <tr>\n\n            <td class="section" rowspan="2"><strong>Annual Saving</strong></td>\n\n            <td class="scale inverse">\n\n              <span>{{scale.min / 10 | number: \'1.1-1\'}}</span>\n\n            </td>\n\n            <td class="bar" rowspan="2">\n\n                <div style.height="{{bars.current.losses[0]}}px" class="gray opaque">\n\n                    <span class="x-price">\n\n                      <strong style="display: block; padding: 0!important; text-align: center">{{!is_validation ? \'current\' : \'before\'}}</strong>\n\n                      {{bars.current.losses[1] | number: \'1.0-0\'}}{{currency}}<span *ngIf="unknow_surface">/m<sup>2</sup></span>\n\n                    </span>\n\n                  </div>\n\n            </td>\n\n            <td class="bar dashed-left" rowspan="2">\n\n              <div style.height="{{bars.basic.savings[0]}}px" class="blue">\n\n                <span style.marginTop="{{bars.basic.savings[0] + 3}}px">{{bars.basic.savings[1] | number: \'1.0-0\'}}{{currency}}<span *ngIf="unknow_surface">/m<sup>2</sup></span></span>\n\n              </div>\n\n            </td>\n\n            <td *ngIf="!is_validation" class="bar" rowspan="2">\n\n              <div style.height="{{bars.economical.savings[0]}}px" class="green">\n\n                <span style.marginTop="{{bars.economical.savings[0] + 3}}px">{{bars.economical.savings[1] | number:\n\n                  \'1.0-0\'}}{{currency}}<span *ngIf="unknow_surface">/m<sup>2</sup></span></span>\n\n              </div>\n\n            </td>\n\n          </tr>\n\n          <tr>\n\n            <td class="scale inverse"></td>\n\n          </tr>\n\n          <tr>\n\n            <th colspan="2" style="border-right: 1px solid #7f7f7f; height: 20px; text-align: right; padding-right: 5px">\n\n              <span>{{scale.max / 10 | number: \'1.1-1\'}}</span>\n\n            </th>\n\n            <th colspan="3"></th>\n\n          </tr>\n\n        </tbody>\n\n        <tfoot>\n\n          <tr>\n\n            <th colspan="2" style="padding-top: 2rem">\n\n                <img src="{{images.CO2}}">\n\n            </th>\n\n            <th style="padding-top: 2rem" class="color">{{parent.report.result.co2[!is_validation ? 0 : 3 ] | number: !show_advise ? \'1.2-2\' : \'1.2-2\'}} t<span *ngIf="unknow_surface">/m<sup>2</sup></span></th>\n\n            <th style="padding-top: 2rem" class="color">{{parent.report.result.co2[!is_validation ? 1: 0] | number: !show_advise ? \'1.2-2\' : \'1.2-2\'}} t<span *ngIf="unknow_surface">/m<sup>2</sup></span></th>\n\n            <th style="padding-top: 2rem" *ngIf="!is_validation" class="color">{{parent.report.result.co2[2] | number: !show_advise ? \'1.2-2\' : \'1.2-2\'}} t<span *ngIf="unknow_surface">/m<sup>2</sup></span></th>\n\n          </tr>\n\n        </tfoot>\n\n      </table>\n\n    </ion-col>\n\n  </ion-row>\n\n  <ion-row *ngIf="!!show_advise && 1 == 2 && !parent.report.component.validation">\n\n    <ion-col class="result-advise">\n\n        <h4>\n\n          <ion-icon name="information-circle-outline"></ion-icon>\n\n          {{parent.report.result.advise}}\n\n      </h4>\n\n    </ion-col>\n\n  </ion-row>\n\n  <ion-row>\n\n    <ion-col col-12 text-right>\n\n      <button *ngIf="!!show_advise" ion-button id="scroll_button" outline (click)="parent.content.scrollToTop(500)">\n\n        <strong>^</strong>\n\n        <strong>TOP</strong>\n\n      </button>\n\n      <div class="row zoom-buttons">\n\n        <button ion-button small icon-only clear color="royal" [disabled]="zoom==3" (click)="do_zoom(.1)">\n\n          <ion-icon name="add-circle-outline"></ion-icon>\n\n        </button>\n\n        <button ion-button small icon-only clear color="royal" [disabled]="zoom==.5" (click)="do_zoom(-.1)">\n\n          <ion-icon name="remove-circle-outline"></ion-icon>\n\n        </button>\n\n      </div>\n\n    </ion-col>\n\n  </ion-row>\n\n</ion-grid>\n\n\n\n</div>\n\n'/*ion-inline-end:"D:\Sofware Factory\tbi\src\pages\reports\components\result\report-result.component.html"*/
         }),
         __metadata("design:paramtypes", [])
     ], ReportResultComponent);
     return ReportResultComponent;
-    var _a;
 }());
 
 //# sourceMappingURL=report-result.component.js.map
@@ -7856,7 +7877,7 @@ var ReportInsulatedSurfacePage = /** @class */ (function (_super) {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__models_reports__ = __webpack_require__(19);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(5);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__services_report_service__ = __webpack_require__(30);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__models_reports_report_ipipe_class__ = __webpack_require__(305);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__models_reports_report_ipipe_class__ = __webpack_require__(304);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__services_messages_service__ = __webpack_require__(18);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__services__ = __webpack_require__(14);
 var __extends = (this && this.__extends) || (function () {
@@ -8828,6 +8849,7 @@ var FileDeviceService = /** @class */ (function (_super) {
     };
     FileDeviceService.prototype.after_check_pdf = function (base64, filename) {
         var _this = this;
+        filename = filename + "-" + (new Date()).toLocaleString().replace(/(\/| |:)/g, '');
         return new Promise(function (resolve, reject) {
             _this.file.writeFile(_this.working_folder + "temp", filename + ".pdf", _this.base64_to_uint(base64).buffer, { replace: false })
                 .then(function (r) {
@@ -8957,6 +8979,7 @@ var FileLocalService = /** @class */ (function (_super) {
     }
     FileLocalService.prototype.create_pdf = function (base64, filename) {
         var _this = this;
+        filename = filename + "-" + (new Date()).toLocaleString().replace(/(\/| |:)/g, '');
         this.loading.show();
         return new Promise(function (resolve, reject) {
             var blob = new Blob([_this.base64_to_uint(base64)], { type: 'application/pdf' });
