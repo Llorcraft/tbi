@@ -10,7 +10,7 @@ import { LicencesService } from '../../services';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class InitPage implements AfterViewInit {
-  public user_name: string = 'Dev';
+  public user_name: string = '';
   public isPro = -1;
   public code = '';
 
@@ -18,12 +18,12 @@ export class InitPage implements AfterViewInit {
     public appCtrl: NavController,
     public license: LicencesService,
     private cd: ChangeDetectorRef) {
-    this.isPro = license.type == 'PRO' ? 1 : -1;
+    // this.isPro = license.type == 'PRO' ? 1 : -1;
+    this.isPro = -1;
     //this.save();
   }
 
   public onVersionSelected(e) {
-    debugger;
     if (e == 0) this.save();
   }
 
@@ -34,7 +34,8 @@ export class InitPage implements AfterViewInit {
   public save(): void {
     //if(form.invalid) return;
     localStorage.setItem('tbi-user', this.user_name);
-    if (!!this.isPro && this.code == 'PRO') this.license.type = 'PRO';
+    this.license.type = '';
+    if (this.isPro == 1 && this.code.toLocaleLowerCase() == 'pro') this.license.type = 'PRO';
     //this.appCtrl.setRoot(ProjectsPage, { user_name: this.user_name, summary: true, project: '6243045674937677'});
     this.appCtrl.setRoot(ProjectsPage, { user_name: this.user_name });
   }
