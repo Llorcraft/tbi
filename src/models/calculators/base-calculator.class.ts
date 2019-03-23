@@ -107,7 +107,7 @@ export class BaseCalculator {
         const filter = range.find(r => r[0] > this.DN);
         // return filter ?
         //     range.lastIndexOf(filter) > 0 ? range[range.lastIndexOf(filter) - 1][1] : range[0][1] : range[range.length -1][1];
-        return this.DN;
+        return this.DN / 1e3;
     };
     public De_min: number = 1;
     public De_max: number = 1;
@@ -137,9 +137,9 @@ export class BaseCalculator {
         return 1;
     }
     protected get_l(index: number) {
-        if (this.Δθ <= 80) return [20, 100][index] / 1000;
-        if (this.Δθ <= 150) return [30, 180][index] / 1000;
-        if (this.Δθ <= 250) return [50, 250][index] / 1000;
+        if (this.Δθ < 80) return [20, 100][index] / 1e3;
+        if (this.Δθ < 150) return [30, 180][index] / 1e3;
+        if (this.Δθ < 250) return [50, 250][index] / 1e3;
         return [80, 300][index] / 1000;
     }
 
@@ -147,7 +147,9 @@ export class BaseCalculator {
         this.fnc.forEach(f => f.apply(this));
 
         let _find = More.CO2.find(m => Number(m[1]) == this.report.project.co2);
-        let _co2 = Number(!!_find ? _find[2] : isNaN(this.report.project.co2) ? 0 : this.report.project.co2)
+        let _co2 = Number(!!_find ? _find[1] : isNaN(this.report.project.co2) ? 0 : this.report.project.co2)
+
+        console.log('co2', _co2);
 
         this.report.result = new Result({
             advise: this.Insulation_advice,
@@ -170,33 +172,40 @@ export class BaseCalculator {
             ]
         });
 
-        // console.log({
-        //     //"ql*l*Ot": (this.ql * this.l * this.Ot / 1000),
-        //     "De": this.De,
-        //     θse: this.θse,
-        //     θa: this.θa,
-        //     ql: this.ql,
-        //     Rins_min: this.Rins_min,
-        //     Rins_max: this.Rins_max,
-        //     qref_pb: this.qref_pb,
-        //     q: this.q,
-        //     hr: this.hr, 
-        //     hr_min: this.hr_min,
-        //     hcv_min: this.hcv_min,
-        //     q_min: this.q_min,
-        //     q_max: this.q_max,
-        //     hse: this.hse,
-        //     hse_min: this.hse_min,
-        //     hse_max: this.hse_max,
-        //     Qkwh: this.Qkwh,
-        //     Sp: this.Sp,
-        //     Qkwh_min: this.Qkwh_min,
-        //     Qkwh_max: this.Qkwh_max,
-        //     ql_ref_pb: this.ql_ref_pb,
-        //     Qε: this.Qε,
-        //     Qε_min: this.Qε_min,
-        //     Qε_max: this.Qε_max
-        // });
+        console.log({
+            λm_min: this.λm_min,
+            λm_max: this.λm_max,
+            λdes_min: this.λdes_min,
+            λdes_max: this.λdes_max,
+            e_min: this.e_min,
+            e_max: this.e_max,
+            "De": this.De,
+            θse: this.θse,
+            θa: this.θa,
+            Rse_min: this.Rse_min,
+            Rse_max: this.Rse_max,
+            Rins_min: this.Rins_min,
+            Rins_max: this.Rins_max,
+            ql: this.ql,
+            qref_pb: this.qref_pb,
+            q: this.q,
+            hr: this.hr,
+            hr_min: this.hr_min,
+            hcv_min: this.hcv_min,
+            q_min: this.q_min,
+            q_max: this.q_max,
+            hse: this.hse,
+            hse_min: this.hse_min,
+            hse_max: this.hse_max,
+            Qkwh: this.Qkwh,
+            Sp: this.Sp,
+            Qkwh_min: this.Qkwh_min,
+            Qkwh_max: this.Qkwh_max,
+            ql_ref_pb: this.ql_ref_pb,
+            Qε: this.Qε,
+            Qε_min: this.Qε_min,
+            Qε_max: this.Qε_max
+        });
         return this.report;
     }
 

@@ -159,7 +159,6 @@ export class ProjectsPage extends ProjectPageBase {
           price: 0.05,
           price_delta: 1,
           co2: 202,
-          currency: 'EUR',
           user: localStorage.getItem('tbi-user')
         })).then(() => setTimeout(() => this.ionViewWillEnter(), 500))
       }

@@ -279,8 +279,8 @@ import { GlobalErrorHandler } from '../models/errors/global-error';
     FileChooser,
     UniqueDeviceID,
     FileTransfer,
-    { provide: ErrorHandler, useClass: GlobalErrorHandler, deps: [MessageService, Http] },
-    //{ provide: ErrorHandler, useClass: IonicErrorHandler },
+    //{ provide: ErrorHandler, useClass: GlobalErrorHandler, deps: [MessageService, Http] },
+    { provide: ErrorHandler, useClass: IonicErrorHandler },
     //Mock services
     //{ provide: PictureService, useClass: PictureDeviceService },
     LicencesService,
@@ -289,7 +289,8 @@ import { GlobalErrorHandler } from '../models/errors/global-error';
     LoadindService,
     LoadingController,
     { provide: LOCALE_ID, useValue: "en-US" },
-    { provide: FileService, useClass: FileDeviceService }
+    { provide: FileService, useClass: FileDeviceService },
+    AssetsPathProvider
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })

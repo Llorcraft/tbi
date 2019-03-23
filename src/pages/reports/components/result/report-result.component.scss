@@ -1,21 +1,45 @@
+@import "../../../../scss/media.scss";
+
 [report-result] {
   display: block;
   margin-top: 0;
 
+  #default-zoom-value {
+    display: none;
+
+    &:before {
+      content: "0.5";
+      @include media("landscape"){
+        content: "1";
+      }
+      @include media(">=tablet") {
+        content: "1.1";
+        @include media("landscape"){
+          content: "1.3";
+        }
+      }
+    }
+  }
+
   .zoom-buttons {
+    @include media(">=tablet") {
+      display: none;
+    }
+
     float: right;
     background: rgba(255, 255, 255, .6);
     width: auto;
-    zoom: 1!important;
+    zoom: 1 !important;
     flex-direction: row;
 
     >button {
       margin-top: -.5rem;
-      zoom: 1!important;
+      zoom: 1 !important;
       height: 4rem;
+
       span {
         margin-left: .2rem;
-        zoom: 1!important;
+        zoom: 1 !important;
         font-size: 2rem;
         margin-left: -.5rem;
         margin-top: .5rem;
@@ -69,7 +93,7 @@
 
   #scroll_button {
     font-size: 2rem;
-    zoom: 1!important;
+    zoom: 1 !important;
     margin-right: .5rem;
     background: rgba(255, 255, 255, .5);
     padding: 0 .5rem;
@@ -78,7 +102,7 @@
     z-index: 2000;
 
     span.button-inner {
-      zoom: 1!important;
+      zoom: 1 !important;
       flex-flow: column;
       padding: 0;
 
@@ -208,6 +232,7 @@
           &:nth-child(1) {
             >td {
               min-height: 80px;
+
               &:nth-child(5),
               &:nth-child(4) {
                 display: none;
@@ -274,9 +299,11 @@
 
     tbody td.bar div.gray {
       background-color: #7f7f7f;
+
       &.opaque {
         visibility: hidden;
       }
+
       //border: 1px solid #7f7f7f;
     }
 

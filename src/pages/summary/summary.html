@@ -10,7 +10,9 @@
 </ion-header>
 
 <ion-content [ngClass]="{'creating-pdf': creating_pdf}">
-  <div class="hide-pdf"></div>
+  <div class="hide-pdf">
+      <ion-icon color="royal" name="refresh"></ion-icon>
+  </div>
   <kendo-pdf-export #pdf paperSize="A4" margin=".5cm" [scale]="0.5" landscape="true" forcePageBreak=".page-break">
     <div class="table-container">
       <table class="data">
@@ -232,7 +234,7 @@
       <div class="page-template">
         <div class="header">
             <ion-grid class="header" style="border-bottom: 2px solid rgb(48,84,150)">
-                <ion-row>
+                <ion-row class="flex-vertical-middel">
                   <ion-col col-3>
 
                   </ion-col>

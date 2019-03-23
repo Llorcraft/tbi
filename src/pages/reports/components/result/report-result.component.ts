@@ -5,7 +5,10 @@ import { IMAGES } from '../../../../const/images';
 
 @Component({
     selector: '[report-result]',
-    templateUrl: './report-result.component.html'
+    templateUrl: './report-result.component.html',
+    host: {
+        '(window:resize)': 'setDefaultZoom()'
+    }
 })
 
 export class ReportResultComponent implements AfterContentInit {
@@ -22,6 +25,14 @@ export class ReportResultComponent implements AfterContentInit {
 
     ngAfterContentInit(): void {
         setTimeout(() => this.initialize_values(), 250)
+        this.setDefaultZoom();
+
+    }
+
+    setDefaultZoom() {
+        const _zoom = getComputedStyle(document.getElementById('default-zoom-value'), ':before').getPropertyValue('content');
+        this.zoom = (eval(_zoom + "*1"));
+        console.log(this.zoom);
     }
 
     go_top() {

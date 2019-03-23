@@ -15,11 +15,10 @@ import { IMAGES } from '../../const/images';
 import { InitPage } from '../init/init';
 import { EditProjectPage } from '../projects/edit';
 
-
 @Component({
   selector: 'page-summary',
   templateUrl: 'summary.html',
-  changeDetection: ChangeDetectionStrategy.Default
+  changeDetection: ChangeDetectionStrategy.Default,
 })
 
 export class SummaryPage implements OnInit {
@@ -50,11 +49,9 @@ export class SummaryPage implements OnInit {
     protected service: ProjectService,
     protected navCtrl: NavController,
     private opener: FileOpener,
-    private message: MessageService,
     public licences: LicencesService,
     private file: FileService,
     private cdRef: ChangeDetectorRef) {
-
   }
 
   public go_to_projects() {

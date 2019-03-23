@@ -17,21 +17,23 @@
         </ion-col>
         <ion-col col-12 col-md-8 offset-md-2 style="margin: 1rem auto 2rem" *ngIf="license.type!='PRO' || 1 == 1">
             <ion-label stacked>
-              <h2 class="welcome" style="padding-bottom: 1rem">Please select</h2>
+              <h2 class="welcome" style="padding-bottom: 1rem">Please select version</h2>
               </ion-label>
           <ion-list radio-group name="version-type" [(ngModel)]="isPro" (ionChange)="onVersionSelected($event)">
+            <ion-row>
             <ion-item hidden>
               <ion-label>Non version</ion-label>
               <ion-radio value="-1" checked="{{isPro==-1}}"></ion-radio>
             </ion-item>
-            <ion-item>
-              <ion-label>Version Easy</ion-label>
-              <ion-radio value="0" checked="{{isPro==0}}"></ion-radio>
+            <ion-item col-6>
+              <ion-label>Easy</ion-label>
+              <ion-radio  item-left value="0" checked="{{isPro==0}}"></ion-radio>
             </ion-item>
-            <ion-item>
-              <ion-label>Version Pro</ion-label>
-              <ion-radio value="1" checked="{{isPro==1}}"></ion-radio>
+            <ion-item col-6>
+              <ion-label>Pro</ion-label>
+              <ion-radio  item-left value="1" checked="{{isPro==1}}"></ion-radio>
             </ion-item>
+          </ion-row>
           </ion-list>
           <ion-item *ngIf="isPro==1" style="margin-top: -2rem">
             <ion-label stacked>Enter Pro version code validation</ion-label>
