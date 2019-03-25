@@ -51,7 +51,7 @@ export class ReportResultComponent implements AfterContentInit {
         if (!!this.parent.report.result.previousHeadLost.power && this.parent.report.result.previousHeadLost.power > this.parent.report.result.headLost.power)
             _max = this.parent.report.result.previousHeadLost.power;
 
-        this.scale.max = this.up(_max / 100);
+        this.scale.max = this.upScale(_max / 100);
         this.scale.medium = Math.ceil(this.scale.max / 1.5);
         this.scale.min = Math.ceil(this.scale.max / 2)
         this.scale.max;
@@ -78,6 +78,18 @@ export class ReportResultComponent implements AfterContentInit {
             (this.bars.current.losses[0] - this.bars.basic.losses[0]),
             (this.bars.current.losses[1] - this.bars.basic.losses[1])
         ];
+    }
+
+    upScale(value: number): number {
+        if (value > 1e4) return this.roundUp((value), -3)
+        if (value > 1e3) return this.roundUp((value), -2)
+        if (value > 1e2) return this.roundUp((value), -1)
+        return this.roundUp(value, 0);
+    }
+
+    roundUp(number, digits): number {
+        let factor = Math.pow(10, digits);
+        return Math.ceil(number * factor) / factor
     }
 
     private get_delta(): number {

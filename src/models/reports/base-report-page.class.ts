@@ -20,6 +20,7 @@ export class BaseReportPage extends ScrollToComponent implements OnInit, AfterVi
   @ViewChild('errors') errors: ReportErrorsComponent;
   //Focus input after option select
   @ViewChild('after_time') after_time;
+  @ViewChild('ambient_temp') ambient_temp;
   @ViewChild('before_time') before_time;
   @ViewChild('after_material') after_material;
   @ViewChild('before_material') before_material;
@@ -372,9 +373,9 @@ export class BaseReportPage extends ScrollToComponent implements OnInit, AfterVi
   scrollToBottom(): Promise<boolean> {
     return new Promise<boolean>(resolve => {
       setTimeout(() => this.content.scrollToBottom(400).then(() => resolve(true)), 500);
-    });      
+    });
   }
-  
+
   protected on_picture_start_edit(picture: Picture): void {
     //(document.getElementsByTagName('ion-buttons')[0] as any).style.display = 'none';
     this.editing_picture = picture;
@@ -414,6 +415,7 @@ export class BaseReportPage extends ScrollToComponent implements OnInit, AfterVi
         if (!!r) {
           this.report.component.fields.surface_temp = Number(r.temp);
           this.report.component.fields.unknow_surface_temp = Number(r.gas);
+          setTimeout(() => this.ambient_temp.setFocus(), 150);
         } else {
           this.report.component.fields.unknow_surface_temp = 0;
         }

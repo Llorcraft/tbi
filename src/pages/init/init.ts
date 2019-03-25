@@ -28,14 +28,14 @@ export class InitPage implements AfterViewInit {
   }
 
   public onCodeChange(e){
-    if((e.value || '').toLowerCase() == 'pro') this.save();
+    if((e.value || '').toLowerCase() == '9979') this.save();
   }
 
   public save(): void {
     //if(form.invalid) return;
     localStorage.setItem('tbi-user', this.user_name);
     this.license.type = '';
-    if (this.isPro == 1 && this.code.toLocaleLowerCase() == 'pro') this.license.type = 'PRO';
+    if (this.isPro == 1 && this.code.toLocaleLowerCase() == '9979') this.license.type = 'PRO';
     //this.appCtrl.setRoot(ProjectsPage, { user_name: this.user_name, summary: true, project: '6243045674937677'});
     this.appCtrl.setRoot(ProjectsPage, { user_name: this.user_name });
   }

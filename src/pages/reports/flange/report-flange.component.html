@@ -98,7 +98,7 @@
             <ion-col col-10>
               <ion-item>
                 <ion-label stacked>Ambient temperature (<sup>º</sup>C)</ion-label>
-                <ion-input tabindex="8" (ionFocus)="on_focus($event)" (keyup.enter)="on_keypress($event)" name="ambient_temp"
+                <ion-input #ambient_temp tabindex="8" (ionFocus)="on_focus($event)" (keyup.enter)="on_keypress($event)" name="ambient_temp"
                   [pattern]="patterns.REQUIRED_NUMBER" data-val-pattern="Please input a valid Ambient temperature"
                   required data-val-required="Please input Ambient temperature" [(ngModel)]="report.component.fields.ambient_temp"
                   type="tel"></ion-input>

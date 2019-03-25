@@ -289,8 +289,7 @@ import { GlobalErrorHandler } from '../models/errors/global-error';
     LoadindService,
     LoadingController,
     { provide: LOCALE_ID, useValue: "en-US" },
-    { provide: FileService, useClass: FileDeviceService },
-    AssetsPathProvider
+    { provide: FileService, useClass: FileDeviceService }
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })

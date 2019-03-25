@@ -294,13 +294,6 @@ export class SummaryPage implements OnInit {
       subTitle: 'What do you want to do next?',
       buttons: [
         {
-          text: 'Change user',
-          //icon: 'person',
-          handler: () => {
-            this.navCtrl.setRoot(InitPage);
-          }
-        },
-        {
           text: 'Continue',
           //icon: 'add-circle',
           handler: () => {
@@ -327,6 +320,13 @@ export class SummaryPage implements OnInit {
               project: new Project(),
               parent: SummaryPage
             });
+          }
+        },
+        {
+          text: 'Change user',
+          //icon: 'person',
+          handler: () => {
+            this.navCtrl.setRoot(InitPage);
           }
         },
         {

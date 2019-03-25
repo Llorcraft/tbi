@@ -20,7 +20,7 @@ export class TbiComponent {
     }
 
     public get is_hot(): boolean {
-        return (this.fields.surface_temp || 0) > 35
+        return (this.fields.surface_temp || 0) > 55
     }
     public result: Result
 
