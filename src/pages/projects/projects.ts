@@ -86,21 +86,21 @@ export class ProjectsPage extends ProjectPageBase {
     let buttons = [
       {
         text: 'Open',
-        icon: 'document',
+        //icon: 'document',
         handler: () => {
           this.open(project)
         }
       },
       {
         text: 'Edit properties',
-        icon: 'create',
+        //icon: 'create',
         handler: () => {
           this.navigate_to_edit(project)
         }
       },
       {
         text: 'Duplicate',
-        icon: 'copy',
+        //icon: 'copy',
         handler: () => {
           this.duplicate(project)
         }
@@ -108,7 +108,7 @@ export class ProjectsPage extends ProjectPageBase {
       {
         text: 'Delete',
         role: 'destructive',
-        icon: 'trash',
+        //icon: 'trash',
         handler: () => {
           setTimeout(() => this.delete_project(project, null), 250);
         }

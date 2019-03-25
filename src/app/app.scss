@@ -281,6 +281,7 @@ ion-item .item-inner,
 }
 
 ion-grid.grid.fixed-col {
+  height: 150%;
   >ion-row.row {
     >ion-col.col:nth-child(2) {
       //position: fixed!important;
@@ -436,6 +437,4 @@ ion-icon {
     }
   }
 }
-
-
 

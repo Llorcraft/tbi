@@ -15,16 +15,27 @@ export class ScrollToComponent {
     Array.from(document.getElementsByClassName('scroll-content')).forEach(e => e.scrollTo(0, position));
   }
   public on_focus(event: any) {
+    // setTimeout(() => {
+    //   event._elementRef.nativeElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    //   setTimeout(() => {
+    //     event._elementRef.nativeElement.closest('.scroll-content').scrollTop -= 30;
+    //   }, 250);
+    // }, 500);
+
     setTimeout(() => {
-      event._elementRef.nativeElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      setTimeout(() => {
-        event._elementRef.nativeElement.closest('.scroll-content').scrollTop -= 30;
-      }, 250);
-    }, 500);
-    // const elm = event._elementRef.nativeElement
-    // const offset = 60;
-    // elm.closest('.scroll-content').scrollTo(0, elm.closest('.scroll-content').scrollTop - 50);
-    // this.scroll(elm.closest('.scroll-content'), elm.closest('.scroll-content').scrollTop + elm.closest('ion-item').getBoundingClientRect().top - offset);
+      const elm = event._elementRef.nativeElement
+      const offset = 60;
+      elm.closest('.scroll-content').scrollTo(0, elm.closest('.scroll-content').scrollTop - 50);
+      setTimeout(()=> elm.closest('.scroll-content').scrollTop += elm.closest('ion-item').getBoundingClientRect().top - offset, 150);
+      //this.scroll(elm.closest('.scroll-content'), elm.closest('.scroll-content').scrollTop + elm.closest('ion-item').getBoundingClientRect().top - offset);
+    }, 250);
+
+    // setTimeout(() => {
+    //   const elm = event._elementRef.nativeElement
+    //   const offset = 60;
+    //   //elm.closest('.scroll-content').scrollTo(0, elm.closest('.scroll-content').scrollTop - 50);
+    //   elm.closest('.scroll-content').scrollTop =  elm.closest('.scroll-content').scrollTop + elm.closest('ion-item').getBoundingClientRect().top - offset;
+    // }, 250);
   }
 
   protected scroll(elm: any, top: number) {

@@ -88,38 +88,38 @@ export class SummaryPage implements OnInit {
       buttons: [
         {
           text: 'Add report',
-          icon: 'ios-add-circle',
+          //icon: 'ios-add-circle',
           handler: () => {
             this.go_to_reports(cl);
           }
         }, {
           text: 'Edit',
-          icon: 'ios-create',
+          //icon: 'ios-create',
           handler: () => {
             this.edit(cl);
           }
         }, {
           text: 'Duplicate',
-          icon: 'ios-copy',
+          //icon: 'ios-copy',
           handler: () => {
             this.duplicate(cl);
           }
         }, {
           text: 'Validate',
-          icon: 'checkmark-circle',
+          //icon: 'checkmark-circle',
           handler: () => {
             this.validate(cl);
           }
         }, {
           text: 'Delete',
           role: 'ios-destructive',
-          icon: 'trash',
+          //icon: 'trash',
           handler: () => {
             this.remove(cl, event);
           }
         }, {
           text: 'Cancel',
-          icon: 'close',
+          //icon: 'close',
           role: 'cancel',
           handler: () => {
             console.log('Cancel clicked');

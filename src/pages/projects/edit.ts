@@ -137,14 +137,14 @@ export class EditProjectPage extends ProjectPageBase {
       buttons: [
         {
           text: 'Take picture',
-          icon: 'camera',
+          //icon: 'camera',
           handler: () => {
             this.open_camera();
           }
         },
         {
           text: 'From gallery',
-          icon: 'images',
+          //icon: 'images',
           handler: () => {
             this.open_gallery();
           }
@@ -152,7 +152,7 @@ export class EditProjectPage extends ProjectPageBase {
         {
           text: 'Delete',
           role: 'destructive',
-          icon: 'trash',
+          //icon: 'trash',
           cssClass: 'disable',
           handler: () => {
             project.picture = '';
