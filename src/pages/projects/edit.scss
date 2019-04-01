@@ -1,4 +1,19 @@
 page-edit-project {
+  .scroll-content {
+    @include media("<tablet"){
+      padding-bottom: 50vh;
+      @include media("portrait"){
+        padding-bottom: 40vh;
+      }
+    }
+    @include media(">=tablet"){
+      padding-bottom: 50vh;
+      @include media("portrait"){
+        padding-bottom: 30vh;
+      }
+    }
+  }
+  
   ion-item.error {
     padding: 0 0 0 16px !important;
     margin: .5rem 0 !important;

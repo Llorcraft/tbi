@@ -1,18 +1,27 @@
 import { Keyboard } from "ionic-angular";
 
 export class ScrollToComponent {
-  constructor(protected keyboard: Keyboard) { }
+  constructor(protected keyboard: Keyboard) {}
+  protected offset = 60;
 
   protected on_keypress(event: KeyboardEvent) {
     if (event.which === 13) {
-      (event.currentTarget as HTMLElement).closest('.scroll-content').scrollTo(0, 0);
-      document.getElementById('submit-button').focus();
+      (event.currentTarget as HTMLElement)
+        .closest(".scroll-content")
+        .scrollTo(0, 0);
+      document.getElementById("submit-button").focus();
       //this.keyboard.hideFormAccessoryBar(true);
     }
   }
 
   public scrollTo(position: number) {
-    Array.from(document.getElementsByClassName('scroll-content')).forEach(e => e.scrollTo(0, position));
+    Array.from(document.getElementsByClassName("scroll-content")).forEach(e =>
+      e.scrollTo(0, position)
+    );
+  }
+
+  private get is_tablet(): boolean {
+    return !(window.outerWidth < 768 || window.outerHeight < 768);
   }
   public on_focus(event: any) {
     // setTimeout(() => {
@@ -23,10 +32,24 @@ export class ScrollToComponent {
     // }, 500);
 
     setTimeout(() => {
-      const elm = event._elementRef.nativeElement
-      const offset = 60;
-      elm.closest('.scroll-content').scrollTo(0, elm.closest('.scroll-content').scrollTop - 50);
-      setTimeout(()=> elm.closest('.scroll-content').scrollTop += elm.closest('ion-item').getBoundingClientRect().top - offset, 150);
+      const elm = event._elementRef.nativeElement;
+      if (this.is_tablet) {
+        event._elementRef.nativeElement.scrollIntoView({
+          behavior: "smooth",
+          block: "start"
+        });
+      } else {
+        elm
+          .closest(".scroll-content")
+          .scrollTo(0, elm.closest(".scroll-content").scrollTop - this.offset);
+        setTimeout(
+          () =>
+            (elm.closest(".scroll-content").scrollTop +=
+              elm.closest("ion-item").getBoundingClientRect().top -
+              this.offset),
+          150
+        );
+      }
       //this.scroll(elm.closest('.scroll-content'), elm.closest('.scroll-content').scrollTop + elm.closest('ion-item').getBoundingClientRect().top - offset);
     }, 250);
 
@@ -40,10 +63,10 @@ export class ScrollToComponent {
 
   protected scroll(elm: any, top: number) {
     if (elm.scrollTop < top) {
-      elm.scrollTo(0, elm.scrollTop += 50);
+      elm.scrollTo(0, (elm.scrollTop += 50));
       setTimeout(() => this.scroll(elm, top), 1);
     } else {
-      elm.scrollTo(0, top)
+      elm.scrollTo(0, top);
     }
   }
 }

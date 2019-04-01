@@ -24,27 +24,27 @@
         </ion-col>
       </ion-row>
       <ion-row>
-        <ion-col col-12 col-md-8>
+        <ion-col col-12 col-sm-6 col-md-8>
           <div svg="area-cube" padding></div>
         </ion-col>
-        <ion-col col-12 col-md-4>
+        <ion-col col-12 col-sm-6 col-md-4>
           <ion-row>
             <ion-col col-12>
               <ion-item>
                 <ion-label stacked>a (m)</ion-label>
-                <ion-input type="number" tabindex="101" name="cube_a" id="cube_a" [(ngModel)]="width"></ion-input>
+                <ion-input type="number" (ionFocus)="on_focus($event)" tabindex="101" name="cube_a" id="cube_a" [(ngModel)]="width"></ion-input>
               </ion-item>
             </ion-col>
             <ion-col col-12>
               <ion-item>
                 <ion-label stacked>b (m)</ion-label>
-                <ion-input type="number" tabindex="102" name="cube_deep" [(ngModel)]="deep"></ion-input>
+                <ion-input type="number" (ionFocus)="on_focus($event)" tabindex="102" name="cube_deep" [(ngModel)]="deep"></ion-input>
               </ion-item>
             </ion-col>
-            <ion-col col-12>
+            <ion-col col-12 last-control>
               <ion-item>
                 <ion-label stacked>h (m)</ion-label>
-                <ion-input type="number" tabindex="103" (keyup.enter)="key_enter()" name="cube_height" [(ngModel)]="height"></ion-input>
+                <ion-input type="number" (ionFocus)="on_focus($event)" tabindex="103" (keyup.enter)="key_enter()" name="cube_height" [(ngModel)]="height"></ion-input>
               </ion-item>
             </ion-col>
           </ion-row>
@@ -58,21 +58,21 @@
           <strong>&nbsp;</strong>
       </ion-col>
     <ion-row>
-      <ion-col col-12 col-md-8>
+      <ion-col col-12 col-sm-6 col-md-8>
         <div svg="area-rectangle" padding></div>
       </ion-col>
-      <ion-col col-12 col-md-4>
+      <ion-col col-12 col-sm-6 col-md-4>
         <ion-row>
           <ion-col col-12>
             <ion-item>
               <ion-label stacked>a (m)</ion-label>
-              <ion-input type="number" tabindex="106" name="rectangle-a" id="rectangle-a" [(ngModel)]="width"></ion-input>
+              <ion-input (ionFocus)="on_focus($event)" type="number" tabindex="106" name="rectangle-a" id="rectangle-a" [(ngModel)]="width"></ion-input>
             </ion-item>
           </ion-col>
           <ion-col col-12>
-            <ion-item>
+            <ion-item last-control> 
               <ion-label stacked>b (m)</ion-label>
-              <ion-input type="number" tabindex="107" name="rectangle-b" id="rectangle-b" (keyup.enter)="key_enter()" [(ngModel)]="height"></ion-input>
+              <ion-input (ionFocus)="on_focus($event)" type="number" tabindex="107" name="rectangle-b" id="rectangle-b" (keyup.enter)="key_enter()" [(ngModel)]="height"></ion-input>
             </ion-item>
           </ion-col>
         </ion-row>
@@ -86,21 +86,21 @@
             <strong>* Only lateral walls</strong>
         </ion-col>
       <ion-row>
-        <ion-col col-12 col-md-8>
+        <ion-col col-12 col-sm-6 col-md-8>
           <div svg="area-cilinder" padding></div>
         </ion-col>
-        <ion-col col-12 col-md-4>
+        <ion-col col-12 col-sm-6 col-md-4>
           <ion-row>
             <ion-col col-12>
               <ion-item>
                 <ion-label stacked>h (m)</ion-label>
-                <ion-input type="number" tabindex="108" name="cilinder-h" id="cilinder-h" [(ngModel)]="height"></ion-input>
+                <ion-input (ionFocus)="on_focus($event)" type="number" tabindex="108" name="cilinder-h" id="cilinder-h" [(ngModel)]="height"></ion-input>
               </ion-item>
             </ion-col>
             <ion-col col-12>
-              <ion-item>
+              <ion-item last-control>
                 <ion-label stacked>r (m)</ion-label>
-                <ion-input type="number" tabindex="109" name="cilinder-radius" (keyup.enter)="key_enter()" [(ngModel)]="radius"></ion-input>
+                <ion-input (ionFocus)="on_focus($event)" type="number" tabindex="109" name="cilinder-radius" (keyup.enter)="key_enter()" [(ngModel)]="radius"></ion-input>
               </ion-item>
             </ion-col>
           </ion-row>
@@ -114,15 +114,15 @@
             <strong>&nbsp;</strong>
         </ion-col>
       <ion-row>
-        <ion-col col-12 col-md-8>
+        <ion-col col-12 col-sm-6 col-md-8>
           <div svg="area-circle" padding></div>
         </ion-col>
-        <ion-col col-12 col-md-4>
+        <ion-col col-12 col-sm-6 col-md-4>
           <ion-row>
             <ion-col col-12>
-              <ion-item>
+              <ion-item last-control>
                 <ion-label stacked>r (m)</ion-label>
-                <ion-input type="number" tabindex="110" name="circel-r" id="circel-r" (keyup.enter)="key_enter()" [(ngModel)]="radius"></ion-input>
+                <ion-input (ionFocus)="on_focus($event)" type="number" tabindex="110" name="circel-r" id="circel-r" (keyup.enter)="key_enter()" [(ngModel)]="radius"></ion-input>
               </ion-item>
             </ion-col>
           </ion-row>

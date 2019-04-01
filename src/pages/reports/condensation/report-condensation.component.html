@@ -1,7 +1,6 @@
 <report-header [parent]="this"></report-header>
 
-<ion-content #content class="scrollable-content">
-
+<ion-content #content [ngClass]="{'scrollable-content': !report.result}">
   <ion-grid [hidden]="view=='edit_picture'">
     <ion-row>
       <ion-col col-12 col-md-8 no-padding>

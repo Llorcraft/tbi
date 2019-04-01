@@ -427,6 +427,24 @@ export class SummaryPage implements OnInit {
     return action_sheet;
   }
 
+  showDisclaimer() {
+    let action_sheet = this.alertCtrl.create({
+      title: 'Disclaimer',
+      cssClass: 'disclaimer',
+      message: `<p>The TBI-App TBI is a reporting tool developed by the European Industrial Insulation Foundation (EiiF) to estimate energy losses and potential savings of uninsulated and insulated systems. Furthermore it can be used to create reports about safety, maintenance or any other (free input) relevant issues.
+      <br><br>
+      The calculated estimations are based on basic and simplified heat transfer formulas (e.g. always using 0m/s wind speed and horizontal as the orientation of the system).
+      <br><br>
+      The user of this application accepts the following conditions. The user is exclusively responsible for the correctness of the input of data into the TBI-App. The user is aware that theoretical values can deviate from those occurring in practice and that therefore the estimation results depend fully on the accuracy of the inserted information like diameter, surface temperature, ambient temperature, etc.
+      <br><br>
+      TBI does not provide or recommend any specific technical solution nor insulation material. Basic insulation and good insulation scenarios are calculated on generic values, typical for standard insulation solutions.
+      <br><br>
+      EiiF does not warrant the correctness of (the outcome of) any calculation and shall not be liable for any direct, indirect or consequential damages or any other damages whatsoever incurred by the user or third party resulting from the use of this calculation application or loss of data. EiiF reserves all rights (including copyright and other intellectual property rights) in respect of all information offered through this calculation program, including the software, the product name TBI-App.</p>`,
+      buttons: ['OK']
+    });
+    return action_sheet.present();
+  }
+
   ngOnInit(): void {
     this.service.get(this.navParams.get('project').id).then(p => {
       this.project = p;

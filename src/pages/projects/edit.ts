@@ -44,6 +44,7 @@ export class EditProjectPage extends ProjectPageBase {
     private opener: FileOpener) {
 
     super(alertCtrl, service, keyboard);
+    this.offset = 120;
     this.project = navParams.get("project");
 
     this.initial_values.price = this.project.price;
@@ -90,7 +91,10 @@ export class EditProjectPage extends ProjectPageBase {
 
   public save(): void {
     setTimeout(() => {
-      if (!this.form.valid) return;
+      if (!this.form.valid) {
+        this.scrollTo(0);
+        return;
+      }
       // if (this.project.price != this.initial_values.price || this.project.price_delta != this.initial_values.price_delta) {
       // this.project.components.forEach(c => {
       //   c.reports.forEach(r => (new CalculatorFactory()).calculate(new ReportBase(this.project, c, r)));

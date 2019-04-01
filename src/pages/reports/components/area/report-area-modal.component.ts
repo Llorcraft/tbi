@@ -1,12 +1,13 @@
 import { Component } from '@angular/core';
-import { ViewController } from 'ionic-angular';
+import { ViewController, Keyboard } from 'ionic-angular';
+import { ScrollToComponent } from '../../../scroll_to_component.class';
 
 
 @Component({
   selector: 'area-modal',
   templateUrl: './report-area-modal.component.html'
 })
-export class ReportAreaModalComponent {
+export class ReportAreaModalComponent extends ScrollToComponent {
   protected radius?: number = null;
   protected height?: number = null;
   protected width?: number = null;
@@ -18,7 +19,9 @@ export class ReportAreaModalComponent {
     circle: 2
   };
 
-  constructor(private viewCtrl: ViewController) {
+  constructor(private viewCtrl: ViewController, protected keyboard: Keyboard) {
+    super(keyboard);
+    this.offset = 80;
   }
 
   ionViewDidLoad(){
@@ -52,5 +55,6 @@ export class ReportAreaModalComponent {
   }
 
   protected on_segment_change() {
+    this.scrollTo(0);
   }
 }

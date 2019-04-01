@@ -1,17 +1,32 @@
 @keyframes rotation {
   from {
-      transform: rotate(0deg);
+    transform: rotate(0deg);
   }
+
   to {
-      transform: rotate(359deg);
+    transform: rotate(359deg);
   }
 }
+
+.disclaimer {
+  .alert-message {
+    p {
+      text-align: left;
+      font-size: .6rem;
+      @include media(">=tablet"){
+        font-size: .7rem;
+      }
+    }
+  }
+}
+
 page-summary {
 
   .flex-vertical-middel {
     justify-content: center;
     display: flex;
   }
+
   .tickcheck {
     display: flex;
     justify-content: center;
@@ -56,18 +71,21 @@ page-summary {
       display: flex;
       align-items: center;
       justify-items: center;
+      flex-direction: column;
       display: none;
+
       ion-icon {
         font-size: 10rem;
-        margin: 2rem auto;
         color: #488aff;
         animation: none;
+        margin-top: 3rem;
       }
     }
 
     &.creating-pdf {
       .hide-pdf {
         display: flex;
+
         ion-icon {
           animation: rotation .5s infinite linear;
         }
@@ -212,11 +230,11 @@ page-summary {
 
   table.data {
     margin: auto;
-    width: 1500px;
+    width: 1600px;
     //text-align: left;
 
     @media (max-width: 575px) {
-      width: 1500px;
+      width: 1600px;
     }
 
     border-spacing: 0;

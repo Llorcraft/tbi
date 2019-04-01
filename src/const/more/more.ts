@@ -41,9 +41,9 @@ export const More =
     ],
     CURRENCIES: [
         ['EUR  (€)', '€', 1],
-        ['CHF  (₣)', '₣', 2],
-        ['USD  ($)', '$', 3],
-        ['GBP  (£)', '£', 4],
+        ['USD  ($)', '$', 2],
+        ['GBP  (£)', '£', 3],
+        ['CHF  (CHF)', 'CHF', 4],
         ['Free input', '', 0]
     ]
 }
