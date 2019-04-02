@@ -1,5 +1,5 @@
-import { Component, ViewChild, ElementRef } from "@angular/core";
-import { ViewController, NavParams, AlertController } from "ionic-angular";
+import { Component, ViewChild } from "@angular/core";
+import { ViewController, NavParams } from "ionic-angular";
 
 @Component({
   selector: 'unknown-temp',
@@ -11,7 +11,7 @@ export class KnownTempPage {
   public gas: string = '1';
  
   @ViewChild('medium_temp_field') medium_temp_field: any;
-  constructor(private viewCtrl: ViewController, params: NavParams, private alertCtrl: AlertController) {
+  constructor(private viewCtrl: ViewController, params: NavParams) {
     this.medium_temp = params.get('medium_temp') || '';
   }
 

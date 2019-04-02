@@ -1,6 +1,6 @@
 registerLocaleData(localeES);
 
-import { HttpModule, Http } from '@angular/http';
+import { HttpModule/*, Http*/ } from '@angular/http';
 import { NgModule, ErrorHandler, CUSTOM_ELEMENTS_SCHEMA, LOCALE_ID } from '@angular/core';
 import localeES from '@angular/common/locales/en';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -123,7 +123,7 @@ import { ToolsComponent } from '../components/tools/tools.component';
 import { Flashlight } from '@ionic-native/flashlight';
 import { SummaryHeaderComponent } from '../pages/summary/components/header';
 import { CommonModule, registerLocaleData } from '@angular/common';
-import { GlobalErrorHandler } from '../models/errors/global-error';
+/*import { GlobalErrorHandler } from '../models/errors/global-error';*/
 
 //import { GlobalErrorHandler } from '../models/errors/global-error';
 

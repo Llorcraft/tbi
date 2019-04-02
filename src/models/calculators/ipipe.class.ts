@@ -10,8 +10,8 @@ export class IPipeDecorator implements ICalculator {
 
 class IPipeCalculator extends BaseCalculator {
   constructor(report: ReportBase) {
-    let r45 = report.component.fields.surface_temp < report.component.fields.ambient_temp ? .8 : 1;
-    let r46 = report.component.fields.surface_temp < report.component.fields.ambient_temp? .8 :1;
+    //let r45 = report.component.fields.surface_temp < report.component.fields.ambient_temp ? .8 : 1;
+    //let r46 = report.component.fields.surface_temp < report.component.fields.ambient_temp? .8 :1;
     super(report, [
       // /*02*/() => this.hcv = 1.74 * Math.pow(this.Δθ, 1 / 3),
       // /*04*/() => this.q = this.hse * this.Δθ,

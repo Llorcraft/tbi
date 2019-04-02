@@ -23,6 +23,10 @@ export class MyApp {
       // this.orientation.onChange().subscribe(() => {
       //   document.getElementsByTagName('html')[0].className = !!this.orientation.type.match(/landscape/i) ? 'landscape' : '';
       // })
+
+      this.orientation.onChange().subscribe(() => {
+          console.log(!!this.orientation.type.match(/landscape/i) ? 'landscape' : 'portrait');
+        });
     });
   }
 }

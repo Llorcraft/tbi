@@ -26,7 +26,6 @@ export class EditProjectPage extends ProjectPageBase {
     price_delta: 1
   }
   @ViewChild('form') form: NgForm;
-  private co2: string;
   public edit_co2: boolean = false;
   @ViewChild('co2_input') co2_input;
   public more = More;

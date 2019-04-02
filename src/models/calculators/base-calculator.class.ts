@@ -62,7 +62,7 @@ export class BaseCalculator {
     public lort_min: number = 1;
     public lort_max: number = 1;
     public get De(): number {
-        const range = [
+        /*const range = [
             [10, 0.018],
             [15, 0.022],
             [20, 0.027],
@@ -105,9 +105,10 @@ export class BaseCalculator {
             [3400, 3.420]
         ]
         const filter = range.find(r => r[0] > this.DN);
-        // return filter ?
-        //     range.lastIndexOf(filter) > 0 ? range[range.lastIndexOf(filter) - 1][1] : range[0][1] : range[range.length -1][1];
-        return this.DN / 1e3;
+         return filter ?
+             range.lastIndexOf(filter) > 0 ? range[range.lastIndexOf(filter) - 1][1] : range[0][1] : range[range.length -1][1];
+        */
+       return this.DN / 1e3;
     };
     public De_min: number = 1;
     public De_max: number = 1;

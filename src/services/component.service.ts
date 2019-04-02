@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { ProjectService } from './project.service';
 import { TbiComponent } from '../models/component';
 import { Project } from '../models';
-import { resolve } from 'url';
 
 @Injectable()
 export class ComponentService {

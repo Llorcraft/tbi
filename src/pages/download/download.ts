@@ -11,13 +11,9 @@ export class DownloadPage {
   public files: Document[] = [];
   public pictures: Picture[] = [];
   constructor(private file: FileService, private service: ProjectService) {
-    // for (let i = 1; i < 11; i++) {
-    //   this.files.push(new Document({ 
-    //     file: `Files ${i}`, 
-    //     folder: `${this.file.working_folder}${i}`,
-    //   }));
-    // }
-    //this.file.get_documents().then(d => this.files = d);
+    
+    this.file.get_documents().then(d => this.files = d);
+    
     service.get_all().then(projects => {
       projects.forEach(p => {
         this.files = this.files.concat(p.documents);

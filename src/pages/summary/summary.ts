@@ -9,7 +9,7 @@ import { TbiComponent } from '../../models/component';
 import { PDFExportComponent } from '@progress/kendo-angular-pdf-export';
 import { Group, exportPDF } from '@progress/kendo-drawing';
 import { ProjectsPage } from '../projects/projects';
-import { FileService, MessageService, LicencesService } from '../../services';
+import { FileService, LicencesService } from '../../services';
 import { FileOpener } from '@ionic-native/file-opener';
 import { IMAGES } from '../../const/images';
 import { InitPage } from '../init/init';

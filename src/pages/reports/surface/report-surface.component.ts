@@ -1,4 +1,4 @@
-import { Component, ViewEncapsulation } from '@angular/core';
+import { Component } from '@angular/core';
 import { BaseReportPage, ReportSurface } from '../../../models/reports';
 import { ModalController, NavController, NavParams, AlertController, Keyboard } from 'ionic-angular';
 import { ReportService } from '../../../services/report.service';

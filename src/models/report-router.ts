@@ -4,7 +4,6 @@ import { NavController } from "ionic-angular";
 import { TbiComponent } from "./component";
 import { ReportFlange, ReportPipe, ReportSurface, ReportValve, ReportInsulatedSurface, ReportInsulatedPipe, ReportDamaged, ReportCondensation } from "./reports";
 import { ReportGeneric } from "./reports/report-generic.class";
-import { ReportLeakage } from "./reports/report-leakage";
 import { Result } from "./result";
 
 export class ReportRouter {

@@ -1,4 +1,4 @@
-import { NavController, AlertController, Keyboard, Content, ModalController, NavParams, IonicFormInput } from "ionic-angular";
+import { NavController, AlertController, Keyboard, Content, ModalController, NavParams } from "ionic-angular";
 import { NgForm } from '@angular/forms';
 import { ViewChild, OnInit, AfterViewInit, ElementRef } from "@angular/core";
 import { ReportBase, Project } from "..";

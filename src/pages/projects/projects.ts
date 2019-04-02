@@ -8,10 +8,8 @@ import { ReportsPage } from '../reports';
 import { ReportCategory, ReportBase } from '../../models';
 import { UniqueDeviceID } from '@ionic-native/unique-device-id';
 import { LicencesService } from '../../services/licences.service';
-import { DownloadPage } from '../download/download';
 import { SummaryPage } from '../summary/summary';
 import { TbiComponent } from '../../models/component';
-import { ReportRouter } from '../../models/report-router';
 
 @Component({
   selector: 'page-project',

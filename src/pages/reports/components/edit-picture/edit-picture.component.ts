@@ -1,4 +1,4 @@
-import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Picture } from '../../../../models/picture';
 import { Marker } from '../../../../models/marker';
 import { AlertController, AlertButton } from 'ionic-angular';
