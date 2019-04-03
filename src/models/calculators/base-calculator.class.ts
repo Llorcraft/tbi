@@ -40,8 +40,8 @@ export class BaseCalculator {
     public a: number = 0.0338;
     public b: number = 0.0001173;
     public c: number = 0.00000007545;
-    public Cpb_surface_pipe: number = 1.6;
-    public Cpb_valve_flange: number = 5;
+    public Cpb_surface_pipe: number = 4;
+    public Cpb_valve_flange: number = 8;
     public d: number = 0.0000000007109;
     public ε_default = 0.8;
     public Ft: number = 1.5;

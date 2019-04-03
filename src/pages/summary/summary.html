@@ -60,7 +60,7 @@
             <th rowspan="2"
               style="background-color: rgb(48,84,150); border: 2px solid #fff; color:#fff; border-width: 0 2px 4px 2px">
               <!-- <span svg="custom"></span> -->
-              Others</th>
+              Other</th>
             <th rowspan="2"
               style="background-color: rgb(48,84,150); border: 2px solid #fff; color:#fff; border-width: 0 2px 4px 2px">
               TBI Advice</th>
@@ -121,8 +121,7 @@
               / 1000 | number: '1.2-2'}}</td>
             <td nowrap [class.gray-text]="!!c.result && c.fields.unknow_surface" *ngIf="!!c.result" class="mesure">
               {{project.s_measure}}<span *ngIf="c.fields.unknow_surface">/m<sup>2</sup></span></td>
-            <td nowrap *ngIf="!c.result" colspan="2" double-border rowspan="3"></td>
-            <td nowrap *ngIf="!c.result" colspan="4" double-border rowspan="3"></td>
+            <td nowrap *ngIf="!c.result" colspan="6" text-center double-border rowspan="3">Not considered ></td>
             <td nowrap rowspan="3"></td>
             <td nowrap rowspan="3" style="background: rgb(180,198,231)" double-border text-center>
               <ng-container *ngFor="let r of c.reports_by_type('safety|hot')">
@@ -159,9 +158,9 @@
             <td nowrap *ngIf="!!c.validationReport" on-tap="edit_validation(c)" text-right>{{c.validationReport.reports[0].result.headLost.power
               / 1000 | number: '1.2-2'}}</td>
             <td nowrap *ngIf="!!c.validationReport" on-tap="edit_validation(c)" class="measure">{{project.s_measure}}</td>
-            <td nowrap rowspan="3"></td>
+            <td nowrap double-border rowspan="3"></td>
             <td nowrap rowspan="3" *ngIf="!c.result" double-border text-center></td>
-            <td nowrap rowspan="3" double-border text-center>{{!!c.insulated ? 'Y' : 'N'}}</td>
+            <td nowrap rowspan="3" double-border text-center>{{!!c.insulated ? 'Y' : !!c.energy ? 'N': ''}}</td>
             <td nowrap *ngIf="null!=c.fields.surface_temp" rowspan="3" double-border text-center>{{c.fields.surface}}</td>
             <td nowrap *ngIf="null==c.fields.surface_temp" rowspan="3" double-border text-center>&nbsp;</td>
             <td nowrap rowspan="3" double-border text-center>

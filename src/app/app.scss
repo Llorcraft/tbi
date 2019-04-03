@@ -475,3 +475,16 @@ ion-icon {
     height: calc(100% - 120px);
   }
 }
+
+ion-item.error {
+  padding: 0 0 0 16px !important;
+  margin: .5rem 0 !important;
+  min-height: 0 !important;
+
+  ion-label {
+    color: red !important;
+    font-size: 1rem !important;
+    margin: 0 !important;
+  }
+ 
+}

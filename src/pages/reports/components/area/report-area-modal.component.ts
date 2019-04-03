@@ -41,7 +41,8 @@ export class ReportAreaModalComponent extends ScrollToComponent {
       case 'cilinder':
         return 2 * Math.PI * (this.radius || 0) * (this.height || 0);
       case 'circle':
-        return Math.PI * Math.sqrt(this.radius || 0);
+      debugger;
+        return Math.PI * Math.pow(this.radius || 0, 2);
       case 'rectangle':
         return (this.width || 0) * (this.height || 0);
       default:

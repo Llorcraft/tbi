@@ -15,12 +15,13 @@
             </ion-label>
             <ion-input (ionFocus)="on_focus($event)" type="text" name="user_name" [(ngModel)]="user_name" placeholder="Your name" required></ion-input>
           </ion-item>
+          <ion-item no-lines class="error" *ngIf="f.submitted && f.controls?.user_name?.errors?.required">Please input user name</ion-item>
         </ion-col>
-        <ion-col col-12 col-md-8 offset-md-2 style="margin: 1rem auto 2rem" *ngIf="license.type!='PRO' || 1 == 1">
+        <ion-col col-12 col-md-8 offset-md-2 style="margin: 1rem auto 2rem" *ngIf="license.type!='PRO'">
             <ion-label stacked>
               <h2 class="welcome" style="padding-bottom: 1rem">Please select version</h2>
               </ion-label>
-          <ion-list radio-group name="version-type" [(ngModel)]="isPro" (ionChange)="onVersionSelected($event)">
+          <ion-list radio-group name="version-type" [(ngModel)]="isPro" (ionChange)="onVersionSelected($event, f)">
             <ion-row>
             <ion-item hidden>
               <ion-label>Non version</ion-label>
@@ -38,13 +39,14 @@
           </ion-list>
           <ion-item *ngIf="isPro==1" style="margin-top: -2rem">
             <ion-label stacked>Enter Pro version code validation</ion-label>
-            <ion-input type="text" (ionFocus)="on_focus($event)" name="pro-code" #proCode [(ngModel)]="code" (ionChange)="onCodeChange($event)" placeholder="Enter code"></ion-input>
+            <ion-input type="text" autofocus required (ionFocus)="on_focus($event)" name="pro_code" #proCode [(ngModel)]="code" required (ionChange)="onCodeChange($event, f)" placeholder="Enter code"></ion-input>
           </ion-item>
+          <ion-item no-lines class="error" *ngIf="f.submitted && f.controls?.pro_code?.errors?.required">Please input Pro version code</ion-item>
         </ion-col>
         <!-- <ion-col col-12 col-md-8 offset-md-2>
           <small>technology powered by</small>
         </ion-col> -->
-        <ion-col col-12 class="bg-logo-eiif" style="height: 120px; margin-bottom: 10rem">
+        <ion-col col-12 class="bg-logo-eiif" style="height: 120px; margin: 1rem auto">
           <!-- <h5>Tap to select logo</h5> -->
         </ion-col>
         <!-- <ion-col col-12 col-md-8 offset-md-2 text-right>
@@ -53,11 +55,11 @@
         </ion-col>
         <ion-col col-4 col-sm-6 col-md-6>
         </ion-col> -->
-        <!-- <ion-col col-8 col-sm-6 col-md-4 text-right>
-          <button ion-button block small color="primary" type="submit" [disabled]="f.invalid">
+        <ion-col col-12 text-right>
+          <button ion-button small color="primary" type="submit">
             Start
           </button>
-        </ion-col> -->
+        </ion-col>
       </ion-row>
     </ion-grid>
   </form>

@@ -34,9 +34,9 @@ class ValveCalculator extends BaseCalculator{
         /**33min*/() => this.hcv_laminar_min = 1.25 * Math.pow(this.Δθ / this.De_min, 0.25),
         /**33max*/() => this.hcv_laminar_max = 1.25 * Math.pow(this.Δθ / this.De_max, 0.25),
         /**34*/() => this.hcv_turbulent = 1.21 * Math.pow(this.Δθ, 0.33),
-        /**35*/() => this.hse = this.hr + (this.lort < 10 ? this.hcv_laminar : this.hcv_turbulent),
-        /**35min*/() => this.hse_min = this.hr + (this.lort_min < 10 ? this.hcv_laminar_min : this.hcv_turbulent),
-        /**35max*/() => this.hse_max = this.hr + (this.lort_max < 10 ? this.hcv_laminar_max : this.hcv_turbulent),
+        /**35*/() => this.hse = this.hr + (this.lort < 1 ? this.hcv_laminar : this.hcv_turbulent),
+        /**35min*/() => this.hse_min = this.hr + (this.lort_min < 1 ? this.hcv_laminar_min : this.hcv_turbulent),
+        /**35max*/() => this.hse_max = this.hr + (this.lort_max < 1 ? this.hcv_laminar_max : this.hcv_turbulent),
         /**42*/() => this.Rle = 1 / (this.hse * Math.PI * this.De),
         /**43*/() => this.ql = this.Δθ / this.Rle,
         /**42min*/() => this.Rle_min = 1 / (this.hse_min * Math.PI * this.De_min),
@@ -59,7 +59,7 @@ class ValveCalculator extends BaseCalculator{
         /*27*/() => this.Savingkwh_max = this.Qkwh - this.Qkwh_max,
         /*28*/() => this.Savingε_min = this.Qε - this.Qε_min,
         /*29*/() => this.Savingε_max = this.Qε - this.Qε_max,
-        /*30*/() => this.Insulation_advice = this.ql_ref_pb > this.ql_min ? 'SAFETY-Insulation recommended' : 'System OK',
+        /*30*/() => this.Insulation_advice = this.ql_ref_pb > this.ql_min ? 'Insulation recommended' : 'System OK',
     ]);
 
   }

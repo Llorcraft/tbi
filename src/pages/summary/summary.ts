@@ -368,7 +368,7 @@ export class SummaryPage implements OnInit {
           }
         },
         {
-          text: 'Purchase TBI-Pro',
+          text: 'Get TBI-Pro',
           //icon: 'open',
           handler: () => {
             window.open('http://www.eiif.org/tbi', '_system', 'location=yes')

@@ -29,6 +29,11 @@ export class TbiComponent {
         return !!report;
     }
 
+    public get energy(): boolean {
+        const report = this.reports.find(r => !!r.path.match(/(surface|pipe|valve|flange)/gi));
+        return !!report;
+    }
+
     public reports_by_type(type: string): ReportBase[] {
         let result = this.reports.filter(r => !!r.path.match(new RegExp('(' + type + ')', 'gi')));
         if (type.lastIndexOf('hot') != -1) {

@@ -1,6 +1,7 @@
 import { Keyboard } from "ionic-angular";
+import { AfterViewInit } from "@angular/core";
 
-export class ScrollToComponent {
+export class ScrollToComponent implements AfterViewInit {
   constructor(protected keyboard: Keyboard) {}
   protected offset = 60;
 
@@ -14,14 +15,27 @@ export class ScrollToComponent {
     }
   }
 
+  ngAfterViewInit() {}
+
   public scrollTo(position: number) {
     Array.from(document.getElementsByClassName("scroll-content")).forEach(e =>
       e.scrollTo(0, position)
     );
   }
 
+  private formatDecimals(element: HTMLElement) {
+    if (!(element.firstElementChild as HTMLInputElement).type.match(/(tel|number)/gi)) return;
+    element.firstElementChild.addEventListener("keydown", (e: KeyboardEvent) => {
+      if(e.which == 44) {
+        e.preventDefault();
+        return false;
+      }
+    });
+  }
+
   private get is_tablet(): boolean {
-    return !(window.outerWidth < 768 || window.outerHeight < 768);
+    return false;
+    //return !(window.outerWidth < 768 || window.outerHeight < 768);
   }
   public on_focus(event: any) {
     // setTimeout(() => {
@@ -30,6 +44,7 @@ export class ScrollToComponent {
     //     event._elementRef.nativeElement.closest('.scroll-content').scrollTop -= 30;
     //   }, 250);
     // }, 500);
+    this.formatDecimals(event._elementRef.nativeElement);
 
     setTimeout(() => {
       const elm = event._elementRef.nativeElement;

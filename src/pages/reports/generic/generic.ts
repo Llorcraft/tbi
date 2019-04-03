@@ -23,6 +23,7 @@ export class GenericReportPage extends BaseReportPage {
     protected keyboard: Keyboard
   ) {
     super(new ReportGeneric(navParams.data.project, navParams.data.component, navParams.data.report), navParams, navCtrl, service, alertCtrl, picture, message, keyboard);
+    this.report.name = this.report.summary_id;
   }
 
   protected calculate(): ReportBase {
