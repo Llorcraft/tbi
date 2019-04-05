@@ -1,4 +1,4 @@
-import { Keyboard } from "ionic-angular";
+import { Keyboard, TextInput } from "ionic-angular";
 import { AfterViewInit } from "@angular/core";
 
 export class ScrollToComponent implements AfterViewInit {
@@ -23,19 +23,19 @@ export class ScrollToComponent implements AfterViewInit {
     );
   }
 
-  private formatDecimals(element: HTMLElement) {
-    if (!(element.firstElementChild as HTMLInputElement).type.match(/(tel|number)/gi)) return;
-    element.firstElementChild.addEventListener("keydown", (e: KeyboardEvent) => {
-      if(e.which == 44) {
-        e.preventDefault();
-        return false;
-      }
+  private formatDecimals(element: TextInput) {
+    if (!element._elementRef.nativeElement.firstElementChild.type.match(/(tel|number)/g) 
+    || !!element._elementRef.nativeElement.firstElementChild.getAttribute('blur')) return;
+
+    element.ionBlur.subscribe(e => {
+      element._elementRef.nativeElement.firstElementChild.setAttribute('blur', 1);
+      if('' == e.ngControl.valueAccessor.value.toString().trim()) return;
+      e.ngControl.valueAccessor.value = (Number((e.ngControl.valueAccessor.value).toString().replace(/,/, '.')));
     });
   }
 
-  private get is_tablet(): boolean {
-    return false;
-    //return !(window.outerWidth < 768 || window.outerHeight < 768);
+  protected get is_tablet(): boolean {
+    return !(window.outerWidth < 768 || window.outerHeight < 768);
   }
   public on_focus(event: any) {
     // setTimeout(() => {
@@ -44,7 +44,8 @@ export class ScrollToComponent implements AfterViewInit {
     //     event._elementRef.nativeElement.closest('.scroll-content').scrollTop -= 30;
     //   }, 250);
     // }, 500);
-    this.formatDecimals(event._elementRef.nativeElement);
+    
+    this.formatDecimals(event);
 
     setTimeout(() => {
       const elm = event._elementRef.nativeElement;

@@ -51,7 +51,7 @@
             <ion-col col-md-4 col-10>
               <ion-item>
                 <ion-label stacked>Length (m)</ion-label>
-                <ion-input tabindex="5" min="0" (ionFocus)="on_focus($event)" name="number" required data-val-required="Please input Length"
+                <ion-input tabindex="5" [disabled]="!!report.component.validation" min="0" (ionFocus)="on_focus($event)" name="number" required data-val-required="Please input Length"
                 [pattern]="patterns.REQUIRED_NUMBER" data-val-pattern="Please input a valid Length" [(ngModel)]="report.component.fields.length" type="tel"></ion-input>
               </ion-item>
             </ion-col>
@@ -119,9 +119,7 @@
       <ion-col col-12 no-padding>
         <div report-result col-12 [parent]="this" *ngIf="view=='result' && (!!form && !form.invalid)"></div>
       </ion-col>
-      <ion-col col-12 padding>
-        <report-errors padding #errors col-12 [hidden]="view=='!result' && report.result"></report-errors>
-      </ion-col>
+      <report-errors padding #errors col-12 [hidden]="view=='!result' && report.result"></report-errors>
     </ion-row>
   </ion-grid>
 

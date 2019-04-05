@@ -51,7 +51,7 @@
             <ion-col col-10>
               <ion-item>
                 <ion-label stacked>Diameter (mm)</ion-label>
-                <ion-input [disabled]="!!report.component.validation" tabindex="5" #after_time (ionFocus)="on_focus($event)" name="nominal_diameter" required
+                <ion-input tabindex="5" #after_time (ionFocus)="on_focus($event)" name="nominal_diameter" required
                   data-val-required="Please input Diameter" [(ngModel)]="report.component.fields.nominal_diameter"  type="tel" [pattern]="patterns.REQUIRED_NUMBER" data-val-pattern="Please input a valid Diameter" ></ion-input>
               </ion-item>
             </ion-col>

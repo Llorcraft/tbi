@@ -13,6 +13,7 @@ export class ReportBase {
   public project: Project = null;
   public component?: TbiComponent = null;
   public pictures: Picture[] = [];
+  public date: Date = new Date();
   public insulated: boolean = false;
   public summary_id: string = '';
   public readonly_summary_id: string = '';
@@ -23,6 +24,9 @@ export class ReportBase {
   public get potential_measure(): string {
     return 'kWh/a';
   }
+  public get energy(): boolean {
+    return !!this.path.match(/(surface|pipe|valve|flange)/gi);
+}
   public get has_markers(): boolean {
     const has_markers = !!this.pictures.filter(p => !!p.has_markers).length;
     return has_markers;
@@ -53,6 +57,7 @@ export class ReportBase {
       this.summary_id = item.summary_id;
       this.readonly_summary_id = item.readonly_summary_id;
       this.comment = item.comment;
+      this.date = !!item.date ? new Date(item.date.toString()) : new Date();
       this.insulated = !!this.path.match(/insulated/gi) && !this.path.match(/un-insulated/gi);
     }
   }

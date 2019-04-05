@@ -12,6 +12,7 @@ export class ReportBaseJson {
   public summary_id: string = '';
   public readonly_summary_id: string = '';
   public comment: string = '';
+  public date: Date = new Date();
 
   constructor(item: Partial<ReportBase>) {
       this.id = item.id;
@@ -22,6 +23,7 @@ export class ReportBaseJson {
       this.readonly_summary_id = item.readonly_summary_id || item.summary_id;
       this.insulated = !!item.insulated;
       this.result = new Result(item.result);
+      this.date = new Date(item.date.toString());
       this.pictures = (item.pictures || []).map(p => new Picture(p));
   }
 }

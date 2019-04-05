@@ -160,16 +160,16 @@ export class SummaryPage implements OnInit {
     component.date = new Date();
     component.validation = c.id;
     component.result = null;
-    let report = new ReportBase(component.project, component, c.reports.find(r => !!r.path.match(/(surface|pipe|valve|flange)/gi)))
+    let report = new ReportBase(component.project, component, c.reports.find(r => r.energy))
     report.result = null;
-
-    component.reports.push(report);
+    component.reports = [report];
     component.fields = new Fields({
       unknow_surface_temp: 0,
       location: component.fields.location,
       operational_time: component.fields.operational_time,
-      nominal_diameter: component.fields.nominal_diameter,
+      //nominal_diameter: component.fields.nominal_diameter,
       number: c.fields.number,
+      length: component.fields.length,
       surface: report.name == "Uninsulated Surface" ? component.fields.surface : null
     });
 
@@ -371,7 +371,7 @@ export class SummaryPage implements OnInit {
           text: 'Get TBI-Pro',
           //icon: 'open',
           handler: () => {
-            window.open('http://www.eiif.org/tbi', '_system', 'location=yes')
+            window.open('https://www.eiif.org/tbi/get-tbi-app', '_system', 'location=yes')
           }
         },
         {
@@ -431,15 +431,30 @@ export class SummaryPage implements OnInit {
     let action_sheet = this.alertCtrl.create({
       title: 'Disclaimer',
       cssClass: 'disclaimer',
-      message: `<p>The TBI-App TBI is a reporting tool developed by the European Industrial Insulation Foundation (EiiF) to estimate energy losses and potential savings of uninsulated and insulated systems. Furthermore it can be used to create reports about safety, maintenance or any other (free input) relevant issues.
+      message: `<p>The TBI-App TBI is a reporting tool developed by the European Industrial Insulation
+      Foundation (EiiF) to estimate energy losses and potential savings of uninsulated and
+      insulated systems. Furthermore it can be used to create safety, maintenance and
+      customized reports.
       <br><br>
-      The calculated estimations are based on basic and simplified heat transfer formulas (e.g. always using 0m/s wind speed and horizontal as the orientation of the system).
+      The calculated estimations are based on basic and simplified heat transfer formulas (e.g.
+      always using 0m/s wind speed and horizontal as the orientation of the system).
       <br><br>
-      The user of this application accepts the following conditions. The user is exclusively responsible for the correctness of the input of data into the TBI-App. The user is aware that theoretical values can deviate from those occurring in practice and that therefore the estimation results depend fully on the accuracy of the inserted information like diameter, surface temperature, ambient temperature, etc.
+      The user of this application accepts the following conditions: The user is exclusively
+      responsible for the correctness of the input of data into the TBI-App. The user is aware that
+      theoretical values can deviate from those occurring in practice and that therefore the
+      estimation results depend fully on the accuracy of the inserted information like diameter,
+      surface temperature, ambient temperature, etc.
       <br><br>
-      TBI does not provide or recommend any specific technical solution nor insulation material. Basic insulation and good insulation scenarios are calculated on generic values, typical for standard insulation solutions.
+      TBI does not provide or recommend any specific technical solution nor insulation material.
+      Basic insulation and good insulation scenarios are based on generic values, typical for
+      standard insulation solutions.
       <br><br>
-      EiiF does not warrant the correctness of (the outcome of) any calculation and shall not be liable for any direct, indirect or consequential damages or any other damages whatsoever incurred by the user or third party resulting from the use of this calculation application or loss of data. EiiF reserves all rights (including copyright and other intellectual property rights) in respect of all information offered through this calculation program, including the software, the product name TBI-App.</p>`,
+      EiiF does not warrant the correctness of (the outcome of) any estimation and shall not be
+      liable for any direct, indirect or consequential damages or any other damages whatsoever
+      incurred by the user or third party resulting from the use of this inspection and reporting
+      application or loss of data. EiiF reserves all rights (including copyright and other intellectual
+      property rights) in respect of all information offered through this application, including the
+      software, the product name TBI-App Easy and TBI-App Pro.</p>`,
       buttons: ['OK']
     });
     return action_sheet.present();

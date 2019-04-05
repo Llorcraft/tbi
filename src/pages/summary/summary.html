@@ -125,8 +125,8 @@
             <td nowrap rowspan="3"></td>
             <td nowrap rowspan="3" style="background: rgb(180,198,231)" double-border text-center>
               <ng-container *ngFor="let r of c.reports_by_type('safety|hot')">
-                <a href="#" (click)="open(r, $event)" *ngIf="!r.component.is_hot">{{r.summary_id}}</a>
-                <a href="#" (click)="open(r, $event)" *ngIf="!!r.component.is_hot">Hot surface</a>
+                <a href="#" (click)="open(r, $event)" *ngIf="!r.component.is_hot || !r.energy">{{r.summary_id}}</a>
+                <a href="#" (click)="open(r, $event)" *ngIf="!!r.component.is_hot && !!r.energy">Hot surface</a>
               </ng-container>
               <ion-icon name="md-add-circle" (click)="add_report('safety', c, $event)"></ion-icon>
             </td>
@@ -149,7 +149,7 @@
                 <span advise-picture *ngSwitchCase="'Recommended'"><img src="{{images.INSULATION}}"></span>
                 <span advise-picture *ngSwitchCase="'Maintenance'"><img src="{{images.MECHANICAL}}"></span>
                 <span advise-picture *ngSwitchCase="'Unknow surface'"><img src="{{images.SURFACE}}"></span>
-                <span advise-picture *ngSwitchCase="'OK'"><img src="{{images.LIKE}}"></span>
+                <!-- <span advise-picture *ngSwitchCase="'OK'"><img src="{{images.LIKE}}"></span> -->
                 <span advise-picture *ngSwitchCase="'SAVINGS-achieved'"><img src="{{images.INCREASE}}"></span>
               </ng-container>
             </td>
@@ -218,14 +218,14 @@
             <td double-border colspan="9" rowspan="3">
               <ion-grid>
                 <ion-row class="legend">
-                  <ion-col no-padding col-6><span advise-picture><img src="{{images.INSULATION}}"></span>Insulation
-                    recommended</ion-col>
+                  <!-- <ion-col no-padding col-6><span advise-picture><img src="{{images.INSULATION}}"></span>Insulation
+                    recommended</ion-col> -->
                   <ion-col no-padding col-6><span advise-picture><img src="{{images.MECHANICAL}}"></span>Maintenance
                   </ion-col>
                   <ion-col no-padding col-6><span advise-picture><img src="{{images.SURFACE}}"></span>Surface unknown
                   </ion-col>
                   <ion-col no-padding col-6><span advise-picture><img src="{{images.LIKE}}"></span>System OK</ion-col>
-                  <ion-col no-padding col-12><span advise-picture><img src="{{images.INCREASE}}"></span>Increase
+                  <ion-col no-padding col-6><span advise-picture><img src="{{images.INCREASE}}"></span>Increase
                     performance or thickness</ion-col>
                 </ion-row>
               </ion-grid>

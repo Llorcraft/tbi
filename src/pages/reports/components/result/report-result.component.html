@@ -7,7 +7,7 @@
           from {{(parent.report.result.annual_saving_from || 0) | number}} {{currency}} to
           {{(parent.report.result.annual_saving_to || 0)| number}} {{currency}}
         </h5>
-        <h5 *ngIf="!!saving_lower" class="annual-saving-message">
+        <h5 *ngIf="!!saving_lower && 1==2" class="annual-saving-message">
           Insulation System Ok
         </h5>
       </ion-col>
