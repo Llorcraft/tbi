@@ -17,7 +17,7 @@
   </div>
   <kendo-pdf-export #pdf paperSize="A4" margin=".5cm" [scale]="0.5" landscape="true" forcePageBreak=".page-break">
     <div class="table-container">
-      <table class="data">
+      <table class="data" border="0">
         <colgroup>
           <col style="width: 50px">
           <col style="width: 100px">
@@ -145,7 +145,6 @@
             </td>
             <td rowspan="3" *ngIf="!!c.result" double-border text-center>
               <ng-container [ngSwitch]="advises.get(c.result.advise)">
-                <!-- <span advise-picture *ngSwitchCase="'Recommended'" svg="insulation"></span> -->
                 <span advise-picture *ngSwitchCase="'Recommended'"><img src="{{images.INSULATION}}"></span>
                 <span advise-picture *ngSwitchCase="'Maintenance'"><img src="{{images.MECHANICAL}}"></span>
                 <span advise-picture *ngSwitchCase="'Unknow surface'"><img src="{{images.SURFACE}}"></span>
@@ -199,10 +198,8 @@
             <td nowrap *ngIf="!!c.validationReport" on-tap="edit_validation(c)" double-border class="mesure">tn CO<sub>2</sub>
             </td>
           </tr>
-
-
         </tbody>
-        <tfoot *ngIf="!!components.length && !!report_result">
+        <tfoot *ngIf="!!components.length">
           <tr>
             <td rowspan="3" colspan="2" double-border text-right>
               TOTAL PROJECT
@@ -218,13 +215,13 @@
             <td double-border colspan="9" rowspan="3">
               <ion-grid>
                 <ion-row class="legend">
-                  <!-- <ion-col no-padding col-6><span advise-picture><img src="{{images.INSULATION}}"></span>Insulation
-                    recommended</ion-col> -->
+                  <ion-col no-padding col-4><span advise-picture><img src="{{images.INSULATION}}"></span>Insulation
+                    recommended</ion-col>
                   <ion-col no-padding col-6><span advise-picture><img src="{{images.MECHANICAL}}"></span>Maintenance
                   </ion-col>
-                  <ion-col no-padding col-6><span advise-picture><img src="{{images.SURFACE}}"></span>Surface unknown
+                  <ion-col no-padding col-4><span advise-picture><img src="{{images.SURFACE}}"></span>Surface unknown
                   </ion-col>
-                  <ion-col no-padding col-6><span advise-picture><img src="{{images.LIKE}}"></span>System OK</ion-col>
+                  <!-- <ion-col no-padding col-6><span advise-picture><img src="{{images.LIKE}}"></span>System OK</ion-col> -->
                   <ion-col no-padding col-6><span advise-picture><img src="{{images.INCREASE}}"></span>Increase
                     performance or thickness</ion-col>
                 </ion-row>
@@ -233,11 +230,11 @@
           </tr>
 
           <tr>
-            <td text-right>{{report_result.bars.current.losses[1] | number: '1.0-0'}}</td>
+            <td text-right>{{!report_result ? 0 : report_result.bars.current.losses[1] | number: '1.0-0'}}</td>
             <td class="mesure">{{project.currency}}</td>
-            <td text-right>{{report_result.bars.basic.savings[1] | number: '1.0-0'}}</td>
+            <td text-right>{{!report_result ? 0 : report_result.bars.basic.savings[1] | number: '1.0-0'}}</td>
             <td text-center class="p-0" style="padding: 0; white-space: nowrap;">--</td>
-            <td text-left>{{report_result.bars.economical.savings[1] | number: '1.0-0'}}</td>
+            <td text-left>{{!report_result ? 0 : report_result.bars.economical.savings[1] | number: '1.0-0'}}</td>
             <td class="mesure">{{project.currency}}</td>
           </tr>
 
@@ -249,6 +246,7 @@
             <td double-border text-left>{{totals.co2[0] - totals.co2[2] | number: '1.2-2'}}</td>
             <td double-border class="mesure">tn CO<sub>2</sub></td>
           </tr>
+        
         </tfoot>
       </table>
     </div>

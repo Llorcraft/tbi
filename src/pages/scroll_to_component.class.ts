@@ -49,12 +49,12 @@ export class ScrollToComponent implements AfterViewInit {
 
     setTimeout(() => {
       const elm = event._elementRef.nativeElement;
-      if (this.is_tablet) {
-        event._elementRef.nativeElement.scrollIntoView({
-          behavior: "smooth",
-          block: "start"
-        });
-      } else {
+      // if (this.is_tablet) {
+      //   event._elementRef.nativeElement.scrollIntoView({
+      //     behavior: "smooth",
+      //     block: "start"
+      //   });
+      // } else {
         elm
           .closest(".scroll-content")
           .scrollTo(0, elm.closest(".scroll-content").scrollTop - this.offset);
@@ -65,7 +65,7 @@ export class ScrollToComponent implements AfterViewInit {
               this.offset),
           150
         );
-      }
+      //}
       //this.scroll(elm.closest('.scroll-content'), elm.closest('.scroll-content').scrollTop + elm.closest('ion-item').getBoundingClientRect().top - offset);
     }, 250);
 

@@ -10,6 +10,7 @@
             <ion-input type="hidden" name="temp_range_diff" [(ngModel)]="temp_range_diff" required data-val-required="Surface temperature must be at least 5°C diferent than ambient temperature"></ion-input>
             <ion-input type="hidden" name="surface_low" [(ngModel)]="surface_low" required data-val-required="Surface must be > 0 m"></ion-input>
             <ion-input type="hidden" name="surface_temp_range" [(ngModel)]="surface_temp_range" required data-val-required="Surface temperature must be < 1000°C"></ion-input>
+            <ion-input type="hidden" name="surface_required" [(ngModel)]="surface_required" required data-val-required="Please input Surface in m²"></ion-input>
           <ion-row>
             <ion-col col-10>
               <ion-item>
@@ -42,7 +43,7 @@
               <ion-item class="pr-0">
                 <ion-label stacked>Surface (m<sup>2</sup>)</ion-label>
                 <ion-input  [disabled]="!!report.component.validation" tabindex="4" #after_time (ionFocus)="on_focus($event)" [disabled]="report.component.fields.unknow_surface"
-                  name="surface" required data-val-required="Please input Surface in m²" [(ngModel)]="report.component.fields.surface"
+                  name="surface" [(ngModel)]="report.component.fields.surface"
                   type="tel" [(ngModel)]="surface"></ion-input>
               </ion-item>
             </ion-col>

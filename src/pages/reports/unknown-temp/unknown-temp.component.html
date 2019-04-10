@@ -1,5 +1,5 @@
+<form (submit)="ok()" >
 <ion-content>
-  <form>
     <ion-grid>
       <ion-row>
         <ion-col col-12>
@@ -28,7 +28,6 @@
         </ion-col>
       </ion-row>
     </ion-grid>
-  </form>
 </ion-content>
 <ion-footer>
   <ion-grid no-padding>
@@ -37,8 +36,9 @@
         <button (click)="close()" tabindex="200" ion-button small color="light">Cancel</button>
       </ion-col>
       <ion-col col-6 no-padding>
-        <button (click)="ok()" tabindex="201" [disabled]="!isNumber()" ion-button small pull-right>Next</button>
+        <button type="submit" tabindex="201" [disabled]="!isNumber()" ion-button small pull-right>Next</button>
       </ion-col>
     </ion-row>
   </ion-grid>
 </ion-footer>
+</form>

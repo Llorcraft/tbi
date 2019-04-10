@@ -1,10 +1,22 @@
-import { NavController, AlertController, Keyboard, Content, ModalController, NavParams } from "ionic-angular";
-import { NgForm } from '@angular/forms';
+import {
+  NavController,
+  AlertController,
+  Keyboard,
+  Content,
+  ModalController,
+  NavParams
+} from "ionic-angular";
+import { NgForm } from "@angular/forms";
 import { ViewChild, OnInit, AfterViewInit, ElementRef } from "@angular/core";
 import { ReportBase, Project } from "..";
 import { CalculatorFactory } from "../calculators/calculator.factory";
 import { Picture } from "../picture";
-import { ReportErrorsComponent, ReportsPage, ReportMoreButtonComponent, KnownTempPage } from "../../pages/reports";
+import {
+  ReportErrorsComponent,
+  ReportsPage,
+  ReportMoreButtonComponent,
+  KnownTempPage
+} from "../../pages/reports";
 import { ReportService } from "../../services/report.service";
 import { More } from "../../const/more/more";
 import { TbiComponent } from "../component";
@@ -15,30 +27,32 @@ import { PictureService } from "../../services";
 import { Patterns } from "../../const/patterns";
 import { SummaryPage } from "../../pages/summary/summary";
 
-export class BaseReportPage extends ScrollToComponent implements OnInit, AfterViewInit {
-  @ViewChild('form') form: NgForm;
-  @ViewChild('errors') errors: ReportErrorsComponent;
+export class BaseReportPage extends ScrollToComponent
+  implements OnInit, AfterViewInit {
+  @ViewChild("form") form: NgForm;
+  @ViewChild("errors") errors: ReportErrorsComponent;
   //Focus input after option select
-  @ViewChild('after_time') after_time;
-  @ViewChild('ambient_temp') ambient_temp;
-  @ViewChild('before_time') before_time;
-  @ViewChild('after_material') after_material;
-  @ViewChild('before_material') before_material;
+  @ViewChild("after_time") after_time;
+  @ViewChild("ambient_temp") ambient_temp;
+  @ViewChild("before_time") before_time;
+  @ViewChild("after_material") after_material;
+  @ViewChild("before_material") before_material;
 
-
-  @ViewChild('time', { read: ReportMoreButtonComponent }) time: ReportMoreButtonComponent;
-  @ViewChild('material', { read: ReportMoreButtonComponent }) material: ReportMoreButtonComponent;
-  @ViewChild('surface_material') surface_material;
+  @ViewChild("time", { read: ReportMoreButtonComponent })
+  time: ReportMoreButtonComponent;
+  @ViewChild("material", { read: ReportMoreButtonComponent })
+  material: ReportMoreButtonComponent;
+  @ViewChild("surface_material") surface_material;
   @ViewChild(Content) content: Content;
-  @ViewChild('resultGrid') resultGrid: ElementRef;
+  @ViewChild("resultGrid") resultGrid: ElementRef;
   public can_remove: boolean = false;
   public unknow_surface: boolean = false;
   public calculator = new CalculatorFactory();
   public edit_surface_material = false;
-  public view: string = 'form';
+  public view: string = "form";
   public is_energy_report: boolean;
   protected editing_picture: Picture = new Picture();
-  protected segment = 'input';
+  protected segment = "input";
   public patterns: any = Patterns;
   public more = More;
 
@@ -49,90 +63,103 @@ export class BaseReportPage extends ScrollToComponent implements OnInit, AfterVi
   public get picture_qty(): number {
     return !!this.report.pictures.length ? this.report.pictures.length : null;
   }
+  public get surface_required(): number {
+    let c = this.report.component.fields;
+    return !c.unknow_surface && (Number(c.surface) == 0) ? null : 1;
+  }
   public get compare_insulated_temp(): number {
     let c = this.report.component.fields;
-    return (!c || (c.surface_temp == null || c.surface_temp.toString() == '')
-      || (c.medium_temp == null || c.medium_temp.toString() == '')
-      || (c.ambient_temp == null || c.ambient_temp.toString() == ''))
+    return !c ||
+      (c.surface_temp == null || c.surface_temp.toString() == "") ||
+      (c.medium_temp == null || c.medium_temp.toString() == "") ||
+      (c.ambient_temp == null || c.ambient_temp.toString() == "")
       ? 1
-      : Number(c.surface_temp) < Number(c.medium_temp)
-        && Number(c.surface_temp) < Number(c.ambient_temp) ? null : 1;
+      : Number(c.surface_temp) < Number(c.medium_temp) &&
+        Number(c.surface_temp) < Number(c.ambient_temp)
+      ? null
+      : 1;
   }
   public get surface_temp_abs(): number {
     let c = this.report.component.fields;
-    return (!c || (c.medium_temp == null || c.medium_temp.toString() == '' || c.unknow_surface)
-      || (c.surface_temp == null || c.surface_temp.toString() == '')
-    )
+    return !c ||
+      (c.medium_temp == null ||
+        c.medium_temp.toString() == "" ||
+        c.unknow_surface) ||
+      (c.surface_temp == null || c.surface_temp.toString() == "")
       ? 1
       : Math.abs(Number(c.medium_temp) - Number(c.surface_temp)) < 15
-        ? null
-        : 1;
+      ? null
+      : 1;
   }
   public get surface_material_range(): number {
     let c = this.report.component.fields;
-    return (!c || (c.surface_material == null || c.surface_material.toString() == ''))
+    return !c ||
+      (c.surface_material == null || c.surface_material.toString() == "")
       ? 1
       : Number(c.surface_material) < 0 || Number(c.surface_material) > 1
-        ? null
-        : 1;
+      ? null
+      : 1;
   }
   public get operational_time_range(): number {
     let c = this.report.component.fields;
-    return (!c || (c.operational_time == null || c.operational_time.toString() == ''))
+    return !c ||
+      (c.operational_time == null || c.operational_time.toString() == "")
       ? 1
       : Number(c.operational_time) < 0 || Number(c.operational_time) > 8760
-        ? null
-        : 1;
+      ? null
+      : 1;
   }
   public get temp_range_diff(): number {
     let c = this.report.component.fields;
-    return (!c || (c.ambient_temp == null || c.ambient_temp.toString() == '')
-      || (c.surface_temp == null || c.surface_temp.toString() == '')
-    )
+    return !c ||
+      (c.ambient_temp == null || c.ambient_temp.toString() == "") ||
+      (c.surface_temp == null || c.surface_temp.toString() == "")
       ? 1
       : Math.abs(Number(c.surface_temp) - Number(c.ambient_temp)) < 5
-        ? null
-        : 1;
+      ? null
+      : 1;
   }
   public get diameter_low(): number {
     let c = this.report.component.fields;
-    return (!c || (c.nominal_diameter == null || c.nominal_diameter.toString() == ''))
+    return !c ||
+      (c.nominal_diameter == null || c.nominal_diameter.toString() == "")
       ? 1
       : Number(c.nominal_diameter) <= 0
-        ? null
-        : 1;
+      ? null
+      : 1;
   }
   public get length_low(): number {
     let c = this.report.component.fields;
-    return (!c || (c.length == null || c.length.toString() == ''))
+    return !c || (c.length == null || c.length.toString() == "")
       ? 1
       : Number(c.length) <= 0
-        ? null
-        : 1;
+      ? null
+      : 1;
   }
   public get items_low(): number {
     let c = this.report.component.fields;
-    return (!c || (c.number == null || c.number.toString() == ''))
+    return !c || (c.number == null || c.number.toString() == "")
       ? 1
       : Number(c.number) <= 0
-        ? null
-        : 1;
+      ? null
+      : 1;
   }
   public get surface_low(): number {
     let c = this.report.component.fields;
-    return (!c || (c.surface == null || c.surface.toString() == '' || c.unknow_surface))
+    return !c ||
+      (c.surface == null || c.surface.toString() == "" || c.unknow_surface)
       ? 1
       : Number(c.surface) <= 0
-        ? null
-        : 1;
+      ? null
+      : 1;
   }
   public get surface_temp_range(): number {
     let c = this.report.component.fields;
-    return (!c || (c.surface_temp == null || c.surface_temp.toString() == ''))
+    return !c || (c.surface_temp == null || c.surface_temp.toString() == "")
       ? 1
       : Number(c.surface_temp) >= 1000
-        ? null
-        : 1;
+      ? null
+      : 1;
   }
   //#endregion
   constructor(
@@ -148,11 +175,18 @@ export class BaseReportPage extends ScrollToComponent implements OnInit, AfterVi
   ) {
     super(keyboard);
     this._original_component = this.report.component;
-    this.report.component = new TbiComponent(this._original_component.project, this._original_component);
+    this.report.component = new TbiComponent(
+      this._original_component.project,
+      this._original_component
+    );
     this.report.component.id = this._original_component.id;
     //this.can_remove = !!this.report.id && 1 == 2;
-    this.editable = !this.report.component.reports.filter(r => !!r.path.match(/(surface|pipe|valve|flange)/gi) && !!r.result).length;
-    this.is_energy_report = !!this.report.path.match(/(pipe|surface|valve|flange)/gi);
+    this.editable = !this.report.component.reports.filter(
+      r => !!r.path.match(/(surface|pipe|valve|flange)/gi) && !!r.result
+    ).length;
+    this.is_energy_report = !!this.report.path.match(
+      /(pipe|surface|valve|flange)/gi
+    );
 
     //TODO: Quitar agregar imagen
     // this.report.pictures.push(new Picture({
@@ -175,39 +209,48 @@ export class BaseReportPage extends ScrollToComponent implements OnInit, AfterVi
   }
 
   ngOnInit(): void {
-    if (!!this.report.result.headLost.power && !!this.report.id && !!this.report.path.match(/(pipe|surface|valve|flange)/gi)) setTimeout(() => this.calculate(), 250);
+    if (
+      !!this.report.result.headLost.power &&
+      !!this.report.id &&
+      !!this.report.path.match(/(pipe|surface|valve|flange)/gi)
+    )
+      setTimeout(() => this.calculate(), 250);
   }
 
-  remove_report() {
-    
-  }
+  remove_report() {}
 
   public get first_picture(): string {
-    return this.report.pictures.length ? this.report.pictures[0].picture : NON_PICTURE;
+    return this.report.pictures.length
+      ? this.report.pictures[0].picture
+      : NON_PICTURE;
   }
 
   protected set_length(message: string, default_value: number) {
     let alert = this.alertCtrl.create({
-      cssClass: 'ion-dialog-horizontal margin-top',
+      cssClass: "ion-dialog-horizontal margin-top",
       message: `Equivalent length<br><small>${message}</small>`,
       inputs: [
         {
-          name: 'length',
-          placeholder: 'm',
-          type: 'number',
-          value: null != this.report.component.fields.length ? this.report.component.fields.length.toString() : default_value.toString()
+          name: "length",
+          placeholder: "m",
+          type: "number",
+          value:
+            null != this.report.component.fields.length
+              ? this.report.component.fields.length.toString()
+              : default_value.toString()
         }
       ],
       buttons: [
         {
-          text: 'Cancel',
-          role: 'cancel'
+          text: "Cancel",
+          role: "cancel"
         },
         {
-          text: 'Report',
-          cssClass: 'royal',
-          handler: (data) => {
-            this.report.component.fields.length = ('' != data.length) ? parseFloat(data.length) : default_value;
+          text: "Report",
+          cssClass: "royal",
+          handler: data => {
+            this.report.component.fields.length =
+              "" != data.length ? parseFloat(data.length) : default_value;
           }
         }
       ]
@@ -218,29 +261,36 @@ export class BaseReportPage extends ScrollToComponent implements OnInit, AfterVi
   public toggle_surface_material(value: boolean) {
     //if (!this.editable) return;
     this.edit_surface_material = value;
-    value && setTimeout(() => {
-      this.surface_material.setFocus();
-    }, 150);
+    value &&
+      setTimeout(() => {
+        this.surface_material.setFocus();
+      }, 150);
   }
 
   protected start_changes_observer(): void {
     this.errors.form = this.form;
     this.errors.on_change.subscribe((form: NgForm) => {
-      this.view = 'form';
+      this.view = "form";
       this.report.result = null;
-    })
+    });
   }
 
   protected save() {
     if (!!this.form.invalid) return;
     const project = this.report.component.project;
-    if (!this.report.component.reports.find(c => c.id === this.report.id)) this.report.component.reports.push(this.report);
-    if (!project.components.find(c => c.id === this.report.component.id)) project.components.push(this.report.component);
+    if (!this.report.component.reports.find(c => c.id === this.report.id))
+      this.report.component.reports.push(this.report);
+    if (!project.components.find(c => c.id === this.report.component.id))
+      project.components.push(this.report.component);
 
     //this.confirm_space().then(space => {
     //this.report.component.fields.space_warning = space;
     this.service.save(this.report).then(p => {
-      this.navCtrl.setRoot(SummaryPage, { project: p, summary: true, parent: this, report: this.report }, { animate: true, direction: 'backward' });
+      this.navCtrl.setRoot(
+        SummaryPage,
+        { project: p, summary: true, parent: this, report: this.report },
+        { animate: true, direction: "backward" }
+      );
     });
     //});
     //this.ask_for_more_reports(project);
@@ -255,20 +305,22 @@ export class BaseReportPage extends ScrollToComponent implements OnInit, AfterVi
       enableBackdropDismiss: false,
       buttons: [
         {
-          text: 'No',
+          text: "No",
           handler: () => {
             this.navCtrl.push(ReportsPage, {
               project: project,
-              message: `“${this.report.component.fields.location}” has been saved. You are going to start reports on a new component.`
+              message: `“${
+                this.report.component.fields.location
+              }” has been saved. You are going to start reports on a new component.`
             });
           }
         },
         {
-          text: 'Cancel',
-          role: 'cancel'
+          text: "Cancel",
+          role: "cancel"
         },
         {
-          text: 'Yes',
+          text: "Yes",
           handler: () => {
             this.navCtrl.push(ReportsPage, {
               component: this.report.component,
@@ -287,9 +339,9 @@ export class BaseReportPage extends ScrollToComponent implements OnInit, AfterVi
   }
 
   protected go_back(): BaseReportPage {
-    if (this.view === 'edit_picture') {
+    if (this.view === "edit_picture") {
       //(document.getElementsByTagName('ion-buttons')[0] as any).style.display = 'initial';
-      this.view = 'form';
+      this.view = "form";
     } else {
       if (this.form.dirty || !this.form.pristine) {
         let confirm = this.alertCtrl.create({
@@ -299,15 +351,15 @@ export class BaseReportPage extends ScrollToComponent implements OnInit, AfterVi
           enableBackdropDismiss: false,
           buttons: [
             {
-              text: 'Yes',
+              text: "Yes",
               handler: () => {
                 this.report.component = this._original_component;
                 this.navCtrl.pop();
               }
             },
             {
-              text: 'No',
-              role: 'cancel'
+              text: "No",
+              role: "cancel"
             }
           ]
         });
@@ -318,7 +370,7 @@ export class BaseReportPage extends ScrollToComponent implements OnInit, AfterVi
       }
     }
     return this;
-  };
+  }
 
   protected calculate() {
     // const _elm = document.getElementById('result-grid');
@@ -327,19 +379,22 @@ export class BaseReportPage extends ScrollToComponent implements OnInit, AfterVi
     this.start_changes_observer();
     this.errors.page = this;
     if (!this.form.invalid) {
-      this.view = 'result';
-      this.report = this.calculator.calculate(this.report, this.navParam.data.result);
+      this.view = "result";
+      this.report = this.calculator.calculate(
+        this.report,
+        this.navParam.data.result
+      );
       setTimeout(() => {
-        this.scrollToBottom(400).then(() => {
+        this.scrollToBottom(0).then(() => {
           //Array.from(document.getElementsByClassName('scroll-content'))[2].scrollTop = window.innerHeight + 200;
         });
-      }, 500);
+      }, 150);
       return this.report;
     } else {
-      this.view = 'form';
+      this.view = "form";
     }
     //setTimeout(() => this.content.scrollTo(0, 2000, 1500), 150);
-    setTimeout(() => this.scrollToBottom(1500), 150);
+    setTimeout(() => this.scrollToBottom(0), 150);
   }
 
   private remove_picture(include_markers: boolean) {
@@ -348,21 +403,32 @@ export class BaseReportPage extends ScrollToComponent implements OnInit, AfterVi
     //ya se habrá perdido el archivo.
     //this.picture.delete_picture(this.editing_picture).then(picture => {
     if (!include_markers) {
-      this.report.component.markers = (this.report.component.markers || []).concat(this.editing_picture.markers);
+      this.report.component.markers = (
+        this.report.component.markers || []
+      ).concat(this.editing_picture.markers);
     }
-    this.report.pictures = this.report.pictures.filter(p => p.picture != this.editing_picture.picture);
-    this.view = 'form';
+    this.report.pictures = this.report.pictures.filter(
+      p => p.picture != this.editing_picture.picture
+    );
+    this.view = "form";
     this.editing_picture = null;
     //});
   }
 
   protected delete_picture() {
     const _message = this.editing_picture.has_markers
-      ? 'Do you want to remove this pictures and its measurements'
-      : 'Do you want to remove this picture?';
+      ? "Do you want to remove this pictures and its measurements"
+      : "Do you want to remove this picture?";
     const _buttons: any = !this.editing_picture.has_markers
-      ? [{ text: 'Yes', handler: () => this.remove_picture(false) }, { text: 'No', role: 'cancel' }]
-      : [{ text: 'Yes', handler: () => this.remove_picture(true) }, { text: 'No', handler: () => this.remove_picture(false) }, { text: 'Cancel', role: 'cancel' }];
+      ? [
+          { text: "Yes", handler: () => this.remove_picture(false) },
+          { text: "No", role: "cancel" }
+        ]
+      : [
+          { text: "Yes", handler: () => this.remove_picture(true) },
+          { text: "No", handler: () => this.remove_picture(false) },
+          { text: "Cancel", role: "cancel" }
+        ];
     let confirm = this.alertCtrl.create({
       message: _message,
       cssClass: `ion-dialog-horizontal`,
@@ -374,17 +440,22 @@ export class BaseReportPage extends ScrollToComponent implements OnInit, AfterVi
 
   scrollToBottom(duration): Promise<boolean> {
     return new Promise<boolean>(resolve => {
-      setTimeout(() => this.content.scrollToBottom(duration).then(() => {
-        this.content.scrollTop -= this.is_tablet ? 150 : 0
-        resolve(true);
-      }), 500);
+      setTimeout(
+        () =>
+          this.content.scrollToBottom(100).then(() => {
+            // if (this.is_tablet && window.outerWidth > window.outerHeight)
+            //   this.content.scrollTop -= 200;
+            resolve(true);
+          }),
+          duration + 50
+      );
     });
   }
 
   protected on_picture_start_edit(picture: Picture): void {
     //(document.getElementsByTagName('ion-buttons')[0] as any).style.display = 'none';
     this.editing_picture = picture;
-    this.view = 'edit_picture';
+    this.view = "edit_picture";
   }
 
   public alert(message: string) {
@@ -394,28 +465,38 @@ export class BaseReportPage extends ScrollToComponent implements OnInit, AfterVi
       enableBackdropDismiss: false,
       buttons: [
         {
-          text: 'Ok'
-        }]
-    })
+          text: "Ok"
+        }
+      ]
+    });
     confirm.present();
   }
 
   protected take_picture() {
-    this.picture.take_picture().then(d => this.report.pictures.push(new Picture({ picture: d })))
-      .catch(ex => this.message.alert('Error take picture', JSON.stringify(ex, null, 2)));
+    this.picture
+      .take_picture()
+      .then(d => this.report.pictures.push(new Picture({ picture: d })))
+      .catch(ex =>
+        this.message.alert("Error take picture", JSON.stringify(ex, null, 2))
+      );
   }
 
   protected toggle_know() {
-    if (!!this.report.component.fields.unknow_surface) this.report.component.fields.surface = null;
+    if (!!this.report.component.fields.unknow_surface)
+      this.report.component.fields.surface = null;
   }
 
   protected toggle_know_temp() {
     if (!!this.report.component.fields.unknow_surface_temp) {
-      let known_temp = this.modalCtrl.create(KnownTempPage, { medium_temp: this.report.component.fields.surface_temp }, {
-        showBackdrop: true,
-        enableBackdropDismiss: false,
-        cssClass: 'known-temp'
-      });
+      let known_temp = this.modalCtrl.create(
+        KnownTempPage,
+        { medium_temp: this.report.component.fields.surface_temp },
+        {
+          showBackdrop: true,
+          enableBackdropDismiss: false,
+          cssClass: "known-temp"
+        }
+      );
       known_temp.onDidDismiss(r => {
         if (!!r) {
           this.report.component.fields.surface_temp = Number(r.temp);
@@ -424,7 +505,7 @@ export class BaseReportPage extends ScrollToComponent implements OnInit, AfterVi
         } else {
           this.report.component.fields.unknow_surface_temp = 0;
         }
-      })
+      });
       known_temp.present();
     }
   }
@@ -446,8 +527,11 @@ export class BaseReportPage extends ScrollToComponent implements OnInit, AfterVi
   }
 
   protected ask_calculate(): ReportBase {
-    if (isNaN(this.report.component.fields.surface_temp)
-      || !this.report.has_markers) return this.calculate();
+    if (
+      isNaN(this.report.component.fields.surface_temp) ||
+      !this.report.has_markers
+    )
+      return this.calculate();
     let confirm = this.alertCtrl.create({
       //title: `Temperature`,
       message: `Which temperature would you like to use for calculation?`,
@@ -456,15 +540,24 @@ export class BaseReportPage extends ScrollToComponent implements OnInit, AfterVi
       buttons: [
         {
           text: `Average ${this.report.surface_temp}ºC`,
-          handler: () => this.before_calculate(this.report.component.fields.surface_temp = this.report.surface_temp)
+          handler: () =>
+            this.before_calculate(
+              (this.report.component.fields.surface_temp = this.report.surface_temp)
+            )
         },
         {
           text: `Minimum ${this.report.min_temp}ºC`,
-          handler: () => this.before_calculate(this.report.component.fields.surface_temp = this.report.min_temp)
+          handler: () =>
+            this.before_calculate(
+              (this.report.component.fields.surface_temp = this.report.min_temp)
+            )
         },
         {
           text: `Maximum ${this.report.max_temp}ºC`,
-          handler: () => this.before_calculate(this.report.component.fields.surface_temp = this.report.max_temp)
+          handler: () =>
+            this.before_calculate(
+              (this.report.component.fields.surface_temp = this.report.max_temp)
+            )
         }
       ]
     });
@@ -472,25 +565,27 @@ export class BaseReportPage extends ScrollToComponent implements OnInit, AfterVi
   }
 
   public confirm_space(): Promise<boolean> {
-    return (!this.report.insulated || this.report.is_validation)
+    return !this.report.insulated || this.report.is_validation
       ? new Promise(resolve => {
-        resolve(false)
-      })
-      : new Promise(resolve => {
-        let confirm = this.alertCtrl.create({
-          message: `Is there enough space to place the insulation?`,
-          enableBackdropDismiss: false,
-          buttons: [
-            {
-              text: 'Yes',
-              handler: () => resolve(false)
-            }, {
-              text: 'No',
-              handler: () => resolve(true)
-            }]
+          resolve(false);
         })
-        confirm.present();
-      });
+      : new Promise(resolve => {
+          let confirm = this.alertCtrl.create({
+            message: `Is there enough space to place the insulation?`,
+            enableBackdropDismiss: false,
+            buttons: [
+              {
+                text: "Yes",
+                handler: () => resolve(false)
+              },
+              {
+                text: "No",
+                handler: () => resolve(true)
+              }
+            ]
+          });
+          confirm.present();
+        });
   }
 
   public friendy_more(type: string, index: number) {
@@ -501,13 +596,23 @@ export class BaseReportPage extends ScrollToComponent implements OnInit, AfterVi
   public set_operational_time(more) {
     this.report.component.fields.operational_time = more.value;
     this.report.component.fields.operational_time_index = more.index;
-    setTimeout(() => ((more.index == 0) ? this.before_time : this.after_time).setFocus(), 650);
+    setTimeout(
+      () => (more.index == 0 ? this.before_time : this.after_time).setFocus(),
+      650
+    );
   }
 
   public set_surface_material(more) {
     this.report.component.fields.surface_material = more.value;
     this.report.component.fields.surface_material_index = more.index;
-    console.log(more)
-    setTimeout(() => ((more.index == 0) ? this.before_material : this.after_material).setFocus(), 650);
+    console.log(more);
+    setTimeout(
+      () =>
+        (more.index == 0
+          ? this.before_material
+          : this.after_material
+        ).setFocus(),
+      650
+    );
   }
 }

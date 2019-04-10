@@ -38,6 +38,6 @@ export class KnownTempPage {
   ngAfterViewInit(): void {
     setTimeout(() => {
       this.medium_temp_field.setFocus();
-    }, 500);
+    }, 1000);
   }
 }

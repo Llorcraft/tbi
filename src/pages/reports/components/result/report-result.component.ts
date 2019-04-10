@@ -164,11 +164,15 @@ export class ReportResultComponent implements AfterContentInit {
     }
 
     down(value: number): number {
-        return value > 1000 ? Math.floor((value) / 100) * 100 : Math.floor((value) / 10) * 10;
+        if(value < 100) return value;
+        let _value = value > 1000 ? Math.floor((value) / 100) * 100 : Math.floor((value) / 10) * 10;
+        return _value;
     }
 
     up(value: number): number {
-        return value > 1000 ? Math.ceil((value) / 100) * 100 : Math.ceil((value) / 10) * 10;
+        if(value < 100) return value;
+        let _value = value > 1000 ? Math.ceil((value) / 100) * 100 : Math.ceil((value) / 10) * 10;
+        return _value;
     }
 
     do_zoom(value: number) {
