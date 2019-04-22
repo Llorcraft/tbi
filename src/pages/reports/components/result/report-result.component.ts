@@ -108,7 +108,8 @@ export class ReportResultComponent implements AfterContentInit {
 
         this.bars.basic.losses = [
             (this.parent.report.result.headLost.power - this.parent.report.result.savingPotentialMin.power) / 100 * height / (this.scale.max),
-            this.up(this.parent.report.result.headLost.money - this.parent.report.result.savingPotentialMin.money)
+            (this.parent.report.result.headLost.money - this.parent.report.result.savingPotentialMin.money)            
+            //this.up(this.parent.report.result.headLost.money - this.parent.report.result.savingPotentialMin.money)
             //this.up(this.parent.report.result.savingPotentialMin.money)
         ];
 
@@ -164,15 +165,17 @@ export class ReportResultComponent implements AfterContentInit {
     }
 
     down(value: number): number {
-        if(value < 100) return value;
-        let _value = value > 1000 ? Math.floor((value) / 100) * 100 : Math.floor((value) / 10) * 10;
-        return _value;
+        return value;
+        // if(value < 100) return value;
+        // let _value = value > 1000 ? Math.floor((value) / 100) * 100 : Math.floor((value) / 10) * 10;
+        // return _value;
     }
 
     up(value: number): number {
-        if(value < 100) return value;
-        let _value = value > 1000 ? Math.ceil((value) / 100) * 100 : Math.ceil((value) / 10) * 10;
-        return _value;
+        return value;
+        // if(value < 100) return value;
+        // let _value = value > 1000 ? Math.ceil((value) / 100) * 100 : Math.ceil((value) / 10) * 10;
+        // return _value;
     }
 
     do_zoom(value: number) {
