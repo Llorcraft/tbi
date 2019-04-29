@@ -9,6 +9,7 @@ import { FileTransfer } from '@ionic-native/file-transfer';
 import * as JSZip from 'jszip';
 import { Picture } from '../models/picture';
 import { LoadindService } from './loading.service';
+import { Platform } from 'ionic-angular';
 
 @Injectable()
 export class FileDeviceService extends FileService {
@@ -20,10 +21,11 @@ export class FileDeviceService extends FileService {
         private chooser: FileChooser,
         private path: FilePath,
         private transfer: FileTransfer,
+        private platform: Platform,
         public loading: LoadindService) {
 
         super(loading);
-        this.working_folder = this.file.dataDirectory;
+        this.working_folder = this.platform.is('ios') ? this.file.documentsDirectory : this.file.dataDirectory;
         //this.file.externalRootDirectory
         this.create_folder('files');
         this.create_folder('pictures');
@@ -219,19 +221,12 @@ export class FileDeviceService extends FileService {
         });
     }
 
-    public base64_to_uint(base64: string): Uint8Array {
-        let arr = base64.split(','),
-            bstr = atob(arr[1]),
-            n = bstr.length,
-            u8arr = new Uint8Array(n);
-        while (n--) {
-            u8arr[n] = bstr.charCodeAt(n);
-        }
-        return u8arr;
-    }
-
-    public create_pdf(base64: string, filename: string): Promise<string> {
+   public create_pdf(base64: string, filename: string): Promise<string> {
         return this.after_check_pdf(base64, filename);
+        // this.after_check_pdf(base64, filename).then(path => {
+        //     window.open(`file://${path}`);
+        // })
+        // return null;
         //window.open('http://www.google.es', '_blank');
         // return new Promise<string>((resolve, reject) => {
         //     this.file.removeFile(this.working_folder, `${filename}.pdf`).then(() => {

@@ -25,18 +25,6 @@ export class FileLocalService extends FileService {
         });
     }
 
-    public base64_to_uint(base64: string): Uint8Array {
-        let arr = base64.split(','),
-            bstr = atob(arr[1]),
-            n = bstr.length,
-            u8arr = new Uint8Array(n);
-        while (n--) {
-            u8arr[n] = bstr.charCodeAt(n);
-        }
-        return u8arr;
-    }
-
-
     public create_picture(uri: string): Promise<Document> {
         throw new Error("Method not implemented.");
     }

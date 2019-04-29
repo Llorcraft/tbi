@@ -22,7 +22,16 @@ export abstract class FileService {
 
     public abstract get_documents(): Promise<Document[]>
 
-    public abstract base64_to_uint(base64: string): Uint8Array;
+    public base64_to_uint(base64: string): Uint8Array {
+        let arr = base64.split(','),
+            bstr = atob(arr[1]),
+            n = bstr.length,
+            u8arr = new Uint8Array(n);
+        while (n--) {
+            u8arr[n] = bstr.charCodeAt(n);
+        }
+        return u8arr;
+    }
 
     public abstract create_pdf(base64: string, filename: string): Promise<string>;
 

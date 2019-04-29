@@ -236,8 +236,9 @@ export class SummaryPage implements OnInit {
       this.pdf.export().then((g: Group) => {
         exportPDF(g).then(data => {
           this.file.create_pdf(data, `TBI-"${this.project.name}"`).then(r => {
-            this.opener.open(r, 'application/pdf');
             this.show_svg(this.pdf, restores).then(() => this.creating_pdf = false);
+            window.alert(r);
+            this.opener.open(r, 'application/pdf');
           })
         })
       })

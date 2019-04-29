@@ -1,22 +1,22 @@
 .edit_surface_material {
   ion-input {
     &.literal {
-      display: block
+      display: block;
     }
 
     &.numeric {
-      display: none
+      display: none;
     }
   }
 
   &.editable {
     ion-input {
       &.literal {
-        display: none !important
+        display: none !important;
       }
 
       &.numeric {
-        display: block !important
+        display: block !important;
       }
     }
   }
@@ -25,7 +25,7 @@
 [fixed-segment] {
   padding-top: 67px !important;
 
-  >ion-segment {
+  > ion-segment {
     position: fixed;
     top: 60px;
     width: calc(50% - 12px);
@@ -54,24 +54,34 @@ ion-col[toggle-container] {
 
     ion-label {
       //float: left;
-      font-weight: 100; 
+      font-weight: 100;
       //margin-top: 25px;
-      //font-size: .9rem; 
+      //font-size: .9rem;
       color: #999;
       font-weight: 400;
-      text-align: center
+      text-align: center;
     }
 
     ion-toggle {
-      padding-left:0;
-      padding-bottom: 11px!important;
+      padding-left: 0;
+      padding-bottom: 11px;
     }
   }
 
   ion-toggle {
     float: left;
-    margin-top: .25rem;
-    padding-left:0
+    margin-top: 0.25rem;
+    padding-left: 0;
+  }
+}
+ion-app.ios {
+  ion-col[toggle-container] {
+    ion-item {
+      ion-toggle {
+        padding-bottom: 6px !important;
+        margin-top: -4px;
+      }
+    }
   }
 }
 
