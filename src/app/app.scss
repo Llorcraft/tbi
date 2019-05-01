@@ -86,6 +86,9 @@ button {
       color: #fff; //width: auto;
       text-align: left !important;
       padding-left: .5rem;
+      width: 70%;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
   }
 }

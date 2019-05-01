@@ -425,13 +425,13 @@
       margin-top: -20px;
     }
 
-    tbody td.bar div {
-      transition: height linear .25s
-    }
+    // tbody td.bar div {
+    //   //transition: height linear .25s
+    // }
 
-    tbody td.bar div span {
-      transition: al linear .25s
-    }
+    // tbody td.bar div span {
+    //   transition: al linear .25s
+    // }
 
     tfoot {
       font-size: 1rem;
@@ -486,10 +486,10 @@
   .view-port {
     overflow: auto;
 
-    #result-grid {
-      & * {
-        transition: all linear .25s;
-      }
-    }
+    // #result-grid {
+    //   & * {
+    //     transition: all linear .25s;
+    //   }
+    // }
   }
 }

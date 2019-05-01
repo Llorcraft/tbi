@@ -55,8 +55,8 @@
               </ion-item>
             </ion-col>
             <ion-col col-2>
-              <area [hidden]="unknow_surface" pull-left #area (change)="report.component.fields.surface=area.value"
-                modal-button />
+              <area-button [hidden]="unknow_surface" pull-left #area (change)="report.component.fields.surface=area.value"
+                modal-button></area-button>
             </ion-col>
           </ion-row>
           <ion-row>

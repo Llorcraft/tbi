@@ -289,7 +289,7 @@ import { CommonModule, registerLocaleData } from '@angular/common';
     LoadindService,
     LoadingController,
     { provide: LOCALE_ID, useValue: "en-US" },
-    { provide: FileService, useClass: FileLocalService }
+    { provide: FileService, useClass: FileDeviceService }
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })

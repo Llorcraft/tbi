@@ -221,12 +221,14 @@ export class FileDeviceService extends FileService {
         });
     }
 
-   public create_pdf(base64: string, filename: string): Promise<string> {
+    public async create_pdf(base64: string, filename: string): Promise<string> {
         return this.after_check_pdf(base64, filename);
-        // this.after_check_pdf(base64, filename).then(path => {
-        //     window.open(`file://${path}`);
-        // })
-        // return null;
+        // return new Promise<string>(resolve => {
+        //     this.after_check_pdf(base64, filename).then(path => {
+        //         window.open(`file://${path}`, '_blank');
+        //         resolve(path)
+        //     });
+        // });
         //window.open('http://www.google.es', '_blank');
         // return new Promise<string>((resolve, reject) => {
         //     this.file.removeFile(this.working_folder, `${filename}.pdf`).then(() => {
@@ -237,20 +239,21 @@ export class FileDeviceService extends FileService {
         // });
     }
 
-    private after_check_pdf(base64: string, filename: string): Promise<string> {
+    public async after_check_pdf(base64: string, filename: string): Promise<string> {
         //filename = `${filename}-${(new Date()).toLocaleString().replace(/(\/| |:)/g, '')}`;
         return new Promise<string>((resolve, reject) => {
-            this.file.writeFile(`${this.working_folder}temp`,
+            this.file.writeFile(`${this.working_folder}`,
                 `${filename}.pdf`,
                 this.base64_to_uint(base64).buffer,
                 { replace: true })
                 .then(r => {
-                    resolve(`${this.working_folder}temp/${filename}.pdf`)
+                    setTimeout(() => resolve(`${this.working_folder}/${filename}.pdf`), 0);
                 })
                 .catch(ex => {
+                    this.message.alert('Error', ex.message);
                     reject(ex.message);
                     throw ex;
-                })
+                });
         });
     }
 }

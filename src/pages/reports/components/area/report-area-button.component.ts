@@ -3,7 +3,7 @@ import { ModalController } from 'ionic-angular';
 import { ReportAreaModalComponent } from './report-area-modal.component';
 
 @Component({
-  selector: 'area',
+  selector: 'area-button',
   templateUrl: './report-area-button.component.html'
 })
 

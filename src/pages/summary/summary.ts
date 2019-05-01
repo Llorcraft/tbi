@@ -9,7 +9,7 @@ import { TbiComponent } from '../../models/component';
 import { PDFExportComponent } from '@progress/kendo-angular-pdf-export';
 import { Group, exportPDF } from '@progress/kendo-drawing';
 import { ProjectsPage } from '../projects/projects';
-import { FileService, LicencesService } from '../../services';
+import { FileService, LicencesService, MessageService } from '../../services';
 import { FileOpener } from '@ionic-native/file-opener';
 import { IMAGES } from '../../const/images';
 import { InitPage } from '../init/init';
@@ -50,6 +50,7 @@ export class SummaryPage implements OnInit {
     protected navCtrl: NavController,
     private opener: FileOpener,
     public licences: LicencesService,
+    private message: MessageService,
     private file: FileService,
     private cdRef: ChangeDetectorRef) {
   }
@@ -236,9 +237,11 @@ export class SummaryPage implements OnInit {
       this.pdf.export().then((g: Group) => {
         exportPDF(g).then(data => {
           this.file.create_pdf(data, `TBI-"${this.project.name}"`).then(r => {
-            this.show_svg(this.pdf, restores).then(() => this.creating_pdf = false);
-            window.alert(r);
-            this.opener.open(r, 'application/pdf');
+            this.show_svg(this.pdf, restores).then(() => {
+              this.creating_pdf = false;
+              this.opener.open(r, 'application/pdf')
+                         .catch(ex => this.message.alert('Error', JSON.stringify(ex)));
+            });
           })
         })
       })

@@ -9,7 +9,12 @@
 }
 
 .disclaimer {
+  .alert-ios.alert-title {
+    margin: 0;
+    padding: 0;
+  }
   .alert-message {
+    height: 20vh;
     p {
       text-align: left;
       font-size: .6rem;

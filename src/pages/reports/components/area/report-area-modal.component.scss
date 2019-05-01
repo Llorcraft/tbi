@@ -45,12 +45,11 @@
       }
 
       [svg] {
-        height: 100%;
-        width: auto;
-
+        width: 100%;
+        margin: auto;
         svg {
           @include media("<tablet") {
-            height: 70%;
+            width: 96%!important;
           }
 
           margin-top: 0;

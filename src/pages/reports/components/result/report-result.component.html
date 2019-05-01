@@ -4,8 +4,8 @@
     <ion-row *ngIf="show_savings">
       <ion-col text-center col-12 no-padding>
         <h5 *ngIf="!saving_lower" class="annual-saving-message big"><small><strong>Annual saving potential</strong></small>
-          from {{(parent.report.result.annual_saving_from || 0) | number: '1.0-0'}} {{currency}} to
-          {{(parent.report.result.annual_saving_to || 0)| number: '1.0-0'}} {{currency}}
+          from {{(parent.report.result.annual_saving_from || 0) | number: '1.0-0'}}{{currency}} to
+          {{(parent.report.result.annual_saving_to || 0)| number: '1.0-0'}}{{currency}}
         </h5>
         <h5 *ngIf="!!saving_lower && 1==2" class="annual-saving-message">
           Insulation System Ok
