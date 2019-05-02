@@ -222,24 +222,6 @@ export class FileDeviceService extends FileService {
     }
 
     public async create_pdf(base64: string, filename: string): Promise<string> {
-        return this.after_check_pdf(base64, filename);
-        // return new Promise<string>(resolve => {
-        //     this.after_check_pdf(base64, filename).then(path => {
-        //         window.open(`file://${path}`, '_blank');
-        //         resolve(path)
-        //     });
-        // });
-        //window.open('http://www.google.es', '_blank');
-        // return new Promise<string>((resolve, reject) => {
-        //     this.file.removeFile(this.working_folder, `${filename}.pdf`).then(() => {
-        //         resolve(this.after_check_pdf(base64, filename));
-        //     }).catch(() => {
-        //         resolve(this.after_check_pdf(base64, filename));
-        //     });
-        // });
-    }
-
-    public async after_check_pdf(base64: string, filename: string): Promise<string> {
         //filename = `${filename}-${(new Date()).toLocaleString().replace(/(\/| |:)/g, '')}`;
         return new Promise<string>((resolve, reject) => {
             this.file.writeFile(`${this.working_folder}`,

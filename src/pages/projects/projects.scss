@@ -15,6 +15,13 @@ ion-grid[projects] {
   background: #fff;
   padding: 0;
 
+  .button-project-more {
+    font-size: 2rem; 
+    margin: auto; 
+    padding-left: .5rem; 
+    padding-right: .75rem
+  }
+
   //box-shadow: 0 0 10px rgba(0, 0, 0, .5);
   ion-icon[color=danger] {
     &:before {

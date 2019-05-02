@@ -1,7 +1,7 @@
 import { Component, ViewChild } from '@angular/core';
-import { NavController, NavParams, AlertController, ActionSheetController, Keyboard, TextInput } from 'ionic-angular';
+import { NavController, NavParams, AlertController, ActionSheetController, Keyboard, TextInput, Platform } from 'ionic-angular';
 import { ProjectPageBase } from './project-page-base';
-import { Project, Document} from '../../models';
+import { Project, Document } from '../../models';
 import { ProjectService } from '../../services/project.service';
 import { NgForm } from '@angular/forms';
 import { MessageService } from '../../services/messages.service';
@@ -29,7 +29,7 @@ export class EditProjectPage extends ProjectPageBase {
   public edit_co2: boolean = false;
   @ViewChild('co2_input') co2_input;
   public more = More;
-
+  public show_segment = false;
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
@@ -40,10 +40,12 @@ export class EditProjectPage extends ProjectPageBase {
     private picture: PictureService,
     private message: MessageService,
     protected keyboard: Keyboard,
+    private platform: Platform,
     private opener: FileOpener) {
 
     super(alertCtrl, service, keyboard);
     this.offset = 120;
+    this.show_segment = !this.platform.is('ios');
     this.project = navParams.get("project");
 
     this.initial_values.price = this.project.price;
@@ -109,7 +111,7 @@ export class EditProjectPage extends ProjectPageBase {
         });
         this.service.save(this.project, true).then(() => {
           //this.navCtrl.setRoot(this.navParams.data.parent, { project: this.project}, {animate: true, direction: 'forward'});
-          this.navCtrl.setRoot(ProjectsPage, { }, {animate: true, direction: 'forward'});
+          this.navCtrl.setRoot(ProjectsPage, {}, { animate: true, direction: 'forward' });
         });
       });
     }, 500);

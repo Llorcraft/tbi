@@ -236,11 +236,11 @@ export class SummaryPage implements OnInit {
     this.hide_svg(this.pdf).then(restores => {
       this.pdf.export().then((g: Group) => {
         exportPDF(g).then(data => {
-          this.file.create_pdf(data, `TBI-${this.project.name}`).then(r => {
+          this.file.create_pdf(data, `TBI-${this.project.name}`.replace(/ /g,'-')).then(r => {
             this.show_svg(this.pdf, restores).then(() => {
               this.creating_pdf = false;
               this.opener.open(r, 'application/pdf')
-                         .catch(ex => this.message.alert('Error', JSON.stringify(ex)));
+                         .catch(ex => this.message.alert('Error', `${r}\n${JSON.stringify(ex)}`));
             });
           })
         })

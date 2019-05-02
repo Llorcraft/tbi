@@ -38,7 +38,7 @@
   <ion-grid projects class="projects" col-12>
     <ion-row *ngFor="let p of projects">
       <ion-col col-1 text-right class="flex vertical-middle">
-        <ion-icon style="font-size: 2rem; margin: auto" (tap)="ask_for_action(p, $event)" slot="icon-only" name="md-more"></ion-icon>
+        <ion-icon class="button-project-more" (click)="ask_for_action(p, $event)" slot="icon-only" name="md-more"></ion-icon>
       </ion-col>
       <ion-col col-0 col-sm-2 hidden-xs id="project-{{p.id}}" (click)="navigate_to_reports(p)">
         <img [src]="p.picture">
