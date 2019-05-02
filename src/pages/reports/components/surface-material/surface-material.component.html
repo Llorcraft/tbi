@@ -5,7 +5,7 @@
       type="text"></ion-input>
     <ion-input #surface_material tabindex="5" (ionFocus)="parent.on_focus($event)" class="numeric" (focusout)="parent.toggle_surface_material(false)"
       (ionFocus)="parent.on_focus($event)" name="surface_material" required data-val-required="Please input Surface emissivity"
-      [ngModel]="parent.report.component.fields.surface_material | number: '1.2-4'"  type="tel" [pattern]="patterns.REQUIRED_NUMBER" data-val-pattern="Please input a valid Surface emissivity" ></ion-input>
+      [ngModel]="parent.report.component.fields.surface_material | number: '1.2-4'"  type="tel" inputmode="numeric" [pattern]="patterns.REQUIRED_NUMBER" data-val-pattern="Please input a valid Surface emissivity" ></ion-input>
   </ion-item>
 </ion-col>
 <ion-col col-2>

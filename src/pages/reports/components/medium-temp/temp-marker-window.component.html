@@ -8,7 +8,7 @@
           <ion-input (ionFocus)="on_focus($event)" (keyup.enter)="on_keypress($event)" [ngModelOptions]="{standalone: true}" [name]="'point_' + i" 
           [(ngModel)]="m.marker.temperature" 
           [pattern]="patterns.REQUIRED_NUMBER" data-val-pattern="Please input a valid temperature" 
-          type="tel"></ion-input>
+          type="tel" inputmode="numeric"></ion-input>
         </ion-item>
       </ion-col>
     </ion-row>

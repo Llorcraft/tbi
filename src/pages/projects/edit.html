@@ -48,7 +48,7 @@
                 <ion-item no-lines class="error" *ngIf="showError.required_currency">Please input currency</ion-item>
                 <ion-item col-6>
                   <ion-label stacked>Energy price</ion-label>
-                  <ion-input tabindex="2" type="tel" inputmode="numeric" pattern="^[0-9](\.[0-9]+)?$" [(ngModel)]="project.price" name="price" (ionFocus)="on_focus($event)" scroll="40"></ion-input>
+                  <ion-input tabindex="2" type="tel" inputmode="numeric" [(ngModel)]="project.price" name="price" (ionFocus)="on_focus($event)" scroll="40"></ion-input>
                   <input type="hidden" [(ngModel)]="energy_validation" name="energy_validation" required>
                 </ion-item>
                 <ion-item col-4>
@@ -66,7 +66,7 @@
                   </ion-item>
                   <ion-item [hidden]="!!project.co2_index" >
                     <ion-label stacked>CO<sub>2</sub> emissions [grCO<sub>2</sub>/kWh]</ion-label>
-                    <ion-input tabindex="3" required (ionFocus)="on_focus($event)" #co2_free  type="tel" inputmode="numeric" pattern="^[0-9](\.[0-9]+)?$" [(ngModel)]="project.co2" name="co2"></ion-input>
+                    <ion-input tabindex="3" required (ionFocus)="on_focus($event)" #co2_free  type="tel" inputmode="numeric" [(ngModel)]="project.co2" name="co2"></ion-input>
                   </ion-item>
                 </ion-col>
                 <ion-col col-2>

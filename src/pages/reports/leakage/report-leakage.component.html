@@ -37,7 +37,7 @@
               <ion-item>
                 <ion-label stacked>Operational time (hrs/yrs)</ion-label>
                 <ion-input [disabled]="!editable" tabindex="3" (ionFocus)="on_focus($event)" name="operational_time"
-                  [(ngModel)]="report.component.fields.operational_time"  type="tel" [pattern]="patterns.REQUIRED_NUMBER" data-val-pattern="Please input a valid Operational time" ></ion-input>
+                  [(ngModel)]="report.component.fields.operational_time"  type="tel" inputmode="numeric" [pattern]="patterns.REQUIRED_NUMBER" data-val-pattern="Please input a valid Operational time" ></ion-input>
               </ion-item>
             </ion-col>
             <ion-col col-2>
@@ -60,7 +60,7 @@
                 <ion-label stacked>Medium temperature (<sup>º</sup>C)</ion-label>
                 <ion-input [disabled]="!editable" tabindex="5" (ionFocus)="on_focus($event)" name="surface_temp"
                   [pattern]="patterns.REQUIRED_NUMBER" data-val-pattern="Please input a valid Medium temperature"
-                  [(ngModel)]="report.component.fields.surface_temp" type="tel"></ion-input>
+                  [(ngModel)]="report.component.fields.surface_temp" type="tel" inputmode="numeric"></ion-input>
               </ion-item>
             </ion-col>
           </ion-row>

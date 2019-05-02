@@ -33,7 +33,7 @@
                 <ion-input #before_time  (ionFocus)="on_focus($event)" *ngIf="!report.component.fields.operational_time_index" [disabled]="!!report.component.validation" tabindex="2" 
                   required data-val-required="Please input Operational time"
                   [pattern]="patterns.REQUIRED_NUMBER" data-val-pattern="Please input a valid Operational time"
-                  name="operational_time" [(ngModel)]="report.component.fields.operational_time" type="tel"></ion-input>
+                  name="operational_time" [(ngModel)]="report.component.fields.operational_time" type="tel" inputmode="numeric"></ion-input>
               </ion-item>
             </ion-col>
             <ion-col col-2>
@@ -47,14 +47,14 @@
                 <ion-label stacked>Diameter (mm)</ion-label>
                 <ion-input #after_time tabindex="3" (ionFocus)="on_focus($event)" name="nominal_diameter" required
                   data-val-required="Please input Diameter" [(ngModel)]="report.component.fields.nominal_diameter"
-                  type="tel"></ion-input>
+                  type="tel" inputmode="numeric"></ion-input>
               </ion-item>
             </ion-col>
             <ion-col col-sm-4 col-10>
               <ion-item>
                 <ion-label stacked>Length (m)</ion-label>
                 <ion-input tabindex="4" (ionFocus)="on_focus($event)" name="number" required data-val-required="Please input Length"
-                  [(ngModel)]="report.component.fields.length" type="tel"></ion-input>
+                  [(ngModel)]="report.component.fields.length" type="tel" inputmode="numeric"></ion-input>
               </ion-item>
             </ion-col>
             <ion-col col-1></ion-col>
@@ -68,7 +68,7 @@
                 <ion-input #before_material (ionFocus)="on_focus($event)" *ngIf="!report.component.fields.surface_material_index" tabindex="6" name="surface_material" 
                 required data-val-required="Please input Surface emissivity"
                 [pattern]="patterns.REQUIRED_NUMBER" data-val-pattern="Please input a valid Surface emissivity"
-                [(ngModel)]="report.component.fields.surface_material" type="tel"></ion-input>
+                [(ngModel)]="report.component.fields.surface_material" type="tel" inputmode="numeric"></ion-input>
               </ion-item>
             </ion-col>
             <ion-col col-2>
@@ -81,7 +81,7 @@
                 <ion-label stacked>Surface temperature (<sup>º</sup>C)</ion-label>
                 <ion-input #after_material tabindex="7" (ionFocus)="on_focus($event)" name="surface_temp" [pattern]="patterns.REQUIRED_NUMBER"
                   data-val-pattern="Please input a valid Surface temperature" required data-val-required="Please input Surface temperature"
-                  [(ngModel)]="report.component.fields.surface_temp" type="tel"></ion-input>
+                  [(ngModel)]="report.component.fields.surface_temp" type="tel" inputmode="numeric"></ion-input>
               </ion-item>
             </ion-col>
             <ion-col col-2>
@@ -94,7 +94,7 @@
                 <ion-label stacked>Medium temperature (<sup>º</sup>C)</ion-label>
                 <ion-input  tabindex="8" (ionFocus)="on_focus($event)" name="medium_temp" [pattern]="patterns.REQUIRED_NUMBER"
                   data-val-pattern="Please input a valid Medium temperature" required data-val-required="Please input Medium temperature"
-                  [(ngModel)]="report.component.fields.medium_temp" type="tel"></ion-input>
+                  [(ngModel)]="report.component.fields.medium_temp" type="tel" inputmode="numeric"></ion-input>
               </ion-item>
             </ion-col>
           </ion-row>
@@ -106,7 +106,7 @@
                 <ion-input tabindex="9" (ionFocus)="on_focus($event)" (keyup.enter)="on_keypress($event)" name="ambient_temp"
                   [pattern]="patterns.REQUIRED_NUMBER" data-val-pattern="Please input a valid Ambient temperature"
                   required data-val-required="Please input Ambient temperature" [(ngModel)]="report.component.fields.ambient_temp"
-                  type="tel"></ion-input>
+                  type="tel" inputmode="numeric"></ion-input>
               </ion-item>
             </ion-col>
             <ion-col col-2></ion-col>

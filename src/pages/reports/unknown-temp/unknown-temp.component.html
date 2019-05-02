@@ -6,7 +6,7 @@
           <ion-item>
             <ion-label stacked>Medium temperature (<sup>º</sup>C)</ion-label>
             <ion-input tabindex="1" autofocus (keydown.enter)="ok()" #medium_temp_field name="medium_temp" required data-val-required="Please input Medium temperature"
-              data-val-pattern="Please input a valid Medium temperature" [(ngModel)]="medium_temp" type="tel"></ion-input>
+              data-val-pattern="Please input a valid Medium temperature" [(ngModel)]="medium_temp" type="tel" inputmode="numeric"></ion-input>
           </ion-item>
         </ion-col>
       </ion-row>
