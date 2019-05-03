@@ -27,6 +27,7 @@
     <preference name="AutohideSplashScreen" value="false" />
     <preference name="SplashScreenDelay" value="30000" />
     <platform name="android">
+        <preference name="APP_SECRET" value="a90e0efe-76d7-45b3-9b5b-95e1c94e5861" />
         <preference name="android-minSdkVersion" value="19" />
         <preference name="android-targetSdkVersion" value="26" />
         <preference name="AndroidPersistentFileLocation" value="Internal" />
@@ -111,4 +112,6 @@
     <plugin name="cordova-plugin-inappbrowser" spec="^3.0.0" />
     <engine name="android" spec="7.0.0" />
     <plugin name="cordova-plugin-file-opener2" spec="^2.0.19" />
+    <plugin name="cordova-plugin-appcenter-analytics" spec="^0.3.3" />
+    <plugin name="cordova-plugin-appcenter-crashes" spec="^0.3.3" />
 </widget>
