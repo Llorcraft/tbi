@@ -1,6 +1,7 @@
 import { Component, ViewEncapsulation, OnInit } from '@angular/core';
 import { Flashlight } from '@ionic-native/flashlight';
 import { MessageService } from '../../services';
+import { Platform } from 'ionic-angular';
 
 @Component({
   selector: 'tools',
@@ -13,14 +14,13 @@ export class ToolsComponent implements OnInit {
   private external_app: any = (window as any).startApp;
 
   constructor(
-    public flashlight: Flashlight, public message: MessageService) {
+    public flashlight: Flashlight, public message: MessageService, public platform: Platform) {
 
   }
 
   ngOnInit(): void {
     try {
       this.flashlight_on = this.flashlight.isSwitchedOn();
-
       (<any>window).plugins.packagemanager.show(true, (apps) => {
         let calc = apps.find((a => !!a.match(/calc/g))).split('/');
         this.calc_path = calc[calc.length - 1].split(';')[1];

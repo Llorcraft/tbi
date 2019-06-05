@@ -4,7 +4,8 @@ import { NavController, NavParams, AlertController, Keyboard } from 'ionic-angul
 import { ReportService } from '../../../services/report.service';
 import { ReportBase } from '../../../models/report-base';
 import { MessageService } from '../../../services/messages.service';
-import { PictureService } from '../../../services';
+import { PictureService, FileService } from '../../../services';
+import { FileOpener } from '@ionic-native/file-opener';
 
 @Component({
   selector: 'page-report-condensation',
@@ -19,19 +20,14 @@ export class ReportCondensationPage extends BaseReportPage {
     protected alertCtrl: AlertController,
     protected picture: PictureService,
     protected message: MessageService,
-    protected keyboard: Keyboard
+    protected keyboard: Keyboard,
+    protected file: FileService,
+    protected opener: FileOpener
   ) {
-    super(new ReportCondensation(navParams.data.project, navParams.data.component, navParams.data.report), navParams, navCtrl, service, alertCtrl, picture, message, keyboard);
+    super(new ReportCondensation(navParams.data.project, navParams.data.component, navParams.data.report), navParams, navCtrl, service, alertCtrl, picture, message, keyboard, file, opener);
   }
 
   protected calculate(): ReportBase {
-    this.start_changes_observer();
-    if (!this.form.invalid) {
-      //this.view = 'result';
-      this.save();
-    } else {
-      this.view = 'form';
-    }
-    return null;
+    return this.validateGeneric();
   }
 }

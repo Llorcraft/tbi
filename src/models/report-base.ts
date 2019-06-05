@@ -9,6 +9,7 @@ export class ReportBase {
   public name: string = '';
   public path: string = '';
   public page: any = null;
+  public user: string = '';
   public result: Result = null;
   public project: Project = null;
   public component?: TbiComponent = null;
@@ -26,7 +27,7 @@ export class ReportBase {
   }
   public get energy(): boolean {
     return !!this.path.match(/(surface|pipe|valve|flange)/gi);
-}
+  }
   public get has_markers(): boolean {
     const has_markers = !!this.pictures.filter(p => !!p.has_markers).length;
     return has_markers;
@@ -44,7 +45,9 @@ export class ReportBase {
     return !this.has_markers ? 0 : eval(this.pictures.filter(p => p.has_markers).map(m => m.surface_temp).join('+')) / this.pictures.filter(p => p.has_markers).length;
   }
   public calculator: ICalculator = null;
-
+  public get first_picture(): Picture {
+    return this.pictures[0]
+  }
   constructor(project: Project, component?: TbiComponent, item?: Partial<ReportBase>) {
     if (!!item) {
       Object.assign(this, item);
@@ -59,13 +62,14 @@ export class ReportBase {
       this.comment = item.comment;
       this.date = !!item.date ? new Date(item.date.toString()) : new Date();
       this.insulated = !!this.path.match(/insulated/gi) && !this.path.match(/un-insulated/gi);
+      this.user = localStorage.getItem("tbi-user");
     }
   }
 
-  get annual_saving():string {
+  get annual_saving(): string {
     return !this.result || this.result.headLost.power == 0
       //? `Click on Next to get the result` 
-      ? `` 
+      ? ``
       : `from ${this.result.annual_saving_from} € to ${this.result.annual_saving_to} €`;
   }
 }

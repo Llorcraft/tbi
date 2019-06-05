@@ -39,7 +39,7 @@ class IPipeCalculator extends BaseCalculator {
         /**34*/() => this.hcv_turbulent = 1.21 * Math.pow(this.Δθ, 0.33),
         /**34min*/() => this.hcv_turbulent_min = 1.21 * Math.pow(Math.abs(this.θse_min - this.θa_min), 0.33),
         /**35*/() => this.hse = this.hr + (this.lort < 1 ? this.hcv_laminar : this.hcv_turbulent),
-        /**35min*/() => this.hse_min = this.hr_min + (this.lort < 1 ? this.hcv_laminar_min : this.hcv_turbulent),
+        /**35min*/() => this.hse_min = this.hr_min + (this.lort < 1 ? this.hcv_laminar_min : this.hcv_turbulent_min),
         /**35max*/() => this.hse_max = this.hr + (this.lort < 1 ? this.hcv_laminar_max : this.hcv_turbulent),
         /**42*/() => this.Rle = 1 / (this.hse * Math.PI * this.De),
         /**42min*/() => this.Rle_min = 1 / (this.hse_min * Math.PI * this.De_min),

@@ -66,7 +66,7 @@ export class ReportsPage extends ReportRouter {
   }
 
   protected open_summary(): void {
-    this.navCtrl.push(SummaryPage, { project: this.project, parent: this });
+    this.navCtrl.setRoot(SummaryPage, { project: this.project, parent: null });
   }
 
   public navigate_to(name: string | number, report_name: string): void {
@@ -89,7 +89,10 @@ export class ReportsPage extends ReportRouter {
     //   this.navigate_to('', 'insulation');
     // else
     //   this.navigate_to('', this.type);
-    this.navCtrl.pop();
+    if(this.navCtrl['_views'].length > 1)
+      this.navCtrl.pop();
+    else
+      this.open_summary()
   }
   public navigate_to_projects(): void {
     this.navCtrl.push(ProjectsPage, {

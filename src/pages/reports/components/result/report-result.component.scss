@@ -128,7 +128,7 @@
   }
 
   .x-title {
-    margin-bottom: -60px;
+    margin-bottom: -70px;
     margin-top: 50px;
 
     &.white {
@@ -218,6 +218,8 @@
     color: #7f7f7f;
     margin: auto;
     display: inline-block;
+    white-space: nowrap!important;
+    height: 586px;
 
     &.saving_lower {
       thead {
@@ -346,23 +348,28 @@
     }
 
     tbody td.scale {
+      $height: 110px;
       border-right: 1px solid #7f7f7f;
       text-align: right;
-      //width: 40px;
-      height: 60px;
+      height: $height;
+      min-height: $height;
+      max-height: $height;
       vertical-align: top;
       padding-bottom: 20px;
       padding-top: 0;
       padding-right: 5px;
-      //font-size: 1rem;
+      overflow: hidden;
       font-weight: 600;
     }
 
     tbody td.scale .kwh {
-      margin-top: 71px;
+      //border: 1px solid red;
+      margin-top: 100px;
+      z-index: 1000;
       //margin-bottom: -34px;
       position: absolute;
-      margin-left: -65px;
+      margin-left: -100px;
+      width: 100px;
     }
 
     tbody td.scale.inverse {
@@ -492,5 +499,10 @@
     //     transition: all linear .25s;
     //   }
     // }
+  }
+}
+ion-app.ios {
+  tbody td.scale .kwh {
+    margin-top: 85px!important;
   }
 }

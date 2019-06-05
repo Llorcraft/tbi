@@ -5,7 +5,8 @@ import { ReportService } from '../../../services/report.service';
 import { MessageService } from '../../../services/messages.service';
 import { ReportLeakage } from '../../../models/reports/report-leakage';
 import { ReportBase } from '../../../models';
-import { PictureService } from '../../../services';
+import { PictureService, FileService } from '../../../services';
+import { FileOpener } from '@ionic-native/file-opener';
 
 @Component({
   selector: 'page-report-leakage',
@@ -19,18 +20,14 @@ export class ReportLeakagePage extends BaseReportPage {
     protected alertCtrl: AlertController,
     protected picture: PictureService,
     protected message: MessageService,
-    protected keyboard: Keyboard
+    protected keyboard: Keyboard,
+    protected file: FileService,
+    protected opener: FileOpener
   ) {
-    super(new ReportLeakage(navParams.data.project, navParams.data.component, navParams.data.report), navParams, navCtrl, service, alertCtrl, picture, message, keyboard);
+    super(new ReportLeakage(navParams.data.project, navParams.data.component, navParams.data.report), navParams, navCtrl, service, alertCtrl, picture, message, keyboard, file, opener);
   }
 
   protected calculate(): ReportBase {
-    this.start_changes_observer();
-    if (!this.form.invalid) {
-      this.save();
-    } else {
-      this.view = 'form';
-    }
-    return null;
+    return this.validateGeneric();
   }
 }

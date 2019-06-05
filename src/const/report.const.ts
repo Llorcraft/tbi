@@ -1,4 +1,5 @@
 export const REPORT = {
+  VALIDATION: false,
   INSULATION: {
     UNINSULATED_EQUIPMENTS: {
       SURFACE: `Insulation\\Un-Insulated Equipments\\Surface`,

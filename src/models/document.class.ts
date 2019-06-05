@@ -25,9 +25,9 @@ export class Document {
       case 'pps': return 'application/vnd.ms-powerpoint';
       case 'pptx': return 'application/vnd.openxmlformats-officedocument.presentationml.presentation';
       case 'ppsx': return 'application/vnd.openxmlformats-officedocument.presentationml.slideshow';
-      case 'jpg': 'image/jpeg';
-      case 'bmp': 'image/bmp';
-      case 'png': 'image/png';
+      case 'jpg': return 'image/jpeg';
+      case 'bmp': return 'image/bmp';
+      case 'png': return 'image/png';
       case 'txt': return 'text/*';
       default: return 'application/octet-stream';
     }

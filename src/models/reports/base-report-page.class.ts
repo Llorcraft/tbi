@@ -1,31 +1,23 @@
-import {
-  NavController,
-  AlertController,
-  Keyboard,
-  Content,
-  ModalController,
-  NavParams
-} from "ionic-angular";
+import {NavController,AlertController,Keyboard,Content,ModalController,NavParams} from "ionic-angular";
 import { NgForm } from "@angular/forms";
-import { ViewChild, OnInit, AfterViewInit, ElementRef } from "@angular/core";
+import { ViewChild, OnInit, AfterViewInit, ElementRef, Inject } from "@angular/core";
 import { ReportBase, Project } from "..";
 import { CalculatorFactory } from "../calculators/calculator.factory";
 import { Picture } from "../picture";
-import {
-  ReportErrorsComponent,
-  ReportsPage,
-  ReportMoreButtonComponent,
-  KnownTempPage
+import {ReportErrorsComponent,ReportsPage,ReportMoreButtonComponent,KnownTempPage
 } from "../../pages/reports";
 import { ReportService } from "../../services/report.service";
 import { More } from "../../const/more/more";
 import { TbiComponent } from "../component";
 import { MessageService } from "../../services/messages.service";
 import { ScrollToComponent } from "../../pages/scroll_to_component.class";
-import { NON_PICTURE } from "../../const/images";
-import { PictureService } from "../../services";
+import { NON_PICTURE, IMAGES } from "../../const/images";
+import { PictureService, FileService } from "../../services";
 import { Patterns } from "../../const/patterns";
 import { SummaryPage } from "../../pages/summary/summary";
+import { PDFExportComponent } from '@progress/kendo-angular-pdf-export';
+import { Group, exportPDF } from '@progress/kendo-drawing';
+import { FileOpener } from "@ionic-native/file-opener";
 
 export class BaseReportPage extends ScrollToComponent
   implements OnInit, AfterViewInit {
@@ -36,7 +28,8 @@ export class BaseReportPage extends ScrollToComponent
   @ViewChild("ambient_temp") ambient_temp;
   @ViewChild("before_time") before_time;
   @ViewChild("after_material") after_material;
-  @ViewChild("before_material") before_material;
+  @ViewChild("before_material") before_material;  
+  @ViewChild('pdf') public pdf: PDFExportComponent;
 
   @ViewChild("time", { read: ReportMoreButtonComponent })
   time: ReportMoreButtonComponent;
@@ -55,6 +48,7 @@ export class BaseReportPage extends ScrollToComponent
   protected segment = "input";
   public patterns: any = Patterns;
   public more = More;
+  public images = IMAGES;
 
   private _original_component: TbiComponent;
   public editable: boolean = false;
@@ -76,9 +70,21 @@ export class BaseReportPage extends ScrollToComponent
       ? 1
       : Number(c.surface_temp) < Number(c.medium_temp) &&
         Number(c.surface_temp) < Number(c.ambient_temp)
-      ? null
-      : 1;
+        ? null
+        : 1;
   }
+
+  public validateGeneric(): ReportBase {
+    this.start_changes_observer();
+    if (!this.form.invalid) {
+      this.save();
+    } else {
+      this.view = 'form';
+      setTimeout(()=>this.scrollToBottom(0), 100);
+    }
+    return null;
+  }
+
   public get surface_temp_abs(): number {
     let c = this.report.component.fields;
     return !c ||
@@ -88,8 +94,8 @@ export class BaseReportPage extends ScrollToComponent
       (c.surface_temp == null || c.surface_temp.toString() == "")
       ? 1
       : Math.abs(Number(c.medium_temp) - Number(c.surface_temp)) < 15
-      ? null
-      : 1;
+        ? null
+        : 1;
   }
   public get surface_material_range(): number {
     let c = this.report.component.fields;
@@ -97,8 +103,8 @@ export class BaseReportPage extends ScrollToComponent
       (c.surface_material == null || c.surface_material.toString() == "")
       ? 1
       : Number(c.surface_material) < 0 || Number(c.surface_material) > 1
-      ? null
-      : 1;
+        ? null
+        : 1;
   }
   public get operational_time_range(): number {
     let c = this.report.component.fields;
@@ -106,8 +112,8 @@ export class BaseReportPage extends ScrollToComponent
       (c.operational_time == null || c.operational_time.toString() == "")
       ? 1
       : Number(c.operational_time) < 0 || Number(c.operational_time) > 8760
-      ? null
-      : 1;
+        ? null
+        : 1;
   }
   public get temp_range_diff(): number {
     let c = this.report.component.fields;
@@ -116,8 +122,8 @@ export class BaseReportPage extends ScrollToComponent
       (c.surface_temp == null || c.surface_temp.toString() == "")
       ? 1
       : Math.abs(Number(c.surface_temp) - Number(c.ambient_temp)) < 5
-      ? null
-      : 1;
+        ? null
+        : 1;
   }
   public get diameter_low(): number {
     let c = this.report.component.fields;
@@ -125,24 +131,24 @@ export class BaseReportPage extends ScrollToComponent
       (c.nominal_diameter == null || c.nominal_diameter.toString() == "")
       ? 1
       : Number(c.nominal_diameter) <= 0
-      ? null
-      : 1;
+        ? null
+        : 1;
   }
   public get length_low(): number {
     let c = this.report.component.fields;
     return !c || (c.length == null || c.length.toString() == "")
       ? 1
       : Number(c.length) <= 0
-      ? null
-      : 1;
+        ? null
+        : 1;
   }
   public get items_low(): number {
     let c = this.report.component.fields;
     return !c || (c.number == null || c.number.toString() == "")
       ? 1
       : Number(c.number) <= 0
-      ? null
-      : 1;
+        ? null
+        : 1;
   }
   public get surface_low(): number {
     let c = this.report.component.fields;
@@ -150,16 +156,16 @@ export class BaseReportPage extends ScrollToComponent
       (c.surface == null || c.surface.toString() == "" || c.unknow_surface)
       ? 1
       : Number(c.surface) <= 0
-      ? null
-      : 1;
+        ? null
+        : 1;
   }
   public get surface_temp_range(): number {
     let c = this.report.component.fields;
     return !c || (c.surface_temp == null || c.surface_temp.toString() == "")
       ? 1
       : Number(c.surface_temp) >= 1000
-      ? null
-      : 1;
+        ? null
+        : 1;
   }
   //#endregion
   constructor(
@@ -171,7 +177,9 @@ export class BaseReportPage extends ScrollToComponent
     protected picture: PictureService,
     protected message: MessageService,
     protected keyboard: Keyboard,
-    public modalCtrl?: ModalController
+    protected file: FileService,
+    protected opener: FileOpener,
+    public modalCtrl?: ModalController    
   ) {
     super(keyboard);
     this._original_component = this.report.component;
@@ -217,7 +225,7 @@ export class BaseReportPage extends ScrollToComponent
       setTimeout(() => this.calculate(), 250);
   }
 
-  remove_report() {}
+  remove_report() { }
 
   public get first_picture(): string {
     return this.report.pictures.length
@@ -275,6 +283,23 @@ export class BaseReportPage extends ScrollToComponent
     });
   }
 
+  public export_pdf(n) {
+    //this.creating_pdf = true;
+    //this.hide_svg(this.pdf).then(restores => {
+      this.pdf.export().then((g: Group) => {
+        exportPDF(g).then(data => {
+          this.file.create_pdf(data, `TBI-${this.report.summary_id}`.replace(/ /g, '_')).then(r => {
+            //this.show_svg(this.pdf, restores).then(() => {
+            //  this.creating_pdf = false;
+              this.opener.open(r, 'application/pdf')
+                .catch(ex => this.message.alert('Error', `${r}\n${JSON.stringify(ex)}`));
+            //});
+          })
+        })
+      })
+    //});
+  }
+
   protected save() {
     if (!!this.form.invalid) return;
     const project = this.report.component.project;
@@ -311,7 +336,7 @@ export class BaseReportPage extends ScrollToComponent
               project: project,
               message: `“${
                 this.report.component.fields.location
-              }” has been saved. You are going to start reports on a new component.`
+                }” has been saved. You are going to start reports on a new component.`
             });
           }
         },
@@ -384,9 +409,11 @@ export class BaseReportPage extends ScrollToComponent
         this.report,
         this.navParam.data.result
       );
+      window['view'] = this;
+
       setTimeout(() => {
         this.scrollToBottom(0).then(() => {
-          //Array.from(document.getElementsByClassName('scroll-content'))[2].scrollTop = window.innerHeight + 200;
+          document.getElementsByClassName('scroll-content')[2].scrollTop += 38;
         });
       }, 150);
       return this.report;
@@ -421,14 +448,14 @@ export class BaseReportPage extends ScrollToComponent
       : "Do you want to remove this picture?";
     const _buttons: any = !this.editing_picture.has_markers
       ? [
-          { text: "Yes", handler: () => this.remove_picture(false) },
-          { text: "No", role: "cancel" }
-        ]
+        { text: "Yes", handler: () => this.remove_picture(false) },
+        { text: "No", role: "cancel" }
+      ]
       : [
-          { text: "Yes", handler: () => this.remove_picture(true) },
-          { text: "No", handler: () => this.remove_picture(false) },
-          { text: "Cancel", role: "cancel" }
-        ];
+        { text: "Yes", handler: () => this.remove_picture(true) },
+        { text: "No", handler: () => this.remove_picture(false) },
+        { text: "Cancel", role: "cancel" }
+      ];
     let confirm = this.alertCtrl.create({
       message: _message,
       cssClass: `ion-dialog-horizontal`,
@@ -447,7 +474,7 @@ export class BaseReportPage extends ScrollToComponent
             //   this.content.scrollTop -= 200;
             resolve(true);
           }),
-          duration + 50
+        duration + 50
       );
     });
   }
@@ -513,7 +540,6 @@ export class BaseReportPage extends ScrollToComponent
   protected before_calculate(temp: number) {
     this.report.component.fields.surface_temp = temp;
   }
-
   private _average_temp?: number = null;
   protected set average_temp(value: number) {
     this._average_temp = value;
@@ -567,25 +593,25 @@ export class BaseReportPage extends ScrollToComponent
   public confirm_space(): Promise<boolean> {
     return !this.report.insulated || this.report.is_validation
       ? new Promise(resolve => {
-          resolve(false);
-        })
+        resolve(false);
+      })
       : new Promise(resolve => {
-          let confirm = this.alertCtrl.create({
-            message: `Is there enough space to place the insulation?`,
-            enableBackdropDismiss: false,
-            buttons: [
-              {
-                text: "Yes",
-                handler: () => resolve(false)
-              },
-              {
-                text: "No",
-                handler: () => resolve(true)
-              }
-            ]
-          });
-          confirm.present();
+        let confirm = this.alertCtrl.create({
+          message: `Is there enough space to place the insulation?`,
+          enableBackdropDismiss: false,
+          buttons: [
+            {
+              text: "Yes",
+              handler: () => resolve(false)
+            },
+            {
+              text: "No",
+              handler: () => resolve(true)
+            }
+          ]
         });
+        confirm.present();
+      });
   }
 
   public friendy_more(type: string, index: number) {

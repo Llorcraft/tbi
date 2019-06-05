@@ -1,4 +1,4 @@
-  <button ion-button small icon-only color="light" (click)="open_calculator()">
+  <button *ngIf="!platform.is('ios')" ion-button small icon-only color="light" (click)="open_calculator()">
     <ion-icon name="ios-calculator"></ion-icon>
   </button>
   <button ion-button small icon-only color="light" [class.pushed]="flashlight_on" (click)="toggle_light()">

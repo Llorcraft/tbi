@@ -4,7 +4,8 @@ import { NavController, NavParams, AlertController, Keyboard } from 'ionic-angul
 import { ReportService } from '../../../services/report.service';
 import { ReportBase } from '../../../models/report-base';
 import { MessageService } from '../../../services/messages.service';
-import { PictureService } from '../../../services';
+import { PictureService, FileService } from '../../../services';
+import { FileOpener } from '@ionic-native/file-opener';
 
 @Component({
   selector: 'page-report-damaged',
@@ -21,9 +22,11 @@ export class ReportDamagedPage extends BaseReportPage {
     protected alertCtrl: AlertController,
     protected picture: PictureService,
     protected message: MessageService,
-    protected keyboard: Keyboard
+    protected keyboard: Keyboard,
+    protected file: FileService,
+    protected opener: FileOpener
   ) {
-    super(new ReportDamaged(navParams.data.project, navParams.data.component, navParams.data.report), navParams, navCtrl, service, alertCtrl, picture, message, keyboard);
+    super(new ReportDamaged(navParams.data.project, navParams.data.component, navParams.data.report), navParams, navCtrl, service, alertCtrl, picture, message, keyboard, file, opener);
 
     if (!!this.report.component.fields.damaged_cladding_selection) this.damaged_cladding[this.report.component.fields.damaged_cladding_selection] = !0;
     if (!!this.report.component.fields.damaged_insulation_selection) this.damaged_insulation[this.report.component.fields.damaged_insulation_selection] = !0;

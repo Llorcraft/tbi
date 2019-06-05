@@ -22,6 +22,11 @@ export class TbiComponent {
   public get is_hot(): boolean {
     return (this.fields.surface_temp || 0) > 55;
   }
+
+  public get is_cold(): boolean {
+    return (this.fields.surface_temp < this.fields.ambient_temp);
+  }
+
   public result: Result;
 
   public get insulated(): boolean {
@@ -43,6 +48,12 @@ export class TbiComponent {
     if (type.lastIndexOf("hot") != -1) {
       let r = this.reports.find(
         r => !!r.path.match(/(surface|pipe|valve|flange)/gi) && this.is_hot
+      );
+      if (!!r) result.push(r);
+    }
+    if (type.lastIndexOf("cold") != -1) {
+      let r = this.reports.find(
+        r => !!r.path.match(/(surface|pipe|valve|flange)/gi) && this.is_cold
       );
       if (!!r) result.push(r);
     }

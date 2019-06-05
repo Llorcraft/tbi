@@ -17,15 +17,20 @@
     height: 20vh;
     p {
       text-align: left;
-      font-size: .6rem;
-      @include media(">=tablet"){
-        font-size: .7rem;
+      font-size: 0.6rem;
+      @include media(">=tablet") {
+        font-size: 0.7rem;
       }
     }
   }
 }
 
 page-summary {
+  img.logo {
+    display: inline-block;
+    height: 4rem;
+    margin: 1rem 0 1rem 1rem;
+  }
 
   .flex-vertical-middel {
     justify-content: center;
@@ -43,16 +48,10 @@ page-summary {
       color: rgb(48, 84, 150);
       line-height: 4rem;
     }
-
-    img {
-      display: inline-block;
-      height: 4rem;
-      margin: 1rem 0 1rem 1rem;
-    }
   }
 
   .gray-text {
-    color: #999 !important
+    color: #999 !important;
   }
 
   ion-header {
@@ -90,10 +89,23 @@ page-summary {
     &.creating-pdf {
       .hide-pdf {
         display: flex;
-
-        ion-icon {
-          animation: rotation .5s infinite linear;
+        svg {
+          width: 6in;
         }
+        ion-icon {
+          animation: rotation 0.5s infinite linear;
+        }
+      }
+      .table-container {
+        table.data {
+          thead {
+            display: table-header-group;
+          }
+        }
+      }
+      &[one-line] {
+        //margin-left: -.6rem;
+        margin-left: -24px;
       }
     }
   }
@@ -106,7 +118,7 @@ page-summary {
     span,
     div {
       svg {
-        &+img {
+        & + img {
           display: none;
         }
       }
@@ -117,7 +129,6 @@ page-summary {
     }
 
     &.print {
-
       .table-container,
       .result-chart {
         margin-top: 5cm;
@@ -136,7 +147,7 @@ page-summary {
         svg {
           display: none !important;
 
-          &+img {
+          & + img {
             display: block;
           }
         }
@@ -153,14 +164,14 @@ page-summary {
       margin: 2rem 0 1rem;
 
       div.toolbar-title {
-        text-align: left !important
+        text-align: left !important;
       }
     }
 
     ion-row {
       margin: 2rem 0;
 
-      >ion-col[col-1] {
+      > ion-col[col-1] {
         text-align: right !important;
         padding: 0;
 
@@ -171,15 +182,14 @@ page-summary {
 
       ion-col[col-11] {
         line-height: 1.9rem;
-        padding: 0 0 0 .5rem;
-        font-size: .8rem;
+        padding: 0 0 0 0.5rem;
+        font-size: 0.8rem;
       }
     }
-
   }
 
   .row.legend {
-    font-size: .8rem;
+    font-size: 0.8rem;
     color: #666;
 
     ion-col {
@@ -187,24 +197,24 @@ page-summary {
     }
 
     img {
-      opacity: .6;
+      opacity: 0.6;
       float: left;
-      margin: 0 .25rem 0 0;
+      margin: 0 0.25rem 0 0;
       width: 16px;
     }
   }
 
   [advise-picture] {
-    &>svg {
+    & > svg {
       width: 75%;
     }
 
-    &>img {
+    & > img {
       width: 35%;
     }
 
     &.legend {
-      &>svg {
+      & > svg {
         width: 3rem;
         float: left;
 
@@ -213,10 +223,10 @@ page-summary {
         }
       }
 
-      &+strong {
+      & + strong {
         color: #aaa;
         line-height: 3rem;
-        margin-left: .5rem;
+        margin-left: 0.5rem;
       }
     }
   }
@@ -227,7 +237,7 @@ page-summary {
   }
 
   .table-container {
-    width: 100%;
+    //width: 100%;
     overflow: auto;
     padding: 0 0 1rem;
     //text-align: center;
@@ -235,11 +245,15 @@ page-summary {
 
   table.data {
     margin: auto;
-    width: 1160px;
+    //width: 1160px;
     //text-align: left;
 
+    thead:not(:first-of-type) {
+      display: none;
+    }
+
     @media (max-width: 575px) {
-      width: 1600px;
+      //width: 1160px;
     }
 
     border-spacing: 0;
@@ -247,7 +261,7 @@ page-summary {
     font-size: 1rem;
 
     @media (max-width: 575px) {
-      font-size: .9rem;
+      font-size: 0.9rem;
     }
 
     background: #fff;
@@ -255,6 +269,11 @@ page-summary {
     margin-top: 0;
 
     thead {
+      > tr {
+        > th {
+          //width: 1%!important
+        }
+      }
       // &> tr{
       //   &:nth-child(1){
       //     th{
@@ -290,35 +309,33 @@ page-summary {
     }
 
     tbody {
-      &>tr {
+      & > tr {
         &:nth-child(1) {
           td:not([rowspan]) {
-            background: #efefef
+            background: #efefef;
           }
         }
 
         &:nth-child(2) {
           td {
-            background: #fff
+            background: #fff;
           }
         }
 
         &:nth-child(3) {
           td:not([rowspan]) {
-            background: #efefef
+            background: #efefef;
           }
         }
       }
     }
 
     tr {
-
       td[double-border] {
         border-bottom: solid 1px #333;
       }
 
       &.disabled {
-
         td.c-red,
         td.c-gree {
           color: #aaa !important;
@@ -326,7 +343,6 @@ page-summary {
       }
 
       &.text-center {
-
         th,
         td {
           text-align: center;
@@ -338,14 +354,14 @@ page-summary {
     th {
       background: #fff;
       font-weight: 500;
-      padding: .3rem;
+      padding: 0.3rem;
       white-space: nowrap;
 
       svg {
         fill: #fff;
         width: 60%;
         display: block;
-        margin: auto auto .5rem;
+        margin: auto auto 0.5rem;
       }
 
       &.bg-green {
@@ -395,7 +411,7 @@ page-summary {
       &.vertical {
         div {
           height: 6rem;
-          padding: .5rem .25rem;
+          padding: 0.5rem 0.25rem;
           width: 3rem;
           display: block;
 
@@ -408,10 +424,11 @@ page-summary {
             min-height: 3rem;
             margin-left: -1.2rem;
             margin-top: 1rem;
-            font-size: .9rem;
+            font-size: 0.9rem;
 
             &[one-line] {
-              margin-left: -.6rem;
+              //margin-left: -.6rem;
+              margin-left: -12px;
             }
           }
         }
@@ -420,7 +437,7 @@ page-summary {
 
     td {
       background: #fff;
-      padding: .25rem;
+      padding: 0.25rem;
       font-weight: 600;
       vertical-align: middle; //border: 1px solid #ccc;
 
@@ -436,9 +453,8 @@ page-summary {
       //   border-right: 1px solid #fff
       // }
 
-
       &.b-right {
-        border-right: 1px solid #444
+        border-right: 1px solid #444;
       }
 
       a {
@@ -448,7 +464,7 @@ page-summary {
         text-decoration: none;
 
         &:not(:last-child) {
-          margin-bottom: .5rem;
+          margin-bottom: 0.5rem;
         }
       }
 
@@ -461,7 +477,7 @@ page-summary {
       }
 
       &.c-gree {
-        color: rgb(55, 86, 35)
+        color: rgb(55, 86, 35);
       }
 
       &.bg-red {
@@ -483,13 +499,11 @@ page-summary {
       }
     }
 
-
     tbody {
-      >tr {
-        >td {
-
+      > tr {
+        > td {
           &.bg-green {
-            background: rgb(226, 239, 218)
+            background: rgb(226, 239, 218);
           }
         }
       }
@@ -501,10 +515,14 @@ page-summary {
         background: #fff;
 
         &.bg-green {
-          background: rgb(226, 239, 218)
+          background: rgb(226, 239, 218);
         }
       }
     }
+  }
+
+  img[width="100px"] {
+    width: 100px !important;
   }
 
   table.total {
@@ -526,12 +544,11 @@ page-summary {
       background: rgb(242, 242, 242);
 
       td {
-        color: rgb(84, 130, 53)
+        color: rgb(84, 130, 53);
       }
     }
   }
 }
-
 
 .modal-window-summary {
   .scroll-content {
@@ -563,7 +580,7 @@ page-summary {
 }
 
 .action-sheet-sub-title {
-  margin: .5rem 1rem;
+  margin: 0.5rem 1rem;
 }
 
 .action-sheet-icon {
@@ -572,8 +589,8 @@ page-summary {
 
 .basic_sheet {
   .action-sheet-container {
-    >.action-sheet-group:nth-child(1) {
-      >button {
+    > .action-sheet-group:nth-child(1) {
+      > button {
         .button-inner {
           display: block;
 

@@ -4,7 +4,8 @@ import { NavController, NavParams, AlertController, Keyboard } from 'ionic-angul
 import { ReportService } from '../../../services/report.service';
 import { ReportInsulatedPipe } from '../../../models/reports/report-ipipe.class';
 import { MessageService } from '../../../services/messages.service';
-import { PictureService } from '../../../services';
+import { PictureService, FileService } from '../../../services';
+import { FileOpener } from '@ionic-native/file-opener';
 
 @Component({
   selector: 'page-report-pipe',
@@ -18,8 +19,10 @@ export class ReportInsulatedPipePage extends BaseReportPage {
     protected alertCtrl: AlertController,
     protected picture: PictureService,
     protected message: MessageService,
-    protected keyboard: Keyboard
+    protected keyboard: Keyboard,
+    protected file: FileService,
+    protected opener: FileOpener
   ) {
-    super(new ReportInsulatedPipe(navParams.data.project, navParams.data.component, navParams.data.report), navParams, navCtrl, service, alertCtrl, picture, message, keyboard);
+    super(new ReportInsulatedPipe(navParams.data.project, navParams.data.component, navParams.data.report), navParams, navCtrl, service, alertCtrl, picture, message, keyboard, file, opener);
   }
 }

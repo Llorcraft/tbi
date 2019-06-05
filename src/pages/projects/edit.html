@@ -33,11 +33,11 @@
                     required></ion-input>
                 </ion-item>
                 <ion-item no-lines class="error" *ngIf="showError.required_name">Please input project name</ion-item>
-                <ion-item col-10 [hidden]="!project.currency_index" >
+                <ion-item col-10 [hidden]="!!free_currency" >
                   <ion-label stacked>Currency</ion-label>
-                    <ion-input tabindex="1" (ionFocus)="on_focus($event)"  readonly [value]="friendy_more('CURRENCIES', project.currency_index)"></ion-input>
+                    <ion-input tabindex="1" (ionFocus)="on_focus($event)" readonly [value]="friendy_more('CURRENCIES', project.currency_index)"></ion-input>
                 </ion-item>
-                <ion-item col-10 [hidden]="!!project.currency_index" >
+                <ion-item col-10 [hidden]="!free_currency">
                   <ion-label stacked>Currency</ion-label>
                     <ion-input required #currency_free (ionFocus)="on_focus($event)" maxlength="3" tabindex="1" type="text" (keyup)="change_measures_more($event)" [(ngModel)]="project.currency" name="currency"></ion-input>
                 </ion-item>

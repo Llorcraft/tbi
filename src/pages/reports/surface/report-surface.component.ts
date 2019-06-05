@@ -3,7 +3,8 @@ import { BaseReportPage, ReportSurface } from '../../../models/reports';
 import { ModalController, NavController, NavParams, AlertController, Keyboard } from 'ionic-angular';
 import { ReportService } from '../../../services/report.service';
 import { MessageService } from '../../../services/messages.service';
-import { PictureService } from '../../../services';
+import { PictureService, FileService } from '../../../services';
+import { FileOpener } from '@ionic-native/file-opener';
 
 @Component({
   selector: 'page-report-surface',
@@ -20,8 +21,10 @@ export class ReportSurfacePage extends BaseReportPage {
     protected picture: PictureService,
     protected message: MessageService,
     protected keyboard: Keyboard,
-    public modalCtrl: ModalController
+    public modalCtrl: ModalController,
+    protected file: FileService,
+    protected opener: FileOpener
   ) {
-    super(new ReportSurface(navParams.data.project, navParams.data.component, navParams.data.report), navParams, navCtrl, service, alertCtrl, picture, message, keyboard, modalCtrl);
+    super(new ReportSurface(navParams.data.project, navParams.data.component, navParams.data.report), navParams, navCtrl, service, alertCtrl, picture, message, keyboard, file, opener, modalCtrl);
   }
 }

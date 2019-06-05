@@ -12,7 +12,7 @@
         <ion-col col-12 col-md-8 offset-md-2>
           <ion-item no-padding [ngClass]="{'error': true}">
             <ion-label stacked>
-              <h2 class="welcome" style="padding-bottom: 1rem">Please insert your name</h2>
+              <h2 class="welcome" style="padding-bottom: .5rem">Please insert your name</h2>
             </ion-label>
             <ion-input (keydown.enter)="save(f.form)" (ionFocus)="on_focus($event)" type="text" name="user_name" [(ngModel)]="user_name"
               placeholder="Your name" required></ion-input>
@@ -20,9 +20,9 @@
           <ion-item no-padding no-lines class="error" *ngIf="f.submitted && f.controls?.user_name?.errors?.required">Please input
             user name</ion-item>
         </ion-col>
-        <ion-col col-12 col-md-8 offset-md-2 style="margin-top: 1rem; margin-bottom:2rem" *ngIf="license.type!='PRO'">
+        <ion-col col-12 col-md-8 offset-md-2 style="margin-top: -.5rem; margin-bottom:-2rem" *ngIf="license.type!='PRO'">
           <ion-label stacked>
-            <h2 class="welcome" style="padding: 1rem">Please select version</h2>
+            <h2 class="welcome" style="padding: 0 1rem">Please select version</h2>
           </ion-label>
           <ion-list radio-group name="version-type" [(ngModel)]="isPro">
             <ion-row>
@@ -40,25 +40,22 @@
               </ion-item>
             </ion-row>
           </ion-list>
-          <ion-item *ngIf="isPro==1" style="margin-top: -2rem">
-            <ion-label stacked>Enter Pro version code validation</ion-label>
-            <ion-input type="text" autofocus required [pattern]="proCodePattern" (ionFocus)="on_focus($event)" (keydown.enter)="save(f.form)" name="pro_code" #proCode
+          <ion-item *ngIf="isPro==1" style="margin-top: -1rem; margin-bottom: 3rem">
+            <ion-label stacked style="white-space: normal">Enter code validation or <a on-tap="license.requestProKey()">Get Pro-license key</a></ion-label>
+            <ion-input type="text" autofocus required (ionFocus)="on_focus($event)" (keydown.enter)="save(f.form)" name="pro_code" #proCode
               [(ngModel)]="code" required (ionChange)="onCodeChange($event, f)" placeholder="Enter code"></ion-input>
           </ion-item>
-          <ion-item no-lines class="error" *ngIf="f.submitted && (f.controls?.pro_code?.errors?.required || f.controls?.pro_code?.errors?.pattern)">Please input a valid Pro version code</ion-item>
+          <ion-item no-lines class="error" *ngIf="f.submitted && (f.controls?.pro_code?.errors?.require )">Please input a valid Pro version code</ion-item>
         </ion-col>
         <!-- <ion-col col-12 col-md-8 offset-md-2>
           <small>technology powered by</small>
         </ion-col> -->
-        <ion-col col-12 class="bg-logo-eiif" style="height: 120px; margin: 1rem auto">
+        <ion-col col-12 text-center> 
+          <ion-label style="font-size: 1.1rem"><ion-checkbox name="accept" [(ngModel)]="accept"></ion-checkbox> I accept the <a on-tap="disclaimer()">Terms and Conditions</a></ion-label>
+        </ion-col>
+        <ion-col col-12 class="bg-logo-eiif" style="height: 100px; margin: 2rem auto 0">
           <!-- <h5>Tap to select logo</h5> -->
         </ion-col>
-        <!-- <ion-col col-12 col-md-8 offset-md-2 text-right>
-          <small>a member of</small>
-          <div class="bg-logo-eiif"></div>
-        </ion-col>
-        <ion-col col-4 col-sm-6 col-md-6>
-        </ion-col> -->
       </ion-row>
     </ion-grid>
   </form>
@@ -66,8 +63,13 @@
 <ion-footer>
   <ion-grid no-padding>
     <ion-row no-padding>
-      <ion-col col-12 text-right no-padding>
-      <button ion-button small color="primary" (click)="save(f)">
+        <ion-col col-6 text-left no-padding>
+            <!-- <button ion-button small color="light" (click)="disclaimer()">
+              T&C
+            </button> -->
+            </ion-col>
+      <ion-col col-6 text-right no-padding>
+      <button ion-button small color="primary" [disabled]="!accept" (click)="save(f)">
         Start
       </button>
       </ion-col>

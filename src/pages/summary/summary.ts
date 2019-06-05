@@ -14,6 +14,8 @@ import { FileOpener } from '@ionic-native/file-opener';
 import { IMAGES } from '../../const/images';
 import { InitPage } from '../init/init';
 import { EditProjectPage } from '../projects/edit';
+import { DisclaimerPage } from '../disclaimer/disclaimer';
+import { REPORT } from '../../const';
 
 @Component({
   selector: 'page-summary',
@@ -22,6 +24,7 @@ import { EditProjectPage } from '../projects/edit';
 })
 
 export class SummaryPage implements OnInit {
+  public REPORT = REPORT;
   public creating_pdf = false;
   public images = IMAGES;
   public project: Project;
@@ -41,6 +44,7 @@ export class SummaryPage implements OnInit {
   @ViewChild('pdf') public pdf: PDFExportComponent;
   @ViewChild('report_result', { read: ReportResultComponent }) public report_result: ReportResultComponent;
   @ViewChild(Content) content: Content;
+  pr: Project;
   constructor(
     protected navParams: NavParams,
     protected alertCtrl: AlertController,
@@ -82,6 +86,13 @@ export class SummaryPage implements OnInit {
     });
   }
 
+  add_custom_report(component: TbiComponent, event: Event): void {
+    event.cancelBubble = true;
+    event.preventDefault();
+    const router = new ReportRouter(this.project, component, this.navCtrl);
+    router.navigate_to_report(REPORT.CUSTOM, 'Other')
+  }
+  
   async actions(cl: TbiComponent, event: Event) {
     event.preventDefault();
     event.cancelBubble = true;
@@ -105,13 +116,15 @@ export class SummaryPage implements OnInit {
           handler: () => {
             this.duplicate(cl);
           }
-        }, {
+        }, 
+        {
           text: 'Validate',
           //icon: 'checkmark-circle',
           handler: () => {
             this.validate(cl);
           }
-        }, {
+        }
+        , {
           text: 'Delete',
           role: 'ios-destructive',
           //icon: 'trash',
@@ -133,6 +146,7 @@ export class SummaryPage implements OnInit {
       actionSheet.data.buttons.splice(0, 1);
     }
     if (this.licences.type == 'PRO' && !!cl.validationReport
+      || !REPORT.VALIDATION
       || cl.reports.find(r => r.insulated)
       || (!cl.reports.filter(r => r.path.match(/(surface|pipe|valve|flange)/gi)).length)) {
       actionSheet.data.buttons.splice(3, 1);
@@ -205,11 +219,12 @@ export class SummaryPage implements OnInit {
   private hide_svg(pdf: any): Promise<any> {
     // Array.from(pdf.element.nativeElement.getElementsByTagName('svg'))
     //   .forEach((svg: any, i: number) => {
-    //     if (i < 3) svg.style.fill = '#fff';
     //     let img = document.createElement('img');
-    //     img.src = `data:image/svg+xml;base64,${window.btoa(new XMLSerializer().serializeToString(svg))}`;
+    //     let base_64 = new XMLSerializer().serializeToString(svg);
+    //     console.log(base_64);
+    //     img.src = `data:image/svg+xml;base64,${window.btoa(unescape(encodeURIComponent(base_64)))}`;
     //     img.width = svg.getBoundingClientRect().width;
-    //     //img.height = svg.getBoundingClientRect().height;
+    //     img.height = svg.getBoundingClientRect().height;
     //     svg.parentElement.appendChild(img);
     //   });
     return new Promise<any>(resolve => {
@@ -236,11 +251,11 @@ export class SummaryPage implements OnInit {
     this.hide_svg(this.pdf).then(restores => {
       this.pdf.export().then((g: Group) => {
         exportPDF(g).then(data => {
-          this.file.create_pdf(data, `TBI-${this.project.name}`.replace(/ /g,'-')).then(r => {
+          this.file.create_pdf(data, `TBI-${this.project.name}`.replace(/ /g, '_')).then(r => {
             this.show_svg(this.pdf, restores).then(() => {
               this.creating_pdf = false;
               this.opener.open(r, 'application/pdf')
-                         .catch(ex => this.message.alert('Error', `${r}\n${JSON.stringify(ex)}`));
+                .catch(ex => this.message.alert('Error', `${r}\n${JSON.stringify(ex)}`));
             });
           })
         })
@@ -372,14 +387,14 @@ export class SummaryPage implements OnInit {
           }
         },
         {
-          text: 'Get TBI-Pro',
+          text: 'Get Pro-license key',
           //icon: 'open',
           handler: () => {
-            window.open('https://www.eiif.org/tbi/get-tbi-app', '_system', 'location=yes')
+            this.licences.requestProKey();
           }
         },
         {
-          text: 'Insert TBI-Pro code',
+          text: 'Insert Pro-license key',
           //icon: 'information-circle',
           handler: () => {
             this.alertCtrl.create({
@@ -432,36 +447,37 @@ export class SummaryPage implements OnInit {
   }
 
   showDisclaimer() {
-    let action_sheet = this.alertCtrl.create({
-      title: 'Disclaimer',
-      cssClass: 'disclaimer',
-      message: `<p>The TBI-App TBI is a reporting tool developed by the European Industrial Insulation
-      Foundation (EiiF) to estimate energy losses and potential savings of uninsulated and
-      insulated systems. Furthermore it can be used to create safety, maintenance and
-      customized reports.
-      <br><br>
-      The calculated estimations are based on basic and simplified heat transfer formulas (e.g.
-      always using 0m/s wind speed and horizontal as the orientation of the system).
-      <br><br>
-      The user of this application accepts the following conditions: The user is exclusively
-      responsible for the correctness of the input of data into the TBI-App. The user is aware that
-      theoretical values can deviate from those occurring in practice and that therefore the
-      estimation results depend fully on the accuracy of the inserted information like diameter,
-      surface temperature, ambient temperature, etc.
-      <br><br>
-      TBI does not provide or recommend any specific technical solution nor insulation material.
-      Basic insulation and good insulation scenarios are based on generic values, typical for
-      standard insulation solutions.
-      <br><br>
-      EiiF does not warrant the correctness of (the outcome of) any estimation and shall not be
-      liable for any direct, indirect or consequential damages or any other damages whatsoever
-      incurred by the user or third party resulting from the use of this inspection and reporting
-      application or loss of data. EiiF reserves all rights (including copyright and other intellectual
-      property rights) in respect of all information offered through this application, including the
-      software, the product name TBI-App Easy and TBI-App Pro.</p>`,
-      buttons: ['OK']
-    });
-    return action_sheet.present();
+    this.navCtrl.push(DisclaimerPage)
+    // let action_sheet = this.alertCtrl.create({
+    //   title: 'Terms and Conditions',
+    //   cssClass: 'disclaimer',
+    //   message: `<p>The TBI-App TBI is a reporting tool developed by the European Industrial Insulation
+    //   Foundation (EiiF) to estimate energy losses and potential savings of uninsulated and
+    //   insulated systems. Furthermore it can be used to create safety, maintenance and
+    //   customized reports.
+    //   <br><br>
+    //   The calculated estimations are based on basic and simplified heat transfer formulas (e.g.
+    //   always using 0m/s wind speed and horizontal as the orientation of the system).
+    //   <br><br>
+    //   The user of this application accepts the following conditions: The user is exclusively
+    //   responsible for the correctness of the input of data into the TBI-App. The user is aware that
+    //   theoretical values can deviate from those occurring in practice and that therefore the
+    //   estimation results depend fully on the accuracy of the inserted information like diameter,
+    //   surface temperature, ambient temperature, etc.
+    //   <br><br>
+    //   TBI does not provide or recommend any specific technical solution nor insulation material.
+    //   Basic insulation and good insulation scenarios are based on generic values, typical for
+    //   standard insulation solutions.
+    //   <br><br>
+    //   EiiF does not warrant the correctness of (the outcome of) any estimation and shall not be
+    //   liable for any direct, indirect or consequential damages or any other damages whatsoever
+    //   incurred by the user or third party resulting from the use of this inspection and reporting
+    //   application or loss of data. EiiF reserves all rights (including copyright and other intellectual
+    //   property rights) in respect of all information offered through this application, including the
+    //   software, the product name TBI-App Easy and TBI-App Pro.</p>`,
+    //   buttons: ['OK']
+    // });
+    // return action_sheet.present();
   }
 
   ngOnInit(): void {

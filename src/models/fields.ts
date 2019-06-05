@@ -1,3 +1,5 @@
+import { More } from "../const/more/more";
+
 export class Fields {
   public location: string = '';
   public operational_time?: number = null;
@@ -84,6 +86,13 @@ export class Fields {
     this.damaged_insulation_selection = !value ? null : 1;
   };
 
+  public get friendly_surface_material(): string {
+    const more = More.MATERIALS.find(m => m[1] == this.surface_material);
+    return !more  
+      ? this.surface_material.toString()
+      : more[0].toString();
+  }
+
 
   constructor(f?: Partial<Fields>) {
     if (!f) return;
@@ -112,7 +121,7 @@ export class Fields {
     this.condensation_comment = f.condensation_comment || '';
     this.unknow_surface = !!f.unknow_surface;
     this.unknow_surface_temp = Number(f.unknow_surface_temp || '0');
-    this.space_warning =  f.space_warning
+    this.space_warning = f.space_warning
 
     this.operational_time_index = f.operational_time_index || 0;
     this.surface_material_index = f.surface_material_index || 0;

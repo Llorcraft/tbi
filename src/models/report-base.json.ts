@@ -5,6 +5,7 @@ import { Picture } from './picture';
 export class ReportBaseJson {
   public id: string = '';
   public name: string = '';
+  public user: string = '';
   public path: string = '';
   public result: Result = null;
   public pictures: Picture[] = [];
@@ -25,5 +26,6 @@ export class ReportBaseJson {
       this.result = new Result(item.result);
       this.date = new Date(item.date.toString());
       this.pictures = (item.pictures || []).map(p => new Picture(p));
+      this.user = item.user;
   }
 }

@@ -52,6 +52,15 @@
         <splash density="port-xxxhdpi" src="resources/android/splash/drawable-port-xxxhdpi-screen.png" />
     </platform>
     <platform name="ios">
+        <preference name="KeyboardDisplayRequiresUserAction" value="false" />
+        <config-file parent="NSCameraUsageDescription" platform="ios" target="*-Info.plist">
+            <string>You can take pictures using your camera.</string>
+        </config-file>
+        <edit-config file="*-Info.plist" mode="merge" target="NSPhotoLibraryUsageDescription">
+            <string>Photo library access is required in order select picture from gallery.</string>
+        </edit-config>
+        <allow-navigation href="http://localhost:8082/*" />
+        <preference name="WKPort" value="8082" />
         <allow-intent href="itms:*" />
         <allow-intent href="itms-apps:*" />
         <icon height="57" src="resources/ios/icon/icon.png" width="57" />
@@ -109,6 +118,6 @@
     <plugin name="com.lampa.startapp" spec="^6.1.6" />
     <plugin name="cordova-plugin-globalization" spec="^1.11.0" />
     <plugin name="cordova-plugin-inappbrowser" spec="^3.0.0" />
-    <engine name="android" spec="7.0.0" />
     <plugin name="cordova-plugin-file-opener2" spec="^2.0.19" />
+    <engine name="android" spec="7.0.0" />
 </widget>

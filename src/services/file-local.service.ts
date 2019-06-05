@@ -16,7 +16,6 @@ export class FileLocalService extends FileService {
         //filename = `${filename}-${(new Date()).toLocaleString().replace(/(\/| |:)/g, '')}`;
         this.loading.show();
         return new Promise<string>((resolve, reject) => {
-            debugger;
             let blob = new Blob([this.base64_to_uint(base64)], { type: 'application/pdf' });
             let newWindow = window.open(`${filename}.pdf`, '_blank');
             newWindow.location.href = URL.createObjectURL(blob);

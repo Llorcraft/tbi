@@ -125,6 +125,7 @@ import { Flashlight } from '@ionic-native/flashlight';
 import { SummaryHeaderComponent } from '../pages/summary/components/header';
 import { CommonModule, registerLocaleData } from '@angular/common';
 import { GlobalErrorHandler } from '../models/errors/global-error';
+import { DisclaimerPage } from '../pages/disclaimer/disclaimer';
 /*import { GlobalErrorHandler } from '../models/errors/global-error';*/
 
 //import { GlobalErrorHandler } from '../models/errors/global-error';
@@ -168,6 +169,7 @@ import { GlobalErrorHandler } from '../models/errors/global-error';
     ReportDamagedPage,
     ReportCondensationPage,
     ReportLeakagePage,
+    DisclaimerPage,
     //Custom Validators
     InsulatedCompareTempValidator,
     //Components
@@ -260,6 +262,7 @@ import { GlobalErrorHandler } from '../models/errors/global-error';
     ReportDamagedPage,
     ReportCondensationPage,
     ReportLeakagePage,
+    DisclaimerPage,
     ToolsComponent
   ],
   providers: [
@@ -283,15 +286,13 @@ import { GlobalErrorHandler } from '../models/errors/global-error';
     FileTransfer,
     { provide: ErrorHandler, useClass: GlobalErrorHandler, deps: [MessageService, Http] },
     //{ provide: ErrorHandler, useClass: IonicErrorHandler },
-    //Mock services
-    //{ provide: PictureService, useClass: PictureDeviceService },
     LicencesService,
     PictureService,
     Flashlight,
     LoadindService,
     LoadingController,
     { provide: LOCALE_ID, useValue: "en-US" },
-    { provide: FileService, useClass: FileDeviceService }
+    { provide: FileService, useClass: FileLocalService }
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })

@@ -3,7 +3,8 @@
   <ion-grid id="result-grid" #resultGrid>
     <ion-row *ngIf="show_savings">
       <ion-col text-center col-12 no-padding>
-        <h5 *ngIf="!saving_lower" class="annual-saving-message big"><small><strong>Annual saving potential</strong></small>
+        <h5 *ngIf="!saving_lower" class="annual-saving-message big"><small><strong>Annual saving
+              potential</strong></small>
           from {{(parent.report.result.annual_saving_from || 0) | number: '1.0-0'}}{{currency}} to
           {{(parent.report.result.annual_saving_to || 0)| number: '1.0-0'}}{{currency}}
         </h5>
@@ -13,7 +14,7 @@
       </ion-col>
     </ion-row>
     <ion-row>
-      <ion-col text-center style="overflow: auto">
+      <ion-col text-center style="overflow: auto" style="padding: 0 10px">
         <table [style.zoom]="zoom" cellspacing="0" cellpadding="0" border="0" class="result-chart"
           [class.saving_lower]="saving_lower">
           <thead>
@@ -42,27 +43,34 @@
                 <!-- <div class="x-title white">Current</div> -->
               </th>
               <th>
-                <div *ngIf="!is_validation" class="x-title" style="color: #4b71c1; margin-top: 18px">
-                  basic<br />insulation</div>
-                <div *ngIf="!!is_validation" class="x-title" style="color: #4b71c1; margin-top: 18px">
-                  after<br>insulation</div>
+                <div *ngIf="!is_validation" class="x-title" style="color: #4b71c1; margin-top: 45px">
+                  <div>basic</div>
+                  <div>insulation</div>
+                </div>
+                <div *ngIf="!!is_validation" class="x-title" style="color: #4b71c1; margin-top: 45px">
+                  <div>after</div>
+                  <div>insulation</div>
+                </div>
               </th>
               <th *ngIf="!is_validation">
-                <div class="x-title" style="color: #6daf3d; margin-top: 18px">good<br />insulation</div>
+                <div class="x-title" style="color: #6daf3d; margin-top: 45px">
+                  <div>good</div>
+                  <div>insulation</div>
+                </div>
               </th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td class="section" rowspan="2"><strong>Annual Consumption</strong></td>
+              <td class="section" rowspan="2">
+                <strong style="margin-top: 10px">
+                  <div>Annual</div>
+                  <div>Consumption</div>
+                </strong></td>
               <td class="scale"></td>
               <td class="b-line bar" rowspan="2">
                 <div style.height="{{bars.current.losses[0]}}px" class="gray">
-                  <span class="x-price">
-                    <strong
-                      style="display: block; padding: 0!important; text-align: center">{{!is_validation ? 'current' : 'before'}}</strong>
-                    {{bars.current.losses[1] | number: '1.0-0'}}{{currency}}<span
-                      *ngIf="unknow_surface">/m<sup>2</sup></span>
+                  <span class="x-price">{{bars.current.losses[1] | number: '1.0-0'}}{{currency}}<span *ngIf="unknow_surface">/m<sup>2</sup></span>
                   </span>
                 </div>
               </td>
@@ -81,14 +89,19 @@
             </tr>
             <tr>
               <td class="scale">
-                <span>{{scale.min / 10 | number: '1.1-1'}} </span><span class="kwh">MWh<span
-                    *ngIf="unknow_surface">/m<sup>2</sup></span></span>
+                <span>{{scale.min / 10 | number: '1.1-1'}} </span>
+                <span class="kwh">&nbsp;MWh<span *ngIf="unknow_surface">/m<sup>2</sup></span>
+                </span>
               </td>
             </tr>
           </tbody>
           <tbody class="inverse">
             <tr>
-              <td class="section" rowspan="2"><strong>Annual Saving</strong></td>
+              <td class="section" rowspan="2">
+                <strong style="margin-top: -15px">
+                  <div>Annual</div>
+                  <div>Saving</div>
+                </strong></td>
               <td class="scale inverse">
                 <span>{{scale.min / 10 | number: '1.1-1'}}</span>
               </td>
@@ -128,6 +141,29 @@
             </tr>
           </tbody>
           <tfoot>
+            <tr>
+              <th colspan="2"></th>
+              <th>
+                  <div>{{!is_validation ? 'current' : 'before'}}</div>
+                  <div>situation</div>
+              </th>
+              <th style="color: #4b71c1">
+                <div *ngIf="!is_validation">
+                  <div>basic</div>
+                  <div>insulation</div>
+                </div>
+                <div *ngIf="!!is_validation">
+                  <div>after</div>
+                  <div>insulation</div>
+                </div>
+              </th>
+              <th *ngIf="!is_validation" style="color: #6daf3d">
+                <div>
+                  <div>good</div>
+                  <div>insulation</div>
+                </div>
+              </th>
+            </tr>
             <tr>
               <th colspan="2" style="padding-top: 2rem">
                 <img src="{{images.CO2}}">

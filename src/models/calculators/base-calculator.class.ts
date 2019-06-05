@@ -174,38 +174,13 @@ export class BaseCalculator {
         });
 
         console.log({
-            λm_min: this.λm_min,
-            λm_max: this.λm_max,
-            λdes_min: this.λdes_min,
-            λdes_max: this.λdes_max,
-            e_min: this.e_min,
-            e_max: this.e_max,
-            "De": this.De,
-            θse: this.θse,
-            θa: this.θa,
-            Rse_min: this.Rse_min,
-            Rse_max: this.Rse_max,
-            Rins_min: this.Rins_min,
-            Rins_max: this.Rins_max,
-            ql: this.ql,
-            qref_pb: this.qref_pb,
-            q: this.q,
-            hr: this.hr,
-            hr_min: this.hr_min,
-            hcv_min: this.hcv_min,
-            q_min: this.q_min,
-            q_max: this.q_max,
             hse: this.hse,
             hse_min: this.hse_min,
             hse_max: this.hse_max,
-            Qkwh: this.Qkwh,
-            Sp: this.Sp,
-            Qkwh_min: this.Qkwh_min,
-            Qkwh_max: this.Qkwh_max,
-            ql_ref_pb: this.ql_ref_pb,
-            Qε: this.Qε,
-            Qε_min: this.Qε_min,
-            Qε_max: this.Qε_max
+            hr_min: this.hr_min,
+            lort: this.lort,
+            hcv_laminar_min: this.hcv_laminar_min,
+            hcv_turbulent_min: this.hcv_turbulent_min
         });
         return this.report;
     }

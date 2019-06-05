@@ -5,7 +5,8 @@ import { ReportGeneric } from '../../../models/reports/report-generic.class';
 import { BaseReportPage } from '../../../models/reports';
 import { MessageService } from '../../../services/messages.service';
 import { ReportBase } from '../../../models';
-import { PictureService } from '../../../services';
+import { PictureService, FileService } from '../../../services';
+import { FileOpener } from '@ionic-native/file-opener';
 
 @Component({
   selector: 'page-generic-report',
@@ -20,19 +21,15 @@ export class GenericReportPage extends BaseReportPage {
     protected alertCtrl: AlertController,
     protected picture: PictureService,
     protected message: MessageService,
-    protected keyboard: Keyboard
+    protected keyboard: Keyboard,
+    protected file: FileService,
+    protected opener: FileOpener
   ) {
-    super(new ReportGeneric(navParams.data.project, navParams.data.component, navParams.data.report), navParams, navCtrl, service, alertCtrl, picture, message, keyboard);
+    super(new ReportGeneric(navParams.data.project, navParams.data.component, navParams.data.report), navParams, navCtrl, service, alertCtrl, picture, message, keyboard, file, opener);
     this.report.name = this.report.summary_id;
   }
 
   protected calculate(): ReportBase {
-    this.start_changes_observer();
-    if (!this.form.invalid) {
-      this.save();
-    } else {
-      this.view = 'form';
-    }
-    return null;
+    return this.validateGeneric();
   }
 }

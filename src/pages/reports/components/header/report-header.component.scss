@@ -1,9 +1,9 @@
-report-header + ion-content {
-    margin-top: 55px;
-}
+report-header {
+  & + ion-content {
+    margin-top: 50px;
+  }
 
-// report-header {
-//     ion-title {
-//         margin-left: 0rem!important;
-//     }
-// }
+  .toolbar-title-ios {
+    margin-top: -.75rem;
+  }
+}

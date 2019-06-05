@@ -212,6 +212,10 @@ export class EditProjectPage extends ProjectPageBase {
     });
   }
 
+  get free_currency(): boolean {
+    let free = !this.more.CURRENCIES.find(c => c[1] == this.project.currency && this.project.currency!="")
+    return free;
+  }
   set_measure(measure: { index?: number, value: number }) {
     this.project.price_delta = measure.value;
   }
