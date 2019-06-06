@@ -48,6 +48,9 @@ export class ReportBase {
   public get first_picture(): Picture {
     return this.pictures[0]
   }
+  public filtered_pictures(): Picture[] {
+    return this.pictures.filter(p => p != this.first_picture);
+  }
   constructor(project: Project, component?: TbiComponent, item?: Partial<ReportBase>) {
     if (!!item) {
       Object.assign(this, item);

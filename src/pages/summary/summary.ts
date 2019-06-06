@@ -16,6 +16,7 @@ import { InitPage } from '../init/init';
 import { EditProjectPage } from '../projects/edit';
 import { DisclaimerPage } from '../disclaimer/disclaimer';
 import { REPORT } from '../../const';
+import { ReportPdfPage } from '../reports/pdf/report-pdf.component';
 
 @Component({
   selector: 'page-summary',
@@ -92,7 +93,7 @@ export class SummaryPage implements OnInit {
     const router = new ReportRouter(this.project, component, this.navCtrl);
     router.navigate_to_report(REPORT.CUSTOM, 'Other')
   }
-  
+
   async actions(cl: TbiComponent, event: Event) {
     event.preventDefault();
     event.cancelBubble = true;
@@ -104,7 +105,15 @@ export class SummaryPage implements OnInit {
           handler: () => {
             this.go_to_reports(cl);
           }
-        }, {
+        },
+        // {
+        //   text: 'PDF Report',
+        //   //icon: 'ios-create',
+        //   handler: () => {
+        //     this.navCtrl.setRoot(ReportPdfPage, { report: cl.reports[0] }, { animate: false });
+        //   }
+        // },
+        {
           text: 'Edit',
           //icon: 'ios-create',
           handler: () => {
@@ -116,7 +125,7 @@ export class SummaryPage implements OnInit {
           handler: () => {
             this.duplicate(cl);
           }
-        }, 
+        },
         {
           text: 'Validate',
           //icon: 'checkmark-circle',

@@ -1,4 +1,4 @@
-import { Component, Input, AfterContentInit, Output } from '@angular/core';
+import { Component, Input, AfterContentInit, Output, EventEmitter } from '@angular/core';
 import { NON_PICTURE } from '../../../../const/images/non-picture';
 import { BaseReportPage } from '../../../../models/reports';
 import { IMAGES } from '../../../../const/images';
@@ -14,6 +14,7 @@ import { IMAGES } from '../../../../const/images';
 export class ReportResultComponent implements AfterContentInit {
     @Input() parent: BaseReportPage;
     @Input() show_advise?: boolean = true;
+    @Output() onReady = new EventEmitter<ReportResultComponent>();
     unknow_surface: boolean = false;
     is_validation: boolean = false;
     images = IMAGES;
@@ -78,6 +79,8 @@ export class ReportResultComponent implements AfterContentInit {
             (this.bars.current.losses[0] - this.bars.basic.losses[0]),
             (this.bars.current.losses[1] - this.bars.basic.losses[1])
         ];
+
+        this.onReady.next(this);
     }
 
     upScale(value: number): number {
@@ -134,6 +137,8 @@ export class ReportResultComponent implements AfterContentInit {
         this.parent.report.result.annual_saving_from = this.bars.basic.savings[1];
         this.parent.report.result.annual_saving_to = this.bars.economical.savings[1];
         //}
+
+        this.onReady.next(this);
     }
 
     get show_savings(): boolean {

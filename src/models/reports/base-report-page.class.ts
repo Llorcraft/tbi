@@ -1,10 +1,11 @@
-import {NavController,AlertController,Keyboard,Content,ModalController,NavParams} from "ionic-angular";
+import { NavController, AlertController, Keyboard, Content, ModalController, NavParams } from "ionic-angular";
 import { NgForm } from "@angular/forms";
 import { ViewChild, OnInit, AfterViewInit, ElementRef, Inject } from "@angular/core";
 import { ReportBase, Project } from "..";
 import { CalculatorFactory } from "../calculators/calculator.factory";
 import { Picture } from "../picture";
-import {ReportErrorsComponent,ReportsPage,ReportMoreButtonComponent,KnownTempPage
+import {
+  ReportErrorsComponent, ReportsPage, ReportMoreButtonComponent, KnownTempPage
 } from "../../pages/reports";
 import { ReportService } from "../../services/report.service";
 import { More } from "../../const/more/more";
@@ -15,9 +16,8 @@ import { NON_PICTURE, IMAGES } from "../../const/images";
 import { PictureService, FileService } from "../../services";
 import { Patterns } from "../../const/patterns";
 import { SummaryPage } from "../../pages/summary/summary";
-import { PDFExportComponent } from '@progress/kendo-angular-pdf-export';
-import { Group, exportPDF } from '@progress/kendo-drawing';
 import { FileOpener } from "@ionic-native/file-opener";
+import { ReportPdfPage } from "../../pages/reports/pdf/report-pdf.component";
 
 export class BaseReportPage extends ScrollToComponent
   implements OnInit, AfterViewInit {
@@ -28,9 +28,8 @@ export class BaseReportPage extends ScrollToComponent
   @ViewChild("ambient_temp") ambient_temp;
   @ViewChild("before_time") before_time;
   @ViewChild("after_material") after_material;
-  @ViewChild("before_material") before_material;  
-  @ViewChild('pdf') public pdf: PDFExportComponent;
-
+  @ViewChild("before_material") before_material;
+  
   @ViewChild("time", { read: ReportMoreButtonComponent })
   time: ReportMoreButtonComponent;
   @ViewChild("material", { read: ReportMoreButtonComponent })
@@ -53,6 +52,10 @@ export class BaseReportPage extends ScrollToComponent
   private _original_component: TbiComponent;
   public editable: boolean = false;
 
+  get show_pdf_button (): boolean {
+    return this.view!='edit_picture' && !!this.report.result && !this.form.invalid
+  }
+  
   //#region Custom Validations
   public get picture_qty(): number {
     return !!this.report.pictures.length ? this.report.pictures.length : null;
@@ -80,7 +83,7 @@ export class BaseReportPage extends ScrollToComponent
       this.save();
     } else {
       this.view = 'form';
-      setTimeout(()=>this.scrollToBottom(0), 100);
+      setTimeout(() => this.scrollToBottom(0), 100);
     }
     return null;
   }
@@ -179,7 +182,7 @@ export class BaseReportPage extends ScrollToComponent
     protected keyboard: Keyboard,
     protected file: FileService,
     protected opener: FileOpener,
-    public modalCtrl?: ModalController    
+    public modalCtrl?: ModalController
   ) {
     super(keyboard);
     this._original_component = this.report.component;
@@ -284,20 +287,7 @@ export class BaseReportPage extends ScrollToComponent
   }
 
   public export_pdf(n) {
-    //this.creating_pdf = true;
-    //this.hide_svg(this.pdf).then(restores => {
-      this.pdf.export().then((g: Group) => {
-        exportPDF(g).then(data => {
-          this.file.create_pdf(data, `TBI-${this.report.summary_id}`.replace(/ /g, '_')).then(r => {
-            //this.show_svg(this.pdf, restores).then(() => {
-            //  this.creating_pdf = false;
-              this.opener.open(r, 'application/pdf')
-                .catch(ex => this.message.alert('Error', `${r}\n${JSON.stringify(ex)}`));
-            //});
-          })
-        })
-      })
-    //});
+    this.navCtrl.push(ReportPdfPage, {report: this.report, parent: this}, {animate: false});
   }
 
   protected save() {

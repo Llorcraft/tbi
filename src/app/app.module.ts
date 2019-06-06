@@ -126,6 +126,7 @@ import { SummaryHeaderComponent } from '../pages/summary/components/header';
 import { CommonModule, registerLocaleData } from '@angular/common';
 import { GlobalErrorHandler } from '../models/errors/global-error';
 import { DisclaimerPage } from '../pages/disclaimer/disclaimer';
+import { ReportPdfPage } from '../pages/reports/pdf/report-pdf.component';
 /*import { GlobalErrorHandler } from '../models/errors/global-error';*/
 
 //import { GlobalErrorHandler } from '../models/errors/global-error';
@@ -143,6 +144,7 @@ import { DisclaimerPage } from '../pages/disclaimer/disclaimer';
     ReportsPage,
     InitPage,
     SummaryPage,
+    ReportPdfPage,
     SummaryEditPage,
     SummaryHeaderComponent,
     KnownTempPage,
@@ -244,6 +246,7 @@ import { DisclaimerPage } from '../pages/disclaimer/disclaimer';
     ReportsPage,
     InitPage,
     SummaryPage,
+    ReportPdfPage,
     SummaryEditPage,
     SummaryHeaderComponent,
     KnownTempPage,

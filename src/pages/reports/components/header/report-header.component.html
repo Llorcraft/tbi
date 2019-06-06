@@ -4,7 +4,7 @@
       {{parent.report.name}}
     </ion-title>
     <ion-buttons end>
-      <button ion-button *ngIf="parent.view!='edit_picture' && !parent.form.invalid" color="light" on-tap="parent.export_pdf()">
+      <button ion-button *ngIf="parent.show_pdf_button" color="light" on-tap="parent.export_pdf()">
           <ion-icon name="document-pdf"></ion-icon>
       </button>
       <button ion-button *ngIf="parent.view!='edit_picture'" color="light" on-tap="parent.take_picture()">

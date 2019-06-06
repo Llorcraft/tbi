@@ -1,0 +1,97 @@
+<ion-content style="width: 100vw; height: 100vh;">
+<kendo-pdf-export #pdf paperSize="A4" margin="0 5cm" [scale]="0.5" landscape="false" forcePageBreak=".page-break">
+    <div class="header-spacer" page-number="1" [attr.page-count]="setPageCount()"></div>
+    <ion-grid class="report-grid-pdf">
+      <ion-row>
+        <ion-col col-7>
+          <ion-item col-5>
+            <label>Project</label>
+            <h4>{{report.component.project.name}}</h4>
+          </ion-item>
+          <ion-item col-5 offset-2>
+            <label>Component Location</label>
+            <h4>{{report.component.fields.location}}</h4>
+          </ion-item>
+          <ion-item col-5>
+            <label>Energy cost ({{report.component.project.currency}})</label>
+            <h4>{{report.component.project.price}}</h4>
+          </ion-item>
+          <ion-item col-5 offset-2>
+            <label>CO<sub>2</sub> emission factor (tn CO<sub>2</sub>/m<sup>2</sup>)</label>
+            <h4>{{report.component.project.co2}}</h4>
+          </ion-item>
+          <ion-item col-5>
+            <label>Operational time</label>
+            <h4>{{report.component.fields.operational_time}}</h4>
+          </ion-item>
+          <ion-item col-5 offset-2>
+            <label>Surface (m<sup>2</sup>)</label>
+            <h4>{{report.component.fields.unknow_surface ? 'Unknow' : report.component.fields.surface}}</h4>
+          </ion-item>
+          <ion-item col-5>
+            <label>Surface material</label>
+            <h4>{{report.component.fields.friendly_surface_material}}</h4>
+          </ion-item>
+          <ion-item col-5 offset-2 *ngIf="!report.component.fields.unknow_surface">
+            <label>Surface temperature (&deg;C)</label>
+            <h4>{{report.component.fields.surface_temp}}</h4>
+          </ion-item>
+          <ion-item col-5 offset-2 *ngIf="!!report.component.fields.unknow_surface">
+            <label>Medium temperature (&deg;C)</label>
+            <h4>{{report.component.fields.surface_temp}}
+              ({{report.component.fields.unknow_surface_temp == 1 ? 'Gas' : 'Liquid'}})</h4>
+          </ion-item>
+          <ion-item col-5>
+            <label>Ambient temperature (&deg;C)</label>
+            <h4>{{report.component.fields.ambient_temp}}</h4>
+          </ion-item>
+          <ion-col text-center col-12 d-inline-block *ngIf="report.first_picture" style="padding-top: 2.5rem">
+            <img style="max-height: 4.6in" src="{{report.first_picture.picture}}">
+          </ion-col>
+        </ion-col>
+        <ion-col col-5 text-center style="border-left: 1px solid rgb(48,84,150)">
+          <div style="margin: auto" report-result col-12 [parent]="this" (onReady)="report_ready($event)"></div>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col [class.page-break]="(p%4)==0" padding col-6 text-center
+          *ngFor="let picture of report.filtered_pictures(), let p = index" [attr.page-number]="setPageNumber(p)" [attr.page-count]="setPageCount()">
+          <a [attr.name]="setPageNumber(p)"></a>
+          <img style="max-height: 4.6in" [style.margin-top]="(p%4)<2?'4rem':'0'" src="{{picture.picture}}">
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+    <ng-template kendoPDFTemplate>
+      <div class="page-template pdf-report-page-template">
+        <ion-grid class="header">
+          <ion-row class="flex-vertical-middel">
+            <ion-col col-3>
+              <img src="{{images.LOGO}}">
+            </ion-col>
+            <ion-col col-6>
+              <h3 col-12 text-center class="tickcheck">
+                <span>TIPCHECK Based inspections</span>
+              </h3>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+        <ion-grid class="footer">
+          <ion-row>
+            <ion-col col-12>
+              <b>Disclaimer:</b>You should not rely solely on the TBI Software application(s) for determining the
+              performance of an insulation system and/or the energy or cost saving potential. The TBI software
+              applications allow you to quickly check the performance of an insulation system and the energy or cost
+              saving potential roughly, due to the influence of a number of factors, including data/input provided by
+              the user. The Software applications are not meant to replace professional advice. Under no circumstance
+              EiiF and/or any EiiF member authorized to use the member version of the Software application will be
+              liable for damages occurring to persons and properties of any nature and/or any other damages or losses
+              arising out of the use of the TBI Software application(s) or any information or service obtained through
+              it, including direct, indirect, consequential or incidental damages and losses. EiiF &copy;
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </div>
+    </ng-template>
+  </kendo-pdf-export>
+</ion-content>
