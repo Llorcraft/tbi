@@ -17,6 +17,8 @@
             data-val-required="Surface temperature must be < 1000°C"></ion-input>
           <ion-input type="hidden" name="surface_required" [(ngModel)]="surface_required" required
             data-val-required="Please input Surface in m²"></ion-input>
+          <ion-input type="hidden" name="pictures" required data-val-required="Please take a picture"
+            [(ngModel)]="picture_qty"></ion-input>
           <ion-row>
             <ion-col col-10>
               <ion-item>
@@ -60,7 +62,7 @@
             </ion-col>
             <ion-col col-md-3 col-4 toggle-container>
               <ion-item>
-                <ion-label stacked>Unknown</ion-label>
+                <ion-label stacked unknown>Unknown</ion-label>
                 <ion-toggle style="padding-left:0" [(ngModel)]="report.component.fields.unknow_surface"
                   (ionChange)="toggle_know()" name="unknow_surface"></ion-toggle>
               </ion-item>
@@ -102,7 +104,7 @@
             </ion-col>
             <ion-col col-md-3 col-4 toggle-container>
               <ion-item>
-                <ion-label stacked>Unknown</ion-label>
+                <ion-label stacked unknown>Unknown</ion-label>
                 <ion-toggle [disabled]="!!report.component.validation"
                   [(ngModel)]="report.component.fields.unknow_surface_temp" (ionChange)="toggle_know_temp()"
                   name="unknow_surface_temp"></ion-toggle>
@@ -137,17 +139,17 @@
       </ion-col>
     </ion-row>
     <ion-row>
-      <ion-col col-12 no-padding>
-        <div report-result col-12 [parent]="this" *ngIf="view=='result' && (!!form && !form.invalid)"></div>
+      <ion-col col-12 no-padding *ngIf="view=='result' && (!!form && !form.invalid)">
+        <div report-result col-12 [parent]="this"></div>
       </ion-col>
-      <ion-col col-12 padding>
-        <report-errors padding #errors col-12 *ngIf="!(view=='!result' && report.result)"></report-errors>
+      <ion-col col-12 padding *ngIf="!(view=='!result' && report.result)">
+        <report-errors padding #errors col-12></report-errors>
       </ion-col>
     </ion-row>
   </ion-grid>
 
   <edit-picture *ngIf="view=='edit_picture'" [report]="report" [picture]="editing_picture"></edit-picture>
- 
+
 </ion-content>
 
 <report-footer [parent]="this"></report-footer>

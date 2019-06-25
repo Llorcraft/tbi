@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { BaseReportPage, ReportCondensation } from '../../../models/reports';
-import { NavController, NavParams, AlertController, Keyboard } from 'ionic-angular';
+import { NavController, NavParams, AlertController, Keyboard, Toggle } from 'ionic-angular';
 import { ReportService } from '../../../services/report.service';
 import { ReportBase } from '../../../models/report-base';
 import { MessageService } from '../../../services/messages.service';
@@ -29,5 +29,9 @@ export class ReportCondensationPage extends BaseReportPage {
 
   protected calculate(): ReportBase {
     return this.validateGeneric();
+  }
+  setCondensation(event: Toggle, index: number) {
+    this.report.component.fields.condensation[index] = event.checked;
+    if (event.checked) this.report.component.fields.condensation[(index == 0 ? 1 : 0)] = false;
   }
 }

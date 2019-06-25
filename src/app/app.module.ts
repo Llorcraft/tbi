@@ -127,6 +127,8 @@ import { CommonModule, registerLocaleData } from '@angular/common';
 import { GlobalErrorHandler } from '../models/errors/global-error';
 import { DisclaimerPage } from '../pages/disclaimer/disclaimer';
 import { ReportPdfPage } from '../pages/reports/pdf/report-pdf.component';
+import { SummaryReportPage } from '../pages/summary-report/summary-report';
+import { PdfHeaderComponent } from '../components/pdf-header/pdf-header.component';
 /*import { GlobalErrorHandler } from '../models/errors/global-error';*/
 
 //import { GlobalErrorHandler } from '../models/errors/global-error';
@@ -144,6 +146,7 @@ import { ReportPdfPage } from '../pages/reports/pdf/report-pdf.component';
     ReportsPage,
     InitPage,
     SummaryPage,
+    SummaryReportPage,
     ReportPdfPage,
     SummaryEditPage,
     SummaryHeaderComponent,
@@ -177,6 +180,7 @@ import { ReportPdfPage } from '../pages/reports/pdf/report-pdf.component';
     //Components
     SurfaceMaterialComponent,
     ToolsComponent,
+    PdfHeaderComponent,
     SvgEmptyComponent,
     SvgInsulationComponent,
     SvgCO2Component,
@@ -246,6 +250,7 @@ import { ReportPdfPage } from '../pages/reports/pdf/report-pdf.component';
     ReportsPage,
     InitPage,
     SummaryPage,
+    SummaryReportPage,
     ReportPdfPage,
     SummaryEditPage,
     SummaryHeaderComponent,
@@ -266,7 +271,8 @@ import { ReportPdfPage } from '../pages/reports/pdf/report-pdf.component';
     ReportCondensationPage,
     ReportLeakagePage,
     DisclaimerPage,
-    ToolsComponent
+    ToolsComponent,
+    PdfHeaderComponent
   ],
   providers: [
     /*App services*/
@@ -295,7 +301,7 @@ import { ReportPdfPage } from '../pages/reports/pdf/report-pdf.component';
     LoadindService,
     LoadingController,
     { provide: LOCALE_ID, useValue: "en-US" },
-    { provide: FileService, useClass: FileLocalService }
+    { provide: FileService, useClass: FileDeviceService }
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })

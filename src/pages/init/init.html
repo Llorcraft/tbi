@@ -51,9 +51,10 @@
           <small>technology powered by</small>
         </ion-col> -->
         <ion-col col-12 text-center> 
-          <ion-label style="font-size: 1.1rem"><ion-checkbox name="accept" [(ngModel)]="accept"></ion-checkbox> I accept the <a on-tap="disclaimer()">Terms and Conditions</a></ion-label>
+          <ion-label style="font-size: 1.1rem"><ion-checkbox name="accept" [(ngModel)]="accept"></ion-checkbox> I accept the <a on-tap="disclaimer()">TBI Terms of Use</a></ion-label>
         </ion-col>
-        <ion-col col-12 class="bg-logo-eiif" style="height: 100px; margin: 2rem auto 0">
+        <ion-col col-12 text-center>
+          <img src="{{images.LOGO}}" style="height: 100px; margin: 2rem auto 0">
           <!-- <h5>Tap to select logo</h5> -->
         </ion-col>
       </ion-row>

@@ -17,6 +17,7 @@ import { EditProjectPage } from '../projects/edit';
 import { DisclaimerPage } from '../disclaimer/disclaimer';
 import { REPORT } from '../../const';
 import { ReportPdfPage } from '../reports/pdf/report-pdf.component';
+import { SummaryReportPage } from '../summary-report/summary-report';
 
 @Component({
   selector: 'page-summary',
@@ -25,11 +26,14 @@ import { ReportPdfPage } from '../reports/pdf/report-pdf.component';
 })
 
 export class SummaryPage implements OnInit {
+  public reportPageCount = 0;
+  public has_people = false;
   public REPORT = REPORT;
   public creating_pdf = false;
   public images = IMAGES;
   public project: Project;
   public report: ReportBase;
+  public reports: ReportBase[] = [];
   public components: TbiComponent[] = [];
   public heat_lost: Value = new Value();
   public saving_potential_min: Value = new Value();
@@ -37,6 +41,7 @@ export class SummaryPage implements OnInit {
   public advises: Map<string, string> = new Map<string, string>([
     ['', ''],
     ['System OK', 'OK'],
+    ['Maintenance', 'Maintenance'],
     ['Insulation recommended', 'Recommended'],
     ['SAFETY-Insulation recommended', 'SAFETY-Recommended'],
     ['Savings can be achieved by increasing insulation performance or thickness', 'SAVINGS-achieved']
@@ -152,6 +157,8 @@ export class SummaryPage implements OnInit {
     if (this.licences.type != 'PRO') {
       actionSheet.data.buttons.splice(3, 1);
       actionSheet.data.buttons.splice(2, 1);
+    }
+    if(!cl.is_energy){
       actionSheet.data.buttons.splice(0, 1);
     }
     if (this.licences.type == 'PRO' && !!cl.validationReport
@@ -255,21 +262,27 @@ export class SummaryPage implements OnInit {
 
   }
 
+  public export_new_pdf(showComponent: boolean) {
+    this.navCtrl.push(SummaryReportPage, {project: this.navParams.data.project, showComponent: showComponent}, {animate: false});
+  }
+
   public export_pdf() {
     this.creating_pdf = true;
-    this.hide_svg(this.pdf).then(restores => {
-      this.pdf.export().then((g: Group) => {
-        exportPDF(g).then(data => {
-          this.file.create_pdf(data, `TBI-${this.project.name}`.replace(/ /g, '_')).then(r => {
-            this.show_svg(this.pdf, restores).then(() => {
-              this.creating_pdf = false;
-              this.opener.open(r, 'application/pdf')
-                .catch(ex => this.message.alert('Error', `${r}\n${JSON.stringify(ex)}`));
-            });
+    setTimeout(() => {
+      this.hide_svg(this.pdf).then(restores => {
+        this.pdf.export().then((g: Group) => {
+          exportPDF(g).then(data => {
+            this.file.create_pdf(data, `TBI-${this.project.name}`.replace(/ /g, '_')).then(r => {
+              this.show_svg(this.pdf, restores).then(() => {
+                this.creating_pdf = false;
+                this.opener.open(r, 'application/pdf')
+                  .catch(ex => this.message.alert('Error', `${r}\n${JSON.stringify(ex)}`));
+              });
+            })
           })
         })
-      })
-    });
+      });
+    }, 500)
   }
 
   public open(report: ReportBase, event: Event, result?: Result) {
@@ -407,7 +420,7 @@ export class SummaryPage implements OnInit {
           //icon: 'information-circle',
           handler: () => {
             this.alertCtrl.create({
-              message: 'Please, type your TBI-app code.',
+              message: 'Please insert your TBI-App Pro licence key.',
               cssClass: `ion-dialog-horizontal margin-top`,
               enableBackdropDismiss: false,
               inputs: [
@@ -457,46 +470,40 @@ export class SummaryPage implements OnInit {
 
   showDisclaimer() {
     this.navCtrl.push(DisclaimerPage)
-    // let action_sheet = this.alertCtrl.create({
-    //   title: 'Terms and Conditions',
-    //   cssClass: 'disclaimer',
-    //   message: `<p>The TBI-App TBI is a reporting tool developed by the European Industrial Insulation
-    //   Foundation (EiiF) to estimate energy losses and potential savings of uninsulated and
-    //   insulated systems. Furthermore it can be used to create safety, maintenance and
-    //   customized reports.
-    //   <br><br>
-    //   The calculated estimations are based on basic and simplified heat transfer formulas (e.g.
-    //   always using 0m/s wind speed and horizontal as the orientation of the system).
-    //   <br><br>
-    //   The user of this application accepts the following conditions: The user is exclusively
-    //   responsible for the correctness of the input of data into the TBI-App. The user is aware that
-    //   theoretical values can deviate from those occurring in practice and that therefore the
-    //   estimation results depend fully on the accuracy of the inserted information like diameter,
-    //   surface temperature, ambient temperature, etc.
-    //   <br><br>
-    //   TBI does not provide or recommend any specific technical solution nor insulation material.
-    //   Basic insulation and good insulation scenarios are based on generic values, typical for
-    //   standard insulation solutions.
-    //   <br><br>
-    //   EiiF does not warrant the correctness of (the outcome of) any estimation and shall not be
-    //   liable for any direct, indirect or consequential damages or any other damages whatsoever
-    //   incurred by the user or third party resulting from the use of this inspection and reporting
-    //   application or loss of data. EiiF reserves all rights (including copyright and other intellectual
-    //   property rights) in respect of all information offered through this application, including the
-    //   software, the product name TBI-App Easy and TBI-App Pro.</p>`,
-    //   buttons: ['OK']
-    // });
-    // return action_sheet.present();
+
+  }
+
+  private pages = {
+    table: () => Math.ceil(this.components.length / 7),
+    chart: () => (this.components.some(c => c.reports.some(r => r.energy)) ? 1 : 0)
+  }
+
+  ionViewDidLoad(){
+    this.licences.setLogo();
   }
 
   ngOnInit(): void {
     this.service.get(this.navParams.get('project').id).then(p => {
       this.project = p;
+      this.has_people = p.has_people;
       this.get_project();
       this.get_report();
 
       this.content.scrollToTop(500);
       this.cdRef.detectChanges();
+
+      this.reports = ([].concat(...[].concat([...this.components.map(c => c.reports)])));
+
+      this.reportPageCount =
+        //Table pages
+        this.pages.table()
+        //Chart page
+        + this.pages.chart()
+        //Reports pages
+        + (this.reports.reduce((a: number, r: ReportBase) => a + (r.pages - (r.has_contacts ? 1 : 0)), 0))
+        //Contact page
+        + (this.project.has_people ? 1 : 0);
+
 
       // if (this.navParams.get('parent').hasOwnProperty('report')) {
       //   debugger;
@@ -505,6 +512,9 @@ export class SummaryPage implements OnInit {
     })
   }
 
+  getReportPageNumber(report: ReportBase, pictureIndex?: number): number {
+    return this.reports.indexOf(report) + 1;
+  }
   get_report(): void {
     this.report = new ReportBase(this.project, this.components[0], null)
     this.report.result = this.totals;
@@ -537,6 +547,8 @@ export class SummaryPage implements OnInit {
     //});
   }
 
+
+
   down(value: number): number {
     return value > 1000 ? Math.floor(Math.trunc(value) / 100) * 100 : Math.floor(Math.trunc(value) / 10) * 10;
   }
@@ -544,5 +556,4 @@ export class SummaryPage implements OnInit {
   up(value: number): number {
     return value > 1000 ? Math.ceil(Math.trunc(value) / 100) * 100 : Math.ceil(Math.trunc(value) / 10) * 10;
   }
-
 }

@@ -82,8 +82,14 @@
             [editable]="editable" (onStartEdit)="on_picture_start_edit($event)">
           </ion-col>
         </ion-row>
-        <report-errors padding #errors col-12 [hidden]="view=='!result' && report.result"></report-errors>
-        <div report-result col-12 [parent]="this" *ngIf="view=='result' && (!!form && !form.invalid)"></div>
+        <ion-row>
+          <ion-col col-12 no-padding *ngIf="view=='result' && (!!form && !form.invalid)">
+            <div report-result col-12 [parent]="this"></div>
+          </ion-col>
+          <ion-col col-12 padding [hidden]="view=='!result' && report.result">
+            <report-errors padding #errors col-12></report-errors>
+          </ion-col>
+        </ion-row>
       </ion-col>
     </ion-row>
   </ion-grid>

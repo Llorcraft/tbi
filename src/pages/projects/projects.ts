@@ -22,6 +22,7 @@ export class ProjectsPage extends ProjectPageBase {
   public user_name = '';
   public top_categories: ReportCategory[] = [];
   public apps: any[] = [];
+  exporting = false;
 
   constructor(
     public navCtrl: NavController,
@@ -43,6 +44,31 @@ export class ProjectsPage extends ProjectPageBase {
     this.user_name = this.navParams.get("user_name") || this.user_name
   }
 
+  ngOnInit(): void {
+    this.licences.setLogo()
+  }
+
+  public toggle_export_data() {
+    if (this.exporting) return this.exporting = false;
+    this.alertCtrl.create({
+      message: 'Please select which projects you want to convert into .tbi file for being administered by your TBI-Admin.',
+      cssClass: 'project-action-sheet',
+      buttons: [
+        {
+          text: 'OK',
+          handler: () => {
+            this.projects.forEach(p => p.selected = true);
+            this.exporting = true;
+          }
+        }
+      ]
+    }).present();
+  }
+
+  public export_data() {
+    this.create_db();
+    this.toggle_export_data();
+  }
 
   public duplicate(project: Project, event?: Event) {
     if (!!event) {
@@ -151,14 +177,18 @@ export class ProjectsPage extends ProjectPageBase {
     this.load().then(() => {
       if (!!this.navParams.get('summary'))
         this.navCtrl.setRoot(SummaryPage, { project: this.projects.find(p => p.id == this.navParams.get('project')) }, { animate: true, direction: 'backward' });
-      if (!this.projects.length && this.licences.type != 'PRO') {
-        this.service.save(new Project({
-          name: 'TBI Easy',
-          price: 0.05,
-          price_delta: 1,
-          co2: 202,
-          user: localStorage.getItem('tbi-user')
-        })).then(() => setTimeout(() => this.ionViewWillEnter(), 500))
+      if (!this.projects.length) {
+        // this.service.save(new Project({
+        //   name: this.licences.type != 'PRO' ? 'TBI Easy' : 'TBI First Project',
+        //   price_delta: 1,
+        //   co2: 202,
+        //   user: localStorage.getItem('tbi-user')
+        // })).then(() => {
+        //this.service.get_all().then(projects => {
+        //
+        //})
+        //})
+        this.navCtrl.push(EditProjectPage, { project: new Project(), force: true })
       }
     });
   }
@@ -216,18 +246,19 @@ export class ProjectsPage extends ProjectPageBase {
   }
 
   public create_db(): void {
-    localStorage.removeItem('tbi-licence');
+    //localStorage.removeItem('tbi-licence');
     //this.navCtrl.push(DownloadPage);
-    // this.service.create_database().then(blob => {
-    //   var a = document.createElement("a"),
-    //     url = URL.createObjectURL(blob);
-    //   a.href = url;
-    //   a.download = 'db.zip';
-    //   a.click();
-    //   setTimeout(function () {
-    //     window.URL.revokeObjectURL(url);
-    //   }, 0);
-    // })
+    this.service.create_database(this.projects.filter(p => p.selected)).then(blob => {
+      var a = document.createElement("a"),
+        url = URL.createObjectURL(blob),
+        date = new Date();
+      a.href = url;
+      a.download = `${date.getFullYear()}${(date.getMonth() + 1)}${(date.getDate())}.tbi`;
+      a.click();
+      setTimeout(function () {
+        window.URL.revokeObjectURL(url);
+      }, 0);
+    })
   }
 
   after_delete() {

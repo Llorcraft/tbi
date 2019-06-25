@@ -4,7 +4,7 @@ import { File, FileEntry, Entry } from '@ionic-native/file'
 import { FileService } from './file.service';
 import { FileChooser } from '@ionic-native/file-chooser';
 import { FilePath } from '@ionic-native/file-path';
-import { Document } from '../models';
+import { Document, Project } from '../models';
 import { FileTransfer } from '@ionic-native/file-transfer';
 import * as JSZip from 'jszip';
 import { Picture } from '../models/picture';
@@ -166,7 +166,7 @@ export class FileDeviceService extends FileService {
         this.message.alert('Zip', 'Zip ready');
     }
 
-    public create_database(filename: string): Promise<Blob> {
+    public create_database(filename: string, projects: Project[]): Promise<Blob> {
         let zip = new JSZip();
 
         this.download_emiter.subscribe(filename => {

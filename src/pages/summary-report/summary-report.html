@@ -1,24 +1,85 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>Summary</ion-title>
-    <ion-buttons end>
-      <button ion-button on-tap="export_new_pdf(true)">
-        <ion-icon name="document-pdf"></ion-icon>
-      </button>
-      <button ion-button (click)="export_new_pdf(false)">
-        <ion-icon name="stats"></ion-icon>
-      </button>
-    </ion-buttons>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content [ngClass]="{'creating-pdf': creating_pdf}">
   <div class="hide-pdf">
     <div>
       <ion-icon color="royal" name="refresh"></ion-icon>
     </div>
   </div>
+
   <kendo-pdf-export #pdf paperSize="A4" margin="0 5cm" [scale]="0.5" landscape="true" forcePageBreak=".page-break">
+    <div class="first-page">
+      <img class="licence-logo" src="{{images.TBI}}" (click)="export_pdf()">
+      <h1>Report</h1>
+      <h1>TIPCHECK Based Inspections</h1>
+      <img src="{{images.PRESENTATION}}">
+      <img src="{{licences.getData().url_logo}}">
+      <h3>Project: {{project.name}}</h3>
+      <div>
+        {{licences.getData().name}}<br>
+        <a style="color:#fff" href="{{licences.getData().mail}}">{{licences.getData().mail}}</a><br>
+        <a style="color:#fff" href="{{licences.getData().url}}">{{licences.getData().url}}</a><br>
+        <a style="color:#fff" href="tel:{{licences.getData().phone_number}}">{{licences.getData().phone_number}}</a><br>
+        {{today | date: 'MM/dd/yyyy'}}<br>
+      </div>
+    </div>
+
+    <ion-grid style="padding: 7rem 3rem 4rem" class="page-break">
+      <ion-row>
+        <ion-col col-6>
+            <h4 text-left style="margin: 1rem 0 0">
+              <strong>{{project.name}}</strong><br>
+              <strong>Result at a glance</strong>
+            </h4>
+            <table class="result-glance" >
+              <tr>
+                <td text-left colspan="5" style="padding-bottom: 2rem; white-space: nowrap">Annual current looses:</td>
+              </tr>
+              <tr>
+                <td>&bull;</td><td text-right>{{(totals.headLost.power / 1000) | number: '1.2-2'}}</td><td text-left>MWh</td><td></td><td></td>
+              </tr>
+              <tr>
+                  <td>&bull;</td><td text-right>{{(totals.headLost.money / 1000) | number: '1.2-2'}}</td><td text-left>&euro;</td><td></td><td></td>
+              </tr>
+              <tr>
+                  <td>&bull;</td><td text-right>{{totals.co2[0] | number: '1.2-2'}}</td><td text-left>tn CO<sub>2</sub></td><td></td><td></td>
+              </tr>
+            </table>
+            <table class="result-glance">
+              <tr>
+                <td text-left colspan="5" style="padding-bottom: 2rem; white-space: nowrap">Annual saving potential:</td>
+              </tr>
+              <tr>
+                <td>&bull;</td>
+                <td text-right blue>{{(totals.savingPotentialMin?.power / 1000) | number: '1.2-2'}}</td>
+                <td text-center>-</td>
+                <td text-left green>{{(totals.savingPotentialMax?.power / 1000) | number: '1.2-2'}}</td>
+                <td text-left>MWh</td>
+              </tr>
+              <tr>
+                <td>&bull;</td>
+                <td text-right blue>{{(totals.savingPotentialMin?.money / 1000) | number: '1.2-2'}}</td>
+                <td text-center>-</td>
+                <td text-left green>{{(totals.savingPotentialMax?.money / 1000) | number: '1.2-2'}}</td>
+                <td text-left>MWh</td>
+              </tr>
+              <tr>
+                  <td>&bull;</td>
+                  <td text-right blue>{{totals.co2[1] | number: '1.2-2'}}</td>
+                  <td text-center>-</td>
+                  <td text-left green>{{totals.co2[2] | number: '1.2-2'}}</td>
+                  <td text-left>tn CO<sub>2</sub></td>
+              </tr>
+            </table>
+        </ion-col>
+        <ion-col col-6 text-center>
+          <div no-padding class="chart text-center chart-top" style="border-left: 1px solid rgb(48,84,150); margin: 0!important;">
+            <div class="general-report-result" report-result (onReady)="export_pdf()" #report_result
+              *ngIf="!!report && !!totals.headLost.power" [parent]="this" [currency]="project.currency"
+              [show_advise]="true"></div>
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
     <div class="table-container">
       <table class="data" border="0">
         <colgroup>
@@ -44,7 +105,7 @@
           <col style="width: 30px">
         </colgroup>
         <ng-container *ngFor="let c of components; let i=index">
-          <thead [class.page-break]="(i+1)%8==0" *ngIf="i==0 || (i+1)%8==0">
+          <thead [class.page-break]="(i+1)%8==0 || i==0" *ngIf="i==0 || (i+1)%8==0">
             <tr>
               <th colspan="2"></th>
               <th colspan="5"
@@ -118,7 +179,8 @@
             <tr [class.disabled]="c.fields.unknow_surface">
               <td rowspan="3" (click)="actions(c, $event)" double-border text-center
                 style="white-space: nowrap; padding-right: 1rem">
-                <ion-icon slot="icon-only" name="md-more" style="margin: 0 .5rem 0; float: left"></ion-icon>&nbsp;&nbsp;{{i+1}}
+                <ion-icon slot="icon-only" name="md-more" style="margin: 0 .25rem 0; float: left"></ion-icon>
+                {{i+1}}
               </td>
               <td rowspan="3" on-tap="edit(c)" double-border>{{ellipsis(c.fields.location)}}</td>
               <td text-center nowrap [class.gray-text]="!!c.is_energy && c.fields.unknow_surface" *ngIf="!!c.is_energy">
@@ -141,6 +203,7 @@
                 <ng-container *ngFor="let r of c.reports_by_type('safety|hot')">
                   <a href="#" (click)="open(r, $event)" *ngIf="!r.component.is_hot || !r.energy">{{r.summary_id}}</a>
                   <a href="#" (click)="open(r, $event)" *ngIf="!!r.component.is_hot && !!r.energy">Hot surface</a>
+                  <a href="#" (click)="open(r, $event)" *ngIf="!!r.component.is_cold && !!r.energy">Cold surface</a>
                 </ng-container>
                 <ion-icon name="md-add-circle" (click)="add_report('safety', c, $event)"></ion-icon>
               </td>
@@ -150,7 +213,7 @@
                 <ion-icon name="md-add-circle" (click)="add_report('maintenance',c , $event)"></ion-icon>
               </td>
               <td *ngIf="!c.is_energy" rowspan="3" style="background: rgb(217,225,242)" double-border text-center>
-                </td>
+              </td>
               <td rowspan="3" style="background: rgb(231,235,247)" double-border text-center>
                 <a href="#" (click)="open(r, $event)"
                   *ngFor="let r of c.reports_by_type('generic|custom')">{{r.summary_id}}</a>
@@ -178,8 +241,7 @@
                 class="measure">{{project.s_measure}}
               </td>
               <td nowrap double-border rowspan="3" *ngIf="REPORT.VALIDATION"></td>
-              <td nowrap rowspan="3" *ngIf="!c.result" double-border text-center>                                
-              </td>
+              <td nowrap rowspan="3" *ngIf="!c.is_energy" double-border text-center></td>
               <td nowrap rowspan="3" double-border text-center>{{!!c.insulated ? 'Y' : !!c.energy ? 'N': ''}}</td>
               <td nowrap *ngIf="null!=c.fields.surface_temp" rowspan="3" double-border text-center>{{c.fields.surface}}
               </td>
@@ -268,116 +330,213 @@
       </table>
     </div>
 
-    <div no-padding class="chart text-center" style="padding: 1rem 0" [ngClass]="{'page-break': 1 == 1}">
-      <div report-result #report_result *ngIf="!!report && !!totals.headLost.power" [parent]="this"
-        [currency]="project.currency" [show_advise]="false"></div>
-    </div>
+    <ng-container *ngIf="!!reports.length && navParams.get('showComponent')">
 
-    <ion-grid pdf class="report-grid-pdf page-break" style="margin-top: 8rem">
-        <ion-row>
-          <ion-col col-7>
-            <h4 style="margin: 1rem 0"><strong>Contacts</strong></h4>
-            <ion-row>
-              <ion-item col-5 *ngIf="!!has_people && !!project.people.leader.name">
-                <label>Project Leader</label>
-                <h4>
-                  <a href="mailto:{{project.people.leader.email}}">{{project.people.leader.name}}</a>
-                  <a *ngIf="!!project.people.leader.phone" style="float:right"
-                    href="tel:{{project.people.leader.phone}}">{{project.people.leader.phone}}</a>
-                </h4>
-              </ion-item>
-              <ion-item col-5 *ngIf="!!has_people && !!project.people.energy_manager.name">
-                <label>Energy manager</label>
-                <h4>
-                  <a href="mailto:{{project.people.energy_manager.email}}">{{project.people.energy_manager.name}}</a>
-                  <a *ngIf="!!project.people.energy_manager.phone" style="float:right"
-                    href="tel:{{project.people.energy_manager.phone}}">{{project.people.energy_manager.phone}}</a>
-                </h4>
-              </ion-item>
-              <ion-item col-5 *ngIf="!!has_people && !!project.people.maintenance_manager.name">
-                <label>Maintenance manager</label>
-                <h4>
-                  <a
-                    href="mailto:{{project.people.maintenance_manager.email}}">{{project.people.maintenance_manager.name}}</a>
-                  <a *ngIf="!!project.people.maintenance_manager.phone" style="float:right"
-                    href="tel:{{project.people.maintenance_manager.phone}}">{{project.people.maintenance_manager.phone}}</a>
-                </h4>
-              </ion-item>
-              <ion-item col-5 *ngIf="!!has_people && !!project.people.hse_manager.name">
-                <label>HSE manager</label>
-                <h4>
-                  <a href="mailto:{{project.people.hse_manager.email}}">{{project.people.hse_manager.name}}</a>
-                  <a *ngIf="!!project.people.hse_manager.phone" style="float:right"
-                    href="tel:{{project.people.hse_manager.phone}}">{{project.people.hse_manager.phone}}</a>
-                </h4>
-              </ion-item>
-              <ion-col col-12>
-                <p style="padding: 2rem 0">They are estimated values based on generic insulation solutions, for a
-                  more accurate analysis an insulation solution designing, please contact your insulation expert:</p>
+      <ng-container *ngFor="let c of components">
+        <ng-container *ngFor="let report of c.reports">
+          <div text-center class="header-spacer page-break" [attr.component-name]=""></div>
+          <ion-grid class="report-grid-pdf" style="margin-top: 0">
+            <ion-row no-padding>
+              <h4 col-12 style="margin:0">{{report.component.fields.location}}: {{report.summary_id}}</h4>
+              <ion-col col-7>
+                <ion-item col-5>
+                  <label>Project</label>
+                  <h4>{{report.component.project.name}}</h4>
+                </ion-item>
+                <ion-item col-5>
+                  <label>Component Location</label>
+                  <h4>{{report.component.fields.location}}</h4>
+                </ion-item>
+                <ion-item col-5 *ngIf="!report.energy">
+                  <label>Summary id</label>
+                  <h4>{{report.summary_id}}</h4>
+                </ion-item>
+                <ion-item col-5 *ngIf="report.is('surface|pipe|valve|flange')">
+                  <label>Energy cost ({{report.component.project.currency}})</label>
+                  <h4>{{report.component.project.price}}</h4>
+                </ion-item>
+                <ion-item col-5 *ngIf="report.is('surface|pipe|valve|flange')">
+                  <label>CO<sub>2</sub> emission factor (grCO<sub>2</sub>/kWh)</label>
+                  <h4>{{report.component.project.co2}}</h4>
+                </ion-item>
+                <ion-item col-5 *ngIf="report.is('pipe|valve|flange')">
+                  <label>Diameter (mm)</label>
+                  <h4>{{report.component.fields.nominal_diameter}}</h4>
+                </ion-item>
+                <ion-item col-5 *ngIf="report.is('pipe')">
+                  <label>Length (m)</label>
+                  <h4>{{report.component.fields.length}}</h4>
+                </ion-item>
+                <ion-item col-5 *ngIf="report.is('valve|flange')">
+                  <label>Nº of items (m)</label>
+                  <h4>{{report.component.fields.number}}</h4>
+                </ion-item>
+                <ion-item col-5 *ngIf="report.is('surface|pipe|valve|flange')">
+                  <label>Operational time</label>
+                  <h4>{{report.component.fields.operational_time}}</h4>
+                </ion-item>
+                <ion-item col-5 *ngIf="report.is('surface')">
+                  <label>Surface (m<sup>2</sup>)</label>
+                  <h4>{{report.component.fields.unknow_surface ? 'Unknow' : report.component.fields.surface}}</h4>
+                </ion-item>
+                <ion-item col-5 *ngIf="report.is('surface|pipe|valve|flange')">
+                  <label>Surface material</label>
+                  <h4>{{report.component.fields.friendly_surface_material}}</h4>
+                </ion-item>
+                <ion-item col-5 *ngIf="!report.component.fields.unknow_surface && report.energy">
+                  <label>Surface temperature (&deg;C)</label>
+                  <h4>{{report.component.fields.surface_temp}}</h4>
+                </ion-item>
+                <ion-item col-5 *ngIf="!!report.component.fields.unknow_surface">
+                  <label>Medium temperature (&deg;C)</label>
+                  <h4>{{report.component.fields.surface_temp}}
+                    ({{report.component.fields.unknow_surface_temp == 1 ? 'Gas' : 'Liquid'}})</h4>
+                </ion-item>
+                <ion-item col-5 *ngIf="report.is('surface|pipe|valve|flange')">
+                  <label>Ambient temperature (&deg;C)</label>
+                  <h4>{{report.component.fields.ambient_temp}}</h4>
+                </ion-item>
+                <ion-item col-11 style="margin-left: 0"  *ngIf="report.component.fields.damaged_cladding[0]">
+                  <label>Damaged cladding</label>
+                  <h4>{{report.component.fields.damaged_cladding_friendly}}</h4>
+                </ion-item>
+                <ion-item col-11 style="margin-left: 0"  *ngIf="report.component.fields.damaged_insulation[0]">
+                  <label>Damaged insulation</label>
+                  <h4>{{report.component.fields.damaged_insulation_friendly}}</h4>
+                </ion-item>
+                <ion-item col-5 *ngIf="report.is('condensation')">
+                  <label>Condensation</label>
+                  <h4>{{report.component.fields.condensation[0] ? 'Ice block': report.component.fields.condensation[1] ? 'Wet surface': 'None'}}</h4>
+                </ion-item>
+                <ion-item col-11 style="margin-left: 0" *ngIf="!report.energy">
+                  <label>Comments</label>
+                  <h4>{{report.comment || report.component.fields.damaged_comment || report.component.fields.condensation_comment}}</h4>
+                </ion-item>
+                <ng-container>
+                  <ion-col text-center col-12 d-inline-block *ngIf="report.first_picture" style="padding-top: 2.5rem">
+                    <img style="height: 4.2in" src="{{report.first_picture.picture}}">
+                  </ion-col>
+                </ng-container> 
               </ion-col>
-              <ion-col col-12 text-center *ngIf="!!licences.getData()">
-                <ion-row>
-                  <ion-col col-12>
-                    <img style="max-width: 3in" src="{{licences.getData().url_logo}}">
-                  </ion-col>
-                  <ion-col col-12>
-                    <strong>{{licences.getData().name}}</strong>
-                  </ion-col>
-                  <ion-col col-12>
-                    <a href="mailto:{{licences.getData().mail}}">{{licences.getData().mail}}</a>
-                  </ion-col>
-                  <ion-col col-12>
-                    <a href="{{licences.getData().url}}">{{licences.getData().url}}</a>
-                  </ion-col>
-                </ion-row>
+              <ion-col col-5 no-padding text-left style="border-left: 1px solid rgb(48,84,150)">
+                <div style="margin-left: -2rem" *ngIf="report.energy" class="report-result-container" report-result col-12
+                  [parent]="{report: report}"></div>
               </ion-col>
             </ion-row>
-          </ion-col>
-          <ion-col col-5>
-            <h4 col-12 style="margin: 1rem 0"><strong>About TBI</strong></h4>
             <ion-row>
-              <ion-col col-12 style="padding: 0 .6in 0 1rem">
-                <p>
-                  <strong>TBI</strong> (TIPCHECK Based Inspections) is an <strong>easy-to-use insulation self-inspection
-                    and
-                    reporting tool</strong> for anyone who wants to very quickly check and estimate how much energy and
-                  money
-                  saving potential a technical insulation system has to offer.
-                </p>
-                <p>
-                  <strong>TBI</strong> offers a <strong>conservative estimation of the amount of energy a component is
-                    losing</strong>. In addition it <strong>shows the potential savings</strong> if insulated or if an
-                  improved
-                  insulation system is being installed. The saving estimations are given in a range evaluating the
-                  performance
-                  of
-                  a
-                  typical basic and a realistic good insulation system. The estimation methodology is based on:
-                </p>
-                <ol>
-                  <li>EiiF’s vast TIPCHECK experience: In 2010 the European Industrial Insulation Foundation developed its
-                    insulation energy appraisal programme called Technical Insulation Performance Check.</li>
-                  <li>Simplified heat transfer formulas taken from the ISO 12241 Standard: Thermal insulation for building
-                    equipment and industrial installations – calculation rules.</li>
-                  <li>Generic values allowing a conservative estimation like using by default e.g. 0 m/s wind speed and
-                    horizontal
-                    as the orientation of the system.</li>
-                </ol>
-              </ion-col>
+              <ng-container *ngFor="let picture of report.filtered_pictures(), let p = index">
+                <div *ngIf="(p%4)==0" text-center class="header-spacer page-break component-picture"
+                  [attr.component-name]=""></div>
+                <ion-col padding col-6 text-center>
+                  <img style="max-height: 4.2in" [style.margin-top]="(p%4)<2?'8rem':'0'" src="{{picture.picture}}">
+                </ion-col>
+              </ng-container>
             </ion-row>
-          </ion-col>
-        </ion-row>
-      </ion-grid>
-    
+          </ion-grid>
+        </ng-container>
+      </ng-container>
+
+    </ng-container>
+
+    <ion-grid  class="last-page report-grid-pdf page-break" style="margin-top: 8rem">
+      <ion-row>
+        <ion-col col-7 padding>
+          <h4 style="margin: 1rem 0"><strong>Contacts</strong></h4>
+          <ion-row *ngIf="!!project.people.leader.name" style="border-bottom: 1px solid #ccc">
+            <ion-col col-3>Project Leader:</ion-col>
+            <ion-col col-3>{{project.people.leader.name}}</ion-col>
+            <ion-col col-3><a href="mailto:{{project.people.leader.email}}">{{project.people.leader.email}}</a></ion-col>
+            <ion-col col-3><a href="tel:{{project.people.leader.phone}}">{{project.people.leader.phone}}</a></ion-col>
+          </ion-row>
+
+          <ion-row *ngIf="!!project.people.energy_manager.name" style="border-bottom: 1px solid #ccc">
+            <ion-col col-3>Energy Manager:</ion-col>
+            <ion-col col-3>{{project.people.energy_manager.name}}</ion-col>
+            <ion-col col-3><a href="mailto:{{project.people.energy_manager.email}}">{{project.people.energy_manager.email}}</a></ion-col>
+            <ion-col col-3><a href="tel:{{project.people.energy_manager.phone}}">{{project.people.energy_manager.phone}}</a></ion-col> 
+          </ion-row>
+
+          <ion-row *ngIf="!!project.people.maintenance_manager.name" style="border-bottom: 1px solid #ccc">
+            <ion-col col-3>Maintenance Manager:</ion-col>
+            <ion-col col-3>{{project.people.maintenance_manager.name}}</ion-col>
+            <ion-col col-3><a href="mailto:{{project.people.maintenance_manager.email}}">{{project.people.maintenance_manager.email}}</a></ion-col>
+            <ion-col col-3><a href="tel:{{project.people.maintenance_manager.phone}}">{{project.people.maintenance_manager.phone}}</a></ion-col> 
+          </ion-row>
+
+          <ion-row *ngIf="!!project.people.hse_manager.name" style="border-bottom: 1px solid #ccc">
+            <ion-col col-3>HSE manager:</ion-col>
+            <ion-col col-3>{{project.people.hse_manager.name}}</ion-col>
+            <ion-col col-3><a href="mailto:{{project.people.hse_manager.email}}">{{project.people.hse_manager.email}}</a></ion-col>
+            <ion-col col-3><a href="tel:{{project.people.hse_manager.phone}}">{{project.people.hse_manager.phone}}</a></ion-col> 
+          </ion-row>
+
+          <ion-row>
+            <ion-col class="contact-float" *ngIf="!!licences.getData()">
+              <ion-row>
+                  <ion-col col-12>
+                      <h4 style="margin: 0"><strong>INSULATION Contact</strong></h4>
+                    </ion-col>
+                <ion-col col-12>
+                  <strong>{{licences.getData().name}}</strong>
+                </ion-col>
+                <ion-col col-12>
+                  <a href="tel:{{licences.getData().phone_number}}">{{licences.getData().phone_number}}</a>
+                </ion-col>
+                <ion-col col-12>
+                  <a href="mailto:{{licences.getData().mail}}">{{licences.getData().mail}}</a>
+                </ion-col>
+                <ion-col col-12>
+                  <a href="{{licences.getData().url}}">{{licences.getData().url}}</a>
+                </ion-col>
+              </ion-row>
+            </ion-col>
+          </ion-row>
+        </ion-col>
+        <ion-col col-5 style="border-left: 1px solid #014a97">
+          <h4 col-12 style="margin: 1rem 0"><strong>About TBI</strong></h4>
+          <ion-row >
+            <ion-col col-12  style="text-align: justify; padding: 0 .6in 0 1rem">
+              <p>
+                <strong>TBI</strong> (TIPCHECK Based Inspections) is an <strong>easy-to-use insulation self-inspection
+                  and
+                  reporting tool</strong> for anyone who wants to very quickly check and estimate how much energy and
+                money
+                saving potential a technical insulation system has to offer.
+              </p>
+              <p>
+                <strong>TBI</strong> offers a <strong>conservative estimation of the amount of energy a component is
+                  losing</strong>. In addition it <strong>shows the potential savings</strong> if insulated or if an
+                improved
+                insulation system is being installed. The saving estimations are given in a range evaluating the
+                performance
+                of
+                a
+                typical basic and a realistic good insulation system. The estimation methodology is based on:
+              </p>
+              <ol>
+                <li>EiiF’s vast TIPCHECK experience: In 2010 the European Industrial Insulation Foundation developed its
+                  insulation energy appraisal programme called Technical Insulation Performance Check.</li>
+                <li>Simplified heat transfer formulas taken from the ISO 12241 Standard: Thermal insulation for building
+                  equipment and industrial installations – calculation rules.</li>
+                <li>Generic values allowing a conservative estimation like using by default e.g. 0 m/s wind speed and
+                  horizontal
+                  as the orientation of the system.</li>
+              </ol>
+            </ion-col>
+          </ion-row>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
     <ng-template kendoPDFTemplate>
       <div class="page-template">
         <div class="header">
-          <pdf-header>Project: {{project.name}}</pdf-header>
+          <pdf-header></pdf-header>
         </div>
         <div class="footer">
           <ion-grid class="footer" style="border-top: 1px solid #ccc">
             <ion-row>
-              <ion-col col-11>
+              <ion-col col-11 style="text-align: justify">
                 <b>Disclaimer:</b> You should not rely solely on the TBI software application(s) for determining the
                 performance of an
                 insulation system and/or the energy or cost saving potential. The TBI software applications allow you
@@ -392,7 +551,7 @@
                 direct,
                 indirect, consequential or incidental damages and losses.
               </ion-col>
-              <ion-col col-1 text-right>
+              <ion-col col-1 text-center>
                 <img class="logo" src="{{images.TBI}}">
               </ion-col>
             </ion-row>
@@ -402,33 +561,4 @@
     </ng-template>
 
   </kendo-pdf-export>
-  <ion-grid>
-    <ion-row>
-      <ion-col text-center>
-        <button ion-button small color="royal" (click)="showDisclaimer()">Disclaimer</button>
-      </ion-col>
-    </ion-row>
-  </ion-grid>
 </ion-content>
-
-<ion-footer>
-  <ion-grid no-padding>
-    <ion-row no-padding>
-      <ion-col col-4 no-padding>
-        <!-- <button ion-button small color="light" (click)="go_to_projects()">
-            <ion-icon visible-xs name="arrow-back"></ion-icon>
-            <span hidden-xs>Home</span>
-        </button> -->
-      </ion-col>
-      <ion-col col-4 text-center>
-        <tools></tools>
-      </ion-col>
-      <ion-col col-4 text-right>
-        <button tabindex="15" ion-button small color="primary" (click)="next_action()">
-          <ion-icon visible-xs name="arrow-forward"></ion-icon>
-          <span hidden-xs>Next</span>
-        </button>
-      </ion-col>
-    </ion-row>
-  </ion-grid>
-</ion-footer>

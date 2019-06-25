@@ -8,38 +8,154 @@
   }
 }
 
-.disclaimer {
-  .alert-ios.alert-title {
-    margin: 0;
-    padding: 0;
-  }
-  .alert-message {
-    height: 20vh;
-    p {
-      text-align: left;
-      font-size: 0.6rem;
-      @include media(">=tablet") {
-        font-size: 0.7rem;
+pdf-summary {
+  .general-report-result {
+    #result-grid {
+      h5 {
+        margin: 8rem 0 -9rem;
       }
     }
   }
-}
 
-page-summary {
-  [pdf]{
-    display: none!important;
+  .first-page {
+    height: calc(11in + 30px);
+    display: none;
+    background: #fff
+      url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAkQAAAACCAIAAAA2HFRVAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyFpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNi1jMTQyIDc5LjE2MDkyNCwgMjAxNy8wNy8xMy0wMTowNjozOSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIChXaW5kb3dzKSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDpFNTg5NzA3NDhGOEYxMUU5QjM2OUY3OTUzQUUwMTJBNSIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDpFNTg5NzA3NThGOEYxMUU5QjM2OUY3OTUzQUUwMTJBNSI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkU1ODk3MDcyOEY4RjExRTlCMzY5Rjc5NTNBRTAxMkE1IiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOkU1ODk3MDczOEY4RjExRTlCMzY5Rjc5NTNBRTAxMkE1Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+ZoB1CAAAADNJREFUeNrs0LERABAQAEG+PY0oSSPa82KhyJjZjS6+mpnlFG2s2a+6AMA7YQEAv9sCDAAYpA/mUGunTQAAAABJRU5ErkJggg==")
+      top right repeat-y;
+    width: calc(17in + 12px);
+    margin: 20px;
+
+    img.licence-logo {
+      height: 1.5in;
+      margin: 1.2in 0 0 1in;
+      & + h1 {
+        color: #fff;
+        text-align: right;
+        padding-right: 3.6in;
+        margin-top: -0.4in;
+        font-size: 0.6in;
+        & + h1 {
+          color: #fff;
+          padding: 0.15in 0.15in;
+          font-size: 0.6in;
+          background: #014a97;
+          & + img {
+            float: right;
+            margin-top: -1.2in;
+            & + img {
+              height: 1.5in;
+              position: absolute;
+              right: 7in;
+              top: 9in;
+              z-index: 3100001;
+              & + h3 {
+                position: absolute;
+                top: 5.5in;
+                width: 10.7in;
+                text-align: left;
+                left: 0.4in;
+                & + div {
+                  font-size: 0.25in;
+                  position: absolute;
+                  margin-top: 4.1in;
+                  left: 11.9in;
+                  width: 5.3in;
+                  color: #fff;
+                  z-index: 3100001;
+                  line-height: 0.4in;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    &:before {
+      display: block;
+      position: absolute;
+      height: 150px;
+      background: #fff
+        url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAkQAAAACCAIAAAA2HFRVAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyFpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNi1jMTQyIDc5LjE2MDkyNCwgMjAxNy8wNy8xMy0wMTowNjozOSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIChXaW5kb3dzKSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDpFNTg5NzA3NDhGOEYxMUU5QjM2OUY3OTUzQUUwMTJBNSIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDpFNTg5NzA3NThGOEYxMUU5QjM2OUY3OTUzQUUwMTJBNSI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkU1ODk3MDcyOEY4RjExRTlCMzY5Rjc5NTNBRTAxMkE1IiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOkU1ODk3MDczOEY4RjExRTlCMzY5Rjc5NTNBRTAxMkE1Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+ZoB1CAAAADNJREFUeNrs0LERABAQAEG+PY0oSSPa82KhyJjZjS6+mpnlFG2s2a+6AMA7YQEAv9sCDAAYpA/mUGunTQAAAABJRU5ErkJggg==")
+        top right repeat-y;
+      top: 0;
+      left: 20px;
+      width: calc(100% - 40px);
+      z-index: 3100000;
+      content: " ";
+    }
+    &:after {
+      display: block;
+      position: absolute;
+      height: 200px;
+      background: #fff
+        url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAkQAAAACCAIAAAA2HFRVAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyFpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNi1jMTQyIDc5LjE2MDkyNCwgMjAxNy8wNy8xMy0wMTowNjozOSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIChXaW5kb3dzKSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDpFNTg5NzA3NDhGOEYxMUU5QjM2OUY3OTUzQUUwMTJBNSIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDpFNTg5NzA3NThGOEYxMUU5QjM2OUY3OTUzQUUwMTJBNSI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkU1ODk3MDcyOEY4RjExRTlCMzY5Rjc5NTNBRTAxMkE1IiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOkU1ODk3MDczOEY4RjExRTlCMzY5Rjc5NTNBRTAxMkE1Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+ZoB1CAAAADNJREFUeNrs0LERABAQAEG+PY0oSSPa82KhyJjZjS6+mpnlFG2s2a+6AMA7YQEAv9sCDAAYpA/mUGunTQAAAABJRU5ErkJggg==")
+        top right repeat-y;
+      bottom: 0;
+      left: 20px;
+      width: calc(100% - 40px);
+      z-index: 3100000;
+      content: " ";
+    }
   }
 
-  kendo-pdf-document{
-    [pdf]{
-      display: block!important;
-    } 
+  kendo-pdf-document {
+    .first-page {
+      display: block;
+    }
+    #scroll_button {
+      display: none;
+    }
+
+    .first-page {
+      //display: block;
+    }
+  }
+
+  table.result-chart {
+    zoom: 1 !important;
+    font-size: 1rem !important;
+    margin-top: -2rem;
+  }
+  .scroll-content {
+    .hide-pdf {
+      display: none;
+      height: calc(100vh);
+      width: calc(100vw);
+      position: absolute;
+      background: #fff;
+      z-index: 20000;
+      align-items: center;
+      justify-items: center;
+      flex-direction: column;
+      display: none;
+
+      ion-icon {
+        font-size: 10rem;
+        color: #488aff;
+        animation: none;
+        margin-top: 3rem;
+      }
+    }
+    &.creating-pdf {
+      .hide-pdf {
+        display: initial;
+        svg {
+          width: 6in;
+        }
+        ion-icon {
+          animation: rotation 0.5s infinite linear;
+        }
+      }
+    }
+    //opacity: 0;
+    height: 100vh !important;
   }
 
   img.logo {
     display: inline-block;
-    height: 4rem;
-    margin: 1rem 0 1rem 1rem;
+    height: 6rem;
+    margin: 0;
   }
 
   .flex-vertical-middel {
@@ -64,17 +180,6 @@ page-summary {
     color: #999 !important;
   }
 
-  ion-header {
-    .bar-buttons {
-      button {
-        color: #fff;
-        border: 1px solid #fff;
-        height: 42px;
-        padding: 0 .5rem;
-      }
-    }
-  }
-
   ion-content {
     .hide-pdf {
       height: calc(100vh - 60px);
@@ -97,11 +202,6 @@ page-summary {
     }
 
     &.creating-pdf {
-      #result-grid {
-        h5{
-          margin: 10rem 0 -7rem;
-        }
-      }
       .hide-pdf {
         display: flex;
         svg {
@@ -639,108 +739,171 @@ page-summary {
           }
         }
       }
+      ion-row {
+        > ion-item {
+          &[col-5] {
+            display: inline-block;
+            width: 45%;
+            margin-top: 1rem;
+          }
+          &:nth-child(2n) {
+            margin-left: 10%;
+          }
+          border-top: none !important;
+          padding: 0;
+          margin: 0;
+          min-height: 0 !important;
+          &.item-md {
+            &[col-12] {
+              display: inline-block;
+              width: 100%;
+            }
+            &[col-6] {
+              display: inline-block;
+              width: 49.5%;
+            }
+            &[col-4] {
+              display: inline-block;
+              width: 33%;
+            }
+            &[col-3] {
+              display: inline-block;
+              width: 25%;
+            }
+            font-size: 1.2rem;
+          }
+          ion-label {
+            margin: 0 !important;
+          }
+          label {
+            padding: 0;
+            margin: 0 !important;
+            font-size: 80%;
+            -webkit-box-flex: 0;
+            -webkit-flex: 0 0 100%;
+            -ms-flex: 0 0 100%;
+            flex: 0 0 100%;
+            width: 100%;
+            max-width: 100%;
+            color: rgb(84, 84, 84);
+            + h4 {
+              margin: 0 0 !important;
+              font-size: 90%;
+              -webkit-box-flex: 0;
+              -webkit-flex: 0 0 100%;
+              -ms-flex: 0 0 100%;
+              flex: 0 0 100%;
+              width: 100%;
+              max-width: 100%;
+              min-height: 29px;
+            }
+          }
+        }
+      }
     }
   }
 
   .report-result-container {
     table {
-      margin-top: 1rem!important;
+      margin-top: 1rem !important;
       display: inline-block;
     }
   }
   .header-spacer {
     height: 6rem;
+    white-space: nowrap;
+    font-size: 2rem;
+    font-weight: bold;
     &:after {
-      content: "Page " attr(page-number) " of " attr(page-count);
+      content: attr(component-name);
       position: absolute;
-      right: 1in;
-      margin-top: 2rem;
-      white-space: nowrap;
-    }
-  }
-  ion-col[page-number] {
-    &:after {
-      content: "Page " attr(page-number) " of " attr(page-count);
-      position: absolute;
+      right: 0.35in;
+      width: 50%;
       text-align: right;
-      margin-top: -1.2rem;
+      margin-top: 1.2rem;
       white-space: nowrap;
-      width: 100%;
-    }
-  }
-}
-
-.modal-window-summary {
-  .scroll-content {
-    overflow: auto !important;
-  }
-
-  .modal-wrapper {
-    $height: 550;
-    height: $height * 1px;
-    width: 30%;
-    top: calc(50% - 275px);
-    left: 35%;
-    background: #fff;
-
-    area-modal {
+      font-size: 2rem;
+      font-weight: bold;
       background: #fff;
-
-      .scroll-content {
-        display: block;
+      height: 3rem;
+      z-index: 200000;
+    }
+    &.component-picture {
+      &:after {
+        margin-top: -0.95rem;
       }
     }
   }
-
-  ion-toolbar {
-    .toolbar-background {
-      background: #fff !important;
+  ion-col[component-name] {
+    overflow: hidden;
+    &:after {
+      content: attr(component-name);
+      position: absolute;
+      right: 0.35in;
+      width: 50%;
+      text-align: right;
+      margin-top: 1.2rem;
+      white-space: nowrap;
+      font-size: 2rem;
+      font-weight: bold;
+      background: #fff;
+      height: 3rem;
+      z-index: 200000;
     }
   }
-}
-
-.action-sheet-sub-title {
-  margin: 0.5rem 1rem;
-}
-
-.action-sheet-icon {
-  //font-size: 1.7rem !important;
-}
-
-.basic_sheet {
-  .action-sheet-container {
-    > .action-sheet-group:nth-child(1) {
-      > button {
-        .button-inner {
-          display: block;
-
-          // &:after {
-          //   margin-top: 1rem;
-          //   margin-bottom: .5rem;
-          //   // font-size: 1.8rem;
-          //   // line-height: 2rem;
-          //   display: block;
-          //   text-align: left;
-          //   font-weight: 100;
-          // }
+  .chart-top {
+    text-align: center;
+    table.result-chart {
+      margin: 1in 0 0 1in !important;
+      display: block;
+    }
+  }
+  table.result-glance {
+    color: #888;
+    margin: 4rem 1in 0;
+    font-size: 1.8rem;
+    border-collapse: collapse;
+    tbody {
+      > tr {
+        > td {
+          padding: 5px;
+          &:nth-child(1) {
+            width: 20px;
+          }
+          &[blue] {
+            color: rgb(48, 84, 150);
+          }
+          &[green] {
+            color: rgb(112, 173, 71);
+          }
         }
-
-        // &:first-of-type {
-        //   .button-inner {
-        //     &:after {
-        //       content: '(Please note: The previous one will be deleted!)';
-        //     }
-        //   }
-        // }
-
-        // &:last-of-type {
-        //   .button-inner {
-        //     &:after {
-        //       content: 'Click to go to www.eiif.org/tbi and upgrade to the TBI-App professional with unlimited components and project options (fees apply)';
-        //     }
-        //   }
-        // }
       }
     }
+  }
+}
+
+.last-page {
+   
+  .contact-float {
+    position: absolute;
+    background: #014a97;
+    color: #fff;
+    bottom: 0.25in;
+    width: 60%;
+    padding: 0.25in;
+    a {
+      color: #fff;
+    }
+    // &:after {
+    //   content: " ";
+    //   position: absolute;
+    //   width: 21in;
+    //   z-index: 3100000;
+    //   height: 2in;
+    //   background: red;
+    //   bottom: 0;
+    //   left: 0;
+    //   margin-right: -3in;
+    // }
   }
 }

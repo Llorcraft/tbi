@@ -11,6 +11,7 @@ export class SurfaceDecorator implements ICalculator {
 
 class SurfaceCalculator extends BaseCalculator {
   constructor(report: ReportBase) {
+    console.log(report.component.fields.unknow_surface_temp)
     super(report, [
       /*00*/() => this.Δθ = Math.abs(this.θse - this.θa),
       /*01*/() => this.hr = this.ε * this.δ * (Math.pow(this.θse + 273, 4) - Math.pow(this.θa + 273, 4)) / ((this.θse + 273) - (this.θa + 273)),
@@ -34,8 +35,8 @@ class SurfaceCalculator extends BaseCalculator {
       /*19*/() => this.qref_pb = this.q - ((10000 * this.Cpb_surface_pipe) / this.Ot / this.Σ),
       /*20*/() => this.q_min = this.Δθ / (this.Rse_min + this.Rins_min),
       /*21*/() => this.q_max = this.Δθ / (this.Rse_max + this.Rins_max),
-      /*22*/() => this.Qkwh_min = this.q_min * this.S * this.Ot * 1 / 1000,
-      /*23*/() => this.Qkwh_max = this.q_max * this.S * this.Ot * 1 / 1000,
+      /*22*/() => this.Qkwh_min = this.q_min * this.S * this.Ot * ((!Number(report.component.fields.unknow_surface_temp)? 1 : Number(report.component.fields.unknow_surface_temp))) / 1000,
+      /*23*/() => this.Qkwh_max = this.q_max * this.S * this.Ot * ((!Number(report.component.fields.unknow_surface_temp)? 1 : Number(report.component.fields.unknow_surface_temp))) / 1000,
       /*24*/() => this.Qε_min = this.Qkwh_min * this.Σ,
       /*25*/() => this.Qε_max = this.Qkwh_max * this.Σ,
       /*26*/() => this.Savingkwh_min = this.Qkwh - this.Qkwh_min,

@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
 import { FileService } from './file.service';
-import { Document } from '../models';
+import { Document, Project } from '../models';
 import { Picture } from '../models/picture';
 import { LoadindService } from './loading.service';
+import { ProjectJson } from '../models/project.json';
 
 @Injectable()
 export class FileLocalService extends FileService {
@@ -57,9 +58,9 @@ export class FileLocalService extends FileService {
         });
     }
 
-    public create_database(filename: string): Promise<Blob> {
+    public create_database(filename: string, projects: Project[]): Promise<Blob> {
         return new Promise<Blob>((resolve) => {
-            this.read_text(filename).then(d => resolve(new Blob([d], { type: 'text' })));
+            resolve(new Blob([JSON.stringify(projects.map(p=>new ProjectJson(p)))], { type: 'text' }));
         });
     }
 }

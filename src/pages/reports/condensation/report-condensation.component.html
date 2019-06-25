@@ -34,13 +34,13 @@
             <ion-col col-11 col-md-10>
               <ion-item>
                 <ion-label stacked style="margin-top: 1.4rem;color: #999;">Ice block</ion-label>
-                <ion-toggle tabindex="7" [(ngModel)]="report.component.fields.condensation_ice_block" name="ice_block"></ion-toggle>
+                <ion-toggle tabindex="7" (ionChange)="setCondensation($event, 0)" [checked]="report.component.fields.condensation[0]"  name="ice_block"></ion-toggle>
               </ion-item>
             </ion-col>
             <ion-col col-11 col-md-10>
               <ion-item>
                 <ion-label stacked style="margin-top: 1.4rem;color: #999;">Wet surface</ion-label>
-                <ion-toggle tabindex="8" [(ngModel)]="report.component.fields.condensation_wet_surface" name="wet_surface"></ion-toggle>
+                <ion-toggle tabindex="8" (ionChange)="setCondensation($event, 1)" [checked]="report.component.fields.condensation[1]" name="wet_surface"></ion-toggle>
               </ion-item>
             </ion-col>
             <!-- <ion-col col-6>

@@ -12,6 +12,7 @@
           <ion-input type="hidden" name="temp_range_diff" [(ngModel)]="temp_range_diff" required data-val-required="Surface temperature must be at least 5°C diferent than ambient temperature"></ion-input>
           <ion-input type="hidden" name="surface_low" [(ngModel)]="surface_low" required data-val-required="Surface must be > 0 m"></ion-input>
           <ion-input type="hidden" name="surface_temp_range" [(ngModel)]="surface_temp_range" required data-val-required="Surface temperature must be < 1000°C"></ion-input>
+          <ion-input type="hidden" name="pictures" required data-val-required="Please take a picture" [(ngModel)]="picture_qty"></ion-input>
           <ion-row>
             <ion-col col-10>
               <ion-item>
@@ -50,7 +51,7 @@
             </ion-col>
             <ion-col col-md-3 col-4 toggle-container>
               <ion-item>
-                <ion-label stacked>Unknown</ion-label>
+                <ion-label stacked unknown>Unknown</ion-label>
                 <ion-toggle [disabled]="!!report.component.validation" style="padding-left:0" [(ngModel)]="report.component.fields.unknow_surface" (ionChange)="toggle_know()" name="unknow_surface"></ion-toggle>
               </ion-item>
             </ion-col>
@@ -59,6 +60,13 @@
                 modal-button></area-button>
             </ion-col>
           </ion-row>
+          <ion-row [hidden]="true">
+              <ion-col>
+                <ion-item>
+                  <ion-input type="hidden" name="pictures" required data-val-required="Please take a picture" [(ngModel)]="picture_qty"></ion-input>
+                </ion-item>
+              </ion-col>
+            </ion-row>
           <ion-row>
             <ion-col col-10>
               <ion-item class="edit_surface_material" [class.editable]="edit_surface_material">
@@ -122,11 +130,11 @@
       </ion-col>
     </ion-row>
     <ion-row>
-      <ion-col col-12 no-padding>
-        <div report-result col-12 [parent]="this" *ngIf="view=='result' && (!!form && !form.invalid)"></div>
+      <ion-col col-12 no-padding *ngIf="view=='result' && (!!form && !form.invalid)">
+        <div report-result col-12 [parent]="this"></div>
       </ion-col>
-      <ion-col col-12 padding>
-        <report-errors padding #errors col-12 [hidden]="view=='!result' && report.result"></report-errors>
+      <ion-col col-12 padding [hidden]="view=='!result' && report.result">
+        <report-errors padding #errors col-12></report-errors>
       </ion-col>
     </ion-row>
   </ion-grid>

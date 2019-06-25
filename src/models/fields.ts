@@ -16,76 +16,29 @@ export class Fields {
   public comment: string = '';
   public nominal_diameter?: number = null;
   public main_dimension: number = null;
-  public damaged_cladding_selection: number = 4;
-  public damaged_insulation_selection: number = 4;
+  public damaged_cladding: boolean[] = [false, false, false, false];
+  public damaged_insulation: boolean[] = [false, false, false, false];
   public damaged_comment: string = '';
   public space_warning: boolean = false;
 
   public operational_time_index: number = 0;
   public surface_material_index: number = 0;
 
-  private _condensation_ice_block: boolean = false
-  public get condensation_ice_block(): boolean {
-    return this._condensation_ice_block;
-  }
-  public set condensation_ice_block(value: boolean) {
-    this._condensation_ice_block = value;
-    if (!!value) {
-      this.condensation_wet_surface = false
-    }
+  public get damaged_cladding_friendly():string {
+    const result = ['Lack of cladding', 'Foot traffic/Dent', 'Highly corrored'].filter((v, i)=> this.damaged_cladding[i]).join(', ');
+    return result;
   }
 
-  private _condensation_wet_surface: boolean = false;
-  public get condensation_wet_surface(): boolean {
-    return this._condensation_wet_surface;
+  public get damaged_insulation_friendly():string {
+    const result = ['Lack of insulation', 'Wet insulation', 'Old insulation'].filter((v, i)=> this.damaged_insulation[i]).join(', ');
+    return result;
   }
-  public set condensation_wet_surface(value: boolean) {
-    this._condensation_wet_surface = value;
-    if (!!value) {
-      this.condensation_ice_block = false;
-    }
-  }
-
-  // private _condensation_other: boolean = true;
-  // public get condensation_other(): boolean {
-  //   return this._condensation_other;
-  // };
-  // public set condensation_other(value: boolean) {
-  //   this._condensation_other = value;
-  //   if (!value) {
-  //     //this.condensation_other_text = '';
-  //   } else {
-  //     this.condensation_ice_block = this.condensation_wet_surface = false;
-  //   }
-  // };
-
+  public condensation: boolean[] = [false, false]
   public condensation_comment: string = '';
   public unknow_surface: boolean = false
   public unknow_surface_temp: number = 0;
 
-  private _damaged_cladding: boolean = false
-  public get damaged_cladding(): boolean {
-    return this._damaged_cladding;
-  };
-  public set damaged_cladding(value: boolean) {
-    this._damaged_cladding = value;
-    //if (!!value) this.damaged_insulation = false;
-    //this.damaged_insulation_other = '';
-    this.damaged_cladding_selection = !value ? null : 1;
-  };
-
-  private _damaged_insulation: boolean = false
-  public get damaged_insulation(): boolean {
-    return this._damaged_insulation;
-  };
-  public set damaged_insulation(value: boolean) {
-    this._damaged_insulation = value;
-    //if (!!value) this.damaged_cladding = false;
-    //this.damaged_cladding_selection = null;
-    //this.damaged_cladding_other = '';
-    this.damaged_insulation_selection = !value ? null : 1;
-  };
-
+  
   public get friendly_surface_material(): string {
     const more = More.MATERIALS.find(m => m[1] == this.surface_material);
     return !more  
@@ -111,13 +64,10 @@ export class Fields {
     this.leakage = f.leakage;
     this.comment = f.comment;
     this.main_dimension = this.number_or_null(f.main_dimension);
-    this.damaged_cladding = !!f.damaged_cladding;
-    this.damaged_insulation = !!f.damaged_insulation;
-    this.damaged_cladding_selection = this.number_or_null(f.damaged_cladding_selection);
-    this.damaged_insulation_selection = this.number_or_null(f.damaged_insulation_selection);
+    this.damaged_cladding = f.damaged_cladding;
+    this.damaged_insulation = f.damaged_insulation;
     this.damaged_comment = f.damaged_comment;
-    this.condensation_ice_block = !!f.condensation_ice_block;
-    this.condensation_wet_surface = !!f.condensation_wet_surface;
+    this.condensation = f.condensation;
     this.condensation_comment = f.condensation_comment || '';
     this.unknow_surface = !!f.unknow_surface;
     this.unknow_surface_temp = Number(f.unknow_surface_temp || '0');

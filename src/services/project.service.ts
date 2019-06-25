@@ -87,7 +87,7 @@ export class ProjectService {
     })
   }
 
-  public async create_database(): Promise<Blob> {
-    return this.file.create_database(STORAGE_KEY);
+  public async create_database(projects: Project[]): Promise<Blob> {
+    return this.file.create_database(STORAGE_KEY, projects);
   }
 }

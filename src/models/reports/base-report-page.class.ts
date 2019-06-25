@@ -29,7 +29,7 @@ export class BaseReportPage extends ScrollToComponent
   @ViewChild("before_time") before_time;
   @ViewChild("after_material") after_material;
   @ViewChild("before_material") before_material;
-  
+
   @ViewChild("time", { read: ReportMoreButtonComponent })
   time: ReportMoreButtonComponent;
   @ViewChild("material", { read: ReportMoreButtonComponent })
@@ -52,13 +52,15 @@ export class BaseReportPage extends ScrollToComponent
   private _original_component: TbiComponent;
   public editable: boolean = false;
 
-  get show_pdf_button (): boolean {
-    return this.view!='edit_picture' && !!this.report.result && !this.form.invalid
+  get show_pdf_button(): boolean {
+    //console.log(this.view != 'edit_picture', !!this.report.result.headLost || !this.report.energy), !this.form.invalid);
+    return this.view != 'edit_picture' && (!this.report.energy || (!!this.report.result && !!this.report.result.headLost)) && !this.form.invalid;
   }
-  
+
   //#region Custom Validations
   public get picture_qty(): number {
     return !!this.report.pictures.length ? this.report.pictures.length : null;
+    //return 1;
   }
   public get surface_required(): number {
     let c = this.report.component.fields;
@@ -287,12 +289,13 @@ export class BaseReportPage extends ScrollToComponent
   }
 
   public export_pdf(n) {
-    this.navCtrl.push(ReportPdfPage, {report: this.report, parent: this}, {animate: false});
+    this.navCtrl.push(ReportPdfPage, { report: this.report, parent: this }, { animate: false });
   }
 
   protected save() {
     if (!!this.form.invalid) return;
     const project = this.report.component.project;
+    if (this.report.is('maintenance')) this.report.result.advise = 'Maintenance';
     if (!this.report.component.reports.find(c => c.id === this.report.id))
       this.report.component.reports.push(this.report);
     if (!project.components.find(c => c.id === this.report.component.id))
@@ -492,7 +495,9 @@ export class BaseReportPage extends ScrollToComponent
   protected take_picture() {
     this.picture
       .take_picture()
-      .then(d => this.report.pictures.push(new Picture({ picture: d })))
+      .then(d => {
+        this.report.pictures.push(new Picture({ picture: d }));
+      })
       .catch(ex =>
         this.message.alert("Error take picture", JSON.stringify(ex, null, 2))
       );

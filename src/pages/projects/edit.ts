@@ -61,6 +61,12 @@ export class EditProjectPage extends ProjectPageBase {
     setTimeout(() => elm.scrollIntoView({ behavior: "smooth" }), 500);
   }
 
+  onBackClick() {
+    if(this.segment == 'properties')
+      this.after_delete();
+    else 
+    this.segment = 'properties';
+  }
   get energy_validation(): number {
     return !!this.form && this.form.submitted && (null == this.form.controls.price.value || isNaN(this.form.controls.price.value) || Number(this.form.controls.price.value.toString()) <= 0) ? null : 1;
   }

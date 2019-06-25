@@ -16,7 +16,6 @@ export class LoadindService {
             content:message || 'Loading, please wait...',
             dismissOnPageChange: true
         });
-        console.log('Loading');
         this.loading.present();
         return true;
     }

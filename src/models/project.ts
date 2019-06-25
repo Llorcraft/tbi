@@ -41,6 +41,7 @@ export class Project extends ModelWithPicture {
   public currency: string = "€"
   public currency_index: number = 1;
   public co2_index: number = 0;
+  public selected = false;
 
   constructor(project?: Partial<Project>) {
     super(project);
@@ -62,6 +63,13 @@ export class Project extends ModelWithPicture {
 
   public get measure(): string {
     return this.price_delta == 1 ? "kWh" : "GJ";
+  }
+
+  public get has_people(): boolean{
+    return !!this.people.leader.name 
+        || !!this.people.energy_manager.name 
+        || !!this.people.maintenance_manager.name 
+        || !!this.people.hse_manager.name;
   }
 
   public get m_measure(): string {

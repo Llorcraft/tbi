@@ -8,7 +8,9 @@ import { ViewController, NavParams } from "ionic-angular";
 
 export class KnownTempPage {
   public medium_temp: number = 0;
-  public gas: string = '1';
+  public gas: string = '.85'; 
+  //GAS: .85
+  //LIQUID: 1
  
   @ViewChild('medium_temp_field') medium_temp_field: any;
   constructor(private viewCtrl: ViewController, params: NavParams) {

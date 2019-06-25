@@ -23,7 +23,7 @@ export class DownloadPage {
   }
 
   create_file() {
-    this.service.create_database().then(blob => {
+    this.service.create_database([]).then(blob => {
       console.log(blob);
       //   var a = document.createElement("a"),
       //     url = URL.createObjectURL(blob);

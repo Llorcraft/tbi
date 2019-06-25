@@ -1,4 +1,4 @@
-import { Document } from "../models";
+import { Document, Project } from "../models";
 import { Picture } from "../models/picture";
 import { LoadindService } from "./loading.service";
 
@@ -12,7 +12,7 @@ export abstract class FileService {
 
     public abstract write_text(filename: string, content: string, hide?: boolean): Promise<boolean>;
 
-    public abstract create_database(filename: string): Promise<Blob>;
+    public abstract create_database(filename: string, projects: Project[]): Promise<Blob>;
 
     public abstract select_file(): Promise<Document>;
 

@@ -11,6 +11,7 @@
           <ion-input type="hidden" name="diameter_low" [(ngModel)]="diameter_low" required data-val-required="Diameter must be > 0mm"></ion-input>
           <ion-input type="hidden" name="length_low" [(ngModel)]="length_low" required data-val-required="Length must be > 0 m"></ion-input>
           <ion-input type="hidden" name="surface_temp_range" [(ngModel)]="surface_temp_range" required data-val-required="Surface temperature must be < 1000°C"></ion-input>
+          <ion-input type="hidden" name="pictures" required data-val-required="Please take a picture" [(ngModel)]="picture_qty"></ion-input>
           <ion-row>
             <ion-col col-10>
               <ion-item>
@@ -84,7 +85,7 @@
               </ion-col>
               <ion-col col-md-3 col-4 toggle-container>
                 <ion-item>
-                  <ion-label stacked>Unknown</ion-label>
+                  <ion-label stacked unknown>Unknown</ion-label>
                   <ion-toggle [disabled]="!!report.component.validation" style="padding-left:0" [(ngModel)]="report.component.fields.unknow_surface_temp" (ionChange)="toggle_know_temp()"
                     name="unknow_surface_temp"></ion-toggle>
                 </ion-item>
@@ -116,8 +117,8 @@
         </ion-row>
       </ion-col>
 
-      <ion-col col-12 no-padding>
-        <div report-result col-12 [parent]="this" *ngIf="view=='result' && (!!form && !form.invalid)"></div>
+      <ion-col col-12 no-padding *ngIf="view=='result' && (!!form && !form.invalid)">
+        <div report-result col-12 [parent]="this"></div>
       </ion-col>
       <report-errors padding #errors col-12 [hidden]="view=='!result' && report.result"></report-errors>
     </ion-row>

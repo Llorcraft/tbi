@@ -43,7 +43,7 @@ export class TbiComponent {
 
   public reports_by_type(type: string): ReportBase[] {
     let result = this.reports.filter(
-      r => !!r.path.match(new RegExp("(" + type + ")", "gi"))
+      r => !r.fictisius && !!r.path.match(new RegExp("(" + type + ")", "gi"))
     );
     if (type.lastIndexOf("hot") != -1) {
       let r = this.reports.find(
@@ -102,6 +102,8 @@ export class TbiComponent {
     );
   }
 
+  is_energy: boolean = false;
+
   constructor(
     project: Project,
     item?: Partial<TbiComponent>,
@@ -124,9 +126,11 @@ export class TbiComponent {
       );
       this.markers = (item.markers || []).map(m => new Marker(m));
       this.validation = item.validation;
-      const report = this.reports.find(
-        r => !!r.path.match(/(surface|pipe|valve|flange)/gi)
-      );
+      // const report = this.reports.find(
+      //   r => !!r.path.match(/(surface|pipe|valve|flange)/gi)
+      // );
+      this.is_energy = !!this.reports.find(r => r.energy);
+      const report = this.reports[0];
       this.result = !!report ? report.result : null;
       this.validationReport = validation;
     }

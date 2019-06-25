@@ -43,20 +43,8 @@
                 <!-- <div class="x-title white">Current</div> -->
               </th>
               <th>
-                <div *ngIf="!is_validation" class="x-title" style="color: #4b71c1; margin-top: 45px">
-                  <div>basic</div>
-                  <div>insulation</div>
-                </div>
-                <div *ngIf="!!is_validation" class="x-title" style="color: #4b71c1; margin-top: 45px">
-                  <div>after</div>
-                  <div>insulation</div>
-                </div>
               </th>
               <th *ngIf="!is_validation">
-                <div class="x-title" style="color: #6daf3d; margin-top: 45px">
-                  <div>good</div>
-                  <div>insulation</div>
-                </div>
               </th>
             </tr>
           </thead>
@@ -191,7 +179,7 @@
       </ion-col>
     </ion-row>
     <ion-row>
-      <ion-col col-12 text-right>
+      <ion-col col-12 text-right style="padding-top: 2rem">
         <button *ngIf="!!show_advise" ion-button id="scroll_button" outline (click)="parent.content.scrollToTop(500)">
           <strong>^</strong>
           <strong>TOP</strong>

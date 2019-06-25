@@ -19,12 +19,22 @@ export class ReportBase {
   public summary_id: string = '';
   public readonly_summary_id: string = '';
   public comment: string = '';
+  public fictisius = false
+
+  public get has_contacts(): boolean {
+    if(!this.component || !this.component.project) return false;
+    return this.component.project.has_people
+  }
   public get is_validation(): boolean {
     return !!this.component && !!this.component.validation;
   }
   public get potential_measure(): string {
     return 'kWh/a';
   }
+  public is(pattern: string): boolean {
+    return !!this.path.match(new RegExp(`(${pattern})`, 'gi'));
+  }
+
   public get energy(): boolean {
     return !!this.path.match(/(surface|pipe|valve|flange)/gi);
   }
@@ -51,6 +61,11 @@ export class ReportBase {
   public filtered_pictures(): Picture[] {
     return this.pictures.filter(p => p != this.first_picture);
   }
+
+  get pages(): number {
+    return Math.ceil(this.filtered_pictures().length / 4) + (this.component.project.has_people ? 2 : 1);
+  }
+
   constructor(project: Project, component?: TbiComponent, item?: Partial<ReportBase>) {
     if (!!item) {
       Object.assign(this, item);

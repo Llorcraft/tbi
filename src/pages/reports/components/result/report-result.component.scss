@@ -495,8 +495,8 @@
     overflow: auto;
 
     // #result-grid {
-    //   & * {
-    //     transition: all linear .25s;
+    //   h5{
+    //     margin: 7rem 0 -7rem;
     //   }
     // }
   }
@@ -504,5 +504,11 @@
 ion-app.ios {
   tbody td.scale .kwh {
     margin-top: 85px!important;
+  }
+}
+
+kendo-pdf-document {
+  .kwh{
+    margin-top: 90px!important;
   }
 }

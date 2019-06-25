@@ -9,6 +9,7 @@ import { ProjectsPage } from "../projects/projects";
 import { LicencesService, MessageService } from "../../services";
 import { ScrollToComponent } from "../scroll_to_component.class";
 import { ContactPage } from "../contact/contact";
+import { IMAGES } from "../../const/images";
 
 @Component({
   selector: "page-init",
@@ -19,8 +20,9 @@ export class InitPage extends ScrollToComponent implements AfterViewInit {
   public user_name: string = "";
   public isPro = 0;
   public code = "";
-  accept: boolean = !0;
+  accept: boolean = !1;
   public proCodePattern = `^(${LicencesService.CODE})`;
+  images = IMAGES;
 
   constructor(
     public appCtrl: NavController,
@@ -34,8 +36,8 @@ export class InitPage extends ScrollToComponent implements AfterViewInit {
     this.isPro = license.type == "PRO" ? 1 : 0;
     this.code = this.isPro ? LicencesService.CODE : "";
 
-    this.user_name = "Luis R.";
-    this.start("PRO");
+    //this.user_name = "Luis R.";
+    //this.start("PRO");
   }
 
   disclaimer() {
@@ -55,30 +57,33 @@ export class InitPage extends ScrollToComponent implements AfterViewInit {
 
   public async save(form) {
     if (this.user_name.toLocaleLowerCase() == "reset") {
-      this.license.type = this.code = '';
+      this.code = '';
       this.isPro = 0;
+      this.license.reset();
       return;
     }
     form.submitted = true;
     if (form.invalid) return;
     localStorage.setItem("tbi-user", this.user_name);
     //this.license.type = "BASIC";
-    if (this.license.type != 'PRO')
-      this.start("PRO");
-    else if (this.isPro == 1 && this.license) {
+
+    if (this.isPro == 1 && this.license && !!this.license.getData().easy) {
       const validation = await this.license.validate(this.code)
-      if (validation.ok || this.code == LicencesService.CODE)
-        this.start("PRO");
+      if (validation.ok || this.code == LicencesService.CODE) {
+        this.messages.alert('', `TBI-App licence is valid for ${this.license.remaining()} days.`).then(() => this.start("PRO"));
+      }
       else
         this.messages.alert('Error', validation.message)
+    } else if (!this.license.getData().easy) {
+      this.start("PRO");
     } else {
+      this.license.reset();
       this.start("BASIC");
     }
     //this.appCtrl.setRoot(ProjectsPage, { user_name: this.user_name, summary: true, project: '6243045674937677'});
   }
 
   start(type: string) {
-    this.license.type = type;
     this.appCtrl.setRoot(ProjectsPage, { user_name: this.user_name });
   }
 

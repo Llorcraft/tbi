@@ -37,7 +37,7 @@
           <ion-row>
             <ion-col col-11 col-md-10>
               <ion-item>
-                <ion-label stacked>Comment</ion-label>
+                <ion-label stacked>Comments</ion-label>
                 <ion-textarea rows="6" tabindex="3" (ionFocus)="on_focus($event)" [(ngModel)]="report.comment"
                   name="comment"></ion-textarea>
               </ion-item>
@@ -55,11 +55,11 @@
     </ion-row>
 
     <ion-row>
-      <ion-col col-12 no-padding>
-        <div report-result col-12 [parent]="this" *ngIf="view=='result' && (!!form && !form.invalid)"></div>
+      <ion-col col-12 no-padding *ngIf="view=='result' && (!!form && !form.invalid)">
+        <div report-result col-12 [parent]="this"></div>
       </ion-col>
-      <ion-col col-12 padding>
-        <report-errors padding #errors col-12 [hidden]="view=='!result' && report.result"></report-errors>
+      <ion-col col-12 padding [hidden]="view=='!result' && report.result">
+        <report-errors padding #errors col-12></report-errors>
       </ion-col>
     </ion-row>
   </ion-grid>
