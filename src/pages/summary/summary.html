@@ -2,10 +2,10 @@
   <ion-toolbar>
     <ion-title>Summary</ion-title>
     <ion-buttons end>
-      <button ion-button on-tap="export_new_pdf(true)">
+      <button [disabled]="!canPDF" ion-button on-tap="export_new_pdf(true)">
         <ion-icon name="document-pdf"></ion-icon>
       </button>
-      <button ion-button (click)="export_new_pdf(false)">
+      <button [disabled]="!canPDF" ion-button (click)="export_new_pdf(false)">
         <ion-icon name="stats"></ion-icon>
       </button>
     </ion-buttons>
@@ -334,7 +334,7 @@
             </ion-row>
           </ion-col>
           <ion-col col-5>
-            <h4 col-12 style="margin: 1rem 0"><strong>About TBI</strong></h4>
+            <h4 col-12 style="margin: 1.3rem .6rem"><strong>About TBI</strong></h4>
             <ion-row>
               <ion-col col-12 style="padding: 0 .6in 0 1rem">
                 <p>
@@ -402,7 +402,7 @@
     </ng-template>
 
   </kendo-pdf-export>
-  <ion-grid>
+  <ion-grid *ngIf="!!project">
     <ion-row>
       <ion-col text-center>
         <button ion-button small color="royal" (click)="showDisclaimer()">Disclaimer</button>
@@ -424,7 +424,7 @@
         <tools></tools>
       </ion-col>
       <ion-col col-4 text-right>
-        <button tabindex="15" ion-button small color="primary" (click)="next_action()">
+        <button [disabled]="!project" tabindex="15" ion-button small color="primary" (click)="next_action()">
           <ion-icon visible-xs name="arrow-forward"></ion-icon>
           <span hidden-xs>Next</span>
         </button>

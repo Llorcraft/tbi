@@ -54,7 +54,9 @@
                 <strong style="margin-top: 10px">
                   <div>Annual</div>
                   <div>Consumption</div>
-                </strong></td>
+                </strong>
+                <span class="kwh">&nbsp;MWh<span *ngIf="unknow_surface">/m<sup>2</sup></span></span>
+              </td>
               <td class="scale"></td>
               <td class="b-line bar" rowspan="2">
                 <div style.height="{{bars.current.losses[0]}}px" class="gray">
@@ -78,8 +80,6 @@
             <tr>
               <td class="scale">
                 <span>{{scale.min / 10 | number: '1.1-1'}} </span>
-                <span class="kwh">&nbsp;MWh<span *ngIf="unknow_surface">/m<sup>2</sup></span>
-                </span>
               </td>
             </tr>
           </tbody>

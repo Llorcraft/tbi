@@ -51,7 +51,7 @@ export class ProjectsPage extends ProjectPageBase {
   public toggle_export_data() {
     if (this.exporting) return this.exporting = false;
     this.alertCtrl.create({
-      message: 'Please select which projects you want to convert into .tbi file for being administered by your TBI-Admin.',
+      message: 'Select the project to be saved as a .tbi file. The .tbi file can be shared and further processed (e.g. create backups, tailored reports, etc.) with the TBI-Admin.',
       cssClass: 'project-action-sheet',
       buttons: [
         {
@@ -156,7 +156,7 @@ export class ProjectsPage extends ProjectPageBase {
   alert_licence() {
     this.alertCtrl.create({
       //title: 'Licence',
-      message: 'To create more projects upgrade to TBI-App professinal',
+      message: 'To create more projects, please upgrade to TBI-App Pro',
       cssClass: 'project-action-sheet',
       buttons: [
         {
@@ -236,7 +236,7 @@ export class ProjectsPage extends ProjectPageBase {
     setTimeout(() => this.create(), 200);
   }
   public create(): void {
-    if (this.licences.type == 'BASIC' && !this.edit_mode && this.projects.length > 0) {
+    if (this.licences.type != 'PRO' && !this.edit_mode && this.projects.length > 0) {
       this.alert_licence();
       return;
     }

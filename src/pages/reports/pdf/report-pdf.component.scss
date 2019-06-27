@@ -1,4 +1,9 @@
 report-pdf-page {
+  img.logo {
+    display: inline-block;
+    height: 3.5rem!important;
+    margin: 1rem 0 0;
+  }
   .zoom-buttons{
     display: none;
   }
@@ -139,12 +144,6 @@ report-pdf-page {
     > ion-grid.footer {
       border-top: 1px solid rgb(48, 84, 150);
       font-size: 0.8rem;
-
-      img.logo {
-        display: inline-block;
-        height: 4rem;
-        margin: 0;
-      }
     }
   }
 

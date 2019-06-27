@@ -25,7 +25,7 @@ export class Fields {
   public surface_material_index: number = 0;
 
   public get damaged_cladding_friendly():string {
-    const result = ['Lack of cladding', 'Foot traffic/Dent', 'Highly corrored'].filter((v, i)=> this.damaged_cladding[i]).join(', ');
+    const result = ['Lack of cladding', 'Foot traffic/Dent', 'Highly corroded'].filter((v, i)=> this.damaged_cladding[i]).join(', ');
     return result;
   }
 

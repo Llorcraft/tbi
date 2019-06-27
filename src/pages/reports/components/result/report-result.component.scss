@@ -362,14 +362,12 @@
       font-weight: 600;
     }
 
-    tbody td.scale .kwh {
-      //border: 1px solid red;
-      margin-top: 100px;
-      z-index: 1000;
-      //margin-bottom: -34px;
+    .kwh {
+      font-weight: 600;
+      margin-top: 75px;
       position: absolute;
-      margin-left: -100px;
-      width: 100px;
+      display: block;
+      margin-left: 100px;
     }
 
     tbody td.scale.inverse {
@@ -502,13 +500,13 @@
   }
 }
 ion-app.ios {
-  tbody td.scale .kwh {
-    margin-top: 85px!important;
+  tbody .kwh {
+    margin-top: 75px!important;
   }
 }
 
 kendo-pdf-document {
   .kwh{
-    margin-top: 90px!important;
+    margin-top: 75px!important;
   }
 }

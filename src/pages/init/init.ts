@@ -20,7 +20,7 @@ export class InitPage extends ScrollToComponent implements AfterViewInit {
   public user_name: string = "";
   public isPro = 0;
   public code = "";
-  accept: boolean = !1;
+  accept: boolean = !0;
   public proCodePattern = `^(${LicencesService.CODE})`;
   images = IMAGES;
 
@@ -36,7 +36,7 @@ export class InitPage extends ScrollToComponent implements AfterViewInit {
     this.isPro = license.type == "PRO" ? 1 : 0;
     this.code = this.isPro ? LicencesService.CODE : "";
 
-    //this.user_name = "Luis R.";
+    this.user_name = "Luis R.";
     //this.start("PRO");
   }
 
@@ -68,17 +68,19 @@ export class InitPage extends ScrollToComponent implements AfterViewInit {
     //this.license.type = "BASIC";
 
     if (this.isPro == 1 && this.license && !!this.license.getData().easy) {
-      const validation = await this.license.validate(this.code)
-      if (validation.ok || this.code == LicencesService.CODE) {
-        this.messages.alert('', `TBI-App licence is valid for ${this.license.remaining()} days.`).then(() => this.start("PRO"));
+      const validation = await this.license.validate(this.code);
+      if (validation.ok) {
+        this.messages.alert('', validation.message).then(() => this.start("PRO"));
       }
-      else
-        this.messages.alert('Error', validation.message)
+      else {
+        this.messages.alert('Error', validation.message);
+        return false;
+      }
     } else if (!this.license.getData().easy) {
       this.start("PRO");
     } else {
       this.license.reset();
-      this.start("BASIC");
+      this.start("");
     }
     //this.appCtrl.setRoot(ProjectsPage, { user_name: this.user_name, summary: true, project: '6243045674937677'});
   }

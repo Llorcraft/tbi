@@ -133,7 +133,7 @@
       <ion-col col-12 no-padding *ngIf="view=='result' && (!!form && !form.invalid)">
         <div report-result col-12 [parent]="this"></div>
       </ion-col>
-      <ion-col col-12 padding [hidden]="view=='!result' && report.result">
+      <ion-col col-12 padding [hidden]="!(view=='form' && !!errors.errors.length)">
         <report-errors padding #errors col-12></report-errors>
       </ion-col>
     </ion-row>

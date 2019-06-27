@@ -34,13 +34,13 @@
                 <td text-left colspan="5" style="padding-bottom: 2rem; white-space: nowrap">Annual current looses:</td>
               </tr>
               <tr>
-                <td>&bull;</td><td text-right>{{(totals.headLost.power / 1000) | number: '1.2-2'}}</td><td text-left>MWh</td><td></td><td></td>
+                <td>&bull;</td><td text-right>{{(totals.headLost.power) / 1000 | number: '1.2-2'}}</td><td text-left>MWh</td><td></td><td></td>
               </tr>
               <tr>
-                  <td>&bull;</td><td text-right>{{(totals.headLost.money / 1000) | number: '1.2-2'}}</td><td text-left>&euro;</td><td></td><td></td>
+                  <td>&bull;</td><td text-right>{{(totals.headLost.money) | number: '1.0-0'}}</td><td text-left>{{project.currency}}</td><td></td><td></td>
               </tr>
               <tr>
-                  <td>&bull;</td><td text-right>{{totals.co2[0] | number: '1.2-2'}}</td><td text-left>tn CO<sub>2</sub></td><td></td><td></td>
+                  <td>&bull;</td><td text-right>{{totals.co2[0] / 1000 | number: '1.2-2'}}</td><td text-left>tn CO<sub>2</sub></td><td></td><td></td>
               </tr>
             </table>
             <table class="result-glance">
@@ -49,23 +49,23 @@
               </tr>
               <tr>
                 <td>&bull;</td>
-                <td text-right blue>{{(totals.savingPotentialMin?.power / 1000) | number: '1.2-2'}}</td>
+                <td text-right blue>{{(totals.savingPotentialMin?.power) / 1000 | number: '1.2-2'}}</td>
                 <td text-center>-</td>
-                <td text-left green>{{(totals.savingPotentialMax?.power / 1000) | number: '1.2-2'}}</td>
+                <td text-left green>{{(totals.savingPotentialMax?.power) / 1000 | number: '1.2-2'}}</td>
                 <td text-left>MWh</td>
               </tr>
               <tr>
                 <td>&bull;</td>
-                <td text-right blue>{{(totals.savingPotentialMin?.money / 1000) | number: '1.2-2'}}</td>
+                <td text-right blue>{{(totals.savingPotentialMin?.money) | number: '1.0-0'}}</td>
                 <td text-center>-</td>
-                <td text-left green>{{(totals.savingPotentialMax?.money / 1000) | number: '1.2-2'}}</td>
-                <td text-left>MWh</td>
+                <td text-left green>{{(totals.savingPotentialMax?.money) | number: '1.0-0'}}</td>
+                <td text-left>{{project.currency}}</td>
               </tr>
               <tr>
                   <td>&bull;</td>
-                  <td text-right blue>{{totals.co2[1] | number: '1.2-2'}}</td>
+                  <td text-right blue>{{totals.co2[0] - totals.co2[1] | number: '1.2-2'}}</td>
                   <td text-center>-</td>
-                  <td text-left green>{{totals.co2[2] | number: '1.2-2'}}</td>
+                  <td text-left green>{{totals.co2[0] - totals.co2[2] | number: '1.2-2'}}</td>
                   <td text-left>tn CO<sub>2</sub></td>
               </tr>
             </table>
@@ -493,19 +493,19 @@
           </ion-row>
         </ion-col>
         <ion-col col-5 style="border-left: 1px solid #014a97">
-          <h4 col-12 style="margin: 1rem 0"><strong>About TBI</strong></h4>
+          <h4 col-12 style="margin: 1.3rem 1.6rem"><strong>About TBI</strong></h4>
           <ion-row >
-            <ion-col col-12  style="text-align: justify; padding: 0 .6in 0 1rem">
+            <ion-col col-12  style="text-align: justify; padding: 0 1in 0 2rem; font-size: 1.3rem">
               <p>
-                <strong>TBI</strong> (TIPCHECK Based Inspections) is an <strong>easy-to-use insulation self-inspection
+                TBI (TIPCHECK Based Inspections) is an easy-to-use insulation self-inspection
                   and
-                  reporting tool</strong> for anyone who wants to very quickly check and estimate how much energy and
+                  reporting tool for anyone who wants to very quickly check and estimate how much energy and
                 money
                 saving potential a technical insulation system has to offer.
               </p>
               <p>
-                <strong>TBI</strong> offers a <strong>conservative estimation of the amount of energy a component is
-                  losing</strong>. In addition it <strong>shows the potential savings</strong> if insulated or if an
+                TBI offers a conservative estimation of the amount of energy a component is
+                  losing. In addition it shows the potential savings if insulated or if an
                 improved
                 insulation system is being installed. The saving estimations are given in a range evaluating the
                 performance

@@ -28,7 +28,8 @@
           <ion-row [hidden]="true">
             <ion-col>
               <ion-item>
-                <ion-input type="hidden" name="pictures" required data-val-required="Please take a picture" [(ngModel)]="picture_qty"></ion-input>
+                <ion-input type="hidden" name="pictures" required data-val-required="Please take a picture"
+                  [(ngModel)]="picture_qty"></ion-input>
               </ion-item>
             </ion-col>
           </ion-row>
@@ -36,24 +37,31 @@
             <ion-col col-11 col-md-10>
               <ion-item>
                 <ion-label stacked style="margin-top: 1.4rem;color: #999;">Damaged cladding</ion-label>
-                <ion-toggle (ionChange)="updateDamagedCladding($event)" [(ngModel)]="report.component.fields.damaged_cladding[0]" name="damaged_cladding"></ion-toggle>
+                <ion-toggle (ionChange)="updateDamagedCladding($event)"
+                  [(ngModel)]="report.component.fields.damaged_cladding[0]" name="damaged_cladding"></ion-toggle>
               </ion-item>
             </ion-col>
           </ion-row>
           <ion-row *ngIf="report.component.fields.damaged_cladding[0]">
             <ion-col col-10 offset-1 col-md-9>
-              <ion-list  name="radio-cladding">
+              <ion-list name="radio-cladding">
                 <ion-item>
                   <ion-label>Lack of cladding</ion-label>
-                  <ion-checkbox (ionChange)="setChecked($event, 1, 'damaged_cladding')" ([ngModel])="report.component.fields.damaged_cladding[1]" [checked]="report.component.fields.damaged_cladding[1]"></ion-checkbox>
+                  <ion-checkbox (ionChange)="setChecked($event, 1, 'damaged_cladding')"
+                    ([ngModel])="report.component.fields.damaged_cladding[1]"
+                    [checked]="report.component.fields.damaged_cladding[1]"></ion-checkbox>
                 </ion-item>
                 <ion-item>
                   <ion-label>Foot traffic/Dent</ion-label>
-                  <ion-checkbox (ionChange)="setChecked($event, 2, 'damaged_cladding')" ([ngModel])="report.component.fields.damaged_cladding[2]" [checked]="report.component.fields.damaged_cladding[2]"></ion-checkbox>
+                  <ion-checkbox (ionChange)="setChecked($event, 2, 'damaged_cladding')"
+                    ([ngModel])="report.component.fields.damaged_cladding[2]"
+                    [checked]="report.component.fields.damaged_cladding[2]"></ion-checkbox>
                 </ion-item>
                 <ion-item>
-                  <ion-label>Highly corrored</ion-label>
-                  <ion-checkbox (ionChange)="setChecked($event, 3, 'damaged_cladding')" ([ngModel])="report.component.fields.damaged_cladding[3]" [checked]="report.component.fields.damaged_cladding[3]"></ion-checkbox>
+                  <ion-label>Highly corroded</ion-label>
+                  <ion-checkbox (ionChange)="setChecked($event, 3, 'damaged_cladding')"
+                    ([ngModel])="report.component.fields.damaged_cladding[3]"
+                    [checked]="report.component.fields.damaged_cladding[3]"></ion-checkbox>
                 </ion-item>
               </ion-list>
             </ion-col>
@@ -64,30 +72,38 @@
             <ion-col col-11 col-md-10>
               <ion-item>
                 <ion-label stacked style="margin-top: 1.4rem;color: #999;">Damaged insulation</ion-label>
-                <ion-toggle (ionChange)="updateDamagedInsulation($event)" [(ngModel)]="report.component.fields.damaged_insulation[0]" name="damaged_insulation"></ion-toggle>
+                <ion-toggle (ionChange)="updateDamagedInsulation($event)"
+                  [(ngModel)]="report.component.fields.damaged_insulation[0]" name="damaged_insulation"></ion-toggle>
               </ion-item>
             </ion-col>
           </ion-row>
 
           <ion-row *ngIf="report.component.fields.damaged_insulation[0]">
             <ion-col col-10 col-md-9 offset-1>
-              <ion-list radio-group [(ngModel)]="report.component.fields.damaged_insulation[0]" [checked]="report.component.fields.damaged_insulation[0]" name="radio-cladding">
+              <ion-list radio-group [(ngModel)]="report.component.fields.damaged_insulation[0]"
+                [checked]="report.component.fields.damaged_insulation[0]" name="radio-cladding">
                 <ion-item>
                   <ion-label>Lack of insulation</ion-label>
-                  <ion-checkbox (ionChange)="setChecked($event, 1, 'damaged_insulation')" ([ngModel])="report.component.fields.damaged_insulation[1]" [checked]="report.component.fields.damaged_insulation[1]"></ion-checkbox>
+                  <ion-checkbox (ionChange)="setChecked($event, 1, 'damaged_insulation')"
+                    ([ngModel])="report.component.fields.damaged_insulation[1]"
+                    [checked]="report.component.fields.damaged_insulation[1]"></ion-checkbox>
                 </ion-item>
 
                 <ion-item>
                   <ion-label>Wet insulation</ion-label>
-                  <ion-checkbox (ionChange)="setChecked($event, 2, 'damaged_insulation')" ([ngModel])="report.component.fields.damaged_insulation[2]" [checked]="report.component.fields.damaged_insulation[2]"></ion-checkbox>
+                  <ion-checkbox (ionChange)="setChecked($event, 2, 'damaged_insulation')"
+                    ([ngModel])="report.component.fields.damaged_insulation[2]"
+                    [checked]="report.component.fields.damaged_insulation[2]"></ion-checkbox>
                 </ion-item>
 
                 <ion-item>
                   <ion-label>Old insulation</ion-label>
-                  <ion-checkbox (ionChange)="setChecked($event, 3, 'damaged_insulation')" ([ngModel])="report.component.fields.damaged_insulation[3]" [checked]="report.component.fields.damaged_insulation[3]"></ion-checkbox>
+                  <ion-checkbox (ionChange)="setChecked($event, 3, 'damaged_insulation')"
+                    ([ngModel])="report.component.fields.damaged_insulation[3]"
+                    [checked]="report.component.fields.damaged_insulation[3]"></ion-checkbox>
                 </ion-item>
 
-                
+
               </ion-list>
             </ion-col>
           </ion-row>
@@ -106,13 +122,15 @@
       </ion-col>
       <ion-col col-12 col-md-4 no-padding>
         <ion-row>
-          <ion-col col-12 picture-slide [parent]="this"   [report]="report" [editable]="false" (onStartEdit)="on_picture_start_edit($event)"></ion-col>
+          <ion-col col-12 picture-slide [parent]="this" [report]="report" [editable]="false"
+            (onStartEdit)="on_picture_start_edit($event)"></ion-col>
         </ion-row>
       </ion-col>
+      <ion-col col-12 padding [hidden]="!(view=='form' && !!errors.errors.length)">
+        <report-errors padding #errors col-12></report-errors>
+      </ion-col>
     </ion-row>
-    
-    <report-errors padding #errors col-12 [hidden]="view=='!result' && report.result"></report-errors>
-<!--
+    <!--
     <ion-row>
       <ion-col col-12>
         <ion-row col-12 p-4 *ngIf="view=='result' && (!!form && !form.invalid)" mx-3>

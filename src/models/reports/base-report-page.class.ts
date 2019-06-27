@@ -54,7 +54,9 @@ export class BaseReportPage extends ScrollToComponent
 
   get show_pdf_button(): boolean {
     //console.log(this.view != 'edit_picture', !!this.report.result.headLost || !this.report.energy), !this.form.invalid);
-    return this.view != 'edit_picture' && (!this.report.energy || (!!this.report.result && !!this.report.result.headLost)) && !this.form.invalid;
+    return this.view != 'edit_picture' 
+      && !this.form.invalid
+      && (!this.report.energy || (!!this.report.result && !!this.report.result.headLost.power));
   }
 
   //#region Custom Validations

@@ -4,12 +4,15 @@ import { FileService } from './file.service';
 import { MessageService } from './messages.service';
 import { Picture } from '../models/picture';
 import { normalizeURL, Platform } from 'ionic-angular';
+import { FileLocalService } from './file-local.service';
 
 @Injectable()
 export class PictureService {
     constructor(private camera: Camera, private file: FileService, private message: MessageService, private platform: Platform) { }
 
     public take_picture(): Promise<string> {
+        if (this.file instanceof FileLocalService) return this.load_picture();
+
         return new Promise<string>((resolve) => {
             this.camera.getPicture({
                 quality: 80,
@@ -61,5 +64,26 @@ export class PictureService {
             this.file.delete(picture);
             resolve(picture);
         })
+    }
+
+    private load_picture(): Promise<string> {
+        let self = this;
+        return new Promise<string>(resolve => {
+            let reader = new FileReader();
+            let input = document.createElement('input');
+            input.type = "file";
+
+            reader.onload = async function () {
+                document.body.removeChild(input);
+                resolve(this.result as string);
+            };
+
+            input.onchange = function () {
+                reader.readAsDataURL(input.files[0]);
+            };
+
+            document.body.appendChild(input);
+            input.click();
+        });
     }
 }

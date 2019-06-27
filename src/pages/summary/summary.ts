@@ -158,7 +158,7 @@ export class SummaryPage implements OnInit {
       actionSheet.data.buttons.splice(3, 1);
       actionSheet.data.buttons.splice(2, 1);
     }
-    if(!cl.is_energy){
+    if (!cl.is_energy) {
       actionSheet.data.buttons.splice(0, 1);
     }
     if (this.licences.type == 'PRO' && !!cl.validationReport
@@ -263,7 +263,7 @@ export class SummaryPage implements OnInit {
   }
 
   public export_new_pdf(showComponent: boolean) {
-    this.navCtrl.push(SummaryReportPage, {project: this.navParams.data.project, showComponent: showComponent}, {animate: false});
+    this.navCtrl.push(SummaryReportPage, { project: this.project, showComponent: showComponent }, { animate: false });
   }
 
   public export_pdf() {
@@ -321,7 +321,7 @@ export class SummaryPage implements OnInit {
   async next_action() {
     event.preventDefault();
     event.cancelBubble = true;
-    let user = !!this.navParams.get('parent') && this.navParams.get('parent').hasOwnProperty('report') ? localStorage.getItem('tbi-user') : '';
+    let user = !!this.navParams.data.parent && this.navParams.data.parent.hasOwnProperty('report') ? localStorage.getItem('tbi-user') : '';
     let actionSheet = this.licences.type != 'PRO'
       ? this.create_action_sheet_basic(user)
       : this.create_action_sheet(user);
@@ -331,7 +331,7 @@ export class SummaryPage implements OnInit {
 
   create_action_sheet(user: string = '') {
     let action_sheet = this.actionSheetCtrl.create({
-      title: !!user ? `The component ${this.navParams.data.parent.report.component.fields.location} has been saved by ${user}` : null,
+      title: !!user ? `The component ${this.navParams.data.report.component.fields.location} has been saved by ${user}` : null,
       subTitle: 'What do you want to do next?',
       buttons: [
         {
@@ -478,38 +478,41 @@ export class SummaryPage implements OnInit {
     chart: () => (this.components.some(c => c.reports.some(r => r.energy)) ? 1 : 0)
   }
 
-  ionViewDidLoad(){
+  ionViewDidLoad() {
     this.licences.setLogo();
   }
 
+  public canPDF:boolean = false;
+    
   ngOnInit(): void {
-    this.service.get(this.navParams.get('project').id).then(p => {
-      this.project = p;
-      this.has_people = p.has_people;
-      this.get_project();
-      this.get_report();
+      this.service.get(this.navParams.data.project.id).then(p => {
+        this.project = p;
+        this.has_people = p.has_people;
+        this.get_project();
+        this.get_report();
 
-      this.content.scrollToTop(500);
-      this.cdRef.detectChanges();
+        this.content.scrollToTop(500);
+        this.cdRef.detectChanges();
 
-      this.reports = ([].concat(...[].concat([...this.components.map(c => c.reports)])));
+        this.reports = ([].concat(...[].concat([...this.components.map(c => c.reports)])));
+        this.canPDF = !!this.reports.length;
 
-      this.reportPageCount =
-        //Table pages
-        this.pages.table()
-        //Chart page
-        + this.pages.chart()
-        //Reports pages
-        + (this.reports.reduce((a: number, r: ReportBase) => a + (r.pages - (r.has_contacts ? 1 : 0)), 0))
-        //Contact page
-        + (this.project.has_people ? 1 : 0);
+        this.reportPageCount =
+          //Table pages
+          this.pages.table()
+          //Chart page
+          + this.pages.chart()
+          //Reports pages
+          + (this.reports.reduce((a: number, r: ReportBase) => a + (r.pages - (r.has_contacts ? 1 : 0)), 0))
+          //Contact page
+          + (this.project.has_people ? 1 : 0);
 
 
-      // if (this.navParams.get('parent').hasOwnProperty('report')) {
-      //   debugger;
-      //   this.create_action_sheet(localStorage.getItem('tbi-user')).present();
-      // }
-    })
+        // if (this.navParams.get('parent').hasOwnProperty('report')) {
+        //   debugger;
+        //   this.create_action_sheet(localStorage.getItem('tbi-user')).present();
+        // }
+      });
   }
 
   getReportPageNumber(report: ReportBase, pictureIndex?: number): number {
