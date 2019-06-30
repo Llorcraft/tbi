@@ -246,19 +246,14 @@ export class ProjectsPage extends ProjectPageBase {
   }
 
   public create_db(): void {
-    //localStorage.removeItem('tbi-licence');
-    //this.navCtrl.push(DownloadPage);
-    this.service.create_database(this.projects.filter(p => p.selected)).then(blob => {
-      var a = document.createElement("a"),
-        url = URL.createObjectURL(blob),
-        date = new Date();
-      a.href = url;
-      a.download = `${date.getFullYear()}${(date.getMonth() + 1)}${(date.getDate())}.tbi`;
-      a.click();
-      setTimeout(function () {
-        window.URL.revokeObjectURL(url);
-      }, 0);
-    })
+    this.service.create_database(this.projects.filter(p => p.selected)).then((result: string) => {
+      this.alertCtrl.create({
+        message: result,
+        buttons: [
+          'OK'
+        ]
+      }).present();
+    });
   }
 
   after_delete() {

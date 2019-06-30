@@ -10,6 +10,7 @@ import * as JSZip from 'jszip';
 import { Picture } from '../models/picture';
 import { LoadindService } from './loading.service';
 import { Platform } from 'ionic-angular';
+import { ProjectJson } from '../models/project.json';
 
 @Injectable()
 export class FileDeviceService extends FileService {
@@ -26,6 +27,7 @@ export class FileDeviceService extends FileService {
 
         super(loading);
         this.working_folder = this.platform.is('ios') ? this.file.documentsDirectory : this.file.dataDirectory;
+        this.download_folder = this.platform.is('ios') ? this.file.documentsDirectory : this.file.dataDirectory;
         //this.file.externalRootDirectory
         this.create_folder('files');
         this.create_folder('pictures');
@@ -166,7 +168,40 @@ export class FileDeviceService extends FileService {
         this.message.alert('Zip', 'Zip ready');
     }
 
-    public create_database(filename: string, projects: Project[]): Promise<Blob> {
+    public async create_database(filename: string, projects: Project[]): Promise<string> {
+        let url = await this.create_dabase_file(filename, projects);
+        return !this.platform.is('ios')
+            ? this.moveToDownload(filename, url)
+            : new Promise<string>(resolve => {
+                resolve(`TBI data file ${filename} has been created in application folder.`)
+            });
+    }
+
+    private async moveToDownload(filename: string, url: string): Promise<string> {
+        let fileTransfer = this.transfer.create();
+        return new Promise<string>((resolve) => {
+            fileTransfer.download(url, `${this.file.externalRootDirectory}/Download/${filename}`)
+                .then(r => resolve(`TBI data file ${filename} has been created in download folder.`))
+                .catch(err => { throw err; })
+        });
+    }
+
+    private create_dabase_file(filename: string, projects: Project[]): Promise<string> {
+        let content = JSON.stringify(projects.map(p => new ProjectJson(p)));
+        return new Promise<string>((resolve, reject) => {
+            this.file.writeFile(this.working_folder, `${filename}`, content, { append: true })
+                .then(r => resolve(`${this.working_folder}/${filename}`))
+                .catch(_ => {
+                    this.file.writeFile(this.working_folder, `${filename}`, content, { replace: true })
+                        .then(r => resolve(`${this.working_folder}/${filename}`))
+                        .catch(ex => {
+                            reject(ex.message);
+                            throw ex;
+                        })
+                });
+        });
+    }
+    public create_database_zip(filename: string, projects: Project[]): Promise<Blob> {
         let zip = new JSZip();
 
         this.download_emiter.subscribe(filename => {

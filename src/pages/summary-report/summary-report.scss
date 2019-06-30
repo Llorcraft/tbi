@@ -9,6 +9,30 @@
 }
 
 pdf-summary {
+  [page-number] {
+    position: absolute;
+    right: -0.25in;
+    margin-top: -1in;
+    z-index: 1000001;
+    &:after {
+      content: "Page " attr(page-number);
+    }
+    &.table-page-counter {
+      margin-top: -1.75in;
+      margin-right: 0;
+    }
+    &.component-first-page {
+      right: -0.25in;
+      margin-top: -0.8in;
+    }
+    &.component-picture-page {
+      right: -0.25in;
+      margin-top: 0.1in;
+    }
+    &.last-page {
+      margin-top: -1.2in;
+    }
+  }
   .general-report-result {
     #result-grid {
       h5 {
@@ -124,7 +148,7 @@ pdf-summary {
       width: calc(100vw);
       position: absolute;
       background: #fff;
-      z-index: 20000;
+      z-index: 3100001;
       align-items: center;
       justify-items: center;
       flex-direction: column;
@@ -140,6 +164,7 @@ pdf-summary {
     &.creating-pdf {
       .hide-pdf {
         display: initial;
+        z-index: 1000002;
         svg {
           width: 6in;
         }
@@ -883,7 +908,6 @@ pdf-summary {
 }
 
 .last-page {
-   
   .contact-float {
     position: absolute;
     background: #014a97;

@@ -72,14 +72,17 @@ export class PictureService {
             let reader = new FileReader();
             let input = document.createElement('input');
             input.type = "file";
+            input.multiple = true;
 
             reader.onload = async function () {
-                document.body.removeChild(input);
                 resolve(this.result as string);
             };
 
             input.onchange = function () {
-                reader.readAsDataURL(input.files[0]);
+                Array.from(input.files).forEach((f, i) => setTimeout(() => {
+                    reader.readAsDataURL(f);
+                    if (i + 1 == input.files.length) document.body.removeChild(input);
+                }, i * 500));
             };
 
             document.body.appendChild(input);

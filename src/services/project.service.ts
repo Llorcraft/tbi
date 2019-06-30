@@ -87,7 +87,10 @@ export class ProjectService {
     })
   }
 
-  public async create_database(projects: Project[]): Promise<Blob> {
-    return this.file.create_database(STORAGE_KEY, projects);
+  public async create_database(projects: Project[]): Promise<any> {
+    let date = new Date();
+    let month = (date.getMonth() + 1).toString();
+    let day = (date.getDate()).toString();
+    return this.file.create_database(`${date.getFullYear()}${month.length == 2 ? month : `0${month}`}${day.length == 2 ? day : `0${day}`}.tbi`, projects);
   }
 }

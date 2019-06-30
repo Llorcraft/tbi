@@ -2,10 +2,10 @@
   <ion-toolbar>
     <ion-title>Summary</ion-title>
     <ion-buttons end>
-      <button [disabled]="!canPDF" ion-button on-tap="export_new_pdf(true)">
+      <button [disabled]="!canPdf" ion-button on-tap="export_new_pdf(true)">
         <ion-icon name="document-pdf"></ion-icon>
       </button>
-      <button [disabled]="!canPDF" ion-button (click)="export_new_pdf(false)">
+      <button [disabled]="!canPdfEnergy" ion-button (click)="export_new_pdf(false)">
         <ion-icon name="stats"></ion-icon>
       </button>
     </ion-buttons>
@@ -150,7 +150,10 @@
                 <ion-icon name="md-add-circle" (click)="add_report('maintenance',c , $event)"></ion-icon>
               </td>
               <td *ngIf="!c.is_energy" rowspan="3" style="background: rgb(217,225,242)" double-border text-center>
-                </td>
+                <a href="#" (click)="open(r, $event)"
+                  *ngFor="let r of c.reports_by_type('maintenance|condensation|damaged')">{{r.summary_id}}</a>
+                <ion-icon name="md-add-circle" (click)="add_report('maintenance',c , $event)"></ion-icon>
+              </td>
               <td rowspan="3" style="background: rgb(231,235,247)" double-border text-center>
                 <a href="#" (click)="open(r, $event)"
                   *ngFor="let r of c.reports_by_type('generic|custom')">{{r.summary_id}}</a>

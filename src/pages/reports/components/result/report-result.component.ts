@@ -33,7 +33,6 @@ export class ReportResultComponent implements AfterContentInit {
     setDefaultZoom() {
         const _zoom = getComputedStyle(document.getElementById('default-zoom-value'), ':before').getPropertyValue('content');
         this.zoom = (eval(_zoom + "*1"));
-        console.log(this.zoom);
     }
 
     go_top() {

@@ -1,10 +1,18 @@
 report-pdf-page {
+  output[page-number] {
+    position: absolute;
+    right: 0;
+    margin-top: -.7in;
+    &:after {
+      content: "Page " attr(page-number);
+    }
+  }
   img.logo {
     display: inline-block;
-    height: 3.5rem!important;
+    height: 3.5rem !important;
     margin: 1rem 0 0;
   }
-  .zoom-buttons{
+  .zoom-buttons {
     display: none;
   }
   ion-content {

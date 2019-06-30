@@ -5,7 +5,6 @@ import { Project, ReportBase } from '../../models';
 import { ProjectService } from '../../services/project.service';
 import { ProjectsPage } from '../projects/projects';
 import { ReportRouter } from '../../models/report-router';
-//import { Segment } from './segment/segment.class';
 import { SummaryPage } from '../summary/summary';
 import { TbiComponent } from '../../models/component';
 

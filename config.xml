@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="io.ionic.starter" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-    <name>Insulation Inspection</name>
+<widget id="com.insulation.inspector" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <name>Insulation App</name>
     <description>eiif movile app</description>
     <author email="luis.llorca@gmail.com" href="#">Luis Raul Estrada Llorca</author>
     <content src="index.html" />
@@ -27,7 +27,6 @@
     <preference name="AutohideSplashScreen" value="false" />
     <preference name="SplashScreenDelay" value="30000" />
     <platform name="android">
-        <preference name="APP_SECRET" value="a90e0efe-76d7-45b3-9b5b-95e1c94e5861" />
         <preference name="android-minSdkVersion" value="19" />
         <preference name="android-targetSdkVersion" value="26" />
         <preference name="AndroidPersistentFileLocation" value="Internal" />

@@ -20,7 +20,7 @@ export class InitPage extends ScrollToComponent implements AfterViewInit {
   public user_name: string = "";
   public isPro = 0;
   public code = "";
-  accept: boolean = !0;
+  accept: boolean = !1;
   public proCodePattern = `^(${LicencesService.CODE})`;
   images = IMAGES;
 
@@ -36,7 +36,7 @@ export class InitPage extends ScrollToComponent implements AfterViewInit {
     this.isPro = license.type == "PRO" ? 1 : 0;
     this.code = this.isPro ? LicencesService.CODE : "";
 
-    this.user_name = "Luis R.";
+    //this.user_name = "Luis R.";
     //this.start("PRO");
   }
 

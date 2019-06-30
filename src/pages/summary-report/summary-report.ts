@@ -11,11 +11,7 @@ import { ProjectsPage } from '../projects/projects';
 import { FileService, LicencesService, MessageService } from '../../services';
 import { FileOpener } from '@ionic-native/file-opener';
 import { IMAGES } from '../../const/images';
-import { InitPage } from '../init/init';
-import { EditProjectPage } from '../projects/edit';
-import { DisclaimerPage } from '../disclaimer/disclaimer';
 import { REPORT } from '../../const';
-import { SummaryPage } from '../summary/summary';
 
 @Component({
   selector: 'pdf-summary',
@@ -24,7 +20,7 @@ import { SummaryPage } from '../summary/summary';
 })
 
 export class SummaryReportPage implements OnInit {
-  public reportPageCount = 0;
+  public tables: Array<{ index: number, components: TbiComponent[], last: boolean }> = [];
   public has_people = false;
   public REPORT = REPORT;
   public creating_pdf = true;
@@ -36,6 +32,7 @@ export class SummaryReportPage implements OnInit {
   public heat_lost: Value = new Value();
   public saving_potential_min: Value = new Value();
   public saving_potential_max: Value = new Value();
+
   public advises: Map<string, string> = new Map<string, string>([
     ['', ''],
     ['Maintenance', 'Maintenance'],
@@ -99,7 +96,8 @@ export class SummaryReportPage implements OnInit {
 
   private hide_svg(pdf: any): Promise<any> {
     return new Promise<any>(resolve => {
-      document.querySelector(".result-chart").className = 'result-chart zoom-normal';
+      if (this.hasEnergy)
+        document.querySelector(".result-chart").className = 'result-chart zoom-normal';
       pdf.element.nativeElement.className = 'print';
       resolve(true);
     })
@@ -107,11 +105,34 @@ export class SummaryReportPage implements OnInit {
 
   private show_svg(pdf: any, restore: any): Promise<any> {
     return new Promise<any>(resolve => {
-      document.querySelector(".result-chart").className = 'result-chart';
+      if (this.hasEnergy)
+        document.querySelector(".result-chart").className = 'result-chart';
       pdf.element.nativeElement.className = '';
       resolve(true);
     });
 
+  }
+
+  public get hasEnergy(): boolean {
+    return !!(this.reports || []).filter(r => r.energy).length;
+  }
+
+  public getTablePageCounter(index: number): number {
+    return (index / 8) + 2
+  }
+
+  public getReportPageCounter(report: ReportBase): number {
+    const pages = this.reports.filter(r => this.reports.indexOf(r) < this.reports.indexOf(report)).reduce((a, r) => a + r.pages, 0);
+    return Math.ceil(this.components.length / 8) + pages + 2;
+  }
+
+  public getReportPicturePageCounter(report: ReportBase, imageIndex: number): number {
+    return this.getReportPageCounter(report) + (imageIndex / 4 + 1);
+  }
+
+  public getReportLastPage(): number {
+    const pages = (!this.navParams.data.showComponent ? [] : this.reports).reduce((a, r) => a + r.pages, 0);
+    return Math.ceil(this.components.length / 8) + pages + 2;
   }
 
   public export_pdf() {
@@ -124,9 +145,9 @@ export class SummaryReportPage implements OnInit {
                 this.creating_pdf = false;
                 this.opener.open(r, 'application/pdf')
                   .catch(ex => this.message.alert('Error', `${r}\n${JSON.stringify(ex)}`));
-                  this.components.filter(c => !!c.is_hot || !!c.is_cold).forEach(c => {
-                    c.reports = c.reports.filter(r => !r.fictisius)
-                  });
+                this.components.filter(c => !!c.is_hot || !!c.is_cold).forEach(c => {
+                  c.reports = c.reports.filter(r => !r.fictisius)
+                });
                 this.navCtrl.pop({ animate: false })
               });
             })
@@ -136,7 +157,7 @@ export class SummaryReportPage implements OnInit {
     }, 1500)
   }
 
-  public get today():Date{
+  public get today(): Date {
     return new Date();
   }
 
@@ -151,6 +172,16 @@ export class SummaryReportPage implements OnInit {
     this.has_people = this.project.has_people;
     this.get_project();
     this.get_report();
+
+    this.tables = [];
+    this.components.forEach((c, i) => {
+      if (!this.tables[Math.floor(i / 8)]) this.tables[Math.floor(i / 8)] = {
+        index: Math.floor(i / 8) + (this.hasEnergy ? 3 : 2),
+        components: [], last: false
+      };
+      this.tables[Math.floor(i / 8)].components.push(c);
+    });
+    this.tables[this.tables.length - 1].last = true;
 
     this.content.scrollToTop(500);
     this.cdRef.detectChanges();
@@ -168,15 +199,8 @@ export class SummaryReportPage implements OnInit {
 
     this.reports = ([].concat(...[].concat([...this.components.map(c => c.reports)])));
 
-    this.reportPageCount =
-      //Table pages
-      this.pages.table()
-      //Chart page
-      + this.pages.chart()
-      //Reports pages
-      + (this.reports.reduce((a: number, r: ReportBase) => a + (r.pages - (r.has_contacts ? 1 : 0)), 0))
-      //Contact page
-      + (this.project.has_people ? 1 : 0);
+    //Si tiene energy se invoca desde ReportResult.onReady
+    if (!this.hasEnergy) this.export_pdf();
   }
 
   getReportPageNumber(report: ReportBase, pictureIndex?: number): number {
@@ -198,7 +222,7 @@ export class SummaryReportPage implements OnInit {
 
     this.components = (this.project.components || []).filter(c => !c.validation).sort((a, b) => a.date > b.date ? 1 : -1);
 
-    this.components.filter(c => !!c.result && !c.fields.unknow_surface)
+    this.components.filter(c => c.is_energy && !!c.result && !c.fields.unknow_surface)
       .map(c => c.result)
       .forEach(r => {
         this.totals.headLost.power += r.headLost.power;

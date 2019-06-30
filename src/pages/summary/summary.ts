@@ -16,7 +16,6 @@ import { InitPage } from '../init/init';
 import { EditProjectPage } from '../projects/edit';
 import { DisclaimerPage } from '../disclaimer/disclaimer';
 import { REPORT } from '../../const';
-import { ReportPdfPage } from '../reports/pdf/report-pdf.component';
 import { SummaryReportPage } from '../summary-report/summary-report';
 
 @Component({
@@ -26,7 +25,6 @@ import { SummaryReportPage } from '../summary-report/summary-report';
 })
 
 export class SummaryPage implements OnInit {
-  public reportPageCount = 0;
   public has_people = false;
   public REPORT = REPORT;
   public creating_pdf = false;
@@ -106,18 +104,10 @@ export class SummaryPage implements OnInit {
       buttons: [
         {
           text: 'Add report',
-          //icon: 'ios-add-circle',
           handler: () => {
             this.go_to_reports(cl);
           }
         },
-        // {
-        //   text: 'PDF Report',
-        //   //icon: 'ios-create',
-        //   handler: () => {
-        //     this.navCtrl.setRoot(ReportPdfPage, { report: cl.reports[0] }, { animate: false });
-        //   }
-        // },
         {
           text: 'Edit',
           //icon: 'ios-create',
@@ -154,21 +144,9 @@ export class SummaryPage implements OnInit {
           }
         }]
     });
+    actionSheet.data.buttons.splice(3, 1);
     if (this.licences.type != 'PRO') {
-      actionSheet.data.buttons.splice(3, 1);
       actionSheet.data.buttons.splice(2, 1);
-    }
-    if (!cl.is_energy) {
-      actionSheet.data.buttons.splice(0, 1);
-    }
-    if (this.licences.type == 'PRO' && !!cl.validationReport
-      || !REPORT.VALIDATION
-      || cl.reports.find(r => r.insulated)
-      || (!cl.reports.filter(r => r.path.match(/(surface|pipe|valve|flange)/gi)).length)) {
-      actionSheet.data.buttons.splice(3, 1);
-    }
-    if (this.licences.type == 'PRO' && !!cl.validationReport) {
-      actionSheet.data.buttons.splice(1, 1);
     }
     await actionSheet.present();
   }
@@ -198,7 +176,6 @@ export class SummaryPage implements OnInit {
       unknow_surface_temp: 0,
       location: component.fields.location,
       operational_time: component.fields.operational_time,
-      //nominal_diameter: component.fields.nominal_diameter,
       number: c.fields.number,
       length: component.fields.length,
       surface: report.name == "Uninsulated Surface" ? component.fields.surface : null
@@ -233,18 +210,7 @@ export class SummaryPage implements OnInit {
   }
 
   private hide_svg(pdf: any): Promise<any> {
-    // Array.from(pdf.element.nativeElement.getElementsByTagName('svg'))
-    //   .forEach((svg: any, i: number) => {
-    //     let img = document.createElement('img');
-    //     let base_64 = new XMLSerializer().serializeToString(svg);
-    //     console.log(base_64);
-    //     img.src = `data:image/svg+xml;base64,${window.btoa(unescape(encodeURIComponent(base_64)))}`;
-    //     img.width = svg.getBoundingClientRect().width;
-    //     img.height = svg.getBoundingClientRect().height;
-    //     svg.parentElement.appendChild(img);
-    //   });
     return new Promise<any>(resolve => {
-      //let chart_zoom = getComputedStyle(document.querySelector(".result-chart")).zoom;
       document.querySelector(".result-chart").className = 'result-chart zoom-normal';
       pdf.element.nativeElement.className = 'print';
       resolve(true);
@@ -252,8 +218,6 @@ export class SummaryPage implements OnInit {
   }
 
   private show_svg(pdf: any, restore: any): Promise<any> {
-    // Array.from(pdf.element.nativeElement.getElementsByTagName('img'))
-    //   .forEach((img: any) => img.remove());
     return new Promise<any>(resolve => {
       document.querySelector(".result-chart").className = 'result-chart';
       pdf.element.nativeElement.className = '';
@@ -346,17 +310,12 @@ export class SummaryPage implements OnInit {
           //icon: 'checkmark-circle',
           handler: () => {
             this.navCtrl.setRoot(ProjectsPage);
-            // this.navCtrl.push(EditProjectPage, {
-            //   project: this.project,
-            //   parent: this
-            // });
           }
         },
         {
           text: 'New project',
           //icon: 'checkmark-circle',
           handler: () => {
-            //this.navCtrl.setRoot(ProjectsPage);
             this.navCtrl.push(EditProjectPage, {
               project: new Project(),
               parent: SummaryPage
@@ -384,9 +343,6 @@ export class SummaryPage implements OnInit {
 
   create_action_sheet_basic(user: string) {
     let action_sheet = this.actionSheetCtrl.create({
-      //title: !!user ? `The component reported by ${user} have been saved` : null,
-      //title: !!user ? `The component ${this.navParams.data.parent.report.component.fields.location} has been saved by ${user}` : null,
-      //subTitle: 'What do you want to do next?',
       title: 'What do you want to do next?',
       cssClass: 'basic_sheet',
       buttons: [
@@ -482,37 +438,23 @@ export class SummaryPage implements OnInit {
     this.licences.setLogo();
   }
 
-  public canPDF:boolean = false;
-    
+  public canPdf: boolean = false;
+  public canPdfEnergy: boolean = false;
+
   ngOnInit(): void {
-      this.service.get(this.navParams.data.project.id).then(p => {
-        this.project = p;
-        this.has_people = p.has_people;
-        this.get_project();
-        this.get_report();
+    this.service.get(this.navParams.data.project.id).then(p => {
+      this.project = p;
+      this.has_people = p.has_people;
+      this.get_project();
+      this.get_report();
 
-        this.content.scrollToTop(500);
-        this.cdRef.detectChanges();
+      this.content.scrollToTop(500);
+      this.cdRef.detectChanges();
 
-        this.reports = ([].concat(...[].concat([...this.components.map(c => c.reports)])));
-        this.canPDF = !!this.reports.length;
-
-        this.reportPageCount =
-          //Table pages
-          this.pages.table()
-          //Chart page
-          + this.pages.chart()
-          //Reports pages
-          + (this.reports.reduce((a: number, r: ReportBase) => a + (r.pages - (r.has_contacts ? 1 : 0)), 0))
-          //Contact page
-          + (this.project.has_people ? 1 : 0);
-
-
-        // if (this.navParams.get('parent').hasOwnProperty('report')) {
-        //   debugger;
-        //   this.create_action_sheet(localStorage.getItem('tbi-user')).present();
-        // }
-      });
+      this.reports = ([].concat(...[].concat([...this.components.map(c => c.reports)])));
+      this.canPdf = !!this.reports.length;
+      this.canPdfEnergy = !!this.reports.filter(r => r.energy).length;
+    });
   }
 
   getReportPageNumber(report: ReportBase, pictureIndex?: number): number {
@@ -547,10 +489,7 @@ export class SummaryPage implements OnInit {
         this.totals.co2[1] += r.co2[1];
         this.totals.co2[2] += r.co2[2];
       });
-    //});
   }
-
-
 
   down(value: number): number {
     return value > 1000 ? Math.floor(Math.trunc(value) / 100) * 100 : Math.floor(Math.trunc(value) / 10) * 10;

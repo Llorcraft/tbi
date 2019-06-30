@@ -301,7 +301,7 @@ import { PdfHeaderComponent } from '../components/pdf-header/pdf-header.componen
     LoadindService,
     LoadingController,
     { provide: LOCALE_ID, useValue: "en-US" },
-    { provide: FileService, useClass: FileLocalService }
+    { provide: FileService, useClass: FileDeviceService }
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })

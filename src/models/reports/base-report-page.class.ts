@@ -18,6 +18,7 @@ import { Patterns } from "../../const/patterns";
 import { SummaryPage } from "../../pages/summary/summary";
 import { FileOpener } from "@ionic-native/file-opener";
 import { ReportPdfPage } from "../../pages/reports/pdf/report-pdf.component";
+import { Result } from "../result";
 
 export class BaseReportPage extends ScrollToComponent
   implements OnInit, AfterViewInit {
@@ -295,9 +296,12 @@ export class BaseReportPage extends ScrollToComponent
   }
 
   protected save() {
-    if (!!this.form.invalid) return;
+    if (!!this.form.invalid) return this.scrollToBottom(10);
     const project = this.report.component.project;
-    if (this.report.is('maintenance')) this.report.result.advise = 'Maintenance';
+    if (this.report.is('maintenance')) {
+      this.report.result = this.report.result || new Result();
+      this.report.result.advise = 'Maintenance';
+    }
     if (!this.report.component.reports.find(c => c.id === this.report.id))
       this.report.component.reports.push(this.report);
     if (!project.components.find(c => c.id === this.report.component.id))
@@ -416,7 +420,7 @@ export class BaseReportPage extends ScrollToComponent
       this.view = "form";
     }
     //setTimeout(() => this.content.scrollTo(0, 2000, 1500), 150);
-    setTimeout(() => this.scrollToBottom(0), 150);
+    setTimeout(() => this.scrollToBottom(0), 500);
   }
 
   private remove_picture(include_markers: boolean) {

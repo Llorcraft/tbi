@@ -4,7 +4,8 @@ import { Project } from "../models";
 import { IMAGES } from "../const/images";
 import * as moment from 'moment';
 import { UniqueDeviceID } from "@ionic-native/unique-device-id";
-import { resolve } from "path";
+import { FileService } from "./file.service";
+import { FileLocalService } from "./file-local.service";
 
 @Injectable()
 export class LicencesService {
@@ -49,8 +50,9 @@ export class LicencesService {
 
   reset() {
     localStorage.removeItem('tbi-licence-data');
+    //localStorage.setItem('tbi-licence-data', JSON.stringify(this.getData()))
   }
-  getData(): any {
+  getData(): { name: string, mail: string, url: string, url_logo: string, phone_number: string, first_activation_data: Date, easy: boolean } {
     let data = localStorage.getItem('tbi-licence-data');
     return !data
       ? {
@@ -59,7 +61,7 @@ export class LicencesService {
         url: 'TIPCHECK@eiif.org',
         url_logo: IMAGES.LOGO,
         phone_number: '',
-        easy: true,
+        easy: false,
         first_activation_data: moment(new Date()).add('years', -1)
       }
       : JSON.parse(data);
@@ -72,6 +74,7 @@ export class LicencesService {
     var headers = new Headers();
     headers.append("Accept", 'application/x-www-form-urlencoded');
     headers.append('Content-Type', 'application/x-www-form-urlencoded');
+    //headers.append('Access-Control-Allow-Origin', '*');
     const options = new ResponseOptions({ headers: headers });
 
     let body = new URLSearchParams();
@@ -83,16 +86,27 @@ export class LicencesService {
         .post("https://www.eiif.testengineonline.com/tbi-app/validate-code", body.toString(), options)
         .toPromise()
         .then((r: any) => {
-          let data = JSON.parse(r._body).response_data
+          let data = JSON.parse(r._body).response_data;
+          ['name', 'mail', 'url', 'url_logo', 'phone_number'].forEach(p => data.data[p] = data.data[p] || this.getData()[p]);
           localStorage.setItem('tbi-licence-data', JSON.stringify(data.data));
           resolve(data)
         })
-        .catch(() => resolve({
-          ok: false,
-          error_code: 500,
-          message: 'There was a problem connecting to the validation procedure. Please try again later.'
-        }))
+        .catch(() => resolve(this.onServerError()))
     });
+  }
+
+  onServerError() {
+    if (this.file instanceof FileLocalService)
+      return {
+        ok: true,
+        error_code: 0,
+        message: 'OK from local'
+      }
+    return {
+      ok: false,
+      error_code: 500,
+      message: 'There was a problem connecting to the validation procedure. Please try again later.'
+    }
   }
 
   getDeviceId(): PromiseLike<string> {
@@ -107,5 +121,5 @@ export class LicencesService {
     window.open('https://www.eiif.org/tbi/get-tbi-app', '_system')
   }
 
-  constructor(private http: Http, private uniqueDeviceID: UniqueDeviceID) { }
+  constructor(private http: Http, private uniqueDeviceID: UniqueDeviceID, private file: FileService) { }
 }

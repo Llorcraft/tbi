@@ -8,11 +8,13 @@ export abstract class FileService {
 
     public working_folder: string;
 
+    public download_folder: string;
+    
     public abstract read_text(filename: string, hide?: boolean): Promise<string>;
 
     public abstract write_text(filename: string, content: string, hide?: boolean): Promise<boolean>;
 
-    public abstract create_database(filename: string, projects: Project[]): Promise<Blob>;
+    public abstract create_database(filename: string, projects: Project[]): Promise<any>;
 
     public abstract select_file(): Promise<Document>;
 

@@ -7,8 +7,9 @@
   </div>
   <kendo-pdf-export #pdf paperSize="A4" margin="0 4cm 0 5cm" [scale]="0.5" landscape="false" forcePageBreak=".page-break">
     <ion-grid class="report-grid-pdf" style="margin-top: 6rem" no-padding>
+      <output  page-number="1"></output>
       <ion-row no-padding>
-        <h4 col-12 style="margin:0 0 0 .5rem">{{report.component.fields.location}}: {{report.summary_id}}</h4>
+        <h4 col-12 style="margin:0 0 1rem; padding-left: 0">{{report.component.fields.location}}: {{report.summary_id}}</h4>
         <ion-col col-7>
           <ion-item col-5>
             <label>Project</label>
@@ -96,8 +97,8 @@
       </ion-row>
       <ion-row>
         <ion-col [class.page-break]="(p%4)==0" padding col-6 text-center
-          *ngFor="let picture of report.filtered_pictures(), let p = index" 
-          [attr.component-name]="(p%4!=0)?'':report.component.fields.location + '-' +  report.summary_id">
+          *ngFor="let picture of report.filtered_pictures(), let p = index">
+          <output *ngIf="(p%4==0)" [attr.page-number]="(p / 4 + 2)" style="right: calc(-100% + 2rem)"></output>
           <img style="max-height: 4.2in" [style.margin-top]="(p%4)<2?'1rem':'1rem'" src="{{picture.picture}}">
         </ion-col>
       </ion-row>
