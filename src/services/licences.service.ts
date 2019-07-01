@@ -10,7 +10,7 @@ import { FileLocalService } from "./file-local.service";
 @Injectable()
 export class LicencesService {
 
-  public static CODE: string = "eoltN3S507";
+  public static CODE: string = "JMCiwuT532";
   public lock: boolean = false;
   private _projects: Project[] = [];
 
@@ -33,7 +33,7 @@ export class LicencesService {
   }
 
   public get type(): string {
-    const type = !this.getData() || !!this.getData().easy || this.remaining() < 0 ? 'BASIC' : 'PRO';
+    const type = (this.getData().easy || this.remaining() < 0) ? 'BASIC' : 'PRO';
     return type;
   }
 
@@ -53,18 +53,18 @@ export class LicencesService {
     //localStorage.setItem('tbi-licence-data', JSON.stringify(this.getData()))
   }
   getData(): { name: string, mail: string, url: string, url_logo: string, phone_number: string, first_activation_data: Date, easy: boolean } {
-    let data = localStorage.getItem('tbi-licence-data');
-    return !data
+    let data = JSON.parse(localStorage.getItem('tbi-licence-data') || '{}');
+    return (!data.hasOwnProperty('easy'))
       ? {
         name: 'TIPCHECK department EiiF',
         mail: 'http://www.eiif.org',
         url: 'TIPCHECK@eiif.org',
         url_logo: IMAGES.LOGO,
         phone_number: '',
-        easy: false,
-        first_activation_data: moment(new Date()).add('years', -1)
+        easy: true,
+        first_activation_data: moment(new Date())
       }
-      : JSON.parse(data);
+      : (data);
   }
 
   public remaining(): number {
@@ -88,6 +88,7 @@ export class LicencesService {
         .then((r: any) => {
           let data = JSON.parse(r._body).response_data;
           ['name', 'mail', 'url', 'url_logo', 'phone_number'].forEach(p => data.data[p] = data.data[p] || this.getData()[p]);
+          data.data.easy = false;
           localStorage.setItem('tbi-licence-data', JSON.stringify(data.data));
           resolve(data)
         })
