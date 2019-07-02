@@ -46,7 +46,7 @@ class ISurfaceCalculator extends BaseCalculator {
       /*27*/() => this.Savingkwh_max = this.Qkwh - this.Qkwh_max,
       /*28*/() => this.Savingε_min = this.Qε - this.Qε_min,
       /*29*/() => this.Savingε_max = this.Qε - this.Qε_max,
-     /*30*/() => this.Insulation_advice = this.qref_pb > this.q_min ? 'Savings can be achieved by increasing insulation performance or thickness' : 'System OK'
+     /*30*/() => this.Insulation_advice = 'SAVINGS-achieved'
     ]);
   }
 }

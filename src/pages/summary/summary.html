@@ -2,10 +2,10 @@
   <ion-toolbar>
     <ion-title>Summary</ion-title>
     <ion-buttons end>
-      <button [disabled]="!canPdf" ion-button on-tap="export_new_pdf(true)">
+      <button [disabled]="!canPdf" ion-button on-tap="export_new_pdf(true)" style="width: 53px">
         <ion-icon name="document-pdf"></ion-icon>
       </button>
-      <button [disabled]="!canPdfEnergy" ion-button (click)="export_new_pdf(false)">
+      <button [disabled]="!canPdfEnergy" ion-button (click)="export_new_pdf(false)"style="width: 53px">
         <ion-icon name="stats"></ion-icon>
       </button>
     </ion-buttons>

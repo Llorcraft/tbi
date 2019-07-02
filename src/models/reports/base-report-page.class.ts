@@ -408,7 +408,7 @@ export class BaseReportPage extends ScrollToComponent
         this.report,
         this.navParam.data.result
       );
-      window['view'] = this;
+        
 
       setTimeout(() => {
         this.scrollToBottom(0).then(() => {

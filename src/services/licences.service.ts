@@ -57,10 +57,10 @@ export class LicencesService {
     return (!data.hasOwnProperty('easy'))
       ? {
         name: 'TIPCHECK department EiiF',
-        mail: 'http://www.eiif.org',
+        mail: 'tbi@eiif.org',
         url: 'TIPCHECK@eiif.org',
         url_logo: IMAGES.LOGO,
-        phone_number: '',
+        phone_number: '+41 22 99 500 70',
         easy: true,
         first_activation_data: moment(new Date())
       }

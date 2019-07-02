@@ -42,7 +42,7 @@ export class SummaryPage implements OnInit {
     ['Maintenance', 'Maintenance'],
     ['Insulation recommended', 'Recommended'],
     ['SAFETY-Insulation recommended', 'SAFETY-Recommended'],
-    ['Savings can be achieved by increasing insulation performance or thickness', 'SAVINGS-achieved']
+    ['SAVINGS-achieved', 'SAVINGS-achieved']
   ]);
   public totals: Result = new Result();
   @ViewChild('pdf') public pdf: PDFExportComponent;
