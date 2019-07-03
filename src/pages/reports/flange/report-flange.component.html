@@ -33,9 +33,9 @@
             <ion-col col-10>
               <ion-item>
                 <ion-label stacked>Operational time (hrs/yrs)</ion-label>
-                <ion-input [disabled]="!!report.component.validation" readonly tabindex="3" *ngIf="!!report.component.fields.operational_time_index"
+                <ion-input (ionChange)="reset_result()" [disabled]="!!report.component.validation" readonly tabindex="3" *ngIf="!!report.component.fields.operational_time_index"
                   [value]="friendy_more('TIMES',  report.component.fields.operational_time_index)"></ion-input>
-                <ion-input #before_time  (ionFocus)="on_focus($event)" *ngIf="!report.component.fields.operational_time_index" [disabled]="!!report.component.validation" tabindex="3" 
+                <ion-input (ionChange)="reset_result()" #before_time  (ionFocus)="on_focus($event)" *ngIf="!report.component.fields.operational_time_index" [disabled]="!!report.component.validation" tabindex="3" 
                   required data-val-required="Please input Operational time"
                   [pattern]="patterns.REQUIRED_NUMBER" data-val-pattern="Please input a valid Operational time"
                   name="operational_time" [(ngModel)]="report.component.fields.operational_time" type="tel" inputmode="numeric"></ion-input>
@@ -60,9 +60,9 @@
             <ion-col col-10>
               <ion-item class="edit_surface_material" [class.editable]="edit_surface_material">
                 <ion-label stacked>Surface material [ε]</ion-label>
-                <ion-input readonly tabindex="5" *ngIf="!!report.component.fields.surface_material_index"
+                <ion-input (ionChange)="reset_result()" readonly tabindex="5" *ngIf="!!report.component.fields.surface_material_index"
                 [value]="friendy_more('MATERIALS', report.component.fields.surface_material_index)"></ion-input>
-                <ion-input #before_material (ionFocus)="on_focus($event)" *ngIf="!report.component.fields.surface_material_index" tabindex="5" name="surface_material" 
+                <ion-input (ionChange)="reset_result()" #before_material (ionFocus)="on_focus($event)" *ngIf="!report.component.fields.surface_material_index" tabindex="5" name="surface_material" 
                 required data-val-required="Please input Surface emissivity"
                 [pattern]="patterns.REQUIRED_NUMBER" data-val-pattern="Please input a valid Surface emissivity"
                 [(ngModel)]="report.component.fields.surface_material" type="tel" inputmode="numeric"></ion-input>

@@ -94,7 +94,7 @@
       </ion-row>
     </ion-grid>
 
-    <ng-container *ngFor="let table of tables">
+    <ng-container *ngFor="let table of tables; let t = index">
       <output [attr.page-number]="table.index" class="table-page-counter page-break"></output>
       <div class="table-container">
       <table class="data" border="0">
@@ -197,7 +197,7 @@
             <td rowspan="3" (click)="actions(c, $event)" double-border text-center
               style="white-space: nowrap; padding-right: 1rem">
               <ion-icon slot="icon-only" name="md-more" style="margin: 0 .25rem 0; float: left"></ion-icon>
-              {{(table.index * 8) + i + 1}}
+              {{t * 8 + 1 + i}}
             </td>
             <td rowspan="3" on-tap="edit(c)" double-border>{{ellipsis(c.fields.location)}}</td>
             <td text-center nowrap [class.gray-text]="!!c.is_energy && c.fields.unknow_surface" *ngIf="!!c.is_energy">

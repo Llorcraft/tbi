@@ -3,6 +3,7 @@ ionic cordova build android --verbose
 REM ionic cordova build android --minifyjs --optimizejs --minifycss
 REM ionic cordova build android --prod --release
 
+REM https://techionichybride.blogspot.com/2017/10/how-create-signed-apk-for-android-in.html
 REM set PATH="C:\Program Files\Java\jdk1.8.0_181\bin"
 REM keytool -genkeypair -v -keystore insulation.keystore -alias insulation -keyalg RSA -keysize 2048 -validity 10000
 REM jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore insulation.keystore app-release-unsigned.apk insulation

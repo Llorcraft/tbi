@@ -55,7 +55,7 @@ export class BaseReportPage extends ScrollToComponent
 
   get show_pdf_button(): boolean {
     //console.log(this.view != 'edit_picture', !!this.report.result.headLost || !this.report.energy), !this.form.invalid);
-    return this.view != 'edit_picture' 
+    return this.view != 'edit_picture'
       && !this.form.invalid
       && (!this.report.energy || (!!this.report.result && !!this.report.result.headLost.power));
   }
@@ -396,6 +396,12 @@ export class BaseReportPage extends ScrollToComponent
     return this;
   }
 
+  public reset_result(): void {
+    this.report.result = new Result();
+    this.report.component.result = new Result;
+    setTimeout(() => this.view = 'form', 150);
+  }
+
   protected calculate() {
     // const _elm = document.getElementById('result-grid');
     // _elm.closest('.scroll-content').scrollTo(0, _elm.closest('.scroll-content').scrollTop - 150);
@@ -408,11 +414,12 @@ export class BaseReportPage extends ScrollToComponent
         this.report,
         this.navParam.data.result
       );
-        
+
 
       setTimeout(() => {
         this.scrollToBottom(0).then(() => {
-          document.getElementsByClassName('scroll-content')[2].scrollTop += 38;
+          //document.getElementsByClassName('scroll-content')[2].scrollTop += 38;
+          Array.from(document.getElementsByClassName('scroll-content')).reverse()[0].scrollTop += 38;
         });
       }, 150);
       return this.report;
